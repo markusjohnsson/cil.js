@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Braille</RootNamespace>
+    <AssemblyName>Braille</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="1.AssemblyTransform\CilAssembly.cs" />
+    <Compile Include="1.AssemblyTransform\CilMethod.cs" />
+    <Compile Include="1.AssemblyTransform\CilType.cs" />
+    <Compile Include="1.AssemblyTransform\CSStringConverter.cs" />
+    <Compile Include="1.AssemblyTransform\StringExtractor.cs" />
+    <Compile Include="1.AssemblyTransform\TransformTask.cs" />
+    <Compile Include="2.MethodTransform\DynamicILReaderProvider.cs" />
+    <Compile Include="2.MethodTransform\ILInstruction.cs" />
+    <Compile Include="2.MethodTransform\ILReader.cs" />
+    <Compile Include="2.MethodTransform\MethodTransformTask.cs" />
+    <Compile Include="5.Runtime\InternalPointer.cs" />
+    <Compile Include="5.Runtime\Ops.cs" />
+    <Compile Include="3.JSAst\JSArrayLiteral.cs" />
+    <Compile Include="3.JSAst\JSBoolLiteral.cs" />
+    <Compile Include="3.JSAst\JSEmptyExpression.cs" />
+    <Compile Include="3.JSAst\JSExpression.cs" />
+    <Compile Include="3.JSAst\JSFunctionDelcaration.cs" />
+    <Compile Include="3.JSAst\JSFunctionParameter.cs" />
+    <Compile Include="3.JSAst\JSIdentifier.cs" />
+    <Compile Include="3.JSAst\JSNumberLiteral.cs" />
+    <Compile Include="3.JSAst\JSObjectLiteral.cs" />
+    <Compile Include="3.JSAst\JSReturnStatement.cs" />
+    <Compile Include="3.JSAst\JSStringLiteral.cs" />
+    <Compile Include="3.JSAst\JSVariableDelcaration.cs" />
+    <Compile Include="5.Runtime\StackItem.cs" />
+    <Compile Include="5.Runtime\StackItemType.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="4.Emit\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Braille.Test\bin\Debug\Braille.Test.exe">
+      <Link>References\Braille.Test.exe</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
