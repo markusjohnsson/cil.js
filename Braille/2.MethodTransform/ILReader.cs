@@ -206,13 +206,13 @@ namespace Braille.MethodTransform
 
                 if (opCode.Name == "switch")
                 {
-                    var l = (int)data;
-                    int target = 0;
-                    for (int i = 0; i < l; i++)
-                    {
-                        target = BitConverter.ToInt32(ilCode, position + i);
-                    }
-                    position = position + l + target;
+                    var targetCount = (int)data;
+                    //int target = 0;
+                    //for (int i = 0; i < l; i++)
+                    //{
+                    //    target = BitConverter.ToInt32(ilCode, position + i);
+                    //}
+                    position = position + 4 * targetCount; // +target;
                 }
 
                 yield return new ILInstruction

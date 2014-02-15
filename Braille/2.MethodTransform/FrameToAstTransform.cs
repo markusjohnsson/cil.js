@@ -32,10 +32,6 @@ namespace Braille.MethodTransform
                         Right = ProcessInternal(frame.Values.Last()),
                         Operator = "+"
                     };
-                case "br":
-                    if ((byte)frame.Instruction.Data != 0)
-                        throw new NotSupportedException();
-                    return new JSEmptyExpression();
                 case "call":
                     {
                         var mi = ((MethodInfo)frame.Instruction.Data);
@@ -58,6 +54,32 @@ namespace Braille.MethodTransform
                     return new JSIdentifier
                     {
                         Name = "arguments[" + opc.Substring("ldarg.".Length) + "]"
+                    };
+                case "ldc":
+                    if (opc == "ldc.i4")
+                        return new JSNumberLiteral
+                        {
+                            Value = (int)frame.Instruction.Data
+                        };
+                    else if (opc == "ldc.i4.s")
+                        return new JSNumberLiteral
+                        {
+                            Value = (int)(byte)frame.Instruction.Data
+                        };
+                    else if (opc == "ldc.i4.m1")
+                        return new JSNumberLiteral
+                        {
+                            Value = -1
+                        };
+                    else //if (opc.StartsWith("ldc.i4"))
+                        return new JSNumberLiteral 
+                        {
+                            Value = int.Parse(opc.Substring("ldc.i4.".Length))
+                        };
+                case "ldfld":
+                    return new JSIdentifier
+                    {
+                        Name = "this['" + (string)((FieldInfo)frame.Instruction.Data).Name + "']"
                     };
                 case "ldloc":
                     return new JSIdentifier
@@ -98,13 +120,27 @@ namespace Braille.MethodTransform
                         Name = opc.Substring(2).Replace(".", ""),
                         Value = ProcessInternal(frame.Values.Single())
                     };
+                case "stfld":
+                    return new JSBinaryExpression 
+                    {
+                        Left = new JSArrayLookupExpression {
+                            Array = ProcessInternal(frame.Values.First()),
+                            Indexer = new JSIdentifier
+                            {
+                                Name = (string)((FieldInfo)frame.Instruction.Data).Name
+                            }
+                        },
+                        Right = ProcessInternal(frame.Values.Last()),
+                        Operator = "="
+                    };
+                case "brtrue":
+                case "brfalse":
                 case "switch":
+                default:
                     return new JSLineComment
                     {
-                        Text = "Switch statements not implmented"
+                        Text = opc + ": opcode not implmented"
                     };
-                default:
-                    throw new NotImplementedException();
             }
         }
 

@@ -3,6 +3,7 @@ using Braille.MethodTransform;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -15,13 +16,14 @@ namespace Braille
         {
             var asmTransform = new AssemblyTransformTask();
             asmTransform.AddAssembly(Environment.CurrentDirectory + "\\References\\Braille.Test.exe");
+            //asmTransform.AddAssembly(Environment.CurrentDirectory + "\\Braille.exe");
 
             var asm = asmTransform.Process().ToList();
 
             var mtdTranform = new MethodTransformTask();
             mtdTranform.Process(asm);
 
-            Console.WriteLine(asm.First().GetAssemblyDeclaration().ToString().FormatJson());
+            File.WriteAllText("Output.js", asm.First().GetAssemblyDeclaration().ToString());
 
             if (Debugger.IsAttached)
                 Console.ReadLine();
