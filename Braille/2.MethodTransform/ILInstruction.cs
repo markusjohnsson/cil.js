@@ -17,5 +17,7 @@ namespace Braille.MethodTransform
 
             return result;
         }
+
+        public int Position { get; set; }
     }
 }

@@ -15,16 +15,17 @@ namespace Braille
         {
             var asmTransform = new AssemblyTransformTask();
             asmTransform.AddAssembly(Environment.CurrentDirectory + "\\References\\Braille.Test.exe");
-            //asmTransform.AddAssembly(Environment.CurrentDirectory + "\\Braille.exe");
 
-            //Console.WriteLine(asmTransform.Process().First().GetAssemblyDeclaration().ToString().FormatJson());
+            var asm = asmTransform.Process().ToList();
 
-            var methodTransform = new MethodTransformTask();
-            methodTransform.AddAssemblies(asmTransform.Process());
-            methodTransform.Process();
+            var mtdTranform = new MethodTransformTask();
+            mtdTranform.Process(asm);
+
+            Console.WriteLine(asm.First().GetAssemblyDeclaration().ToString().FormatJson());
 
             if (Debugger.IsAttached)
                 Console.ReadLine();
         }
+
     }
 }

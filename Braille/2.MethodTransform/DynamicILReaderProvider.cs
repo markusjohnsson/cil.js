@@ -9,6 +9,7 @@ namespace Braille.MethodTransform
         public const int TypeRidPrefix = 0x02000000;
         public const int MethodRidPrefix = 0x06000000;
         public const int FieldRidPrefix = 0x04000000;
+
         private object dynamicScope;
         private ILGenerator generator;
 

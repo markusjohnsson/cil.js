@@ -180,6 +180,7 @@ namespace Braille.MethodTransform
 
         public IEnumerable<ILInstruction> Process()
         {
+            var offset = 0;
             while (position < ilCode.Length)
             {
                 OpCode opCode;
@@ -217,9 +218,11 @@ namespace Braille.MethodTransform
                 yield return new ILInstruction
                 {
                     OpCode = opCode,
-                    Data = data
+                    Data = data,
+                    Position = offset
                 };
 
+                offset++;
             }
         }
 

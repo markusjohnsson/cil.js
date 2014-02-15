@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Braille.Test
@@ -14,6 +15,12 @@ namespace Braille.Test
         }
 
         enum Foo { A, B, C, D }
+
+        static int Maths(int a, int b)
+        {
+            var x = a * a * b;
+            return x * x * a * (b + b) + b;
+        }
 
         static void Switch(Foo x)
         {
@@ -38,12 +45,12 @@ namespace Braille.Test
 
         static void CollectionInitializer()
         {
-            var r = new Dictionary<string, string>() 
+            var r = new ArrayList() 
             {
-                { "a0", "b" },
-                { "a1", "b" },
-                { "a2", "b" },
-                { "a3", "b" }
+                "a0",
+                "a1",
+                "a2",
+                "a3"
             };
             Console.WriteLine(r);
         }

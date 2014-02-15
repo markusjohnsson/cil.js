@@ -18,8 +18,8 @@ namespace Braille.AssemblyTransform
             {
                 Properties = new Dictionary<string, JSExpression>
                 {
-                    { "Name", new JSStringLiteral { Value = Name } },
-                    { "Types", new JSArrayLiteral { Values = Types.Select(t => t.GetTypeDeclaration()) } }
+                    { "name", new JSStringLiteral { Value = Name } },
+                    { "types", new JSArrayLiteral { Values = Types.Select(t => t.GetTypeDeclaration()) } }
                 }
             };
         }

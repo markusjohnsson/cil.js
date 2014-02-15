@@ -9,5 +9,13 @@ namespace Braille.JSAst
     {
         public string Name { get; set; }
         public JSExpression Value { get; set; }
+
+        public override string ToString()
+        {
+            if (Value == null)
+                return string.Format("var {0}", Name);
+            else
+                return string.Format("var {0} = {1}", Name, Value.ToString());
+        }
     }
 }

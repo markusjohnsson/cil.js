@@ -26,23 +26,19 @@ namespace Braille.AssemblyTransform
             {
                 Properties = new Dictionary<string, JSExpression> 
                 { 
-                    { "Name", new JSStringLiteral { Value = Name } },
-                    { "HideBySig", new JSBoolLiteral { Value = IsHideBySig } },
-                    { "Virtual", new JSBoolLiteral { Value = IsVirtual } },
-                    { "Body", new JSArrayLiteral { Values = IlCode.Select(b => new JSNumberLiteral { Value = b, IsHex = true }) } },
-                    { "MetadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } } 
+                    { "name", new JSStringLiteral { Value = Name } },
+                    { "hideBySig", new JSBoolLiteral { Value = IsHideBySig } },
+                    { "virtual", new JSBoolLiteral { Value = IsVirtual } },
+                    { "body", JsFunction },
+                    { "metadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } } 
                 }
             };
-            //return new JSStringLiteral
-            //{
-            //    Value = (IsHideBySig ? "hidebysig " : string.Empty) +
-            //            (IsVirtual ? "virtual " : string.Empty) +
-            //            Name 
-            //};
         }
 
         public byte[] IlCode { get; set; }
 
         public MethodInfo ReflectionMethod { get; set; }
+
+        public JSFunctionDelcaration JsFunction { get; set; }
     }
 }

@@ -18,10 +18,10 @@ namespace Braille.AssemblyTransform
             {
                 Properties = new Dictionary<string, JSExpression> 
                 {
-                    { "Namespace", new JSStringLiteral { Value = Namespace } },
-                    { "Name", new JSStringLiteral { Value = Name } },
-                    { "BaseType", new JSStringLiteral { Value = BaseType } },
-                    { "Methods", new JSArrayLiteral { Values = Methods.Select(m => m.GetMethodDeclaration()) } }
+                    { "namespace", new JSStringLiteral { Value = Namespace } },
+                    { "name", new JSStringLiteral { Value = Name } },
+                    { "baseType", new JSStringLiteral { Value = BaseType } },
+                    { "methods", new JSArrayLiteral { Values = Methods.Select(m => m.GetMethodDeclaration()) } }
                 }
             };
         }

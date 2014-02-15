@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Braille.JSAst
 {
-    class JSExpression
+    abstract class JSExpression 
     {
+        public override abstract string ToString();
     }
 }
