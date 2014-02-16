@@ -13,6 +13,13 @@ namespace Braille.MethodTransform
     {
         public ILInstruction Instruction;
         public List<Frame> Values = new List<Frame>();
+
+        public bool IsLabel { get; set; }
+
+        internal bool ContainsPosition(int position)
+        {
+            return (Instruction.Position == position) || Values.Any(v => v.ContainsPosition(position));
+        }
     }
 
     class ILToFrameTransform

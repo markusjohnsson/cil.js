@@ -47,6 +47,7 @@
     <Compile Include="1.AssemblyTransform\AssemblyTransformTask.cs" />
     <Compile Include="2.MethodTransform\DynamicILReaderProvider.cs" />
     <Compile Include="2.MethodTransform\FrameToAstTransform.cs" />
+    <Compile Include="2.MethodTransform\FrameToBlockTransform.cs" />
     <Compile Include="2.MethodTransform\ILInstruction.cs" />
     <Compile Include="2.MethodTransform\ILReader.cs" />
     <Compile Include="2.MethodTransform\ILToFrameTransform.cs" />
@@ -54,9 +55,11 @@
     <Compile Include="3.JSAst\JSArrayLookupExpression.cs" />
     <Compile Include="3.JSAst\JSBinaryExpression.cs" />
     <Compile Include="3.JSAst\JSCallExpression.cs" />
+    <Compile Include="3.JSAst\JSContinueExpression.cs" />
     <Compile Include="3.JSAst\JSLineComment.cs" />
     <Compile Include="3.JSAst\JSNewExpression.cs" />
     <Compile Include="3.JSAst\JSStatement.cs" />
+    <Compile Include="3.JSAst\JSWhileLoopStatement.cs" />
     <Compile Include="5.Runtime\InternalPointer.cs" />
     <Compile Include="5.Runtime\Ops.cs" />
     <Compile Include="3.JSAst\JSArrayLiteral.cs" />

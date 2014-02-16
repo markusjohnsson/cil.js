@@ -126,7 +126,7 @@ namespace Braille.MethodTransform
         BaseType                     = 0x72000000
     }
 
-    class ILReader
+    class  ILReader
     {
         #region Static initialization
         static OpCode[] OneByteOpCodes = new OpCode[0x100];
@@ -200,7 +200,8 @@ namespace Braille.MethodTransform
                 }
 
                 position++;
-                position += GetSize(opCode.OperandType);
+                var size = GetSize(opCode.OperandType);
+                position += size;
                 
                 var data = GetData(opCode, new ByteArrayReader(ilCode, p + 1));
 
@@ -219,7 +220,8 @@ namespace Braille.MethodTransform
                 {
                     OpCode = opCode,
                     Data = data,
-                    Position = offset
+                    Position = p,
+                    Size = size
                 };
 
                 offset++;

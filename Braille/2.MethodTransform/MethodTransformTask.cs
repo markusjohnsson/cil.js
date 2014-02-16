@@ -9,29 +9,45 @@ namespace Braille.MethodTransform
 {
     class MethodTransformTask
     {
+        private ILToFrameTransform methodTransform;
+        private FrameToAstTransform frameTransform;
+        private InsertFrameLabelsTask blockTransform;
+
+        public MethodTransformTask()
+        {
+            methodTransform = new ILToFrameTransform();
+            blockTransform = new InsertFrameLabelsTask();
+            frameTransform = new FrameToAstTransform();
+        }
+
         public void Process(IEnumerable<CilAssembly> asms)
         {
-            var methodTransform = new ILToFrameTransform();
-            var frameTransform = new FrameToAstTransform();
-
             foreach (var asm in asms)
             {
                 foreach (var type in asm.Types)
                 {
                     foreach (var method in type.Methods)
                     {
-                        var block = new List<JSStatement>();
+                        var functionBlock = new List<JSStatement>();
 
-                        foreach (var frame in methodTransform.Process(method))
+                        var frames = methodTransform.Process(method);
+                        frames = blockTransform.Process(frames);
+
+                        functionBlock.Add(new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_pos__", Value = new JSNumberLiteral { Value = 0 } } });
+                        functionBlock.Add(new JSWhileLoopStatement { Condition = new JSBoolLiteral { Value = true }, Statements = new List<JSStatement>() });
+                        
+
+                        foreach (var frame in frames)
                         {
                             Print(frame);
-
-                            block.Add(frameTransform.Process(frame));
+                            functionBlock.Add(frameTransform.Process(frame));
                         }
+
+                        functionBlock.Add(new JSStatement { Expression = new JSLineComment { Text = "end switch" } });
 
                         method.JsFunction = new JSFunctionDelcaration
                         {
-                            Body = block,
+                            Body = functionBlock,
                             Name = method.Name,
                             Parameters = Enumerable.Empty<JSFunctionParameter>()
                         };
@@ -45,7 +61,7 @@ namespace Braille.MethodTransform
             if (frame == null)
                 return;
 
-            Console.WriteLine("// {0}{1}", new string(' ', depth), frame.Instruction.ToString());
+            Console.WriteLine("// {2:x}: {0}{1}\t\t{3:x}", new string(' ', depth), frame.Instruction.ToString(), frame.Instruction.Position, frame.IsLabel);
             foreach (var child in frame.Values)
             {
                 Print(child, depth + 1);
