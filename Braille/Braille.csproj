@@ -51,6 +51,8 @@
     <Compile Include="2.MethodTransform\ILInstruction.cs" />
     <Compile Include="2.MethodTransform\ILReader.cs" />
     <Compile Include="2.MethodTransform\ILToFrameTransform.cs" />
+    <Compile Include="3.JSAst\JSSwitchCase.cs" />
+    <Compile Include="3.JSAst\JSSwitchStatement.cs" />
     <Compile Include="2.MethodTransform\MethodTransformTask.cs" />
     <Compile Include="3.JSAst\JSArrayLookupExpression.cs" />
     <Compile Include="3.JSAst\JSBinaryExpression.cs" />

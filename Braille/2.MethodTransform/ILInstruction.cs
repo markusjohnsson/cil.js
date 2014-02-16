@@ -21,5 +21,6 @@ namespace Braille.MethodTransform
         public int Position { get; set; }
 
         public int Size { get; set; }
+
     }
 }

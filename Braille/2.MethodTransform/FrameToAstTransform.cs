@@ -8,9 +8,47 @@ namespace Braille.MethodTransform
 {
     class FrameToAstTransform
     {
-        public JSStatement Process(Frame frame)
+        public IEnumerable<JSStatement> Process(Frame frame)
         {
-            return new JSStatement { Expression = ProcessInternal(frame) };
+            var opc = frame.Instruction.OpCode.Name;
+            
+            switch (opc)
+            {
+                case "br":
+                case "br.s":
+                    yield return new JSStatement
+                    {
+                        Expression = new JSBinaryExpression
+                        {
+                            Left = new JSIdentifier
+                            {
+                                Name = "__braille_pos__"
+                            },
+                            Operator = "=",
+                            Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                        }
+                    };
+                    yield return new JSStatement
+                    {
+                        Expression = new JSContinueExpression()
+                    };
+                    break;
+                default:
+                    yield return new JSStatement { Expression = ProcessInternal(frame) };
+                    break;
+            }
+
+        }
+
+        private double GetTargetPosition(ILInstruction i)
+        {
+            int data;
+            if (i.Data is byte)
+                data = (byte)i.Data;
+            else
+                data = (int)i.Data;
+
+            return 1 + i.Position + i.Size + data;
         }
 
         private JSExpression ProcessInternal(Frame frame)

@@ -14,7 +14,12 @@ namespace Braille.MethodTransform
 
     class InsertFrameLabelsTask
     {
-        public IEnumerable<Frame> Process(IEnumerable<Frame> method)
+        public void Process(IEnumerable<Frame> method)
+        {
+            InternalProcess(method);
+        }
+
+        private void InternalProcess(IEnumerable<Frame> method)
         {
             foreach (var f in method)
             {
@@ -22,26 +27,32 @@ namespace Braille.MethodTransform
                 {
                     case "br":
                         {
-                            var targetPosition = 1 + f.Instruction.Position + f.Instruction.Size + (int)f.Instruction.Data;
+                            var targetPosition = GetTargetPosition(f.Instruction);
                             var targetFrame = method.Where(f2 => f2.ContainsPosition(targetPosition)).First();
                             targetFrame.IsLabel = true;
                         }
                         break;
                     case "br.s":
                         {
-                            var targetPosition = 1 + f.Instruction.Position + f.Instruction.Size + (byte)f.Instruction.Data;
+                            var targetPosition = GetTargetPosition(f.Instruction);
                             var targetFrame = method.Where(f2 => f2.ContainsPosition(targetPosition)).First();
                             targetFrame.IsLabel = true;
                         }
                         break;
-                    default:
-                        //yield return f;
-                        break;
                 }
-
-
-                yield return f;
             }
         }
+        
+        private int GetTargetPosition(ILInstruction i)
+        {
+            int data;
+            if (i.Data is byte)
+                data = (byte)i.Data;
+            else
+                data = (int)i.Data;
+
+            return 1 + i.Position + i.Size + data;
+        }
+
     }
 }

@@ -30,17 +30,34 @@ namespace Braille.MethodTransform
                     {
                         var functionBlock = new List<JSStatement>();
 
-                        var frames = methodTransform.Process(method);
-                        frames = blockTransform.Process(frames);
+                        var frames = methodTransform.Process(method).ToList();
+                        
+                        blockTransform.Process(frames);
+
+                        var statements = new List<JSStatement>();
 
                         functionBlock.Add(new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_pos__", Value = new JSNumberLiteral { Value = 0 } } });
-                        functionBlock.Add(new JSWhileLoopStatement { Condition = new JSBoolLiteral { Value = true }, Statements = new List<JSStatement>() });
-                        
+                        functionBlock.Add(new JSWhileLoopStatement
+                        {
+                            Condition = new JSBoolLiteral { Value = true },
+                            Statements = new List<JSStatement> {
+                                new JSSwitchStatement
+                                {
+                                    Value = new JSIdentifier { Name = "__braille_pos__" },
+                                    Statements = statements
+                                }
+                            }
+                        });
+
+                        statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
 
                         foreach (var frame in frames)
                         {
                             Print(frame);
-                            functionBlock.Add(frameTransform.Process(frame));
+
+                            if (frame.IsLabel)
+                                statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = frame.Instruction.Position } });
+                            statements.AddRange(frameTransform.Process(frame));
                         }
 
                         functionBlock.Add(new JSStatement { Expression = new JSLineComment { Text = "end switch" } });
