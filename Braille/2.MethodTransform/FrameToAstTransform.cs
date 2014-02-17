@@ -208,13 +208,13 @@ namespace Braille.MethodTransform
 
         private JSExpression ProcessInternal(Frame frame)
         {
-            if (frame == null)
+            if (frame == null || frame.Instruction == null)
                 return new JSEmptyExpression();
 
-            if (frame.Instruction == null && frame.Handler != null )
-            {
-                return new JSIdentifier { Name = "__braille_exception__" };
-            }
+            //if (frame.Instruction == null && frame.Handler != null )
+            //{
+            //    return new JSIdentifier { Name = "__braille_exception__" };
+            //}
 
             var opc = frame.Instruction.OpCode.Name;
 
@@ -284,6 +284,8 @@ namespace Braille.MethodTransform
                         TrueValue = new JSNumberLiteral { Value = 1 },
                         FalseValue = new JSNumberLiteral { Value = 0 }
                     };
+                case "endfinally":
+                    return new JSEmptyExpression();
                 case "ldarg":
                     return new JSIdentifier
                     {
@@ -342,6 +344,8 @@ namespace Braille.MethodTransform
                     {
                         Value = (string)frame.Instruction.Data
                     };
+                case "leave":
+                    return new JSEmptyExpression();
                 case "mul":
                     return new JSBinaryExpression
                     {

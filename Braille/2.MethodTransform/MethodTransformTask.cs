@@ -119,15 +119,27 @@ namespace Braille.MethodTransform
                                 block.InsertLabel(frame.GetStartPosition());
                             }
 
-                            if (currentBlock != null && false == currentBlock.FrameSpan.Contains(frame))
+                            if (currentBlock != null && false == currentBlock.Contains(frame))
                             {
                                 var parentBlock = blockStack.Pop();
-                                switch (currentBlock.FrameSpan.Type)
+                                switch (currentBlock.Type)
                                 {
                                     case FrameSpanType.Try:
                                         parentBlock.Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
                                         break;
                                     case FrameSpanType.Catch:
+                                        parentBlock.Statements.Add(new JSIfStatement
+                                        {
+                                            Condition = new JSBinaryExpression
+                                            {
+                                                Left = new JSIdentifier { Name = "__braille_error__" },
+                                                Operator = "instanceof",
+                                                Right = new JSIdentifier { Name = currentBlock.CatchType }
+                                            },
+                                            Statements = block.Build().ToList()
+                                        });
+                                        break;
+                                    case FrameSpanType.CatchWrapper:
                                         parentBlock.Statements.Add(new JSCatchBlock { Error = new JSIdentifier { Name = "__braille_error__" }, Statements = block.Build().ToList() });
                                         break;
                                     case FrameSpanType.Finally:
@@ -138,7 +150,7 @@ namespace Braille.MethodTransform
                                 currentBlock = tryBlockStack.Pop();
                             }
 
-                            if (awaitedBlock != null && awaitedBlock.FrameSpan.Contains(frame))
+                            while (awaitedBlock != null && awaitedBlock.Contains(frame))
                             {
                                 blockStack.Push(block);
                                 block = new BrailleBlock(blockStack.Count);

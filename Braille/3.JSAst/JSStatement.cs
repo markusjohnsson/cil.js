@@ -11,6 +11,12 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
+            if (Expression is JSEmptyExpression)
+                return string.Empty;
+
+            if (Expression is JSLineComment)
+                return Expression.ToString();
+
             return Expression.ToString() + ";";
         }
     }
