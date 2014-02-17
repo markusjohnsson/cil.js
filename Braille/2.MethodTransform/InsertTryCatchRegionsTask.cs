@@ -8,24 +8,6 @@ using System.Text;
 
 namespace Braille.MethodTransform
 {
-    class TryCatchFinally
-    {
-        public TryCatchFinallyFrameSpan TrySpan;
-        public List<TryCatchFinallyFrameSpan> CatchSpans;
-        public TryCatchFinallyFrameSpan FinallySpan;
-
-        public IEnumerable<TryCatchFinallyFrameSpan> GetSpans()
-        {
-            yield return TrySpan;
-            if (CatchSpans.Any())
-                yield return new TryCatchFinallyFrameSpan(CatchSpans.Min(c => c.From), CatchSpans.Max(c => c.To), FrameSpanType.CatchWrapper);
-            foreach (var span in CatchSpans)
-                yield return span;
-            if (FinallySpan != null)
-                yield return FinallySpan;
-        }
-    }
-
     enum FrameSpanType { Try, Catch, CatchWrapper, Finally }
 
     class TryCatchFinallyFrameSpan
@@ -33,6 +15,7 @@ namespace Braille.MethodTransform
         public int From;
         public int To;
         public FrameSpanType Type;
+        public string CatchType { get; set; }
 
         public TryCatchFinallyFrameSpan(int from, int to, FrameSpanType type)
         {
@@ -47,11 +30,28 @@ namespace Braille.MethodTransform
                     frame.GetStartPosition() >= From;
         }
 
-        public string CatchType { get; set; }
     }
 
     class ExtractTryCatchRegionsTask
     {
+        class TryCatchFinally
+        {
+            public TryCatchFinallyFrameSpan TrySpan;
+            public List<TryCatchFinallyFrameSpan> CatchSpans;
+            public TryCatchFinallyFrameSpan FinallySpan;
+
+            public IEnumerable<TryCatchFinallyFrameSpan> GetSpans()
+            {
+                yield return TrySpan;
+                if (CatchSpans.Any())
+                    yield return new TryCatchFinallyFrameSpan(CatchSpans.Min(c => c.From), CatchSpans.Max(c => c.To), FrameSpanType.CatchWrapper);
+                foreach (var span in CatchSpans)
+                    yield return span;
+                if (FinallySpan != null)
+                    yield return FinallySpan;
+            }
+        }
+
         public IEnumerable<TryCatchFinallyFrameSpan> Process(CilMethod method, IList<Frame> frames)
         {
             var ex = method
@@ -73,10 +73,10 @@ namespace Braille.MethodTransform
                 result.CatchSpans = clauseGroup
                     .Where(e => e.Flags == ExceptionHandlingClauseOptions.Clause)
                     .Select(
-                    e => new TryCatchFinallyFrameSpan(e.HandlerOffset, e.HandlerOffset + e.HandlerLength, FrameSpanType.Catch)
-                    {
-                        CatchType = e.CatchType != null ? e.CatchType.FullName : ""
-                    })
+                        e => new TryCatchFinallyFrameSpan(e.HandlerOffset, e.HandlerOffset + e.HandlerLength, FrameSpanType.Catch)
+                        {
+                            CatchType = e.CatchType != null ? e.CatchType.FullName : ""
+                        })
                     .ToList();
 
                 var finallyClause = clauseGroup.FirstOrDefault(f => f.Flags == ExceptionHandlingClauseOptions.Finally);

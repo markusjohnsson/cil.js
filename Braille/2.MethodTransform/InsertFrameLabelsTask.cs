@@ -62,11 +62,9 @@ namespace Braille.MethodTransform
         {
             int data;
             if (i.Data is byte)
-                data = (byte)i.Data;
+                return (1 + i.Position + i.Size + (sbyte)(byte)i.Data);
             else
-                data = (int)i.Data;
-
-            return 1 + i.Position + i.Size + data;
+                return 1 + i.Position + i.Size + (int)i.Data;
         }
 
     }

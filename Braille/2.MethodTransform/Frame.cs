@@ -14,6 +14,8 @@ namespace Braille.MethodTransform
 
         internal bool ContainsPosition(int position)
         {
+            if (Instruction == null)
+                return false;
             return (Instruction.Position == position) || Values.Any(v => v.ContainsPosition(position));
         }
         internal int GetStartPosition()
