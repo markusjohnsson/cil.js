@@ -11,13 +11,78 @@ namespace Braille.MethodTransform
     {
         private ILToFrameTransform methodTransform;
         private FrameToAstTransform frameTransform;
-        private InsertFrameLabelsTask blockTransform;
+        private InsertFrameLabelsTask insertFrameLabelsTask;
+        private ExtractTryCatchRegionsTask insertTryCatchRegionsTask;
 
         public MethodTransformTask()
         {
             methodTransform = new ILToFrameTransform();
-            blockTransform = new InsertFrameLabelsTask();
+            insertFrameLabelsTask = new InsertFrameLabelsTask();
+            insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
             frameTransform = new FrameToAstTransform();
+        }
+
+        class BrailleBlock
+        {
+            public List<JSStatement> Statements = new List<JSStatement>();
+
+            private int depth;
+            private bool hasBranching;
+
+            public BrailleBlock(int depth)
+            {
+                this.depth = depth;
+            }
+
+            public IEnumerable<JSStatement> Build()
+            {
+                if (hasBranching)
+                {
+                    yield return new JSStatement
+                    {
+                        Expression = new JSVariableDelcaration
+                        {
+                            Name = "__braille_pos_" + depth + "__",
+                            Value = new JSNumberLiteral { Value = 0 }
+                        }
+                    };
+
+                    yield return new JSWhileLoopStatement
+                    {
+                        Condition = new JSBoolLiteral
+                        {
+                            Value = true
+                        },
+                        Statements = new List<JSStatement> 
+                    {
+                        new JSSwitchStatement
+                        {
+                            Value = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
+                            Statements = Statements
+                        }
+                    }
+                    };
+                }
+                else
+                {
+                    foreach (var stmnt in Statements)
+                        yield return stmnt;
+                }
+            }
+
+            internal void InsertLabel(int p)
+            {
+                if (false == hasBranching)
+                    Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
+
+                hasBranching = true;
+                Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = p } });
+            }
+
+            internal void AddStatements(IEnumerable<JSStatement> statements)
+            {
+                Statements.AddRange(statements);
+            }
         }
 
         public void Process(IEnumerable<CilAssembly> asms)
@@ -28,37 +93,64 @@ namespace Braille.MethodTransform
                 {
                     foreach (var method in type.Methods)
                     {
+                        Console.WriteLine(type.Name + "::" + method.Name);
+
                         var functionBlock = new List<JSStatement>();
 
                         var frames = methodTransform.Process(method).ToList();
-                        
-                        blockTransform.Process(frames);
 
-                        var statements = new List<JSStatement>();
+                        insertFrameLabelsTask.Process(frames);
+                        var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, frames));
 
-                        functionBlock.Add(new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_pos__", Value = new JSNumberLiteral { Value = 0 } } });
-                        functionBlock.Add(new JSWhileLoopStatement
-                        {
-                            Condition = new JSBoolLiteral { Value = true },
-                            Statements = new List<JSStatement> {
-                                new JSSwitchStatement
-                                {
-                                    Value = new JSIdentifier { Name = "__braille_pos__" },
-                                    Statements = statements
-                                }
-                            }
-                        });
+                        var block = new BrailleBlock(0);
+                        var blockStack = new Stack<BrailleBlock>();
 
-                        statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
+                        TryCatchFinallyFrameSpan awaitedBlock = null;
+                        TryCatchFinallyFrameSpan currentBlock = null;
+
+                        var tryBlockStack = new Stack<TryCatchFinallyFrameSpan>();
+
+                        awaitedBlock = tryBlockQueue.Dequeue();
 
                         foreach (var frame in frames)
                         {
-                            Print(frame);
-
                             if (frame.IsLabel)
-                                statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = frame.Instruction.Position } });
-                            statements.AddRange(frameTransform.Process(frame));
+                            {
+                                block.InsertLabel(frame.GetStartPosition());
+                            }
+
+                            if (currentBlock != null && false == currentBlock.FrameSpan.Contains(frame))
+                            {
+                                var parentBlock = blockStack.Pop();
+                                switch (currentBlock.FrameSpan.Type)
+                                {
+                                    case FrameSpanType.Try:
+                                        parentBlock.Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
+                                        break;
+                                    case FrameSpanType.Catch:
+                                        parentBlock.Statements.Add(new JSCatchBlock { Error = new JSIdentifier { Name = "__braille_error__" }, Statements = block.Build().ToList() });
+                                        break;
+                                    case FrameSpanType.Finally:
+                                        parentBlock.Statements.Add(new JSFinallyBlock { Statements = block.Build().ToList() });
+                                        break;
+                                }
+                                block = parentBlock;
+                                currentBlock = tryBlockStack.Pop();
+                            }
+
+                            if (awaitedBlock != null && awaitedBlock.FrameSpan.Contains(frame))
+                            {
+                                blockStack.Push(block);
+                                block = new BrailleBlock(blockStack.Count);
+                                tryBlockStack.Push(currentBlock);
+                                currentBlock = awaitedBlock;
+                                awaitedBlock = tryBlockQueue.Dequeue();
+                            }
+
+                            block.AddStatements(frameTransform.Process(frame));
                         }
+
+                        functionBlock.AddRange(block.Build());
 
                         method.JsFunction = new JSFunctionDelcaration
                         {
@@ -71,12 +163,19 @@ namespace Braille.MethodTransform
             }
         }
 
+        private static void Print(CilMethod method)
+        {
+            var il = new ILReader(method.IlCode, method.Resolver);
+            foreach (var instruction in il.Process())
+                Console.WriteLine("{0:x}\t: {1}", instruction.Position, instruction.ToString());
+        }
+
         private static void Print(Frame frame, int depth = 0)
         {
             if (frame == null)
                 return;
 
-            Console.WriteLine("// {2:x}: {0}{1}\t\t{3:x}", new string(' ', depth), frame.Instruction.ToString(), frame.Instruction.Position, frame.IsLabel);
+            Console.WriteLine("// {2:x}:\t {0}{1}\t\t{3:x}", new string(' ', depth), frame.Instruction.ToString(), frame.Instruction.Position, frame.IsLabel);
             foreach (var child in frame.Values)
             {
                 Print(child, depth + 1);

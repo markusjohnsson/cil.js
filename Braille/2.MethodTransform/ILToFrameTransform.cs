@@ -1,35 +1,22 @@
 ﻿using Braille.AssemblyTransform;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using System.Text;
 
 namespace Braille.MethodTransform
 {
-    class Frame
-    {
-        public ILInstruction Instruction;
-        public List<Frame> Values = new List<Frame>();
-
-        public bool IsLabel { get; set; }
-
-        internal bool ContainsPosition(int position)
-        {
-            return (Instruction.Position == position) || Values.Any(v => v.ContainsPosition(position));
-        }
-    }
-
     class ILToFrameTransform
     {
         public IEnumerable<Frame> Process(CilMethod method)
         {
+            var ex = method.ReflectionMethod.GetMethodBody().ExceptionHandlingClauses;
+
             var il = new ILReader(method.IlCode, method.Resolver);
             foreach (var instruction in il.Process())
             {
-                foreach (var frame in MethodProcess(method, instruction))
+                foreach (var frame in ProcessInstruction(method, instruction, ex))
                 {
                     yield return frame;
                 }
@@ -40,7 +27,7 @@ namespace Braille.MethodTransform
 
             if (_stack.Count != 1)
                 throw new InvalidOperationException();
-            
+
             yield return _stack.Pop();
         }
 
@@ -56,9 +43,14 @@ namespace Braille.MethodTransform
             _stack.Push(n);
         }
 
-        private IEnumerable<Frame> MethodProcess(CilMethod method, ILInstruction instruction)
+        private IEnumerable<Frame> ProcessInstruction(CilMethod method, ILInstruction instruction, IEnumerable<ExceptionHandlingClause> ex)
         {
-            //Console.WriteLine(instruction.ToString());
+            var handler = ex.FirstOrDefault(e => e.HandlerOffset == instruction.Position && e.Flags == ExceptionHandlingClauseOptions.Clause);
+            if (handler != null)
+            {
+                // A catch-block will pop an exception off the stack, so we need to push something 
+                Push(new Frame { Instruction = null, Handler = handler });
+            }
 
             var frame = new Frame() { Instruction = instruction };
 

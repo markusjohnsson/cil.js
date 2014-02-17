@@ -10,12 +10,43 @@ namespace Braille.Test
     {
         static void Main(string[] args)
         {
+        }
+
+        private void X()
+        {
             var h = "Hello";
             var w = "World";
 
             Console.WriteLine(h + w);
-        }
 
+            try
+            {
+                Console.WriteLine("asd");
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("nre");
+
+                try
+                {
+                    Console.WriteLine("inner");
+                }
+                catch
+                {
+                    Console.WriteLine("double catch end here");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("lala");
+            }
+            finally
+            {
+                Console.WriteLine("xyz");
+            }
+
+            Console.WriteLine("Last one");
+        }
 
         //enum Foo { A, B, C, D }
 
@@ -59,65 +90,65 @@ namespace Braille.Test
         //}
     }
 
-    static class CSStringConverter
-    {
-        public static string Convert(string value)
-        {
-            var sb = new StringBuilder(value.Length + 10);
+    //static class CSStringConverter
+    //{
+    //    public static string Convert(string value)
+    //    {
+    //        var sb = new StringBuilder(value.Length + 10);
 
-            sb.Append('"');
+    //        sb.Append('"');
 
-            for (int i = 0; i < value.Length; i++)
-            {
-                switch (value[i])
-                {
-                    //case '\'':
-                    //    b.Append("\\'");
-                    //    break;
+    //        for (int i = 0; i < value.Length; i++)
+    //        {
+    //            switch (value[i])
+    //            {
+    //                //case '\'':
+    //                //    b.Append("\\'");
+    //                //    break;
 
-                    case '\\':
-                        sb.Append("\\\\");
-                        break;
+    //                case '\\':
+    //                    sb.Append("\\\\");
+    //                    break;
 
-                    case '\x2028':
-                    case '\x2029':
-                        sb.Append(EscapeChar(value[i]));
-                        break;
+    //                case '\x2028':
+    //                case '\x2029':
+    //                    sb.Append(EscapeChar(value[i]));
+    //                    break;
 
-                    case char.MinValue:
-                        sb.Append("\\0");
-                        break;
+    //                case char.MinValue:
+    //                    sb.Append("\\0");
+    //                    break;
 
-                    case '\t':
-                        sb.Append("\\t");
-                        break;
+    //                case '\t':
+    //                    sb.Append("\\t");
+    //                    break;
 
-                    case '\n':
-                        sb.Append("\\n");
-                        break;
+    //                case '\n':
+    //                    sb.Append("\\n");
+    //                    break;
 
-                    case '\r':
-                        sb.Append("\\r");
-                        break;
+    //                case '\r':
+    //                    sb.Append("\\r");
+    //                    break;
 
-                    case '"':
-                        sb.Append("\\\"");
-                        break;
+    //                case '"':
+    //                    sb.Append("\\\"");
+    //                    break;
 
-                    default:
-                        sb.Append(value[i]);
-                        break;
-                }
-            }
+    //                default:
+    //                    sb.Append(value[i]);
+    //                    break;
+    //            }
+    //        }
 
-            sb.Append('"');
+    //        sb.Append('"');
 
-            return sb.ToString();
-        }
+    //        return sb.ToString();
+    //    }
 
-        private static string EscapeChar(char value)
-        {
-            return "\\u" + ((int)value).ToString("X4", CultureInfo.InvariantCulture);
-        }
-    }
+    //    private static string EscapeChar(char value)
+    //    {
+    //        return "\\u" + ((int)value).ToString("X4", CultureInfo.InvariantCulture);
+    //    }
+    //}
 }
