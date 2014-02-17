@@ -26,13 +26,21 @@ namespace Braille.MethodTransform
                 switch (f.Instruction.OpCode.Name)
                 {
                     case "br":
-                        {
-                            var targetPosition = GetTargetPosition(f.Instruction);
-                            var targetFrame = method.Where(f2 => f2.ContainsPosition(targetPosition)).First();
-                            targetFrame.IsLabel = true;
-                        }
-                        break;
                     case "br.s":
+                    case "beq":
+                    case "beq.s":
+                    case "bge":
+                    case "bge.s":
+                    case "bgt":
+                    case "bgt.s":
+                    case "ble":
+                    case "ble.s":
+                    case "blt":
+                    case "blt.s":
+                    case "bne":
+                    case "bne.s":
+                    case "brtrue":
+                    case "brfalse":
                         {
                             var targetPosition = GetTargetPosition(f.Instruction);
                             var targetFrame = method.Where(f2 => f2.ContainsPosition(targetPosition)).First();
@@ -42,7 +50,7 @@ namespace Braille.MethodTransform
                 }
             }
         }
-        
+
         private int GetTargetPosition(ILInstruction i)
         {
             int data;

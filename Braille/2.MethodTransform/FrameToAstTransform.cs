@@ -11,7 +11,7 @@ namespace Braille.MethodTransform
         public IEnumerable<JSStatement> Process(Frame frame)
         {
             var opc = frame.Instruction.OpCode.Name;
-            
+
             switch (opc)
             {
                 case "br":
@@ -33,6 +33,63 @@ namespace Braille.MethodTransform
                         Expression = new JSContinueExpression()
                     };
                     break;
+
+                case "beq":
+                case "beq.s":
+                    yield return new JSIfStatement
+                    {
+                        Condition = new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(frame.Values.First()),
+                            Right = ProcessInternal(frame.Values.Last()),
+                            Operator = "==="
+                        },
+                        Statements = {
+                            new JSStatement
+                            {
+                                Expression = new JSBinaryExpression
+                                {
+                                    Left = new JSIdentifier
+                                    {
+                                        Name = "__braille_pos__"
+                                    },
+                                    Operator = "=",
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                                }
+                            },
+                            new JSStatement
+                            {
+                                Expression = new JSContinueExpression()
+                            }       
+                        }
+                    };
+                    break;
+
+                case "brtrue":
+                    yield return new JSIfStatement
+                    {
+                        Condition = ProcessInternal(frame.Values.Single()),
+                        Statements = {
+                            new JSStatement
+                            {
+                                Expression = new JSBinaryExpression
+                                {
+                                    Left = new JSIdentifier
+                                    {
+                                        Name = "__braille_pos__"
+                                    },
+                                    Operator = "=",
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                                }
+                            },
+                            new JSStatement
+                            {
+                                Expression = new JSContinueExpression()
+                            }       
+                        }
+                    };
+                    break;
+
                 default:
                     yield return new JSStatement { Expression = ProcessInternal(frame) };
                     break;
@@ -88,6 +145,42 @@ namespace Braille.MethodTransform
                             Arguments = ProcessList(frame.Values)
                         };
                     }
+                case "ceq":
+                    return new JSConditionalExpression
+                    {
+                        Condition = new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(frame.Values.First()),
+                            Right = ProcessInternal(frame.Values.Last()),
+                            Operator = "==="
+                        },
+                        TrueValue = new JSNumberLiteral { Value = 1 },
+                        FalseValue = new JSNumberLiteral { Value = 0 }
+                    };
+                case "cgt":
+                    return new JSConditionalExpression
+                    {
+                        Condition = new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(frame.Values.First()),
+                            Right = ProcessInternal(frame.Values.Last()),
+                            Operator = ">"
+                        },
+                        TrueValue = new JSNumberLiteral { Value = 1 },
+                        FalseValue = new JSNumberLiteral { Value = 0 }
+                    };
+                case "clt":
+                    return new JSConditionalExpression
+                    {
+                        Condition = new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(frame.Values.First()),
+                            Right = ProcessInternal(frame.Values.Last()),
+                            Operator = "<"
+                        },
+                        TrueValue = new JSNumberLiteral { Value = 1 },
+                        FalseValue = new JSNumberLiteral { Value = 0 }
+                    };
                 case "ldarg":
                     return new JSIdentifier
                     {
@@ -110,7 +203,7 @@ namespace Braille.MethodTransform
                             Value = -1
                         };
                     else //if (opc.StartsWith("ldc.i4"))
-                        return new JSNumberLiteral 
+                        return new JSNumberLiteral
                         {
                             Value = int.Parse(opc.Substring("ldc.i4.".Length))
                         };
@@ -159,9 +252,10 @@ namespace Braille.MethodTransform
                         Value = ProcessInternal(frame.Values.Single())
                     };
                 case "stfld":
-                    return new JSBinaryExpression 
+                    return new JSBinaryExpression
                     {
-                        Left = new JSArrayLookupExpression {
+                        Left = new JSArrayLookupExpression
+                        {
                             Array = ProcessInternal(frame.Values.First()),
                             Indexer = new JSIdentifier
                             {

@@ -51,6 +51,8 @@
     <Compile Include="2.MethodTransform\ILInstruction.cs" />
     <Compile Include="2.MethodTransform\ILReader.cs" />
     <Compile Include="2.MethodTransform\ILToFrameTransform.cs" />
+    <Compile Include="2.MethodTransform\JSConditionalExpression.cs" />
+    <Compile Include="3.JSAst\JSIfStatement.cs" />
     <Compile Include="3.JSAst\JSSwitchCase.cs" />
     <Compile Include="3.JSAst\JSSwitchStatement.cs" />
     <Compile Include="2.MethodTransform\MethodTransformTask.cs" />

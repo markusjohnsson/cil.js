@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Braille.JSAst
 {
-    class JSWhileLoopStatement : JSStatement
+    class JSIfStatement : JSStatement
     {
-        public JSWhileLoopStatement()
+        public JSIfStatement()
         {
             Statements = new List<JSStatement>();
         }
@@ -18,7 +18,7 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return String.Format("while ({0}){{\n{1}\n}}", Condition, string.Join("", Statements));
+            return String.Format("if ({0}){{\n{1}\n}}", Condition, string.Join("", Statements));
         }
     }
 }

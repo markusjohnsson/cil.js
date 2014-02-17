@@ -60,8 +60,6 @@ namespace Braille.MethodTransform
                             statements.AddRange(frameTransform.Process(frame));
                         }
 
-                        functionBlock.Add(new JSStatement { Expression = new JSLineComment { Text = "end switch" } });
-
                         method.JsFunction = new JSFunctionDelcaration
                         {
                             Body = functionBlock,

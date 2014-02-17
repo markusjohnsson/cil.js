@@ -69,7 +69,7 @@ namespace Braille.MethodTransform
                 case StackBehaviour.Pop1:
                 case StackBehaviour.Popi:
                 case StackBehaviour.Popref:
-                    frame.Values.Add(Pop());
+                    frame.Values.Insert(0, Pop());
                     break;
                 case StackBehaviour.Pop1_pop1:
                 case StackBehaviour.Popi_pop1:
@@ -79,8 +79,8 @@ namespace Braille.MethodTransform
                 case StackBehaviour.Popi_popr8:
                 case StackBehaviour.Popref_pop1:
                 case StackBehaviour.Popref_popi:
-                    frame.Values.Add(Pop());
-                    frame.Values.Add(Pop());
+                    frame.Values.Insert(0, Pop());
+                    frame.Values.Insert(0, Pop());
                     break;
                 case StackBehaviour.Popi_popi_popi:
                 case StackBehaviour.Popref_popi_pop1:
@@ -89,9 +89,9 @@ namespace Braille.MethodTransform
                 case StackBehaviour.Popref_popi_popr4:
                 case StackBehaviour.Popref_popi_popr8:
                 case StackBehaviour.Popref_popi_popref:
-                    frame.Values.Add(Pop());
-                    frame.Values.Add(Pop());
-                    frame.Values.Add(Pop());
+                    frame.Values.Insert(0, Pop());
+                    frame.Values.Insert(0, Pop());
+                    frame.Values.Insert(0, Pop());
                     break;
                 case StackBehaviour.Varpop:
                     if (instruction.OpCode.Name.StartsWith("call"))
@@ -100,25 +100,25 @@ namespace Braille.MethodTransform
 
                         if (false == callTarget.IsStatic)
                         {
-                            frame.Values.Add(Pop());
+                            frame.Values.Insert(0, Pop());
                         }
 
                         foreach (var item in callTarget.GetParameters())
                         {
-                            frame.Values.Add(Pop());
+                            frame.Values.Insert(0, Pop());
                         }
                     }
                     else if (instruction.OpCode.Name == "newobj")
                     {
                         foreach (var item in ((ConstructorInfo)instruction.Data).GetParameters())
                         {
-                            frame.Values.Add(Pop());
+                            frame.Values.Insert(0, Pop());
                         }
                     }
                     else if (instruction.OpCode.Name == "ret")
                     {
                         if (method.ReflectionMethod.ReturnType.FullName != "System.Void")
-                            frame.Values.Add(Pop());
+                            frame.Values.Insert(0, Pop());
                     }
                     else
                     {
