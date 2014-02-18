@@ -5,10 +5,10 @@ using System.Reflection;
 
 namespace Braille.MethodTransform
 {
-    class Frame
+    class OpExpression
     {
-        public ILInstruction Instruction;
-        public List<Frame> Values = new List<Frame>();
+        public OpInstruction Instruction;
+        public List<OpExpression> Values = new List<OpExpression>();
 
         public bool IsLabel { get; set; }
 

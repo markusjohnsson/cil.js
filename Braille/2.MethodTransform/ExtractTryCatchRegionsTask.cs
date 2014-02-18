@@ -24,7 +24,7 @@ namespace Braille.MethodTransform
             Type = type;
         }
 
-        public bool Contains(Frame frame)
+        public bool Contains(OpExpression frame)
         {
             return frame.Instruction.Position < To &&
                     frame.GetStartPosition() >= From;
@@ -52,11 +52,16 @@ namespace Braille.MethodTransform
             }
         }
 
-        public IEnumerable<TryCatchFinallyFrameSpan> Process(CilMethod method, IList<Frame> frames)
+        public IEnumerable<TryCatchFinallyFrameSpan> Process(CilMethod method, IList<OpExpression> frames)
         {
-            var ex = method
+            var mtdb = method
                 .ReflectionMethod
-                .GetMethodBody()
+                .GetMethodBody();
+
+            if (mtdb == null)
+                return new TryCatchFinallyFrameSpan[] {null};
+
+            var ex = mtdb
                 .ExceptionHandlingClauses
                 .GroupBy(e => e.TryOffset);
 

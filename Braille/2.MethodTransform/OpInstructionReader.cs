@@ -8,6 +8,192 @@ using System.Reflection.Emit;
 
 namespace Braille.MethodTransform
 {
+    class OpInstructionReader
+    {
+        #region Static initialization
+        static OpCode[] OneByteOpCodes = new OpCode[0x100];
+        static OpCode[] TwoByteOpCodes = new OpCode[0x100];
+
+        static OpInstructionReader()
+        {
+            foreach (var fi in typeof(OpCodes).GetFields(BindingFlags.Public | BindingFlags.Static))
+            {
+                var opCode = (OpCode)fi.GetValue(null);
+                var value = (UInt16)opCode.Value;
+
+                if (value < 0x100)
+                    OneByteOpCodes[value] = opCode;
+                else if ((value & 0xff00) == 0xfe00)
+                    TwoByteOpCodes[value & 0xff] = opCode;
+
+            }
+
+            //File.Delete("out.js");
+
+            //var sb = new List<string>();
+            //foreach (var item in OneByteOpCodes.OrderBy(o => (UInt16)o.Value).Where(o => o.Name != null))
+            //{
+            //    sb.Add(string.Format("case 0x{0:x}: // {1} (0x{2:x})", (UInt16)item.Value, item.Name, item.Value, MethodTransformTask.GetLength(null, item.Name)));
+            //    sb.Add("    break;");
+            //}
+
+            //sb.Add("two bytes from here");
+
+
+            //foreach (var item in TwoByteOpCodes.OrderBy(o => (UInt16)o.Value).Where(o => o.Name != null))
+            //{
+            //    sb.Add(string.Format("case 0x{0:x}: // {1} (0x{2:x}) ({3})", ((UInt16)item.Value) & 0xff, item.Name, item.Value, MethodTransformTask.GetLength(null, item.Name)));
+            //    sb.Add("    break;");
+            //}
+
+            //File.WriteAllLines("out.js", sb.ToArray());
+        }
+        #endregion
+
+        byte[] ilCode;
+        int position = 0;
+        IILReaderResolver resolver;
+
+        public OpInstructionReader(byte[] il, IILReaderResolver resolver)
+        {
+            ilCode = il;
+            this.resolver = resolver;
+        }
+
+        public IEnumerable<OpInstruction> Process()
+        {
+            var offset = 0;
+            while (position < ilCode.Length)
+            {
+                OpCode opCode;
+
+                var p = position;
+
+                var code = ilCode[p];
+                if (code != 0xFE)
+                {
+                    opCode = OneByteOpCodes[code];
+                }
+                else
+                {
+                    position++;
+                    code = ilCode[++p];
+                    opCode = TwoByteOpCodes[code];
+                }
+
+                position++;
+                var size = GetSize(opCode.OperandType);
+                position += size;
+
+                var data = GetData(opCode, new ByteArrayReader(ilCode, p + 1));
+
+                if (opCode.Name == "switch")
+                {
+                    var targetCount = (int)data;
+                    var data2 = new int[targetCount];
+                    for (int i = 0; i < targetCount; i++)
+                    {
+                        data2[i] = BitConverter.ToInt32(ilCode, position + 4 * i);
+                    }
+                    data = data2;
+                    size += 4 * targetCount;
+                    position = position + 4 * targetCount;
+                }
+
+                yield return new OpInstruction
+                {
+                    OpCode = opCode,
+                    Data = data,
+                    Position = p,
+                    Size = size
+                };
+
+                offset++;
+            }
+        }
+
+        private static int GetSize(OperandType operandType)
+        {
+            switch (operandType)
+            {
+                case OperandType.InlineNone:
+                    return 0;
+                case OperandType.ShortInlineBrTarget:
+                case OperandType.ShortInlineI:
+                case OperandType.ShortInlineVar:
+                    return 1;
+                case OperandType.InlineVar:
+                    return 2;
+                case OperandType.InlineBrTarget:
+                case OperandType.InlineField:
+                case OperandType.InlineI:
+                case OperandType.InlineMethod:
+                case OperandType.InlineSig:
+                case OperandType.InlineString:
+                case OperandType.InlineSwitch:
+                case OperandType.InlineTok:
+                case OperandType.InlineType:
+                case OperandType.ShortInlineR:
+                    return 4;
+                case OperandType.InlineI8:
+                case OperandType.InlineR:
+                    return 8;
+                default:
+                    return 0;
+            }
+        }
+
+        private object GetData(OpCode code, ByteArrayReader reader)
+        {
+            object data = null;
+            switch (code.OperandType)
+            {
+                case OperandType.InlineField:
+                    data = resolver.ResolveField(reader.ReadInt32());
+                    break;
+                case OperandType.InlineSwitch:
+                    data = reader.ReadInt32();
+                    break;
+                case OperandType.InlineBrTarget:
+                case OperandType.InlineI:
+                    data = reader.ReadInt32();
+                    break;
+                case OperandType.InlineI8:
+                    data = reader.ReadInt64();
+                    break;
+                case OperandType.InlineMethod:
+                    data = resolver.ResolveMethod(reader.ReadInt32());
+                    break;
+                case OperandType.InlineR:
+                    data = reader.ReadDouble();
+                    break;
+                case OperandType.InlineSig:
+                    data = resolver.ResolveSignature(reader.ReadInt32());
+                    break;
+                case OperandType.InlineString:
+                    data = resolver.ResolveString(reader.ReadInt32());
+                    break;
+                case OperandType.InlineTok:
+                case OperandType.InlineType:
+                    data = resolver.ResolveType(reader.ReadInt32());
+                    break;
+                case OperandType.InlineVar:
+                    data = reader.ReadInt16();
+                    break;
+                case OperandType.ShortInlineVar:
+                case OperandType.ShortInlineI:
+                case OperandType.ShortInlineBrTarget:
+                    data = reader.ReadByte();
+                    break;
+                case OperandType.ShortInlineR:
+                    data = reader.ReadSingle();
+                    break;
+            }
+
+            return data;
+        }
+    }
+
     public class ByteArrayReader
     {
         private int position;
@@ -125,191 +311,5 @@ namespace Braille.MethodTransform
         String = 0x70000000,
         Name = 0x71000000,
         BaseType = 0x72000000
-    }
-
-    class ILReader
-    {
-        #region Static initialization
-        static OpCode[] OneByteOpCodes = new OpCode[0x100];
-        static OpCode[] TwoByteOpCodes = new OpCode[0x100];
-
-        static ILReader()
-        {
-            foreach (var fi in typeof(OpCodes).GetFields(BindingFlags.Public | BindingFlags.Static))
-            {
-                var opCode = (OpCode)fi.GetValue(null);
-                var value = (UInt16)opCode.Value;
-
-                if (value < 0x100)
-                    OneByteOpCodes[value] = opCode;
-                else if ((value & 0xff00) == 0xfe00)
-                    TwoByteOpCodes[value & 0xff] = opCode;
-
-            }
-
-            //File.Delete("out.js");
-
-            //var sb = new List<string>();
-            //foreach (var item in OneByteOpCodes.OrderBy(o => (UInt16)o.Value).Where(o => o.Name != null))
-            //{
-            //    sb.Add(string.Format("case 0x{0:x}: // {1} (0x{2:x})", (UInt16)item.Value, item.Name, item.Value, MethodTransformTask.GetLength(null, item.Name)));
-            //    sb.Add("    break;");
-            //}
-
-            //sb.Add("two bytes from here");
-
-
-            //foreach (var item in TwoByteOpCodes.OrderBy(o => (UInt16)o.Value).Where(o => o.Name != null))
-            //{
-            //    sb.Add(string.Format("case 0x{0:x}: // {1} (0x{2:x}) ({3})", ((UInt16)item.Value) & 0xff, item.Name, item.Value, MethodTransformTask.GetLength(null, item.Name)));
-            //    sb.Add("    break;");
-            //}
-
-            //File.WriteAllLines("out.js", sb.ToArray());
-        }
-        #endregion
-
-        byte[] ilCode;
-        int position = 0;
-        IILReaderResolver resolver;
-
-        public ILReader(byte[] il, IILReaderResolver resolver)
-        {
-            ilCode = il;
-            this.resolver = resolver;
-        }
-
-        public IEnumerable<ILInstruction> Process()
-        {
-            var offset = 0;
-            while (position < ilCode.Length)
-            {
-                OpCode opCode;
-
-                var p = position;
-
-                var code = ilCode[p];
-                if (code != 0xFE)
-                {
-                    opCode = OneByteOpCodes[code];
-                }
-                else
-                {
-                    position++;
-                    code = ilCode[++p];
-                    opCode = TwoByteOpCodes[code];
-                }
-
-                position++;
-                var size = GetSize(opCode.OperandType);
-                position += size;
-
-                var data = GetData(opCode, new ByteArrayReader(ilCode, p + 1));
-
-                if (opCode.Name == "switch")
-                {
-                    var targetCount = (int)data;
-                    var data2 = new int[targetCount];
-                    for (int i = 0; i < targetCount; i++)
-                    {
-                        data2[i] = BitConverter.ToInt32(ilCode, position + 4 * i);
-                    }
-                    data = data2;
-                    size += 4 * targetCount;
-                    position = position + 4 * targetCount;
-                }
-
-                yield return new ILInstruction
-                {
-                    OpCode = opCode,
-                    Data = data,
-                    Position = p,
-                    Size = size
-                };
-
-                offset++;
-            }
-        }
-
-        private static int GetSize(OperandType operandType)
-        {
-            switch (operandType)
-            {
-                case OperandType.InlineNone:
-                    return 0;
-                case OperandType.ShortInlineBrTarget:
-                case OperandType.ShortInlineI:
-                case OperandType.ShortInlineVar:
-                    return 1;
-                case OperandType.InlineVar:
-                    return 2;
-                case OperandType.InlineBrTarget:
-                case OperandType.InlineField:
-                case OperandType.InlineI:
-                case OperandType.InlineMethod:
-                case OperandType.InlineSig:
-                case OperandType.InlineString:
-                case OperandType.InlineSwitch:
-                case OperandType.InlineTok:
-                case OperandType.InlineType:
-                case OperandType.ShortInlineR:
-                    return 4;
-                case OperandType.InlineI8:
-                case OperandType.InlineR:
-                    return 8;
-                default:
-                    return 0;
-            }
-        }
-
-        private object GetData(OpCode code, ByteArrayReader reader)
-        {
-            object data = null;
-            switch (code.OperandType)
-            {
-                case OperandType.InlineField:
-                    data = resolver.ResolveField(reader.ReadInt32());
-                    break;
-                case OperandType.InlineSwitch:
-                    data = reader.ReadInt32();
-                    break;
-                case OperandType.InlineBrTarget:
-                case OperandType.InlineI:
-                    data = reader.ReadInt32();
-                    break;
-                case OperandType.InlineI8:
-                    data = reader.ReadInt64();
-                    break;
-                case OperandType.InlineMethod:
-                    data = resolver.ResolveMethod(reader.ReadInt32());
-                    break;
-                case OperandType.InlineR:
-                    data = reader.ReadDouble();
-                    break;
-                case OperandType.InlineSig:
-                    data = resolver.ResolveSignature(reader.ReadInt32());
-                    break;
-                case OperandType.InlineString:
-                    data = resolver.ResolveString(reader.ReadInt32());
-                    break;
-                case OperandType.InlineTok:
-                case OperandType.InlineType:
-                    data = resolver.ResolveType(reader.ReadInt32());
-                    break;
-                case OperandType.InlineVar:
-                    data = reader.ReadInt16();
-                    break;
-                case OperandType.ShortInlineVar:
-                case OperandType.ShortInlineI:
-                case OperandType.ShortInlineBrTarget:
-                    data = reader.ReadByte();
-                    break;
-                case OperandType.ShortInlineR:
-                    data = reader.ReadSingle();
-                    break;
-            }
-
-            return data;
-        }
     }
 }

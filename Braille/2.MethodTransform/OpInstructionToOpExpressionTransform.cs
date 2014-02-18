@@ -7,52 +7,58 @@ using System.Reflection.Emit;
 
 namespace Braille.MethodTransform
 {
-    class ILToFrameTransform
+    class OpInstructionToOpExpressionTransform
     {
-        public IEnumerable<Frame> Process(CilMethod method)
+        public IEnumerable<OpExpression> Process(CilMethod method)
         {
-            var ex = method.ReflectionMethod.GetMethodBody().ExceptionHandlingClauses;
+            var mtdb = method.ReflectionMethod.GetMethodBody();
+            var ex = mtdb == null ? null : mtdb.ExceptionHandlingClauses;
 
-            var il = new ILReader(method.IlCode, method.Resolver);
+            var il = new OpInstructionReader(method.IlCode, method.Resolver);
             foreach (var instruction in il.Process())
             {
                 foreach (var frame in ProcessInstruction(method, instruction, ex))
                 {
                     yield return frame;
                 }
+
+                Console.WriteLine("{0:x}\t{1}\t{2}", instruction.Position, instruction.ToString(), _stack.Count);
             }
 
             if (_stack.Count == 0)
                 yield break;
 
-            if (_stack.Count != 1)
-                throw new InvalidOperationException();
+            //if (_stack.Count != 1)
+            //    throw new InvalidOperationException();
 
-            yield return _stack.Pop();
+            while (_stack.Any())
+                yield return _stack.Pop();
         }
 
-        private Stack<Frame> _stack = new Stack<Frame>();
+        private Stack<OpExpression> _stack = new Stack<OpExpression>();
 
-        Frame Pop()
+        OpExpression Pop()
         {
             return _stack.Pop();
         }
 
-        void Push(Frame n)
+        void Push(OpExpression n)
         {
             _stack.Push(n);
         }
 
-        private IEnumerable<Frame> ProcessInstruction(CilMethod method, ILInstruction instruction, IEnumerable<ExceptionHandlingClause> ex)
+        static int dupCount;
+
+        private IEnumerable<OpExpression> ProcessInstruction(CilMethod method, OpInstruction instruction, IEnumerable<ExceptionHandlingClause> ex)
         {
             var handler = ex.FirstOrDefault(e => e.HandlerOffset == instruction.Position && e.Flags == ExceptionHandlingClauseOptions.Clause);
             if (handler != null)
             {
                 // A catch-block will pop an exception off the stack, so we need to push something 
-                Push(new Frame { Instruction = null, Handler = handler });
+                Push(new OpExpression { Instruction = null, Handler = handler });
             }
 
-            var frame = new Frame() { Instruction = instruction };
+            var frame = new OpExpression() { Instruction = instruction };
 
             switch (instruction.OpCode.StackBehaviourPop)
             {
@@ -118,7 +124,7 @@ namespace Braille.MethodTransform
                     }
                     break;
                 default:
-                    break;
+                    throw new NotImplementedException();
             }
 
             switch (instruction.OpCode.StackBehaviourPush)
@@ -149,13 +155,16 @@ namespace Braille.MethodTransform
                         else
                             yield return frame;
                     }
+                    else
+                    {
+                        throw new NotImplementedException();
+                    }
                     break;
                 case StackBehaviour.Push1_push1:
                     if (instruction.OpCode.Name == "dup")
                     {
-                        var p = Pop();
-                        Push(p);
-                        Push(p);
+                        Push(frame);
+                        Push(frame);
                     }
                     else
                     {

@@ -7,16 +7,16 @@ using System.Text;
 
 namespace Braille.MethodTransform
 {
-    class InsertFrameLabelsTask
+    class InsertLabelsTask
     {
-        public void Process(IEnumerable<Frame> method)
+        public void Process(IList<OpExpression> opExpressions)
         {
-            InternalProcess(method);
+            InternalProcess(opExpressions);
         }
 
-        private void InternalProcess(IEnumerable<Frame> method)
+        private void InternalProcess(IList<OpExpression> opExpressions)
         {
-            foreach (var f in method)
+            foreach (var f in opExpressions)
             {
                 switch (f.Instruction.OpCode.Name)
                 {
@@ -38,19 +38,19 @@ namespace Braille.MethodTransform
                     case "brfalse":
                         {
                             var targetPosition = GetTargetPosition(f.Instruction);
-                            var targetFrame = method.Where(f2 => f2.ContainsPosition(targetPosition)).First();
+                            var targetFrame = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
                             targetFrame.IsLabel = true;
                         }
                         break;
                     case "switch":
                         var i = f.Instruction;
                         var switchEndPosition = 1 + i.Position + i.Size;
-                        var frameAfterSwitch = method.Where(f2 => f2.ContainsPosition(switchEndPosition)).First();
+                        var frameAfterSwitch = opExpressions.Where(f2 => f2.ContainsPosition(switchEndPosition)).First();
                         frameAfterSwitch.IsLabel = true;
                         foreach (var targetOffset in (int[])f.Instruction.Data)
                         {
                             var targetPosition = 1 + i.Position + i.Size + targetOffset;
-                            var targetFrame = method.Where(f2 => f2.ContainsPosition(targetPosition)).First();
+                            var targetFrame = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
                             targetFrame.IsLabel = true;
                         }
                         break;
@@ -58,7 +58,7 @@ namespace Braille.MethodTransform
             }
         }
 
-        private int GetTargetPosition(ILInstruction i)
+        private int GetTargetPosition(OpInstruction i)
         {
             int data;
             if (i.Data is byte)

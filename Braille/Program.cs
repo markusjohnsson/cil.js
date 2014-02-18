@@ -15,8 +15,8 @@ namespace Braille
         static void Main(string[] args)
         {
             var asmTransform = new AssemblyTransformTask();
-            //asmTransform.AddAssembly(Environment.CurrentDirectory + "\\References\\Braille.Test.exe");
-            asmTransform.AddAssembly(Environment.CurrentDirectory + "\\Braille.exe");
+            asmTransform.AddAssembly(Environment.CurrentDirectory + "\\References\\Braille.Test.exe");
+            //asmTransform.AddAssembly(Environment.CurrentDirectory + "\\Braille.exe");
 
             var asm = asmTransform.Process().ToList();
 

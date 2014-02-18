@@ -9,80 +9,17 @@ namespace Braille.MethodTransform
 {
     class MethodTransformTask
     {
-        private ILToFrameTransform methodTransform;
-        private FrameToAstTransform frameTransform;
-        private InsertFrameLabelsTask insertFrameLabelsTask;
+        private OpInstructionToOpExpressionTransform methodTransform;
+        private OpToJsTransform frameTransform;
+        private InsertLabelsTask insertFrameLabelsTask;
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask;
 
         public MethodTransformTask()
         {
-            methodTransform = new ILToFrameTransform();
-            insertFrameLabelsTask = new InsertFrameLabelsTask();
+            methodTransform = new OpInstructionToOpExpressionTransform();
+            insertFrameLabelsTask = new InsertLabelsTask();
             insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
-            frameTransform = new FrameToAstTransform();
-        }
-
-        class BrailleBlock
-        {
-            public List<JSStatement> Statements = new List<JSStatement>();
-
-            private int depth;
-            private bool hasBranching;
-
-            public BrailleBlock(int depth)
-            {
-                this.depth = depth;
-            }
-
-            public IEnumerable<JSStatement> Build()
-            {
-                if (hasBranching)
-                {
-                    yield return new JSStatement
-                    {
-                        Expression = new JSVariableDelcaration
-                        {
-                            Name = "__braille_pos_" + depth + "__",
-                            Value = new JSNumberLiteral { Value = 0 }
-                        }
-                    };
-
-                    yield return new JSWhileLoopStatement
-                    {
-                        Condition = new JSBoolLiteral
-                        {
-                            Value = true
-                        },
-                        Statements = new List<JSStatement> 
-                    {
-                        new JSSwitchStatement
-                        {
-                            Value = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
-                            Statements = Statements
-                        }
-                    }
-                    };
-                }
-                else
-                {
-                    foreach (var stmnt in Statements)
-                        yield return stmnt;
-                }
-            }
-
-            internal void InsertLabel(int p)
-            {
-                if (false == hasBranching)
-                    Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
-
-                hasBranching = true;
-                Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = p } });
-            }
-
-            internal void AddStatements(IEnumerable<JSStatement> statements)
-            {
-                Statements.AddRange(statements);
-            }
+            frameTransform = new OpToJsTransform();
         }
 
         public void Process(IEnumerable<CilAssembly> asms)
@@ -102,8 +39,8 @@ namespace Braille.MethodTransform
                         insertFrameLabelsTask.Process(frames);
                         var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, frames));
 
-                        var block = new BrailleBlock(0);
-                        var blockStack = new Stack<BrailleBlock>();
+                        var block = new BlockBuilder(0);
+                        var blockStack = new Stack<BlockBuilder>();
 
                         TryCatchFinallyFrameSpan awaitedBlock = null;
                         TryCatchFinallyFrameSpan currentBlock = null;
@@ -153,7 +90,7 @@ namespace Braille.MethodTransform
                             while (awaitedBlock != null && awaitedBlock.Contains(frame))
                             {
                                 blockStack.Push(block);
-                                block = new BrailleBlock(blockStack.Count);
+                                block = new BlockBuilder(blockStack.Count);
                                 tryBlockStack.Push(currentBlock);
                                 currentBlock = awaitedBlock;
                                 awaitedBlock = tryBlockQueue.Dequeue();
@@ -177,12 +114,12 @@ namespace Braille.MethodTransform
 
         private static void Print(CilMethod method)
         {
-            var il = new ILReader(method.IlCode, method.Resolver);
+            var il = new OpInstructionReader(method.IlCode, method.Resolver);
             foreach (var instruction in il.Process())
                 Console.WriteLine("{0:x}\t: {1}", instruction.Position, instruction.ToString());
         }
 
-        private static void Print(Frame frame, int depth = 0)
+        private static void Print(OpExpression frame, int depth = 0)
         {
             if (frame == null)
                 return;

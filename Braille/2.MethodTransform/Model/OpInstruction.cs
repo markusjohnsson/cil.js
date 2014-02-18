@@ -2,7 +2,7 @@
 using System;
 namespace Braille.MethodTransform
 {
-    class ILInstruction
+    class OpInstruction
     { 
         public System.Reflection.Emit.OpCode OpCode { get; set; }
 

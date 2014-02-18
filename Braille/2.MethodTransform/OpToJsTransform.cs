@@ -6,9 +6,9 @@ using System.Reflection;
 
 namespace Braille.MethodTransform
 {
-    class FrameToAstTransform
+    class OpToJsTransform
     {
-        public IEnumerable<JSStatement> Process(Frame frame)
+        public IEnumerable<JSStatement> Process(OpExpression frame)
         {
             var opc = frame.Instruction.OpCode.Name;
 
@@ -162,7 +162,7 @@ namespace Braille.MethodTransform
 
         }
 
-        private JSIfStatement CreateComparisonBranch(Frame frame, string op)
+        private JSIfStatement CreateComparisonBranch(OpExpression frame, string op)
         {
             return new JSIfStatement
             {
@@ -193,7 +193,7 @@ namespace Braille.MethodTransform
             };
         }
 
-        private double GetTargetPosition(ILInstruction i)
+        private double GetTargetPosition(OpInstruction i)
         {
             int data;
             if (i.Data is byte)
@@ -206,7 +206,7 @@ namespace Braille.MethodTransform
             return 1 + i.Position + i.Size + data;
         }
 
-        private JSExpression ProcessInternal(Frame frame)
+        private JSExpression ProcessInternal(OpExpression frame)
         {
             if (frame == null || frame.Instruction == null)
                 return new JSEmptyExpression();
@@ -407,7 +407,7 @@ namespace Braille.MethodTransform
             }
         }
 
-        private IEnumerable<JSExpression> ProcessList(IEnumerable<Frame> list)
+        private IEnumerable<JSExpression> ProcessList(IEnumerable<OpExpression> list)
         {
             foreach (var i in list)
                 yield return ProcessInternal(i);
