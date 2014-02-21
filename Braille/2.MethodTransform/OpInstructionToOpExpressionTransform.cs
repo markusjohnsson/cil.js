@@ -16,8 +16,8 @@ namespace Braille.MethodTransform
             var mtdb = method.ReflectionMethod.GetMethodBody();
             var ex = mtdb == null ? null : mtdb.ExceptionHandlingClauses;
 
-            if (File.Exists("program.log"))
-                File.Delete("program.log");
+            //if (File.Exists("program.log"))
+            //    File.Delete("program.log");
 
             var il = new OpInstructionReader(method.IlCode, method.Resolver);
             foreach (var instruction in il.Process())
@@ -27,8 +27,8 @@ namespace Braille.MethodTransform
                     yield return frame;
                 }
 
-                Thread.Sleep(1);
-                File.AppendAllText("program.log", string.Format("{0:x}\t{1}\t{2}\n", instruction.Position, instruction.ToString(), _stack.Count));
+                //Thread.Sleep(1);
+                //File.AppendAllText("program.log", string.Format("{0:x}\t{1}\t{2}\n", instruction.Position, instruction.ToString(), _stack.Count));
             }
 
             if (_stack.Count == 0)
