@@ -87,6 +87,9 @@ namespace Braille.MethodTransform
 
                 var data = GetData(opCode, new ByteArrayReader(ilCode, p + 1));
 
+                if (opCode.Name.EndsWith("."))
+                    p -= 1;
+
                 if (opCode.Name == "switch")
                 {
                     var targetCount = (int)data;
@@ -239,15 +242,19 @@ namespace Braille.MethodTransform
     internal class ModuleILResolver : IILReaderResolver
     {
         private Module module;
+        private Type type;
+        private MethodInfo method;
 
-        public ModuleILResolver(Module module)
+        public ModuleILResolver(MethodInfo method)
         {
-            this.module = module;
+            this.module = method.Module;
+            this.type = method.DeclaringType;
+            this.method = method;
         }
 
         public FieldInfo ResolveField(int metadataToken)
         {
-            return this.module.ResolveField(metadataToken);
+            return this.module.ResolveField(metadataToken, type.GetGenericArguments(), method.GetGenericArguments());
         }
 
         public MemberInfo ResolveMember(int metadataToken)
@@ -257,7 +264,7 @@ namespace Braille.MethodTransform
 
         public MethodBase ResolveMethod(int metadataToken)
         {
-            return this.module.ResolveMethod(metadataToken);
+            return this.module.ResolveMethod(metadataToken, type.GetGenericArguments(), method.GetGenericArguments());
         }
 
         public byte[] ResolveSignature(int metadataToken)
@@ -279,7 +286,7 @@ namespace Braille.MethodTransform
 
         public Type ResolveType(int metadataToken)
         {
-            return this.module.ResolveType(metadataToken);
+            return this.module.ResolveType(metadataToken, type.GetGenericArguments(), method.GetGenericArguments());
         }
     }
 

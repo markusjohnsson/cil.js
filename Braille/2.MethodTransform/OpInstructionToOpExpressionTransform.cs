@@ -1,9 +1,11 @@
 ﻿using Braille.AssemblyTransform;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Threading;
 
 namespace Braille.MethodTransform
 {
@@ -14,6 +16,9 @@ namespace Braille.MethodTransform
             var mtdb = method.ReflectionMethod.GetMethodBody();
             var ex = mtdb == null ? null : mtdb.ExceptionHandlingClauses;
 
+            if (File.Exists("program.log"))
+                File.Delete("program.log");
+
             var il = new OpInstructionReader(method.IlCode, method.Resolver);
             foreach (var instruction in il.Process())
             {
@@ -22,7 +27,8 @@ namespace Braille.MethodTransform
                     yield return frame;
                 }
 
-                Console.WriteLine("{0:x}\t{1}\t{2}", instruction.Position, instruction.ToString(), _stack.Count);
+                Thread.Sleep(1);
+                File.AppendAllText("program.log", string.Format("{0:x}\t{1}\t{2}\n", instruction.Position, instruction.ToString(), _stack.Count));
             }
 
             if (_stack.Count == 0)
@@ -94,7 +100,7 @@ namespace Braille.MethodTransform
                 case StackBehaviour.Varpop:
                     if (instruction.OpCode.Name.StartsWith("call"))
                     {
-                        var callTarget = (MethodInfo)instruction.Data;
+                        var callTarget = (MethodBase)instruction.Data;
 
                         if (false == callTarget.IsStatic)
                         {
@@ -150,7 +156,9 @@ namespace Braille.MethodTransform
                     }
                     else if (instruction.OpCode.Name.StartsWith("call"))
                     {
-                        if (((MethodInfo)instruction.Data).ReturnType.FullName != "System.Void")
+                        var mi = instruction.Data as MethodInfo;
+
+                        if (mi != null && mi.ReturnType.FullName != "System.Void")
                             Push(frame);
                         else
                             yield return frame;

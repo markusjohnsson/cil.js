@@ -70,7 +70,7 @@ namespace Braille.AssemblyTransform
                 IsVirtual = method.IsVirtual,
                 IlCode = GetIl(method),
                 MetadataToken = method.MetadataToken,
-                Resolver = new ModuleILResolver(method.Module)
+                Resolver = new ModuleILResolver(method)
             };
         }
 

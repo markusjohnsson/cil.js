@@ -232,7 +232,7 @@ namespace Braille.MethodTransform
                     };
                 case "call":
                     {
-                        var mi = ((MethodInfo)frame.Instruction.Data);
+                        var mi = ((MethodBase)frame.Instruction.Data);
                         return new JSCallExpression
                         {
                             Function = new JSIdentifier { Name = mi.DeclaringType.FullName + "." + mi.Name },
@@ -241,7 +241,7 @@ namespace Braille.MethodTransform
                     }
                 case "callvirt":
                     {
-                        var mi = ((MethodInfo)frame.Instruction.Data);
+                        var mi = ((MethodBase)frame.Instruction.Data);
                         return new JSCallExpression
                         {
                             Function = new JSIdentifier { Name = mi.DeclaringType.FullName + "." + mi.Name },
@@ -292,26 +292,98 @@ namespace Braille.MethodTransform
                         Name = "arguments[" + opc.Substring("ldarg.".Length) + "]"
                     };
                 case "ldc":
-                    if (opc == "ldc.i4")
-                        return new JSNumberLiteral
-                        {
-                            Value = (int)frame.Instruction.Data
-                        };
-                    else if (opc == "ldc.i4.s")
-                        return new JSNumberLiteral
-                        {
-                            Value = (int)(byte)frame.Instruction.Data
-                        };
-                    else if (opc == "ldc.i4.m1")
-                        return new JSNumberLiteral
-                        {
-                            Value = -1
-                        };
-                    else //if (opc.StartsWith("ldc.i4"))
-                        return new JSNumberLiteral
-                        {
-                            Value = int.Parse(opc.Substring("ldc.i4.".Length))
-                        };
+                    if (opc.StartsWith("ldc.i4"))
+                    {
+                        if (opc == "ldc.i4")
+                            return new JSNumberLiteral
+                            {
+                                Value = (int)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.i4.s")
+                            return new JSNumberLiteral
+                            {
+                                Value = (int)(byte)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.i4.m1")
+                            return new JSNumberLiteral
+                            {
+                                Value = -1
+                            };
+                        else //if (opc.StartsWith("ldc.i4"))
+                            return new JSNumberLiteral
+                            {
+                                Value = int.Parse(opc.Substring("ldc.i4.".Length))
+                            };
+                    }
+                    else if (opc.StartsWith("ldc.i8"))
+                    {
+                        if (opc == "ldc.i8")
+                            return new JSNumberLiteral
+                            {
+                                Value = (long)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.i8.s")
+                            return new JSNumberLiteral
+                            {
+                                Value = (long)(byte)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.i8.m1")
+                            return new JSNumberLiteral
+                            {
+                                Value = -1L
+                            };
+                        else //if (opc.StartsWith("ldc.i8"))
+                            return new JSNumberLiteral
+                            {
+                                Value = long.Parse(opc.Substring("ldc.i8.".Length))
+                            };
+                    }
+                    else if (opc.StartsWith("ldc.r8"))
+                    {
+                        if (opc == "ldc.r8")
+                            return new JSNumberLiteral
+                            {
+                                Value = (double)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.r8.s")
+                            return new JSNumberLiteral
+                            {
+                                Value = (double)(byte)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.r8.m1")
+                            return new JSNumberLiteral
+                            {
+                                Value = -1L
+                            };
+                        else //if (opc.StartsWith("ldc.i8"))
+                            return new JSNumberLiteral
+                            {
+                                Value = double.Parse(opc.Substring("ldc.r8.".Length))
+                            };
+                    }
+                    else 
+                    {
+                        if (opc == "ldc.r4")
+                            return new JSNumberLiteral
+                            {
+                                Value = (float)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.r4.s")
+                            return new JSNumberLiteral
+                            {
+                                Value = (float)(byte)frame.Instruction.Data
+                            };
+                        else if (opc == "ldc.r4.m1")
+                            return new JSNumberLiteral
+                            {
+                                Value = -1L
+                            };
+                        else //if (opc.StartsWith("ldc.i8"))
+                            return new JSNumberLiteral
+                            {
+                                Value = float.Parse(opc.Substring("ldc.r4.".Length))
+                            };
+                    }
                 case "ldfld":
                     return new JSIdentifier
                     {
