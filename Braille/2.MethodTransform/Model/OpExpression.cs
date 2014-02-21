@@ -29,5 +29,14 @@ namespace Braille.MethodTransform
         }
 
         public ExceptionHandlingClause Handler { get; set; }
+
+        public IEnumerable<OpExpression> Postfix()
+        {
+            foreach (var val in Values)
+                foreach (var c in val.Postfix().Where(x => x != null))
+                    yield return c;
+
+            yield return this;
+        }
     }
 }

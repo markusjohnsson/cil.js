@@ -39,13 +39,13 @@ namespace Braille.MethodTransform
                         Value = true
                     },
                     Statements = new List<JSStatement> 
+                    {
+                        new JSSwitchStatement
                         {
-                            new JSSwitchStatement
-                            {
-                                Value = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
-                                Statements = Statements
-                            }
+                            Value = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
+                            Statements = Statements
                         }
+                    }
                 };
             }
             else
@@ -58,7 +58,7 @@ namespace Braille.MethodTransform
         internal void InsertLabel(int p)
         {
             if (false == hasBranching)
-                Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
+                Statements.Insert(0, new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
 
             hasBranching = true;
 

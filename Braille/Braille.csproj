@@ -56,6 +56,8 @@
     <Compile Include="2.MethodTransform\ExtractTryCatchRegionsTask.cs" />
     <Compile Include="3.JSAst\JSConditionalExpression.cs" />
     <Compile Include="3.JSAst\JSIfStatement.cs" />
+    <Compile Include="3.JSAst\JSNullLiteral.cs" />
+    <Compile Include="3.JSAst\JSPropertyAccessExpression.cs" />
     <Compile Include="3.JSAst\JSSwitchCase.cs" />
     <Compile Include="3.JSAst\JSSwitchStatement.cs" />
     <Compile Include="2.MethodTransform\MethodTransformTask.cs" />
@@ -66,7 +68,9 @@
     <Compile Include="3.JSAst\JSLineComment.cs" />
     <Compile Include="3.JSAst\JSNewExpression.cs" />
     <Compile Include="3.JSAst\JSStatement.cs" />
+    <Compile Include="3.JSAst\JSThrowExpression.cs" />
     <Compile Include="3.JSAst\JSTryBlock.cs" />
+    <Compile Include="3.JSAst\JSUnaryExpression.cs" />
     <Compile Include="3.JSAst\JSWhileLoopStatement.cs" />
     <Compile Include="5.Runtime\InternalPointer.cs" />
     <Compile Include="5.Runtime\Ops.cs" />

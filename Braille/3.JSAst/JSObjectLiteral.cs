@@ -9,6 +9,11 @@ namespace Braille.JSAst
     {
         public Dictionary<string, JSExpression> Properties { get; set; }
 
+        public JSObjectLiteral()
+        {
+            Properties = new Dictionary<string, JSExpression>();
+        }
+
         public override string ToString()
         {
             return string.Format("{{ {0} }}",

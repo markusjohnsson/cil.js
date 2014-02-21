@@ -7,7 +7,20 @@ namespace Braille.JSAst
 {
     class JSVariableDelcaration : JSExpression
     {
-        public string Name { get; set; }
+        private string _Name;
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                if (value == "locs")
+                    throw new NotSupportedException();
+                _Name = value;
+            }
+        }
         public JSExpression Value { get; set; }
 
         public override string ToString()

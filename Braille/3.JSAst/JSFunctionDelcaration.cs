@@ -14,8 +14,9 @@ namespace Braille.JSAst
         public override string ToString()
         {
             return string.Format("function {0}({1}) {{ {2} }}", 
-                Name.ToString(), 
-                string.Join(",", Parameters.Select(p => p.ToString())),
+                Name ?? "", 
+                Parameters == null ? 
+                    "" : string.Join(",", Parameters.Select(p => p.ToString())),
                 string.Join("\n", Body.Select(p => p.ToString())).ToString());
         }
     }
