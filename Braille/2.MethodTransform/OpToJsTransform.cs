@@ -453,9 +453,9 @@ namespace Braille.MethodTransform
                         Left = new JSArrayLookupExpression
                         {
                             Array = ProcessInternal(frame.Values.First()),
-                            Indexer = new JSIdentifier
+                            Indexer = new JSStringLiteral
                             {
-                                Name = (string)((FieldInfo)frame.Instruction.Data).Name
+                                Value = (string)((FieldInfo)frame.Instruction.Data).Name
                             }
                         },
                         Right = ProcessInternal(frame.Values.Last()),
