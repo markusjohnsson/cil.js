@@ -60,7 +60,7 @@ namespace Braille.MethodTransform
                                 Name = "__braille_pos__"
                             },
                             Operator = "=",
-                            Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                            Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
                         }
                     };
                     yield return new JSStatement
@@ -117,7 +117,7 @@ namespace Braille.MethodTransform
                                         Name = "__braille_pos__"
                                     },
                                     Operator = "=",
-                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
                                 }
                             },
                             new JSStatement
@@ -147,7 +147,7 @@ namespace Braille.MethodTransform
                                         Name = "__braille_pos__"
                                     },
                                     Operator = "==",
-                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
                                 }
                             },
                             new JSStatement
@@ -181,7 +181,7 @@ namespace Braille.MethodTransform
                         {
                             Left = new JSIdentifier { Name = "__braille_switch_value__" },
                             Operator = ">=",
-                            Right = new JSNumberLiteral { Value = ((int[])frame.Instruction.Data).Length }
+                            Right = new JSNumberLiteral { Value = ((int[])frame.Instruction.Data).Length, IsHex = true }
                         },
                         Statements = {
                             new JSStatement
@@ -193,7 +193,7 @@ namespace Braille.MethodTransform
                                         Name = "__braille_pos__"
                                     },
                                     Operator = "=",
-                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
                                 }
                             },
                             new JSStatement
@@ -207,7 +207,7 @@ namespace Braille.MethodTransform
                         Expression = new JSVariableDelcaration
                         {
                             Name = "__braille_jmp__",
-                            Value = new JSArrayLiteral { Values = ((int[])frame.Instruction.Data).Select(d => new JSNumberLiteral { Value = d }) }
+                            Value = new JSArrayLiteral { Values = ((int[])frame.Instruction.Data).Select(d => new JSNumberLiteral { Value = d, IsHex = true }) }
                         }
                     };
                     yield return new JSStatement
@@ -221,7 +221,7 @@ namespace Braille.MethodTransform
                             Operator = "=",
                             Right = new JSBinaryExpression
                             {
-                                Left = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) },
+                                Left = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true },
                                 Operator = "+",
                                 Right = new JSArrayLookupExpression
                                 {
@@ -265,7 +265,7 @@ namespace Braille.MethodTransform
                                 Name = "__braille_pos__"
                             },
                             Operator = op,
-                            Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction) }
+                            Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
                         }
                     },
                     new JSStatement
@@ -280,7 +280,7 @@ namespace Braille.MethodTransform
         {
             int data;
             if (i.Data is byte)
-                data = (byte)i.Data;
+                data = (sbyte)(byte)i.Data;
             else if (i.Data is int)
                 data = (int)i.Data;
             else
@@ -336,9 +336,14 @@ namespace Braille.MethodTransform
                 case "call":
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
+
                         return new JSCallExpression
                         {
-                            Function = new JSIdentifier { Name = mi.DeclaringType.FullName + "." + mi.Name },
+                            Function = new JSPropertyAccessExpression
+                            {
+                                Host = CreateTypeIdentifier(mi.DeclaringType),
+                                Property = mi.Name
+                            },
                             Arguments = ProcessList(frame.Values)
                         };
                     }
@@ -347,7 +352,11 @@ namespace Braille.MethodTransform
                         var mi = ((MethodBase)frame.Instruction.Data);
                         return new JSCallExpression
                         {
-                            Function = new JSIdentifier { Name = mi.DeclaringType.FullName + "." + mi.Name },
+                            Function = new JSPropertyAccessExpression
+                            {
+                                Host = CreateTypeIdentifier(mi.DeclaringType),
+                                Property = mi.Name
+                            },
                             Arguments = ProcessList(frame.Values)
                         };
                     }
@@ -425,18 +434,30 @@ namespace Braille.MethodTransform
                     {
                         Left = ProcessInternal(frame.Values.Single()),
                         Operator = "instanceof",
-                        Right = new JSIdentifier { Name = ((Type)frame.Instruction.Data).FullName }
+                        Right = CreateTypeIdentifier((Type)frame.Instruction.Data)
                     };
                 case "ldarg":
-                    return new JSIdentifier
                     {
-                        Name = "arguments[" + opc.Substring("ldarg.".Length) + "]"
-                    };
+                        var id = "";
+                        if (frame.Instruction.Data != null)
+                            id = frame.Instruction.Data.ToString();
+
+                        return new JSIdentifier
+                        {
+                            Name = "__braille_args__[" + opc.Replace(".s", ".").Replace(".","").Substring("ldarg".Length) + id + "]"
+                        };
+                    }
                 case "ldarga":
-                    return WrapInReaderWriter(new JSIdentifier
                     {
-                        Name = "arguments[" + opc.Substring("ldarg.".Length) + "]"
-                    });
+                        var id = "";
+                        if (frame.Instruction.Data != null)
+                            id = frame.Instruction.Data.ToString();
+
+                        return WrapInReaderWriter(new JSIdentifier
+                        {
+                            Name = "__braille_args__[" + opc.Replace(".s", ".").Replace(".", "").Substring("ldarga".Length) + id + "]"
+                        });
+                    }
                 case "ldc":
                     if (opc.StartsWith("ldc.i4"))
                     {
@@ -538,19 +559,17 @@ namespace Braille.MethodTransform
                         Indexer = ProcessInternal(frame.Values.Last())
                     };
                 case "ldfld":
-                    return new JSArrayLookupExpression
+                    return new JSPropertyAccessExpression
                     {
-                        Array = ProcessInternal(frame.Values.Single()),
-                        Indexer = new JSStringLiteral
-                        {
-                            Value = ((FieldInfo)frame.Instruction.Data).Name
-                        }
+                        Host = ProcessInternal(frame.Values.Single()),
+                        Property = ((FieldInfo)frame.Instruction.Data).Name
                     };
                 case "ldftn":
                     var method = (MethodBase)frame.Instruction.Data;
-                    return new JSIdentifier
+                    return new JSPropertyAccessExpression
                     {
-                        Name = method.DeclaringType + "." + method.Name
+                        Host = CreateTypeIdentifier(method.DeclaringType),
+                        Property = method.Name
                     };
                 case "ldlen":
                     return new JSPropertyAccessExpression
@@ -589,16 +608,10 @@ namespace Braille.MethodTransform
                 case "ldsfld":
                     {
                         var field = (FieldInfo)frame.Instruction.Data;
-                        return new JSArrayLookupExpression
+                        return new JSPropertyAccessExpression
                         {
-                            Array = new JSIdentifier
-                            {
-                                Name = field.DeclaringType.FullName
-                            },
-                            Indexer = new JSStringLiteral
-                            {
-                                Value = (string)field.Name
-                            }
+                            Host = CreateTypeIdentifier(field.DeclaringType),
+                            Property = (string)field.Name
                         };
                     }
                 case "ldflda":
@@ -606,10 +619,7 @@ namespace Braille.MethodTransform
                         var field = (FieldInfo)frame.Instruction.Data;
                         return WrapInReaderWriter(new JSArrayLookupExpression
                         {
-                            Array = new JSIdentifier
-                            {
-                                Name = field.DeclaringType.FullName
-                            },
+                            Array = CreateTypeIdentifier(field.DeclaringType),
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)field.Name
@@ -622,7 +632,7 @@ namespace Braille.MethodTransform
                         Value = (string)frame.Instruction.Data
                     };
                 case "leave":
-                    return new JSEmptyExpression();
+                    return new JSBreakExpression();
                 case "mul":
                     return new JSBinaryExpression
                     {
@@ -633,12 +643,15 @@ namespace Braille.MethodTransform
                 case "newarr":
                     return new JSArrayLiteral { Values = new JSExpression[0] };
                 case "newobj":
-                    var ctor = (ConstructorInfo)frame.Instruction.Data;
-                    return new JSNewExpression
                     {
-                        Constructor = new JSIdentifier { Name = ctor.DeclaringType.FullName },
-                        Arguments = ProcessList(frame.Values)
-                    };
+                        var ctor = (ConstructorInfo)frame.Instruction.Data;
+
+                        return new JSNewExpression
+                        {
+                            Constructor = CreateTypeIdentifier(ctor.DeclaringType),
+                            Arguments = ProcessList(frame.Values)
+                        };
+                    }
                 case "nop":
                     return new JSEmptyExpression();
                 case "or":
@@ -741,10 +754,7 @@ namespace Braille.MethodTransform
                         {
                             Left = new JSArrayLookupExpression
                             {
-                                Array = new JSIdentifier
-                                {
-                                    Name = field.DeclaringType.FullName
-                                },
+                                Array = CreateTypeIdentifier(field.DeclaringType),
                                 Indexer = new JSStringLiteral
                                 {
                                     Value = (string)field.Name
@@ -780,6 +790,32 @@ namespace Braille.MethodTransform
             }
         }
 
+        private static JSExpression CreateTypeIdentifier(Type type)
+        {
+            var baseName = new JSPropertyAccessExpression
+            {
+                Host = new JSIdentifier { Name = type.Namespace ?? "window" },
+                Property = type.Name
+            };
+
+            if (type.IsGenericType)
+            {
+                return new JSCallExpression
+                {
+                    Function = new JSPropertyAccessExpression
+                    {
+                        Host = baseName,
+                        Property = "g"
+                    },
+                    Arguments = type.GetGenericArguments().Select(t => CreateTypeIdentifier(t)).ToList()
+                };
+            }
+            else
+            {
+                return baseName;
+            }
+        }
+
         private static JSObjectLiteral WrapInReaderWriter(JSExpression ifier)
         {
             return new JSObjectLiteral
@@ -797,7 +833,7 @@ namespace Braille.MethodTransform
                                     Expression = new JSBinaryExpression 
                                     { 
                                         Left = ifier, 
-                                        Operator ="=", 
+                                        Operator = "=", 
                                         Right = new JSArrayLookupExpression {
                                             Array = new JSIdentifier 
                                             { 

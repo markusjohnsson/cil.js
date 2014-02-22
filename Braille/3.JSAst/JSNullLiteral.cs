@@ -11,5 +11,10 @@ namespace Braille.JSAst
         {
             return "null";
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
+        }
     }
 }

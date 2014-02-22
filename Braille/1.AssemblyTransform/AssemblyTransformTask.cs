@@ -8,8 +8,6 @@ using Braille.MethodTransform;
 
 namespace Braille.AssemblyTransform
 {
-    
-
     class AssemblyTransformTask
     {
         private List<string> paths = new List<string>();
@@ -74,7 +72,7 @@ namespace Braille.AssemblyTransform
             };
         }
 
-        private static byte[] GetIl(MethodInfo method)
+        private static byte[] GetIl(MethodBase method)
         {
             if (method.GetMethodBody() == null)
                 return new byte[0];

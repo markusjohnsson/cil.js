@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Braille.MethodTransform
 {
-    enum FrameSpanType { Try, Catch, CatchWrapper, Finally }
+    enum FrameSpanType { Try, Catch, CatchWrapper, Finally, Fault }
 
     class TryCatchFinallyFrameSpan
     {
@@ -39,16 +39,28 @@ namespace Braille.MethodTransform
             public TryCatchFinallyFrameSpan TrySpan;
             public List<TryCatchFinallyFrameSpan> CatchSpans;
             public TryCatchFinallyFrameSpan FinallySpan;
+            public TryCatchFinallyFrameSpan FaultSpan { get; set; }
 
             public IEnumerable<TryCatchFinallyFrameSpan> GetSpans()
             {
                 yield return TrySpan;
-                if (CatchSpans.Any())
-                    yield return new TryCatchFinallyFrameSpan(CatchSpans.Min(c => c.From), CatchSpans.Max(c => c.To), FrameSpanType.CatchWrapper);
+                if (GetExceptionHandlers().Any())
+                    yield return new TryCatchFinallyFrameSpan(GetExceptionHandlers().Min(c => c.From), GetExceptionHandlers().Max(c => c.To), FrameSpanType.CatchWrapper);
                 foreach (var span in CatchSpans)
                     yield return span;
+                if (FaultSpan != null)
+                    yield return FaultSpan;
                 if (FinallySpan != null)
                     yield return FinallySpan;
+            }
+
+            private IEnumerable<TryCatchFinallyFrameSpan> GetExceptionHandlers()
+            {
+                foreach (var c in CatchSpans)
+                    yield return c;
+
+                if (FaultSpan != null)
+                    yield return FaultSpan;
             }
         }
 
@@ -88,6 +100,12 @@ namespace Braille.MethodTransform
                 if (finallyClause != null)
                 {
                     result.FinallySpan = new TryCatchFinallyFrameSpan(finallyClause.HandlerOffset, finallyClause.HandlerOffset + finallyClause.HandlerLength, FrameSpanType.Finally);
+                }
+
+                var faultClause = clauseGroup.FirstOrDefault(f => f.Flags == ExceptionHandlingClauseOptions.Fault);
+                if (faultClause != null)
+                {
+                    result.FaultSpan = new TryCatchFinallyFrameSpan(faultClause.HandlerOffset, faultClause.HandlerOffset + faultClause.HandlerLength, FrameSpanType.Fault);
                 }
 
                 areas.Add(result);

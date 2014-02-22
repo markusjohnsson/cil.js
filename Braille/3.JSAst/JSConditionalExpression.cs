@@ -14,5 +14,12 @@ namespace Braille.JSAst
         {
             return String.Format("({0}) ? ({1}) : ({2})", Condition, TrueValue, FalseValue);
         }
+
+        public override System.Collections.Generic.IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Condition;
+            yield return TrueValue;
+            yield return FalseValue;
+        }
     }
 }

@@ -13,5 +13,10 @@ namespace Braille.JSAst
         {
             return string.Format("[ {0} ]", string.Join(",", Values.Select(v => v.ToString())));
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            return Values;
+        }
     }
 }

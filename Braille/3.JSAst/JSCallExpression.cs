@@ -23,5 +23,12 @@ namespace Braille.JSAst
 
             return s;
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Function;
+            foreach (var x in Arguments)
+                yield return x;
+        }
     }
 }

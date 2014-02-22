@@ -18,7 +18,7 @@ namespace Braille.AssemblyTransform
 
         public int MetadataToken { get; set; }
 
-        public IILReaderResolver Resolver { get; set; }
+        public ModuleILResolver Resolver { get; set; }
 
         public JSExpression GetMethodDeclaration()
         {
@@ -29,6 +29,7 @@ namespace Braille.AssemblyTransform
                     { "name", new JSStringLiteral { Value = Name } },
                     { "hideBySig", new JSBoolLiteral { Value = IsHideBySig } },
                     { "virtual", new JSBoolLiteral { Value = IsVirtual } },
+                    { "static", new JSBoolLiteral { Value = ReflectionMethod.IsStatic } },
                     { "body", JsFunction },
                     { "metadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } } 
                 }
@@ -37,7 +38,7 @@ namespace Braille.AssemblyTransform
 
         public byte[] IlCode { get; set; }
 
-        public MethodInfo ReflectionMethod { get; set; }
+        public MethodBase ReflectionMethod { get; set; }
 
         public JSFunctionDelcaration JsFunction { get; set; }
     }

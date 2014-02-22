@@ -13,5 +13,10 @@ namespace Braille.JSAst
         {
             return Value ? "true": "false";
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
+        }
     }
 }

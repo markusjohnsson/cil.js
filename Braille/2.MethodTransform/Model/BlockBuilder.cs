@@ -28,7 +28,7 @@ namespace Braille.MethodTransform
                     Expression = new JSVariableDelcaration
                     {
                         Name = "__braille_pos_" + depth + "__",
-                        Value = new JSNumberLiteral { Value = 0 }
+                        Value = new JSNumberLiteral { Value = 0, IsHex = true }
                     }
                 };
 
@@ -58,11 +58,11 @@ namespace Braille.MethodTransform
         internal void InsertLabel(int p)
         {
             if (false == hasBranching)
-                Statements.Insert(0, new JSSwitchCase { Value = new JSNumberLiteral { Value = 0 } });
+                Statements.Insert(0, new JSSwitchCase { Value = new JSNumberLiteral { Value = 0, IsHex = true } });
 
             hasBranching = true;
 
-            Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = p } });
+            Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = p, IsHex = true } });
         }
 
         internal void AddStatements(IEnumerable<JSStatement> statements)

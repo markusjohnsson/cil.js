@@ -26,9 +26,15 @@ namespace Braille.JSAst
         public override string ToString()
         {
             if (Value == null)
-                return string.Format("var {0}", Name);
+                return string.Format("{0}", Name);
             else
-                return string.Format("var {0} = {1}", Name, Value.ToString());
+                return string.Format("{0} = {1}", Name, Value.ToString());
+        }
+
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Value;
         }
     }
 }

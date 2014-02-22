@@ -12,7 +12,16 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return "// " + Text + "\n";
+            var lines = Text.Split('\n');
+            var s = "";
+            foreach (var line in lines)
+                s += "// " + line + "\n";
+            return s;
+        }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
         }
     }
 }

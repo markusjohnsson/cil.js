@@ -25,5 +25,11 @@ namespace Braille.JSAst
             else
                 return expression.ToString();
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Left;
+            yield return Right;
+        }
     }
 }

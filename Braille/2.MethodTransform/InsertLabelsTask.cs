@@ -26,16 +26,24 @@ namespace Braille.MethodTransform
                     case "beq.s":
                     case "bge":
                     case "bge.s":
+                    case "bge.un":
+                    case "bge.un.s":
                     case "bgt":
                     case "bgt.s":
+                    case "bgt.un":
+                    case "bgt.un.s":
                     case "ble":
                     case "ble.s":
                     case "blt":
                     case "blt.s":
                     case "bne":
                     case "bne.s":
+                    case "bne.un":
+                    case "bne.un.s":
                     case "brtrue":
+                    case "brtrue.s":
                     case "brfalse":
+                    case "brfalse.s":
                         {
                             var targetPosition = GetTargetPosition(f.Instruction);
                             var targetFrame = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
@@ -60,7 +68,6 @@ namespace Braille.MethodTransform
 
         private int GetTargetPosition(OpInstruction i)
         {
-            int data;
             if (i.Data is byte)
                 return (1 + i.Position + i.Size + (sbyte)(byte)i.Data);
             else

@@ -18,7 +18,7 @@ namespace Braille.AssemblyTransform
             {
                 Properties = new Dictionary<string, JSExpression> 
                 {
-                    { "namespace", new JSStringLiteral { Value = Namespace } },
+                    { "namespace", Namespace == null ? new JSNullLiteral() as JSExpression : new JSStringLiteral { Value = Namespace } as JSExpression },
                     { "name", new JSStringLiteral { Value = Name } },
                     { "baseType", new JSStringLiteral { Value = BaseType } },
                     { "methods", new JSArrayLiteral { Values = Methods.Select(m => m.GetMethodDeclaration()) } }

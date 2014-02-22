@@ -33,6 +33,7 @@ namespace Braille.MethodTransform
                         Console.WriteLine(type.Name + "::" + method.Name);
 
                         var functionBlock = new List<JSStatement>();
+                        functionBlock.Add(new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_args__", Value = new JSIdentifier { Name = "arguments" } } });
 
                         var frames = methodTransform.Process(method).ToList();
 
@@ -65,6 +66,7 @@ namespace Braille.MethodTransform
                                         parentBlock.Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
                                         break;
                                     case FrameSpanType.Catch:
+                                        block.Statements.Insert(0, new JSStatement { Expression = new JSBinaryExpression { Left = new JSIdentifier { Name = "__braille_error_handled_" + blockStack.Count + "__" }, Operator = "=", Right = new JSBoolLiteral { Value = false } } });
                                         parentBlock.Statements.Add(new JSIfStatement
                                         {
                                             Condition = new JSBinaryExpression
@@ -76,7 +78,20 @@ namespace Braille.MethodTransform
                                             Statements = block.Build().ToList()
                                         });
                                         break;
+                                    case FrameSpanType.Fault:
+                                        parentBlock.Statements.Add(new JSIfStatement
+                                        {
+                                            Condition = new JSBinaryExpression
+                                            {
+                                                Left = new JSIdentifier { Name = "__braille_error_handled_" + blockStack.Count + "__" },
+                                                Operator = "===",
+                                                Right = new JSBoolLiteral { Value = false }
+                                            },
+                                            Statements = block.Build().ToList()
+                                        });
+                                        break;
                                     case FrameSpanType.CatchWrapper:
+                                        block.Statements.Insert(0, new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_error_handled_" + blockStack.Count + "__", Value = new JSBoolLiteral { Value = false } } });
                                         parentBlock.Statements.Add(new JSCatchBlock { Error = new JSIdentifier { Name = "__braille_error__" }, Statements = block.Build().ToList() });
                                         break;
                                     case FrameSpanType.Finally:
@@ -104,7 +119,7 @@ namespace Braille.MethodTransform
                         method.JsFunction = new JSFunctionDelcaration
                         {
                             Body = functionBlock,
-                            Name = method.Name,
+                            Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_"),
                             Parameters = Enumerable.Empty<JSFunctionParameter>()
                         };
                     }

@@ -52,9 +52,9 @@ namespace Braille.MethodTransform
 
         byte[] ilCode;
         int position = 0;
-        IILReaderResolver resolver;
+        ModuleILResolver resolver;
 
-        public OpInstructionReader(byte[] il, IILReaderResolver resolver)
+        public OpInstructionReader(byte[] il, ModuleILResolver resolver)
         {
             ilCode = il;
             this.resolver = resolver;
@@ -197,55 +197,13 @@ namespace Braille.MethodTransform
         }
     }
 
-    public class ByteArrayReader
-    {
-        private int position;
-        private byte[] source;
-
-        public ByteArrayReader(byte[] source, int position)
-        {
-            this.source = source;
-            this.position = position;
-        }
-
-        public Byte ReadByte() { return (Byte)source[position++]; }
-        public SByte ReadSByte() { return (SByte)ReadByte(); }
-
-        public UInt16 ReadUInt16() { position += 2; return BitConverter.ToUInt16(source, position - 2); }
-        public UInt32 ReadUInt32() { position += 4; return BitConverter.ToUInt32(source, position - 4); }
-        public UInt64 ReadUInt64() { position += 8; return BitConverter.ToUInt64(source, position - 8); }
-
-        public Int32 ReadInt32() { position += 4; return BitConverter.ToInt32(source, position - 4); }
-        public Int64 ReadInt64() { position += 8; return BitConverter.ToInt64(source, position - 8); }
-
-        public Single ReadSingle() { position += 4; return BitConverter.ToSingle(source, position - 4); }
-        public Double ReadDouble() { position += 8; return BitConverter.ToDouble(source, position - 8); }
-
-        internal object ReadInt16()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    interface IILReaderResolver
-    {
-        FieldInfo ResolveField(int metadataToken);
-        MemberInfo ResolveMember(int metadataToken);
-
-        MethodBase ResolveMethod(int metadataToken);
-        byte[] ResolveSignature(int metadataToken);
-
-        string ResolveString(int metadataToken);
-        Type ResolveType(int metadataToken);
-    }
-
-    internal class ModuleILResolver : IILReaderResolver
+    internal class ModuleILResolver 
     {
         private Module module;
         private Type type;
-        private MethodInfo method;
+        private MethodBase method;
 
-        public ModuleILResolver(MethodInfo method)
+        public ModuleILResolver(MethodBase method)
         {
             this.module = method.Module;
             this.type = method.DeclaringType;

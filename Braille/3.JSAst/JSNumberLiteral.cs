@@ -15,5 +15,10 @@ namespace Braille.JSAst
         {
             return IsHex ? "0x"+((int)Value).ToString("X") : Value.ToString();
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
+        }
     }
 }

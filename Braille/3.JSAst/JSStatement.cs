@@ -19,5 +19,10 @@ namespace Braille.JSAst
 
             return Expression.ToString() + ";";
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Expression;
+        }
     }
 }

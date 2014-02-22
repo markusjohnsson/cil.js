@@ -121,7 +121,9 @@ namespace Braille.MethodTransform
                     }
                     else if (instruction.OpCode.Name == "ret")
                     {
-                        if (method.ReflectionMethod.ReturnType.FullName != "System.Void")
+                        var mi = (MethodInfo)method.ReflectionMethod;
+
+                        if (mi != null && mi.ReturnType.FullName != "System.Void")
                             frame.Values.Insert(0, Pop());
                     }
                     else
@@ -149,7 +151,9 @@ namespace Braille.MethodTransform
                 case StackBehaviour.Varpush:
                     if (instruction.OpCode.Name == "ret")
                     {
-                        if (method.ReflectionMethod.ReturnType.FullName != "System.Void")
+                        var mi = (MethodInfo)method.ReflectionMethod;
+
+                        if (mi != null && mi.ReturnType.FullName != "System.Void")
                             Push(frame);
                         else
                             yield return frame;

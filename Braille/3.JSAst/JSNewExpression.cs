@@ -14,5 +14,12 @@ namespace Braille.JSAst
         {
             return String.Format("new {0}({1})", Constructor, string.Join(",", Arguments));
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Constructor;
+            foreach (var x in Arguments)
+                yield return x;
+        }
     }
 }

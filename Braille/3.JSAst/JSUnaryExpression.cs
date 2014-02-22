@@ -16,5 +16,11 @@ namespace Braille.JSAst
         {
             return "(" + Operator + Operand.ToString() + ")";
         }
+
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Operand;
+        }
     }
 }

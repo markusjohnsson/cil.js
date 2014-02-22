@@ -7,11 +7,29 @@ namespace Braille.JSAst
 {
     class JSIdentifier : JSExpression
     {
-        public string Name { get; set; }
+        private string _Name;
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new InvalidOperationException();
+                _Name = value;
+            }
+        }
 
         public override string ToString()
         {
             return Name;
+        }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
         }
     }
 }

@@ -19,5 +19,10 @@ namespace Braille.JSAst
             return string.Format("{{ {0} }}",
                 string.Join(",", Properties.Select(p => string.Format("{0}: {1}", p.Key, p.Value.ToString()))));
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            return Properties.Values;
+        }
     }
 }
