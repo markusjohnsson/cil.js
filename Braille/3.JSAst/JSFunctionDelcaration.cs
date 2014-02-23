@@ -19,7 +19,7 @@ namespace Braille.JSAst
                 .Select(v => v.Name)
                 .Distinct();
 
-            return string.Format("function {0}({1}) {{ {2} {3} }}", 
+            return string.Format("function {0}({1}) {{ {2}\n {3} }}", 
                 Name ?? "", 
                 Parameters == null ? 
                     "" : string.Join(",", Parameters.Select(p => p.ToString())),

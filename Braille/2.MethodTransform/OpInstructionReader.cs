@@ -197,7 +197,7 @@ namespace Braille.MethodTransform
         }
     }
 
-    internal class ModuleILResolver 
+    internal class ModuleILResolver
     {
         private Module module;
         private Type type;
@@ -212,7 +212,8 @@ namespace Braille.MethodTransform
 
         public FieldInfo ResolveField(int metadataToken)
         {
-            return this.module.ResolveField(metadataToken, type.GetGenericArguments(), method.GetGenericArguments());
+            return this.module.ResolveField(metadataToken,
+                type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);
         }
 
         public MemberInfo ResolveMember(int metadataToken)
@@ -222,7 +223,8 @@ namespace Braille.MethodTransform
 
         public MethodBase ResolveMethod(int metadataToken)
         {
-            return this.module.ResolveMethod(metadataToken, type.GetGenericArguments(), method.GetGenericArguments());
+            return this.module.ResolveMethod(metadataToken,
+                type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);
         }
 
         public byte[] ResolveSignature(int metadataToken)
@@ -244,7 +246,8 @@ namespace Braille.MethodTransform
 
         public Type ResolveType(int metadataToken)
         {
-            return this.module.ResolveType(metadataToken, type.GetGenericArguments(), method.GetGenericArguments());
+            return this.module.ResolveType(metadataToken,
+                type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);
         }
     }
 

@@ -55,10 +55,16 @@ namespace Braille.AssemblyTransform
                     methods.Add(ProcessMethod(method));
             }
 
+            foreach (var ctor in type.GetConstructors((BindingFlags)int.MaxValue))
+            {
+                if (ctor.DeclaringType == type)
+                    methods.Add(ProcessMethod(ctor));
+            }
+
             return result;
         }
 
-        private CilMethod ProcessMethod(MethodInfo method)
+        private CilMethod ProcessMethod(MethodBase method)
         {
             return new CilMethod
             {

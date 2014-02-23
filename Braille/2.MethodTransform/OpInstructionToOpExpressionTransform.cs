@@ -1,6 +1,7 @@
 ﻿using Braille.AssemblyTransform;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -121,7 +122,7 @@ namespace Braille.MethodTransform
                     }
                     else if (instruction.OpCode.Name == "ret")
                     {
-                        var mi = (MethodInfo)method.ReflectionMethod;
+                        var mi = method.ReflectionMethod as MethodInfo;
 
                         if (mi != null && mi.ReturnType.FullName != "System.Void")
                             frame.Values.Insert(0, Pop());

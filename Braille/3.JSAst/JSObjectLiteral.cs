@@ -16,8 +16,8 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return string.Format("{{ {0} }}",
-                string.Join(",", Properties.Select(p => string.Format("{0}: {1}", p.Key, p.Value.ToString()))));
+            return string.Format("{{ \n{0} \n}}",
+                string.Join(",\n", Properties.Select(p => string.Format("{0}: {1}", p.Key, p.Value.ToString()))));
         }
 
         public override IEnumerable<JSExpression> GetChildren()

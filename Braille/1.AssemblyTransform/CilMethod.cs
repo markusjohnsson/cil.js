@@ -28,10 +28,10 @@ namespace Braille.AssemblyTransform
                 { 
                     { "name", new JSStringLiteral { Value = Name } },
                     { "hideBySig", new JSBoolLiteral { Value = IsHideBySig } },
-                    { "virtual", new JSBoolLiteral { Value = IsVirtual } },
-                    { "static", new JSBoolLiteral { Value = ReflectionMethod.IsStatic } },
-                    { "body", JsFunction },
-                    { "metadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } } 
+                    { "isVirtual", new JSBoolLiteral { Value = IsVirtual } },
+                    { "isStatic", new JSBoolLiteral { Value = ReflectionMethod.IsStatic } },
+                    { "metadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } },
+                    { "body", JsFunction }
                 }
             };
         }
