@@ -13,13 +13,17 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            var variables = GetChildrenRecursive().OfType<JSVariableDelcaration>();
+            // todo: let this happen in OpToJsTransform
+            var variables = GetChildrenRecursive()
+                .OfType<JSVariableDelcaration>()
+                .Select(v => v.Name)
+                .Distinct();
 
             return string.Format("function {0}({1}) {{ {2} {3} }}", 
                 Name ?? "", 
                 Parameters == null ? 
                     "" : string.Join(",", Parameters.Select(p => p.ToString())),
-                string.Join("\n", variables.Select(v => "var " + v.Name + ";")),
+                string.Join("\n", variables.Select(v => "var " + v + ";")),
                 string.Join("\n", Body.Select(p => p.ToString())));
         }
 

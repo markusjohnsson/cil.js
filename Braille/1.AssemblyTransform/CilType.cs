@@ -18,12 +18,17 @@ namespace Braille.AssemblyTransform
             {
                 Properties = new Dictionary<string, JSExpression> 
                 {
-                    { "namespace", Namespace == null ? new JSNullLiteral() as JSExpression : new JSStringLiteral { Value = Namespace } as JSExpression },
+                    { "namespace", NullOrLiteral(Namespace) },
                     { "name", new JSStringLiteral { Value = Name } },
-                    { "baseType", new JSStringLiteral { Value = BaseType } },
+                    { "baseType", NullOrLiteral(BaseType) },
                     { "methods", new JSArrayLiteral { Values = Methods.Select(m => m.GetMethodDeclaration()) } }
                 }
             };
+        }
+
+        private static JSExpression NullOrLiteral(string value)
+        {
+            return value == null ? new JSNullLiteral() as JSExpression : new JSStringLiteral { Value = value } as JSExpression;
         }
 
         public IEnumerable<CilMethod> Methods { get; set; }

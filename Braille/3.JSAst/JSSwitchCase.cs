@@ -13,5 +13,10 @@ namespace Braille.JSAst
         {
             return "case " + Value.ToString() + ":";
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Value;
+        }
     }
 }

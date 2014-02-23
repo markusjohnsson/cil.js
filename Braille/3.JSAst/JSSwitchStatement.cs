@@ -16,5 +16,14 @@ namespace Braille.JSAst
         public JSIdentifier Value { get; set; }
 
         public List<JSStatement> Statements { get; set; }
+
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Value;
+
+            foreach (var s in Statements)
+                yield return s;
+        }
     }
 }

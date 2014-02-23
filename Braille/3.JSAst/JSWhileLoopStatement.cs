@@ -20,5 +20,13 @@ namespace Braille.JSAst
         {
             return String.Format("while ({0}){{\n{1}\n}}", Condition, string.Join("", Statements));
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Condition;
+
+            foreach (var x in Statements)
+                yield return x;
+        }
     }
 }
