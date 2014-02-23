@@ -66,7 +66,7 @@ namespace Braille.MethodTransform
                                         parentBlock.Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
                                         break;
                                     case FrameSpanType.Catch:
-                                        block.Statements.Insert(0, new JSStatement { Expression = new JSBinaryExpression { Left = new JSIdentifier { Name = "__braille_error_handled_" + blockStack.Count + "__" }, Operator = "=", Right = new JSBoolLiteral { Value = false } } });
+                                        block.Statements.Insert(0, new JSStatement { Expression = new JSBinaryExpression { Left = new JSIdentifier { Name = "__braille_error_handled_" + (blockStack.Count-1) + "__" }, Operator = "=", Right = new JSBoolLiteral { Value = false } } });
                                         parentBlock.Statements.Add(new JSIfStatement
                                         {
                                             Condition = new JSBinaryExpression
@@ -79,11 +79,12 @@ namespace Braille.MethodTransform
                                         });
                                         break;
                                     case FrameSpanType.Fault:
+                                        block.Statements.Add(new JSStatement { Expression = new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } } });
                                         parentBlock.Statements.Add(new JSIfStatement
                                         {
                                             Condition = new JSBinaryExpression
                                             {
-                                                Left = new JSIdentifier { Name = "__braille_error_handled_" + blockStack.Count + "__" },
+                                                Left = new JSIdentifier { Name = "__braille_error_handled_" + (blockStack.Count-1) + "__" },
                                                 Operator = "===",
                                                 Right = new JSBoolLiteral { Value = false }
                                             },

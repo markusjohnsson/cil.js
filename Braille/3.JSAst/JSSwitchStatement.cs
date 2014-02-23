@@ -10,7 +10,7 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return string.Format("switch ({0}) {{\n{1}\n}}", Value.ToString(), string.Join("", Statements));
+            return string.Format("switch ({0}) {{\n{1}\n}}", Value.ToString(), string.Join("\n", Statements));
         }
 
         public JSIdentifier Value { get; set; }

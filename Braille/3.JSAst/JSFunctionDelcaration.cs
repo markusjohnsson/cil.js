@@ -20,7 +20,7 @@ namespace Braille.JSAst
                 Parameters == null ? 
                     "" : string.Join(",", Parameters.Select(p => p.ToString())),
                 string.Join("\n", variables.Select(v => "var " + v.Name + ";")),
-                string.Join("\n", Body.Select(p => p.ToString())).ToString());
+                string.Join("\n", Body.Select(p => p.ToString())));
         }
 
         public override IEnumerable<JSExpression> GetChildren()
