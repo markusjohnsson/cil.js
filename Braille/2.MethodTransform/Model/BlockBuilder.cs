@@ -50,7 +50,7 @@ namespace Braille.MethodTransform
             }
             else
             {
-                foreach (var stmnt in Statements)
+                foreach (var stmnt in Statements.Where(s => !(s.Expression is JSBreakExpression)))
                     yield return stmnt;
             }
         }
