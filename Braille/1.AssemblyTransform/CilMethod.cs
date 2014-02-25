@@ -31,7 +31,7 @@ namespace Braille.AssemblyTransform
                     { "isVirtual", new JSBoolLiteral { Value = IsVirtual } },
                     { "isStatic", new JSBoolLiteral { Value = ReflectionMethod.IsStatic } },
                     { "metadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } },
-                    { "body", JsFunction }
+                    //{ "body", JsFunction }
                 }
             };
         }

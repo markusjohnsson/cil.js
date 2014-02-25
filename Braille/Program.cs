@@ -23,7 +23,7 @@ namespace Braille
             var mtdTranform = new MethodTransformTask();
             mtdTranform.Process(asm);
 
-            File.WriteAllText("Output.js", "var asm = " + asm.First().GetAssemblyDeclaration().ToString());
+            File.WriteAllText("Output.js", "var asm; (" + asm.First().GetAssemblyDeclaration().ToString() + ")(asm || (asm = {}))");
 
             
             //if (Debugger.IsAttached)

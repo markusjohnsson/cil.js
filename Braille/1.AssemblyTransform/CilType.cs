@@ -11,6 +11,9 @@ namespace Braille.AssemblyTransform
     {
         public string Namespace { get; set; }
         public string Name { get; set; }
+        public IEnumerable<CilMethod> Methods { get; set; }
+        public string BaseType { get; set; }
+        public Type ReflectionType { get; set; }
 
         public JSExpression GetTypeDeclaration()
         {
@@ -31,8 +34,5 @@ namespace Braille.AssemblyTransform
             return value == null ? new JSNullLiteral() as JSExpression : new JSStringLiteral { Value = value } as JSExpression;
         }
 
-        public IEnumerable<CilMethod> Methods { get; set; }
-
-        public string BaseType { get; set; }
     }
 }

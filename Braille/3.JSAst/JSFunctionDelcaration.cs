@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Braille.JSAst
 {
-    class JSFunctionDelcaration: JSExpression
+    class JSFunctionDelcaration : JSExpression
     {
         public string Name { get; set; }
         public IEnumerable<JSStatement> Body { get; set; }
@@ -14,17 +14,18 @@ namespace Braille.JSAst
         public override string ToString()
         {
             // todo: let this happen in OpToJsTransform
-            var variables = GetChildrenRecursive()
+            var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration))
                 .OfType<JSVariableDelcaration>()
                 .Select(v => v.Name)
                 .Distinct();
 
-            return string.Format("function {0}({1}) {{ {2}\n {3} }}", 
-                Name ?? "", 
-                Parameters == null ? 
+            return string.Format("function {0}({1}) {{ {2}\n {3} }}",
+                Name ?? "",
+                Parameters == null ?
                     "" : string.Join(",", Parameters.Select(p => p.ToString())),
                 string.Join("\n", variables.Select(v => "var " + v + ";")),
-                string.Join("\n", Body.Select(p => p.ToString())));
+                Body == null ?
+                    "" : string.Join("\n", Body.Select(p => p.ToString())));
         }
 
         public override IEnumerable<JSExpression> GetChildren()

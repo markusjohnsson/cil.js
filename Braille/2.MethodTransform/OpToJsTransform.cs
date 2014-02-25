@@ -326,7 +326,7 @@ namespace Braille.MethodTransform
                 case "box":
                     return new JSObjectLiteral
                     {
-                        Properties = 
+                        Properties = new Dictionary<string, JSExpression>
                         {
                             { 
                                 "boxed", ProcessInternal(frame.Values.Single()) 
@@ -820,7 +820,7 @@ namespace Braille.MethodTransform
         {
             return new JSObjectLiteral
             {
-                Properties =
+                Properties = new Dictionary<string, JSExpression>
                 {
                     { 
                         "write", 

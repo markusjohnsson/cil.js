@@ -7,7 +7,7 @@ namespace Braille.JSAst
 {
     class JSObjectLiteral : JSExpression
     {
-        public Dictionary<string, JSExpression> Properties { get; set; }
+        public IEnumerable<KeyValuePair<string, JSExpression>> Properties { get; set; }
 
         public JSObjectLiteral()
         {
@@ -17,12 +17,13 @@ namespace Braille.JSAst
         public override string ToString()
         {
             return string.Format("{{ \n{0} \n}}",
-                string.Join(",\n", Properties.Select(p => string.Format("{0}: {1}", p.Key, p.Value.ToString()))));
+                string.Join(",\n",
+                    Properties.Select(p => string.Format("'{0}': {1}", p.Key, p.Value.ToString()))));
         }
 
         public override IEnumerable<JSExpression> GetChildren()
         {
-            return Properties.Values;
+            return Properties.Select(k => k.Value);
         }
     }
 }

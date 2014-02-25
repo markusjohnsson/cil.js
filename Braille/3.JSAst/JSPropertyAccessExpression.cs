@@ -5,11 +5,11 @@ namespace Braille.JSAst
 {
     class JSPropertyAccessExpression : JSExpression
     {
-        static Regex regex = new Regex(@"^[\da-zA-Z_\$]+$");
+        public static Regex SafeChars = new Regex(@"^[\da-zA-Z_\$]+$");
 
         public override string ToString()
         {
-            if (regex.IsMatch(Property))
+            if (SafeChars.IsMatch(Property))
                 return Host.ToString() + "." + Property;
             else
                 return new JSArrayLookupExpression

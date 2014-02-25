@@ -11,14 +11,18 @@ namespace Braille.JSAst
 
         public abstract IEnumerable<JSExpression> GetChildren();
 
-        public IEnumerable<JSExpression> GetChildrenRecursive()
-        { 
+        public IEnumerable<JSExpression> GetChildrenRecursive(Func<JSExpression, bool> descend)
+        {
+            if (!descend(this))
+                yield break;
+
             foreach (var x in GetChildren())
             {
                 if (x != null)
                 {
                     yield return x;
-                    foreach (var y in x.GetChildrenRecursive())
+
+                    foreach (var y in x.GetChildrenRecursive(descend))
                         yield return y;
                 }
             }

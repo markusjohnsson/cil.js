@@ -45,7 +45,7 @@ namespace Braille.AssemblyTransform
 
         private CilType ProcessType(Type type)
         {
-            var result = new CilType { Name = type.Name, Namespace = type.Namespace, BaseType = type.BaseType != null ? type.BaseType.FullName : null };
+            var result = new CilType { Name = type.Name, Namespace = type.Namespace, BaseType = type.BaseType != null ? type.BaseType.FullName : null, ReflectionType = type };
             var methods = new List<CilMethod>();
             result.Methods = methods;
 

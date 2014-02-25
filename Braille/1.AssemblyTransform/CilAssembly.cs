@@ -14,13 +14,71 @@ namespace Braille.AssemblyTransform
 
         public JSExpression GetAssemblyDeclaration()
         {
-            return new JSObjectLiteral
+            return new JSFunctionDelcaration
             {
-                Properties = new Dictionary<string, JSExpression>
+                Body = GetBody().Select(s => new JSStatement { Expression = s })
+            };
+        }
+
+        private IEnumerable<JSExpression> GetBody()
+        {
+            yield return new JSVariableDelcaration { Name = "self" };
+
+            foreach (var t in Types)
+            {
+                yield return new JSBinaryExpression
                 {
-                    { "name", new JSStringLiteral { Value = Name } },
-                    { "types", new JSArrayLiteral { Values = Types.Select(t => t.GetTypeDeclaration()) } }
-                }
+                    Left = new JSIdentifier { Name = "self" },
+                    Operator = "=",
+                    Right = new JSCallExpression
+                    {
+                        Function = new JSFunctionDelcaration
+                        {
+                            Body = GetClass(t).Select(s => new JSStatement { Expression = s })
+                        }
+                    }
+                };
+
+                yield return new JSBinaryExpression
+                {
+                    Left = new JSPropertyAccessExpression
+                    {
+                        Host = new JSIdentifier { Name = "asm" },
+                        Property = t.ReflectionType.FullName
+                    },
+                    Operator = "=",
+                    Right = new JSIdentifier { Name = "self" }
+                };
+            }
+
+
+            foreach (var m in Types.SelectMany(t => t.Methods))
+            {
+                yield return new JSBinaryExpression
+                {
+                    Left = new JSPropertyAccessExpression
+                    {
+                        Host = new JSIdentifier { Name = "asm" },
+                        Property = "x" + m.MetadataToken.ToString("x")
+                    },
+                    Operator = "=",
+                    Right = m.JsFunction
+                };
+            }
+
+        }
+
+        private IEnumerable<JSExpression> GetClass(CilType type)
+        {
+            var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
+
+            yield return new JSFunctionDelcaration
+            {
+                Name = n
+            };
+            yield return new JSReturnExpression
+            {
+                Expression = new JSIdentifier { Name = n }
             };
         }
     }

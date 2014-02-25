@@ -19,7 +19,10 @@ namespace Braille.JSAst
             else
                 s += "(" + Function.ToString() + ")";
 
-            s += string.Format("({0})", string.Join(",", Arguments));
+            if (Arguments != null)
+                s += string.Format("({0})", string.Join(",", Arguments));
+            else
+                s += "()";
 
             return s;
         }
@@ -27,8 +30,9 @@ namespace Braille.JSAst
         public override IEnumerable<JSExpression> GetChildren()
         {
             yield return Function;
-            foreach (var x in Arguments)
-                yield return x;
+            if (Arguments != null)
+                foreach (var x in Arguments)
+                    yield return x;
         }
     }
 }
