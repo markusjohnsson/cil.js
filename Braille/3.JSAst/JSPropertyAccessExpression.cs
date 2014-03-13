@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 namespace Braille.JSAst
@@ -19,7 +20,21 @@ namespace Braille.JSAst
                 }.ToString();
         }
 
-        public string Property { get; set; }
+        private string _Property;
+        public string Property
+        {
+            get
+            {
+                return _Property;
+            }
+            set
+            {
+                if (value == null)
+                    throw new NotSupportedException();
+
+                _Property = value;
+            }
+        }
 
         public JSExpression Host { get; set; }
 

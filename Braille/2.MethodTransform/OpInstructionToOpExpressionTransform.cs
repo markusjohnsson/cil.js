@@ -17,9 +17,6 @@ namespace Braille.MethodTransform
             var mtdb = method.ReflectionMethod.GetMethodBody();
             var ex = mtdb == null ? null : mtdb.ExceptionHandlingClauses;
 
-            //if (File.Exists("program.log"))
-            //    File.Delete("program.log");
-
             var il = new OpInstructionReader(method.IlCode, method.Resolver);
             foreach (var instruction in il.Process())
             {
@@ -27,16 +24,14 @@ namespace Braille.MethodTransform
                 {
                     yield return frame;
                 }
-
-                //Thread.Sleep(1);
-                //File.AppendAllText("program.log", string.Format("{0:x}\t{1}\t{2}\n", instruction.Position, instruction.ToString(), _stack.Count));
             }
 
             if (_stack.Count == 0)
                 yield break;
 
-            //if (_stack.Count != 1)
-            //    throw new InvalidOperationException();
+            //if (_stack.Count != 1) {
+            //    Debugger.Break();
+            //}
 
             while (_stack.Any())
                 yield return _stack.Pop();
@@ -53,8 +48,6 @@ namespace Braille.MethodTransform
         {
             _stack.Push(n);
         }
-
-        static int dupCount;
 
         private IEnumerable<OpExpression> ProcessInstruction(CilMethod method, OpInstruction instruction, IEnumerable<ExceptionHandlingClause> ex)
         {
@@ -136,9 +129,22 @@ namespace Braille.MethodTransform
                     throw new NotImplementedException();
             }
 
+            if ((instruction.OpCode.FlowControl == FlowControl.Cond_Branch ||
+                instruction.OpCode.FlowControl == FlowControl.Branch) &&
+                _stack.Count != 0)
+            {
+                // if we got brtrue(.s), we can possibly do a conditional expression (x ? y : z).
+                // if we got br(.s) ??
+
+                Debugger.Break();
+            }
+
             switch (instruction.OpCode.StackBehaviourPush)
             {
                 case StackBehaviour.Push0:
+                    if (_stack.Count != 0)
+                    { 
+                    }
                     yield return frame;
                     break;
                 case StackBehaviour.Push1:
@@ -150,16 +156,7 @@ namespace Braille.MethodTransform
                     Push(frame);
                     break;
                 case StackBehaviour.Varpush:
-                    if (instruction.OpCode.Name == "ret")
-                    {
-                        var mi = (MethodInfo)method.ReflectionMethod;
-
-                        if (mi != null && mi.ReturnType.FullName != "System.Void")
-                            Push(frame);
-                        else
-                            yield return frame;
-                    }
-                    else if (instruction.OpCode.Name.StartsWith("call"))
+                    if (instruction.OpCode.Name.StartsWith("call"))
                     {
                         var mi = instruction.Data as MethodInfo;
 

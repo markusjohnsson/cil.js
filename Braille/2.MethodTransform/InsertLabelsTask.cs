@@ -2,6 +2,7 @@ using Braille.AssemblyTransform;
 using Braille.JSAst;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -46,8 +47,12 @@ namespace Braille.MethodTransform
                     case "brfalse.s":
                         {
                             var targetPosition = GetTargetPosition(f.Instruction);
-                            var targetFrame = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
-                            targetFrame.IsLabel = true;
+                            var targetExpression = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
+
+                            //if (targetExpression.GetStartPosition() != targetPosition)
+                            //    Debugger.Break();
+
+                            targetExpression.IsLabel = true;
                         }
                         break;
                     case "switch":

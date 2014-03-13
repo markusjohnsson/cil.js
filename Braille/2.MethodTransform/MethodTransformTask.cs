@@ -9,17 +9,17 @@ namespace Braille.MethodTransform
 {
     class MethodTransformTask
     {
-        private OpInstructionToOpExpressionTransform methodTransform;
-        private OpToJsTransform frameTransform;
+        private OpInstructionToOpExpressionTransform instrToExprTransform;
+        private OpToJsTransform exprToJsTransform;
         private InsertLabelsTask insertFrameLabelsTask;
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask;
 
         public MethodTransformTask()
         {
-            methodTransform = new OpInstructionToOpExpressionTransform();
+            instrToExprTransform = new OpInstructionToOpExpressionTransform();
             insertFrameLabelsTask = new InsertLabelsTask();
             insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
-            frameTransform = new OpToJsTransform();
+            exprToJsTransform = new OpToJsTransform();
         }
 
         public void Process(IEnumerable<CilAssembly> asms)
@@ -30,12 +30,10 @@ namespace Braille.MethodTransform
                 {
                     foreach (var method in type.Methods)
                     {
-                        Console.WriteLine(type.Name + "::" + method.Name);
-
                         var functionBlock = new List<JSStatement>();
                         functionBlock.Add(new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_args__", Value = new JSIdentifier { Name = "arguments" } } });
 
-                        var frames = methodTransform.Process(method).ToList();
+                        var frames = instrToExprTransform.Process(method).ToList();
 
                         insertFrameLabelsTask.Process(frames);
                         var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, frames));
@@ -49,6 +47,7 @@ namespace Braille.MethodTransform
                         var tryBlockStack = new Stack<TryCatchFinallyFrameSpan>();
 
                         awaitedBlock = tryBlockQueue.Dequeue();
+
 
                         foreach (var frame in frames)
                         {
@@ -112,7 +111,7 @@ namespace Braille.MethodTransform
                                 awaitedBlock = tryBlockQueue.Dequeue();
                             }
 
-                            block.AddStatements(frameTransform.Process(frame));
+                            block.AddStatements(exprToJsTransform.Process(frame));
                         }
 
                         functionBlock.AddRange(block.Build());

@@ -24,6 +24,9 @@ namespace Braille.MethodTransform
                 };
             }
 
+            foreach (var x in GetExpressionAsComment(frame))
+                yield return x;
+
             var opc = frame.Instruction.OpCode.Name;
 
             if (opc.EndsWith("."))
@@ -341,8 +344,8 @@ namespace Braille.MethodTransform
                         {
                             Function = new JSPropertyAccessExpression
                             {
-                                Host = CreateTypeIdentifier(mi.DeclaringType),
-                                Property = mi.Name
+                                Host = GetMethodAccessor(mi),
+                                Property = "apply"
                             },
                             Arguments = ProcessList(frame.Values)
                         };
@@ -352,11 +355,7 @@ namespace Braille.MethodTransform
                         var mi = ((MethodBase)frame.Instruction.Data);
                         return new JSCallExpression
                         {
-                            Function = new JSPropertyAccessExpression
-                            {
-                                Host = CreateTypeIdentifier(mi.DeclaringType),
-                                Property = mi.Name
-                            },
+                            Function = GetVirtualMethodAccessor(mi),
                             Arguments = ProcessList(frame.Values)
                         };
                     }
@@ -444,7 +443,7 @@ namespace Braille.MethodTransform
 
                         return new JSIdentifier
                         {
-                            Name = "__braille_args__[" + opc.Replace(".s", ".").Replace(".","").Substring("ldarg".Length) + id + "]"
+                            Name = "__braille_args__[" + opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id + "]"
                         };
                     }
                 case "ldarga":
@@ -790,30 +789,47 @@ namespace Braille.MethodTransform
             }
         }
 
-        private static JSExpression CreateTypeIdentifier(Type type)
+        private JSPropertyAccessExpression GetVirtualMethodAccessor(MethodBase mi)
         {
-            var baseName = new JSPropertyAccessExpression
+            return new JSPropertyAccessExpression
             {
-                Host = new JSIdentifier { Name = type.Namespace ?? "window" },
-                Property = type.Name
+                Host = CreateTypeIdentifier(mi.DeclaringType),
+                Property = mi.Name
             };
+        }
 
-            if (type.IsGenericType)
+        private JSPropertyAccessExpression GetMethodAccessor(MethodBase mi)
+        {
+            return new JSPropertyAccessExpression
             {
-                return new JSCallExpression
-                {
-                    Function = new JSPropertyAccessExpression
-                    {
-                        Host = baseName,
-                        Property = "g"
-                    },
-                    Arguments = type.GetGenericArguments().Select(t => CreateTypeIdentifier(t)).ToList()
-                };
-            }
-            else
+                Host = GetAssemblyIdentifier(mi.DeclaringType),
+                Property = "x" + mi.MetadataToken.ToString("x")
+            };
+        }
+
+        List<string> assemblies = new List<string>();
+
+        private JSExpression CreateTypeIdentifier(Type type)
+        {
+            return new JSPropertyAccessExpression
             {
-                return baseName;
+                Host = GetAssemblyIdentifier(type),
+                Property = type.Namespace + "." + type.Name
+            };
+        }
+
+        private JSIdentifier GetAssemblyIdentifier(Type type)
+        {
+            var idx = assemblies.IndexOf(type.Assembly.FullName);
+
+            if (idx == -1)
+            {
+                idx = assemblies.Count;
+                assemblies.Add(type.Assembly.FullName);
             }
+
+            JSIdentifier asmId = new JSIdentifier { Name = "asm" + idx };
+            return asmId;
         }
 
         private static JSObjectLiteral WrapInReaderWriter(JSExpression ifier)
@@ -866,6 +882,28 @@ namespace Braille.MethodTransform
         {
             foreach (var i in list)
                 yield return ProcessInternal(i);
+        }
+
+        public IEnumerable<JSStatement> GetExpressionAsComment(OpExpression expr, int lvl = 0)
+        {
+            yield return new JSStatement
+            {
+                Expression = new JSLineComment
+                {
+                    Text = string.Format("{0:x}\t{2}{1}", expr.Instruction.Position, expr.Instruction.ToString(), new string(' ', lvl))
+                }
+            };
+
+            foreach (var x in expr.Values)
+            {
+                if (x.Instruction == null)
+                    continue;
+
+                foreach (var c in GetExpressionAsComment(x, lvl+1))
+                {
+                    yield return c;
+                }
+            }
         }
     }
 }
