@@ -1,5 +1,6 @@
 
 using System;
+using System.Reflection.Emit;
 namespace Braille.MethodTransform
 {
     class OpInstruction
@@ -10,13 +11,28 @@ namespace Braille.MethodTransform
 
         public override string ToString()
         {
-            var result = OpCode.Name;
+            object data = Data;
 
-            if (Data != null)
-                result += " " + Data.ToString();
-
-            return result;
+            if (OpCode.FlowControl == FlowControl.Branch ||
+                OpCode.FlowControl == FlowControl.Cond_Branch)
+            {
+                if (OpCode.Name != "switch")
+                {
+                    data = string.Format("IL_{0:X2}", GetBranchData());
+                }
+            }
+            
+            return string.Format("IL_{0:X2}: {1} {2}", Position, OpCode, data);
         }
+
+        private int GetBranchData()
+        {
+            if (Data is byte)
+                return (1 + Position + Size + (sbyte)(byte)Data);
+            else
+                return 1 + Position + Size + (int)Data;
+        }
+
 
         public int Position { get; set; }
 

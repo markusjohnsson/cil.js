@@ -47,7 +47,7 @@ namespace Braille.MethodTransform
                     case "brfalse.s":
                         {
                             var targetPosition = GetTargetPosition(f.Instruction);
-                            var targetExpression = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
+                            var targetExpression = opExpressions.Where(f2 => f2.Position == targetPosition).First();
 
                             //if (targetExpression.GetStartPosition() != targetPosition)
                             //    Debugger.Break();
@@ -58,12 +58,12 @@ namespace Braille.MethodTransform
                     case "switch":
                         var i = f.Instruction;
                         var switchEndPosition = 1 + i.Position + i.Size;
-                        var frameAfterSwitch = opExpressions.Where(f2 => f2.ContainsPosition(switchEndPosition)).First();
+                        var frameAfterSwitch = opExpressions.Where(f2 => f2.Position == switchEndPosition).First();
                         frameAfterSwitch.IsLabel = true;
                         foreach (var targetOffset in (int[])f.Instruction.Data)
                         {
                             var targetPosition = 1 + i.Position + i.Size + targetOffset;
-                            var targetFrame = opExpressions.Where(f2 => f2.ContainsPosition(targetPosition)).First();
+                            var targetFrame = opExpressions.Where(f2 => f2.Position == targetPosition).First();
                             targetFrame.IsLabel = true;
                         }
                         break;

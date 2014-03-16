@@ -8,46 +8,28 @@ namespace Braille.MethodTransform
 {
     class OpToJsTransform
     {
-        public IEnumerable<JSStatement> Process(OpExpression frame)
+        public IEnumerable<JSStatement> Process(OpExpression node)
         {
-            foreach (var x in frame.Postfix())
+
+            yield return new JSStatement
             {
-                if (x.Instruction == null)
-                    continue;
-
-                yield return new JSStatement
+                Expression = new JSLineComment
                 {
-                    Expression = new JSLineComment
-                    {
-                        Text = string.Format("{0:x}\t{1}", x.Instruction.Position, x.Instruction.ToString())
-                    }
-                };
-            }
-
-            foreach (var x in GetExpressionAsComment(frame))
-                yield return x;
-
-            var opc = frame.Instruction.OpCode.Name;
-
-            if (opc.EndsWith("."))
-            {
-                yield return new JSStatement
-                {
-                    Expression = new JSLineComment
-                    {
-                        Text = "ignoring prefix " + opc
-                    }
-                };
-
-                if (frame.Values.Any())
-                {
-                    foreach (var x in Process(frame.Values.Single()))
-                    {
-                        yield return x;
-                    }
+                    Text = node.Instruction.ToString()
                 }
+            };
 
-                yield break;
+            var opc = node.Instruction.OpCode.Name;
+
+            if (node.Prefixes.Any())
+            {
+                yield return new JSStatement
+                {
+                    Expression = new JSLineComment
+                    {
+                        Text = "ignoring prefixes " + string.Join(",", node.Prefixes.Select(o => o.OpCode.Name))
+                    }
+                };
             }
 
             switch (opc)
@@ -57,14 +39,14 @@ namespace Braille.MethodTransform
                     yield return new JSStatement
                     {
                         Expression = new JSBinaryExpression
-                        {
-                            Left = new JSIdentifier
                             {
-                                Name = "__braille_pos__"
-                            },
-                            Operator = "=",
-                            Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
-                        }
+                                Left = new JSIdentifier
+                                {
+                                    Name = "__braille_pos__"
+                                },
+                                Operator = "=",
+                                Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
+                            }
                     };
                     yield return new JSStatement
                     {
@@ -74,42 +56,42 @@ namespace Braille.MethodTransform
 
                 case "beq":
                 case "beq.s":
-                    yield return CreateComparisonBranch(frame, "=");
+                    yield return CreateComparisonBranch(node, "=");
                     break;
 
                 case "bge":
                 case "bge.s":
                 case "bge.un":
                 case "bge.un.s":
-                    yield return CreateComparisonBranch(frame, ">=");
+                    yield return CreateComparisonBranch(node, ">=");
                     break;
 
                 case "bgt":
                 case "bgt.s":
                 case "bgt.un":
                 case "bgt.un.s":
-                    yield return CreateComparisonBranch(frame, ">");
+                    yield return CreateComparisonBranch(node, ">");
                     break;
 
                 case "ble":
                 case "ble.s":
                 case "ble.un":
                 case "ble.un.s":
-                    yield return CreateComparisonBranch(frame, "<=");
+                    yield return CreateComparisonBranch(node, "<=");
                     break;
 
                 case "blt":
                 case "blt.s":
                 case "blt.un":
                 case "blt.un.s":
-                    yield return CreateComparisonBranch(frame, "<");
+                    yield return CreateComparisonBranch(node, "<");
                     break;
 
                 case "brtrue":
                 case "brtrue.s":
                     yield return new JSIfStatement
                     {
-                        Condition = ProcessInternal(frame.Values.Single()),
+                        Condition = ProcessInternal(node.Arguments.Single()),
                         Statements = {
                             new JSStatement
                             {
@@ -120,7 +102,7 @@ namespace Braille.MethodTransform
                                         Name = "__braille_pos__"
                                     },
                                     Operator = "=",
-                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
                                 }
                             },
                             new JSStatement
@@ -138,7 +120,7 @@ namespace Braille.MethodTransform
                         Condition = new JSUnaryExpression
                         {
                             Operator = "!",
-                            Operand = ProcessInternal(frame.Values.Single())
+                            Operand = ProcessInternal(node.Arguments.Single())
                         },
                         Statements = {
                             new JSStatement
@@ -150,7 +132,7 @@ namespace Braille.MethodTransform
                                         Name = "__braille_pos__"
                                     },
                                     Operator = "==",
-                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
                                 }
                             },
                             new JSStatement
@@ -165,7 +147,7 @@ namespace Braille.MethodTransform
                 case "bne.s":
                 case "bne.un":
                 case "bne.un.s":
-                    yield return CreateComparisonBranch(frame, "!=");
+                    yield return CreateComparisonBranch(node, "!=");
                     break;
 
                 case "switch":
@@ -175,7 +157,7 @@ namespace Braille.MethodTransform
                         Expression = new JSVariableDelcaration
                         {
                             Name = "__braille_switch_value__",
-                            Value = ProcessInternal(frame.Values.Single())
+                            Value = ProcessInternal(node.Arguments.Single())
                         }
                     };
                     yield return new JSIfStatement
@@ -184,7 +166,7 @@ namespace Braille.MethodTransform
                         {
                             Left = new JSIdentifier { Name = "__braille_switch_value__" },
                             Operator = ">=",
-                            Right = new JSNumberLiteral { Value = ((int[])frame.Instruction.Data).Length, IsHex = true }
+                            Right = new JSNumberLiteral { Value = ((int[])node.Instruction.Data).Length, IsHex = true }
                         },
                         Statements = {
                             new JSStatement
@@ -196,7 +178,7 @@ namespace Braille.MethodTransform
                                         Name = "__braille_pos__"
                                     },
                                     Operator = "=",
-                                    Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
+                                    Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
                                 }
                             },
                             new JSStatement
@@ -210,7 +192,7 @@ namespace Braille.MethodTransform
                         Expression = new JSVariableDelcaration
                         {
                             Name = "__braille_jmp__",
-                            Value = new JSArrayLiteral { Values = ((int[])frame.Instruction.Data).Select(d => new JSNumberLiteral { Value = d, IsHex = true }) }
+                            Value = new JSArrayLiteral { Values = ((int[])node.Instruction.Data).Select(d => new JSNumberLiteral { Value = d, IsHex = true }) }
                         }
                     };
                     yield return new JSStatement
@@ -224,7 +206,7 @@ namespace Braille.MethodTransform
                             Operator = "=",
                             Right = new JSBinaryExpression
                             {
-                                Left = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true },
+                                Left = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true },
                                 Operator = "+",
                                 Right = new JSArrayLookupExpression
                                 {
@@ -241,10 +223,31 @@ namespace Braille.MethodTransform
                     break;
 
                 default:
-                    yield return new JSStatement { Expression = ProcessInternal(frame) };
+
+                    yield return new JSStatement
+                    {
+                        Expression = WrapInStore(node.StoreLocations, ProcessInternal(node))
+                    };
                     break;
             }
 
+        }
+
+        private JSExpression WrapInStore(List<VariableInfo> storeTos, JSExpression computation)
+        {
+            var expression = computation;
+
+            foreach (var storeTo in storeTos)
+            {
+                expression = new JSBinaryExpression
+                {
+                    Left = new JSIdentifier { Name = storeTo.Name },
+                    Operator = "=",
+                    Right = expression
+                };
+            }
+
+            return expression;
         }
 
         private JSIfStatement CreateComparisonBranch(OpExpression frame, string op)
@@ -253,8 +256,8 @@ namespace Braille.MethodTransform
             {
                 Condition = new JSBinaryExpression
                 {
-                    Left = ProcessInternal(frame.Values.First()),
-                    Right = ProcessInternal(frame.Values.Last()),
+                    Left = ProcessInternal(frame.Arguments.First()),
+                    Right = ProcessInternal(frame.Arguments.Last()),
                     Operator = "==="
                 },
                 Statements = 
@@ -295,8 +298,17 @@ namespace Braille.MethodTransform
         // uh-oh, I can has state?
         HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
 
-        private JSExpression ProcessInternal(OpExpression frame)
+        private JSExpression ProcessInternal(OpNode node)
         {
+            var varInfo = node as VariableInfo;
+
+            if (varInfo != null)
+            {
+                return new JSIdentifier { Name = varInfo.Name };
+            }
+
+            var frame = node as OpExpression;
+
             if (frame == null || frame.Instruction == null)
                 return new JSEmptyExpression();
 
@@ -313,17 +325,19 @@ namespace Braille.MethodTransform
             switch (opc_)
             {
                 case "add":
-                    return new JSBinaryExpression
-                    {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
-                        Operator = "+"
-                    };
+                    return WrapInStore(
+                        frame.StoreLocations,
+                        new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(frame.Arguments.First()),
+                            Right = ProcessInternal(frame.Arguments.Last()),
+                            Operator = "+"
+                        });
                 case "and":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "&"
                     };
                 case "box":
@@ -332,7 +346,7 @@ namespace Braille.MethodTransform
                         Properties = new Dictionary<string, JSExpression>
                         {
                             { 
-                                "boxed", ProcessInternal(frame.Values.Single()) 
+                                "boxed", ProcessInternal(frame.Arguments.Single()) 
                             }
                         }
                     };
@@ -347,7 +361,7 @@ namespace Braille.MethodTransform
                                 Host = GetMethodAccessor(mi),
                                 Property = "apply"
                             },
-                            Arguments = ProcessList(frame.Values)
+                            Arguments = ProcessList(frame.Arguments)
                         };
                     }
                 case "callvirt":
@@ -356,18 +370,18 @@ namespace Braille.MethodTransform
                         return new JSCallExpression
                         {
                             Function = GetVirtualMethodAccessor(mi),
-                            Arguments = ProcessList(frame.Values)
+                            Arguments = ProcessList(frame.Arguments)
                         };
                     }
                 case "castclass":
-                    return ProcessInternal(frame.Values.Single());
+                    return ProcessInternal(frame.Arguments.Single());
                 case "ceq":
                     return new JSConditionalExpression
                     {
                         Condition = new JSBinaryExpression
                         {
-                            Left = ProcessInternal(frame.Values.First()),
-                            Right = ProcessInternal(frame.Values.Last()),
+                            Left = ProcessInternal(frame.Arguments.First()),
+                            Right = ProcessInternal(frame.Arguments.Last()),
                             Operator = "==="
                         },
                         TrueValue = new JSNumberLiteral { Value = 1 },
@@ -378,8 +392,8 @@ namespace Braille.MethodTransform
                     {
                         Condition = new JSBinaryExpression
                         {
-                            Left = ProcessInternal(frame.Values.First()),
-                            Right = ProcessInternal(frame.Values.Last()),
+                            Left = ProcessInternal(frame.Arguments.First()),
+                            Right = ProcessInternal(frame.Arguments.Last()),
                             Operator = ">"
                         },
                         TrueValue = new JSNumberLiteral { Value = 1 },
@@ -390,21 +404,21 @@ namespace Braille.MethodTransform
                     {
                         Condition = new JSBinaryExpression
                         {
-                            Left = ProcessInternal(frame.Values.First()),
-                            Right = ProcessInternal(frame.Values.Last()),
+                            Left = ProcessInternal(frame.Arguments.First()),
+                            Right = ProcessInternal(frame.Arguments.Last()),
                             Operator = "<"
                         },
                         TrueValue = new JSNumberLiteral { Value = 1 },
                         FalseValue = new JSNumberLiteral { Value = 0 }
                     };
                 case "conv":
-                    return ProcessInternal(frame.Values.Single());
+                    return ProcessInternal(frame.Arguments.Single());
                 case "div":
                 case "div.un":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "/"
                     };
                 case "dup":
@@ -415,7 +429,7 @@ namespace Braille.MethodTransform
                             return new JSVariableDelcaration
                             {
                                 Name = name,
-                                Value = ProcessInternal(frame.Values.Single())
+                                Value = ProcessInternal(frame.Arguments.Single())
                             };
                         }
                         else
@@ -431,7 +445,7 @@ namespace Braille.MethodTransform
                 case "isinst":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.Single()),
+                        Left = ProcessInternal(frame.Arguments.Single()),
                         Operator = "instanceof",
                         Right = CreateTypeIdentifier((Type)frame.Instruction.Data)
                     };
@@ -554,13 +568,13 @@ namespace Braille.MethodTransform
                 case "ldelema":
                     return new JSArrayLookupExpression
                     {
-                        Array = ProcessInternal(frame.Values.First()),
-                        Indexer = ProcessInternal(frame.Values.Last())
+                        Array = ProcessInternal(frame.Arguments.First()),
+                        Indexer = ProcessInternal(frame.Arguments.Last())
                     };
                 case "ldfld":
                     return new JSPropertyAccessExpression
                     {
-                        Host = ProcessInternal(frame.Values.Single()),
+                        Host = ProcessInternal(frame.Arguments.Single()),
                         Property = ((FieldInfo)frame.Instruction.Data).Name
                     };
                 case "ldftn":
@@ -573,7 +587,7 @@ namespace Braille.MethodTransform
                 case "ldlen":
                     return new JSPropertyAccessExpression
                     {
-                        Host = ProcessInternal(frame.Values.Single()),
+                        Host = ProcessInternal(frame.Arguments.Single()),
                         Property = "length"
                     };
                 case "ldloc":
@@ -603,7 +617,7 @@ namespace Braille.MethodTransform
                 case "ldnull":
                     return new JSNullLiteral();
                 case "ldobj":
-                    return ProcessInternal(frame.Values.Single());
+                    return ProcessInternal(frame.Arguments.Single());
                 case "ldsfld":
                     {
                         var field = (FieldInfo)frame.Instruction.Data;
@@ -630,13 +644,15 @@ namespace Braille.MethodTransform
                     {
                         Value = (string)frame.Instruction.Data
                     };
+                case "ldtoken":
+                    return new JSNullLiteral { };
                 case "leave":
                     return new JSBreakExpression();
                 case "mul":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "*"
                     };
                 case "newarr":
@@ -648,7 +664,7 @@ namespace Braille.MethodTransform
                         return new JSNewExpression
                         {
                             Constructor = CreateTypeIdentifier(ctor.DeclaringType),
-                            Arguments = ProcessList(frame.Values)
+                            Arguments = ProcessList(frame.Arguments)
                         };
                     }
                 case "nop":
@@ -656,44 +672,45 @@ namespace Braille.MethodTransform
                 case "or":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "|"
                     };
                 case "pop":
-                    return ProcessInternal(frame.Values.Single());
+                    return new JSEmptyExpression();
+                //return ProcessInternal(frame.Arguments.Single());
                 case "rem":
                 case "rem.un":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "%"
                     };
                 case "ret":
                     return new JSReturnExpression
                     {
-                        Expression = ProcessInternal(frame.Values.SingleOrDefault())
+                        Expression = ProcessInternal(frame.Arguments.SingleOrDefault())
                     };
                 case "shl":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "<<"
                     };
                 case "shr":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = ">>"
                     };
                 case "shr.un":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = ">>>"
                     };
                 case "stelem":
@@ -701,23 +718,23 @@ namespace Braille.MethodTransform
                     {
                         Left = new JSArrayLookupExpression
                         {
-                            Array = ProcessInternal(frame.Values.First()),
-                            Indexer = ProcessInternal(frame.Values.Skip(1).First())
+                            Array = ProcessInternal(frame.Arguments.First()),
+                            Indexer = ProcessInternal(frame.Arguments.Skip(1).First())
                         },
                         Operator = "=",
-                        Right = ProcessInternal(frame.Values.Last())
+                        Right = ProcessInternal(frame.Arguments.Last())
                     };
                 case "stind":
                     return new JSCallExpression
                     {
                         Function = new JSPropertyAccessExpression
                         {
-                            Host = ProcessInternal(frame.Values.First()),
+                            Host = ProcessInternal(frame.Arguments.First()),
                             Property = "write"
                         },
                         Arguments = new[] 
                         {
-                            ProcessInternal(frame.Values.Last())
+                            ProcessInternal(frame.Arguments.Last())
                         }
                     };
                 case "stloc":
@@ -729,7 +746,7 @@ namespace Braille.MethodTransform
                         return new JSVariableDelcaration
                         {
                             Name = opc.Substring(2).Replace(".s", ".").Replace(".", "") + id,
-                            Value = ProcessInternal(frame.Values.Single())
+                            Value = ProcessInternal(frame.Arguments.Single())
                         };
                     }
                 case "stfld":
@@ -737,13 +754,13 @@ namespace Braille.MethodTransform
                     {
                         Left = new JSArrayLookupExpression
                         {
-                            Array = ProcessInternal(frame.Values.First()),
+                            Array = ProcessInternal(frame.Arguments.First()),
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)((FieldInfo)frame.Instruction.Data).Name
                             }
                         },
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "="
                     };
                 case "stsfld":
@@ -759,26 +776,26 @@ namespace Braille.MethodTransform
                                     Value = (string)field.Name
                                 }
                             },
-                            Right = ProcessInternal(frame.Values.Last()),
+                            Right = ProcessInternal(frame.Arguments.Last()),
                             Operator = "="
                         };
                     }
                 case "sub":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Values.First()),
-                        Right = ProcessInternal(frame.Values.Last()),
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "-"
                     };
                 case "throw":
                     return new JSThrowExpression
                     {
-                        Expression = ProcessInternal(frame.Values.Single())
+                        Expression = ProcessInternal(frame.Arguments.Single())
                     };
                 case "unbox":
                     return new JSPropertyAccessExpression
                     {
-                        Host = ProcessInternal(frame.Values.Single()),
+                        Host = ProcessInternal(frame.Arguments.Single()),
                         Property = "boxed"
                     };
                 default:
@@ -878,32 +895,32 @@ namespace Braille.MethodTransform
             };
         }
 
-        private IEnumerable<JSExpression> ProcessList(IEnumerable<OpExpression> list)
+        private IEnumerable<JSExpression> ProcessList(IEnumerable<OpNode> list)
         {
             foreach (var i in list)
                 yield return ProcessInternal(i);
         }
 
-        public IEnumerable<JSStatement> GetExpressionAsComment(OpExpression expr, int lvl = 0)
-        {
-            yield return new JSStatement
-            {
-                Expression = new JSLineComment
-                {
-                    Text = string.Format("{0:x}\t{2}{1}", expr.Instruction.Position, expr.Instruction.ToString(), new string(' ', lvl))
-                }
-            };
+        //public IEnumerable<JSStatement> GetExpressionAsComment(OpExpression expr, int lvl = 0)
+        //{
+        //    yield return new JSStatement
+        //    {
+        //        Expression = new JSLineComment
+        //        {
+        //            Text = string.Format("{0:x}\t{2}{1}", expr.Instruction.Position, expr.Instruction.ToString(), new string(' ', lvl))
+        //        }
+        //    };
 
-            foreach (var x in expr.Values)
-            {
-                if (x.Instruction == null)
-                    continue;
+        //    foreach (var x in expr.Arguments)
+        //    {
+        //        if (x.Instruction == null)
+        //            continue;
 
-                foreach (var c in GetExpressionAsComment(x, lvl+1))
-                {
-                    yield return c;
-                }
-            }
-        }
+        //        foreach (var c in GetExpressionAsComment(x, lvl+1))
+        //        {
+        //            yield return c;
+        //        }
+        //    }
+        //}
     }
 }

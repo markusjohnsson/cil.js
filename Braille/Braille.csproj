@@ -46,13 +46,14 @@
     <Compile Include="1.AssemblyTransform\StringExtractor.cs" />
     <Compile Include="1.AssemblyTransform\AssemblyTransformTask.cs" />
     <Compile Include="2.MethodTransform\ByteArrayReader.cs" />
+    <Compile Include="2.MethodTransform\LinqExtensions.cs" />
     <Compile Include="2.MethodTransform\Model\BlockBuilder.cs" />
     <Compile Include="2.MethodTransform\Model\OpExpression.cs" />
     <Compile Include="2.MethodTransform\OpToJsTransform.cs" />
     <Compile Include="2.MethodTransform\InsertLabelsTask.cs" />
     <Compile Include="2.MethodTransform\Model\OpInstruction.cs" />
     <Compile Include="2.MethodTransform\OpInstructionReader.cs" />
-    <Compile Include="2.MethodTransform\OpInstructionToOpExpressionTransform.cs" />
+    <Compile Include="2.MethodTransform\OpExpressionBuilder.cs" />
     <Compile Include="2.MethodTransform\ExtractTryCatchRegionsTask.cs" />
     <Compile Include="3.JSAst\JSBreakExpression.cs" />
     <Compile Include="3.JSAst\JSConditionalExpression.cs" />

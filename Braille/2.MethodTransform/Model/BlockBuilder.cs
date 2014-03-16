@@ -21,6 +21,8 @@ namespace Braille.MethodTransform
 
         public IEnumerable<JSStatement> Build()
         {
+            InsertMissingCatchBlocks(Statements);
+
             if (hasBranching)
             {
                 yield return new JSStatement
@@ -52,6 +54,19 @@ namespace Braille.MethodTransform
             {
                 foreach (var stmnt in Statements.Where(s => !(s.Expression is JSBreakExpression)))
                     yield return stmnt;
+            }
+        }
+
+        private void InsertMissingCatchBlocks(List<JSStatement> Statements)
+        {
+            foreach (var pair in Statements.Zip(Statements.Skip(1).EndWith(null), (current, next) => new { current, next }))
+            {
+                if (pair.current is JSTryBlock &&
+                    false == pair.next is JSCatchBlock &&
+                    false == pair.next is JSFinallyBlock)
+                {
+                    ((JSTryBlock)pair.current).InsertEmptyCatch = true;
+                }
             }
         }
 

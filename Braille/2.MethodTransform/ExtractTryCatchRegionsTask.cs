@@ -27,7 +27,7 @@ namespace Braille.MethodTransform
         public bool Contains(OpExpression frame)
         {
             return frame.Instruction.Position < To &&
-                    frame.GetStartPosition() >= From;
+                    frame.Position >= From;
         }
 
     }
@@ -71,7 +71,7 @@ namespace Braille.MethodTransform
                 .GetMethodBody();
 
             if (mtdb == null)
-                return new TryCatchFinallyFrameSpan[] {null};
+                return new TryCatchFinallyFrameSpan[] { null };
 
             var ex = mtdb
                 .ExceptionHandlingClauses

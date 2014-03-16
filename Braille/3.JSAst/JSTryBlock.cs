@@ -12,8 +12,17 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return "try {\n" + string.Join("\n", Statements) + "\n}";
+            var result = "try {\n" + string.Join("\n", Statements) + "\n}";
+
+            if (InsertEmptyCatch)
+            {
+                result += "catch (e) {}";
+            }
+
+            return result;
         }
+
+        public bool InsertEmptyCatch { get; set; }
     }
 
     class JSCatchBlock : JSStatement

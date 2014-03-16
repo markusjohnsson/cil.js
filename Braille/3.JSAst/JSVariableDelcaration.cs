@@ -26,7 +26,7 @@ namespace Braille.JSAst
         public override string ToString()
         {
             if (Value == null)
-                return string.Format("{0}", Name);
+                return ""; //string.Format("{0}", Name);
             else
                 return string.Format("{0} = {1}", Name, Value.ToString());
         }
