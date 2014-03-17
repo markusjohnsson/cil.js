@@ -1,20 +1,17 @@
 ﻿
 namespace Braille.Test
 {
-    class A : I
+    public static class Console
     {
-        public void Foo()
-        {
-            throw new System.NotImplementedException();
-        }
+        [JsImport("console.log")]
+        public static void Log(string s) { }
     }
-
-    interface I { void Foo(); }
 
     class Program
     {
         static void Main(string[] args)
         {
+            Console.Log("Hello World");
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Braille.MethodTransform
         public List<OpExpression> Targets = new List<OpExpression>();
         public List<OpExpression> Targeting = new List<OpExpression>();
         public OpExpression Next;
+        public OpExpression Prev;
         public List<StackUseDefinition> StackBefore;
         public int? InstructionPopCount;
         public int PushCount;
@@ -64,6 +65,7 @@ namespace Braille.MethodTransform
         public bool IsLabel { get; set; }
 
         public bool IsHandlerStart { get; set; }
+
     }
 
     class VariableInfo : OpNode
@@ -71,7 +73,7 @@ namespace Braille.MethodTransform
         public string Name;
     }
 
-    class ExceptionNode: OpNode
+    class ExceptionNode : OpNode
     {
         public List<VariableInfo> StoreLocations = new List<VariableInfo>();
     }
@@ -100,20 +102,18 @@ namespace Braille.MethodTransform
             // - Introduce variables to replace stack based on flow analysis
             ReplaceStack(method, opInfos);
 
-            opInfos = opInfos.Where(o => o.StackBefore != null).ToList();
+            opInfos = opInfos
+                .Where(o => o.StackBefore != null) // unreachable
+                .Where(
+                    o => false == (
+                            o.Instruction.OpCode.Name == "br.s" &&
+                            o.Targeting.Count == 1 && o.Targeting[0] == o.Prev &&
+                            o.Targets.Count == 1 && o.Targets[0] == o.Next))
+                .ToList();
 
             // - Split into blocks based on try-catching and recursivly:
             //    - Replace stack loading with variable loading based on flow analysis
             //    - Create OpExpressions from OpInstructions
-
-            foreach (var op in opInfos)
-            {
-                if (op.StackBefore == null)
-                {
-                    Debug.WriteLine(0);
-                }
-                //Debug.Assert(op.StackBefore.Count >= op.GetRealPopCount());
-            }
 
             return opInfos;
         }
@@ -176,7 +176,8 @@ namespace Braille.MethodTransform
                 //
                 // Part I
 
-                var newStack = new Stack<StackUseDefinition>(opInfo.StackBefore ?? Enumerable.Empty<StackUseDefinition>());
+                var newStack = new Stack<StackUseDefinition>(
+                    opInfo.StackBefore.AsEnumerable().Reverse() ?? Enumerable.Empty<StackUseDefinition>());
 
                 if (opInfo.InstructionPopCount == null)
                 {
@@ -220,10 +221,12 @@ namespace Braille.MethodTransform
 
         private static bool UpdateTargetStack(Stack<StackUseDefinition> newStack, OpExpression target)
         {
+            var stackList = newStack.Reverse().ToList();
+
             var changed = false;
             if (target.StackBefore == null)
             {
-                target.StackBefore = newStack
+                target.StackBefore = stackList
                     .Select(
                         n => new StackUseDefinition
                         {
@@ -236,10 +239,10 @@ namespace Braille.MethodTransform
             }
             else
             {
-                for (var i = 0; i < newStack.Count; i++)
+                for (var i = 0; i < stackList.Count; i++)
                 {
                     var oldDef = target.StackBefore[i];
-                    var newDef = newStack.ElementAt(i);
+                    var newDef = stackList[i];
 
                     var beforeCount = oldDef.Definitions.Count;
 
@@ -273,6 +276,11 @@ namespace Braille.MethodTransform
             foreach (var pairs in opInfos.Zip(opInfos.Skip(1), (current, next) => new { current, next }))
             {
                 pairs.current.Next = pairs.next;
+            }
+
+            foreach (var pairs in opInfos.Zip(opInfos.Skip(1), (prev, current) => new { current, prev }))
+            {
+                pairs.current.Prev = pairs.prev;
             }
 
             var body = method.ReflectionMethod.GetMethodBody();

@@ -815,8 +815,26 @@ namespace Braille.MethodTransform
             };
         }
 
-        private JSPropertyAccessExpression GetMethodAccessor(MethodBase mi)
+        private JSExpression GetMethodAccessor(MethodBase mi)
         {
+
+            var attribs = mi.GetCustomAttributes(false);
+            if (attribs.Length != 0)
+            {
+                var importAttrib = attribs
+                    .Where(a => a.GetType().Name == "JsImportAttribute")
+                    .LastOrDefault();
+
+                if (importAttrib != null)
+                {
+                    var replacement = (string)importAttrib.GetType().GetProperty("Function").GetValue(importAttrib, null);
+                    return new JSIdentifier
+                    {
+                        Name = replacement
+                    };
+                }
+            }
+
             return new JSPropertyAccessExpression
             {
                 Host = GetAssemblyIdentifier(mi.DeclaringType),
