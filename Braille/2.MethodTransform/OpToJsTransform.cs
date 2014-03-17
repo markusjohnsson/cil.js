@@ -354,13 +354,11 @@ namespace Braille.MethodTransform
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
 
+                        JSExpression thisArg;
+
                         return new JSCallExpression
                         {
-                            Function = new JSPropertyAccessExpression
-                            {
-                                Host = GetMethodAccessor(mi),
-                                Property = "apply"
-                            },
+                            Function = GetMethodAccessor(mi),
                             Arguments = ProcessList(frame.Arguments)
                         };
                     }
@@ -817,7 +815,6 @@ namespace Braille.MethodTransform
 
         private JSExpression GetMethodAccessor(MethodBase mi)
         {
-
             var attribs = mi.GetCustomAttributes(false);
             if (attribs.Length != 0)
             {
@@ -827,7 +824,11 @@ namespace Braille.MethodTransform
 
                 if (importAttrib != null)
                 {
-                    var replacement = (string)importAttrib.GetType().GetProperty("Function").GetValue(importAttrib, null);
+                    var replacement = (string)importAttrib
+                        .GetType()
+                        .GetProperty("Function")
+                        .GetValue(importAttrib, null);
+
                     return new JSIdentifier
                     {
                         Name = replacement
@@ -855,15 +856,15 @@ namespace Braille.MethodTransform
 
         private JSIdentifier GetAssemblyIdentifier(Type type)
         {
-            var idx = assemblies.IndexOf(type.Assembly.FullName);
+            //var idx = assemblies.IndexOf(type.Assembly.FullName);
 
-            if (idx == -1)
-            {
-                idx = assemblies.Count;
-                assemblies.Add(type.Assembly.FullName);
-            }
+            //if (idx == -1)
+            //{
+            //    idx = assemblies.Count;
+            //    assemblies.Add(type.Assembly.FullName);
+            //}
 
-            JSIdentifier asmId = new JSIdentifier { Name = "asm" + idx };
+            JSIdentifier asmId = new JSIdentifier { Name = "asm"  };
             return asmId;
         }
 

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Braille.Test
 {
-    class JsImportAttribute : Attribute
+    public class JsImportAttribute : Attribute
     {
         public JsImportAttribute(string function)
         {
@@ -13,5 +14,6 @@ namespace Braille.Test
         }
 
         public string Function { get; set; }
+
     }
 }

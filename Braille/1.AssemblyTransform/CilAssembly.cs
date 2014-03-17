@@ -11,11 +11,13 @@ namespace Braille.AssemblyTransform
     {
         public string Name { get; set; }
         public IEnumerable<CilType> Types { get; set; }
+        public MethodInfo EntryPoint { get; set; }
 
         public JSExpression GetAssemblyDeclaration()
         {
             return new JSFunctionDelcaration
             {
+                Parameters = new[] { new JSFunctionParameter { Name = "asm" } },
                 Body = GetBody().Select(s => new JSStatement { Expression = s })
             };
         }
@@ -66,6 +68,23 @@ namespace Braille.AssemblyTransform
                 };
             }
 
+            if (EntryPoint != null)
+            {
+                yield return new JSBinaryExpression
+                {
+                    Left = new JSPropertyAccessExpression
+                    {
+                        Host = new JSIdentifier { Name = "asm" },
+                        Property = "entryPoint"
+                    },
+                    Operator = "=",
+                    Right = new JSPropertyAccessExpression
+                    {
+                        Host = new JSIdentifier { Name = "asm" },
+                        Property = "x" + EntryPoint.MetadataToken.ToString("x")
+                    }
+                };
+            }
         }
 
         private IEnumerable<JSExpression> GetClass(CilType type)
