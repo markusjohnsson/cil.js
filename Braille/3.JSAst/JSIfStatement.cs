@@ -20,5 +20,16 @@ namespace Braille.JSAst
         {
             return String.Format("if ({0}){{\n{1}\n}}", Condition, string.Join("", Statements));
         }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield return Condition;
+
+            if (Statements != null)
+            {
+                foreach (var s in Statements)
+                    yield return s;
+            }
+        }
     }
 }

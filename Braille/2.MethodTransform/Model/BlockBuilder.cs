@@ -21,7 +21,8 @@ namespace Braille.MethodTransform
 
         public IEnumerable<JSStatement> Build()
         {
-            InsertMissingCatchBlocks(Statements);
+            UpdatePositions();
+            InsertMissingCatchBlocks();
 
             if (hasBranching)
             {
@@ -57,7 +58,22 @@ namespace Braille.MethodTransform
             }
         }
 
-        private void InsertMissingCatchBlocks(List<JSStatement> Statements)
+        private void UpdatePositions()
+        {
+            foreach (var stmt in Statements)
+            {
+                foreach (var x in stmt.GetChildrenRecursive(_ => true))
+                { 
+                    var ifier = x as JSIdentifier;
+                    if (ifier != null && ifier.Name == "__braille_pos__")
+                    {
+                        ifier.Name = "__braille_pos_" + depth + "__";
+                    }
+                }
+            }
+        }
+
+        private void InsertMissingCatchBlocks()
         {
             foreach (var pair in Statements.Zip(Statements.Skip(1).EndWith(null), (current, next) => new { current, next }))
             {
