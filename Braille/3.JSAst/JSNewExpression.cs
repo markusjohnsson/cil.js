@@ -5,21 +5,32 @@ using System.Text;
 
 namespace Braille.JSAst
 {
-    class JSNewExpression: JSExpression
+    class JSNewExpression : JSExpression
     {
         public JSExpression Constructor { get; set; }
         public IEnumerable<JSExpression> Arguments { get; set; }
 
         public override string ToString()
         {
-            return String.Format("new {0}({1})", Constructor, string.Join(",", Arguments));
+            return String.Format("new {0}({1})", WrapIfNeeded(), Arguments == null ? "" : string.Join(",", Arguments));
+        }
+
+        private string WrapIfNeeded()
+        {
+            if (Constructor is JSIdentifier)
+                return Constructor.ToString();
+            else
+                return "(" + Constructor.ToString() + ")";
         }
 
         public override IEnumerable<JSExpression> GetChildren()
         {
             yield return Constructor;
-            foreach (var x in Arguments)
-                yield return x;
+            if (Arguments != null)
+            {
+                foreach (var x in Arguments)
+                    yield return x;
+            }
         }
     }
 }

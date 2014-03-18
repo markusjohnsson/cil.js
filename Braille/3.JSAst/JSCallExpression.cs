@@ -8,7 +8,12 @@ namespace Braille.JSAst
     class JSCallExpression : JSExpression
     {
         public JSExpression Function { get; set; }
-        public IEnumerable<JSExpression> Arguments { get; set; }
+        public List<JSExpression> Arguments { get; set; }
+
+        public JSCallExpression()
+        {
+            Arguments = new List<JSExpression>();
+        }
 
         public override string ToString()
         {

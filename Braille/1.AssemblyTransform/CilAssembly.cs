@@ -91,10 +91,53 @@ namespace Braille.AssemblyTransform
         {
             var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
 
-            yield return new JSFunctionDelcaration
+            if (type.ReflectionType.IsValueType)
             {
-                Name = n
-            };
+                yield return new JSFunctionDelcaration
+                {
+                    Name = n,
+                    Body = type
+                        .ReflectionType
+                        .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                        .Select(
+                            f => new JSBinaryExpression
+                            {
+                                Left = new JSPropertyAccessExpression
+                                {
+                                    Host = new JSIdentifier { Name = "this" },
+                                    Property = f.Name
+                                },
+                                Operator = "=",
+                                Right =
+                                    f.FieldType == typeof(bool) ?
+                                        new JSBoolLiteral { Value = default(bool) } :
+                                    f.FieldType.IsPrimitive ?
+                                        new JSNumberLiteral { Value = 0 } as JSExpression :
+                                    f.FieldType.IsValueType ? 
+                                        new JSNewExpression {
+                                            Constructor = new JSPropertyAccessExpression
+                                            {
+                                                Host = new JSIdentifier { Name = "asm" },
+                                                Property = type.Namespace + "." + type.Name
+                                            }
+                                        } as JSExpression :
+                                        new JSNullLiteral()
+                            })
+                        .Select(
+                            e => new JSStatement
+                            {
+                                Expression = e
+                            })
+                        .ToList()
+                };
+            }
+            else
+            {
+                yield return new JSFunctionDelcaration
+                {
+                    Name = n
+                };
+            }
             yield return new JSReturnExpression
             {
                 Expression = new JSIdentifier { Name = n }

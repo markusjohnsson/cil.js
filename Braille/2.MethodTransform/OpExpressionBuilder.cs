@@ -177,7 +177,7 @@ namespace Braille.MethodTransform
                 // Part I
 
                 var newStack = new Stack<StackUseDefinition>(
-                    opInfo.StackBefore.AsEnumerable().Reverse() ?? Enumerable.Empty<StackUseDefinition>());
+                    opInfo.StackBefore ?? Enumerable.Empty<StackUseDefinition>());
 
                 if (opInfo.InstructionPopCount == null)
                 {

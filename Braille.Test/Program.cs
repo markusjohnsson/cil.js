@@ -7,32 +7,28 @@ namespace Braille.Test
         public static void Log(object s) { }
     }
 
+    class A
+    {
+        public int Field;
+    }
+
+    struct Point
+    {
+        public int X;
+        public int Y;
+        public int SquaredLength { get { return X * X + Y * Y; } }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Log(GetGreeting());
-            Console.Log(Foo());
-        }
+            var a = new Point();
+            a.X = 123;
+            a.Y = 321;
 
-        static double Foo()
-        {
-            return Bar() * Baz();
-        }
-
-        private static double Baz()
-        {
-            return 123.0;
-        }
-
-        private static double Bar()
-        {
-            return 2;
-        }
-
-        private static string GetGreeting()
-        {
-            return "Hello World";
+            Console.Log(a);
+            Console.Log(a.SquaredLength);
         }
     }
 }

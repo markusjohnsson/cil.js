@@ -325,14 +325,12 @@ namespace Braille.MethodTransform
             switch (opc_)
             {
                 case "add":
-                    return WrapInStore(
-                        frame.StoreLocations,
-                        new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(frame.Arguments.First()),
-                            Right = ProcessInternal(frame.Arguments.Last()),
-                            Operator = "+"
-                        });
+                    return new JSBinaryExpression
+                    {
+                        Left = ProcessInternal(frame.Arguments.First()),
+                        Right = ProcessInternal(frame.Arguments.Last()),
+                        Operator = "+"
+                    };
                 case "and":
                     return new JSBinaryExpression
                     {
@@ -359,7 +357,7 @@ namespace Braille.MethodTransform
                         return new JSCallExpression
                         {
                             Function = GetMethodAccessor(mi),
-                            Arguments = ProcessList(frame.Arguments)
+                            Arguments = ProcessList(frame.Arguments).ToList()
                         };
                     }
                 case "callvirt":
@@ -368,7 +366,7 @@ namespace Braille.MethodTransform
                         return new JSCallExpression
                         {
                             Function = GetVirtualMethodAccessor(mi),
-                            Arguments = ProcessList(frame.Arguments)
+                            Arguments = ProcessList(frame.Arguments).ToList()
                         };
                     }
                 case "castclass":
@@ -421,6 +419,8 @@ namespace Braille.MethodTransform
                     };
                 case "dup":
                     {
+                        // TODO: eliminate dups after analysis
+
                         var name = "_b_dup_" + frame.Instruction.Position;
                         if (processedDups.Add(frame))
                         {
@@ -440,6 +440,22 @@ namespace Braille.MethodTransform
                     }
                 case "endfinally":
                     return new JSEmptyExpression();
+                case "initobj":
+                    return new JSCallExpression
+                    {
+                        Function = new JSPropertyAccessExpression
+                        {
+                            Host = ProcessInternal(frame.Arguments.Single()),
+                            Property = "w"
+                        },
+                        Arguments = 
+                        {
+                            new JSNewExpression
+                            {
+                                Constructor = CreateTypeIdentifier((Type)frame.Instruction.Data)
+                            }
+                        }
+                    };
                 case "isinst":
                     return new JSBinaryExpression
                     {
@@ -570,11 +586,20 @@ namespace Braille.MethodTransform
                         Indexer = ProcessInternal(frame.Arguments.Last())
                     };
                 case "ldfld":
-                    return new JSPropertyAccessExpression
                     {
-                        Host = ProcessInternal(frame.Arguments.Single()),
-                        Property = ((FieldInfo)frame.Instruction.Data).Name
-                    };
+                        var fieldInfo = (FieldInfo)frame.Instruction.Data;
+                        var arg = ProcessInternal(frame.Arguments.Single());
+
+                        var source = fieldInfo.DeclaringType.IsValueType ? 
+                            new JSCallExpression { Function = new JSPropertyAccessExpression { Host = arg, Property = "r" } } :
+                            arg;
+                        
+                        return new JSPropertyAccessExpression
+                        {
+                            Host = source,
+                            Property = fieldInfo.Name
+                        };
+                    }
                 case "ldftn":
                     var method = (MethodBase)frame.Instruction.Data;
                     return new JSPropertyAccessExpression
@@ -730,7 +755,7 @@ namespace Braille.MethodTransform
                             Host = ProcessInternal(frame.Arguments.First()),
                             Property = "write"
                         },
-                        Arguments = new[] 
+                        Arguments = new List<JSExpression>
                         {
                             ProcessInternal(frame.Arguments.Last())
                         }
@@ -748,19 +773,24 @@ namespace Braille.MethodTransform
                         };
                     }
                 case "stfld":
-                    return new JSBinaryExpression
                     {
-                        Left = new JSArrayLookupExpression
+                        var target = ProcessInternal(frame.Arguments.First());
+                        var fieldInfo = (FieldInfo)frame.Instruction.Data;
+                        var host = (fieldInfo.DeclaringType.IsValueType) ?
+                            new JSCallExpression { Function = new JSPropertyAccessExpression { Host = target, Property = "r" } } :
+                            target;
+
+                        return new JSBinaryExpression
                         {
-                            Array = ProcessInternal(frame.Arguments.First()),
-                            Indexer = new JSStringLiteral
+                            Left = new JSPropertyAccessExpression
                             {
-                                Value = (string)((FieldInfo)frame.Instruction.Data).Name
-                            }
-                        },
-                        Right = ProcessInternal(frame.Arguments.Last()),
-                        Operator = "="
-                    };
+                                Host = host,
+                                Property = (string)fieldInfo.Name
+                            },
+                            Right = ProcessInternal(frame.Arguments.Last()),
+                            Operator = "="
+                        };
+                    }
                 case "stsfld":
                     {
                         var field = (FieldInfo)frame.Instruction.Data;
@@ -845,7 +875,7 @@ namespace Braille.MethodTransform
 
         List<string> assemblies = new List<string>();
 
-        private JSExpression CreateTypeIdentifier(Type type)
+        public JSExpression CreateTypeIdentifier(Type type)
         {
             return new JSPropertyAccessExpression
             {
@@ -864,18 +894,18 @@ namespace Braille.MethodTransform
             //    assemblies.Add(type.Assembly.FullName);
             //}
 
-            JSIdentifier asmId = new JSIdentifier { Name = "asm"  };
+            JSIdentifier asmId = new JSIdentifier { Name = "asm" };
             return asmId;
         }
 
-        private static JSObjectLiteral WrapInReaderWriter(JSExpression ifier)
+        private static JSExpression WrapInReaderWriter(JSExpression ifier)
         {
             return new JSObjectLiteral
             {
                 Properties = new Dictionary<string, JSExpression>
                 {
                     { 
-                        "write", 
+                        "w", 
                         new JSFunctionDelcaration 
                         { 
                             Body = new JSStatement [] 
@@ -901,7 +931,7 @@ namespace Braille.MethodTransform
                         }
                     },
                     {
-                        "read", 
+                        "r", 
                         new JSFunctionDelcaration 
                         { 
                             Body = new JSStatement [] 
