@@ -11,13 +11,15 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            if (Expression is JSEmptyExpression)
-                return string.Empty;
-
             if (Expression is JSLineComment)
                 return Expression.ToString();
 
-            return Expression.ToString() + ";";
+            var result = Expression.ToString();
+
+            if (string.IsNullOrWhiteSpace(result))
+                return string.Empty;
+
+            return result + ";";
         }
 
         public override IEnumerable<JSExpression> GetChildren()

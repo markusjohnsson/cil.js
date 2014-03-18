@@ -25,7 +25,7 @@ namespace Braille.JSAst
                     "" : string.Join(",", Parameters.Select(p => p.ToString())),
                 string.Join("\n", variables.Select(v => "var " + v + ";")),
                 Body == null ?
-                    "" : string.Join("\n", Body.Select(p => p.ToString())));
+                    "" : string.Join("\n", Body.Select(p => p.ToString()).Where(s => !string.IsNullOrWhiteSpace(s))));
         }
 
         public override IEnumerable<JSExpression> GetChildren()

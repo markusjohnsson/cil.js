@@ -24,10 +24,6 @@ namespace Braille
             mtdTranform.Process(asm);
 
             File.WriteAllText("Output.js", "var asm; (" + asm.First().GetAssemblyDeclaration().ToString() + ")(asm || (asm = {}))");
-
-            
-            //if (Debugger.IsAttached)
-            //    Console.ReadLine();
         }
 
     }
