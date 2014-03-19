@@ -352,8 +352,6 @@ namespace Braille.MethodTransform
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
 
-                        JSExpression thisArg;
-
                         return new JSCallExpression
                         {
                             Function = GetMethodAccessor(mi),
@@ -363,9 +361,10 @@ namespace Braille.MethodTransform
                 case "callvirt":
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
+
                         return new JSCallExpression
                         {
-                            Function = GetVirtualMethodAccessor(mi),
+                            Function = mi.IsVirtual ? GetVirtualMethodAccessor(mi) : GetMethodAccessor(mi),
                             Arguments = ProcessList(frame.Arguments).ToList()
                         };
                     }
@@ -880,7 +879,7 @@ namespace Braille.MethodTransform
             return new JSPropertyAccessExpression
             {
                 Host = GetAssemblyIdentifier(type),
-                Property = type.Namespace + "." + type.Name
+                Property = string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name
             };
         }
 

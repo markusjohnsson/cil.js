@@ -90,6 +90,7 @@
     <Compile Include="3.JSAst\JSVariableDelcaration.cs" />
     <Compile Include="5.Runtime\StackItem.cs" />
     <Compile Include="5.Runtime\StackItemType.cs" />
+    <Compile Include="Compiler.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,12 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="4.Emit\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\Braille.Test\bin\Debug\Braille.Test.exe">
-      <Link>References\Braille.Test.exe</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

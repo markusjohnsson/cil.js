@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braille", "Braille\Braille.csproj", "{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrailleRuntime", "BrailleRuntime\BrailleRuntime.csproj", "{02EB3466-27D6-4D1E-83A0-68E564AF20A9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braille.Test", "Braille.Test\Braille.Test.csproj", "{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Braille.TestRunner", "Braille.TestRunner\Braille.TestRunner.csproj", "{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,26 +25,16 @@ Global
 		{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}.Release|x86.ActiveCfg = Release|x86
 		{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}.Release|x86.Build.0 = Release|x86
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{02EB3466-27D6-4D1E-83A0-68E564AF20A9}.Release|x86.ActiveCfg = Release|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{FAF0D113-BEA2-4C3F-B6DE-F0B7224826B4}.Release|x86.ActiveCfg = Release|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{58CBE0DA-80C5-4B2A-B0BE-4EC05B4E9962}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

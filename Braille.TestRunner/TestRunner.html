@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function runScript()
+        {
+            var fileName = document.getElementById("testFile").value;
+            var fileref = document.createElement('script');
+            fileref.setAttribute("type", "text/javascript");
+            fileref.setAttribute("src", fileName);
+            fileref.onload = function () {
+                asm.entryPoint();
+            };
+            document.getElementsByTagName("head")[0].appendChild(fileref);
+        }
+    </script>
+</head>
+<body>
+    <input id="testFile" />
+    <button onclick="runScript()">Run</button>
+</body>
+</html>
