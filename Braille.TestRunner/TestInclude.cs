@@ -4,7 +4,7 @@ using System;
 public class TestLog
 {
     [JsImport("braille_test_log")]
-    public static void Log(string o)
+    public static void Log(object o)
     {
         Console.WriteLine(o);
     }

@@ -15,6 +15,10 @@ namespace Braille.TestRunner
         {
             foreach (var file in Directory.GetFiles("Tests", "*.cs"))
                 CompileAndRunTest(Path.GetFullPath(file));
+            foreach (var file in Directory.GetFiles("RuntimeTests", "*.cs"))
+                CompileAndRunTest(Path.GetFullPath(file));
+
+            Console.ReadLine();
         }
 
         private static void CompileAndRunTest(string csFile)
@@ -30,17 +34,24 @@ namespace Braille.TestRunner
 
             CompileJs(outputName);
 
-            var exeOutput = ExecuteExe(outputName);
+            int exeExitCode;
+            var exeOutput = ExecuteExe(outputName, out exeExitCode);
 
-            var jsOutput = ExecuteJs(outputName);
+            int jsExitCode;
+            var jsOutput = ExecuteJs(outputName, out jsExitCode);
+
+            if (exeExitCode != jsExitCode)
+            {
+                Console.WriteLine("ERROR: Exit codes not equal (clr: {0} js: {1})", exeExitCode, jsExitCode);
+            }
 
             if (exeOutput != jsOutput)
             {
-                Console.WriteLine("Outputs not equal");
+                Console.WriteLine("ERROR: Outputs not equal\n CLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput);
             }
         }
 
-        private static string ExecuteExe(string outputName)
+        private static string ExecuteExe(string outputName, out int exitCode)
         {
             var process = Process.Start(
                 new ProcessStartInfo
@@ -50,22 +61,30 @@ namespace Braille.TestRunner
                     UseShellExecute = false
                 });
             process.WaitForExit(10000);
-            return process.StandardOutput.ReadToEnd();
+            var output = process.StandardOutput.ReadToEnd();
+            exitCode = process.ExitCode;
+            return output;
         }
 
-        private static string ExecuteJs(string outputName)
+        private static string ExecuteJs(string exeFilePath, out int exitCode)
         {
             string jsOutput = null;
-
+            exitCode = -1;
             try
             {
                 using (var jsEngine = new MsieJsEngine(engineMode: JsEngineMode.Auto,
                     useEcmaScript5Polyfill: false, useJson2Library: false))
                 {
                     jsEngine.Execute(@"var braille_testlib_output = """";");
-                    jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += message + ""\r\n""; }");
-                    jsEngine.ExecuteFile(outputName + ".js");
-                    jsEngine.Execute("asm.entryPoint();");
+                    jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += message.toString() + ""\r\n""; }");
+                    jsEngine.ExecuteFile(exeFilePath + ".js");
+                    object exitCodeObj = jsEngine.Evaluate("asm.entryPoint()");
+                    
+                    if (exitCodeObj == MsieJavaScriptEngine.Undefined.Value)
+                        exitCode = 0;
+                    else
+                        exitCode = (int)(double)exitCodeObj;
+
                     jsOutput = (string)jsEngine.Evaluate("braille_testlib_output");
                 }
             }

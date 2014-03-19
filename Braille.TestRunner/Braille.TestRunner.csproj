@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Tests\Struct.cs" />
+    <None Include="RuntimeTests\iface.cs" />
     <Compile Include="TestInclude.cs" />
     <None Include="Tests\CallStaticMethods.cs" />
     <None Include="Tests\Class02.cs" />
@@ -67,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestRunner.html" />
+    <None Include="Tests\Properties.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

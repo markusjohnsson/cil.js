@@ -258,7 +258,7 @@ namespace Braille.MethodTransform
                 {
                     Left = ProcessInternal(frame.Arguments.First()),
                     Right = ProcessInternal(frame.Arguments.Last()),
-                    Operator = "==="
+                    Operator = op
                 },
                 Statements = 
                 {
@@ -270,7 +270,7 @@ namespace Braille.MethodTransform
                             {
                                 Name = "__braille_pos__"
                             },
-                            Operator = op,
+                            Operator = "=",
                             Right = new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true }
                         }
                     },
@@ -345,6 +345,21 @@ namespace Braille.MethodTransform
                         {
                             { 
                                 "boxed", ProcessInternal(frame.Arguments.Single()) 
+                            },
+                            {
+                                "toString", new JSFunctionDelcaration 
+                                { 
+                                    Body = new List<JSStatement> 
+                                    { 
+                                        new JSStatement 
+                                        { 
+                                            Expression = new JSReturnExpression 
+                                            {
+                                                Expression = JSIdentifier.Create("this", "boxed") 
+                                            } 
+                                        } 
+                                    }
+                                }
                             }
                         }
                     };
@@ -362,10 +377,12 @@ namespace Braille.MethodTransform
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
 
+                        var arglist = ProcessList(frame.Arguments).ToList();
+
                         return new JSCallExpression
                         {
-                            Function = mi.IsVirtual ? GetVirtualMethodAccessor(mi) : GetMethodAccessor(mi),
-                            Arguments = ProcessList(frame.Arguments).ToList()
+                            Function = mi.IsVirtual ? GetVirtualMethodAccessor(arglist.First(), mi) : GetMethodAccessor(mi),
+                            Arguments = arglist
                         };
                     }
                 case "castclass":
@@ -589,10 +606,10 @@ namespace Braille.MethodTransform
                         var fieldInfo = (FieldInfo)frame.Instruction.Data;
                         var arg = ProcessInternal(frame.Arguments.Single());
 
-                        var source = fieldInfo.DeclaringType.IsValueType ? 
+                        var source = fieldInfo.DeclaringType.IsValueType ?
                             new JSCallExpression { Function = new JSPropertyAccessExpression { Host = arg, Property = "r" } } :
                             arg;
-                        
+
                         return new JSPropertyAccessExpression
                         {
                             Host = source,
@@ -833,12 +850,16 @@ namespace Braille.MethodTransform
             }
         }
 
-        private JSPropertyAccessExpression GetVirtualMethodAccessor(MethodBase mi)
+        private JSPropertyAccessExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodBase mi)
         {
             return new JSPropertyAccessExpression
             {
-                Host = CreateTypeIdentifier(mi.DeclaringType),
-                Property = mi.Name
+                Host = new JSPropertyAccessExpression
+                {
+                    Host = thisArg,
+                    Property = "vtable"
+                },
+                Property = "x" + mi.MetadataToken.ToString("x")
             };
         }
 

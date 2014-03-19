@@ -31,5 +31,21 @@ namespace Braille.JSAst
         {
             yield break;
         }
+
+        public static JSExpression Create(params string[] ns)
+        {
+            if (ns.Length == 1)
+            {
+                return new JSIdentifier { Name = ns[0] };
+            }
+            else
+            {
+                return new JSPropertyAccessExpression
+                {
+                    Host = Create(ns.Take(ns.Length - 1).ToArray()),
+                    Property = ns.Last()
+                };
+            }
+        }
     }
 }

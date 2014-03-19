@@ -33,7 +33,10 @@ namespace Braille
             var mtdTranform = new MethodTransformTask();
             mtdTranform.Process(asms);
 
-            File.WriteAllText(OutputFileName, "var asm; (" + asms.First().GetAssemblyDeclaration().ToString() + ")(asm || (asm = {}))");
+            var asmTransform2 = new JsAssemblyBuilder();
+            var asmExpression = asmTransform2.Build(asms.First());
+
+            File.WriteAllText(OutputFileName, "var asm; (" + asmExpression.ToString() + ")(asm || (asm = {}))");
         }
     }
 }

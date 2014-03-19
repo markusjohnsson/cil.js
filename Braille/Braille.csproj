@@ -43,6 +43,7 @@
     <Compile Include="1.AssemblyTransform\CilMethod.cs" />
     <Compile Include="1.AssemblyTransform\CilType.cs" />
     <Compile Include="1.AssemblyTransform\CSStringConverter.cs" />
+    <Compile Include="1.AssemblyTransform\JsAssemblyBuilder.cs" />
     <Compile Include="1.AssemblyTransform\StringExtractor.cs" />
     <Compile Include="1.AssemblyTransform\AssemblyTransformTask.cs" />
     <Compile Include="2.MethodTransform\ByteArrayReader.cs" />
