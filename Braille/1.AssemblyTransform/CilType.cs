@@ -15,24 +15,5 @@ namespace Braille.AssemblyTransform
         public string BaseType { get; set; }
         public Type ReflectionType { get; set; }
 
-        public JSExpression GetTypeDeclaration()
-        {
-            return new JSObjectLiteral
-            {
-                Properties = new Dictionary<string, JSExpression> 
-                {
-                    { "namespace", NullOrLiteral(Namespace) },
-                    { "name", new JSStringLiteral { Value = Name } },
-                    { "baseType", NullOrLiteral(BaseType) },
-                    { "methods", new JSArrayLiteral { Values = Methods.Select(m => m.GetMethodDeclaration()) } }
-                }
-            };
-        }
-
-        private static JSExpression NullOrLiteral(string value)
-        {
-            return value == null ? new JSNullLiteral() as JSExpression : new JSStringLiteral { Value = value } as JSExpression;
-        }
-
     }
 }

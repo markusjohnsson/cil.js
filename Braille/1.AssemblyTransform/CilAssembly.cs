@@ -12,5 +12,7 @@ namespace Braille.AssemblyTransform
         public string Name { get; set; }
         public IEnumerable<CilType> Types { get; set; }
         public MethodInfo EntryPoint { get; set; }
+
+        public Assembly ReflectionAssembly { get; set; }
     }
 }

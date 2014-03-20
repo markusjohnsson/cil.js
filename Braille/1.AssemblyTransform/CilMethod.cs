@@ -20,20 +20,34 @@ namespace Braille.AssemblyTransform
 
         public ModuleILResolver Resolver { get; set; }
 
-        public JSExpression GetMethodDeclaration()
+        public string GetReplacement()
         {
-            return new JSObjectLiteral
-            {
-                Properties = new Dictionary<string, JSExpression> 
-                { 
-                    { "name", new JSStringLiteral { Value = Name } },
-                    { "hideBySig", new JSBoolLiteral { Value = IsHideBySig } },
-                    { "isVirtual", new JSBoolLiteral { Value = IsVirtual } },
-                    { "isStatic", new JSBoolLiteral { Value = ReflectionMethod.IsStatic } },
-                    { "metadataToken", new JSStringLiteral { Value = string.Format("0x{0:x}", MetadataToken) } },
-                    //{ "body", JsFunction }
-                }
-            };
+            var mi = ReflectionMethod;
+
+            return GetReplacement(mi);
+        }
+
+        public static string GetReplacement(MethodBase mi)
+        {
+            var attribs = mi
+                .GetCustomAttributes(false);
+
+            if (attribs.Length == 0)
+                return null;
+
+            var importAttrib = attribs
+                .Where(a => a.GetType().Name == "JsImportAttribute")
+                .LastOrDefault();
+
+            if (importAttrib == null)
+                return null;
+
+            var replacement = importAttrib
+                .GetType()
+                .GetProperty("Function")
+                .GetValue(importAttrib, null);
+
+            return replacement as string;
         }
 
         public byte[] IlCode { get; set; }

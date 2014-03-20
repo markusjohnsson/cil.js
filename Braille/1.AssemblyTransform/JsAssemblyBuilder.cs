@@ -34,7 +34,7 @@ namespace Braille.AssemblyTransform
                         Property = "x" + m.MetadataToken.ToString("x")
                     },
                     Operator = "=",
-                    Right = m.JsFunction
+                    Right = m.JsFunction ?? new JSFunctionDelcaration()
                 };
             }
 

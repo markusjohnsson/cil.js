@@ -10,6 +10,12 @@ public class TestLog
     }
 }
 
+[JsIgnore]
+public class JsIgnoreAttribute : Attribute
+{ 
+}
+
+[JsIgnore]
 public class JsImportAttribute : Attribute
 {
     public JsImportAttribute(string function)

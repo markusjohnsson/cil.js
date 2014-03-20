@@ -32,6 +32,7 @@ namespace Braille.AssemblyTransform
             var result = new CilAssembly(); 
             result.Name = asm.FullName;
             result.EntryPoint = asm.EntryPoint;
+            result.ReflectionAssembly = asm;
 
             var types = new List<CilType>();
             result.Types = types;

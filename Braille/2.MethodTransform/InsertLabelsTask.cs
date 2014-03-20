@@ -35,6 +35,7 @@ namespace Braille.MethodTransform
                     case "bgt.un.s":
                     case "ble":
                     case "ble.s":
+                    case "ble.un.s":
                     case "blt":
                     case "blt.s":
                     case "bne":

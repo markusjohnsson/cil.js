@@ -8,8 +8,32 @@ namespace Braille.JSAst
 {
     class JSBinaryExpression: JSExpression
     {
-        public JSExpression Left { get; set; }
-        public JSExpression Right { get; set; }
+        private JSExpression _Left;
+        public JSExpression Left
+        {
+            get
+            {
+                return _Left;
+            }
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+                _Left = value;
+            }
+        }
+        private JSExpression _Right;
+        public JSExpression Right
+        {
+            get
+            {
+                return _Right;
+            }
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+                _Right = value;
+            }
+        }
 
         public string Operator { get; set; }
 

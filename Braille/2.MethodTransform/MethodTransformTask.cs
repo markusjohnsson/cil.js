@@ -10,18 +10,32 @@ namespace Braille.MethodTransform
     class MethodTransformTask
     {
         private OpExpressionBuilder expressionBuilder = new OpExpressionBuilder();
-        private OpToJsTransform exprToJsTransform = new OpToJsTransform();
+        
         private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
 
         public void Process(IEnumerable<CilAssembly> asms)
         {
+            asms = asms.ToList();
+
             foreach (var asm in asms)
             {
                 foreach (var type in asm.Types)
                 {
+                    if (type.ReflectionType.GetCustomAttributes(true).Any(a => a.GetType().Name == "JsIgnoreAttribute"))
+                    {
+                        continue;
+                    }
+
                     foreach (var method in type.Methods)
                     {
+                        if (method.GetReplacement() != null)
+                        {
+                            continue;
+                        }
+
+                        var exprToJsTransform = new OpToJsTransform((List<CilAssembly>)asms, asm, type, method);
+
                         var functionBlock = new List<JSStatement>();
                         functionBlock.Add(
                             new JSStatement

@@ -15,9 +15,10 @@ namespace Braille.TestRunner
         {
             foreach (var file in Directory.GetFiles("Tests", "*.cs"))
                 CompileAndRunTest(Path.GetFullPath(file));
-            foreach (var file in Directory.GetFiles("RuntimeTests", "*.cs"))
+            foreach (var file in Directory.GetFiles("MonoTests", "*.cs"))
                 CompileAndRunTest(Path.GetFullPath(file));
 
+            Console.WriteLine("Done");
             Console.ReadLine();
         }
 
@@ -78,7 +79,7 @@ namespace Braille.TestRunner
                     jsEngine.Execute(@"var braille_testlib_output = """";");
                     jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += message.toString() + ""\r\n""; }");
                     jsEngine.ExecuteFile(exeFilePath + ".js");
-                    object exitCodeObj = jsEngine.Evaluate("asm.entryPoint()");
+                    object exitCodeObj = jsEngine.Evaluate("asm0.entryPoint()");
                     
                     if (exitCodeObj == MsieJavaScriptEngine.Undefined.Value)
                         exitCode = 0;

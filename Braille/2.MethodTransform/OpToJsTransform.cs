@@ -1,3 +1,4 @@
+using Braille.AssemblyTransform;
 using Braille.JSAst;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,21 @@ namespace Braille.MethodTransform
 {
     class OpToJsTransform
     {
+        private CilAssembly assembly;
+        private CilType type;
+        private CilMethod method;
+        private List<CilAssembly> world;
+
+        private HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
+        
+        public OpToJsTransform(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
+        {
+            this.world = world;
+            this.assembly = assembly;
+            this.type = type;
+            this.method = method;
+        }
+
         public IEnumerable<JSStatement> Process(OpExpression node)
         {
 
@@ -296,9 +312,6 @@ namespace Braille.MethodTransform
             return 1 + i.Position + i.Size + data;
         }
 
-        // uh-oh, I can has state?
-        HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
-
         private JSExpression ProcessInternal(OpNode node)
         {
             var varInfo = node as VariableInfo;
@@ -367,6 +380,14 @@ namespace Braille.MethodTransform
                 case "call":
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
+
+                        if (mi.DeclaringType == typeof(object) &&
+                            mi is ConstructorInfo &&
+                            mi.GetParameters().Length == 0)
+                        {
+                            return new JSEmptyExpression();
+                        }
+
 
                         return new JSCallExpression
                         {
@@ -705,11 +726,43 @@ namespace Braille.MethodTransform
                 case "newobj":
                     {
                         var ctor = (ConstructorInfo)frame.Instruction.Data;
+                        var argList = ProcessList(frame.Arguments);
 
-                        return new JSNewExpression
+                        return new JSCallExpression
                         {
-                            Constructor = CreateTypeIdentifier(ctor.DeclaringType),
-                            Arguments = ProcessList(frame.Arguments)
+                            Function = new JSFunctionDelcaration
+                            {
+                                Body = new List<JSStatement> 
+                                {
+                                    new JSStatement
+                                    { 
+                                        Expression = new JSVariableDelcaration 
+                                        { 
+                                            Name = "result", 
+                                            Value = 
+                                            new JSNewExpression
+                                            {
+                                                Constructor = CreateTypeIdentifier(ctor.DeclaringType)
+                                            }
+                                        }
+                                    },
+                                    new JSStatement 
+                                    {
+                                        Expression = new JSCallExpression
+                                        {
+                                            Function = GetMethodAccessor(ctor),
+                                            Arguments = argList.StartWith(new JSIdentifier { Name  = "result" }).ToList()
+                                        }
+                                    },
+                                    new JSStatement 
+                                    {
+                                        Expression = new JSReturnExpression
+                                        {
+                                            Expression = new JSIdentifier { Name = "result" }
+                                        }
+                                    }
+                                }
+                            }
                         };
                     }
                 case "nop":
@@ -884,26 +937,10 @@ namespace Braille.MethodTransform
 
         private JSExpression GetMethodAccessor(MethodBase mi)
         {
-            var attribs = mi.GetCustomAttributes(false);
-            if (attribs.Length != 0)
-            {
-                var importAttrib = attribs
-                    .Where(a => a.GetType().Name == "JsImportAttribute")
-                    .LastOrDefault();
+            var replacement = CilMethod.GetReplacement(mi);
 
-                if (importAttrib != null)
-                {
-                    var replacement = (string)importAttrib
-                        .GetType()
-                        .GetProperty("Function")
-                        .GetValue(importAttrib, null);
-
-                    return new JSIdentifier
-                    {
-                        Name = replacement
-                    };
-                }
-            }
+            if (replacement != null)
+                return new JSIdentifier { Name = replacement };
 
             return new JSPropertyAccessExpression
             {
@@ -911,8 +948,6 @@ namespace Braille.MethodTransform
                 Property = "x" + mi.MetadataToken.ToString("x")
             };
         }
-
-        List<string> assemblies = new List<string>();
 
         public JSExpression CreateTypeIdentifier(Type type)
         {
@@ -925,16 +960,14 @@ namespace Braille.MethodTransform
 
         private JSIdentifier GetAssemblyIdentifier(Type type)
         {
-            //var idx = assemblies.IndexOf(type.Assembly.FullName);
+            var idx = world.FindIndex(c => c.ReflectionAssembly == type.Assembly);
 
-            //if (idx == -1)
-            //{
-            //    idx = assemblies.Count;
-            //    assemblies.Add(type.Assembly.FullName);
-            //}
+            if (idx == -1)
+            {
+                throw new Exception("Cannot resolve assembly of type " + type);
+            }
 
-            JSIdentifier asmId = new JSIdentifier { Name = "asm" };
-            return asmId;
+            return new JSIdentifier { Name = "asm" + idx };
         }
 
         private static JSExpression WrapInReaderWriter(JSExpression ifier)
@@ -989,26 +1022,5 @@ namespace Braille.MethodTransform
                 yield return ProcessInternal(i);
         }
 
-        //public IEnumerable<JSStatement> GetExpressionAsComment(OpExpression expr, int lvl = 0)
-        //{
-        //    yield return new JSStatement
-        //    {
-        //        Expression = new JSLineComment
-        //        {
-        //            Text = string.Format("{0:x}\t{2}{1}", expr.Instruction.Position, expr.Instruction.ToString(), new string(' ', lvl))
-        //        }
-        //    };
-
-        //    foreach (var x in expr.Arguments)
-        //    {
-        //        if (x.Instruction == null)
-        //            continue;
-
-        //        foreach (var c in GetExpressionAsComment(x, lvl+1))
-        //        {
-        //            yield return c;
-        //        }
-        //    }
-        //}
     }
 }
