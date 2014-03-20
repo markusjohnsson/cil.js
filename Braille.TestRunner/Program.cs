@@ -47,7 +47,7 @@ namespace Braille.TestRunner
 
             if (exeOutput != jsOutput)
             {
-                Console.WriteLine("ERROR: Outputs not equal\n CLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput);
+                Console.WriteLine("ERROR: Outputs not equal\nCLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput);
             }
         }
 

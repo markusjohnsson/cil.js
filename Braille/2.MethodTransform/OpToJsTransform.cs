@@ -56,7 +56,7 @@ namespace Braille.MethodTransform
 
                 case "beq":
                 case "beq.s":
-                    yield return CreateComparisonBranch(node, "=");
+                    yield return CreateComparisonBranch(node, "===");
                     break;
 
                 case "bge":
@@ -131,7 +131,7 @@ namespace Braille.MethodTransform
                                     {
                                         Name = "__braille_pos__"
                                     },
-                                    Operator = "==",
+                                    Operator = "=",
                                     Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
                                 }
                             },
@@ -168,7 +168,8 @@ namespace Braille.MethodTransform
                             Operator = ">=",
                             Right = new JSNumberLiteral { Value = ((int[])node.Instruction.Data).Length, IsHex = true }
                         },
-                        Statements = {
+                        Statements = 
+                        {
                             new JSStatement
                             {
                                 Expression = new JSBinaryExpression
@@ -381,7 +382,12 @@ namespace Braille.MethodTransform
 
                         return new JSCallExpression
                         {
-                            Function = mi.IsVirtual ? GetVirtualMethodAccessor(arglist.First(), mi) : GetMethodAccessor(mi),
+                            Function =
+                                mi.DeclaringType.IsInterface
+                                    ? GetInterfaceMethodAccessor(arglist.First(), mi) :
+                                mi.IsVirtual
+                                    ? GetVirtualMethodAccessor(arglist.First(), mi)
+                                    : GetMethodAccessor(mi),
                             Arguments = arglist
                         };
                     }
@@ -848,6 +854,19 @@ namespace Braille.MethodTransform
                         Text = opc + ": opcode not implmented"
                     };
             }
+        }
+
+        private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, MethodBase mi)
+        {
+            return new JSPropertyAccessExpression
+            {
+                Host = new JSPropertyAccessExpression
+                {
+                    Host = thisArg,
+                    Property = mi.DeclaringType.FullName
+                },
+                Property = "x" + mi.MetadataToken.ToString("x")
+            };
         }
 
         private JSPropertyAccessExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodBase mi)

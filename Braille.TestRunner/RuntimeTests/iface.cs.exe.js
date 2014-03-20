@@ -95,11 +95,11 @@ loc0 = st_00;
 /* IL_06: ldloc.0 */
 st_01 = loc0;
 /* IL_07: callvirt Int32 WriteIt()*/
-st_02 = (st_01.vtable.x6000006)(st_01);
+st_02 = (st_01.IHelloWorldWriter.x6000006)(st_01);
 /* IL_0C: ldc.i4.s 33*/
 st_03 = 33;
 /* IL_0E: beq.s IL_12*/
-if (st_02 = st_03){
+if (st_02 === st_03){
 __braille_pos_0__ = 0x12;continue;
 }
 /* IL_10: ldc.i4.1 */
@@ -146,6 +146,12 @@ JsImportAttribute.prototype = {
 'x60007a9': asm.x60007a9,
 'x60007aa': asm.x60007aa,
 'x6000002': asm.x6000002 
+},
+'System.Runtime.InteropServices._Attribute': { 
+'x6000781': asm.x60007ab,
+'x6000782': asm.x60007ac,
+'x6000783': asm.x60007ad,
+'x6000784': asm.x60007ae 
 } 
 };
 return JsImportAttribute; })();
@@ -169,6 +175,9 @@ RealWriter.prototype = {
 'x6000002': asm.x6000002,
 'x6000003': asm.x6000003,
 'x6000006': asm.x6000006 
+},
+'IHelloWorldWriter': { 
+'x6000006': asm.x6000007 
 } 
 };
 return RealWriter; })();

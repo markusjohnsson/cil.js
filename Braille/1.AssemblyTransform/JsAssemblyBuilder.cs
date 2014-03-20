@@ -100,11 +100,18 @@ namespace Braille.AssemblyTransform
                 Right = new JSObjectLiteral
                 {
                     Properties = GetFieldInitializers(type)
-                        .EndWith(new KeyValuePair<string,JSExpression>("vtable", GetVtable(type)))
+                        .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
+                        .Concat(
+                            type.ReflectionType.IsInterface ? 
+                                Enumerable.Empty<KeyValuePair<string, JSExpression>>() :
+                                type.ReflectionType
+                                    .GetInterfaces()
+                                    .Select(
+                                        iface => new KeyValuePair<string, JSExpression>(iface.FullName, GetInterfaceMap(type, iface))))
                         .ToDictionary(a => a.Key, a => a.Value)
                 }
             };
-            
+
             yield return new JSReturnExpression
             {
                 Expression = new JSIdentifier { Name = n }
@@ -122,6 +129,26 @@ namespace Braille.AssemblyTransform
                     .ToDictionary(
                     m => "x" + m.GetBaseDefinition().MetadataToken.ToString("x"),
                     m => JSIdentifier.Create("asm", "x" + m.MetadataToken.ToString("x")))
+            };
+        }
+
+        private JSExpression GetInterfaceMap(CilType type, Type iface)
+        {
+            var map = type
+                .ReflectionType
+                .GetInterfaceMap(iface)
+                ;
+
+            return new JSObjectLiteral
+            {
+                Properties = Enumerable
+                    .Zip(
+                        map.InterfaceMethods, 
+                        map.TargetMethods, 
+                        (ifaceMethod, targetMethod) => new { ifaceMethod, targetMethod })
+                    .ToDictionary(
+                        m => "x" + m.ifaceMethod.MetadataToken.ToString("x"),
+                        m => JSIdentifier.Create("asm", "x" + m.targetMethod.MetadataToken.ToString("x")))
             };
         }
 
