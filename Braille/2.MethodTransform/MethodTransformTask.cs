@@ -22,7 +22,7 @@ namespace Braille.MethodTransform
             {
                 foreach (var type in asm.Types)
                 {
-                    if (type.ReflectionType.GetCustomAttributes(true).Any(a => a.GetType().Name == "JsIgnoreAttribute"))
+                    if (type.IsIgnored)
                     {
                         continue;
                     }

@@ -40,6 +40,9 @@ namespace Braille.AssemblyTransform
 
             foreach (var t in asm.Types)
             {
+                if (t.IsIgnored)
+                    continue;
+
                 yield return new JSBinaryExpression
                 {
                     Left = new JSIdentifier { Name = "self" },
@@ -48,7 +51,8 @@ namespace Braille.AssemblyTransform
                     {
                         Function = new JSFunctionDelcaration
                         {
-                            Body = GetClass(t).Select(s => new JSStatement { Expression = s })
+                            Body = GetClass(t)
+                                .Select(s => new JSStatement { Expression = s })
                         }
                     }
                 };
@@ -93,29 +97,56 @@ namespace Braille.AssemblyTransform
                 Name = n
             };
 
-            yield return new JSBinaryExpression
+            yield return new JSStatement
             {
-                Left = JSIdentifier.Create(n, "prototype"),
-                Operator = "=",
-                Right = new JSObjectLiteral
+                Expression = new JSBinaryExpression
                 {
-                    Properties = GetFieldInitializers(type)
-                        .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
-                        .Concat(
-                            type.ReflectionType.IsInterface ? 
-                                Enumerable.Empty<KeyValuePair<string, JSExpression>>() :
-                                type.ReflectionType
-                                    .GetInterfaces()
-                                    .Select(
-                                        iface => new KeyValuePair<string, JSExpression>(iface.FullName, GetInterfaceMap(type, iface))))
-                        .ToDictionary(a => a.Key, a => a.Value)
+                    Left = JSIdentifier.Create(n, "prototype"),
+                    Operator = "=",
+                    Right = (type.ReflectionType.BaseType != null &&
+                             type.ReflectionType.BaseType.FullName != "System.Object" &&
+                             type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
+                             type.ReflectionType.BaseType.FullName != "System.ValueType") ?
+                        new JSNewExpression
+                        {
+                            Constructor = JSIdentifier.Create("asm", type.ReflectionType.BaseType.FullName)
+                        } :
+                        new JSObjectLiteral() as JSExpression
                 }
             };
+
+            var properties = GetFieldInitializers(type)
+                .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
+                .Concat(GetInterfaceMaps(type));
+
+            foreach (var f in properties)
+            {
+                yield return new JSStatement
+                {
+                    Expression = new JSBinaryExpression
+                    {
+                        Left = JSIdentifier.Create(n, "prototype", f.Key),
+                        Operator = "=",
+                        Right = f.Value
+                    }
+                };
+            }
 
             yield return new JSReturnExpression
             {
                 Expression = new JSIdentifier { Name = n }
             };
+        }
+
+        private IEnumerable<KeyValuePair<string, JSExpression>> GetInterfaceMaps(CilType type)
+        {
+            if (type.ReflectionType.IsInterface)
+                return Enumerable.Empty<KeyValuePair<string, JSExpression>>();
+
+            return type.ReflectionType
+                .GetInterfaces()
+                .Select(
+                    iface => new KeyValuePair<string, JSExpression>(iface.FullName, GetInterfaceMap(type, iface)));
         }
 
         private JSExpression GetVtable(CilType type)
@@ -143,8 +174,8 @@ namespace Braille.AssemblyTransform
             {
                 Properties = Enumerable
                     .Zip(
-                        map.InterfaceMethods, 
-                        map.TargetMethods, 
+                        map.InterfaceMethods,
+                        map.TargetMethods,
                         (ifaceMethod, targetMethod) => new { ifaceMethod, targetMethod })
                     .ToDictionary(
                         m => "x" + m.ifaceMethod.MetadataToken.ToString("x"),

@@ -25,3 +25,12 @@ public class JsImportAttribute : Attribute
 
     public string Function { get; set; }
 }
+
+public class TestHelper
+{
+    [JsImport("new Error()")]
+    public static Exception CreateException(string message)
+    {
+        throw new Exception(message);
+    }
+}

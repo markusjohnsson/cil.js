@@ -23,5 +23,13 @@ namespace Braille.AssemblyTransform
                 return ReflectionType.BaseType != null && ReflectionType.BaseType.FullName == "System.MulticastDelegate";
             }
         }
+
+        public bool IsIgnored
+        {
+            get
+            {
+                return ReflectionType.GetCustomAttributes(true).Any(a => a.GetType().Name == "JsIgnoreAttribute");
+            }
+        }
     }
 }
