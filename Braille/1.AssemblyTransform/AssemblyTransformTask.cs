@@ -51,13 +51,15 @@ namespace Braille.AssemblyTransform
             var methods = new List<CilMethod>();
             result.Methods = methods;
 
-            foreach (var method in type.GetMethods((BindingFlags) int.MaxValue))
+            var flags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
+            
+            foreach (var method in type.GetMethods(flags))
             {
                 if (method.DeclaringType == type)
                     methods.Add(ProcessMethod(method));
             }
 
-            foreach (var ctor in type.GetConstructors((BindingFlags)int.MaxValue))
+            foreach (var ctor in type.GetConstructors(flags))
             {
                 if (ctor.DeclaringType == type)
                     methods.Add(ProcessMethod(ctor));
@@ -83,7 +85,7 @@ namespace Braille.AssemblyTransform
         private static byte[] GetIl(MethodBase method)
         {
             if (method.GetMethodBody() == null)
-                return new byte[0];
+                return null;
             else
                 return method.GetMethodBody().GetILAsByteArray();
         }

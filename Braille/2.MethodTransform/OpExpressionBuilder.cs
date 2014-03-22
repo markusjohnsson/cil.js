@@ -87,7 +87,7 @@ namespace Braille.MethodTransform
 
     class OpExpressionBuilder
     {
-        public IEnumerable<OpExpression> Build(CilMethod method)
+        public IList<OpExpression> Build(CilMethod method)
         {
             var mtdb = method.ReflectionMethod.GetMethodBody();
             var ex = mtdb != null ? mtdb.ExceptionHandlingClauses : new List<ExceptionHandlingClause>();

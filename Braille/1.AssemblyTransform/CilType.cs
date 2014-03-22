@@ -15,5 +15,13 @@ namespace Braille.AssemblyTransform
         public string BaseType { get; set; }
         public Type ReflectionType { get; set; }
 
+
+        public bool IsUserDelegate
+        {
+            get
+            {
+                return ReflectionType.BaseType != null && ReflectionType.BaseType.FullName == "System.MulticastDelegate";
+            }
+        }
     }
 }

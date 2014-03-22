@@ -645,11 +645,7 @@ namespace Braille.MethodTransform
                     }
                 case "ldftn":
                     var method = (MethodBase)frame.Instruction.Data;
-                    return new JSPropertyAccessExpression
-                    {
-                        Host = CreateTypeIdentifier(method.DeclaringType),
-                        Property = method.Name
-                    };
+                    return GetMethodAccessor(method);
                 case "ldlen":
                     return new JSPropertyAccessExpression
                     {
