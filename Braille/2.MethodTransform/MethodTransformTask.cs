@@ -3,6 +3,7 @@ using Braille.JSAst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Braille.MethodTransform
@@ -92,7 +93,6 @@ namespace Braille.MethodTransform
 
         private void TransformNormalMethod(IEnumerable<CilAssembly> asms, CilAssembly asm, CilType type, CilMethod method)
         {
-
             var frames = expressionBuilder.Build(method);
 
             insertFrameLabelsTask.Process(frames);
@@ -203,11 +203,24 @@ namespace Braille.MethodTransform
 
             functionBlock.AddRange(block.Build());
 
-            method.JsFunction = new JSFunctionDelcaration
+            var function = new JSFunctionDelcaration
             {
                 Body = functionBlock,
                 Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_"),
                 Parameters = Enumerable.Empty<JSFunctionParameter>()
+            };
+
+            method.JsFunction = method.ReflectionMethod.IsGenericMethodDefinition ? 
+                CreateGenericFunction(method.ReflectionMethod.GetGenericArguments(), function) : 
+                function;
+        }
+
+        private JSFunctionDelcaration CreateGenericFunction(Type[] type, JSFunctionDelcaration function)
+        {
+            return new JSFunctionDelcaration
+            {
+                Body = new [] { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
+                Parameters = type.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
             };
         }
     }

@@ -937,21 +937,44 @@ namespace Braille.MethodTransform
 
             if (replacement != null)
                 return new JSIdentifier { Name = replacement };
-
-            return new JSPropertyAccessExpression
+            
+            var function = new JSPropertyAccessExpression
             {
                 Host = GetAssemblyIdentifier(mi.DeclaringType),
                 Property = "x" + mi.MetadataToken.ToString("x")
             };
+
+            if (mi.IsGenericMethod)
+            {
+                return new JSCallExpression
+                {
+                    Function = function,
+                    Arguments = mi
+                        .GetGenericArguments()
+                        .Select(t => CreateTypeIdentifier(t))
+                        .ToList()
+                };
+            }
+            else
+            {
+                return function;
+            }
         }
 
         public JSExpression CreateTypeIdentifier(Type type)
         {
-            return new JSPropertyAccessExpression
+            if (type.IsGenericParameter)
             {
-                Host = GetAssemblyIdentifier(type),
-                Property = string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name
-            };
+                return new JSIdentifier { Name = type.Name };
+            }
+            else
+            {
+                return new JSPropertyAccessExpression
+                {
+                    Host = GetAssemblyIdentifier(type),
+                    Property = string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name
+                };
+            }
         }
 
         private JSIdentifier GetAssemblyIdentifier(Type type)

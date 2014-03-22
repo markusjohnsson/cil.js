@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Tests\IsInstGeneric.cs" />
     <None Include="Tests\IsInstClass.cs" />
     <None Include="Tests\GenericDelegate.cs" />
     <None Include="Tests\Delegate.cs" />
