@@ -22,6 +22,31 @@ namespace Braille.AssemblyTransform
 
         private IEnumerable<JSExpression> GetBody(CilAssembly asm)
         {
+            yield return new JSIdentifier
+            {
+                Name =
+                    @"
+
+function tree_get(a, s) {
+    if (a.length == 0) return s;
+    var c = s[a[0]];
+    return c && tree_get(a.slice(1), c);
+}
+
+function tree_set(a, s, v) {
+    if (a.length == 1) {
+        s[a[0]] = v;
+    }
+    else {
+        var c = s[a[0]];
+        if (!c) s[a[0]] = c = {};
+        tree_set(a.slice(1), c, v);
+    }
+}
+
+"
+            };
+
             yield return new JSVariableDelcaration { Name = "self" };
 
             foreach (var m in asm.Types.SelectMany(t => t.Methods))
@@ -49,11 +74,7 @@ namespace Braille.AssemblyTransform
                     Operator = "=",
                     Right = new JSCallExpression
                     {
-                        Function = new JSFunctionDelcaration
-                        {
-                            Body = GetClass(t)
-                                .Select(s => new JSStatement { Expression = s })
-                        }
+                        Function = GetClass(t)
                     }
                 };
 
@@ -88,9 +109,102 @@ namespace Braille.AssemblyTransform
             }
         }
 
-        private IEnumerable<JSExpression> GetClass(CilType type)
+        private JSExpression GetClass(CilType type)
         {
-            var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
+            if (type.ReflectionType.IsGenericTypeDefinition)
+            {
+                var cacheKey =
+                    new JSArrayLiteral
+                    {
+                        Values = type
+                            .ReflectionType
+                            .GetGenericArguments()
+                            .Select(g => new JSIdentifier { Name = g.Name } as JSExpression)
+                            .ToList()
+                    };
+
+                var body =
+                    new List<JSStatement> 
+                    {
+                        new JSVariableDelcaration 
+                        { 
+                            Name = "c", 
+                            Value = new JSCallExpression 
+                            { 
+                                Function = new JSIdentifier { Name = "tree_get" }, 
+                                Arguments = new List<JSExpression> 
+                                {
+                                    cacheKey,
+                                    JSIdentifier.Create("ct") 
+                                }
+                            }
+                        }.ToStatement(),
+                        new JSIfStatement
+                        {
+                            Condition = JSIdentifier.Create("c"),
+                            Statements = 
+                            {
+                                new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
+                            }
+                        }
+                    };
+
+                body.AddRange(GetConstructorAndPrototype(type).Select(s => s.ToStatement()));
+
+                body.AddRange(
+                    new[] 
+                    { 
+                        new JSBinaryExpression 
+                        {
+                            Left = JSIdentifier.Create("c"),
+                            Operator = "=",
+                            Right = new JSIdentifier { Name = GetSimpleName(type) }
+                        }.ToStatement(),
+                        new JSCallExpression
+                        {
+                            Function = JSIdentifier.Create("tree_set"),
+                            Arguments = new List<JSExpression>
+                            {
+                                cacheKey,
+                                JSIdentifier.Create("ct"),
+                                JSIdentifier.Create("c")
+                            }
+                        }.ToStatement(),
+                        new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
+                    });
+
+                return new JSFunctionDelcaration
+                {
+                    Body =
+                        new List<JSStatement> 
+                        {
+                            new JSVariableDelcaration { Name = "ct", Value = new JSObjectLiteral() }.ToStatement(),
+                            new JSReturnExpression 
+                            { 
+                                Expression = new JSFunctionDelcaration
+                                {
+                                    Body = body,
+                                    Parameters = type.ReflectionType.GetGenericArguments().Select(s => new JSFunctionParameter { Name = s.Name }).ToList()
+                                }
+                            }.ToStatement()
+                        }
+                };
+            }
+            else
+            {
+                return new JSFunctionDelcaration
+                {
+                    Body = GetConstructorAndPrototype(type)
+                        .EndWith(new JSReturnExpression { Expression = new JSIdentifier { Name = GetSimpleName(type) } })
+                        .Select(s => new JSStatement { Expression = s })
+                        .ToList()
+                };
+            }
+        }
+
+        public IEnumerable<JSExpression> GetConstructorAndPrototype(CilType type)
+        {
+            var n = GetSimpleName(type);
 
             yield return new JSFunctionDelcaration
             {
@@ -131,11 +245,11 @@ namespace Braille.AssemblyTransform
                     }
                 };
             }
+        }
 
-            yield return new JSReturnExpression
-            {
-                Expression = new JSIdentifier { Name = n }
-            };
+        private static string GetSimpleName(CilType type)
+        {
+            return type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
         }
 
         private IEnumerable<KeyValuePair<string, JSExpression>> GetInterfaceMaps(CilType type)

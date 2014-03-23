@@ -1,3 +1,4 @@
+using Braille.MethodTransform;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,10 @@ namespace Braille.JSAst
                     Property = ns.Last()
                 };
             }
+        }
+        public static JSExpression Create(JSIdentifier ifier, params string[] ns)
+        {
+            return Create(ns.StartWith(ifier.Name).ToArray());
         }
     }
 }

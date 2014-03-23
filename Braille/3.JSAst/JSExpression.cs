@@ -28,5 +28,10 @@ namespace Braille.JSAst
             }
         }
 
+        public JSStatement ToStatement()
+        {
+            return new JSStatement { Expression = this };
+        }
+
     }
 }

@@ -210,17 +210,24 @@ namespace Braille.MethodTransform
                 Parameters = Enumerable.Empty<JSFunctionParameter>()
             };
 
-            method.JsFunction = method.ReflectionMethod.IsGenericMethodDefinition ? 
-                CreateGenericFunction(method.ReflectionMethod.GetGenericArguments(), function) : 
-                function;
+            method.JsFunction = 
+                (method.ReflectionMethod.IsGenericMethodDefinition) || 
+                (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType) ? 
+                    CreateGenericFunction(method, function) : 
+                    function;
         }
 
-        private JSFunctionDelcaration CreateGenericFunction(Type[] type, JSFunctionDelcaration function)
+        private JSFunctionDelcaration CreateGenericFunction(CilMethod method, JSFunctionDelcaration function)
         {
+            var mi = method.ReflectionMethod;
+            var classGenArgs = mi.DeclaringType.IsGenericType ? mi.DeclaringType.GetGenericArguments() : new Type[0];
+            var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
+            var types = classGenArgs.Concat(methodGenArgs);
+
             return new JSFunctionDelcaration
             {
                 Body = new [] { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
-                Parameters = type.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
+                Parameters = types.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
             };
         }
     }

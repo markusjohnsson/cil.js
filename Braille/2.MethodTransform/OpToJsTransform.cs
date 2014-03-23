@@ -2,6 +2,7 @@ using Braille.AssemblyTransform;
 using Braille.JSAst;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -944,13 +945,18 @@ namespace Braille.MethodTransform
                 Property = "x" + mi.MetadataToken.ToString("x")
             };
 
-            if (mi.IsGenericMethod)
+            if (mi.IsGenericMethod || (mi.IsStatic && mi.DeclaringType.IsGenericType))
             {
+                var classGenArgs = mi.DeclaringType.IsGenericType ? mi.DeclaringType.GetGenericArguments() : new Type[0];
+                var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
+             
                 return new JSCallExpression
                 {
                     Function = function,
-                    Arguments = mi
-                        .GetGenericArguments()
+                    Arguments = Enumerable
+                        .Concat(
+                            classGenArgs, 
+                            methodGenArgs)
                         .Select(t => CreateTypeIdentifier(t))
                         .ToList()
                 };
@@ -961,19 +967,35 @@ namespace Braille.MethodTransform
             }
         }
 
-        public JSExpression CreateTypeIdentifier(Type type)
+        public JSExpression CreateTypeIdentifier(Type type, int depth = 0)
         {
+            if (depth > 15)
+                Debugger.Break();
+
             if (type.IsGenericParameter)
             {
-                return new JSIdentifier { Name = type.Name };
+                if (type.DeclaringMethod != null || 
+                    (method.ReflectionMethod.IsStatic && type.DeclaringType.GetGenericTypeDefinition() == method.ReflectionMethod.DeclaringType))
+                    return new JSIdentifier { Name = type.Name };
+                else
+                    return new JSPropertyAccessExpression 
+                    {
+                        Host = CreateTypeIdentifier(type.DeclaringType, depth+1),
+                        Property = type.Name
+                    };
+            }
+            else if (type.IsGenericType && !type.IsGenericTypeDefinition)
+            {
+                return new JSCallExpression
+                {
+                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type), 
+                        string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
+                    Arguments = type.GetGenericArguments().Select(g => CreateTypeIdentifier(g, depth+1)).ToList()
+                };
             }
             else
             {
-                return new JSPropertyAccessExpression
-                {
-                    Host = GetAssemblyIdentifier(type),
-                    Property = string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name
-                };
+                return JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName);
             }
         }
 

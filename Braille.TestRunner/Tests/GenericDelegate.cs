@@ -1,15 +1,25 @@
 ﻿
 delegate TResult MFunc<T, TResult>(T t);
 
+class IntWrapper
+{
+    public int Value;
+}
+
+class StringWrapper
+{
+    public string Value;
+}
+
 class Program
 {
     public static void Main()
     {
-        CallDelegate(i => "Result");
+        CallDelegate(i => new StringWrapper { Value = "Result" });
     }
 
-    public static void CallDelegate(MFunc<int, string> a)
+    public static void CallDelegate(MFunc<IntWrapper, StringWrapper> a)
     {
-        TestLog.Log(a(123));
+        TestLog.Log(a(new IntWrapper { Value = 123 }).Value);
     }
 }
