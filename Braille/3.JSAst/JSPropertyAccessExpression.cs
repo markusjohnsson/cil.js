@@ -8,6 +8,17 @@ namespace Braille.JSAst
     {
         public static Regex SafeChars = new Regex(@"^[\da-zA-Z_\$]+$");
 
+        public JSPropertyAccessExpression(JSExpression host, string property)
+        {
+            this.Host = host;
+            this.Property = property;
+        }
+
+        public JSPropertyAccessExpression()
+        {
+
+        }
+
         public override string ToString()
         {
             if (SafeChars.IsMatch(Property))
@@ -21,6 +32,7 @@ namespace Braille.JSAst
         }
 
         private string _Property;
+        
         public string Property
         {
             get

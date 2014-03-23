@@ -230,6 +230,13 @@ function tree_set(a, s, v) {
                 }
             };
 
+            yield return new JSBinaryExpression
+            {
+                Left = JSIdentifier.Create(n, "IsValueType"),
+                Operator = "=",
+                Right = new JSBoolLiteral { Value = type.ReflectionType.IsValueType }
+            };
+
             var properties = GetFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
                 .Concat(GetInterfaceMaps(type));

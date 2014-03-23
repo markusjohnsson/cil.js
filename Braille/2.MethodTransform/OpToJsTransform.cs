@@ -16,7 +16,7 @@ namespace Braille.MethodTransform
         private List<CilAssembly> world;
 
         private HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
-        
+
         public OpToJsTransform(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
         {
             this.world = world;
@@ -354,30 +354,52 @@ namespace Braille.MethodTransform
                         Operator = "&"
                     };
                 case "box":
-                    return new JSObjectLiteral
                     {
-                        Properties = new Dictionary<string, JSExpression>
+                        var d = (Type)frame.Instruction.Data;
+                        var value = ProcessInternal(frame.Arguments.Single());
+                        var boxed = new JSObjectLiteral
                         {
-                            { 
-                                "boxed", ProcessInternal(frame.Arguments.Single()) 
-                            },
+                            Properties = new Dictionary<string, JSExpression>
                             {
-                                "toString", new JSFunctionDelcaration 
                                 { 
-                                    Body = new List<JSStatement> 
+                                    "boxed", value
+                                },
+                                {
+                                    "toString", new JSFunctionDelcaration 
                                     { 
-                                        new JSStatement 
+                                        Body = new List<JSStatement> 
                                         { 
-                                            Expression = new JSReturnExpression 
-                                            {
-                                                Expression = JSIdentifier.Create("this", "boxed") 
+                                            new JSStatement 
+                                            { 
+                                                Expression = new JSReturnExpression 
+                                                {
+                                                    Expression = JSIdentifier.Create("this", "boxed") 
+                                                } 
                                             } 
-                                        } 
+                                        }
                                     }
                                 }
                             }
+                        };
+
+                        if (d.IsGenericParameter)
+                        {
+                            return new JSConditionalExpression
+                            {
+                                Condition = new JSPropertyAccessExpression(CreateTypeIdentifier(d), "IsValueType"),
+                                TrueValue = boxed,
+                                FalseValue = value
+                            };
                         }
-                    };
+                        else if (d.IsValueType)
+                        {
+                            return boxed;
+                        }
+                        else
+                        {
+                            return value;
+                        }
+                    }
                 case "call":
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
@@ -893,11 +915,24 @@ namespace Braille.MethodTransform
                         Expression = ProcessInternal(frame.Arguments.Single())
                     };
                 case "unbox":
-                    return new JSPropertyAccessExpression
-                    {
-                        Host = ProcessInternal(frame.Arguments.Single()),
-                        Property = "boxed"
-                    };
+                    var prop = ProcessInternal(frame.Arguments.Single());
+                    if (opc == "unbox.any")
+                        return new JSBinaryExpression
+                        {
+                            Left = new JSPropertyAccessExpression
+                            {
+                                Host = prop,
+                                Property = "boxed"
+                            },
+                            Operator = "||",
+                            Right = prop
+                        };
+                    else
+                        return new JSPropertyAccessExpression
+                        {
+                            Host = prop,
+                            Property = "boxed"
+                        };
                 default:
                     return new JSLineComment
                     {
@@ -938,7 +973,7 @@ namespace Braille.MethodTransform
 
             if (replacement != null)
                 return new JSIdentifier { Name = replacement };
-            
+
             var function = new JSPropertyAccessExpression
             {
                 Host = GetAssemblyIdentifier(mi.DeclaringType),
@@ -953,16 +988,16 @@ namespace Braille.MethodTransform
                 // This is the same behavior as generic static methods (on nongeneric class), so both are handled here.
 
                 // Of course, this also extends to generic static methods on generic classes.
-                
+
                 var classGenArgs = mi.DeclaringType.IsGenericType ? mi.DeclaringType.GetGenericArguments() : new Type[0];
                 var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
-             
+
                 return new JSCallExpression
                 {
                     Function = function,
                     Arguments = Enumerable
                         .Concat(
-                            classGenArgs, 
+                            classGenArgs,
                             methodGenArgs)
                         .Select(t => CreateTypeIdentifier(t))
                         .ToList()
@@ -1003,9 +1038,9 @@ namespace Braille.MethodTransform
             {
                 return new JSCallExpression
                 {
-                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type), 
+                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
                         string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
-                    Arguments = type.GetGenericArguments().Select(g => CreateTypeIdentifier(g, depth+1)).ToList()
+                    Arguments = type.GetGenericArguments().Select(g => CreateTypeIdentifier(g, depth + 1)).ToList()
                 };
             }
             else
