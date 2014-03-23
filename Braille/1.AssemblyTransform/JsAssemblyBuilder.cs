@@ -24,9 +24,11 @@ namespace Braille.AssemblyTransform
         {
             yield return new JSIdentifier
             {
+                // Helper funcions to manage a multi-key dictionary.
+                // Used to cache constructed generic types.
+                // A constructed generic type should always have the same constructor instace (for the same type arguments)
                 Name =
                     @"
-
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];
@@ -43,7 +45,6 @@ function tree_set(a, s, v) {
         tree_set(a.slice(1), c, v);
     }
 }
-
 "
             };
 

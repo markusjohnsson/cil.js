@@ -947,6 +947,13 @@ namespace Braille.MethodTransform
 
             if (mi.IsGenericMethod || (mi.IsStatic && mi.DeclaringType.IsGenericType))
             {
+                // For static methods on generic classes, the type arguments are passed to 
+                // the method at the call site rather than wired through the generic class type.
+
+                // This is the same behavior as generic static methods (on nongeneric class), so both are handled here.
+
+                // Of course, this also extends to generic static methods on generic classes.
+                
                 var classGenArgs = mi.DeclaringType.IsGenericType ? mi.DeclaringType.GetGenericArguments() : new Type[0];
                 var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
              
@@ -970,17 +977,25 @@ namespace Braille.MethodTransform
         public JSExpression CreateTypeIdentifier(Type type, int depth = 0)
         {
             if (depth > 15)
-                Debugger.Break();
+                Debugger.Break(); // stack overflow check
 
             if (type.IsGenericParameter)
             {
-                if (type.DeclaringMethod != null || 
+                if (type.DeclaringMethod != null ||
+
+                    // For static methods on generic classes, the type arguments are passed to 
+                    // the method at the call site rather than wired through the generic class type.
+                    // So, the type argument is available as an argument in the closure of the 
+                    // javascript function, which is why we emit an identifier.ölk
+
                     (method.ReflectionMethod.IsStatic && type.DeclaringType.GetGenericTypeDefinition() == method.ReflectionMethod.DeclaringType))
+                {
                     return new JSIdentifier { Name = type.Name };
+                }
                 else
-                    return new JSPropertyAccessExpression 
+                    return new JSPropertyAccessExpression
                     {
-                        Host = CreateTypeIdentifier(type.DeclaringType, depth+1),
+                        Host = CreateTypeIdentifier(type.DeclaringType, depth + 1),
                         Property = type.Name
                     };
             }

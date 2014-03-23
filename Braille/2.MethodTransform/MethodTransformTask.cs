@@ -220,7 +220,11 @@ namespace Braille.MethodTransform
         private JSFunctionDelcaration CreateGenericFunction(CilMethod method, JSFunctionDelcaration function)
         {
             var mi = method.ReflectionMethod;
-            var classGenArgs = mi.DeclaringType.IsGenericType ? mi.DeclaringType.GetGenericArguments() : new Type[0];
+
+            // For static methods on generic classes, the type arguments are passed to 
+            // the method at the call site rather than wired through the generic class type.
+
+            var classGenArgs = (mi.IsStatic && mi.DeclaringType.IsGenericType) ? mi.DeclaringType.GetGenericArguments() : new Type[0];
             var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
             var types = classGenArgs.Concat(methodGenArgs);
 
