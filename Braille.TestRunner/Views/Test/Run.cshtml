@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+@model Braille.TestRunner.Controllers.RunJsViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="@Model.ScriptPath" type="text/javascript">
+    </script>
+
+    <script>
+        function runScript() {
+            braille_test_log_clear();
+            braille_test_log("exitCode: " + asm0.entryPoint());
+        }
+
+        function braille_test_log_clear() {
+            document.getElementById("output").innerHTML = "";
+        }
+
+        function braille_test_log(message) {
+            if (typeof console != "undefined") console.log(message);
+            document.getElementById("output").innerHTML += (message.toString() + "<br/>");
+        }
+
+        window.onload = runScript;
+    </script>
+</head>
+<body>
+    <div>
+        <button onclick="runScript()">Run again</button>
+        <pre id="output"></pre>
+    </div>
+</body>
+</html>

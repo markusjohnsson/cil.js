@@ -166,7 +166,16 @@ namespace Braille.MethodTransform
                 case "bne.un.s":
                     yield return CreateComparisonBranch(node, "!=");
                     break;
-
+                case "leave":
+                case "leave.s":
+                    yield return new JSBinaryExpression
+                    {
+                        Left = new JSIdentifier { Name = "__braille_pos__" },
+                        Operator = "=",
+                        Right = new JSNumberLiteral { Value = -1 }
+                    }.ToStatement();
+                    yield return new JSBreakExpression().ToStatement();
+                    break;
                 case "switch":
 
                     yield return new JSStatement
@@ -731,8 +740,6 @@ namespace Braille.MethodTransform
                     };
                 case "ldtoken":
                     return new JSNullLiteral { };
-                case "leave":
-                    return new JSBreakExpression();
                 case "mul":
                     return new JSBinaryExpression
                     {

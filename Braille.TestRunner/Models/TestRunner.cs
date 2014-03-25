@@ -3,29 +3,33 @@ using MsieJavaScriptEngine;
 using MsieJavaScriptEngine.Helpers;
 using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace Braille.TestRunner
+namespace Braille.TestRunner.Models
 {
-    class Program
+    public class Tests
     {
-        static void Main(string[] args)
+        private string workingDir;
+        
+        public Tests(string workingDir)
         {
-            foreach (var file in Directory.GetFiles("Tests", "*.cs"))
-                CompileAndRunTest(Path.GetFullPath(file));
-            foreach (var file in Directory.GetFiles("MonoTests", "*.cs"))
-                CompileAndRunTest(Path.GetFullPath(file));
-
-            Console.WriteLine("Done");
-            Console.ReadLine();
+            this.workingDir = workingDir;
         }
 
-        private static void CompileAndRunTest(string csFile)
+        public IEnumerable<TestResult> RunAll()
         {
-            Console.WriteLine(Path.GetFileName(csFile));
+            foreach (var file in Directory.GetFiles(Path.Combine(workingDir, "Tests"), "*.cs"))
+                yield return CompileAndRun(file);
+            foreach (var file in Directory.GetFiles(Path.Combine(workingDir, "MonoTests"), "*.cs"))
+                yield return CompileAndRun(file);
+        }
 
+        public TestResult CompileAndRun(string csFile)
+        {
+            csFile = Path.Combine(workingDir, csFile);
             var outputName = csFile + ".exe";
 
             // TODO: we will need to compile two exes since the one that should be converted
@@ -41,18 +45,28 @@ namespace Braille.TestRunner
             int jsExitCode;
             var jsOutput = ExecuteJs(outputName, out jsExitCode);
 
+            var success = true;
+
             if (exeExitCode != jsExitCode)
             {
+                success = false;
                 Console.WriteLine("ERROR: Exit codes not equal (clr: {0} js: {1})", exeExitCode, jsExitCode);
             }
 
             if (exeOutput != jsOutput)
             {
+                success = false;
                 Console.WriteLine("ERROR: Outputs not equal\nCLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput);
             }
+
+            return new TestResult
+            {
+                File = csFile.Substring(workingDir.Length),
+                TestSuccess = success
+            };
         }
 
-        private static string ExecuteExe(string outputName, out int exitCode)
+        private string ExecuteExe(string outputName, out int exitCode)
         {
             var process = Process.Start(
                 new ProcessStartInfo
@@ -67,7 +81,7 @@ namespace Braille.TestRunner
             return output;
         }
 
-        private static string ExecuteJs(string exeFilePath, out int exitCode)
+        private string ExecuteJs(string exeFilePath, out int exitCode)
         {
             string jsOutput = null;
             exitCode = -1;
@@ -80,7 +94,7 @@ namespace Braille.TestRunner
                     jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += message.toString() + ""\r\n""; }");
                     jsEngine.ExecuteFile(exeFilePath + ".js");
                     object exitCodeObj = jsEngine.Evaluate("asm0.entryPoint()");
-                    
+
                     if (exitCodeObj == MsieJavaScriptEngine.Undefined.Value)
                         exitCode = 0;
                     else
@@ -104,7 +118,7 @@ namespace Braille.TestRunner
             return jsOutput;
         }
 
-        private static void CompileJs(string outputName)
+        private void CompileJs(string outputName)
         {
             var compiler = new Compiler();
             compiler.AddAssembly(outputName);
@@ -112,7 +126,7 @@ namespace Braille.TestRunner
             compiler.Compile();
         }
 
-        private static void CompileExe(string csFile, string outputName)
+        private void CompileExe(string csFile, string outputName)
         {
             var codeProvider = new CSharpCodeProvider();
             var icc = codeProvider.CreateCompiler();
@@ -121,11 +135,11 @@ namespace Braille.TestRunner
             parameters.GenerateExecutable = true;
             parameters.OutputAssembly = outputName;
 
-            var results = icc.CompileAssemblyFromFileBatch(parameters, new [] { "TestInclude.cs", csFile });
+            var results = icc.CompileAssemblyFromFileBatch(parameters, new[] { Path.Combine(workingDir, "TestInclude.cs"), csFile });
 
             if (results.Errors.Count > 0)
             {
-                Console.WriteLine(string.Join("\n", 
+                Console.WriteLine(string.Join("\n",
                     results
                         .Errors
                         .OfType<CompilerError>()

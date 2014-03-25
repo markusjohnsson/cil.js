@@ -177,6 +177,16 @@ namespace Braille.MethodTransform
                     data = resolver.ResolveString(reader.ReadInt32());
                     break;
                 case OperandType.InlineTok:
+                    var token = reader.ReadInt32();
+                    try
+                    {
+                        data = resolver.ResolveMember(token);
+                    }
+                    catch (ArgumentException)
+                    {
+                        data = resolver.ResolveType(token);
+                    }
+                    break;
                 case OperandType.InlineType:
                     data = resolver.ResolveType(reader.ReadInt32());
                     break;

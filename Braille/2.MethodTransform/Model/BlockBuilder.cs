@@ -37,9 +37,11 @@ namespace Braille.MethodTransform
 
                 yield return new JSWhileLoopStatement
                 {
-                    Condition = new JSBoolLiteral
+                    Condition = new JSBinaryExpression
                     {
-                        Value = true
+                        Left = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
+                        Operator = ">=",
+                        Right = new JSNumberLiteral { Value = 0 }
                     },
                     Statements = new List<JSStatement> 
                     {
