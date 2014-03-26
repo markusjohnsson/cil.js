@@ -119,6 +119,7 @@
     <Compile Include="Models\TestResult.cs" />
     <Compile Include="Models\TestRunner.cs" />
     <Compile Include="TestInclude.cs" />
+    <Compile Include="Tests\Structs.cs" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
@@ -180,6 +181,7 @@
     <Content Include="Tests\IsInstGenericMethod.cs.exe.js" />
     <Content Include="Tests\Properties.cs.exe.js" />
     <Content Include="Tests\Struct.cs.exe.js" />
+    <Content Include="Tests\Structs.cs.exe.js" />
     <Content Include="Tests\TestTest.cs.exe.js" />
     <Content Include="Views\Test\Run.cshtml" />
   </ItemGroup>
