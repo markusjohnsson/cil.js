@@ -46,9 +46,7 @@
     <Compile Include="1.Loading\Model\CilMethod.cs" />
     <Compile Include="1.Loading\Model\CilType.cs" />
     <Compile Include="1.Loading\CSStringConverter.cs" />
-    <Compile Include="2.Analysis\Ast\OpBlock.cs" />
     <Compile Include="2.Analysis\Ast\OpBlockType.cs" />
-    <Compile Include="2.Analysis\Ast\OpTryCatchBlock.cs" />
     <Compile Include="2.Analysis\Ast\OpExpression.cs" />
     <Compile Include="2.Analysis\Ast\ExceptionNode.cs" />
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
