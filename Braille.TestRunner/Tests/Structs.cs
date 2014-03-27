@@ -8,12 +8,12 @@ class Program
 {
     public static void Main()
     {
-        A a = new A();
-        a.Value = 123456789;
+        //A a = new A();
+        //a.Value = 123456789;
 
-        Print(a);
-        Mutate(a);
-        Print(a);
+        //Print(a);
+        //Mutate(a);
+        //Print(a);
     }
 
     private static void Mutate(A a)

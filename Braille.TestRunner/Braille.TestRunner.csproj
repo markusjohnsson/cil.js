@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -146,7 +148,7 @@
     <None Include="MonoTests\iface6.cs" />
     <None Include="MonoTests\iface7.cs" />
     <None Include="MonoTests\interface.cs" />
-    <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="MonoTests\iface.cs.exe.js" />
     <Content Include="MonoTests\iface2.cs.exe.js" />
@@ -202,7 +204,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Test\Index.cshtml" />
@@ -241,6 +245,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
