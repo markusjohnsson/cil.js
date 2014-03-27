@@ -1,12 +1,10 @@
+using Braille.Ast;
 using IKVM.Reflection;
 using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
 
-namespace Braille.MethodTransform
+namespace Braille.Loading
 {
     class OpInstructionReader
     {
@@ -27,26 +25,6 @@ namespace Braille.MethodTransform
                     TwoByteOpCodes[value & 0xff] = opCode;
 
             }
-
-            //File.Delete("out.js");
-
-            //var sb = new List<string>();
-            //foreach (var item in OneByteOpCodes.OrderBy(o => (UInt16)o.Value).Where(o => o.Name != null))
-            //{
-            //    sb.Add(string.Format("case 0x{0:x}: // {1} (0x{2:x})", (UInt16)item.Value, item.Name, item.Value, MethodTransformTask.GetLength(null, item.Name)));
-            //    sb.Add("    break;");
-            //}
-
-            //sb.Add("two bytes from here");
-
-
-            //foreach (var item in TwoByteOpCodes.OrderBy(o => (UInt16)o.Value).Where(o => o.Name != null))
-            //{
-            //    sb.Add(string.Format("case 0x{0:x}: // {1} (0x{2:x}) ({3})", ((UInt16)item.Value) & 0xff, item.Name, item.Value, MethodTransformTask.GetLength(null, item.Name)));
-            //    sb.Add("    break;");
-            //}
-
-            //File.WriteAllLines("out.js", sb.ToArray());
         }
         #endregion
 

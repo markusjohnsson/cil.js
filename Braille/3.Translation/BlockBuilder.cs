@@ -1,11 +1,11 @@
-using Braille.AssemblyTransform;
+
 using Braille.JSAst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.MethodTransform
+namespace Braille.Translation
 {
     class BlockBuilder
     {

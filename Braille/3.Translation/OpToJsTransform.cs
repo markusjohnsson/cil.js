@@ -1,4 +1,6 @@
-using Braille.AssemblyTransform;
+
+
+using Braille.Ast;
 using Braille.JSAst;
 using IKVM.Reflection;
 using System;
@@ -7,7 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.MethodTransform
+namespace Braille.Translation
 {
     class OpToJsTransform
     {

@@ -6,7 +6,7 @@ using Braille.JSAst;
 
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.AssemblyTransform
+namespace Braille.Ast
 {
     class CilType
     {

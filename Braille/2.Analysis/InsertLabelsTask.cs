@@ -1,12 +1,8 @@
-using Braille.AssemblyTransform;
-using Braille.JSAst;
-using System;
+using Braille.Ast;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 
-namespace Braille.MethodTransform
+namespace Braille.Analysis
 {
     class InsertLabelsTask
     {

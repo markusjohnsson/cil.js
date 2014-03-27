@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.MethodTransform
+namespace Braille
 {
     public static class LinqExtensions
     {

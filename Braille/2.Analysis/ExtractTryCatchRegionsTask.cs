@@ -1,12 +1,9 @@
-using Braille.AssemblyTransform;
-using Braille.JSAst;
+using Braille.Ast;
 using IKVM.Reflection;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Braille.MethodTransform
+namespace Braille.Analysis
 {
     enum FrameSpanType { Try, Catch, CatchWrapper, Finally, Fault }
 

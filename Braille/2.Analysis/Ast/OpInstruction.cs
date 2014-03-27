@@ -1,7 +1,7 @@
 
 using IKVM.Reflection.Emit;
 using System;
-namespace Braille.MethodTransform
+namespace Braille.Ast
 {
     class OpInstruction
     { 

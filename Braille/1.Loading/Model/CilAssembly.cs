@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Braille.JSAst;
 using IKVM.Reflection;
+using System.Collections.Generic;
 
-namespace Braille.AssemblyTransform
+namespace Braille.Ast
 {
     class CilAssembly
     {

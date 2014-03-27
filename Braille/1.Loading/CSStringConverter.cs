@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace Braille.AssemblyTransform
+namespace Braille.Loading
 {
 
     static class CSStringConverter

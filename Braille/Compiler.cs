@@ -1,5 +1,5 @@
-using Braille.AssemblyTransform;
-using Braille.MethodTransform;
+using Braille.Loading;
+using Braille.Translation;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,12 +23,12 @@ namespace Braille
 
         public void Compile()
         {
-            var asmTransform = new AssemblyTransformTask();
+            var asmTransform = new AssemblyLoader();
 
             foreach (var asm in assemblies)
                 asmTransform.AddAssembly(asm);
 
-            var asms = asmTransform.Process().ToList();
+            var asms = asmTransform.Load().ToList();
 
             var mtdTranform = new MethodTransformTask();
             mtdTranform.Process(asms);

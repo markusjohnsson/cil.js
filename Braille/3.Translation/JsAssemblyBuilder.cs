@@ -1,12 +1,10 @@
-using System;
+using Braille.Ast;
+using Braille.JSAst;
+using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Braille.JSAst;
-using Braille.MethodTransform;
-using IKVM.Reflection;
 
-namespace Braille.AssemblyTransform
+namespace Braille.Translation
 {
     class JsAssemblyBuilder
     {

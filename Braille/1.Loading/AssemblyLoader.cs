@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Braille.Ast;
+using Braille.Translation;
+using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Braille.JSAst;
-using Braille.MethodTransform;
-using IKVM.Reflection;
 
-namespace Braille.AssemblyTransform
+namespace Braille.Loading
 {
-    class AssemblyTransformTask
+    class AssemblyLoader
     {
         private List<string> paths = new List<string>();
 
@@ -17,12 +15,9 @@ namespace Braille.AssemblyTransform
             paths.Add(path);
         }
 
-        public IEnumerable<CilAssembly> Process()
+        public List<CilAssembly> Load()
         {
-            foreach (var assembly in paths)
-            {
-                yield return Process(assembly);
-            }
+            return paths.Select(Process).ToList();
         }
 
         private CilAssembly Process(string assembly)

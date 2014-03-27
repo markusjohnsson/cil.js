@@ -1,12 +1,11 @@
-﻿using Braille.AssemblyTransform;
+﻿using Braille.Analysis;
+using Braille.Ast;
 using Braille.JSAst;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.MethodTransform
+namespace Braille.Translation
 {
     class MethodTransformTask
     {
