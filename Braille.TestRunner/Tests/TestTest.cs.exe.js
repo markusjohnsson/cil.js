@@ -22,10 +22,10 @@ asm.x6000001 = function () {
 asm.x6000002 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000003 = function () { 
   };
@@ -40,27 +40,27 @@ asm.x6000007 = function () {
 asm.x6000008 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000009 = function Main() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldstr Hello World!*/
+/* IL_00: IKVM.Reflection.Emit.OpCode Hello World!*/
 st_00 = "Hello World!";
-/* IL_05: call Void Log(System.Object)*/
+/* IL_05: IKVM.Reflection.Emit.OpCode Void Log(System.Object)*/
 braille_test_log(st_00);
-/* IL_0A: ret */
+/* IL_0A: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x600000a = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 self = (function () { 
  function TestLog() { 

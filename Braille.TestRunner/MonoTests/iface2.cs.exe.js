@@ -22,10 +22,10 @@ asm.x6000001 = function () {
 asm.x6000002 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000003 = function () { 
   };
@@ -40,10 +40,10 @@ asm.x6000007 = function () {
 asm.x6000008 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000009 = function () { 
   };
@@ -56,67 +56,67 @@ asm.x600000c = function () {
 asm.x600000d = function IA_Add() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.5 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = 5;
-/* IL_01: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x600000e = function IA_Add2() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.6 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = 6;
-/* IL_01: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x600000f = function IB_Add() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.7 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = 7;
-/* IL_01: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x6000010 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000011 = function IC_Add() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.8 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = 8;
-/* IL_01: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x6000012 = function IA_Add() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.s 9*/
+/* IL_00: IKVM.Reflection.Emit.OpCode 9*/
 st_00 = 9;
-/* IL_02: ret */
+/* IL_02: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x6000013 = function IA_Add2() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.s 10*/
+/* IL_00: IKVM.Reflection.Emit.OpCode 10*/
 st_00 = 10;
-/* IL_02: ret */
+/* IL_02: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x6000014 = function IB_Add() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.s 11*/
+/* IL_00: IKVM.Reflection.Emit.OpCode 11*/
 st_00 = 11;
-/* IL_02: ret */
+/* IL_02: IKVM.Reflection.Emit.OpCode */
 return st_00; };
 asm.x6000015 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000016 = function Test() { var __braille_args__;
 var st_00;
@@ -136,43 +136,43 @@ __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: ldc.i4.0 */
+/* IL_01: IKVM.Reflection.Emit.OpCode */
 st_01 = 0;
-/* IL_02: callvirt Int32 Add2(Int32)*/
+/* IL_02: IKVM.Reflection.Emit.OpCode Int32 Add2(System.Int32)*/
 st_02 = (st_00.IA.x600000a)(st_00,st_01);
-/* IL_07: ldc.i4.6 */
+/* IL_07: IKVM.Reflection.Emit.OpCode */
 st_03 = 6;
-/* IL_08: beq.s IL_0C*/
+/* IL_08: IKVM.Reflection.Emit.OpCode IL_0C*/
 if (st_02 === st_03){
 __braille_pos_0__ = 0xC;continue;
 }
-/* IL_0A: ldc.i4.1 */
+/* IL_0A: IKVM.Reflection.Emit.OpCode */
 st_04 = 1;
-/* IL_0B: ret */
+/* IL_0B: IKVM.Reflection.Emit.OpCode */
 return st_04;
 case 0xC:
-/* IL_0C: ldarg.0 */
+/* IL_0C: IKVM.Reflection.Emit.OpCode */
 st_05 = __braille_args__[0];
-/* IL_0D: ldc.i4.0 */
+/* IL_0D: IKVM.Reflection.Emit.OpCode */
 st_06 = 0;
-/* IL_0E: callvirt Int32 Add(Int32)*/
+/* IL_0E: IKVM.Reflection.Emit.OpCode Int32 Add(System.Int32)*/
 st_07 = (st_05.IB.x600000b)(st_05,st_06);
-/* IL_13: ldc.i4.7 */
+/* IL_13: IKVM.Reflection.Emit.OpCode */
 st_08 = 7;
-/* IL_14: beq.s IL_18*/
+/* IL_14: IKVM.Reflection.Emit.OpCode IL_18*/
 if (st_07 === st_08){
 __braille_pos_0__ = 0x18;continue;
 }
-/* IL_16: ldc.i4.1 */
+/* IL_16: IKVM.Reflection.Emit.OpCode */
 st_09 = 1;
-/* IL_17: ret */
+/* IL_17: IKVM.Reflection.Emit.OpCode */
 return st_09;
 case 0x18:
-/* IL_18: ldc.i4.0 */
+/* IL_18: IKVM.Reflection.Emit.OpCode */
 st_0A = 0;
-/* IL_19: ret */
+/* IL_19: IKVM.Reflection.Emit.OpCode */
 return st_0A;
 }
 } };
@@ -190,46 +190,46 @@ __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
-/* IL_00: newobj Void .ctor()*/
+/* IL_00: IKVM.Reflection.Emit.OpCode Void .ctor()*/
 st_00 = (function () { var result;
  result = new (asm0.D)();
 (asm0.x6000010)(result);
 return result; })();
-/* IL_05: stloc.0 */
+/* IL_05: IKVM.Reflection.Emit.OpCode */
 loc0 = st_00;
-/* IL_06: newobj Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode Void .ctor()*/
 st_01 = (function () { var result;
  result = new (asm0.E)();
 (asm0.x6000015)(result);
 return result; })();
-/* IL_0B: pop */
+/* IL_0B: IKVM.Reflection.Emit.OpCode */
 
-/* IL_0C: ldloc.0 */
+/* IL_0C: IKVM.Reflection.Emit.OpCode */
 st_02 = loc0;
-/* IL_0D: call Int32 Test(ID)*/
+/* IL_0D: IKVM.Reflection.Emit.OpCode Int32 Test(ID)*/
 st_03 = (asm0.x6000016)(st_02);
-/* IL_12: brfalse.s IL_16*/
+/* IL_12: IKVM.Reflection.Emit.OpCode IL_16*/
 if ((!st_03)){
 __braille_pos_0__ = 0x16;continue;
 }
-/* IL_14: ldc.i4.1 */
+/* IL_14: IKVM.Reflection.Emit.OpCode */
 st_04 = 1;
-/* IL_15: ret */
+/* IL_15: IKVM.Reflection.Emit.OpCode */
 return st_04;
 case 0x16:
-/* IL_16: ldc.i4.0 */
+/* IL_16: IKVM.Reflection.Emit.OpCode */
 st_05 = 0;
-/* IL_17: ret */
+/* IL_17: IKVM.Reflection.Emit.OpCode */
 return st_05;
 }
 } };
 asm.x6000018 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
+/* IL_00: IKVM.Reflection.Emit.OpCode */
 st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
+/* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 self = (function () { 
  function TestLog() { 

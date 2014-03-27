@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Reflection;
 using Braille.JSAst;
 using Braille.MethodTransform;
+using IKVM.Reflection;
 
 namespace Braille.AssemblyTransform
 {
@@ -27,9 +27,10 @@ namespace Braille.AssemblyTransform
 
         private CilAssembly Process(string assembly)
         {
-            var asm = Assembly.LoadFile(assembly);
+            var universe = new Universe();
+            var asm = universe.LoadFile(assembly);
 
-            var result = new CilAssembly(); 
+            var result = new CilAssembly();
             result.Name = asm.FullName;
             result.EntryPoint = asm.EntryPoint;
             result.ReflectionAssembly = asm;
@@ -45,14 +46,20 @@ namespace Braille.AssemblyTransform
             return result;
         }
 
-        private CilType ProcessType(Type type)
+        private CilType ProcessType(IKVM.Reflection.Type type)
         {
-            var result = new CilType { Name = type.Name, Namespace = type.Namespace, BaseType = type.BaseType != null ? type.BaseType.FullName : null, ReflectionType = type };
+            var result = new CilType
+            {
+                Name = type.Name,
+                Namespace = type.Namespace,
+                BaseType = type.BaseType != null ? type.BaseType.FullName : null,
+                ReflectionType = type
+            };
             var methods = new List<CilMethod>();
             result.Methods = methods;
 
             var flags = BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
-            
+
             foreach (var method in type.GetMethods(flags))
             {
                 if (method.DeclaringType == type)

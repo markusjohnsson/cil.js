@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Reflection;
 using Braille.JSAst;
+using IKVM.Reflection;
 
 namespace Braille.AssemblyTransform
 {

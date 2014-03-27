@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Reflection;
 using Braille.JSAst;
 using Braille.MethodTransform;
+using IKVM.Reflection;
 
 namespace Braille.AssemblyTransform
 {
@@ -285,7 +285,7 @@ function tree_set(a, s, v) {
             };
         }
 
-        private JSExpression GetInterfaceMap(CilType type, Type iface)
+        private JSExpression GetInterfaceMap(CilType type, IKVM.Reflection.Type iface)
         {
             var map = type
                 .ReflectionType
@@ -313,7 +313,7 @@ function tree_set(a, s, v) {
                 .Select(
                     f => new KeyValuePair<string, JSExpression>(
                         f.Name,
-                        f.FieldType == typeof(bool) ?
+                        f.FieldType.FullName == "System.Boolean" ?
                             new JSBoolLiteral { Value = default(bool) } :
                         f.FieldType.IsPrimitive ?
                             new JSNumberLiteral { Value = 0 } as JSExpression :

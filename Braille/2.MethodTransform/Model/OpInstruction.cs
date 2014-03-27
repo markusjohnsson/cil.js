@@ -1,11 +1,11 @@
 
+using IKVM.Reflection.Emit;
 using System;
-using System.Reflection.Emit;
 namespace Braille.MethodTransform
 {
     class OpInstruction
     { 
-        public System.Reflection.Emit.OpCode OpCode { get; set; }
+        public OpCode OpCode { get; set; }
 
         public object Data { get; set; }
 

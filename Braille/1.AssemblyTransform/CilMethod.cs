@@ -1,9 +1,9 @@
 ﻿using Braille.JSAst;
 using Braille.MethodTransform;
+using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 
 namespace Braille.AssemblyTransform
@@ -30,22 +30,19 @@ namespace Braille.AssemblyTransform
         public static string GetReplacement(MethodBase mi)
         {
             var attribs = mi
-                .GetCustomAttributes(false);
+                .GetCustomAttributesData();
 
-            if (attribs.Length == 0)
+            if (attribs.Count == 0)
                 return null;
 
             var importAttrib = attribs
-                .Where(a => a.GetType().Name == "JsImportAttribute")
+                .Where(a => a.AttributeType.Name == "JsImportAttribute")
                 .LastOrDefault();
 
             if (importAttrib == null)
                 return null;
 
-            var replacement = importAttrib
-                .GetType()
-                .GetProperty("Function")
-                .GetValue(importAttrib, null);
+            var replacement = importAttrib.ConstructorArguments.Select(a => a.Value).FirstOrDefault();
 
             return replacement as string;
         }

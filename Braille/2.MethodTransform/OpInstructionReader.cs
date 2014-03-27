@@ -1,10 +1,10 @@
+using IKVM.Reflection;
+using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 
 namespace Braille.MethodTransform
 {
@@ -16,7 +16,7 @@ namespace Braille.MethodTransform
 
         static OpInstructionReader()
         {
-            foreach (var fi in typeof(OpCodes).GetFields(BindingFlags.Public | BindingFlags.Static))
+            foreach (var fi in typeof(OpCodes).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static))
             {
                 var opCode = (OpCode)fi.GetValue(null);
                 var value = (UInt16)opCode.Value;
@@ -210,7 +210,7 @@ namespace Braille.MethodTransform
     internal class ModuleILResolver
     {
         private Module module;
-        private Type type;
+        private IKVM.Reflection.Type type;
         private MethodBase method;
 
         public ModuleILResolver(MethodBase method)
@@ -254,7 +254,7 @@ namespace Braille.MethodTransform
             }
         }
 
-        public Type ResolveType(int metadataToken)
+        public IKVM.Reflection.Type ResolveType(int metadataToken)
         {
             return this.module.ResolveType(metadataToken,
                 type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);

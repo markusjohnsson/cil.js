@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Reflection;
 using Braille.JSAst;
+
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.AssemblyTransform
 {
@@ -28,7 +29,7 @@ namespace Braille.AssemblyTransform
         {
             get
             {
-                return ReflectionType.GetCustomAttributes(true).Any(a => a.GetType().Name == "JsIgnoreAttribute");
+                return ReflectionType.GetCustomAttributesData().Any(a => a.AttributeType.Name == "JsIgnoreAttribute");
             }
         }
     }

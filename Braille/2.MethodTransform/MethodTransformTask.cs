@@ -3,8 +3,8 @@ using Braille.JSAst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.MethodTransform
 {

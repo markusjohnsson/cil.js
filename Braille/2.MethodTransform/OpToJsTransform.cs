@@ -1,10 +1,11 @@
 using Braille.AssemblyTransform;
 using Braille.JSAst;
+using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.MethodTransform
 {
@@ -364,7 +365,7 @@ namespace Braille.MethodTransform
                     };
                 case "box":
                     {
-                        var d = (Type)frame.Instruction.Data;
+                        var d = (IKVM.Reflection.Type)frame.Instruction.Data;
                         var value = ProcessInternal(frame.Arguments.Single());
                         var boxed = new JSObjectLiteral
                         {
@@ -413,7 +414,7 @@ namespace Braille.MethodTransform
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
 
-                        if (mi.DeclaringType == typeof(object) &&
+                        if (mi.DeclaringType.FullName == "System.Object" &&
                             mi is ConstructorInfo &&
                             mi.GetParameters().Length == 0)
                         {
@@ -1056,7 +1057,7 @@ namespace Braille.MethodTransform
             }
         }
 
-        private JSIdentifier GetAssemblyIdentifier(Type type)
+        private JSIdentifier GetAssemblyIdentifier(IKVM.Reflection.Type type)
         {
             var idx = world.FindIndex(c => c.ReflectionAssembly == type.Assembly);
 

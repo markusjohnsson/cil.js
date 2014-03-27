@@ -1,9 +1,9 @@
 using Braille.AssemblyTransform;
 using Braille.JSAst;
+using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 
 namespace Braille.MethodTransform
