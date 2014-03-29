@@ -32,5 +32,13 @@ namespace Braille.Ast
                 return ReflectionType.GetCustomAttributesData().Any(a => a.AttributeType.Name == "JsIgnoreAttribute");
             }
         }
+
+        public bool IsInterface
+        {
+            get
+            {
+                return ReflectionType.IsInterface;
+            }
+        }
     }
 }

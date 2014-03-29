@@ -1,4 +1,4 @@
-using Braille.Translation;
+using Braille.JsTranslation;
 using System.Collections.Generic;
 using System.Linq;
 

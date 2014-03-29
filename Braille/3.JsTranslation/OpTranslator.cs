@@ -9,9 +9,9 @@ using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Translation
+namespace Braille.JsTranslation
 {
-    class OpToJsTransform
+    class OpTranslator
     {
         private CilAssembly assembly;
         private CilType type;
@@ -20,7 +20,7 @@ namespace Braille.Translation
 
         private HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
 
-        public OpToJsTransform(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
+        public OpTranslator(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
         {
             this.world = world;
             this.assembly = assembly;

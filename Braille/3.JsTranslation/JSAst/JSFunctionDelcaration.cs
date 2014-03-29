@@ -7,6 +7,8 @@ namespace Braille.JSAst
 {
     class JSFunctionDelcaration : JSExpression
     {
+        public readonly static JSFunctionDelcaration Empty = new JSFunctionDelcaration();
+
         public string Name { get; set; }
         public IEnumerable<JSStatement> Body { get; set; }
         public IEnumerable<JSFunctionParameter> Parameters { get; set; }
@@ -38,5 +40,7 @@ namespace Braille.JSAst
                 foreach (var x in Parameters)
                     yield return x;
         }
+
+        
     }
 }

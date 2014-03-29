@@ -17,8 +17,6 @@ function tree_set(a, s, v) {
     }
 }
 ;
-asm.x6000001 = function () { 
-  };
 asm.x6000002 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
@@ -27,16 +25,6 @@ st_00 = __braille_args__[0];
 /* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
 /* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
-asm.x6000003 = function () { 
-  };
-asm.x6000005 = function () { 
-  };
-asm.x6000006 = function () { 
-  };
-asm.x6000004 = function () { 
-  };
-asm.x6000007 = function () { 
-  };
 asm.x6000008 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
@@ -45,14 +33,6 @@ st_00 = __braille_args__[0];
 /* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
 /* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
-asm.x6000009 = function () { 
-  };
-asm.x600000a = function () { 
-  };
-asm.x600000b = function () { 
-  };
-asm.x600000c = function () { 
-  };
 asm.x600000d = function IVehicle_Start() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;

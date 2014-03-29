@@ -1,6 +1,6 @@
 ﻿using Braille.JSAst;
 using Braille.Loading;
-using Braille.Translation;
+using Braille.JsTranslation;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -51,7 +51,5 @@ namespace Braille.Ast
         public byte[] IlCode { get; set; }
 
         public MethodBase ReflectionMethod { get; set; }
-
-        public JSFunctionDelcaration JsFunction { get; set; }
     }
 }

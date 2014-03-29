@@ -19,8 +19,9 @@ namespace Braille.Analysis
 
             // Turn stack based OpInstructions into variable based OpExpressions
 
-            // - Flow analysis to determine from which instructions each instruction can get its arguments from
-            AnalyzeFlow(method, opInfos);
+            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
+            var dataFlowAnalysis = new DataFlowAnalysis();
+            dataFlowAnalysis.Analyze(method, opInfos);
 
             // - Introduce variables to replace stack based on flow analysis
             ReplaceStack(method, opInfos);
@@ -71,111 +72,6 @@ namespace Braille.Analysis
                     }
                 }
             }
-        }
-
-        private static void AnalyzeFlow(CilMethod method, List<OpExpression> infos)
-        {
-            if (infos.Any() == false)
-                return;
-
-            var methodBody = method
-                .ReflectionMethod
-                .GetMethodBody();
-
-            var exceptionHandlers = methodBody == null ?
-                Enumerable.Empty<int>() :
-                methodBody.ExceptionHandlingClauses.Select(e => e.HandlerOffset);
-
-            infos.First().StackBefore = new List<StackUseDefinition>();
-
-            var processStack = new Stack<OpExpression>();
-            processStack.Push(infos.First());
-
-            //foreach (var opInfo in infos)
-            while (processStack.Any())
-            {
-                var opInfo = processStack.Pop();
-
-                //
-                // Part I
-
-                var newStack = new Stack<StackUseDefinition>(
-                    opInfo.StackBefore ?? Enumerable.Empty<StackUseDefinition>());
-
-                if (opInfo.InstructionPopCount == null)
-                {
-                    newStack.Clear();
-                }
-                else
-                {
-                    for (var i = 0; i < opInfo.InstructionPopCount; i++)
-                    {
-                        newStack.Pop();
-                    }
-                }
-
-                for (var i = 0; i < opInfo.PushCount; i++)
-                {
-                    newStack.Push(new StackUseDefinition { Definitions = new List<OpNode> { opInfo } });
-                }
-
-                //
-                // Part II: update branch targets
-
-                foreach (var target in opInfo.Targets)
-                {
-                    if (target.IsHandlerStart)
-                    {
-                        newStack.Push(new StackUseDefinition { Definitions = new List<OpNode> { new ExceptionNode() } });
-                    }
-
-                    if (UpdateTargetStack(newStack, target))
-                        processStack.Push(target);
-
-                    if (target.IsHandlerStart)
-                    {
-                        newStack.Pop();
-                    }
-                }
-            }
-
-
-        }
-
-        private static bool UpdateTargetStack(Stack<StackUseDefinition> newStack, OpExpression target)
-        {
-            var stackList = newStack.Reverse().ToList();
-
-            var changed = false;
-            if (target.StackBefore == null)
-            {
-                target.StackBefore = stackList
-                    .Select(
-                        n => new StackUseDefinition
-                        {
-                            Usage = target,
-                            Definitions = n.Definitions.ToList()
-                        })
-                    .ToList();
-
-                changed = true;
-            }
-            else
-            {
-                for (var i = 0; i < stackList.Count; i++)
-                {
-                    var oldDef = target.StackBefore[i];
-                    var newDef = stackList[i];
-
-                    var beforeCount = oldDef.Definitions.Count;
-
-                    oldDef.Definitions = oldDef.Definitions.Concat(newDef.Definitions).Distinct().ToList();
-
-                    if (oldDef.Definitions.Count != beforeCount)
-                        changed = true;
-                }
-            }
-            return changed;
         }
 
         private static List<OpExpression> CreateOpInfos(CilMethod method)

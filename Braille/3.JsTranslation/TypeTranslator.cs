@@ -4,111 +4,11 @@ using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Translation
+namespace Braille.JsTranslation
 {
-    class JsAssemblyBuilder
+    class TypeTranslator
     {
-
-        public JSExpression Build(CilAssembly asm)
-        {
-            return new JSFunctionDelcaration
-            {
-                Parameters = new[] { new JSFunctionParameter { Name = "asm" } },
-                Body = GetBody(asm).Select(s => new JSStatement { Expression = s })
-            };
-        }
-
-        private IEnumerable<JSExpression> GetBody(CilAssembly asm)
-        {
-            yield return new JSIdentifier
-            {
-                // Helper funcions to manage a multi-key dictionary.
-                // Used to cache constructed generic types.
-                // A constructed generic type should always have the same constructor instace (for the same type arguments)
-                Name =
-                    @"
-function tree_get(a, s) {
-    if (a.length == 0) return s;
-    var c = s[a[0]];
-    return c && tree_get(a.slice(1), c);
-}
-
-function tree_set(a, s, v) {
-    if (a.length == 1) {
-        s[a[0]] = v;
-    }
-    else {
-        var c = s[a[0]];
-        if (!c) s[a[0]] = c = {};
-        tree_set(a.slice(1), c, v);
-    }
-}
-"
-            };
-
-            yield return new JSVariableDelcaration { Name = "self" };
-
-            foreach (var m in asm.Types.SelectMany(t => t.Methods))
-            {
-                yield return new JSBinaryExpression
-                {
-                    Left = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = "x" + m.MetadataToken.ToString("x")
-                    },
-                    Operator = "=",
-                    Right = m.JsFunction ?? new JSFunctionDelcaration()
-                };
-            }
-
-            foreach (var t in asm.Types)
-            {
-                if (t.IsIgnored)
-                    continue;
-
-                yield return new JSBinaryExpression
-                {
-                    Left = new JSIdentifier { Name = "self" },
-                    Operator = "=",
-                    Right = new JSCallExpression
-                    {
-                        Function = GetClass(t)
-                    }
-                };
-
-                yield return new JSBinaryExpression
-                {
-                    Left = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = t.ReflectionType.FullName
-                    },
-                    Operator = "=",
-                    Right = new JSIdentifier { Name = "self" }
-                };
-            }
-
-            if (asm.EntryPoint != null)
-            {
-                yield return new JSBinaryExpression
-                {
-                    Left = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = "entryPoint"
-                    },
-                    Operator = "=",
-                    Right = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = "x" + asm.EntryPoint.MetadataToken.ToString("x")
-                    }
-                };
-            }
-        }
-
-        private JSExpression GetClass(CilType type)
+        public JSExpression Translate(CilType type)
         {
             if (type.ReflectionType.IsGenericTypeDefinition)
             {
@@ -124,69 +24,69 @@ function tree_set(a, s, v) {
 
                 var body =
                     new List<JSStatement> 
-                    {
-                        new JSVariableDelcaration 
-                        { 
-                            Name = "c", 
-                            Value = new JSCallExpression 
+                        {
+                            new JSVariableDelcaration 
                             { 
-                                Function = new JSIdentifier { Name = "tree_get" }, 
-                                Arguments = new List<JSExpression> 
+                                Name = "c", 
+                                Value = new JSCallExpression 
+                                { 
+                                    Function = new JSIdentifier { Name = "tree_get" }, 
+                                    Arguments = new List<JSExpression> 
+                                    {
+                                        cacheKey,
+                                        JSIdentifier.Create("ct") 
+                                    }
+                                }
+                            }.ToStatement(),
+                            new JSIfStatement
+                            {
+                                Condition = JSIdentifier.Create("c"),
+                                Statements = 
                                 {
-                                    cacheKey,
-                                    JSIdentifier.Create("ct") 
+                                    new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
                                 }
                             }
-                        }.ToStatement(),
-                        new JSIfStatement
-                        {
-                            Condition = JSIdentifier.Create("c"),
-                            Statements = 
-                            {
-                                new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
-                            }
-                        }
-                    };
+                        };
 
                 body.AddRange(GetConstructorAndPrototype(type).Select(s => s.ToStatement()));
 
                 body.AddRange(
                     new[] 
-                    { 
-                        new JSBinaryExpression 
-                        {
-                            Left = JSIdentifier.Create("c"),
-                            Operator = "=",
-                            Right = new JSIdentifier { Name = GetSimpleName(type) }
-                        }.ToStatement(),
-                        new JSCallExpression
-                        {
-                            Function = JSIdentifier.Create("tree_set"),
-                            Arguments = new List<JSExpression>
+                        { 
+                            new JSBinaryExpression 
                             {
-                                cacheKey,
-                                JSIdentifier.Create("ct"),
-                                JSIdentifier.Create("c")
-                            }
-                        }.ToStatement(),
-                        new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
-                    });
+                                Left = JSIdentifier.Create("c"),
+                                Operator = "=",
+                                Right = new JSIdentifier { Name = GetSimpleName(type) }
+                            }.ToStatement(),
+                            new JSCallExpression
+                            {
+                                Function = JSIdentifier.Create("tree_set"),
+                                Arguments = new List<JSExpression>
+                                {
+                                    cacheKey,
+                                    JSIdentifier.Create("ct"),
+                                    JSIdentifier.Create("c")
+                                }
+                            }.ToStatement(),
+                            new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
+                        });
 
                 return new JSFunctionDelcaration
                 {
                     Body =
                         new List<JSStatement> 
-                        {
-                            new JSVariableDelcaration { Name = "ct", Value = new JSObjectLiteral() }.ToStatement(),
-                            new JSReturnExpression 
-                            { 
-                                Expression = new JSFunctionDelcaration
-                                {
-                                    Body = body,
-                                    Parameters = type.ReflectionType.GetGenericArguments().Select(s => new JSFunctionParameter { Name = s.Name }).ToList()
-                                }
-                            }.ToStatement()
-                        }
+                            {
+                                new JSVariableDelcaration { Name = "ct", Value = new JSObjectLiteral() }.ToStatement(),
+                                new JSReturnExpression 
+                                { 
+                                    Expression = new JSFunctionDelcaration
+                                    {
+                                        Body = body,
+                                        Parameters = type.ReflectionType.GetGenericArguments().Select(s => new JSFunctionParameter { Name = s.Name }).ToList()
+                                    }
+                                }.ToStatement()
+                            }
                 };
             }
             else

@@ -1,64 +1,52 @@
 ﻿using Braille.Analysis;
 using Braille.Ast;
 using Braille.JSAst;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Translation
+namespace Braille.JsTranslation
 {
-    class MethodTransformTask
+    
+    class MethodTranslator
     {
         private OpExpressionBuilder expressionBuilder = new OpExpressionBuilder();
-        
+
         private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
-
-        public void Process(IEnumerable<CilAssembly> asms)
+        
+        public JSFunctionDelcaration Translate(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
         {
-            asms = asms.ToList();
-
-            foreach (var asm in asms)
+            if (type.IsIgnored)
             {
-                foreach (var type in asm.Types)
-                {
-                    if (type.IsIgnored)
-                    {
-                        continue;
-                    }
+                throw new ArgumentException("cannot translate method of ignored class");
+            }
 
-                    if (type.IsUserDelegate)
-                    {
-                        TransformDelegate(type);
-                    }
+            if (method.GetReplacement() != null || type.IsInterface)
+            {
+                return null;
+            }
 
-                    foreach (var method in type.Methods)
-                    {
-                        if (method.GetReplacement() != null)
-                        {
-                            continue;
-                        }
-
-                        if (method.IlCode != null)
-                        {
-                            TransformNormalMethod(asms, asm, type, method);
-                        }
-                    }
-                }
+            if (type.IsUserDelegate)
+            {
+                return TranslateDelegateMethod(method);
+            }
+            else
+            {
+                return TransformNormalMethod(world, assembly, type, method);
             }
         }
 
-        private static void TransformDelegate(CilType type)
+        private JSFunctionDelcaration TranslateDelegateMethod(CilMethod method)
         {
-            foreach (var method in type.Methods)
+            switch (method.Name)
             {
-                switch (method.Name)
-                {
-                    case "Invoke":
-                        method.JsFunction = new JSFunctionDelcaration
-                        {
-                            Name = "Invoke",
-                            Body = new List<JSStatement> 
+                case "Invoke":
+                    return new JSFunctionDelcaration
+                    {
+                        Name = "Invoke",
+                        Body = new List<JSStatement> 
                             {
                                 new JSStatement 
                                 {
@@ -68,13 +56,12 @@ namespace Braille.Translation
                                     }
                                 }
                             }
-                        };
-                        break;
-                    case ".ctor":
-                        method.JsFunction = new JSFunctionDelcaration
-                        {
-                            Name = "ctor",
-                            Body = new List<JSStatement> 
+                    };
+                case ".ctor":
+                    return new JSFunctionDelcaration
+                    {
+                        Name = "ctor",
+                        Body = new List<JSStatement> 
                             {
                                 new JSStatement 
                                 {
@@ -84,19 +71,19 @@ namespace Braille.Translation
                                     }
                                 }
                             }
-                        };
-                        break;
-                }
+                    };
+                default:
+                    return JSFunctionDelcaration.Empty;
             }
         }
 
-        private void TransformNormalMethod(IEnumerable<CilAssembly> asms, CilAssembly asm, CilType type, CilMethod method)
+        private JSFunctionDelcaration TransformNormalMethod(List<CilAssembly> world, CilAssembly asm, CilType type, CilMethod method)
         {
             var frames = expressionBuilder.Build(method);
 
             insertFrameLabelsTask.Process(frames);
 
-            var exprToJsTransform = new OpToJsTransform((List<CilAssembly>)asms, asm, type, method);
+            var exprToJsTransform = new OpTranslator((List<CilAssembly>)world, asm, type, method);
 
             var functionBlock = new List<JSStatement>();
             functionBlock.Add(
@@ -209,10 +196,10 @@ namespace Braille.Translation
                 Parameters = Enumerable.Empty<JSFunctionParameter>()
             };
 
-            method.JsFunction = 
-                (method.ReflectionMethod.IsGenericMethodDefinition) || 
-                (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType) ? 
-                    CreateGenericFunction(method, function) : 
+            return
+                (method.ReflectionMethod.IsGenericMethodDefinition) ||
+                (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType) ?
+                    CreateGenericFunction(method, function) :
                     function;
         }
 
@@ -229,7 +216,7 @@ namespace Braille.Translation
 
             return new JSFunctionDelcaration
             {
-                Body = new [] { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
+                Body = new[] { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
                 Parameters = types.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
             };
         }

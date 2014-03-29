@@ -1,5 +1,5 @@
 ﻿using Braille.Ast;
-using Braille.Translation;
+using Braille.JsTranslation;
 using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;

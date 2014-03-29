@@ -1,5 +1,5 @@
 using Braille.Loading;
-using Braille.Translation;
+using Braille.JsTranslation;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,11 +30,8 @@ namespace Braille
 
             var asms = asmTransform.Load().ToList();
 
-            var mtdTranform = new MethodTransformTask();
-            mtdTranform.Process(asms);
-
-            var asmTransform2 = new JsAssemblyBuilder();
-            var asmExpression = asmTransform2.Build(asms.First());
+            var asmTransform2 = new AssemblyTranslator(new TypeTranslator(), new MethodTranslator());
+            var asmExpression = asmTransform2.Translate(asms, asms.First());
 
             File.WriteAllText(OutputFileName, "var asm0; (" + asmExpression.ToString() + ")(asm0 || (asm0 = {}))");
         }
