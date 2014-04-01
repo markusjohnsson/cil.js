@@ -45,6 +45,7 @@ st_00 = __braille_args__[0];
 /* IL_06: ret */
 return ; };
 asm.x6000009 = function GetEnumerator() { var __braille_args__;
+var loc0;
 var st_00;
 var st_01;
 var st_02;
@@ -64,8 +65,8 @@ var st_0F;
 var st_10;
 var st_11;
 var st_12;
-var loc0;
  __braille_args__ = arguments;
+loc0 = null;
 /* IL_00: ldc.i4.5 */
 st_00 = 5;
 /* IL_01: newarr System.Int32*/
@@ -130,6 +131,7 @@ st_00 = __braille_args__[0];
 /* IL_06: ret */
 return ; };
 asm.x600000c = function MoveNext() { var __braille_args__;
+var loc0;
 var st_00;
 var st_01;
 var st_06;
@@ -146,8 +148,8 @@ var st_0C;
 var st_0D;
 var _b_dup_1;
 var _b_dup_9;
-var loc0;
  __braille_args__ = arguments;
+loc0 = 0;
 /* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_01: dup */
@@ -222,6 +224,10 @@ st_03.nums = st_04;
 /* IL_14: ret */
 return ; };
 asm.x600000e = function Main() { var __braille_args__;
+var loc0;
+var loc1;
+var loc2;
+var loc3;
 var st_00;
 var st_01;
 var st_02;
@@ -231,9 +237,11 @@ var st_05;
 var st_06;
 var st_07;
 var st_08;
-var loc0;
-var loc2;
  __braille_args__ = arguments;
+loc0 = null;
+loc1 = 0;
+loc2 = null;
+loc3 = null;
 /* IL_00: newobj Void .ctor()*/
 st_00 = (function () { var result;
  result = new (asm0.A)();

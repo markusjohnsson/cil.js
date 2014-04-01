@@ -11,5 +11,7 @@ namespace Braille.Ast
 
         public Assembly ReflectionAssembly { get; set; }
 
+
+        public string Identifier { get; set; }
     }
 }

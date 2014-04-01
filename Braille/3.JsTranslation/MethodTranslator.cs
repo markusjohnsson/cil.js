@@ -1,6 +1,7 @@
 ﻿using Braille.Analysis;
 using Braille.Ast;
 using Braille.JSAst;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,19 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
-    
+
     class MethodTranslator
     {
         private OpExpressionBuilder expressionBuilder;
 
         private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
+        private Context context;
 
-        public MethodTranslator(Universe universe)
+        public MethodTranslator(Context context)
         {
-            expressionBuilder = new OpExpressionBuilder(universe);
+            this.context = context;
+            expressionBuilder = new OpExpressionBuilder(context.ReflectionUniverse);
         }
 
         public JSFunctionDelcaration Translate(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
@@ -101,6 +104,21 @@ namespace Braille.JsTranslation
                         Value = new JSIdentifier { Name = "arguments" }
                     }
                 });
+
+            var locIdx = 0;
+            foreach (var loc in method.ReflectionMethod.GetMethodBody().LocalVariables)
+            {
+                functionBlock.Add(
+                    new JSStatement
+                    {
+                        Expression = new JSVariableDelcaration
+                        {
+                            Name = "loc" + locIdx,
+                            Value = CreateDefaultValue(loc)
+                        }
+                    });
+                locIdx++;
+            }
 
             var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, frames));
 
@@ -207,6 +225,37 @@ namespace Braille.JsTranslation
                 (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType) ?
                     CreateGenericFunction(method, function) :
                     function;
+        }
+
+        private JSExpression CreateDefaultValue(LocalVariableInfo loc)
+        {
+            return
+                loc.LocalType.FullName == "System.Boolean" ?
+                    new JSBoolLiteral { Value = default(bool) } :
+                loc.LocalType.IsPrimitive ?
+                    new JSNumberLiteral { Value = 0 } as JSExpression : 
+                loc.LocalType.IsValueType ?
+                    new JSNewExpression
+                    {
+                        Constructor = new JSPropertyAccessExpression
+                        {
+                            Host = GetAssemblyIdentifier(loc.LocalType),
+                            Property = loc.LocalType.Namespace == null ? loc.LocalType.Name : loc.LocalType.Namespace + "." + loc.LocalType.Name
+                        }
+                    } as JSExpression :
+                    new JSNullLiteral();
+        }
+
+        private JSIdentifier GetAssemblyIdentifier(Type type)
+        {
+            var asm = context.Assemblies.FirstOrDefault(c => c.ReflectionAssembly == type.Assembly);
+
+            if (asm == null)
+            {
+                throw new Exception("Cannot resolve assembly of type " + type);
+            }
+
+            return new JSIdentifier { Name = asm.Identifier };
         }
 
         private JSFunctionDelcaration CreateGenericFunction(CilMethod method, JSFunctionDelcaration function)

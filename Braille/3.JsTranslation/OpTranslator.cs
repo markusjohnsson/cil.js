@@ -1071,14 +1071,14 @@ namespace Braille.JsTranslation
 
         private JSIdentifier GetAssemblyIdentifier(IKVM.Reflection.Type type)
         {
-            var idx = world.FindIndex(c => c.ReflectionAssembly == type.Assembly);
+            var asm = world.FirstOrDefault(c => c.ReflectionAssembly == type.Assembly);
 
-            if (idx == -1)
+            if (asm == null)
             {
                 throw new Exception("Cannot resolve assembly of type " + type);
             }
 
-            return new JSIdentifier { Name = "asm" + idx };
+            return new JSIdentifier { Name = asm.Identifier };
         }
 
         private static JSExpression WrapInReaderWriter(JSExpression ifier)

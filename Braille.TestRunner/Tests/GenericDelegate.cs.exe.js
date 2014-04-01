@@ -107,6 +107,7 @@ return ;
 }
 } };
 asm.x6000010 = function CallDelegate() { var __braille_args__;
+var loc0;
 var st_03;
 var st_00;
 var st_01;
@@ -114,8 +115,8 @@ var st_02;
 var st_04;
 var st_05;
 var st_06;
-var loc0;
  __braille_args__ = arguments;
+loc0 = null;
 /* IL_00: ldarg.0 */
 st_03 = __braille_args__[0];
 /* IL_01: newobj Void .ctor()*/
@@ -142,12 +143,13 @@ braille_test_log(st_06);
 /* IL_1F: ret */
 return ; };
 asm.x6000012 = function _Main_b__1() { var __braille_args__;
+var loc0;
 var st_00;
 var st_01;
 var st_02;
 var st_03;
-var loc0;
  __braille_args__ = arguments;
+loc0 = null;
 /* IL_00: newobj Void .ctor()*/
 st_00 = (function () { var result;
  result = new (asm0.StringWrapper)();

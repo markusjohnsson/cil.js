@@ -22,12 +22,14 @@ namespace Braille.Loading
 
             return new Context
             {
-                Assemblies = paths.Select(p => Process(universe, p)).ToList(),
+                Assemblies = paths
+                    .Select((p,i) => Process(universe, p, i))
+                    .ToList(),
                 ReflectionUniverse = universe
             };
         }
 
-        private CilAssembly Process(Universe universe, string assembly)
+        private CilAssembly Process(Universe universe, string assembly, int index)
         {
             var asm = universe.LoadFile(assembly);
 
@@ -35,6 +37,7 @@ namespace Braille.Loading
             result.Name = asm.FullName;
             result.EntryPoint = asm.EntryPoint;
             result.ReflectionAssembly = asm;
+            result.Identifier = "asm" + index;
 
             var types = new List<CilType>();
             result.Types = types;

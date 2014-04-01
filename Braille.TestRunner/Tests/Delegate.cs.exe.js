@@ -60,12 +60,13 @@ st_00 = "RESULT!";
 /* IL_05: ret */
 return st_00; };
 asm.x600000e = function Main() { var __braille_args__;
+var loc0;
 var st_00;
 var st_01;
 var st_02;
 var st_03;
-var loc0;
  __braille_args__ = arguments;
+loc0 = null;
 /* IL_00: ldnull */
 st_00 = null;
 /* IL_02: ldftn String X(System.Int32)*/

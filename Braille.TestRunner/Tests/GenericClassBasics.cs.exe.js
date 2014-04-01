@@ -91,6 +91,10 @@ st_00 = __braille_args__[0];
 /* IL_06: ret */
 return ; };
 asm.x600000e = function Main() { var __braille_args__;
+var loc0;
+var loc1;
+var loc2;
+var loc3;
 var st_00;
 var st_04;
 var st_01;
@@ -110,11 +114,11 @@ var st_0F;
 var st_10;
 var st_11;
 var st_12;
-var loc0;
-var loc2;
-var loc1;
-var loc3;
  __braille_args__ = arguments;
+loc0 = null;
+loc1 = null;
+loc2 = null;
+loc3 = null;
 /* IL_00: newobj Void .ctor()*/
 st_00 = (function () { var result;
  result = new (((asm0)["A`1"])(asm0.IntWrapper))();

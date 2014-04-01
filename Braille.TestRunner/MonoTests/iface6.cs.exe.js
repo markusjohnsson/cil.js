@@ -183,6 +183,8 @@ st_03 = __braille_args__[0];
 /* IL_13: ret */
 return ; };
 asm.x6000017 = function Main() { var __braille_args__;
+var loc0;
+var loc1;
 var st_00;
 var st_01;
 var st_02;
@@ -190,9 +192,9 @@ var st_03;
 var st_04;
 var st_05;
 var st_06;
-var loc0;
-var loc1;
  __braille_args__ = arguments;
+loc0 = null;
+loc1 = null;
 /* IL_00: newobj Void .ctor()*/
 st_00 = (function () { var result;
  result = new (asm0.D)();

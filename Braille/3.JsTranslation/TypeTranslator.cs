@@ -1,13 +1,23 @@
 using Braille.Ast;
 using Braille.JSAst;
+using Braille.Loading.Model;
 using IKVM.Reflection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
     class TypeTranslator
     {
+        private Context context;
+
+        public TypeTranslator(Context context)
+        {
+            this.context = context;
+        }
+
         public JSExpression Translate(CilType type)
         {
             if (type.ReflectionType.IsGenericTypeDefinition)
@@ -203,7 +213,7 @@ namespace Braille.JsTranslation
             };
         }
 
-        private static IEnumerable<KeyValuePair<string, JSExpression>> GetFieldInitializers(CilType type)
+        private IEnumerable<KeyValuePair<string, JSExpression>> GetFieldInitializers(CilType type)
         {
             return type
                 .ReflectionType
@@ -220,12 +230,25 @@ namespace Braille.JsTranslation
                             {
                                 Constructor = new JSPropertyAccessExpression
                                 {
-                                    Host = new JSIdentifier { Name = "asm" },
-                                    Property = type.Namespace + "." + type.Name
+                                    Host = GetAssemblyIdentifier(f.FieldType),
+                                    Property = f.FieldType.Namespace == null ? f.FieldType.Name : f.FieldType.Namespace + "." + f.FieldType.Name
                                 }
                             } as JSExpression :
                             new JSNullLiteral()
                     ));
         }
+
+        private JSIdentifier GetAssemblyIdentifier(Type type)
+        {
+            var asm = context.Assemblies.FirstOrDefault(c => c.ReflectionAssembly == type.Assembly);
+
+            if (asm == null)
+            {
+                throw new Exception("Cannot resolve assembly of type " + type);
+            }
+
+            return new JSIdentifier { Name = asm.Identifier };
+        }
+
     }
 }

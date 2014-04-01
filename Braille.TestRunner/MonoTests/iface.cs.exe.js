@@ -60,6 +60,7 @@ st_00 = __braille_args__[0];
 /* IL_06: ret */
 return ; };
 asm.x600000c = function Main() { var __braille_args__;
+var loc0;
 var st_00;
 var st_01;
 var st_02;
@@ -67,8 +68,8 @@ var st_03;
 var st_04;
 var st_05;
 var __braille_pos_0__;
-var loc0;
  __braille_args__ = arguments;
+loc0 = null;
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
