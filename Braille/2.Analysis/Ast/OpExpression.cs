@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Braille.Ast
 {
-    class OpExpression : OpNode
+    class OpExpression : Node
     {
         public OpInstruction Instruction;
         public List<OpInstruction> Prefixes;
@@ -59,6 +59,7 @@ namespace Braille.Ast
         public bool IsLabel { get; set; }
 
         public bool IsHandlerStart { get; set; }
+
 
     }
 }

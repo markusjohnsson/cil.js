@@ -1,6 +1,7 @@
 ﻿using Braille.Analysis;
 using Braille.Ast;
 using Braille.JSAst;
+using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,16 @@ namespace Braille.JsTranslation
     
     class MethodTranslator
     {
-        private OpExpressionBuilder expressionBuilder = new OpExpressionBuilder();
+        private OpExpressionBuilder expressionBuilder;
 
         private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
-        
+
+        public MethodTranslator(Universe universe)
+        {
+            expressionBuilder = new OpExpressionBuilder(universe);
+        }
+
         public JSFunctionDelcaration Translate(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)

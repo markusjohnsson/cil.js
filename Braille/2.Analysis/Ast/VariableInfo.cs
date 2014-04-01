@@ -1,7 +1,7 @@
 
 namespace Braille.Ast
 {
-    class VariableInfo : OpNode
+    class VariableInfo : Node
     {
         public string Name;
     }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Braille.Ast
 {
-    class ExceptionNode : OpNode
+    class ExceptionNode : Node
     {
         public List<VariableInfo> StoreLocations = new List<VariableInfo>();
     }

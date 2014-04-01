@@ -10,5 +10,6 @@ namespace Braille.Ast
         public MethodInfo EntryPoint { get; set; }
 
         public Assembly ReflectionAssembly { get; set; }
+
     }
 }

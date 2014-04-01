@@ -8,12 +8,30 @@ using System.Linq;
 
 namespace Braille.Analysis
 {
+    public static class TypeExtensions
+    {
+        public static IEnumerable<IKVM.Reflection.Type> GetTypeChain(this IKVM.Reflection.Type node)
+        {
+            while (node != null)
+            {
+                yield return node;
+                node = node.BaseType;
+            }
+        }
+    }
+
     class OpExpressionBuilder
     {
+        private Universe universe;
+
+        public OpExpressionBuilder(Universe universe)
+        {
+            this.universe = universe;
+        }
+
         public IList<OpExpression> Build(CilMethod method)
         {
             var mtdb = method.ReflectionMethod.GetMethodBody();
-            var ex = mtdb != null ? mtdb.ExceptionHandlingClauses : new List<ExceptionHandlingClause>();
 
             var opInfos = CreateOpInfos(method);
 
@@ -35,9 +53,9 @@ namespace Braille.Analysis
                             o.Targets.Count == 1 && o.Targets[0] == o.Next))
                 .ToList();
 
-            // - Split into blocks based on try-catching and recursivly:
-            //    - Replace stack loading with variable loading based on flow analysis
-            //    - Create OpExpressions from OpInstructions
+            // 
+            var typeInference = new TypeInference(universe);
+            typeInference.InferTypes(method, opInfos);
 
             return opInfos;
         }
@@ -53,7 +71,11 @@ namespace Braille.Analysis
 
                 foreach (var usage in opInfo.StackBefore.Skip(opInfo.StackBefore.Count() - opInfo.GetRealPopCount()))
                 {
-                    usage.Variable = new VariableInfo { Name = string.Format("st_{0:X2}", counter++) };
+                    usage.Variable = new VariableInfo
+                    {
+                        Name = string.Format("st_{0:X2}", counter++),
+                        ResultType = usage.Type
+                    };
 
                     foreach (var def in usage.Definitions)
                     {

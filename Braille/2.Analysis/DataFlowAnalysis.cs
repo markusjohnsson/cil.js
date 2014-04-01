@@ -34,7 +34,7 @@ namespace Braille.Analysis
                 //
                 // Part I
 
-                var newStack = GetStackafter(opInfo);
+                var newStack = GetStackAfter(opInfo);
 
                 //
                 // Part II: update branch targets
@@ -49,7 +49,7 @@ namespace Braille.Analysis
             {
                 if (target.IsHandlerStart)
                 {
-                    newStack.Push(new StackUseDefinition { Definitions = new List<OpNode> { new ExceptionNode() } });
+                    newStack.Push(new StackUseDefinition { Definitions = new List<Node> { new ExceptionNode() } });
                 }
 
                 if (UpdateTargetStack(newStack, target))
@@ -62,7 +62,7 @@ namespace Braille.Analysis
             }
         }
 
-        private static Stack<StackUseDefinition> GetStackafter(OpExpression opInfo)
+        private static Stack<StackUseDefinition> GetStackAfter(OpExpression opInfo)
         {
             var newStack = new Stack<StackUseDefinition>(
                 opInfo.StackBefore ?? Enumerable.Empty<StackUseDefinition>());
@@ -81,7 +81,11 @@ namespace Braille.Analysis
 
             for (var i = 0; i < opInfo.PushCount; i++)
             {
-                newStack.Push(new StackUseDefinition { Definitions = new List<OpNode> { opInfo } });
+                newStack.Push(
+                    new StackUseDefinition
+                    {   
+                        Definitions = new List<Node> { opInfo }
+                    });
             }
             return newStack;
         }
@@ -106,6 +110,8 @@ namespace Braille.Analysis
             }
             else
             {
+                // Merging stacks described in ECMA - 335, III.1.8.1.3
+
                 for (var i = 0; i < stackList.Count; i++)
                 {
                     var oldDef = target.StackBefore[i];

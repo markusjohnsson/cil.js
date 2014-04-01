@@ -28,9 +28,10 @@ namespace Braille
             foreach (var asm in assemblies)
                 asmTransform.AddAssembly(asm);
 
-            var asms = asmTransform.Load().ToList();
+            var ctx = asmTransform.Load();
+            var asms = ctx.Assemblies;
 
-            var asmTransform2 = new AssemblyTranslator(new TypeTranslator(), new MethodTranslator());
+            var asmTransform2 = new AssemblyTranslator(new TypeTranslator(), new MethodTranslator(ctx.ReflectionUniverse));
             var asmExpression = asmTransform2.Translate(asms, asms.First());
 
             File.WriteAllText(OutputFileName, "var asm0; (" + asmExpression.ToString() + ")(asm0 || (asm0 = {}))");

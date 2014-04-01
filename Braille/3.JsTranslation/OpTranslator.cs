@@ -325,7 +325,7 @@ namespace Braille.JsTranslation
             return 1 + i.Position + i.Size + data;
         }
 
-        private JSExpression ProcessInternal(OpNode node)
+        private JSExpression ProcessInternal(Node node)
         {
             var varInfo = node as VariableInfo;
 
@@ -1117,7 +1117,7 @@ namespace Braille.JsTranslation
             };
         }
 
-        private IEnumerable<JSExpression> ProcessList(IEnumerable<OpNode> list)
+        private IEnumerable<JSExpression> ProcessList(IEnumerable<Node> list)
         {
             foreach (var i in list)
                 yield return ProcessInternal(i);

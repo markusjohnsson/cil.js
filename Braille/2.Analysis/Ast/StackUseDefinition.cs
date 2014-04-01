@@ -1,3 +1,4 @@
+using IKVM.Reflection;
 using System.Collections.Generic;
 
 namespace Braille.Ast
@@ -5,7 +6,8 @@ namespace Braille.Ast
     class StackUseDefinition
     {
         public OpExpression Usage;
-        public List<OpNode> Definitions;
+        public List<Node> Definitions;
         public VariableInfo Variable;
+        public Type Type;
     }
 }

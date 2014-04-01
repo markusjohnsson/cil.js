@@ -1,5 +1,6 @@
 ﻿using Braille.Ast;
 using Braille.JsTranslation;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,19 @@ namespace Braille.Loading
             paths.Add(path);
         }
 
-        public List<CilAssembly> Load()
-        {
-            return paths.Select(Process).ToList();
-        }
-
-        private CilAssembly Process(string assembly)
+        public Context Load()
         {
             var universe = new Universe();
+
+            return new Context
+            {
+                Assemblies = paths.Select(p => Process(universe, p)).ToList(),
+                ReflectionUniverse = universe
+            };
+        }
+
+        private CilAssembly Process(Universe universe, string assembly)
+        {
             var asm = universe.LoadFile(assembly);
 
             var result = new CilAssembly();
