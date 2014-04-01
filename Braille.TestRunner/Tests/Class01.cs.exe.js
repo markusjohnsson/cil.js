@@ -1,5 +1,16 @@
 var asm0; (function (asm) { var self;
  
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];

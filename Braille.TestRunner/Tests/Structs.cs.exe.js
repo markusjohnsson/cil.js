@@ -1,5 +1,16 @@
 var asm0; (function (asm) { var self;
  
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];
@@ -34,8 +45,46 @@ st_00 = __braille_args__[0];
 /* IL_06: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x6000009 = function Main() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+var st_03;
+var st_04;
+var st_05;
  __braille_args__ = arguments;
-/* IL_00: IKVM.Reflection.Emit.OpCode */
+/* IL_00: IKVM.Reflection.Emit.OpCode 0*/
+st_00 = { 
+'w': function () { 
+ loc0 = (arguments)[0]; },
+'r': function () { 
+ return loc0; } 
+};
+/* IL_03: IKVM.Reflection.Emit.OpCode A*/
+(st_00.w)(new (asm0.A)());
+/* IL_08: IKVM.Reflection.Emit.OpCode 0*/
+st_01 = { 
+'w': function () { 
+ loc0 = (arguments)[0]; },
+'r': function () { 
+ return loc0; } 
+};
+/* IL_0A: IKVM.Reflection.Emit.OpCode 123456789*/
+st_02 = 123456789;
+/* IL_0F: IKVM.Reflection.Emit.OpCode Int32 Value*/
+(st_01.r)().Value = st_02;
+/* IL_14: IKVM.Reflection.Emit.OpCode */
+st_03 = loc0;
+/* IL_15: IKVM.Reflection.Emit.OpCode Void Print(A)*/
+(asm0.x600000b)(cloneValue(st_03));
+/* IL_1A: IKVM.Reflection.Emit.OpCode */
+st_04 = loc0;
+/* IL_1B: IKVM.Reflection.Emit.OpCode Void Mutate(A)*/
+(asm0.x600000a)(cloneValue(st_04));
+/* IL_20: IKVM.Reflection.Emit.OpCode */
+st_05 = loc0;
+/* IL_21: IKVM.Reflection.Emit.OpCode Void Print(A)*/
+(asm0.x600000b)(cloneValue(st_05));
+/* IL_26: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x600000a = function Mutate() { var __braille_args__;
 var st_00;
@@ -56,7 +105,7 @@ st_01 = 999;
 /* IL_0C: IKVM.Reflection.Emit.OpCode */
 st_02 = __braille_args__[0];
 /* IL_0D: IKVM.Reflection.Emit.OpCode Void Print(A)*/
-(asm0.x600000b)(st_02);
+(asm0.x600000b)(cloneValue(st_02));
 /* IL_12: IKVM.Reflection.Emit.OpCode */
 return ; };
 asm.x600000b = function Print() { var __braille_args__;
@@ -75,7 +124,7 @@ st_00 = {
 st_01 = (st_00.r)().Value;
 /* IL_07: IKVM.Reflection.Emit.OpCode System.Int32*/
 st_02 = { 
-'boxed': st_01,
+'boxed': cloneValue(st_01),
 'toString': function () { 
  return this.boxed; } 
 };

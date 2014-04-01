@@ -1,5 +1,16 @@
 var asm0; (function (asm) { var self;
  
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];
@@ -82,7 +93,7 @@ st_02 = asm0.x6000012;
 /* IL_0E: IKVM.Reflection.Emit.OpCode Void .ctor(System.Object, System.IntPtr)*/
 st_03 = (function () { var result;
  result = new (((asm0)["MFunc`2"])(asm0.IntWrapper,asm0.StringWrapper))();
-(asm0.x6000009)(result,st_01,st_02);
+(asm0.x6000009)(result,st_01,cloneValue(st_02));
 return result; })();
 /* IL_13: IKVM.Reflection.Emit.OpCode MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
 (asm0.Program)["CS$<>9__CachedAnonymousMethodDelegate2"] = st_03;

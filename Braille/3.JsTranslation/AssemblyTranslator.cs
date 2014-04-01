@@ -35,6 +35,17 @@ namespace Braille.JsTranslation
                 // A constructed generic type should always have the same constructor instace (for the same type arguments)
                 Name =
                     @"
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];

@@ -1,5 +1,16 @@
 var asm0; (function (asm) { var self;
  
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];
@@ -62,7 +73,7 @@ st_01 = asm0.x600000d;
 /* IL_07: IKVM.Reflection.Emit.OpCode Void .ctor(System.Object, System.IntPtr)*/
 st_02 = (function () { var result;
  result = new (asm0.Foo)();
-(asm0.x6000009)(result,st_00,st_01);
+(asm0.x6000009)(result,st_00,cloneValue(st_01));
 return result; })();
 /* IL_0C: IKVM.Reflection.Emit.OpCode */
 loc0 = st_02;
@@ -82,7 +93,7 @@ st_00 = __braille_args__[0];
 /* IL_01: IKVM.Reflection.Emit.OpCode 123*/
 st_01 = 123;
 /* IL_03: IKVM.Reflection.Emit.OpCode String Invoke(System.Int32)*/
-st_02 = (st_00.vtable.x600000a)(st_00,st_01);
+st_02 = (st_00.vtable.x600000a)(st_00,cloneValue(st_01));
 /* IL_08: IKVM.Reflection.Emit.OpCode Void Log(System.Object)*/
 braille_test_log(st_02);
 /* IL_0D: IKVM.Reflection.Emit.OpCode */

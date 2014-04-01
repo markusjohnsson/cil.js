@@ -1,5 +1,16 @@
 var asm0; (function (asm) { var self;
  
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];
@@ -234,7 +245,7 @@ st_03 = 20;
 /* IL_06: IKVM.Reflection.Emit.OpCode Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32)*/
 st_04 = (function () { var result;
  result = new ((asm0)["Obj.Rect"])();
-(asm0.x600000c)(result,st_00,st_01,st_02,st_03);
+(asm0.x600000c)(result,cloneValue(st_00),cloneValue(st_01),cloneValue(st_02),cloneValue(st_03));
 return result; })();
 /* IL_0B: IKVM.Reflection.Emit.OpCode */
 loc0 = st_04;
@@ -247,7 +258,7 @@ st_07 = 20;
 /* IL_10: IKVM.Reflection.Emit.OpCode Void .ctor(System.Int32, System.Int32, System.Int32)*/
 st_08 = (function () { var result;
  result = new ((asm0)["Obj.Circle"])();
-(asm0.x600000e)(result,st_05,st_06,st_07);
+(asm0.x600000e)(result,cloneValue(st_05),cloneValue(st_06),cloneValue(st_07));
 return result; })();
 /* IL_15: IKVM.Reflection.Emit.OpCode */
 loc1 = st_08;

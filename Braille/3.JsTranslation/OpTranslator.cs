@@ -374,7 +374,8 @@ namespace Braille.JsTranslation
                             Properties = new Dictionary<string, JSExpression>
                             {
                                 { 
-                                    "boxed", value
+                                    "boxed", 
+                                    CloneValueType(value)
                                 },
                                 {
                                     "toString", new JSFunctionDelcaration 
@@ -951,6 +952,15 @@ namespace Braille.JsTranslation
             }
         }
 
+        private static JSCallExpression CloneValueType(JSExpression value)
+        {
+            return new JSCallExpression
+            {
+                Function = JSIdentifier.Create("cloneValue"),
+                Arguments = { value }
+            };
+        }
+
         private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, MethodBase mi)
         {
             return new JSPropertyAccessExpression
@@ -1120,7 +1130,13 @@ namespace Braille.JsTranslation
         private IEnumerable<JSExpression> ProcessList(IEnumerable<Node> list)
         {
             foreach (var i in list)
-                yield return ProcessInternal(i);
+            {
+                var element = ProcessInternal(i);
+                if (i.ResultType != null && i.ResultType.IsValueType)
+                    yield return CloneValueType(element);
+                else
+                    yield return element;
+            }
         }
 
     }

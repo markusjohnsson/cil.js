@@ -1,5 +1,16 @@
 var asm0; (function (asm) { var self;
  
+function cloneValue(v) {
+    if (typeof v === 'number') return v;
+    if (typeof v === 'function') return v;
+    var result = {};
+    for (var p in v) {
+        if (v.hasOwnProperty(p))
+            result[p] = v[p];
+    }
+    return result;
+}
+
 function tree_get(a, s) {
     if (a.length == 0) return s;
     var c = s[a[0]];
@@ -62,7 +73,7 @@ st_01 = {
 st_02 = (st_01.r)().X;
 /* IL_0F: IKVM.Reflection.Emit.OpCode System.Int32*/
 st_03 = { 
-'boxed': st_02,
+'boxed': cloneValue(st_02),
 'toString': function () { 
  return this.boxed; } 
 };
@@ -79,7 +90,7 @@ st_04 = {
 st_05 = (st_04.r)().Y;
 /* IL_20: IKVM.Reflection.Emit.OpCode System.Int32*/
 st_06 = { 
-'boxed': st_05,
+'boxed': cloneValue(st_05),
 'toString': function () { 
  return this.boxed; } 
 };
