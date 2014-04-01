@@ -22,7 +22,7 @@ namespace Braille.Ast
                 }
             }
             
-            return string.Format("IL_{0:X2}: {1} {2}", Position, OpCode, data);
+            return string.Format("IL_{0:X2}: {1} {2}", Position, OpCode.Name, data);
         }
 
         private int GetBranchData()

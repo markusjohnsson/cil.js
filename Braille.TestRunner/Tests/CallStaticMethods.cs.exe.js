@@ -31,41 +31,41 @@ function tree_set(a, s, v) {
 asm.x6000002 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: IKVM.Reflection.Emit.OpCode */
+/* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
-/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
-/* IL_06: IKVM.Reflection.Emit.OpCode */
+/* IL_01: call Void .ctor()*/
+/* IL_06: ret */
 return ; };
 asm.x6000008 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: IKVM.Reflection.Emit.OpCode */
+/* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
-/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
-/* IL_06: IKVM.Reflection.Emit.OpCode */
+/* IL_01: call Void .ctor()*/
+/* IL_06: ret */
 return ; };
 asm.x6000009 = function Callee() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: IKVM.Reflection.Emit.OpCode Called!*/
+/* IL_00: ldstr Called!*/
 st_00 = "Called!";
-/* IL_05: IKVM.Reflection.Emit.OpCode Void Log(System.Object)*/
+/* IL_05: call Void Log(System.Object)*/
 braille_test_log(st_00);
-/* IL_0A: IKVM.Reflection.Emit.OpCode */
+/* IL_0A: ret */
 return ; };
 asm.x600000a = function Main() { var __braille_args__;
  __braille_args__ = arguments;
-/* IL_00: IKVM.Reflection.Emit.OpCode Void Callee()*/
+/* IL_00: call Void Callee()*/
 (asm0.x6000009)();
-/* IL_05: IKVM.Reflection.Emit.OpCode */
+/* IL_05: ret */
 return ; };
 asm.x600000b = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
-/* IL_00: IKVM.Reflection.Emit.OpCode */
+/* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
-/* IL_01: IKVM.Reflection.Emit.OpCode Void .ctor()*/
-/* IL_06: IKVM.Reflection.Emit.OpCode */
+/* IL_01: call Void .ctor()*/
+/* IL_06: ret */
 return ; };
 self = (function () { 
  function TestLog() { 
