@@ -3,9 +3,17 @@ using Braille.JsTranslation;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Braille.Ast;
 
 namespace Braille
 {
+    public class CompileResult
+    {
+        public string OutputFileName { get; set; }
+
+        public string EntryPointAssembly { get; set; }
+    }
+
     public class Compiler
     {
         private List<string> assemblies = new List<string>();
@@ -21,7 +29,7 @@ namespace Braille
             set;
         }
 
-        public void Compile()
+        public CompileResult Compile()
         {
             var asmTransform = new AssemblyLoader();
 
@@ -32,9 +40,22 @@ namespace Braille
             var asms = ctx.Assemblies;
 
             var asmTransform2 = new AssemblyTranslator(new TypeTranslator(ctx), new MethodTranslator(ctx));
-            var asmExpression = asmTransform2.Translate(asms, asms.First());
 
-            File.WriteAllText(OutputFileName, "var asm0; (" + asmExpression.ToString() + ")(asm0 || (asm0 = {}))");
+            File.Delete(OutputFileName);
+
+            foreach (var asm in asms)
+            {
+                var asmExpression = asmTransform2.Translate(asms, asm);
+                File.AppendAllText(OutputFileName, 
+                    "var " + asm.Identifier + "; (" + 
+                        asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));\n");
+            }
+
+            return new CompileResult
+            {
+                OutputFileName = OutputFileName,
+                EntryPointAssembly = ctx.Assemblies.Where(a => a.EntryPoint != null).Select(a => a.Identifier).FirstOrDefault()
+            };
         }
     }
 }

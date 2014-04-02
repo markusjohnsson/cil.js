@@ -322,4 +322,4 @@ Class1.prototype.vtable = {
 };;
 return Class1; })();
 (asm)["TestMono.Class1"] = self;
-asm.entryPoint = asm.x600000e; })(asm0 || (asm0 = {}))
+asm.entryPoint = asm.x600000e; })(asm0 || (asm0 = {}));

@@ -45,7 +45,6 @@
     <Compile Include="1.Loading\Model\CilAssembly.cs" />
     <Compile Include="1.Loading\Model\CilMethod.cs" />
     <Compile Include="1.Loading\Model\CilType.cs" />
-    <Compile Include="1.Loading\CSStringConverter.cs" />
     <Compile Include="1.Loading\Model\Context.cs" />
     <Compile Include="2.Analysis\Ast\BlockType.cs" />
     <Compile Include="2.Analysis\Ast\OpExpression.cs" />
@@ -55,7 +54,6 @@
     <Compile Include="2.Analysis\DataFlowAnalysis.cs" />
     <Compile Include="2.Analysis\TypeInference.cs" />
     <Compile Include="3.JsTranslation\AssemblyTranslator.cs" />
-    <Compile Include="1.Loading\StringExtractor.cs" />
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />

@@ -27,23 +27,51 @@ namespace Braille.TestRunner.Models
                 yield return CompileAndRun(file);
         }
 
-        public TestResult CompileAndRun(string csFile)
+        public TestResult CompileAndRun(params string[] csFiles)
         {
-            csFile = Path.Combine(workingDir, csFile);
-            var outputName = csFile + ".exe";
+            List<string> refs = new List<string>();
+            string programOutputName = null;
+            string csProgramFile = null;
+
+            if (csFiles.Length == 1)
+            {
+                csProgramFile = Path.Combine(workingDir, csFiles[0]);
+                programOutputName = csProgramFile + ".exe";
+                CompileAssembly(csProgramFile, programOutputName);
+            }
+            else
+            {
+                foreach (var csFile in csFiles)
+                {
+                    if (Path.GetFileName(csFile) == "Program.cs")
+                    {
+                        csProgramFile = Path.Combine(workingDir, csFile);
+                        programOutputName = csProgramFile + ".exe";
+                        CompileAssembly(csProgramFile, programOutputName, refs);
+                    }
+                    else
+                    {
+                        var file = Path.Combine(workingDir, csFile);
+                        var outputName = file + ".dll";
+                        CompileAssembly(file, outputName, refs);
+                        refs.Add(outputName);
+                    }
+                }
+            }
+
+            Debug.Assert(programOutputName != null);
+            Debug.Assert(csProgramFile != null);
 
             // TODO: we will need to compile two exes since the one that should be converted
             // to JS will have a different mscorlib and won't run on the CLR
 
-            CompileExe(csFile, outputName);
-
-            CompileJs(outputName);
+            var entryPoint = CompileJs(programOutputName, refs);
 
             int exeExitCode;
-            var exeOutput = ExecuteExe(outputName, out exeExitCode);
+            var exeOutput = ExecuteExe(programOutputName, out exeExitCode);
 
             int jsExitCode;
-            var jsOutput = ExecuteJs(outputName, out jsExitCode);
+            var jsOutput = ExecuteJs(programOutputName, entryPoint, out jsExitCode);
 
             var success = true;
 
@@ -61,7 +89,7 @@ namespace Braille.TestRunner.Models
 
             return new TestResult
             {
-                File = csFile.Substring(workingDir.Length),
+                File = csProgramFile.Substring(workingDir.Length),
                 TestSuccess = success
             };
         }
@@ -81,7 +109,7 @@ namespace Braille.TestRunner.Models
             return output;
         }
 
-        private string ExecuteJs(string exeFilePath, out int exitCode)
+        private string ExecuteJs(string exeFilePath, string entryPoint, out int exitCode)
         {
             string jsOutput = null;
             exitCode = -1;
@@ -93,7 +121,7 @@ namespace Braille.TestRunner.Models
                     jsEngine.Execute(@"var braille_testlib_output = """";");
                     jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += message.toString() + ""\r\n""; }");
                     jsEngine.ExecuteFile(exeFilePath + ".js");
-                    object exitCodeObj = jsEngine.Evaluate("asm0.entryPoint()");
+                    object exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
 
                     if (exitCodeObj == MsieJavaScriptEngine.Undefined.Value)
                         exitCode = 0;
@@ -118,22 +146,32 @@ namespace Braille.TestRunner.Models
             return jsOutput;
         }
 
-        private void CompileJs(string outputName)
+        private string CompileJs(string outputName, List<string> refs = null)
         {
             var compiler = new Compiler();
+            foreach (var r in refs)
+                compiler.AddAssembly(r);
             compiler.AddAssembly(outputName);
             compiler.OutputFileName = outputName + ".js";
-            compiler.Compile();
+            var result = compiler.Compile();
+
+            return result.EntryPointAssembly;
         }
 
-        private void CompileExe(string csFile, string outputName)
+        private void CompileAssembly(string csFile, string outputName, List<string> refs = null)
         {
             var codeProvider = new CSharpCodeProvider();
             var icc = codeProvider.CreateCompiler();
 
             var parameters = new CompilerParameters();
-            parameters.GenerateExecutable = true;
+            parameters.GenerateExecutable = outputName.EndsWith("exe");
             parameters.OutputAssembly = outputName;
+            //parameters.CoreAssemblyFileName
+
+            if (refs != null)
+            {
+                parameters.ReferencedAssemblies.AddRange(refs.ToArray());
+            }
 
             var results = icc.CompileAssemblyFromFileBatch(parameters, new[] { Path.Combine(workingDir, "TestInclude.cs"), csFile });
 

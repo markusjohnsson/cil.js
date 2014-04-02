@@ -182,4 +182,4 @@ ProjectName.prototype.vtable = {
 };;
 return ProjectName; })();
 asm.ProjectName = self;
-asm.entryPoint = asm.x600000c; })(asm0 || (asm0 = {}))
+asm.entryPoint = asm.x600000c; })(asm0 || (asm0 = {}));

@@ -7,15 +7,15 @@ namespace Braille
         static void Main(string[] args)
         {
             var compiler = new Compiler();
-            
-            compiler.AddAssembly(Environment.CurrentDirectory + "\\References\\Braille.Test.exe");
-            //compiler.AddAssembly(Environment.CurrentDirectory + "\\Braille.exe");
 
-            compiler.OutputFileName = "Output.js";
-            
+            for (int i = 0; i < args.Length - 1; i++)
+            {
+                compiler.AddAssembly(args[i]);
+            }
+
+            compiler.OutputFileName = args[args.Length - 1];
+
             compiler.Compile();
-
         }
-
     }
 }

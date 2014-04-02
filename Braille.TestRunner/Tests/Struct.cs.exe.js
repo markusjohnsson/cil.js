@@ -166,4 +166,4 @@ Program.prototype.vtable = {
 };;
 return Program; })();
 asm.Program = self;
-asm.entryPoint = asm.x6000009; })(asm0 || (asm0 = {}))
+asm.entryPoint = asm.x6000009; })(asm0 || (asm0 = {}));

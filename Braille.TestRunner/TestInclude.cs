@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-public class TestLog
+class TestLog
 {
     [JsImport("braille_test_log")]
     public static void Log(object o)
@@ -11,12 +11,12 @@ public class TestLog
 }
 
 [JsIgnore]
-public class JsIgnoreAttribute : Attribute
+class JsIgnoreAttribute : Attribute
 { 
 }
 
 [JsIgnore]
-public class JsImportAttribute : Attribute
+class JsImportAttribute : Attribute
 {
     public JsImportAttribute(string function)
     {
@@ -26,7 +26,7 @@ public class JsImportAttribute : Attribute
     public string Function { get; set; }
 }
 
-public class TestHelper
+class TestHelper
 {
     [JsImport("new Error()")]
     public static Exception CreateException(string message)

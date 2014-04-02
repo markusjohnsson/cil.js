@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <None Include="Assemblies\Basic\A.cs" />
+    <None Include="Assemblies\Basic\Program.cs" />
     <Compile Include="Controllers\TestRunnerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -122,7 +124,9 @@
     <Compile Include="Models\TestRunner.cs" />
     <None Include="MonoTests\struct.cs" />
     <Compile Include="TestInclude.cs" />
-    <Compile Include="Tests\Structs.cs" />
+    <None Include="Tests\CSStringConverter.cs" />
+    <None Include="Tests\StringExtractor.cs" />
+    <None Include="Tests\Structs.cs" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />

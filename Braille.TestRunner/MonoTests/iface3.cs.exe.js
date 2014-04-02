@@ -359,4 +359,4 @@ Test.prototype.vtable = {
 };;
 return Test; })();
 asm.Test = self;
-asm.entryPoint = asm.x6000012; })(asm0 || (asm0 = {}))
+asm.entryPoint = asm.x6000012; })(asm0 || (asm0 = {}));

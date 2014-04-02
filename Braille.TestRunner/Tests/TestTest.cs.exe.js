@@ -103,4 +103,4 @@ TestTest.prototype.vtable = {
 };;
 return TestTest; })();
 (asm)["Braille.TestRunner.Tests.TestTest"] = self;
-asm.entryPoint = asm.x6000009; })(asm0 || (asm0 = {}))
+asm.entryPoint = asm.x6000009; })(asm0 || (asm0 = {}));
