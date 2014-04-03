@@ -1013,28 +1013,11 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000009 = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
-return ; };
-asm.x600000a = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-(asm1.x6000009)(st_00);
-/* IL_06: ret */
-return ; };
-asm.x600000b = function Main() { var __braille_args__;
+asm.x6000009 = function Main() { var __braille_args__;
  __braille_args__ = arguments;
 /* IL_00: ret */
 return ; };
-asm.x600000c = function _ctor() { var __braille_args__;
+asm.x600000a = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -1067,28 +1050,6 @@ TestHelper.prototype.vtable = {
 return TestHelper; })();
 asm.TestHelper = self;
 self = (function () { 
- function A() { 
-  };
-A.prototype = { 
- 
-};;
-A.IsValueType = false;
-A.prototype.vtable = { 
-'x6000001': asm.x6000001 
-};;
-return A; })();
-asm.A = self;
-self = (function () { 
- function B() { 
-  };
-B.prototype = new (asm.A)();;
-B.IsValueType = false;
-B.prototype.vtable = { 
-'x6000001': asm.x6000001 
-};;
-return B; })();
-asm.B = self;
-self = (function () { 
  function Program() { 
   };
 Program.prototype = { 
@@ -1100,4 +1061,4 @@ Program.prototype.vtable = {
 };;
 return Program; })();
 asm.Program = self;
-asm.entryPoint = asm.x600000b; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x6000009; })(asm1 || (asm1 = {}));

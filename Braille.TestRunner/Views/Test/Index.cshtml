@@ -44,6 +44,9 @@
                 <span style="color: red" data-bind="style: { display: testHasFailed() ? 'inline-block' : 'none' }">FAILED</span>
             </td>
         </tr>
+        <tr>
+            <td colspan="3"><pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre></td>
+        </tr>
     </table>
     
     <script>
@@ -51,6 +54,7 @@
             e.testHasSucceeded = ko.observable(false);
             e.testHasFailed = ko.observable(false);
             e.testRunning = ko.observable(false);
+            e.errors = ko.observable([]);
             return e;
         }
 
@@ -73,7 +77,10 @@
                                                     if (result.data.TestSuccess)
                                                         item.testHasSucceeded(true);
                                                     else
+                                                    {
                                                         item.testHasFailed(true);
+                                                        item.errors(result.data.Errors);
+                                                    }
 
                                                     item.testRunning(false); 
                                                 });

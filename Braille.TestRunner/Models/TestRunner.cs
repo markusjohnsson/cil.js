@@ -30,14 +30,18 @@ namespace Braille.TestRunner.Models
         public TestResult CompileAndRun(params string[] csFiles)
         {
             List<string> refs = new List<string>();
+            refs.Add(@"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll");
+
             string programOutputName = null;
             string csProgramFile = null;
+
+            var errors = new List<string>();
 
             if (csFiles.Length == 1)
             {
                 csProgramFile = Path.Combine(workingDir, csFiles[0]);
                 programOutputName = csProgramFile + ".exe";
-                CompileAssembly(csProgramFile, programOutputName);
+                CompileAssembly(csProgramFile, programOutputName, refs, errors);
             }
             else
             {
@@ -47,13 +51,13 @@ namespace Braille.TestRunner.Models
                     {
                         csProgramFile = Path.Combine(workingDir, csFile);
                         programOutputName = csProgramFile + ".exe";
-                        CompileAssembly(csProgramFile, programOutputName, refs);
+                        CompileAssembly(csProgramFile, programOutputName, refs, errors);
                     }
                     else
                     {
                         var file = Path.Combine(workingDir, csFile);
                         var outputName = file + ".dll";
-                        CompileAssembly(file, outputName, refs);
+                        CompileAssembly(file, outputName, refs, errors);
                         refs.Add(outputName);
                     }
                 }
@@ -64,32 +68,52 @@ namespace Braille.TestRunner.Models
 
             // TODO: we will need to compile two exes since the one that should be converted
             // to JS will have a different mscorlib and won't run on the CLR
+            
+            var success = true;
 
-            var entryPoint = CompileJs(programOutputName, refs);
+            if (errors.Any())
+            {
+                success = false;
+                goto DONE;
+            }
+
+            var entryPoint = CompileJs(programOutputName, refs, errors);
+
+            if (errors.Any())
+            {
+                success = false;
+                goto DONE;
+            }
 
             int exeExitCode;
             var exeOutput = ExecuteExe(programOutputName, out exeExitCode);
 
             int jsExitCode;
-            var jsOutput = ExecuteJs(programOutputName, entryPoint, out jsExitCode);
+            var jsOutput = ExecuteJs(programOutputName, entryPoint, out jsExitCode, errors);
 
-            var success = true;
+            if (errors.Any())
+            {
+                success = false;
+                goto DONE;
+            }
 
             if (exeExitCode != jsExitCode)
             {
                 success = false;
-                Console.WriteLine("ERROR: Exit codes not equal (clr: {0} js: {1})", exeExitCode, jsExitCode);
+                errors.Add(string.Format("ERROR: Exit codes not equal (clr: {0} js: {1})", exeExitCode, jsExitCode));
             }
 
             if (exeOutput != jsOutput)
             {
                 success = false;
-                Console.WriteLine("ERROR: Outputs not equal\nCLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput);
+                errors.Add(string.Format("ERROR: Outputs not equal\nCLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput));
             }
 
+        DONE:
             return new TestResult
             {
                 File = csProgramFile.Substring(workingDir.Length),
+                Errors = errors,
                 TestSuccess = success
             };
         }
@@ -109,7 +133,7 @@ namespace Braille.TestRunner.Models
             return output;
         }
 
-        private string ExecuteJs(string exeFilePath, string entryPoint, out int exitCode)
+        private string ExecuteJs(string exeFilePath, string entryPoint, out int exitCode, List<string> errors)
         {
             string jsOutput = null;
             exitCode = -1;
@@ -133,32 +157,36 @@ namespace Braille.TestRunner.Models
             }
             catch (JsEngineLoadException e)
             {
-                Console.WriteLine("During loading of JavaScript engine an error occurred.");
-                Console.WriteLine();
-                Console.WriteLine(JsErrorHelpers.Format(e));
+                errors.Add("During loading of JavaScript engine an error occurred.\n" + JsErrorHelpers.Format(e));
             }
             catch (JsRuntimeException e)
             {
-                Console.WriteLine("During execution of JavaScript code an error occurred.");
-                Console.WriteLine();
-                Console.WriteLine(JsErrorHelpers.Format(e));
+                errors.Add("During execution of JavaScript code an error occurred.\n" + JsErrorHelpers.Format(e));
             }
             return jsOutput;
         }
 
-        private string CompileJs(string outputName, List<string> refs = null)
+        private string CompileJs(string outputName, List<string> refs, List<string> errors)
         {
-            var compiler = new Compiler();
-            foreach (var r in refs)
-                compiler.AddAssembly(r);
-            compiler.AddAssembly(outputName);
-            compiler.OutputFileName = outputName + ".js";
-            var result = compiler.Compile();
+            try
+            {
+                var compiler = new Compiler();
+                foreach (var r in refs)
+                    compiler.AddAssembly(r);
+                compiler.AddAssembly(outputName);
+                compiler.OutputFileName = outputName + ".js";
+                var result = compiler.Compile();
+                return result.EntryPointAssembly;
+            }
+            catch (Exception e)
+            {
+                errors.Add(e.Message + "\n" + e.StackTrace);
+            }
 
-            return result.EntryPointAssembly;
+            return null;
         }
 
-        private void CompileAssembly(string csFile, string outputName, List<string> refs = null)
+        private void CompileAssembly(string csFile, string outputName, List<string> refs, List<string> errors)
         {
             var codeProvider = new CSharpCodeProvider();
             var icc = codeProvider.CreateCompiler();
@@ -166,7 +194,7 @@ namespace Braille.TestRunner.Models
             var parameters = new CompilerParameters();
             parameters.GenerateExecutable = outputName.EndsWith("exe");
             parameters.OutputAssembly = outputName;
-            //parameters.CoreAssemblyFileName
+            parameters.CoreAssemblyFileName = @"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll";
 
             if (refs != null)
             {
@@ -177,13 +205,13 @@ namespace Braille.TestRunner.Models
 
             if (results.Errors.Count > 0)
             {
-                Console.WriteLine(string.Join("\n",
+                errors.AddRange(
                     results
                         .Errors
                         .OfType<CompilerError>()
                         .Select(
                             error => string.Format("Line number {0}, Error Number: {1}, '{2};",
-                                error.Line, error.ErrorNumber, error.ErrorText))));
+                                error.Line, error.ErrorNumber, error.ErrorText)));
             }
         }
     }

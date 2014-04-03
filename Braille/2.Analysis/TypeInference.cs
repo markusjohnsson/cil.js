@@ -10,11 +10,43 @@ namespace Braille.Analysis
 {
     class TypeInference
     {
-        private Universe universe;
+        //private Universe universe;
+
+        private Type int32;
+        private Type int64;
+        private Type single;
+        private Type _double;
+        private Type uint64;
+        private Type uint32;
+        private Type intPtr;
+        private Type uintPtr;
+        private Type _object;
+        private Type boolean;
+        private Type _null;
+        private Type _string;
+        private Type _char;
+private  Type _byte;
+private  Type _sbyte;
 
         public TypeInference(Universe universe)
         {
-            this.universe = universe;
+            //this.universe = universe;
+            
+            _null = universe.GetType("System.Null");
+            boolean = universe.GetType("System.Boolean");
+            _char = universe.GetType("System.Char");
+            _byte = universe.GetType("System.Byte");
+            _sbyte = universe.GetType("System.SByte");
+            int32 = universe.GetType("System.Int32");
+            int64 = universe.GetType("System.Int64");
+            intPtr = universe.GetType("System.IntPtr");
+            uint32 = universe.GetType("System.UInt32");
+            uint64 = universe.GetType("System.UInt64");
+            uintPtr = universe.GetType("System.UIntPtr");
+            single = universe.GetType("System.Single");
+            _double = universe.GetType("System.Double");
+            _object = universe.GetType("System.Object");
+            _string = universe.GetType("System.String");
         }
 
         public void InferTypes(CilMethod method, IEnumerable<OpExpression> opAst)
@@ -46,7 +78,7 @@ namespace Braille.Analysis
                 case "and":
                     return InferBinaryArithmeticType(op);
                 case "box":
-                    return universe.GetType("System.Object");
+                    return _object;
                 case "call":
                 case "callvirt":
                     {
@@ -64,24 +96,24 @@ namespace Braille.Analysis
                 case "ceq":
                 case "cgt":
                 case "clt":
-                    return universe.GetType("System.Boolean");
+                    return boolean;
                 case "conv":
                     var t =
-                        opc == "conv.i1" ? "System.Int32" :
-                        opc == "conv.i2" ? "System.Int32" :
-                        opc == "conv.i4" ? "System.Int32" :
-                        opc == "conv.i8" ? "System.Int64" :
-                        opc == "conv.r4" ? "System.Single" :
-                        opc == "conv.r8" ? "System.Double" :
-                        opc == "conv.u1" ? "System.Int32" :
-                        opc == "conv.u2" ? "System.Int32" :
-                        opc == "conv.u4" ? "System.Int32" :
-                        opc == "conv.u8" ? "System.Int64" :
-                        opc == "conv.i" ? "System.Int32" :
-                        opc == "conv.u" ? "System.Int32" :
-                        opc == "conv.r.un" ? "System.Single" : null;
+                        opc == "conv.i1" ? int32 :
+                        opc == "conv.i2" ? int32 :
+                        opc == "conv.i4" ? int32 :
+                        opc == "conv.i8" ? int64 :
+                        opc == "conv.r4" ? single :
+                        opc == "conv.r8" ? _double :
+                        opc == "conv.u1" ? uint32 :
+                        opc == "conv.u2" ? uint32 :
+                        opc == "conv.u4" ? uint32 :
+                        opc == "conv.u8" ? uint64 :
+                        opc == "conv.i" ? int32 :
+                        opc == "conv.u" ? int32 :
+                        opc == "conv.r.un" ? single : null;
 
-                    return universe.GetType(t);
+                    return t;
                 case "div":
                 case "div.un":
                     return InferBinaryArithmeticType(op);
@@ -114,34 +146,34 @@ namespace Braille.Analysis
                         return method.ReflectionMethod.GetParameters()[idx].ParameterType;
                     }
                 case "ldarga":
-                    return universe.GetType("System.IntPtr");
+                    return intPtr;
                 case "ldc":
                     if (opc.StartsWith("ldc.i4"))
                     {
-                        return universe.GetType("System.Int32");
+                        return int32;
                     }
                     else if (opc.StartsWith("ldc.i8"))
                     {
-                        return universe.GetType("System.Int64");
+                        return int64;
                     }
                     else if (opc.StartsWith("ldc.r8"))
                     {
-                        return universe.GetType("System.Double");
+                        return _double;
                     }
                     else
                     {
-                        return universe.GetType("System.Single");
+                        return single;
                     }
                 case "ldelem":
                     return (Type)op.Instruction.Data;
                 case "ldelema":
-                    return universe.GetType("System.IntPtr");
+                    return intPtr;
                 case "ldfld":
                     return ((FieldInfo)op.Instruction.Data).FieldType;
                 case "ldftn":
-                    return universe.GetType("System.IntPtr");
+                    return intPtr;
                 case "ldlen":
-                    return universe.GetType("System.UInt32");
+                    return uint32;
                 case "ldloc":
                     {
                         var id = "";
@@ -152,19 +184,19 @@ namespace Braille.Analysis
                         return method.ReflectionMethod.GetMethodBody().LocalVariables[int.Parse(id)].LocalType;
                     }
                 case "ldloca":
-                    return universe.GetType("System.IntPtr");
+                    return intPtr;
                 case "ldnull":
-                    return universe.GetType("System.Null");
+                    return _null;
                 case "ldobj":
                     return (Type)op.Instruction.Data;
                 case "ldsfld":
                     return ((FieldInfo)op.Instruction.Data).FieldType;
                 case "ldflda":
-                    return universe.GetType("System.IntPtr");
+                    return intPtr;
                 case "ldstr":
-                    return universe.GetType("System.String");
+                    return _string;
                 case "ldtoken":
-                    return universe.GetType("System.Reflection.MemberInfo");
+                    return _object; //universe.GetType("System.Reflection.MemberInfo");
                 case "mul":
                     return InferBinaryArithmeticType(op);
                 case "newarr":
@@ -205,8 +237,16 @@ namespace Braille.Analysis
 
         private IKVM.Reflection.Type InferBinaryArithmeticType(OpExpression op)
         {
+            var int32s = new[] { this._char, this._sbyte, int32, this._byte, uint32 };
+
             var a = op.Arguments.First().ResultType;
             var b = op.Arguments.Last().ResultType;
+
+            if (int32s.Contains(a))
+                a = int32;
+
+            if (int32s.Contains(b))
+                b = int32;
 
             if (a == b)
                 return a;
