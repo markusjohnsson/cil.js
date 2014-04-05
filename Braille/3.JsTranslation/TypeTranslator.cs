@@ -20,6 +20,8 @@ namespace Braille.JsTranslation
 
         public JSExpression Translate(CilType type)
         {
+            // TODO: use this wether type is generic or not.. but skip the advanced caching
+
             if (type.ReflectionType.IsGenericTypeDefinition)
             {
                 var cacheKey =
@@ -115,9 +117,30 @@ namespace Braille.JsTranslation
         {
             var n = GetSimpleName(type);
 
+            yield return new JSVariableDelcaration 
+            { 
+                Name = "initialized", 
+                Value = new JSBoolLiteral { Value = false } 
+            }.ToStatement();
+
             yield return new JSFunctionDelcaration
             {
-                Name = n
+                Name = n,
+                Body = new[] {
+                    new JSIfStatement 
+                    {
+                        Condition = new JSIdentifier { Name = "!initialized" },
+                        Statements =  
+                            GetPrototype(n, type)
+                            .StartWith(new JSBinaryExpression { 
+                                Left = new JSIdentifier { Name = "initialized" }, 
+                                Operator = "=", 
+                                Right = new JSBoolLiteral { Value = true } }.ToStatement())
+                            .ToList()
+                    }
+
+                }
+                
             };
 
             yield return new JSStatement
@@ -132,24 +155,35 @@ namespace Braille.JsTranslation
                              type.ReflectionType.BaseType.FullName != "System.ValueType") ?
                         new JSNewExpression
                         {
-                            Constructor = JSIdentifier.Create("asm", type.ReflectionType.BaseType.FullName)
+                            Constructor = JSIdentifier.Create(GetAssemblyIdentifier(type.ReflectionType.BaseType), type.ReflectionType.BaseType.FullName)
                         } :
                         new JSObjectLiteral() as JSExpression
                 }
             };
 
-            yield return new JSBinaryExpression
-            {
-                Left = JSIdentifier.Create(n, "IsValueType"),
-                Operator = "=",
-                Right = new JSBoolLiteral { Value = type.ReflectionType.IsValueType }
-            };
+        }
 
-            var properties = GetFieldInitializers(type)
+        public IEnumerable<JSStatement> GetPrototype(string n, CilType type)
+        {
+
+            var staticProperties = GetStaticFieldInitializers(type)
+                .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }));
+
+            foreach (var p in staticProperties)
+            {
+                yield return new JSBinaryExpression
+                {
+                    Left = JSIdentifier.Create(n, p.Key),
+                    Operator = "=",
+                    Right = p.Value
+                }.ToStatement();
+            }
+
+            var instanceProperties = GetFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
                 .Concat(GetInterfaceMaps(type));
 
-            foreach (var f in properties)
+            foreach (var f in instanceProperties)
             {
                 yield return new JSStatement
                 {
@@ -219,23 +253,36 @@ namespace Braille.JsTranslation
                 .ReflectionType
                 .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                 .Select(
-                    f => new KeyValuePair<string, JSExpression>(
-                        f.Name,
-                        f.FieldType.FullName == "System.Boolean" ?
-                            new JSBoolLiteral { Value = default(bool) } :
-                        f.FieldType.IsPrimitive ?
-                            new JSNumberLiteral { Value = 0 } as JSExpression :
-                        f.FieldType.IsValueType ?
-                            new JSNewExpression
-                            {
-                                Constructor = new JSPropertyAccessExpression
-                                {
-                                    Host = GetAssemblyIdentifier(f.FieldType),
-                                    Property = f.FieldType.Namespace == null ? f.FieldType.Name : f.FieldType.Namespace + "." + f.FieldType.Name
-                                }
-                            } as JSExpression :
-                            new JSNullLiteral()
-                    ));
+                    f => GetFieldInitializer(f));
+        }
+
+        private IEnumerable<KeyValuePair<string, JSExpression>> GetStaticFieldInitializers(CilType type)
+        {
+            return type
+                .ReflectionType
+                .GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
+                .Select(
+                    f => GetFieldInitializer(f));
+        }
+
+        private KeyValuePair<string, JSExpression> GetFieldInitializer(FieldInfo f)
+        {
+            return new KeyValuePair<string, JSExpression>(
+                f.Name,
+                f.FieldType.FullName == "System.Boolean" ?
+                    new JSBoolLiteral { Value = default(bool) } :
+                f.FieldType.IsPrimitive ?
+                    new JSNumberLiteral { Value = 0 } as JSExpression :
+                f.FieldType.IsValueType ?
+                    new JSNewExpression
+                    {
+                        Constructor = new JSPropertyAccessExpression
+                        {
+                            Host = GetAssemblyIdentifier(f.FieldType),
+                            Property = f.FieldType.Namespace == null ? f.FieldType.Name : f.FieldType.Namespace + "." + f.FieldType.Name
+                        }
+                    } as JSExpression :
+                    new JSNullLiteral());
         }
 
         private JSIdentifier GetAssemblyIdentifier(Type type)

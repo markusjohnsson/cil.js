@@ -11,7 +11,10 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return string.Format("return {0}", Expression.ToString());
+            if (Expression == null)
+                return "return";
+            else
+                return string.Format("return {0}", Expression.ToString());
         }
 
         public override IEnumerable<JSExpression> GetChildren()

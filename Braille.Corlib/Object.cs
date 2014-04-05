@@ -75,7 +75,7 @@ namespace System
     {
     }
 
-    public class Enum
+    public class Enum: ValueType
     {
     }
 

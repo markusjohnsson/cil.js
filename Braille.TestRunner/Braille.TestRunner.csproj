@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <None Include="Tests\Enums.cs" />
+    <None Include="Tests\IsInstDelegate.cs" />
     <None Include="Assemblies\Basic\A.cs" />
     <None Include="Assemblies\Basic\Program.cs" />
     <Compile Include="Controllers\TestRunnerController.cs" />
@@ -180,13 +182,17 @@
     <Content Include="Tests\CallStaticMethods.cs.exe.js" />
     <Content Include="Tests\Class01.cs.exe.js" />
     <Content Include="Tests\Class02.cs.exe.js" />
+    <Content Include="Tests\CSStringConverter.cs.exe.js" />
     <Content Include="Tests\Delegate.cs.exe.js" />
+    <Content Include="Tests\Foreach.cs.exe.js" />
     <Content Include="Tests\GenericClassBasics.cs.exe.js" />
     <Content Include="Tests\GenericDelegate.cs.exe.js" />
     <Content Include="Tests\IsInstClass.cs.exe.js" />
+    <Content Include="Tests\IsInstDelegate.cs.exe.js" />
     <Content Include="Tests\IsInstGenericClass.cs.exe.js" />
     <Content Include="Tests\IsInstGenericMethod.cs.exe.js" />
     <Content Include="Tests\Properties.cs.exe.js" />
+    <Content Include="Tests\StringExtractor.cs.exe.js" />
     <Content Include="Tests\Struct.cs.exe.js" />
     <Content Include="Tests\Structs.cs.exe.js" />
     <Content Include="Tests\TestTest.cs.exe.js" />
