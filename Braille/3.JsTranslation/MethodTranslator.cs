@@ -5,27 +5,94 @@ using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
-
-    class MethodTranslator
+    abstract class AbstractTranslator
     {
-        private OpExpressionBuilder expressionBuilder;
+        protected readonly Context context;
 
+        public AbstractTranslator(Context context)
+        {
+            this.context = context;
+        }
+
+        protected JSIdentifier GetAssemblyIdentifier(Type type)
+        {
+            var asm = context.Assemblies.FirstOrDefault(c => c.ReflectionAssembly == type.Assembly);
+
+            if (asm == null)
+            {
+                throw new Exception("Cannot resolve assembly of type " + type);
+            }
+
+            return new JSIdentifier { Name = asm.Identifier };
+        }
+
+        protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase methodContext = null)
+        {
+            if (type.IsGenericParameter)
+            {
+                if (
+                    type.DeclaringType == null && 
+                    type.DeclaringMethod == null &&
+                    methodContext == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
+                if (type.DeclaringMethod != null ||
+
+                    // For static methods on generic classes, the type arguments are passed to 
+                    // the method at the call site rather than wired through the generic class type.
+                    // So, the type argument is available as an argument in the closure of the 
+                    // javascript function, which is why we emit an identifier.
+
+                    (methodContext.IsStatic && type.DeclaringType.GetGenericTypeDefinition() == methodContext.DeclaringType))
+                {
+                    return new JSIdentifier { Name = type.Name };
+                }
+                else
+                    return new JSPropertyAccessExpression
+                    {
+                        Host = GetTypeIdentifier(type.DeclaringType, methodContext),
+                        Property = type.Name
+                    };
+            }
+            else if (type.IsGenericType && !type.IsGenericTypeDefinition)
+            {
+                return new JSCallExpression
+                {
+                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
+                        string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
+                    Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, methodContext)).ToList()
+                };
+            }
+            else
+            {
+                return JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName);
+            }
+        }
+    }
+
+    class MethodTranslator : AbstractTranslator
+    {
         private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
+
+        private OpExpressionBuilder expressionBuilder;
         private Context context;
 
-        public MethodTranslator(Context context)
+        public MethodTranslator(Context context): base(context)
         {
             this.context = context;
             expressionBuilder = new OpExpressionBuilder(context.ReflectionUniverse);
         }
 
-        public JSFunctionDelcaration Translate(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
+        public JSFunctionDelcaration Translate(CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)
             {
@@ -43,7 +110,7 @@ namespace Braille.JsTranslation
             }
             else
             {
-                return TransformNormalMethod(world, assembly, type, method);
+                return TransformNormalMethod(assembly, type, method);
             }
         }
 
@@ -86,13 +153,13 @@ namespace Braille.JsTranslation
             }
         }
 
-        private JSFunctionDelcaration TransformNormalMethod(List<CilAssembly> world, CilAssembly asm, CilType type, CilMethod method)
+        private JSFunctionDelcaration TransformNormalMethod(CilAssembly asm, CilType type, CilMethod method)
         {
             var frames = expressionBuilder.Build(method);
 
             insertFrameLabelsTask.Process(frames);
 
-            var exprToJsTransform = new OpTranslator((List<CilAssembly>)world, asm, type, method);
+            var exprToJsTransform = new OpTranslator(context, asm, type, method);
 
             var functionBlock = new List<JSStatement>();
             functionBlock.Add(
@@ -104,6 +171,16 @@ namespace Braille.JsTranslation
                         Value = new JSIdentifier { Name = "arguments" }
                     }
                 });
+
+            foreach (var t in method.ReferencedTypes)
+            {
+                functionBlock.Add(
+                    new JSCallExpression
+                    {
+                        Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod), "init")
+                    }
+                    .ToStatement());
+            }
 
             var locIdx = 0;
             foreach (var loc in method.ReflectionMethod.GetMethodBody().LocalVariables)
@@ -216,8 +293,7 @@ namespace Braille.JsTranslation
             var function = new JSFunctionDelcaration
             {
                 Body = functionBlock,
-                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_"),
-                Parameters = Enumerable.Empty<JSFunctionParameter>()
+                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_")
             };
 
             return
@@ -233,7 +309,7 @@ namespace Braille.JsTranslation
                 loc.LocalType.FullName == "System.Boolean" ?
                     new JSBoolLiteral { Value = default(bool) } :
                 loc.LocalType.IsPrimitive ?
-                    new JSNumberLiteral { Value = 0 } as JSExpression : 
+                    new JSNumberLiteral { Value = 0 } as JSExpression :
                 loc.LocalType.IsValueType ?
                     new JSNewExpression
                     {
@@ -244,18 +320,6 @@ namespace Braille.JsTranslation
                         }
                     } as JSExpression :
                     new JSNullLiteral();
-        }
-
-        private JSIdentifier GetAssemblyIdentifier(Type type)
-        {
-            var asm = context.Assemblies.FirstOrDefault(c => c.ReflectionAssembly == type.Assembly);
-
-            if (asm == null)
-            {
-                throw new Exception("Cannot resolve assembly of type " + type);
-            }
-
-            return new JSIdentifier { Name = asm.Identifier };
         }
 
         private JSFunctionDelcaration CreateGenericFunction(CilMethod method, JSFunctionDelcaration function)
@@ -271,7 +335,7 @@ namespace Braille.JsTranslation
 
             return new JSFunctionDelcaration
             {
-                Body = new[] { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
+                Body = { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
                 Parameters = types.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
             };
         }

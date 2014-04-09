@@ -21,7 +21,7 @@ namespace Braille.JsTranslation
         {
             return new JSFunctionDelcaration
             {
-                Parameters = new[] { new JSFunctionParameter { Name = "asm" } },
+                Parameters = new List<JSFunctionParameter> { new JSFunctionParameter { Name = "asm" } },
                 Body = GetBody(world, asm).Select(s => new JSStatement { Expression = s }).ToList()
             };
         }
@@ -74,7 +74,7 @@ function tree_set(a, s, v) {
 
                 foreach (var method in type.Methods)
                 {
-                    var function = methodTranslator.Translate(world, asm, type, method);
+                    var function = methodTranslator.Translate(asm, type, method);
 
                     if (function == null)
                         continue;

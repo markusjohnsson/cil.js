@@ -46,13 +46,14 @@
     <Compile Include="1.Loading\Model\CilMethod.cs" />
     <Compile Include="1.Loading\Model\CilType.cs" />
     <Compile Include="1.Loading\Model\Context.cs" />
-    <Compile Include="2.Analysis\Ast\BlockType.cs" />
+    <Compile Include="2.Analysis\Ast\BlockKind.cs" />
     <Compile Include="2.Analysis\Ast\OpExpression.cs" />
     <Compile Include="2.Analysis\Ast\ExceptionNode.cs" />
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
     <Compile Include="2.Analysis\DataFlowAnalysis.cs" />
     <Compile Include="2.Analysis\TypeInference.cs" />
+    <Compile Include="2.Analysis\TypeUsageAnalysis.cs" />
     <Compile Include="3.JsTranslation\AssemblyTranslator.cs" />
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />

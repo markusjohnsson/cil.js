@@ -25,13 +25,13 @@ namespace Braille.Analysis
         private Type _null;
         private Type _string;
         private Type _char;
-private  Type _byte;
-private  Type _sbyte;
+        private Type _byte;
+        private Type _sbyte;
 
         public TypeInference(Universe universe)
         {
             //this.universe = universe;
-            
+
             _null = universe.GetType("System.Null");
             boolean = universe.GetType("System.Boolean");
             _char = universe.GetType("System.Char");

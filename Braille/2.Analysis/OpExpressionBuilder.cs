@@ -57,6 +57,9 @@ namespace Braille.Analysis
             var typeInference = new TypeInference(universe);
             typeInference.InferTypes(method, opInfos);
 
+            var typeUsage = new TypeUsageAnalysis(universe);
+            typeUsage.FindTypes(method, opInfos);
+
             return opInfos;
         }
 

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.Ast
 {
@@ -20,6 +21,12 @@ namespace Braille.Ast
         public int MetadataToken { get; set; }
 
         public ModuleILResolver Resolver { get; set; }
+
+        public byte[] IlCode { get; set; }
+
+        public MethodBase ReflectionMethod { get; set; }
+
+        public Type[] ReferencedTypes { get; set; }
 
         public string GetReplacement()
         {
@@ -48,8 +55,5 @@ namespace Braille.Ast
             return replacement as string;
         }
 
-        public byte[] IlCode { get; set; }
-
-        public MethodBase ReflectionMethod { get; set; }
     }
 }

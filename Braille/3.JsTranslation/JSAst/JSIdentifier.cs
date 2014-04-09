@@ -35,6 +35,9 @@ namespace Braille.JSAst
 
         public static JSExpression Create(params string[] ns)
         {
+            if (ns.Length == 0)
+                throw new ArgumentException("ns");
+
             if (ns.Length == 1)
             {
                 return new JSIdentifier { Name = ns[0] };
@@ -48,9 +51,27 @@ namespace Braille.JSAst
                 };
             }
         }
-        public static JSExpression Create(JSIdentifier ifier, params string[] ns)
+        public static JSExpression Create(JSExpression ifier, params string[] ns)
         {
-            return Create(ns.StartWith(ifier.Name).ToArray());
+            if (ns.Length == 0)
+                return ifier;
+
+            if (ns.Length == 1)
+            {
+                return new JSPropertyAccessExpression
+                {
+                    Host = ifier,
+                    Property = ns[0]
+                };
+            }
+            else
+            {
+                return new JSPropertyAccessExpression
+                {
+                    Host = Create(ifier, ns.Take(ns.Length - 1).ToArray()),
+                    Property = ns.Last()
+                };
+            }
         }
     }
 }

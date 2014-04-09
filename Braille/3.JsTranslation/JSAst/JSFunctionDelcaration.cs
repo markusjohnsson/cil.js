@@ -10,8 +10,14 @@ namespace Braille.JSAst
         public readonly static JSFunctionDelcaration Empty = new JSFunctionDelcaration();
 
         public string Name { get; set; }
-        public IEnumerable<JSStatement> Body { get; set; }
-        public IEnumerable<JSFunctionParameter> Parameters { get; set; }
+        public List<JSStatement> Body { get; set; }
+        public List<JSFunctionParameter> Parameters { get; set; }
+        
+        public JSFunctionDelcaration()
+        {
+            Body = new List<JSStatement>();
+            Parameters = new List<JSFunctionParameter>();
+        }
 
         public override string ToString()
         {

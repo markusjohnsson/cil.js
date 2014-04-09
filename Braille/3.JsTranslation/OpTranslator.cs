@@ -2,6 +2,7 @@
 
 using Braille.Ast;
 using Braille.JSAst;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
-    class OpTranslator
+    class OpTranslator: AbstractTranslator
     {
         private CilAssembly assembly;
         private CilType type;
@@ -20,9 +21,9 @@ namespace Braille.JsTranslation
 
         private HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
 
-        public OpTranslator(List<CilAssembly> world, CilAssembly assembly, CilType type, CilMethod method)
+        public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method): base(context)
         {
-            this.world = world;
+            this.world = context.Assemblies;
             this.assembly = assembly;
             this.type = type;
             this.method = method;
@@ -399,7 +400,7 @@ namespace Braille.JsTranslation
                         {
                             return new JSConditionalExpression
                             {
-                                Condition = new JSPropertyAccessExpression(CreateTypeIdentifier(d), "IsValueType"),
+                                Condition = new JSPropertyAccessExpression(GetTypeIdentifier(d, this.method.ReflectionMethod), "IsValueType"),
                                 TrueValue = boxed,
                                 FalseValue = value
                             };
@@ -531,17 +532,42 @@ namespace Braille.JsTranslation
                         {
                             new JSNewExpression
                             {
-                                Constructor = CreateTypeIdentifier((Type)frame.Instruction.Data)
+                                Constructor = GetTypeIdentifier((Type)frame.Instruction.Data, this.method.ReflectionMethod)
                             }
                         }
                     };
                 case "isinst":
-                    return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(frame.Arguments.Single()),
-                        Operator = "instanceof",
-                        Right = CreateTypeIdentifier((Type)frame.Instruction.Data)
-                    };
+                        var targetType = (Type)frame.Instruction.Data;
+                        return new JSCallExpression 
+                        {
+                            Function = new JSPropertyAccessExpression { Host = GetTypeIdentifier(targetType, this.method.ReflectionMethod), Property = "IsInst" },
+                            Arguments = new List<JSExpression> { ProcessInternal(frame.Arguments.Single()) }
+                        };
+                        //if (targetType.IsClass || targetType.IsValueType)
+                        //{
+                        //    return new JSBinaryExpression
+                        //    {
+                        //        Left = ProcessInternal(frame.Arguments.Single()),
+                        //        Operator = "instanceof",
+                        //        Right = 
+                        //    };
+                        //}
+                        //else if (targetType.IsInterface)
+                        //{
+                        //    throw new NotImplementedException();
+                        //}
+                        //else if (targetType.IsGenericParameter)
+                        //{
+                        //    // if we were to actually JIT compile, then we wouldn't need this case
+                            
+                        //    throw new NotImplementedException();
+                        //}
+                        //else
+                        //{
+                        //    throw new NotSupportedException();
+                        //}
+                    }
                 case "ldarg":
                     {
                         var id = "";
@@ -721,7 +747,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return new JSPropertyAccessExpression
                         {
-                            Host = CreateTypeIdentifier(field.DeclaringType),
+                            Host = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod),
                             Property = (string)field.Name
                         };
                     }
@@ -730,7 +756,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return WrapInReaderWriter(new JSArrayLookupExpression
                         {
-                            Array = CreateTypeIdentifier(field.DeclaringType),
+                            Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod),
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)field.Name
@@ -772,7 +798,7 @@ namespace Braille.JsTranslation
                                             Value = 
                                             new JSNewExpression
                                             {
-                                                Constructor = CreateTypeIdentifier(ctor.DeclaringType)
+                                                Constructor = GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod)
                                             }
                                         }
                                     },
@@ -903,7 +929,7 @@ namespace Braille.JsTranslation
                         {
                             Left = new JSArrayLookupExpression
                             {
-                                Array = CreateTypeIdentifier(field.DeclaringType),
+                                Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod),
                                 Indexer = new JSStringLiteral
                                 {
                                     Value = (string)field.Name
@@ -1019,7 +1045,7 @@ namespace Braille.JsTranslation
                         .Concat(
                             classGenArgs,
                             methodGenArgs)
-                        .Select(t => CreateTypeIdentifier(t))
+                        .Select(t => GetTypeIdentifier(t, this.method.ReflectionMethod))
                         .ToList()
                 };
             }
@@ -1029,45 +1055,7 @@ namespace Braille.JsTranslation
             }
         }
 
-        public JSExpression CreateTypeIdentifier(Type type, int depth = 0)
-        {
-            if (depth > 15)
-                Debugger.Break(); // stack overflow check
-
-            if (type.IsGenericParameter)
-            {
-                if (type.DeclaringMethod != null ||
-
-                    // For static methods on generic classes, the type arguments are passed to 
-                    // the method at the call site rather than wired through the generic class type.
-                    // So, the type argument is available as an argument in the closure of the 
-                    // javascript function, which is why we emit an identifier.ölk
-
-                    (method.ReflectionMethod.IsStatic && type.DeclaringType.GetGenericTypeDefinition() == method.ReflectionMethod.DeclaringType))
-                {
-                    return new JSIdentifier { Name = type.Name };
-                }
-                else
-                    return new JSPropertyAccessExpression
-                    {
-                        Host = CreateTypeIdentifier(type.DeclaringType, depth + 1),
-                        Property = type.Name
-                    };
-            }
-            else if (type.IsGenericType && !type.IsGenericTypeDefinition)
-            {
-                return new JSCallExpression
-                {
-                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
-                        string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
-                    Arguments = type.GetGenericArguments().Select(g => CreateTypeIdentifier(g, depth + 1)).ToList()
-                };
-            }
-            else
-            {
-                return JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName);
-            }
-        }
+        
 
         private JSIdentifier GetAssemblyIdentifier(IKVM.Reflection.Type type)
         {
@@ -1091,7 +1079,7 @@ namespace Braille.JsTranslation
                         "w", 
                         new JSFunctionDelcaration 
                         { 
-                            Body = new JSStatement [] 
+                            Body =
                             { 
                                 new JSStatement 
                                 { 
@@ -1117,7 +1105,7 @@ namespace Braille.JsTranslation
                         "r", 
                         new JSFunctionDelcaration 
                         { 
-                            Body = new JSStatement [] 
+                            Body = 
                             { 
                                 new JSStatement { Expression = new JSReturnExpression { Expression = ifier } }
                             }

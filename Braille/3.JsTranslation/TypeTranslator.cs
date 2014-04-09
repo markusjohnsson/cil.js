@@ -9,13 +9,10 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
-    class TypeTranslator
+    class TypeTranslator: AbstractTranslator
     {
-        private Context context;
-
-        public TypeTranslator(Context context)
+        public TypeTranslator(Context context): base(context)
         {
-            this.context = context;
         }
 
         public JSExpression Translate(CilType type)
@@ -60,7 +57,7 @@ namespace Braille.JsTranslation
                             }
                         };
 
-                body.AddRange(GetConstructorAndPrototype(type).Select(s => s.ToStatement()));
+                body.AddRange(GetTypeDeclaration(type).Select(s => s.ToStatement()));
 
                 body.AddRange(
                     new[] 
@@ -105,7 +102,7 @@ namespace Braille.JsTranslation
             {
                 return new JSFunctionDelcaration
                 {
-                    Body = GetConstructorAndPrototype(type)
+                    Body = GetTypeDeclaration(type)
                         .EndWith(new JSReturnExpression { Expression = new JSIdentifier { Name = GetSimpleName(type) } })
                         .Select(s => new JSStatement { Expression = s })
                         .ToList()
@@ -113,34 +110,54 @@ namespace Braille.JsTranslation
             }
         }
 
-        public IEnumerable<JSExpression> GetConstructorAndPrototype(CilType type)
+        public IEnumerable<JSExpression> GetTypeDeclaration(CilType type)
         {
             var n = GetSimpleName(type);
 
-            yield return new JSVariableDelcaration 
-            { 
-                Name = "initialized", 
-                Value = new JSBoolLiteral { Value = false } 
+            yield return new JSVariableDelcaration
+            {
+                Name = "initialized",
+                Value = new JSBoolLiteral { Value = false }
             }.ToStatement();
 
             yield return new JSFunctionDelcaration
             {
                 Name = n,
-                Body = new[] {
+                Body = {
                     new JSIfStatement 
                     {
                         Condition = new JSIdentifier { Name = "!initialized" },
-                        Statements =  
-                            GetPrototype(n, type)
-                            .StartWith(new JSBinaryExpression { 
-                                Left = new JSIdentifier { Name = "initialized" }, 
-                                Operator = "=", 
-                                Right = new JSBoolLiteral { Value = true } }.ToStatement())
-                            .ToList()
-                    }
-
+                        Statements = { 
+                            new JSCallExpression { Function = JSIdentifier.Create(n, "init") }.ToStatement()
+                        }
+                    },
+                    new JSBinaryExpression 
+                    {
+                        Left = JSIdentifier.Create("this", "constructor"),
+                        Operator = "=",
+                        Right = JSIdentifier.Create(n)
+                    }.ToStatement()
                 }
-                
+
+            };
+
+            yield return new JSBinaryExpression
+            {
+                Left = JSIdentifier.Create(n, "init"),
+                Operator = "=",
+                Right = new JSFunctionDelcaration
+                {
+                    Body =
+                        GetInitialization(n, type)
+                        .StartWith(
+                            new JSBinaryExpression
+                            {
+                                Left = new JSIdentifier { Name = "initialized" },
+                                Operator = "=",
+                                Right = new JSBoolLiteral { Value = true }
+                            }.ToStatement())
+                        .ToList()
+                }
             };
 
             yield return new JSStatement
@@ -163,10 +180,12 @@ namespace Braille.JsTranslation
 
         }
 
-        public IEnumerable<JSStatement> GetPrototype(string n, CilType type)
+        public IEnumerable<JSStatement> GetInitialization(string n, CilType type)
         {
 
             var staticProperties = GetStaticFieldInitializers(type)
+                .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
+                .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }));
 
             foreach (var p in staticProperties)
@@ -194,6 +213,23 @@ namespace Braille.JsTranslation
                         Right = f.Value
                     }
                 };
+            }
+        }
+
+        private JSExpression GetInterfaces(CilType type)
+        {
+            return new JSArrayLiteral { Values = type.ReflectionType.GetInterfaces().Select(t => GetTypeIdentifier(t)) };
+        }
+
+        private JSExpression GetIsInst(CilType type)
+        {
+            if (type.IsInterface)
+            {
+                return new JSIdentifier { Name = "function (t) { return t.constructor.Interfaces.indexOf(" + GetSimpleName(type) + ") != -1; }" };
+            }
+            else
+            {
+                return new JSIdentifier { Name = "function (t) { return t instanceof " + GetSimpleName(type) + "; }" };
             }
         }
 
@@ -284,18 +320,5 @@ namespace Braille.JsTranslation
                     } as JSExpression :
                     new JSNullLiteral());
         }
-
-        private JSIdentifier GetAssemblyIdentifier(Type type)
-        {
-            var asm = context.Assemblies.FirstOrDefault(c => c.ReflectionAssembly == type.Assembly);
-
-            if (asm == null)
-            {
-                throw new Exception("Cannot resolve assembly of type " + type);
-            }
-
-            return new JSIdentifier { Name = asm.Identifier };
-        }
-
     }
 }
