@@ -1,20 +1,22 @@
 using Braille.Ast;
 using Braille.JSAst;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Braille.JsTranslation
 {
-    class AssemblyTranslator
+    class AssemblyTranslator: AbstractTranslator
     {
         private TypeTranslator typeTranslator;
         private MethodTranslator methodTranslator;
 
-        public AssemblyTranslator(TypeTranslator typeTranslator, MethodTranslator methodTranslator)
+        public AssemblyTranslator(Context context): base(context)
         {
-            this.typeTranslator = typeTranslator;
-            this.methodTranslator = methodTranslator;
+            this.typeTranslator = new TypeTranslator(context);
+            this.methodTranslator = new MethodTranslator(context);
         }
 
         public JSExpression Translate(List<CilAssembly> world, CilAssembly asm)
@@ -62,6 +64,12 @@ function tree_set(a, s, v) {
         tree_set(a.slice(1), c, v);
     }
 }
+
+function new_string(str) {
+    var r = new asm0['System.String']();
+    r.jsstr = str;
+    return r;
+}
 "
             };
 
@@ -78,17 +86,38 @@ function tree_set(a, s, v) {
 
                     if (function == null)
                         continue;
+                    
+                    var accessor = new JSPropertyAccessExpression
+                    {
+                        Host = new JSIdentifier { Name = "asm" },
+                        Property = GetMethodIdentifier(method.ReflectionMethod)
+                    };
 
                     yield return new JSBinaryExpression
                     {
-                        Left = new JSPropertyAccessExpression
-                        {
-                            Host = new JSIdentifier { Name = "asm" },
-                            Property = "x" + method.MetadataToken.ToString("x")
-                        },
+                        Left = accessor,
                         Operator = "=",
                         Right = function
                     };
+
+                    if (method.IsAssemblyStatic)
+                    {
+                        Debug.Assert(method.ReflectionMethod.IsStatic);
+
+                        yield return new JSBinaryExpression
+                        {
+                            Left = new JSPropertyAccessExpression 
+                            {
+                                Host = new JSIdentifier { Name = "asm" },
+
+                                // CHECKER TODO: check that there are no name conflicts for Assembly Statics
+
+                                Property = method.Name
+                            },
+                            Operator = "=",
+                            Right = accessor
+                        };
+                    }
                 }
             }
 

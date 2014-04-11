@@ -1451,7 +1451,29 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000c = function _ctor() { var __braille_args__;
+asm.x600000c = function get_X() { var __braille_args__;
+var st_00;
+var st_01;
+ __braille_args__ = arguments;
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: ldfld String <X>k__BackingField*/
+st_01 = (st_00)["A<X>k__BackingField"];
+/* IL_06: ret */
+return st_01; };
+asm.x600000d = function set_X() { var __braille_args__;
+var st_00;
+var st_01;
+ __braille_args__ = arguments;
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: ldarg.1 */
+st_01 = __braille_args__[1];
+/* IL_02: stfld String <X>k__BackingField*/
+(st_00)["A<X>k__BackingField"] = st_01;
+/* IL_07: ret */
+return ; };
+asm.x600000e = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -1459,19 +1481,8 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000d = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-(asm1.x600000c)(st_00);
-/* IL_06: ret */
-return ; };
-asm.x600000e = function Main() { var __braille_args__;
+asm.x600000f = function Main() { var __braille_args__;
 var loc0;
-var loc1;
-var loc2;
 var st_00;
 var st_01;
 var st_02;
@@ -1484,100 +1495,93 @@ var st_08;
 var st_09;
 var st_0A;
 var st_0B;
-var __braille_pos_0__;
  __braille_args__ = arguments;
 (asm1.A.init)();
-(asm1.B.init)();
-(asm1.A.init)();
-(asm1.A.init)();
-(asm1.A.init)();
+((asm0)["System.Int32"].init)();
 loc0 = null;
-loc1 = null;
-loc2 = null;
+/* IL_00: call String GetString()*/
+st_00 = (asm1.x6000011)();
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: newobj Void .ctor()*/
+st_01 = (function () { var result;
+ result = new (asm1.A)();
+(asm1.x600000e)(result);
+return result; })();
+/* IL_0F: stloc.0 */
+loc0 = st_01;
+/* IL_10: ldloc.0 */
+st_02 = loc0;
+/* IL_11: ldstr 300*/
+st_03 = new_string("300");
+/* IL_16: callvirt Void set_X(System.String)*/
+(asm1.x600000d)(st_02,st_03);
+/* IL_1B: ldloc.0 */
+st_04 = loc0;
+/* IL_1C: callvirt String get_X()*/
+st_05 = (asm1.x600000c)(st_04);
+/* IL_21: call Void Log(System.Object)*/
+braille_test_log(st_05);
+/* IL_26: ldloc.0 */
+st_06 = loc0;
+/* IL_27: callvirt String get_X()*/
+st_07 = (asm1.x600000c)(st_06);
+/* IL_2C: call String IsString(System.Object)*/
+st_08 = (asm1.x6000010)(st_07);
+/* IL_31: call Void Log(System.Object)*/
+braille_test_log(st_08);
+/* IL_36: ldstr 123456789*/
+st_09 = new_string("123456789");
+/* IL_3B: callvirt Int32 get_Length()*/
+st_0A = (asm0.x6000025)(st_09);
+/* IL_40: box System.Int32*/
+st_0B = { 
+'boxed': cloneValue(st_0A),
+'vtable': (asm0)["System.Int32"].prototype.vtable 
+};
+/* IL_45: call Void Log(System.Object)*/
+braille_test_log(st_0B);
+/* IL_4A: ret */
+return ; };
+asm.x6000010 = function IsString() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+var st_03;
+var __braille_pos_0__;
+ __braille_args__ = arguments;
+((asm0)["System.String"].init)();
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
-/* IL_00: newobj Void .ctor()*/
-st_00 = (function () { var result;
- result = new (asm1.A)();
-(asm1.x600000c)(result);
-return result; })();
-/* IL_05: stloc.0 */
-loc0 = st_00;
-/* IL_06: newobj Void .ctor()*/
-st_01 = (function () { var result;
- result = new (asm1.B)();
-(asm1.x600000d)(result);
-return result; })();
-/* IL_0B: stloc.1 */
-loc1 = st_01;
-/* IL_0C: ldstr hello*/
-st_02 = new_string("hello");
-/* IL_11: stloc.2 */
-loc2 = st_02;
-/* IL_12: ldloc.0 */
-st_03 = loc0;
-/* IL_13: isinst A*/
-st_04 = (asm1.A.IsInst)(st_03);
-/* IL_18: brtrue.s IL_21*/
-if (st_04){
-__braille_pos_0__ = 0x21;continue;
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: isinst System.String*/
+st_01 = ((asm0)["System.String"].IsInst)(st_00);
+/* IL_06: brtrue.s IL_0E*/
+if (st_01){
+__braille_pos_0__ = 0xE;continue;
 }
-/* IL_1A: ldstr false*/
-st_05 = new_string("false");
-/* IL_1F: br.s IL_26*/
-__braille_pos_0__ = 0x26;
-continue;
-case 0x21:
-/* IL_21: ldstr true*/
-st_05 = new_string("true");
-case 0x26:
-/* IL_26: call Void Log(System.Object)*/
-braille_test_log(st_05);
-/* IL_2B: ldloc.1 */
-st_06 = loc1;
-/* IL_2C: isinst A*/
-st_07 = (asm1.A.IsInst)(st_06);
-/* IL_31: brtrue.s IL_3A*/
-if (st_07){
-__braille_pos_0__ = 0x3A;continue;
-}
-/* IL_33: ldstr false*/
-st_08 = new_string("false");
-/* IL_38: br.s IL_3F*/
-__braille_pos_0__ = 0x3F;
-continue;
-case 0x3A:
-/* IL_3A: ldstr true*/
-st_08 = new_string("true");
-case 0x3F:
-/* IL_3F: call Void Log(System.Object)*/
-braille_test_log(st_08);
-/* IL_44: ldloc.2 */
-st_09 = loc2;
-/* IL_45: isinst A*/
-st_0A = (asm1.A.IsInst)(st_09);
-/* IL_4A: brtrue.s IL_53*/
-if (st_0A){
-__braille_pos_0__ = 0x53;continue;
-}
-/* IL_4C: ldstr false*/
-st_0B = new_string("false");
-/* IL_51: br.s IL_58*/
-__braille_pos_0__ = 0x58;
-continue;
-case 0x53:
-/* IL_53: ldstr true*/
-st_0B = new_string("true");
-case 0x58:
-/* IL_58: call Void Log(System.Object)*/
-braille_test_log(st_0B);
-/* IL_5D: ret */
-return ;
+/* IL_08: ldstr false*/
+st_02 = new_string("false");
+/* IL_0D: ret */
+return st_02;
+case 0xE:
+/* IL_0E: ldstr true*/
+st_03 = new_string("true");
+/* IL_13: ret */
+return st_03;
 }
 } };
-asm.x600000f = function _ctor() { var __braille_args__;
+asm.x6000011 = function GetString() { var __braille_args__;
+var st_00;
+ __braille_args__ = arguments;
+/* IL_00: ldstr Hello*/
+st_00 = new_string("Hello");
+/* IL_05: ret */
+return st_00; };
+asm.x6000012 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -1633,30 +1637,13 @@ A.init = function () {
 A.Interfaces = [  ];
 A.IsInst = function (t) { return t instanceof A; };
 A.IsValueType = false;
+(A.prototype)["A<X>k__BackingField"] = null;
 A.prototype.vtable = { 
 'x6000001': asm0.x6000001 
 }; };
 A.prototype = new ((asm0)["System.Object"])();;
 return A; })();
 asm.A = self;
-self = (function () { var initialized;
- initialized = false;;
-function B() { 
- if (!initialized){
-(B.init)();
-}
-this.constructor = B; };
-B.init = function () { 
- initialized = true;
-B.Interfaces = [  ];
-B.IsInst = function (t) { return t instanceof B; };
-B.IsValueType = false;
-B.prototype.vtable = { 
-'x6000001': asm0.x6000001 
-}; };
-B.prototype = new (asm1.A)();;
-return B; })();
-asm.B = self;
 self = (function () { var initialized;
  initialized = false;;
 function Program() { 
@@ -1675,4 +1662,4 @@ Program.prototype.vtable = {
 Program.prototype = new ((asm0)["System.Object"])();;
 return Program; })();
 asm.Program = self;
-asm.entryPoint = asm.x600000e; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x600000f; })(asm1 || (asm1 = {}));

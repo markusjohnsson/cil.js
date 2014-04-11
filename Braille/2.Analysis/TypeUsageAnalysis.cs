@@ -33,7 +33,7 @@ namespace Braille.Analysis
             {
                 case "box":
                     var d = (IKVM.Reflection.Type)op.Instruction.Data;
-                    if (d.IsGenericParameter)
+                    //if (d.IsGenericParameter)
                         yield return d;
                     break;
                 case "initobj":

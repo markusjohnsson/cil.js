@@ -167,7 +167,7 @@ namespace Braille.JsTranslation
                     Left = JSIdentifier.Create(n, "prototype"),
                     Operator = "=",
                     Right = (type.ReflectionType.BaseType != null &&
-                             type.ReflectionType.BaseType.FullName != "System.Object" &&
+                             //type.ReflectionType.BaseType.FullName != "System.Object" &&
                              type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
                              type.ReflectionType.BaseType.FullName != "System.ValueType") ?
                         new JSNewExpression
@@ -198,11 +198,12 @@ namespace Braille.JsTranslation
                 }.ToStatement();
             }
 
-            var instanceProperties = GetFieldInitializers(type)
+            var prototypeProperties = GetFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
-                .Concat(GetInterfaceMaps(type));
+                .Concat(GetInterfaceMaps(type))
+                .Concat(GetPrototypeMethods(type));
 
-            foreach (var f in instanceProperties)
+            foreach (var f in prototypeProperties)
             {
                 yield return new JSStatement
                 {
@@ -213,6 +214,20 @@ namespace Braille.JsTranslation
                         Right = f.Value
                     }
                 };
+            }
+        }
+
+        private IEnumerable<KeyValuePair<string, JSExpression>> GetPrototypeMethods(CilType type)
+        {
+            foreach (var m in type.Methods)
+            {
+                if (m.IsPrototypeAccessible == false)
+                    continue;
+
+                if (m.IsVirtual || type.IsInterface)
+                    throw new NotSupportedException("Interface or virtual methods cannot be accessible from prototype");
+
+                yield return new KeyValuePair<string, JSExpression>(m.Name, GetMethodAccessor(m.ReflectionMethod));
             }
         }
 
@@ -231,11 +246,6 @@ namespace Braille.JsTranslation
             {
                 return new JSIdentifier { Name = "function (t) { return t instanceof " + GetSimpleName(type) + "; }" };
             }
-        }
-
-        private static string GetSimpleName(CilType type)
-        {
-            return type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
         }
 
         private IEnumerable<KeyValuePair<string, JSExpression>> GetInterfaceMaps(CilType type)
@@ -258,8 +268,8 @@ namespace Braille.JsTranslation
                     .GetMethods()
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
-                    m => "x" + m.GetBaseDefinition().MetadataToken.ToString("x"),
-                    m => JSIdentifier.Create("asm", "x" + m.MetadataToken.ToString("x")))
+                        m => GetMethodIdentifier(m.GetBaseDefinition()),
+                        m => GetMethodAccessor(m))
             };
         }
 
@@ -278,8 +288,8 @@ namespace Braille.JsTranslation
                         map.TargetMethods,
                         (ifaceMethod, targetMethod) => new { ifaceMethod, targetMethod })
                     .ToDictionary(
-                        m => "x" + m.ifaceMethod.MetadataToken.ToString("x"),
-                        m => JSIdentifier.Create("asm", "x" + m.targetMethod.MetadataToken.ToString("x")))
+                        m => GetMethodIdentifier(m.ifaceMethod),
+                        m => GetMethodAccessor(m.targetMethod))
             };
         }
 
@@ -289,7 +299,7 @@ namespace Braille.JsTranslation
                 .ReflectionType
                 .GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                 .Select(
-                    f => GetFieldInitializer(f));
+                    f => GetFieldInitializer(f, type));
         }
 
         private IEnumerable<KeyValuePair<string, JSExpression>> GetStaticFieldInitializers(CilType type)
@@ -298,13 +308,13 @@ namespace Braille.JsTranslation
                 .ReflectionType
                 .GetFields(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
                 .Select(
-                    f => GetFieldInitializer(f));
+                    f => GetFieldInitializer(f, type));
         }
 
-        private KeyValuePair<string, JSExpression> GetFieldInitializer(FieldInfo f)
+        private KeyValuePair<string, JSExpression> GetFieldInitializer(FieldInfo f, CilType type)
         {
             return new KeyValuePair<string, JSExpression>(
-                f.Name,
+                GetTranslatedFieldName(type, f),
                 f.FieldType.FullName == "System.Boolean" ?
                     new JSBoolLiteral { Value = default(bool) } :
                 f.FieldType.IsPrimitive ?
@@ -320,5 +330,7 @@ namespace Braille.JsTranslation
                     } as JSExpression :
                     new JSNullLiteral());
         }
+
+        
     }
 }

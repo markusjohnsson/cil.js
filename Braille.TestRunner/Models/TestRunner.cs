@@ -143,7 +143,7 @@ namespace Braille.TestRunner.Models
                     useEcmaScript5Polyfill: false, useJson2Library: false))
                 {
                     jsEngine.Execute(@"var braille_testlib_output = """";");
-                    jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += message.toString() + ""\r\n""; }");
+                    jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
                     jsEngine.ExecuteFile(exeFilePath + ".js");
                     object exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
 

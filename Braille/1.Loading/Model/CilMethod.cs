@@ -7,9 +7,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Type = IKVM.Reflection.Type;
+using System.Diagnostics;
 
 namespace Braille.Ast
 {
+    enum ReplacementKind
+    {
+        Raw, Function
+    }
+
+    class CilMethodReplacement
+    {
+        public string Replacement { get; set; }
+        public ReplacementKind Kind { get; set; } 
+    }
+
     class CilMethod
     {
         public string Name { get; set; }
@@ -28,14 +40,65 @@ namespace Braille.Ast
 
         public Type[] ReferencedTypes { get; set; }
 
-        public string GetReplacement()
+        public bool IsPrototypeAccessible
         {
-            var mi = ReflectionMethod;
-
-            return GetReplacement(mi);
+            get
+            {
+                var attrib = GetAttribute(ReflectionMethod, "JsPrototypeAccessibleAttribute");
+                return attrib != null;
+            }
         }
 
-        public static string GetReplacement(MethodBase mi)
+        public bool IsAssemblyStatic
+        {
+            get
+            {
+                var attrib = GetAttribute(ReflectionMethod, "JsAssemblyStaticAttribute");
+                return attrib != null;
+            }
+        }
+
+        public CilMethodReplacement GetReplacement()
+        {
+            return GetReplacement(ReflectionMethod);
+        }
+
+        public static CilMethodReplacement GetReplacement(MethodBase mi)
+        {
+            var replaceAttribute = GetAttribute(mi, "JsReplaceAttribute");
+            var importAttribute = GetAttribute(mi, "JsImportAttribute");
+
+            if (replaceAttribute == null && importAttribute == null)
+                return null;
+
+            Debug.Assert(mi.IsVirtual == false);
+            
+            if (replaceAttribute != null && importAttribute != null)
+                throw new InvalidOperationException("Cannot set both replacement and import on single attribute");
+
+            if (replaceAttribute != null)
+            {
+                var replacement = replaceAttribute.ConstructorArguments.Select(a => a.Value).FirstOrDefault();
+
+                return new CilMethodReplacement
+                {
+                    Replacement = (string)replacement,
+                    Kind = ReplacementKind.Raw
+                };
+            }
+            else
+            {
+                var replacement = importAttribute.ConstructorArguments.Select(a => a.Value).FirstOrDefault();
+
+                return new CilMethodReplacement
+                {
+                    Replacement = (string)replacement,
+                    Kind = ReplacementKind.Function
+                };
+            }
+        }
+
+        private static CustomAttributeData GetAttribute(MethodBase mi, string attribName)
         {
             var attribs = mi
                 .GetCustomAttributesData();
@@ -43,16 +106,10 @@ namespace Braille.Ast
             if (attribs.Count == 0)
                 return null;
 
-            var importAttrib = attribs
-                .Where(a => a.AttributeType.Name == "JsImportAttribute")
+            return attribs
+                .Where(a => a.AttributeType.Name == attribName)
                 .LastOrDefault();
 
-            if (importAttrib == null)
-                return null;
-
-            var replacement = importAttrib.ConstructorArguments.Select(a => a.Value).FirstOrDefault();
-
-            return replacement as string;
         }
 
     }

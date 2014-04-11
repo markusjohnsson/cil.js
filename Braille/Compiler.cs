@@ -39,7 +39,7 @@ namespace Braille
             var ctx = asmTransform.Load();
             var asms = ctx.Assemblies;
 
-            var asmTransform2 = new AssemblyTranslator(new TypeTranslator(ctx), new MethodTranslator(ctx));
+            var asmTransform2 = new AssemblyTranslator(ctx);
 
             File.Delete(OutputFileName);
 

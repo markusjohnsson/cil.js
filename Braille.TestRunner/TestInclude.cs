@@ -26,9 +26,20 @@ class JsImportAttribute : Attribute
     public string Function { get; set; }
 }
 
+[JsIgnore]
+class JsReplaceAttribute : Attribute
+{
+    public JsReplaceAttribute(string replacement)
+    {
+        Replacement = replacement;
+    }
+
+    public string Replacement { get; set; }
+}
+
 class TestHelper
 {
-    [JsImport("new Error()")]
+    [JsReplace("new Error()")]
     public static Exception CreateException(string message)
     {
         throw new Exception(message);

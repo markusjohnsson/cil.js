@@ -8,7 +8,12 @@ namespace Braille.JSAst
     class JSNewExpression : JSExpression
     {
         public JSExpression Constructor { get; set; }
-        public IEnumerable<JSExpression> Arguments { get; set; }
+        public List<JSExpression> Arguments { get; set; }
+
+        public JSNewExpression()
+        {
+            Arguments = new List<JSExpression>();
+        }
 
         public override string ToString()
         {

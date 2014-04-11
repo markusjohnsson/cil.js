@@ -54,6 +54,7 @@
     <Compile Include="2.Analysis\DataFlowAnalysis.cs" />
     <Compile Include="2.Analysis\TypeInference.cs" />
     <Compile Include="2.Analysis\TypeUsageAnalysis.cs" />
+    <Compile Include="3.JsTranslation\AbstractTranslator.cs" />
     <Compile Include="3.JsTranslation\AssemblyTranslator.cs" />
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />

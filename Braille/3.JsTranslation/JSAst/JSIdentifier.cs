@@ -51,6 +51,7 @@ namespace Braille.JSAst
                 };
             }
         }
+
         public static JSExpression Create(JSExpression ifier, params string[] ns)
         {
             if (ns.Length == 0)

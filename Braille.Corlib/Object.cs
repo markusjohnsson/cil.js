@@ -1,5 +1,8 @@
 ﻿
+using System;
 using System.Runtime.CompilerServices;
+using Braille.Runtime.TranslatorServices;
+
 namespace System
 {
     public class Array
@@ -7,34 +10,6 @@ namespace System
         public int Length { get; private set; }
     }
 
-    [AttributeUsage(AttributeTargets.All)]
-    public class Attribute
-    {
-    }
-
-    [Flags]
-    public enum AttributeTargets
-    {
-        Assembly = 0x00000001,
-        Module = 0x00000002,
-        Class = 0x00000004,
-        Struct = 0x00000008,
-        Enum = 0x00000010,
-        Constructor = 0x00000020,
-        Method = 0x00000040,
-        Property = 0x00000080,
-        Field = 0x00000100,
-        Event = 0x00000200,
-        Interface = 0x00000400,
-        Parameter = 0x00000800,
-        Delegate = 0x00001000,
-        ReturnValue = 0x00002000,
-
-        GenericParameter = 0x00004000,
-        All = Assembly | Module | Class | Struct | Enum | Constructor |
-            Method | Property | Field | Event | Interface | Parameter | Delegate | ReturnValue | GenericParameter
-    }
-    
     [AttributeUsageAttribute(AttributeTargets.Class, Inherited = true)]
     public sealed class AttributeUsageAttribute : Attribute
     {
@@ -75,12 +50,16 @@ namespace System
     {
     }
 
-    public class Enum: ValueType
+    public class Enum : ValueType
     {
     }
 
     public class Exception
     {
+        public Exception()
+        {
+        }
+
         public Exception(string message)
         {
             Message = message;
@@ -111,6 +90,13 @@ namespace System
 
     public struct Int32
     {
+        public override string ToString()
+        {
+            return ToStringImpl(this);
+        }
+
+        [JsImport("function(o) { return new_string(o.boxed.toString()); }")]
+        private extern static string ToStringImpl(object o);
     }
 
     public struct Int64
@@ -127,10 +113,10 @@ namespace System
     }
 
     public class MulticastDelegate : Delegate
-    { 
+    {
     }
 
-    public class ParamArrayAttribute: Attribute
+    public class ParamArrayAttribute : Attribute
     {
     }
 
@@ -148,34 +134,6 @@ namespace System
 
     public struct Single
     {
-    }
-
-    public class String
-    {
-        [IndexerName("Chars")]
-        public char this[int i] { get { throw new Exception("Direct call not supported."); } }
-
-        public static string Concat(string a, string b)
-        {
-            throw new Exception("Not implemented.");
-        }
-
-        public static string Concat(object a, object b)
-        {
-            throw new Exception("Not implemented.");
-        }
-
-        public static string Concat(params string[] args)
-        {
-            throw new Exception("Not implemented.");
-        }
-
-        public static string Concat(params object[] args)
-        {
-            throw new Exception("Not implemented.");
-        }
-
-        public int Length { get; private set; }
     }
 
     public class Type
@@ -212,6 +170,62 @@ namespace System
         {
             return "System.Object";
         }
+
+        [JsAssemblyStatic]
+        internal static object ToJavaScriptString(Object o)
+        {
+            return o.ToString().jsstr;
+        }
+    }
+}
+
+namespace Braille.Runtime.TranslatorServices
+{
+    [JsIgnore]
+    [AttributeUsage(AttributeTargets.Method)]
+    internal class JsPrototypeAccessibleAttribute : Attribute
+    {
+    }
+    [JsIgnore]
+    [AttributeUsage(AttributeTargets.Method)]
+    internal class JsAssemblyStaticAttribute : Attribute
+    {
+    }
+    [JsIgnore]
+    [AttributeUsage(AttributeTargets.Method)]
+    internal class JsReplaceAttribute : Attribute
+    {
+        public JsReplaceAttribute(string replacement)
+        {
+            Replacement = replacement;
+        }
+
+        public string Replacement { get; set; }
+    }
+    [JsIgnore]
+    [AttributeUsage(AttributeTargets.Method)]
+    internal class JsImportAttribute : Attribute
+    {
+        public JsImportAttribute(string function)
+        {
+            Function = function;
+        }
+
+        public string Function { get; set; }
+    }
+    [JsIgnore]
+    internal class JsIgnoreAttribute : Attribute
+    {
+    }
+}
+
+namespace System.Diagnostics
+{
+    using Braille.Runtime.TranslatorServices;
+    public class Debugger
+    {
+        [JsReplace("debugger")]
+        public extern static void Break();
     }
 }
 
@@ -230,7 +244,7 @@ namespace System.Collections
 namespace System.Runtime.InteropServices
 {
     public class OutAttribute : Attribute
-    { 
+    {
     }
 }
 
@@ -249,6 +263,6 @@ namespace System.Runtime.CompilerServices
 namespace System.Runtime.Versioning
 {
     public class TargetFrameworkAttribute : Attribute
-    { 
+    {
     }
 }

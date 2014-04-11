@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <None Include="Tests\Strings.cs" />
+    <None Include="Tests\PrivateFields.cs" />
     <None Include="Tests\IsInstInterface.cs" />
     <None Include="Tests\Enums.cs" />
     <None Include="Tests\IsInstDelegate.cs" />
