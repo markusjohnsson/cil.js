@@ -128,6 +128,7 @@
     <Compile Include="Models\TestResult.cs" />
     <Compile Include="Models\TestRunner.cs" />
     <None Include="MonoTests\struct.cs" />
+    <None Include="MonoTests\string.cs" />
     <Compile Include="TestInclude.cs" />
     <None Include="Tests\CSStringConverter.cs" />
     <None Include="Tests\StringExtractor.cs" />

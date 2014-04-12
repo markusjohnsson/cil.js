@@ -1622,51 +1622,10 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000d = function TestMono_IBase_Do() { var __braille_args__;
-var st_01;
-var st_00;
-var st_02;
-var st_03;
- __braille_args__ = arguments;
-/* IL_00: ldc.i4.1 */
-st_01 = 1;
-/* IL_01: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_02: callvirt Int32 Do()*/
-st_02 = (st_00.vtable.x600000e)(st_00);
-/* IL_07: add */
-st_03 = (st_01 + st_02);
-/* IL_08: ret */
-return st_03; };
-asm.x600000e = function Do() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldc.i4.1 */
-st_00 = 1;
-/* IL_01: ret */
-return st_00; };
-asm.x600000f = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
-return ; };
-asm.x6000010 = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-(asm1.x600000f)(st_00);
-/* IL_06: ret */
-return ; };
-asm.x6000011 = function Main() { var __braille_args__;
+asm.x600000c = function Main() { var __braille_args__;
 var loc0;
 var loc1;
 var loc2;
-var loc3;
 var st_00;
 var st_01;
 var st_02;
@@ -1674,123 +1633,100 @@ var st_03;
 var st_04;
 var st_05;
 var st_06;
+var st_09;
 var st_07;
 var st_08;
-var st_09;
 var st_0A;
 var st_0B;
 var st_0C;
+var st_0F;
 var st_0D;
 var st_0E;
-var st_0F;
 var st_10;
 var st_11;
 var st_12;
 var st_13;
-var st_14;
-var st_15;
-var st_16;
 var __braille_pos_0__;
  __braille_args__ = arguments;
-((asm1)["TestMono.Derived"].init)();
 loc0 = null;
 loc1 = null;
 loc2 = null;
-loc3 = null;
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
-/* IL_00: newobj Void .ctor()*/
-st_00 = (function () { var result;
- result = new ((asm1)["TestMono.Derived"])();
-(asm1.x6000010)(result);
-return result; })();
+/* IL_00: ldstr ddd*/
+st_00 = new_string("ddd");
 /* IL_05: stloc.0 */
 loc0 = st_00;
-/* IL_06: ldloc.0 */
-st_01 = loc0;
-/* IL_07: callvirt Int32 Do()*/
-st_02 = ((st_01)["TestMono.IBase"].x600000c)(st_01);
-/* IL_0C: ldc.i4.2 */
-st_03 = 2;
-/* IL_0D: beq.s IL_11*/
-if (st_02 === st_03){
-__braille_pos_0__ = 0x11;continue;
-}
-/* IL_0F: ldc.i4.1 */
-st_04 = 1;
-/* IL_10: ret */
-return st_04;
-case 0x11:
-/* IL_11: ldloc.0 */
-st_05 = loc0;
-/* IL_12: stloc.1 */
-loc1 = st_05;
+/* IL_06: ldstr ddd*/
+st_01 = new_string("ddd");
+/* IL_0B: stloc.1 */
+loc1 = st_01;
+/* IL_0C: ldstr ddda*/
+st_02 = new_string("ddda");
+/* IL_11: stloc.2 */
+loc2 = st_02;
+/* IL_12: ldloc.0 */
+st_03 = loc0;
 /* IL_13: ldloc.1 */
-st_06 = loc1;
-/* IL_14: callvirt Int32 Do()*/
-st_07 = ((st_06)["TestMono.IBase"].x600000c)(st_06);
-/* IL_19: ldc.i4.2 */
-st_08 = 2;
-/* IL_1A: beq.s IL_1E*/
-if (st_07 === st_08){
-__braille_pos_0__ = 0x1E;continue;
+st_04 = loc1;
+/* IL_14: call Boolean op_Inequality(System.String, System.String)*/
+st_05 = (asm0.x6000013)(st_03,st_04);
+/* IL_19: brfalse.s IL_1D*/
+if ((!st_05)){
+__braille_pos_0__ = 0x1D;continue;
 }
-/* IL_1C: ldc.i4.2 */
-st_09 = 2;
-/* IL_1D: ret */
-return st_09;
-case 0x1E:
-/* IL_1E: ldloc.0 */
-st_0A = loc0;
-/* IL_1F: castclass TestMono.Derived*/
-st_0B = st_0A;
-/* IL_24: stloc.2 */
-loc2 = st_0B;
-/* IL_25: ldloc.2 */
-st_0C = loc2;
-/* IL_26: callvirt Int32 Do()*/
-st_0D = (st_0C.vtable.x600000e)(st_0C);
-/* IL_2B: ldc.i4.1 */
-st_0E = 1;
-/* IL_2C: beq.s IL_30*/
-if (st_0D === st_0E){
-__braille_pos_0__ = 0x30;continue;
+/* IL_1B: ldc.i4.1 */
+st_06 = 1;
+/* IL_1C: ret */
+return st_06;
+case 0x1D:
+/* IL_1D: ldloc.2 */
+st_09 = loc2;
+/* IL_1E: ldloc.1 */
+st_07 = loc1;
+/* IL_1F: ldstr a*/
+st_08 = new_string("a");
+/* IL_24: call String Concat(System.String, System.String)*/
+st_0A = (asm0.x600000d)(st_07,st_08);
+/* IL_29: call Boolean op_Inequality(System.String, System.String)*/
+st_0B = (asm0.x6000013)(st_09,st_0A);
+/* IL_2E: brfalse.s IL_32*/
+if ((!st_0B)){
+__braille_pos_0__ = 0x32;continue;
 }
-/* IL_2E: ldc.i4.3 */
-st_0F = 3;
-/* IL_2F: ret */
-return st_0F;
-case 0x30:
-/* IL_30: ldloc.0 */
-st_10 = loc0;
-/* IL_31: castclass TestMono.Base*/
-st_11 = st_10;
-/* IL_36: stloc.3 */
-loc3 = st_11;
-/* IL_37: ldloc.3 */
-st_12 = loc3;
-/* IL_38: callvirt Int32 Do()*/
-st_13 = (st_12.vtable.x600000e)(st_12);
-/* IL_3D: ldc.i4.1 */
-st_14 = 1;
-/* IL_3E: beq.s IL_42*/
-if (st_13 === st_14){
-__braille_pos_0__ = 0x42;continue;
+/* IL_30: ldc.i4.2 */
+st_0C = 2;
+/* IL_31: ret */
+return st_0C;
+case 0x32:
+/* IL_32: ldloc.2 */
+st_0F = loc2;
+/* IL_33: ldloc.1 */
+st_0D = loc1;
+/* IL_34: ldstr a*/
+st_0E = new_string("a");
+/* IL_39: call String Concat(System.String, System.String)*/
+st_10 = (asm0.x600000d)(st_0D,st_0E);
+/* IL_3E: call Boolean ReferenceEquals(System.Object, System.Object)*/
+st_11 = (asm0.x6000004)(st_0F,st_10);
+/* IL_43: brfalse.s IL_47*/
+if ((!st_11)){
+__braille_pos_0__ = 0x47;continue;
 }
-/* IL_40: ldc.i4.4 */
-st_15 = 4;
-/* IL_41: ret */
-return st_15;
-case 0x42:
-/* IL_42: ldc.i4.0 */
-st_16 = 0;
-/* IL_43: ret */
-return st_16;
+/* IL_45: ldc.i4.4 */
+st_12 = 4;
+/* IL_46: ret */
+return st_12;
+case 0x47:
+/* IL_47: ldc.i4.0 */
+st_13 = 0;
+/* IL_48: ret */
+return st_13;
 }
 } };
-asm.x6000012 = function _ctor() { var __braille_args__;
+asm.x600000d = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -1836,107 +1772,20 @@ return TestHelper; })();
 asm.TestHelper = self;
 self = (function () { var initialized;
  initialized = false;;
-function IBase() { 
+function TestString() { 
  if (!initialized){
-(IBase.init)();
+(TestString.init)();
 }
-this.constructor = IBase; };
-IBase.init = function () { 
+this.constructor = TestString; };
+TestString.init = function () { 
  initialized = true;
-IBase.Interfaces = [  ];
-IBase.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IBase) != -1; };
-IBase.IsValueType = false;
-IBase.prototype.vtable = { 
-'x600000c': asm1.x600000c 
-}; };
-IBase.prototype = { 
- 
-};;
-return IBase; })();
-(asm)["TestMono.IBase"] = self;
-self = (function () { var initialized;
- initialized = false;;
-function IDerived() { 
- if (!initialized){
-(IDerived.init)();
-}
-this.constructor = IDerived; };
-IDerived.init = function () { 
- initialized = true;
-IDerived.Interfaces = [ (asm1)["TestMono.IBase"] ];
-IDerived.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IDerived) != -1; };
-IDerived.IsValueType = false;
-IDerived.prototype.vtable = { 
- 
-}; };
-IDerived.prototype = { 
- 
-};;
-return IDerived; })();
-(asm)["TestMono.IDerived"] = self;
-self = (function () { var initialized;
- initialized = false;;
-function Base() { 
- if (!initialized){
-(Base.init)();
-}
-this.constructor = Base; };
-Base.init = function () { 
- initialized = true;
-Base.Interfaces = [ (asm1)["TestMono.IBase"] ];
-Base.IsInst = function (t) { return t instanceof Base; };
-Base.IsValueType = false;
-Base.prototype.vtable = { 
-'x600000e': asm1.x600000e,
-'x6000002': asm0.x6000002 
-};
-(Base.prototype)["TestMono.IBase"] = { 
-'x600000c': asm1.x600000d 
-}; };
-Base.prototype = new ((asm0)["System.Object"])();;
-return Base; })();
-(asm)["TestMono.Base"] = self;
-self = (function () { var initialized;
- initialized = false;;
-function Derived() { 
- if (!initialized){
-(Derived.init)();
-}
-this.constructor = Derived; };
-Derived.init = function () { 
- initialized = true;
-Derived.Interfaces = [ (asm1)["TestMono.IDerived"],(asm1)["TestMono.IBase"] ];
-Derived.IsInst = function (t) { return t instanceof Derived; };
-Derived.IsValueType = false;
-Derived.prototype.vtable = { 
-'x600000e': asm1.x600000e,
-'x6000002': asm0.x6000002 
-};
-(Derived.prototype)["TestMono.IDerived"] = { 
- 
-};
-(Derived.prototype)["TestMono.IBase"] = { 
-'x600000c': asm1.x600000d 
-}; };
-Derived.prototype = new ((asm1)["TestMono.Base"])();;
-return Derived; })();
-(asm)["TestMono.Derived"] = self;
-self = (function () { var initialized;
- initialized = false;;
-function Class1() { 
- if (!initialized){
-(Class1.init)();
-}
-this.constructor = Class1; };
-Class1.init = function () { 
- initialized = true;
-Class1.Interfaces = [  ];
-Class1.IsInst = function (t) { return t instanceof Class1; };
-Class1.IsValueType = false;
-Class1.prototype.vtable = { 
+TestString.Interfaces = [  ];
+TestString.IsInst = function (t) { return t instanceof TestString; };
+TestString.IsValueType = false;
+TestString.prototype.vtable = { 
 'x6000002': asm0.x6000002 
 }; };
-Class1.prototype = new ((asm0)["System.Object"])();;
-return Class1; })();
-(asm)["TestMono.Class1"] = self;
-asm.entryPoint = asm.x6000011; })(asm1 || (asm1 = {}));
+TestString.prototype = new ((asm0)["System.Object"])();;
+return TestString; })();
+asm.TestString = self;
+asm.entryPoint = asm.x600000c; })(asm1 || (asm1 = {}));

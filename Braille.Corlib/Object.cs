@@ -166,6 +166,9 @@ namespace System
 
     public class Object
     {
+        [JsImport("function (a, b) { return a === b; }")]
+        private extern static bool ReferenceEqualsImpl(object a, object b);
+
         public virtual string ToString()
         {
             return "System.Object";
@@ -176,6 +179,12 @@ namespace System
         {
             return o.ToString().jsstr;
         }
+
+        public static bool ReferenceEquals(object a, object b)
+        {
+            return ReferenceEqualsImpl(a, b);
+        }
+
     }
 }
 

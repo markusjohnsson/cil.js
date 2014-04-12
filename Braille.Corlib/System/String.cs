@@ -7,27 +7,36 @@ namespace System
     {
         internal object jsstr;
 
+        [JsImport("function(o) { return o.jsstr.length; }")]
+        private extern static int GetLengthImpl(object s);
+
+        [JsImport("function(a, b) { return a.jsstr === b.jsstr; }")]
+        private extern static bool EqualsImpl(string a, string b);
+
+        [JsImport("function () { return new_string(String.prototype.concat.apply('', arguments)); }")]
+        private extern static string ConcatImpl(params string[] args);
+
         [IndexerName("Chars")]
         public char this[int i] { get { throw new Exception("Direct call not supported."); } }
 
         public static string Concat(string a, string b)
         {
-            throw new Exception("Not implemented.");
+            return ConcatImpl(a, b);
         }
 
         public static string Concat(object a, object b)
         {
-            throw new Exception("Not implemented.");
+            return ConcatImpl(a.ToString(), b.ToString());
         }
 
         public static string Concat(params string[] args)
         {
-            throw new Exception("Not implemented.");
+            return ConcatImpl(args);
         }
 
         public static string Concat(params object[] args)
         {
-            throw new Exception("Not implemented.");
+            throw new Exception("Not implemented");
         }
 
         public int Length
@@ -38,12 +47,25 @@ namespace System
             }
         }
 
-        [JsImport("function(o) { return o.jsstr.length; }")]
-        private extern static int GetLengthImpl(object s);
-
         public override string ToString()
         {
             return this;
         }
+
+        public static bool operator !=(string lhs, string rhs)
+        {
+            return !EqualsImpl(lhs, rhs);
+        }
+
+        public static bool operator ==(string lhs, string rhs)
+        {
+            return EqualsImpl(lhs, rhs);
+        }
+
+        public bool Equals(string other)
+        {
+            return EqualsImpl(this, other);
+        }
+        
     }
 }
