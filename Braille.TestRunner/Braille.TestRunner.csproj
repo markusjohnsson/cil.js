@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <None Include="Tests\GenericFieldDefaults.cs" />
     <None Include="Tests\Strings.cs" />
     <None Include="Tests\PrivateFields.cs" />
     <None Include="Tests\IsInstInterface.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Models\TestRunner.cs" />
     <None Include="MonoTests\struct.cs" />
     <None Include="MonoTests\string.cs" />
+    <None Include="MonoTests\aanullable_boxing.2.cs" />
     <Compile Include="TestInclude.cs" />
     <None Include="Tests\CSStringConverter.cs" />
     <None Include="Tests\StringExtractor.cs" />

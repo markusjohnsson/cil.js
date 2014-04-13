@@ -17,7 +17,9 @@ namespace System
         private extern static string ConcatImpl(params string[] args);
 
         [IndexerName("Chars")]
-        public char this[int i] { get { throw new Exception("Direct call not supported."); } }
+        public char this[int i] { get { throw new Exception("Not implemented."); } }
+
+        public static readonly string Empty = "";
 
         public static string Concat(string a, string b)
         {

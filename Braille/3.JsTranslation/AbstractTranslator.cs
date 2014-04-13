@@ -32,14 +32,12 @@ namespace Braille.JsTranslation
             return new JSIdentifier { Name = asm.Identifier };
         }
 
-        protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase referenceScope = null)
+        protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
             if (type.IsGenericParameter)
             {
-                if (
-                    type.DeclaringType == null &&
-                    type.DeclaringMethod == null &&
-                    referenceScope == null)
+                if (type.DeclaringType == null &&
+                    type.DeclaringMethod == null)
                 {
                     throw new InvalidOperationException();
                 }
@@ -51,16 +49,19 @@ namespace Braille.JsTranslation
                     // So, the type argument is available as an argument in the closure of the 
                     // javascript function, which is why we emit an identifier.
 
-                    (referenceScope.IsStatic && type.DeclaringType.GetGenericTypeDefinition() == referenceScope.DeclaringType))
+                    (methodScope != null && methodScope.IsStatic && type.DeclaringType.GetGenericTypeDefinition() == methodScope.DeclaringType))
                 {
                     return new JSIdentifier { Name = type.Name };
                 }
                 else
-                    return new JSPropertyAccessExpression
-                    {
-                        Host = GetTypeIdentifier(type.DeclaringType, referenceScope),
-                        Property = type.Name
-                    };
+                    return
+                        (typeScope == type.DeclaringType && thisScope == null) ? // TODO: this is for when T is used inside the initializer - this method should be overridden in TypeTranslator instead of having this case here
+                        JSIdentifier.Create(type.Name) :
+                        new JSArrayLookupExpression
+                        {
+                            Array = JSIdentifier.Create(thisScope, "constructor", "GenericArguments"),
+                            Indexer = new JSNumberLiteral { Value = typeScope.GetGenericArguments().IndexOf(type) }
+                        };
             }
             else if (type.IsGenericType && !type.IsGenericTypeDefinition)
             {
@@ -68,7 +69,7 @@ namespace Braille.JsTranslation
                 {
                     Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
                         string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
-                    Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, referenceScope)).ToList()
+                    Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, methodScope)).ToList()
                 };
             }
             else
@@ -76,7 +77,7 @@ namespace Braille.JsTranslation
                 return JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName);
             }
         }
-        
+
         protected static string GetSimpleName(CilType type)
         {
             var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
@@ -89,7 +90,7 @@ namespace Braille.JsTranslation
         {
             if (f.IsStatic == false && f.IsPrivate && f.DeclaringType.IsValueType == false)
             {
-                var ns = (f.DeclaringType.Namespace ?? "" ).Replace('.', '_');
+                var ns = (f.DeclaringType.Namespace ?? "").Replace('.', '_');
                 return ns + GetSimpleName(type) + f.Name;
             }
             else
@@ -138,6 +139,59 @@ namespace Braille.JsTranslation
         protected string GetMethodIdentifier(MethodBase m)
         {
             return "x" + m.MetadataToken.ToString("x");
+        }
+
+        protected JSExpression GetDefaultValue(Type fieldType, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
+        {
+            return
+                fieldType.IsGenericParameter ?
+                    GetGenericFieldInitializer(fieldType, methodScope, typeScope, thisScope) :
+                fieldType.FullName == "System.Boolean" ?
+                    new JSBoolLiteral { Value = default(bool) } :
+                fieldType.IsPrimitive ?
+                    new JSNumberLiteral { Value = 0 } as JSExpression :
+                fieldType.IsValueType ?
+                    new JSNewExpression
+                    {
+                        Constructor = new JSPropertyAccessExpression
+                        {
+                            Host = GetAssemblyIdentifier(fieldType),
+                            Property = fieldType.Namespace == null ? fieldType.Name : fieldType.Namespace + "." + fieldType.Name
+                        }
+                    } as JSExpression :
+                    new JSNullLiteral();
+        }
+
+        private JSExpression GetGenericFieldInitializer(Type fieldType, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
+        {
+            var t = GetTypeIdentifier(fieldType, methodScope, typeScope, thisScope);
+            return new JSConditionalExpression
+            {
+                Condition = JSIdentifier.Create(t, "IsValueType"),
+                TrueValue = new JSConditionalExpression
+                {
+                    Condition = JSIdentifier.Create(t, "IsPrimitive"),
+                    TrueValue = new JSNumberLiteral { Value = 0 },
+                    FalseValue = new JSNewExpression { Constructor = t }
+                },
+                FalseValue = new JSNullLiteral()
+            };
+        }
+
+        protected JSExpression GetThisScope(MethodBase methodScope, Type typeScope)
+        {
+            var thisScope = methodScope.IsStatic
+                ? null
+                : new JSArrayLookupExpression
+                {
+                    Array = JSIdentifier.Create("arguments"),
+                    Indexer = new JSNumberLiteral { Value = 0 }
+                } as JSExpression;
+
+            if (thisScope != null && typeScope.IsValueType)
+                thisScope = new JSCallExpression { Function = JSIdentifier.Create(thisScope, "r") };
+
+            return thisScope;
         }
     }
 }

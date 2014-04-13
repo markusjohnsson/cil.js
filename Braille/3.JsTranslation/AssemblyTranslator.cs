@@ -34,10 +34,10 @@ namespace Braille.JsTranslation
             {
                 // Helper functions to manage a multi-key dictionary.
                 // Used to cache constructed generic types.
-                // A constructed generic type should always have the same constructor instace (for the same type arguments)
+                // A constructed generic type should always have the same constructor instance (for the same type arguments)
                 Name =
                     @"
-function cloneValue(v) {
+function clone_value(v) {
     if (typeof v === 'number') return v;
     if (typeof v === 'function') return v;
     var result = {};
@@ -46,6 +46,37 @@ function cloneValue(v) {
             result[p] = v[p];
     }
     return result;
+}
+
+function box(v, type) {
+    if (v === null)
+        return v;
+    
+    if (type.IsNullable) {
+        if (v.has_value)
+            return box(v.value, type.GenericArguments[0]);
+        else
+            return null;
+    }
+
+    if (!type.IsValueType)
+        return v;
+    
+    return {
+        'boxed': v,
+        'vtable': type.prototype.vtable
+    };
+}
+
+function unbox(o, type) {
+    return o.boxed;
+}
+
+function unbox_any(o, type) {
+    if (type.IsValueType)
+        return o.boxed;
+    else
+        return o;
 }
 
 function tree_get(a, s) {
@@ -68,6 +99,13 @@ function tree_set(a, s, v) {
 function new_string(str) {
     var r = new asm0['System.String']();
     r.jsstr = str;
+    return r;
+}
+
+function new_array(type, length) {
+    var r = new asm0['System.Array']();
+    r.type = type;
+    r.jsarr = new Array(length);
     return r;
 }
 "

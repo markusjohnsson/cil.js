@@ -9,9 +9,10 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
-    class TypeTranslator: AbstractTranslator
+    class TypeTranslator : AbstractTranslator
     {
-        public TypeTranslator(Context context): base(context)
+        public TypeTranslator(Context context)
+            : base(context)
         {
         }
 
@@ -21,15 +22,7 @@ namespace Braille.JsTranslation
 
             if (type.ReflectionType.IsGenericTypeDefinition)
             {
-                var cacheKey =
-                    new JSArrayLiteral
-                    {
-                        Values = type
-                            .ReflectionType
-                            .GetGenericArguments()
-                            .Select(g => new JSIdentifier { Name = g.Name } as JSExpression)
-                            .ToList()
-                    };
+                var cacheKey = GetGenericArgumentsArray(type);
 
                 var body =
                     new List<JSStatement> 
@@ -110,6 +103,21 @@ namespace Braille.JsTranslation
             }
         }
 
+        private static JSArrayLiteral GetGenericArgumentsArray(CilType type)
+        {
+            if (type.ReflectionType.IsGenericTypeDefinition == false)
+                return null;
+
+            return new JSArrayLiteral
+            {
+                Values = type
+                    .ReflectionType
+                    .GetGenericArguments()
+                    .Select(g => new JSIdentifier { Name = g.Name } as JSExpression)
+                    .ToList()
+            };
+        }
+
         public IEnumerable<JSExpression> GetTypeDeclaration(CilType type)
         {
             var n = GetSimpleName(type);
@@ -167,7 +175,7 @@ namespace Braille.JsTranslation
                     Left = JSIdentifier.Create(n, "prototype"),
                     Operator = "=",
                     Right = (type.ReflectionType.BaseType != null &&
-                             //type.ReflectionType.BaseType.FullName != "System.Object" &&
+                        //type.ReflectionType.BaseType.FullName != "System.Object" &&
                              type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
                              type.ReflectionType.BaseType.FullName != "System.ValueType") ?
                         new JSNewExpression
@@ -186,7 +194,13 @@ namespace Braille.JsTranslation
             var staticProperties = GetStaticFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }));
+                .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }))
+                .EndWith(new KeyValuePair<string, JSExpression>("IsPrimitive", new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive }))
+                .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }));
+
+            var genericArguments = GetGenericArgumentsArray(type);
+            if (genericArguments != null)
+                staticProperties = staticProperties.EndWith(new KeyValuePair<string, JSExpression>("GenericArguments", genericArguments));
 
             foreach (var p in staticProperties)
             {
@@ -315,22 +329,10 @@ namespace Braille.JsTranslation
         {
             return new KeyValuePair<string, JSExpression>(
                 GetTranslatedFieldName(type, f),
-                f.FieldType.FullName == "System.Boolean" ?
-                    new JSBoolLiteral { Value = default(bool) } :
-                f.FieldType.IsPrimitive ?
-                    new JSNumberLiteral { Value = 0 } as JSExpression :
-                f.FieldType.IsValueType ?
-                    new JSNewExpression
-                    {
-                        Constructor = new JSPropertyAccessExpression
-                        {
-                            Host = GetAssemblyIdentifier(f.FieldType),
-                            Property = f.FieldType.Namespace == null ? f.FieldType.Name : f.FieldType.Namespace + "." + f.FieldType.Name
-                        }
-                    } as JSExpression :
-                    new JSNullLiteral());
+                GetDefaultValue(f.FieldType, typeScope: type.ReflectionType));
         }
 
-        
+
+
     }
 }

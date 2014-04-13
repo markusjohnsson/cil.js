@@ -339,10 +339,7 @@ namespace Braille.JsTranslation
             if (frame == null || frame.Instruction == null)
                 return new JSEmptyExpression();
 
-            //if (frame.Instruction == null && frame.Handler != null )
-            //{
-            //    return new JSIdentifier { Name = "__braille_exception__" };
-            //}
+            var thisScope = GetThisScope(method.ReflectionMethod, type.ReflectionType);
 
             var opc = frame.Instruction.OpCode.Name;
 
@@ -379,19 +376,24 @@ namespace Braille.JsTranslation
                                 },
                                 {
                                     "vtable",  JSIdentifier
-                                        .Create(GetTypeIdentifier(d), "prototype", "vtable")
+                                        .Create(GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope), "prototype", "vtable")
                                 }
                             }
                         };
 
                         if (d.IsGenericParameter)
                         {
-                            return new JSConditionalExpression
+                            return new JSCallExpression
                             {
-                                Condition = new JSPropertyAccessExpression(GetTypeIdentifier(d, this.method.ReflectionMethod), "IsValueType"),
-                                TrueValue = boxed,
-                                FalseValue = value
+                                Function = JSIdentifier.Create("box"),
+                                Arguments = { value, GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope) }
                             };
+                            //return new JSConditionalExpression
+                            //{
+                            //    Condition = new JSPropertyAccessExpression(GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope), "IsValueType"),
+                            //    TrueValue = boxed,
+                            //    FalseValue = value
+                            //};
                         }
                         else if (d.IsValueType)
                         {
@@ -445,7 +447,7 @@ namespace Braille.JsTranslation
                                     ? GetInterfaceMethodAccessor(arglist.First(), mi) :
                                 mi.IsVirtual
                                     ? GetVirtualMethodAccessor(arglist.First(), mi) :
-                                replacement != null 
+                                replacement != null
                                     ? JSIdentifier.Create(replacement.Replacement)
                                     : GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
@@ -534,7 +536,7 @@ namespace Braille.JsTranslation
                         {
                             new JSNewExpression
                             {
-                                Constructor = GetTypeIdentifier((Type)frame.Instruction.Data, this.method.ReflectionMethod)
+                                Constructor = GetTypeIdentifier((Type)frame.Instruction.Data, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
                             }
                         }
                     };
@@ -543,10 +545,10 @@ namespace Braille.JsTranslation
                         var targetType = (Type)frame.Instruction.Data;
                         return new JSCallExpression
                         {
-                            Function = new JSPropertyAccessExpression { Host = GetTypeIdentifier(targetType, this.method.ReflectionMethod), Property = "IsInst" },
+                            Function = new JSPropertyAccessExpression { Host = GetTypeIdentifier(targetType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope), Property = "IsInst" },
                             Arguments = new List<JSExpression> { ProcessInternal(frame.Arguments.Single()) }
                         };
-                        
+
                     }
                 case "ldarg":
                     {
@@ -664,12 +666,17 @@ namespace Braille.JsTranslation
                             };
                     }
                 case "ldelem":
-                case "ldelema":
                     return new JSArrayLookupExpression
                     {
-                        Array = ProcessInternal(frame.Arguments.First()),
+                        Array = new JSPropertyAccessExpression { Host = ProcessInternal(frame.Arguments.First()), Property = "jsarr" },
                         Indexer = ProcessInternal(frame.Arguments.Last())
                     };
+                case "ldelema":
+                    return WrapInReaderWriter(new JSArrayLookupExpression
+                    {
+                        Array = new JSPropertyAccessExpression { Host = ProcessInternal(frame.Arguments.First()), Property = "jsarr" },
+                        Indexer = ProcessInternal(frame.Arguments.Last())
+                    });
                 case "ldfld":
                     {
                         var fieldInfo = (FieldInfo)frame.Instruction.Data;
@@ -704,14 +711,12 @@ namespace Braille.JsTranslation
                         //return new JSEmptyExpression();
                     }
                 case "ldftn":
-                    var method = (MethodBase)frame.Instruction.Data;
-                    return GetMethodAccessor(method, this.method.ReflectionMethod);
-                case "ldlen":
-                    return new JSPropertyAccessExpression
                     {
-                        Host = ProcessInternal(frame.Arguments.Single()),
-                        Property = "length"
-                    };
+                        var methodBase = (MethodBase)frame.Instruction.Data;
+                        return GetMethodAccessor(methodBase, this.method.ReflectionMethod);
+                    }
+                case "ldlen":
+                    return JSIdentifier.Create(ProcessInternal(frame.Arguments.Single()), "jsarr", "length");
                 case "ldloc":
                     {
                         var id = "";
@@ -745,7 +750,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return new JSPropertyAccessExpression
                         {
-                            Host = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod),
+                            Host = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Property = (string)field.Name
                         };
                     }
@@ -754,7 +759,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return WrapInReaderWriter(new JSArrayLookupExpression
                         {
-                            Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod),
+                            Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)field.Name
@@ -783,7 +788,18 @@ namespace Braille.JsTranslation
                         Operator = "*"
                     };
                 case "newarr":
-                    return new JSArrayLiteral { Values = new JSExpression[0] };
+                    var length = ProcessInternal(frame.Arguments.First());
+                    var elementType = (Type)frame.Instruction.Data;
+
+                    return new JSCallExpression
+                    {
+                        Function = JSIdentifier.Create("new_array"),
+                        Arguments = 
+                        {
+                            GetTypeIdentifier(elementType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            length
+                        }
+                    };
                 case "newobj":
                     {
                         var ctor = (ConstructorInfo)frame.Instruction.Data;
@@ -803,7 +819,7 @@ namespace Braille.JsTranslation
                                             Value = 
                                             new JSNewExpression
                                             {
-                                                Constructor = GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod)
+                                                Constructor = GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
                                             }
                                         }
                                     },
@@ -812,7 +828,12 @@ namespace Braille.JsTranslation
                                         Expression = new JSCallExpression
                                         {
                                             Function = GetMethodAccessor(ctor, this.method.ReflectionMethod),
-                                            Arguments = argList.StartWith(new JSIdentifier { Name  = "result" }).ToList()
+                                            Arguments = argList
+                                                .StartWith(
+                                                    ctor.DeclaringType.IsValueType ? 
+                                                        WrapInReaderWriter(new JSIdentifier { Name = "result" }): 
+                                                        new JSIdentifier { Name  = "result" })
+                                                .ToList()
                                         }
                                     },
                                     new JSStatement 
@@ -877,13 +898,26 @@ namespace Braille.JsTranslation
                     {
                         Left = new JSArrayLookupExpression
                         {
-                            Array = ProcessInternal(frame.Arguments.First()),
+                            Array = new JSPropertyAccessExpression { Host = ProcessInternal(frame.Arguments.First()), Property = "jsarr" },
                             Indexer = ProcessInternal(frame.Arguments.Skip(1).First())
                         },
                         Operator = "=",
                         Right = ProcessInternal(frame.Arguments.Last())
                     };
                 case "stind":
+                    return new JSCallExpression
+                    {
+                        Function = new JSPropertyAccessExpression
+                        {
+                            Host = ProcessInternal(frame.Arguments.First()),
+                            Property = "w"
+                        },
+                        Arguments = new List<JSExpression>
+                        {
+                            ProcessInternal(frame.Arguments.Last())
+                        }
+                    };
+                case "stobj":
                     return new JSCallExpression
                     {
                         Function = new JSPropertyAccessExpression
@@ -934,7 +968,7 @@ namespace Braille.JsTranslation
                         {
                             Left = new JSArrayLookupExpression
                             {
-                                Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod),
+                                Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                                 Indexer = new JSStringLiteral
                                 {
                                     Value = (string)field.Name
@@ -987,7 +1021,7 @@ namespace Braille.JsTranslation
         {
             return new JSCallExpression
             {
-                Function = JSIdentifier.Create("cloneValue"),
+                Function = JSIdentifier.Create("clone_value"),
                 Arguments = { value }
             };
         }

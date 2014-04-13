@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="System\Array.cs" />
+    <Compile Include="System.Diagnostics\DebuggerStepThroughAttribute.cs" />
     <Compile Include="System\Attribute.cs" />
     <Compile Include="System\AttributeTargets.cs" />
+    <Compile Include="System\ComVisibleAttribute.cs" />
+    <Compile Include="System\Nullable.cs" />
+    <Compile Include="System\SerializableAttribute.cs" />
     <Compile Include="System\String.cs" />
     <Compile Include="System.Reflection\DefaultMemberAttribute.cs" />
     <Compile Include="Object.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="System.Collections\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

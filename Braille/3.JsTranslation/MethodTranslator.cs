@@ -19,7 +19,8 @@ namespace Braille.JsTranslation
         private OpExpressionBuilder expressionBuilder;
         private Context context;
 
-        public MethodTranslator(Context context): base(context)
+        public MethodTranslator(Context context)
+            : base(context)
         {
             this.context = context;
             expressionBuilder = new OpExpressionBuilder(context.ReflectionUniverse);
@@ -105,17 +106,20 @@ namespace Braille.JsTranslation
                     }
                 });
 
+            var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
+
             foreach (var t in method.ReferencedTypes)
             {
                 functionBlock.Add(
                     new JSCallExpression
                     {
-                        Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod), "init")
+                        Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
                     }
                     .ToStatement());
             }
 
             var locIdx = 0;
+
             foreach (var loc in method.ReflectionMethod.GetMethodBody().LocalVariables)
             {
                 functionBlock.Add(
@@ -124,7 +128,7 @@ namespace Braille.JsTranslation
                         Expression = new JSVariableDelcaration
                         {
                             Name = "loc" + locIdx,
-                            Value = CreateDefaultValue(loc)
+                            Value = GetDefaultValue(loc.LocalType, methodScope: method.ReflectionMethod, typeScope: method.ReflectionMethod.DeclaringType, thisScope: thisScope)
                         }
                     });
                 locIdx++;
@@ -234,25 +238,6 @@ namespace Braille.JsTranslation
                 (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType) ?
                     CreateGenericFunction(method, function) :
                     function;
-        }
-
-        private JSExpression CreateDefaultValue(LocalVariableInfo loc)
-        {
-            return
-                loc.LocalType.FullName == "System.Boolean" ?
-                    new JSBoolLiteral { Value = default(bool) } :
-                loc.LocalType.IsPrimitive ?
-                    new JSNumberLiteral { Value = 0 } as JSExpression :
-                loc.LocalType.IsValueType ?
-                    new JSNewExpression
-                    {
-                        Constructor = new JSPropertyAccessExpression
-                        {
-                            Host = GetAssemblyIdentifier(loc.LocalType),
-                            Property = loc.LocalType.Namespace == null ? loc.LocalType.Name : loc.LocalType.Namespace + "." + loc.LocalType.Name
-                        }
-                    } as JSExpression :
-                    new JSNullLiteral();
         }
 
         private JSFunctionDelcaration CreateGenericFunction(CilMethod method, JSFunctionDelcaration function)

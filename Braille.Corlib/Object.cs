@@ -5,11 +5,6 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public class Array
-    {
-        public int Length { get; private set; }
-    }
-
     [AttributeUsageAttribute(AttributeTargets.Class, Inherited = true)]
     public sealed class AttributeUsageAttribute : Attribute
     {
@@ -66,6 +61,14 @@ namespace System
         }
 
         public string Message { get; set; }
+    }
+
+    public class InvalidOperationException : Exception
+    {
+        public InvalidOperationException(string message): base(message)
+        {
+
+        }
     }
 
     [AttributeUsage(AttributeTargets.Enum, Inherited = false)]
@@ -174,10 +177,18 @@ namespace System
             return "System.Object";
         }
 
+        public virtual int GetHashCode()
+        {
+            return 0;
+        }
+
         [JsAssemblyStatic]
         internal static object ToJavaScriptString(Object o)
         {
-            return o.ToString().jsstr;
+            if (o == null)
+                return "".jsstr;
+            else
+                return o.ToString().jsstr;
         }
 
         public static bool ReferenceEquals(object a, object b)
@@ -185,6 +196,10 @@ namespace System
             return ReferenceEqualsImpl(a, b);
         }
 
+        public virtual bool Equals(object other)
+        {
+            return ReferenceEquals(this, other);
+        }
     }
 }
 

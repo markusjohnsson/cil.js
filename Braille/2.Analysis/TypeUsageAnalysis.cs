@@ -19,7 +19,20 @@ namespace Braille.Analysis
 
         public void FindTypes(CilMethod method, IEnumerable<OpExpression> opAst)
         {
-            method.ReferencedTypes = opAst.SelectMany(op => FindTypes(method, op)).ToArray();
+            method.ReferencedTypes = opAst
+                .SelectMany(op => FindTypes(method, op))
+                .SelectMany(t => ExpandGenericTypes(t))
+                .ToArray();
+        }
+
+        private IEnumerable<Type> ExpandGenericTypes(Type t)
+        {
+            if (t.IsGenericType)
+            {
+                foreach (var genericArgument in t.GetGenericArguments())
+                    yield return genericArgument;
+            }
+            yield return t;
         }
 
         private IEnumerable<Type> FindTypes(CilMethod method, OpExpression op)

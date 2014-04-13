@@ -11,12 +11,16 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return string.Format("[ {0} ]", string.Join(",", Values.Select(v => v.ToString())));
+            return string.Format("[ {0} ]", Values == null ? "" : string.Join(",", Values.Select(v => v.ToString())));
         }
 
         public override IEnumerable<JSExpression> GetChildren()
         {
-            return Values;
+            if (Values == null)
+                yield break;
+
+            foreach (var v in Values)
+                yield return v;
         }
     }
 }
