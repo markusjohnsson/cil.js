@@ -260,7 +260,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Object GetValueImpl(System.Object, System.Int32)*/
-st_02 = function(o, i) { return box(o.jsarr[i], o.type); }(st_00,clone_value(st_01));
+st_02 = function(o, i) { return box(o.jsarr[i], o.type); }(st_00,st_01);
 /* IL_08: stloc.0 */
 loc0 = st_02;
 /* IL_0B: ldloc.0 */
@@ -609,7 +609,7 @@ st_0D = (st_0C.r)().value;
 st_0F = box(st_0D,(((arguments)[0].r)().constructor.GenericArguments)[0]);
 /* IL_3E: callvirt Boolean Equals(System.Object)*/
 /* ignoring prefixes constrained.*/
-st_10 = (clone_value(st_0E).vtable.x6000006)(clone_value(st_0E),st_0F);
+st_10 = (st_0E.vtable.x6000006)(st_0E,st_0F);
 /* IL_43: stloc.0 */
 loc0 = st_10;
 case 0x46:
@@ -671,7 +671,7 @@ st_05 = {
 };
 /* IL_1B: callvirt Int32 GetHashCode()*/
 /* ignoring prefixes constrained.*/
-st_06 = (clone_value(st_05).vtable.x6000003)(clone_value(st_05));
+st_06 = (st_05.vtable.x6000003)(st_05);
 /* IL_20: stloc.0 */
 loc0 = st_06;
 case 0x23:
@@ -795,7 +795,7 @@ st_06 = {
 };
 /* IL_1A: callvirt String ToString()*/
 /* ignoring prefixes constrained.*/
-st_07 = (clone_value(st_06).vtable.x6000002)(clone_value(st_06));
+st_07 = (st_06.vtable.x6000002)(st_06);
 /* IL_1F: stloc.0 */
 loc0 = st_07;
 /* IL_20: br.s IL_2A*/
@@ -859,7 +859,7 @@ st_00 = {
  return __braille_args__[0]; } 
 };
 /* IL_03: call T get_Value()*/
-st_01 = (asm0.x6000014)(clone_value(st_00));
+st_01 = (asm0.x6000014)(st_00);
 /* IL_08: stloc.0 */
 loc0 = st_01;
 /* IL_0B: ldloc.0 */
@@ -1569,7 +1569,7 @@ st_00 = __braille_args__[0];
 st_01 = st_00.boxed;
 /* IL_03: box System.Int32*/
 st_02 = { 
-'boxed': clone_value(st_01),
+'boxed': st_01,
 'vtable': (asm0)["System.Int32"].prototype.vtable 
 };
 /* IL_08: call String ToStringImpl(System.Object)*/
@@ -2886,7 +2886,7 @@ loc0 = st_00;
 st_01 = loc0;
 /* IL_03: box System.Int32*/
 st_02 = { 
-'boxed': clone_value(st_01),
+'boxed': st_01,
 'vtable': (asm0)["System.Int32"].prototype.vtable 
 };
 /* IL_08: call Void Log(System.Object)*/
@@ -2899,7 +2899,7 @@ loc0 = st_03;
 st_04 = loc0;
 /* IL_10: box System.Int32*/
 st_05 = { 
-'boxed': clone_value(st_04),
+'boxed': st_04,
 'vtable': (asm0)["System.Int32"].prototype.vtable 
 };
 /* IL_15: call Void Log(System.Object)*/
@@ -2912,7 +2912,7 @@ loc0 = st_06;
 st_07 = loc0;
 /* IL_1D: box System.Int32*/
 st_08 = { 
-'boxed': clone_value(st_07),
+'boxed': st_07,
 'vtable': (asm0)["System.Int32"].prototype.vtable 
 };
 /* IL_22: call Void Log(System.Object)*/
@@ -2925,7 +2925,7 @@ loc0 = st_09;
 st_0A = loc0;
 /* IL_2A: box System.Int32*/
 st_0B = { 
-'boxed': clone_value(st_0A),
+'boxed': st_0A,
 'vtable': (asm0)["System.Int32"].prototype.vtable 
 };
 /* IL_2F: call Void Log(System.Object)*/

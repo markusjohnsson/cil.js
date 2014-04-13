@@ -372,7 +372,7 @@ namespace Braille.JsTranslation
                             {
                                 { 
                                     "boxed", 
-                                    CloneValueType(value)
+                                    CloneValueTypeIfNeeded(value, d)
                                 },
                                 {
                                     "vtable",  JSIdentifier
@@ -1017,13 +1017,17 @@ namespace Braille.JsTranslation
             }
         }
 
-        private static JSCallExpression CloneValueType(JSExpression value)
+        private static JSExpression CloneValueTypeIfNeeded(JSExpression value, Type type)
         {
-            return new JSCallExpression
-            {
-                Function = JSIdentifier.Create("clone_value"),
-                Arguments = { value }
-            };
+            if (type != null && type.IsValueType && !type.IsPrimitive)
+
+                return new JSCallExpression
+                {
+                    Function = JSIdentifier.Create("clone_value"),
+                    Arguments = { value }
+                };
+            else
+                return value;
         }
 
         private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, MethodBase mi)
@@ -1102,11 +1106,7 @@ namespace Braille.JsTranslation
         {
             foreach (var i in list)
             {
-                var element = ProcessInternal(i);
-                if (i.ResultType != null && i.ResultType.IsValueType)
-                    yield return CloneValueType(element);
-                else
-                    yield return element;
+                yield return CloneValueTypeIfNeeded(ProcessInternal(i), i.ResultType);
             }
         }
 

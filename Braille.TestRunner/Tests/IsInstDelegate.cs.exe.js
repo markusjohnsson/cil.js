@@ -260,7 +260,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Object GetValueImpl(System.Object, System.Int32)*/
-st_02 = function(o, i) { return box(o.jsarr[i], o.type); }(st_00,clone_value(st_01));
+st_02 = function(o, i) { return box(o.jsarr[i], o.type); }(st_00,st_01);
 /* IL_08: stloc.0 */
 loc0 = st_02;
 /* IL_0B: ldloc.0 */
@@ -609,7 +609,7 @@ st_0D = (st_0C.r)().value;
 st_0F = box(st_0D,(((arguments)[0].r)().constructor.GenericArguments)[0]);
 /* IL_3E: callvirt Boolean Equals(System.Object)*/
 /* ignoring prefixes constrained.*/
-st_10 = (clone_value(st_0E).vtable.x6000006)(clone_value(st_0E),st_0F);
+st_10 = (st_0E.vtable.x6000006)(st_0E,st_0F);
 /* IL_43: stloc.0 */
 loc0 = st_10;
 case 0x46:
@@ -671,7 +671,7 @@ st_05 = {
 };
 /* IL_1B: callvirt Int32 GetHashCode()*/
 /* ignoring prefixes constrained.*/
-st_06 = (clone_value(st_05).vtable.x6000003)(clone_value(st_05));
+st_06 = (st_05.vtable.x6000003)(st_05);
 /* IL_20: stloc.0 */
 loc0 = st_06;
 case 0x23:
@@ -795,7 +795,7 @@ st_06 = {
 };
 /* IL_1A: callvirt String ToString()*/
 /* ignoring prefixes constrained.*/
-st_07 = (clone_value(st_06).vtable.x6000002)(clone_value(st_06));
+st_07 = (st_06.vtable.x6000002)(st_06);
 /* IL_1F: stloc.0 */
 loc0 = st_07;
 /* IL_20: br.s IL_2A*/
@@ -859,7 +859,7 @@ st_00 = {
  return __braille_args__[0]; } 
 };
 /* IL_03: call T get_Value()*/
-st_01 = (asm0.x6000014)(clone_value(st_00));
+st_01 = (asm0.x6000014)(st_00);
 /* IL_08: stloc.0 */
 loc0 = st_01;
 /* IL_0B: ldloc.0 */
@@ -1569,7 +1569,7 @@ st_00 = __braille_args__[0];
 st_01 = st_00.boxed;
 /* IL_03: box System.Int32*/
 st_02 = { 
-'boxed': clone_value(st_01),
+'boxed': st_01,
 'vtable': (asm0)["System.Int32"].prototype.vtable 
 };
 /* IL_08: call String ToStringImpl(System.Object)*/
@@ -2922,7 +2922,7 @@ st_02 = asm1.x6000015;
 /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
 st_03 = (function () { var result;
  result = new (((asm1)["FuncX`2"])((asm0)["System.Object"],(asm0)["System.Object"]))();
-(asm1.x600000c)(result,st_01,clone_value(st_02));
+(asm1.x600000c)(result,st_01,st_02);
 return result; })();
 /* IL_13: stsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
 (asm1.Program)["CS$<>9__CachedAnonymousMethodDelegate1"] = st_03;
@@ -2950,7 +2950,7 @@ st_09 = asm1.x6000011;
 /* IL_3F: newobj Void .ctor(System.Object, System.IntPtr)*/
 st_0A = (function () { var result;
  result = new (((asm1)["FuncX`2"])((asm0)["System.Object"],(asm0)["System.Object"]))();
-(asm1.x600000c)(result,st_08,clone_value(st_09));
+(asm1.x600000c)(result,st_08,st_09);
 return result; })();
 /* IL_44: call Void WriteType(System.Delegate)*/
 (asm1.x6000014)(st_0A);
@@ -2965,7 +2965,7 @@ st_0D = asm1.x6000012;
 /* IL_5A: newobj Void .ctor(System.Object, System.IntPtr)*/
 st_0E = (function () { var result;
  result = new (((asm1)["FuncX`2"])((asm0)["System.Int32"],(asm0)["System.Object"]))();
-(asm1.x600000c)(result,st_0C,clone_value(st_0D));
+(asm1.x600000c)(result,st_0C,st_0D);
 return result; })();
 /* IL_5F: call Void WriteType(System.Delegate)*/
 (asm1.x6000014)(st_0E);
@@ -2980,7 +2980,7 @@ st_11 = asm1.x6000013;
 /* IL_75: newobj Void .ctor(System.Object, System.IntPtr)*/
 st_12 = (function () { var result;
  result = new (((asm1)["FuncX`2"])((asm0)["System.String"],(asm0)["System.Object"]))();
-(asm1.x600000c)(result,st_10,clone_value(st_11));
+(asm1.x600000c)(result,st_10,st_11);
 return result; })();
 /* IL_7A: call Void WriteType(System.Delegate)*/
 (asm1.x6000014)(st_12);
