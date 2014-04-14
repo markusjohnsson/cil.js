@@ -12,9 +12,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
     <title>Index</title>
     <style>
+        body {
+            background-color: #eeeeec;
+            color: #222;
+        }
+
         * {
             font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
             font-size: 10pt;
+        }
+
+        pre {
+            font-family: 'Consolas', 'Courier New', Courier, 'Nimbus Mono L', monospace
         }
     </style>
     <script src="~/Scripts/jquery-2.1.0.js"></script>
@@ -37,7 +46,7 @@
                 </div>
             </td>
             <td>
-                <a data-bind="attr: { href: '/Test/Run?name=/' + JsUrl }, text: Name"></a>
+                <a data-bind="attr: { href: '/Test/Run?name=/' + Name }, text: Name"></a>
             </td>
             <td>
                 <span style="color: green" data-bind="style: { display: testHasSucceeded() ? 'inline-block' : 'none' }">OK</span>
@@ -45,7 +54,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="3"><pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre></td>
+            <td colspan="3" data-bind="visible: errors().length > 0"><pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre></td>
         </tr>
     </table>
     

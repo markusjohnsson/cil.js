@@ -9,11 +9,41 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
+    <style>
+        body {
+            background-color: #eeeeec;
+            color: #222;
+        }
+
+        * {
+            font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+            font-size: 10pt;
+        }
+
+        pre {
+            font-family: 'Consolas', 'Courier New', Courier, 'Nimbus Mono L', monospace
+        }
+    </style>
+    <script src="~/Scripts/jquery-2.1.0.js"></script>
+    <script src="~/Scripts/knockout-3.1.0.debug.js"></script>
+    <script src="~/Scripts/rx.js"></script>
+    <script src="~/Scripts/rx.jquery.js"></script>
+
     <script src="@Model.ScriptPath" type="text/javascript">
     </script>
 
     <script>
+        var item = {
+            testHasSucceeded: ko.observable(false),
+            testHasFailed: ko.observable(false),
+            testRunning: ko.observable(false),
+            errors: ko.observable([])
+        };
+
         function runScript() {
+
+            ko.applyBindings(item);
+
             braille_test_log_clear();
             var result = "exitCode: " + asm1.entryPoint(); // do not remove "result" local.
             document.getElementById("output").innerHTML += result;
@@ -28,12 +58,53 @@
             document.getElementById("output").innerHTML += (asm0.ToJavaScriptString(message) + "<br/>");
         }
 
+        var testName = "@Model.TestName.TrimStart('/')";
+
+        function runTest() {
+            item.testRunning(true);
+            $.getJSONAsObservable("/api/testrunner?name=" + testName)
+             .subscribe(
+                function (result) {
+                    if (result.data.TestSuccess)
+                        item.testHasSucceeded(true);
+                    else {
+                        item.testHasFailed(true);
+                        item.errors(result.data.Errors);
+                    }
+
+                    item.testRunning(false);
+                });
+        }
+
         window.onload = runScript;
-    </script>   
+    </script>
 </head>
 <body>
     <div>
-        <button onclick="runScript()">Run again</button>
+        <table>
+            <tr>
+                <td>Run:
+                </td>
+                <td>
+                    <button onclick="runScript()">In browser</button>
+                </td>
+                <td>
+                    <button onclick="runTest()">CLR + JS</button>
+                </td>
+                <td>
+                    <span style="color: green" data-bind="visible: testHasSucceeded">OK</span>
+                    <span style="color: red" data-bind="visible: testHasFailed">FAILED</span>
+                    <div data-bind="visible: testRunning">
+                        <img src="/Images/throbber.gif" alt="Working..." />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" data-bind="visible: errors().length > 0">
+                    <pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre>
+                </td>
+            </tr>
+        </table>
         <pre id="output"></pre>
     </div>
 </body>

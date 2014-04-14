@@ -13,7 +13,9 @@ namespace Braille.TestRunner.Controllers
 {
     public class RunJsViewModel
     {
-        public string ScriptPath { get; set; }
+        public string ScriptPath { get { return TestName + ".exe.js"; } }
+
+        public string TestName { get; set; }
     }
 
     public class IndexViewModel
@@ -51,7 +53,7 @@ namespace Braille.TestRunner.Controllers
 
         public ActionResult Run(string name)
         {
-            return View(new RunJsViewModel { ScriptPath = name });
+            return View(new RunJsViewModel { TestName = name });
         }
 
     }
