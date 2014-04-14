@@ -366,6 +366,25 @@ namespace Braille.JsTranslation
                     {
                         var d = (IKVM.Reflection.Type)frame.Instruction.Data;
                         var value = ProcessInternal(frame.Arguments.Single());
+                        var originalValue = value;
+
+                        if (d.IsGenericParameter)
+                        {
+                            return new JSCallExpression
+                            {
+                                Function = JSIdentifier.Create("box"),
+                                Arguments = { value, GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope) }
+                            };
+                        }
+
+                        var isNullable = d.IsGenericType && d.GetGenericTypeDefinition().FullName.StartsWith("System.Nullable`1");
+
+                        if (isNullable)
+                        {
+                            d = d.GetGenericArguments()[0];
+                            value = JSIdentifier.Create(value, "value");
+                        }
+                        
                         var boxed = new JSObjectLiteral
                         {
                             Properties = new Dictionary<string, JSExpression>
@@ -381,19 +400,14 @@ namespace Braille.JsTranslation
                             }
                         };
 
-                        if (d.IsGenericParameter)
+                        if (isNullable)
                         {
-                            return new JSCallExpression
+                            return new JSConditionalExpression
                             {
-                                Function = JSIdentifier.Create("box"),
-                                Arguments = { value, GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope) }
+                                Condition = JSIdentifier.Create(originalValue, "has_value"),
+                                TrueValue = boxed,
+                                FalseValue = new JSNullLiteral()
                             };
-                            //return new JSConditionalExpression
-                            //{
-                            //    Condition = new JSPropertyAccessExpression(GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope), "IsValueType"),
-                            //    TrueValue = boxed,
-                            //    FalseValue = value
-                            //};
                         }
                         else if (d.IsValueType)
                         {
@@ -556,10 +570,16 @@ namespace Braille.JsTranslation
                         if (frame.Instruction.Data != null)
                             id = frame.Instruction.Data.ToString();
 
-                        return new JSIdentifier
+                        var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id;
+                        var result = new JSIdentifier
                         {
-                            Name = "__braille_args__[" + opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id + "]"
-                        };
+                            Name = "__braille_args__[" + idx + "]"
+                        } as JSExpression;
+                        
+                        //if (type.ReflectionType.IsValueType && idx == "0")
+                        //    result = Dereference(result);
+
+                        return result;
                     }
                 case "ldarga":
                     {
@@ -680,17 +700,28 @@ namespace Braille.JsTranslation
                 case "ldfld":
                     {
                         var fieldInfo = (FieldInfo)frame.Instruction.Data;
-                        var arg = ProcessInternal(frame.Arguments.Single());
+                        var argument = frame.Arguments.Single();
+                        var argExpression = ProcessInternal(argument);
 
-                        var source = fieldInfo.DeclaringType.IsValueType ?
-                            new JSCallExpression { Function = new JSPropertyAccessExpression { Host = arg, Property = "r" } } :
-                            arg;
+                        var source = DereferenceIfNeeded(argument, argExpression);
 
                         return new JSPropertyAccessExpression
                         {
                             Host = source,
                             Property = GetTranslatedFieldName(type, fieldInfo)
                         };
+                    }
+                case "ldflda":
+                    {
+                        var field = (FieldInfo)frame.Instruction.Data;
+                        return WrapInReaderWriter(new JSArrayLookupExpression
+                        {
+                            Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Indexer = new JSStringLiteral
+                            {
+                                Value = (string)field.Name
+                            }
+                        });
                     }
                 case "ldind":
                     {
@@ -753,18 +784,6 @@ namespace Braille.JsTranslation
                             Host = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Property = (string)field.Name
                         };
-                    }
-                case "ldflda":
-                    {
-                        var field = (FieldInfo)frame.Instruction.Data;
-                        return WrapInReaderWriter(new JSArrayLookupExpression
-                        {
-                            Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
-                            Indexer = new JSStringLiteral
-                            {
-                                Value = (string)field.Name
-                            }
-                        });
                     }
                 case "ldstr":
                     return new JSCallExpression
@@ -991,18 +1010,28 @@ namespace Braille.JsTranslation
                         Expression = ProcessInternal(frame.Arguments.Single())
                     };
                 case "unbox":
+                    var ttype = (Type)frame.Instruction.Data;
                     var prop = ProcessInternal(frame.Arguments.Single());
                     if (opc == "unbox.any")
-                        return new JSBinaryExpression
+                        return new JSCallExpression
                         {
-                            Left = new JSPropertyAccessExpression
-                            {
-                                Host = prop,
-                                Property = "boxed"
-                            },
-                            Operator = "||",
-                            Right = prop
+                            Function = JSIdentifier.Create("unbox_any"),
+                            Arguments = 
+                            { 
+                                prop,
+                                GetTypeIdentifier(ttype, method.ReflectionMethod, type.ReflectionType, thisScope)
+                            }
                         };
+                    //return new JSBinaryExpression
+                    //{
+                    //    Left = new JSPropertyAccessExpression
+                    //    {
+                    //        Host = prop,
+                    //        Property = "boxed"
+                    //    },
+                    //    Operator = "||",
+                    //    Right = prop
+                    //};
                     else
                         return new JSPropertyAccessExpression
                         {
@@ -1015,6 +1044,26 @@ namespace Braille.JsTranslation
                         Text = opc + ": opcode not implmented"
                     };
             }
+        }
+
+        private JSExpression DereferenceIfNeeded(VariableInfo argument, JSExpression argExpression)
+        {
+            if (argument.ResultType == null)
+                return argExpression;
+
+            return IsManagedPointer(argument.ResultType) ?
+                Dereference(argExpression) :
+                argExpression;
+        }
+
+        private static JSCallExpression Dereference(JSExpression argExpression)
+        {
+            return new JSCallExpression { Function = new JSPropertyAccessExpression { Host = argExpression, Property = "r" } };
+        }
+
+        private bool IsManagedPointer(Type type)
+        {
+            return type.IsGenericType && type.GetGenericTypeDefinition() == context.ReflectionUniverse.GetType("Braille.Runtime.ManagedPointer`1");
         }
 
         private static JSExpression CloneValueTypeIfNeeded(JSExpression value, Type type)

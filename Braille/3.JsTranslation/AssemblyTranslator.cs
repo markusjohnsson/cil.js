@@ -38,12 +38,15 @@ namespace Braille.JsTranslation
                 Name =
                     @"
 function clone_value(v) {
+    if (v == null) return v;
     if (typeof v === 'number') return v;
     if (typeof v === 'function') return v;
-    var result = {};
+    if (!v.constructor.IsValueType) return v;
+    var result = new v.constructor();
+//    var result = {};
     for (var p in v) {
         if (v.hasOwnProperty(p))
-            result[p] = v[p];
+            result[p] = clone_value(v[p]);
     }
     return result;
 }
@@ -73,6 +76,15 @@ function unbox(o, type) {
 }
 
 function unbox_any(o, type) {
+    if (type.IsNullable) {
+        var result = new type();
+        if (o !== null) {
+            result.value = o.boxed;
+            result.has_value = true;
+        }
+        return result;
+    }
+    
     if (type.IsValueType)
         return o.boxed;
     else

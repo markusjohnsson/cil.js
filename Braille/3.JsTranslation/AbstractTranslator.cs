@@ -153,11 +153,7 @@ namespace Braille.JsTranslation
                 fieldType.IsValueType ?
                     new JSNewExpression
                     {
-                        Constructor = new JSPropertyAccessExpression
-                        {
-                            Host = GetAssemblyIdentifier(fieldType),
-                            Property = fieldType.Namespace == null ? fieldType.Name : fieldType.Namespace + "." + fieldType.Name
-                        }
+                        Constructor = GetTypeIdentifier(fieldType, methodScope, typeScope, thisScope)
                     } as JSExpression :
                     new JSNullLiteral();
         }

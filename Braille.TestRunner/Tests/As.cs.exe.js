@@ -1,12 +1,15 @@
 var asm0; (function (asm) { var self;
  
 function clone_value(v) {
+    if (v == null) return v;
     if (typeof v === 'number') return v;
     if (typeof v === 'function') return v;
-    var result = {};
+    if (!v.constructor.IsValueType) return v;
+    var result = new v.constructor();
+//    var result = {};
     for (var p in v) {
         if (v.hasOwnProperty(p))
-            result[p] = v[p];
+            result[p] = clone_value(v[p]);
     }
     return result;
 }
@@ -36,6 +39,15 @@ function unbox(o, type) {
 }
 
 function unbox_any(o, type) {
+    if (type.IsNullable) {
+        var result = new type();
+        if (o !== null) {
+            result.value = o.boxed;
+            result.has_value = true;
+        }
+        return result;
+    }
+    
     if (type.IsValueType)
         return o.boxed;
     else
@@ -492,9 +504,9 @@ st_11 = __braille_args__[0];
 /* IL_2A: ldarg.1 */
 st_10 = __braille_args__[1];
 /* IL_2B: unbox.any System.Nullable`1[T]*/
-st_12 = (st_10.boxed || st_10);
+st_12 = unbox_any(st_10,(asm0)["System.Nullable`1"]);
 /* IL_30: call Boolean Equals(System.Nullable`1[T])*/
-st_13 = (asm0.x6000016)(clone_value(st_11),clone_value(st_12));
+st_13 = (asm0.x6000016)(st_11,clone_value(st_12));
 /* IL_35: stloc.0 */
 loc0 = st_13;
 case 0x38:
@@ -1004,7 +1016,7 @@ case 0x18:
 /* IL_18: ldarg.0 */
 st_08 = __braille_args__[0];
 /* IL_19: unbox.any T*/
-st_09 = (st_08.boxed || st_08);
+st_09 = unbox_any(st_08,T);
 /* IL_1E: newobj Void .ctor(T)*/
 st_0A = (function () { var result;
  result = new ((asm0)["System.Nullable`1"])();
@@ -1614,7 +1626,7 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000051 = function _ctor() { var __braille_args__;
+asm.x6000047 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -1628,10 +1640,18 @@ var st_00;
 /* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
-(asm0.x600000d)(st_00);
 /* IL_06: ret */
 return ; };
 asm.x6000053 = function _ctor() { var __braille_args__;
+var st_00;
+ __braille_args__ = arguments;
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: call Void .ctor()*/
+(asm0.x600000d)(st_00);
+/* IL_06: ret */
+return ; };
+asm.x6000054 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -1643,7 +1663,7 @@ st_00 = __braille_args__[0];
 /* IL_08: nop */
 /* IL_09: ret */
 return ; };
-asm.x6000054 = function _ctor() { var __braille_args__;
+asm.x6000055 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -2636,6 +2656,40 @@ Void.prototype = {
 };;
 return Void; })();
 (asm)["System.Void"] = self;
+self = (function () { var ct;
+ ct = { 
+ 
+};
+return function (T) { var c;
+var initialized;
+ c = tree_get([ T ],ct);
+if (c){
+return c;
+}
+initialized = false;;
+function ManagedPointer_1() { 
+ if (!initialized){
+(ManagedPointer_1.init)();
+}
+this.constructor = ManagedPointer_1; };
+ManagedPointer_1.init = function () { 
+ initialized = true;
+ManagedPointer_1.Interfaces = [  ];
+ManagedPointer_1.IsInst = function (t) { return t instanceof ManagedPointer_1; };
+ManagedPointer_1.IsValueType = false;
+ManagedPointer_1.IsPrimitive = false;
+ManagedPointer_1.IsNullable = false;
+ManagedPointer_1.GenericArguments = [ T ];
+ManagedPointer_1.prototype.vtable = { 
+'x6000002': asm0.x6000002,
+'x6000003': asm0.x6000003,
+'x6000006': asm0.x6000006 
+}; };
+ManagedPointer_1.prototype = new ((asm0)["System.Object"])();;
+c = ManagedPointer_1;
+tree_set([ T ],ct,c);
+return c; }; })();
+(asm)["Braille.Runtime.ManagedPointer`1"] = self;
 self = (function () { var initialized;
  initialized = false;;
 function Debugger() { 
@@ -2771,12 +2825,15 @@ return TargetFrameworkAttribute; })();
 var asm1; (function (asm) { var self;
  
 function clone_value(v) {
+    if (v == null) return v;
     if (typeof v === 'number') return v;
     if (typeof v === 'function') return v;
-    var result = {};
+    if (!v.constructor.IsValueType) return v;
+    var result = new v.constructor();
+//    var result = {};
     for (var p in v) {
         if (v.hasOwnProperty(p))
-            result[p] = v[p];
+            result[p] = clone_value(v[p]);
     }
     return result;
 }
@@ -2806,6 +2863,15 @@ function unbox(o, type) {
 }
 
 function unbox_any(o, type) {
+    if (type.IsNullable) {
+        var result = new type();
+        if (o !== null) {
+            result.value = o.boxed;
+            result.has_value = true;
+        }
+        return result;
+    }
+    
     if (type.IsValueType)
         return o.boxed;
     else
@@ -3022,7 +3088,7 @@ st_00 = __braille_args__[0];
 /* IL_01: isinst T*/
 st_01 = (T.IsInst)(st_00);
 /* IL_06: unbox.any T*/
-st_02 = (st_01.boxed || st_01);
+st_02 = unbox_any(st_01,T);
 /* IL_0B: box T*/
 st_03 = box(st_02,T);
 /* IL_10: brfalse.s IL_19*/

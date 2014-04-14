@@ -203,6 +203,13 @@ namespace System
     }
 }
 
+namespace Braille.Runtime
+{
+    internal class ManagedPointer<T>
+    {
+    }
+}
+
 namespace Braille.Runtime.TranslatorServices
 {
     [JsIgnore]

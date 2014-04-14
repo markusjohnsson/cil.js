@@ -27,6 +27,7 @@ namespace Braille.Analysis
         private Type _char;
         private Type _byte;
         private Type _sbyte;
+        private Type mpointer;
 
         public TypeInference(Universe universe)
         {
@@ -47,6 +48,7 @@ namespace Braille.Analysis
             _double = universe.GetType("System.Double");
             _object = universe.GetType("System.Object");
             _string = universe.GetType("System.String");
+            mpointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
         }
 
         public void InferTypes(CilMethod method, IEnumerable<OpExpression> opAst)
@@ -138,7 +140,12 @@ namespace Braille.Analysis
                         if (false == method.ReflectionMethod.IsStatic)
                         {
                             if (idx == 0)
-                                return method.ReflectionMethod.DeclaringType;
+                            {
+                                if (method.ReflectionMethod.DeclaringType.IsValueType)
+                                    return mpointer.MakeGenericType(method.ReflectionMethod.DeclaringType);
+                                else
+                                    return method.ReflectionMethod.DeclaringType;
+                            }
                             else
                                 idx -= 1;
                         }
@@ -146,7 +153,23 @@ namespace Braille.Analysis
                         return method.ReflectionMethod.GetParameters()[idx].ParameterType;
                     }
                 case "ldarga":
-                    return intPtr;
+                    {
+                        var idxStr = "";
+
+                        if (op.Instruction.Data != null)
+                            idxStr = op.Instruction.Data.ToString();
+
+                        idxStr = opc.Replace(".s", ".").Replace(".", "").Substring("ldarga".Length) + idxStr;
+
+                        var idx = int.Parse(idxStr);
+
+                        if (method.ReflectionMethod.IsStatic == false)
+                            idx--;
+
+                        var args = method.ReflectionMethod.GetParameters();
+                        var type = args[idx].ParameterType;
+                        return mpointer.MakeGenericType(type);
+                    }
                 case "ldc":
                     if (opc.StartsWith("ldc.i4"))
                     {
@@ -167,7 +190,10 @@ namespace Braille.Analysis
                 case "ldelem":
                     return (Type)op.Instruction.Data;
                 case "ldelema":
-                    return intPtr;
+                    {
+                        var type = (Type)op.Instruction.Data;
+                        return mpointer.MakeGenericType(type);
+                    }
                 case "ldfld":
                     return ((FieldInfo)op.Instruction.Data).FieldType;
                 case "ldftn":
@@ -184,7 +210,16 @@ namespace Braille.Analysis
                         return method.ReflectionMethod.GetMethodBody().LocalVariables[int.Parse(id)].LocalType;
                     }
                 case "ldloca":
-                    return intPtr;
+                    {
+                        var id = "";
+                        if (op.Instruction.Data != null)
+                            id = op.Instruction.Data.ToString();
+
+                        var idx = int.Parse(opc.Substring(5).Replace("a.", ".").Replace(".s", ".").Replace(".", "") + id);
+
+                        var type = method.ReflectionMethod.GetMethodBody().LocalVariables[idx].LocalType;
+                        return mpointer.MakeGenericType(type);
+                    }
                 case "ldnull":
                     return _null;
                 case "ldobj":
@@ -192,7 +227,10 @@ namespace Braille.Analysis
                 case "ldsfld":
                     return ((FieldInfo)op.Instruction.Data).FieldType;
                 case "ldflda":
-                    return intPtr;
+                    {
+                        var fieldType = ((FieldInfo)op.Instruction.Data).FieldType;
+                        return mpointer.MakeGenericType(fieldType);
+                    }
                 case "ldstr":
                     return _string;
                 case "ldtoken":
