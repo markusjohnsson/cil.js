@@ -967,8 +967,6 @@ var __braille_pos_0__;
  __braille_args__ = arguments;
 (T.init)();
 ((asm0)["System.Nullable`1"].init)();
-(T.init)();
-((asm0)["System.Nullable`1"].init)();
 loc0 = new ((asm0)["System.Nullable`1"])();
 loc1 = false;
 loc2 = new ((asm0)["System.Nullable`1"])();
@@ -2935,7 +2933,6 @@ var st_05;
 var st_06;
  __braille_args__ = arguments;
 (asm1.S.init)();
-((asm0)["System.Int32"].init)();
 ((asm0)["System.Int32"].init)();
 loc0 = new (asm1.S)();
 /* IL_00: ldloca.s 0*/

@@ -967,8 +967,6 @@ var __braille_pos_0__;
  __braille_args__ = arguments;
 (T.init)();
 ((asm0)["System.Nullable`1"].init)();
-(T.init)();
-((asm0)["System.Nullable`1"].init)();
 loc0 = new ((asm0)["System.Nullable`1"])();
 loc1 = false;
 loc2 = new ((asm0)["System.Nullable`1"])();
@@ -2956,8 +2954,6 @@ var __braille_pos_0__;
 (asm1.IntWrapper.init)();
 (asm1.StringWrapper.init)();
 (((asm1)["MFunc`2"])(asm1.IntWrapper,asm1.StringWrapper).init)();
-(asm1.Program.init)();
-(asm1.Program.init)();
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {

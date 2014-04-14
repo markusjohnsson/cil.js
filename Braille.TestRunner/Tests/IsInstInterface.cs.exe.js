@@ -967,8 +967,6 @@ var __braille_pos_0__;
  __braille_args__ = arguments;
 (T.init)();
 ((asm0)["System.Nullable`1"].init)();
-(T.init)();
-((asm0)["System.Nullable`1"].init)();
 loc0 = new ((asm0)["System.Nullable`1"])();
 loc1 = false;
 loc2 = new ((asm0)["System.Nullable`1"])();

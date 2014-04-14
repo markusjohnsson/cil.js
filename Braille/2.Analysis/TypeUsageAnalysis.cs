@@ -22,6 +22,7 @@ namespace Braille.Analysis
             method.ReferencedTypes = opAst
                 .SelectMany(op => FindTypes(method, op))
                 .SelectMany(t => ExpandGenericTypes(t))
+                .Distinct()
                 .ToArray();
         }
 
