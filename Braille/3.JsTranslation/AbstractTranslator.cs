@@ -74,7 +74,10 @@ namespace Braille.JsTranslation
             }
             else
             {
-                return JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName);
+                return new JSCallExpression
+                {
+                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName)
+                };
             }
         }
 

@@ -114,7 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="MonoTests\static-ctor.cs" />
     <Compile Include="Tests\Nullable.cs" />
+    <None Include="Tests\PrimitiveToString.cs" />
     <None Include="Tests\GenericFieldDefaults.cs" />
     <None Include="Tests\Strings.cs" />
     <None Include="Tests\PrivateFields.cs" />

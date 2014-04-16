@@ -109,21 +109,19 @@ function tree_set(a, s, v) {
 }
 
 function new_string(str) {
-    var r = new asm0['System.String']();
+    var r = new (asm0['System.String']())();
     r.jsstr = str;
     return r;
 }
 
 function new_array(type, length) {
-    var r = new asm0['System.Array']();
+    var r = new (asm0['System.Array']())();
     r.type = type;
     r.jsarr = new Array(length);
     return r;
 }
 "
             };
-
-            yield return new JSVariableDelcaration { Name = "self" };
 
             foreach (var type in asm.Types)
             {
@@ -178,23 +176,16 @@ function new_array(type, length) {
 
                 yield return new JSBinaryExpression
                 {
-                    Left = new JSIdentifier { Name = "self" },
-                    Operator = "=",
-                    Right = new JSCallExpression
-                    {
-                        Function = typeTranslator.Translate(t)
-                    }
-                };
-
-                yield return new JSBinaryExpression
-                {
                     Left = new JSPropertyAccessExpression
                     {
                         Host = new JSIdentifier { Name = "asm" },
                         Property = t.ReflectionType.FullName
                     },
                     Operator = "=",
-                    Right = new JSIdentifier { Name = "self" }
+                    Right = new JSCallExpression
+                    {
+                        Function = typeTranslator.Translate(t)
+                    }
                 };
             }
 

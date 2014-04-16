@@ -20,16 +20,32 @@ namespace System
 
     public struct Boolean
     {
+        public override string ToString()
+        {
+            return this ? "True" : "False";
+        }
     }
 
     public struct Byte
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct Char
     {
         public const char MinValue = (char)0;
         public const char MaxValue = (char)65535;
+
+        public override string ToString()
+        {
+            return ToStringImpl(this);
+        }
+
+        [JsImport("function(o) { return new_string(String.fromCharCode(o.boxed)); }")]
+        private extern static string ToStringImpl(object o);
     }
 
     public class Console
@@ -43,6 +59,10 @@ namespace System
 
     public struct Double
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public class Enum : ValueType
@@ -89,25 +109,40 @@ namespace System
 
     public struct Int16
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct Int32
     {
         public override string ToString()
         {
-            return ToStringImpl(this);
+            return InternalFormatting.NumberStructToString(this);
         }
+    }
 
+    internal static class InternalFormatting
+    {
         [JsImport("function(o) { return new_string(o.boxed.toString()); }")]
-        private extern static string ToStringImpl(object o);
+        internal extern static string NumberStructToString(object o);
     }
 
     public struct Int64
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct IntPtr
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public class Math
@@ -133,10 +168,18 @@ namespace System
 
     public struct SByte
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct Single
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public class Type
@@ -145,18 +188,34 @@ namespace System
 
     public struct UInt16
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct UInt32
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct UInt64
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public struct UIntPtr
     {
+        public override string ToString()
+        {
+            return InternalFormatting.NumberStructToString(this);
+        }
     }
 
     public class ValueType
@@ -205,6 +264,7 @@ namespace System
 
 namespace Braille.Runtime
 {
+    [JsIgnore]
     internal class ManagedPointer<T>
     {
     }
@@ -293,6 +353,7 @@ namespace System.Runtime.CompilerServices
 
 namespace System.Runtime.Versioning
 {
+    [JsIgnore]
     public class TargetFrameworkAttribute : Attribute
     {
     }

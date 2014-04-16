@@ -18,89 +18,93 @@ namespace Braille.JsTranslation
 
         public JSExpression Translate(CilType type)
         {
-            // TODO: use this wether type is generic or not.. but skip the advanced caching
+            var isGeneric = type.ReflectionType.IsGenericTypeDefinition;
 
-            if (type.ReflectionType.IsGenericTypeDefinition)
-            {
-                var cacheKey = GetGenericArgumentsArray(type);
+            var body = new List<JSStatement>();
 
-                var body =
-                    new List<JSStatement> 
-                        {
-                            new JSVariableDelcaration 
-                            { 
-                                Name = "c", 
-                                Value = new JSCallExpression 
-                                { 
-                                    Function = new JSIdentifier { Name = "tree_get" }, 
-                                    Arguments = new List<JSExpression> 
-                                    {
-                                        cacheKey,
-                                        JSIdentifier.Create("ct") 
-                                    }
-                                }
-                            }.ToStatement(),
-                            new JSIfStatement
-                            {
-                                Condition = JSIdentifier.Create("c"),
-                                Statements = 
-                                {
-                                    new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
-                                }
-                            }
-                        };
+            var cachedInstance = JSIdentifier.Create("c");
+            var cache = JSIdentifier.Create("ct");
 
-                body.AddRange(GetTypeDeclaration(type).Select(s => s.ToStatement()));
+            var cacheKey = isGeneric ? GetGenericArgumentsArray(type) : null;
 
-                body.AddRange(
-                    new[] 
-                        { 
-                            new JSBinaryExpression 
-                            {
-                                Left = JSIdentifier.Create("c"),
-                                Operator = "=",
-                                Right = new JSIdentifier { Name = GetSimpleName(type) }
-                            }.ToStatement(),
+            body.Add(
+                new JSVariableDelcaration
+                {
+                    Name = "c",
+                    Value =
+                        isGeneric ?
                             new JSCallExpression
                             {
-                                Function = JSIdentifier.Create("tree_set"),
-                                Arguments = new List<JSExpression>
-                                {
-                                    cacheKey,
-                                    JSIdentifier.Create("ct"),
-                                    JSIdentifier.Create("c")
-                                }
-                            }.ToStatement(),
-                            new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement()
-                        });
+                                Function = new JSIdentifier { Name = "tree_get" },
+                                Arguments = new List<JSExpression> { cacheKey, cache }
+                            } :
+                            cache
+                }.ToStatement());
 
-                return new JSFunctionDelcaration
+            body.Add(
+                new JSIfStatement
                 {
-                    Body =
-                        new List<JSStatement> 
-                            {
-                                new JSVariableDelcaration { Name = "ct", Value = new JSObjectLiteral() }.ToStatement(),
-                                new JSReturnExpression 
-                                { 
-                                    Expression = new JSFunctionDelcaration
-                                    {
-                                        Body = body,
-                                        Parameters = type.ReflectionType.GetGenericArguments().Select(s => new JSFunctionParameter { Name = s.Name }).ToList()
-                                    }
-                                }.ToStatement()
-                            }
-                };
+                    Condition = cachedInstance,
+                    Statements = { new JSReturnExpression { Expression = cachedInstance }.ToStatement() }
+                });
+
+            body.AddRange(GetTypeDeclaration(type).Select(s => s.ToStatement()));
+
+            body.Add(
+                new JSBinaryExpression
+                {
+                    Left = cachedInstance,
+                    Operator = "=",
+                    Right = new JSIdentifier { Name = GetSimpleName(type) }
+                }.ToStatement());
+
+            if (isGeneric)
+            {
+                body.Add(
+                    new JSCallExpression
+                    {
+                        Function = JSIdentifier.Create("tree_set"),
+                        Arguments = new List<JSExpression>
+                        {
+                            cacheKey,
+                            cache,
+                            cachedInstance
+                        }
+                    }.ToStatement());
             }
             else
             {
-                return new JSFunctionDelcaration
-                {
-                    Body = GetTypeDeclaration(type)
-                        .EndWith(new JSReturnExpression { Expression = new JSIdentifier { Name = GetSimpleName(type) } })
-                        .Select(s => new JSStatement { Expression = s })
-                        .ToList()
-                };
+                body.Add(new JSBinaryExpression { Left = cache, Operator = "=", Right = cachedInstance }.ToStatement());
             }
+
+            body.Add(new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement());
+
+            return new JSFunctionDelcaration
+            {
+                Body =
+                    new List<JSStatement> 
+                    {
+                        new JSVariableDelcaration 
+                        { 
+                            Name = "ct", 
+                            Value = isGeneric ? 
+                                new JSObjectLiteral() as JSExpression : 
+                                new JSNullLiteral() 
+                        }.ToStatement(),
+
+                        new JSReturnExpression 
+                        { 
+                            Expression = new JSFunctionDelcaration
+                            {
+                                Body = body,
+                                Parameters = type.ReflectionType.GetGenericArguments()
+                                    .Select(
+                                        s => new JSFunctionParameter { Name = s.Name })
+                                    .ToList()
+                            }
+                        }.ToStatement()
+                    }
+            };
         }
 
         private static JSArrayLiteral GetGenericArgumentsArray(CilType type)
@@ -132,13 +136,7 @@ namespace Braille.JsTranslation
             {
                 Name = n,
                 Body = {
-                    new JSIfStatement 
-                    {
-                        Condition = new JSIdentifier { Name = "!initialized" },
-                        Statements = { 
-                            new JSCallExpression { Function = JSIdentifier.Create(n, "init") }.ToStatement()
-                        }
-                    },
+                    new JSCallExpression { Function = JSIdentifier.Create(n, "init") }.ToStatement(),
                     new JSBinaryExpression 
                     {
                         Left = JSIdentifier.Create("this", "constructor"),
@@ -157,13 +155,6 @@ namespace Braille.JsTranslation
                 {
                     Body =
                         GetInitialization(n, type)
-                        .StartWith(
-                            new JSBinaryExpression
-                            {
-                                Left = new JSIdentifier { Name = "initialized" },
-                                Operator = "=",
-                                Right = new JSBoolLiteral { Value = true }
-                            }.ToStatement())
                         .ToList()
                 }
             };
@@ -175,12 +166,11 @@ namespace Braille.JsTranslation
                     Left = JSIdentifier.Create(n, "prototype"),
                     Operator = "=",
                     Right = (type.ReflectionType.BaseType != null &&
-                        //type.ReflectionType.BaseType.FullName != "System.Object" &&
                              type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
                              type.ReflectionType.BaseType.FullName != "System.ValueType") ?
                         new JSNewExpression
                         {
-                            Constructor = JSIdentifier.Create(GetAssemblyIdentifier(type.ReflectionType.BaseType), type.ReflectionType.BaseType.FullName)
+                            Constructor = GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType) 
                         } :
                         new JSObjectLiteral() as JSExpression
                 }
@@ -190,6 +180,22 @@ namespace Braille.JsTranslation
 
         public IEnumerable<JSStatement> GetInitialization(string n, CilType type)
         {
+
+            yield return new JSIfStatement
+            {
+                Condition = new JSIdentifier { Name = "initialized" },
+                Statements =
+                {
+                    new JSReturnExpression().ToStatement()
+                }
+            };
+
+            yield return new JSBinaryExpression
+            {
+                Left = new JSIdentifier { Name = "initialized" },
+                Operator = "=",
+                Right = new JSBoolLiteral { Value = true }
+            }.ToStatement();
 
             var staticProperties = GetStaticFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
@@ -210,6 +216,16 @@ namespace Braille.JsTranslation
                     Operator = "=",
                     Right = p.Value
                 }.ToStatement();
+            }
+
+            var cctors = type.ReflectionType.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            if (cctors.Any())
+            {
+                yield return new JSCallExpression
+                {
+                    Function = GetMethodAccessor(cctors[0])
+                }
+                .ToStatement();
             }
 
             var prototypeProperties = GetFieldInitializers(type)
@@ -331,8 +347,5 @@ namespace Braille.JsTranslation
                 GetTranslatedFieldName(type, f),
                 GetDefaultValue(f.FieldType, typeScope: type.ReflectionType));
         }
-
-
-
     }
 }
