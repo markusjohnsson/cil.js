@@ -603,7 +603,7 @@ namespace Braille.JsTranslation
                         else if (opc == "ldc.i4.s")
                             return new JSNumberLiteral
                             {
-                                Value = (int)(byte)frame.Instruction.Data
+                                Value = (int)(sbyte)(byte)frame.Instruction.Data
                             };
                         else if (opc == "ldc.i4.m1")
                             return new JSNumberLiteral

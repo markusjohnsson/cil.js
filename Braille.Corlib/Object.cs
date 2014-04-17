@@ -231,6 +231,9 @@ namespace System
         [JsImport("function (a, b) { return a === b; }")]
         private extern static bool ReferenceEqualsImpl(object a, object b);
 
+        [JsImport("function (o) { return o.constructor; }")]
+        private static extern Type GetTypeImpl(object p);
+
         public virtual string ToString()
         {
             return "System.Object";
@@ -258,6 +261,11 @@ namespace System
         public virtual bool Equals(object other)
         {
             return ReferenceEquals(this, other);
+        }
+
+        public Type GetType()
+        {
+            return GetTypeImpl(this);
         }
     }
 }
