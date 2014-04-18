@@ -1,5 +1,6 @@
 ﻿
 
+using Braille.Runtime.TranslatorServices;
 using System.Collections.Generic;
 
 namespace System.Linq
@@ -59,9 +60,30 @@ namespace Raytracer
 {
     public class Program
     {
+        [JsImport(@"function() { return document.getElementById(""canvas"").getContext(""2d""); }")]
+        public static extern object GetContext();
+
+        [JsImport(@"function(ctx) { return ctx.createImageData(500,500); }")]
+        public static extern object CreateImageData(object ctx);
+
+        [JsImport(@"function(ctx, data) { return ctx.putImageData(data, 0, 0); }")]
+        public static extern object PutImageData(object ctx, object data);
+
+        [JsImport(@"function(data, x, y, r, g, b, a) { 
+                data[x + y * 500 + 0] = 255 * r;
+                data[x + y * 500 + 1] = 255 * g;
+                data[x + y * 500 + 2] = 255 * b;
+                data[x + y * 500 + 3] = 255 * a; 
+            }")]
+        public static extern void SetPixel(object data, int x, int y, double r, double g, double b, double a);
+
         public static void Main() 
         {
-            
+            var ctx = GetContext();
+            var data = CreateImageData(ctx);
+
+            var raytracer = new RayTracer.RayTracer(500, 500, (x, y, c) => { SetPixel(data, x, y, c.R, c.G, c.B, 1); });
+            raytracer.Render(raytracer.DefaultScene);
         }
     }
 }

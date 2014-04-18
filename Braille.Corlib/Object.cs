@@ -366,7 +366,7 @@ namespace Braille.Runtime.TranslatorServices
     }
     [JsIgnore]
     [AttributeUsage(AttributeTargets.Method)]
-    internal class JsImportAttribute : Attribute
+    public class JsImportAttribute : Attribute
     {
         public JsImportAttribute(string function)
         {

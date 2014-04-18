@@ -68,7 +68,7 @@ namespace Braille.JsTranslation
                 return new JSCallExpression
                 {
                     Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
-                        string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
+                        string.Join(".", new[] { type.Namespace, type.DeclaringType != null ? (type.DeclaringType.Name + "+" + type.Name) : type.Name }.Where(e => e != null))),
                     Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, methodScope, typeScope, thisScope)).ToList()
                 };
             }

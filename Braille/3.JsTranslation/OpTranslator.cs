@@ -438,7 +438,7 @@ namespace Braille.JsTranslation
                         {
                             Function =
                                 replacement != null
-                                    ? JSIdentifier.Create(replacement.Replacement)
+                                    ? JSIdentifier.Create("(" + replacement.Replacement + ")")
                                     : GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = ProcessList(frame.Arguments).ToList()
                         };
@@ -805,6 +805,12 @@ namespace Braille.JsTranslation
                         Left = ProcessInternal(frame.Arguments.First()),
                         Right = ProcessInternal(frame.Arguments.Last()),
                         Operator = "*"
+                    };
+                case "neg":
+                    return new JSUnaryExpression 
+                    {
+                        Operator = "-",
+                        Operand = ProcessInternal(frame.Arguments.Single())
                     };
                 case "newarr":
                     var length = ProcessInternal(frame.Arguments.First());

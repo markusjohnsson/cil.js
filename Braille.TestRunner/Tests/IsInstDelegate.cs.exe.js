@@ -197,7 +197,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Boolean ReferenceEqualsImpl(System.Object, System.Object)*/
-st_02 = function (a, b) { return a === b; }(st_00,st_01);
+st_02 = (function (a, b) { return a === b; })(st_00,st_01);
 /* IL_08: stloc.0 */
 loc0 = st_02;
 /* IL_0B: ldloc.0 */
@@ -236,7 +236,7 @@ loc0 = null;
 /* IL_01: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_02: call Type GetTypeImpl(System.Object)*/
-st_01 = function (o) { return o.constructor; }(st_00);
+st_01 = (function (o) { return o.constructor; })(st_00);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -269,7 +269,7 @@ loc0 = 0;
 /* IL_01: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-st_01 = function(o) { return o.jsarr.length; }(st_00);
+st_01 = (function(o) { return o.jsarr.length; })(st_00);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -290,7 +290,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Object GetValueImpl(System.Object, System.Int32)*/
-st_02 = function(o, i) { return box(o.jsarr[i], o.type); }(st_00,st_01);
+st_02 = (function(o, i) { return box(o.jsarr[i], o.type); })(st_00,st_01);
 /* IL_08: stloc.0 */
 loc0 = st_02;
 /* IL_0B: ldloc.0 */
@@ -1141,7 +1141,7 @@ st_07 = __braille_args__[1];
 /* IL_10: ldloc.1 */
 st_08 = loc1;
 /* IL_11: call String ConcatImpl(System.String[])*/
-st_09 = function () { return new_string(String.prototype.concat.apply('', arguments)); }(st_08);
+st_09 = (function () { return new_string(String.prototype.concat.apply('', arguments)); })(st_08);
 /* IL_16: stloc.0 */
 loc0 = st_09;
 /* IL_19: ldloc.0 */
@@ -1198,7 +1198,7 @@ st_09 = (st_06.vtable.x6000003)(st_06);
 /* IL_1A: ldloc.1 */
 st_0A = loc1;
 /* IL_1B: call String ConcatImpl(System.String[])*/
-st_0B = function () { return new_string(String.prototype.concat.apply('', arguments)); }(st_0A);
+st_0B = (function () { return new_string(String.prototype.concat.apply('', arguments)); })(st_0A);
 /* IL_20: stloc.0 */
 loc0 = st_0B;
 /* IL_23: ldloc.0 */
@@ -1216,7 +1216,7 @@ loc0 = null;
 /* IL_01: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_02: call String ConcatImpl(System.String[])*/
-st_01 = function () { return new_string(String.prototype.concat.apply('', arguments)); }(st_00);
+st_01 = (function () { return new_string(String.prototype.concat.apply('', arguments)); })(st_00);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -1249,7 +1249,7 @@ loc0 = 0;
 /* IL_01: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-st_01 = function(o) { return o.jsstr.length; }(st_00);
+st_01 = (function(o) { return o.jsstr.length; })(st_00);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -1287,7 +1287,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-st_02 = function(a, b) { return a.jsstr === b.jsstr; }(st_00,st_01);
+st_02 = (function(a, b) { return a.jsstr === b.jsstr; })(st_00,st_01);
 /* IL_08: ldc.i4.0 */
 st_03 = 0;
 /* IL_0A: ceq */
@@ -1312,7 +1312,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-st_02 = function(a, b) { return a.jsstr === b.jsstr; }(st_00,st_01);
+st_02 = (function(a, b) { return a.jsstr === b.jsstr; })(st_00,st_01);
 /* IL_08: stloc.0 */
 loc0 = st_02;
 /* IL_0B: ldloc.0 */
@@ -1333,7 +1333,7 @@ st_00 = __braille_args__[0];
 /* IL_02: ldarg.1 */
 st_01 = __braille_args__[1];
 /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-st_02 = function(a, b) { return a.jsstr === b.jsstr; }(st_00,st_01);
+st_02 = (function(a, b) { return a.jsstr === b.jsstr; })(st_00,st_01);
 /* IL_08: stloc.0 */
 loc0 = st_02;
 /* IL_0B: ldloc.0 */
@@ -1538,7 +1538,7 @@ st_02 = {
 'vtable': ((asm0)["System.Byte"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1566,7 +1566,7 @@ st_02 = {
 'vtable': ((asm0)["System.Char"])().prototype.vtable 
 };
 /* IL_08: call String ToStringImpl(System.Object)*/
-st_03 = function(o) { return new_string(String.fromCharCode(o.boxed)); }(st_02);
+st_03 = (function(o) { return new_string(String.fromCharCode(o.boxed)); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1583,7 +1583,7 @@ st_00 = __braille_args__[0];
 /* IL_02: callvirt String ToString()*/
 st_01 = (st_00.vtable.x6000003)(st_00);
 /* IL_07: call Void WriteLineImpl(System.Object)*/
-(function (o) { console.log(o); })(st_01);
+((function (o) { console.log(o); }))(st_01);
 /* IL_0C: nop */
 /* IL_0D: ret */
 return ; };
@@ -1624,7 +1624,7 @@ st_02 = {
 'vtable': ((asm0)["System.Double"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1736,7 +1736,7 @@ st_02 = {
 'vtable': ((asm0)["System.Int16"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1764,7 +1764,7 @@ st_02 = {
 'vtable': ((asm0)["System.Int32"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1792,7 +1792,7 @@ st_02 = {
 'vtable': ((asm0)["System.Int64"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1820,7 +1820,7 @@ st_02 = {
 'vtable': ((asm0)["System.IntPtr"])().prototype.vtable 
 };
 /* IL_0C: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_11: stloc.0 */
 loc0 = st_03;
 /* IL_14: ldloc.0 */
@@ -1845,7 +1845,7 @@ st_01 = {
 'vtable': ((asm0)["System.Double"])().prototype.vtable 
 };
 /* IL_07: call Double SqrtImpl(System.Object)*/
-st_02 = function(o) { return Math.sqrt(o.boxed); }(st_01);
+st_02 = (function(o) { return Math.sqrt(o.boxed); })(st_01);
 /* IL_0C: stloc.0 */
 loc0 = st_02;
 /* IL_0F: ldloc.0 */
@@ -1870,7 +1870,7 @@ st_01 = {
 'vtable': ((asm0)["System.Double"])().prototype.vtable 
 };
 /* IL_07: call Double FloorImpl(System.Object)*/
-st_02 = function(o) { return Math.floor(o.boxed); }(st_01);
+st_02 = (function(o) { return Math.floor(o.boxed); })(st_01);
 /* IL_0C: stloc.0 */
 loc0 = st_02;
 /* IL_0F: ldloc.0 */
@@ -1904,7 +1904,7 @@ st_03 = {
 'vtable': ((asm0)["System.Double"])().prototype.vtable 
 };
 /* IL_0D: call Double PowImpl(System.Object, System.Object)*/
-st_04 = function(a, b) { return Math.pow(a.boxed, b.boxed); }(st_02,st_03);
+st_04 = (function(a, b) { return Math.pow(a.boxed, b.boxed); })(st_02,st_03);
 /* IL_12: stloc.0 */
 loc0 = st_04;
 /* IL_15: ldloc.0 */
@@ -1958,7 +1958,7 @@ st_02 = {
 'vtable': ((asm0)["System.SByte"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -1986,7 +1986,7 @@ st_02 = {
 'vtable': ((asm0)["System.Single"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -2022,7 +2022,7 @@ st_02 = {
 'vtable': ((asm0)["System.UInt16"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -2050,7 +2050,7 @@ st_02 = {
 'vtable': ((asm0)["System.UInt32"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -2078,7 +2078,7 @@ st_02 = {
 'vtable': ((asm0)["System.UInt64"])().prototype.vtable 
 };
 /* IL_08: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_0D: stloc.0 */
 loc0 = st_03;
 /* IL_10: ldloc.0 */
@@ -2106,7 +2106,7 @@ st_02 = {
 'vtable': ((asm0)["System.UIntPtr"])().prototype.vtable 
 };
 /* IL_0C: call String NumberStructToString(System.Object)*/
-st_03 = function(o) { return new_string(o.boxed.toString()); }(st_02);
+st_03 = (function(o) { return new_string(o.boxed.toString()); })(st_02);
 /* IL_11: stloc.0 */
 loc0 = st_03;
 /* IL_14: ldloc.0 */
@@ -4148,7 +4148,7 @@ loc0 = st_04;
 /* IL_1E: ldstr Lambda:*/
 st_05 = new_string("Lambda:");
 /* IL_23: call Void Log(System.Object)*/
-braille_test_log(st_05);
+(braille_test_log)(st_05);
 /* IL_28: ldloc.0 */
 st_06 = loc0;
 /* IL_29: call Void WriteType(System.Delegate)*/
@@ -4156,7 +4156,7 @@ st_06 = loc0;
 /* IL_2E: ldstr Method (object):*/
 st_07 = new_string("Method (object):");
 /* IL_33: call Void Log(System.Object)*/
-braille_test_log(st_07);
+(braille_test_log)(st_07);
 /* IL_38: ldnull */
 st_08 = null;
 /* IL_3A: ldftn Object MethodObj(System.Object)*/
@@ -4171,7 +4171,7 @@ return result; })();
 /* IL_49: ldstr Method (object):*/
 st_0B = new_string("Method (object):");
 /* IL_4E: call Void Log(System.Object)*/
-braille_test_log(st_0B);
+(braille_test_log)(st_0B);
 /* IL_53: ldnull */
 st_0C = null;
 /* IL_55: ldftn Object MethodInt(System.Int32)*/
@@ -4186,7 +4186,7 @@ return result; })();
 /* IL_64: ldstr Method (object):*/
 st_0F = new_string("Method (object):");
 /* IL_69: call Void Log(System.Object)*/
-braille_test_log(st_0F);
+(braille_test_log)(st_0F);
 /* IL_6E: ldnull */
 st_10 = null;
 /* IL_70: ldftn Object MethodString(System.String)*/
@@ -4260,7 +4260,7 @@ __braille_pos_0__ = 0x12;continue;
 /* IL_08: ldstr FuncX<object>*/
 st_02 = new_string("FuncX<object>");
 /* IL_0D: call Void Log(System.Object)*/
-braille_test_log(st_02);
+(braille_test_log)(st_02);
 case 0x12:
 /* IL_12: ldarg.0 */
 st_03 = __braille_args__[0];
@@ -4273,7 +4273,7 @@ __braille_pos_0__ = 0x24;continue;
 /* IL_1A: ldstr FuncX<object, object>*/
 st_05 = new_string("FuncX<object, object>");
 /* IL_1F: call Void Log(System.Object)*/
-braille_test_log(st_05);
+(braille_test_log)(st_05);
 case 0x24:
 /* IL_24: ldarg.0 */
 st_06 = __braille_args__[0];
@@ -4286,7 +4286,7 @@ __braille_pos_0__ = 0x36;continue;
 /* IL_2C: ldstr FuncX<string, object>*/
 st_08 = new_string("FuncX<string, object>");
 /* IL_31: call Void Log(System.Object)*/
-braille_test_log(st_08);
+(braille_test_log)(st_08);
 case 0x36:
 /* IL_36: ldarg.0 */
 st_09 = __braille_args__[0];
@@ -4299,7 +4299,7 @@ __braille_pos_0__ = 0x48;continue;
 /* IL_3E: ldstr FuncX<int, object>*/
 st_0B = new_string("FuncX<int, object>");
 /* IL_43: call Void Log(System.Object)*/
-braille_test_log(st_0B);
+(braille_test_log)(st_0B);
 case 0x48:
 /* IL_48: ret */
 return ;
