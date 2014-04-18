@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{87DDDBCC-5F8D-462D-B879-19F8FD13D18B}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{6C34FD57-3FD2-4A59-8559-38B0A878138F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>System</RootNamespace>
-    <AssemblyName>mscorlib</AssemblyName>
+    <RootNamespace>Raytracer</RootNamespace>
+    <AssemblyName>Raytracer</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -32,30 +32,21 @@
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Compile Include="Program.cs" />
+    <Compile Include="RayTracer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="System\Array.cs" />
-    <Compile Include="System.Diagnostics\DebuggerStepThroughAttribute.cs" />
-    <Compile Include="System\Attribute.cs" />
-    <Compile Include="System\AttributeTargets.cs" />
-    <Compile Include="System\ComVisibleAttribute.cs" />
-    <Compile Include="System\Nullable.cs" />
-    <Compile Include="System\SerializableAttribute.cs" />
-    <Compile Include="System\String.cs" />
-    <Compile Include="System.Reflection\DefaultMemberAttribute.cs" />
-    <Compile Include="Object.cs" />
+    <ProjectReference Include="..\Braille.Corlib\Braille.Corlib.csproj">
+      <Project>{87dddbcc-5f8d-462d-b879-19f8fd13d18b}</Project>
+      <Name>Braille.Corlib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="System.Collections\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

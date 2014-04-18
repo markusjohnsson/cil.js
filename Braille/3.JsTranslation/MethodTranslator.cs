@@ -33,7 +33,7 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (method.GetReplacement() != null || type.IsInterface)
+            if (method.GetReplacement() != null || type.IsInterface || method.ReflectionMethod.IsAbstract)
             {
                 return null;
             }

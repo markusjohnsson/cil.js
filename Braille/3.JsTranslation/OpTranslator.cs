@@ -1083,10 +1083,10 @@ namespace Braille.JsTranslation
         {
             return new JSPropertyAccessExpression
             {
-                Host = new JSPropertyAccessExpression
+                Host = new JSArrayLookupExpression
                 {
-                    Host = thisArg,
-                    Property = mi.DeclaringType.FullName
+                    Array = thisArg,
+                    Indexer = GetTypeIdentifier(mi.DeclaringType) 
                 },
                 Property = GetMethodIdentifier(mi)
             };

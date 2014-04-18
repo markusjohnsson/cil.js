@@ -69,7 +69,7 @@ namespace Braille.JsTranslation
                 {
                     Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
                         string.IsNullOrWhiteSpace(type.Namespace) ? type.Name : type.Namespace + "." + type.Name),
-                    Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, methodScope)).ToList()
+                    Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, methodScope, typeScope, thisScope)).ToList()
                 };
             }
             else

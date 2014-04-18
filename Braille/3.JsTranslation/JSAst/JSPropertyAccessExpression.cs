@@ -48,7 +48,20 @@ namespace Braille.JSAst
             }
         }
 
-        public JSExpression Host { get; set; }
+        private JSExpression _Host;
+        public JSExpression Host
+        {
+            get
+            {
+                return _Host;
+            }
+            set
+            {
+                if (value == null) throw new ArgumentNullException();
+
+                _Host = value;
+            }
+        }
 
         public override IEnumerable<JSExpression> GetChildren()
         {

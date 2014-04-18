@@ -4080,175 +4080,164 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000d = function TestMono_IBase_Do() { var __braille_args__;
-var st_01;
+asm.x600000f = function NonGeneric() { var __braille_args__;
 var st_00;
+ __braille_args__ = arguments;
+/* IL_00: ldstr A.NonGeneric*/
+st_00 = new_string("A.NonGeneric");
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: ret */
+return ; };
+asm.x6000010 = function GenericArg() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+ __braille_args__ = arguments;
+/* IL_00: ldstr A.GenericArg*/
+st_00 = new_string("A.GenericArg");
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: ldarg.0 */
+st_01 = __braille_args__[0];
+/* IL_0B: ldarg.1 */
+st_02 = __braille_args__[1];
+/* IL_0C: stfld Int32 field*/
+st_01.Afield = st_02;
+/* IL_11: ret */
+return ; };
+asm.x6000011 = function GenericReturn() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+ __braille_args__ = arguments;
+/* IL_00: ldstr A.GenericReturn*/
+st_00 = new_string("A.GenericReturn");
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: ldarg.0 */
+st_01 = __braille_args__[0];
+/* IL_0B: ldfld Int32 field*/
+st_02 = st_01.Afield;
+/* IL_10: ret */
+return st_02; };
+asm.x6000012 = function _ctor() { var __braille_args__;
+var st_00;
+ __braille_args__ = arguments;
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: call Void .ctor()*/
+/* IL_06: ret */
+return ; };
+asm.x6000013 = function NonGeneric() { var __braille_args__;
+var st_00;
+ __braille_args__ = arguments;
+/* IL_00: ldstr B.NonGeneric*/
+st_00 = new_string("B.NonGeneric");
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: ret */
+return ; };
+asm.x6000014 = function GenericArg() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+ __braille_args__ = arguments;
+/* IL_00: ldstr B.NonGeneric*/
+st_00 = new_string("B.NonGeneric");
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: ldarg.0 */
+st_01 = __braille_args__[0];
+/* IL_0B: ldarg.1 */
+st_02 = __braille_args__[1];
+/* IL_0C: stfld T field*/
+st_01.B_1field = st_02;
+/* IL_11: ret */
+return ; };
+asm.x6000015 = function GenericReturn() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+ __braille_args__ = arguments;
+/* IL_00: ldstr B.GenericReturn*/
+st_00 = new_string("B.GenericReturn");
+/* IL_05: call Void Log(System.Object)*/
+braille_test_log(st_00);
+/* IL_0A: ldarg.0 */
+st_01 = __braille_args__[0];
+/* IL_0B: ldfld T field*/
+st_02 = st_01.B_1field;
+/* IL_10: ret */
+return st_02; };
+asm.x6000016 = function _ctor() { var __braille_args__;
+var st_00;
+ __braille_args__ = arguments;
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: call Void .ctor()*/
+/* IL_06: ret */
+return ; };
+asm.x6000017 = function Main() { var __braille_args__;
+var st_00;
+var st_01;
 var st_02;
 var st_03;
  __braille_args__ = arguments;
-/* IL_00: ldc.i4.1 */
-st_01 = 1;
-/* IL_01: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_02: callvirt Int32 Do()*/
-st_02 = (st_00.vtable.x600000e)(st_00);
-/* IL_07: add */
-st_03 = (st_01 + st_02);
-/* IL_08: ret */
-return st_03; };
-asm.x600000e = function Do() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldc.i4.1 */
-st_00 = 1;
-/* IL_01: ret */
-return st_00; };
-asm.x600000f = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+((asm1.A)().init)();
+(((asm0)["System.String"])().init)();
+(((asm1)["B`1"])(((asm0)["System.String"])()).init)();
+/* IL_00: newobj Void .ctor()*/
+st_00 = (function () { var result;
+ result = new ((asm1.A)())();
+(asm1.x6000012)(result);
+return result; })();
+/* IL_05: ldc.i4 12345*/
+st_01 = 12345;
+/* IL_0A: call Void Run[System.Int32](I`1[System.Int32], System.Int32)*/
+((asm1.x6000018)(((asm0)["System.Int32"])()))(st_00,st_01);
+/* IL_0F: newobj Void .ctor()*/
+st_02 = (function () { var result;
+ result = new (((asm1)["B`1"])(((asm0)["System.String"])()))();
+(asm1.x6000016)(result);
+return result; })();
+/* IL_14: ldstr Hello*/
+st_03 = new_string("Hello");
+/* IL_19: call Void Run[System.String](I`1[System.String], System.String)*/
+((asm1.x6000018)(((asm0)["System.String"])()))(st_02,st_03);
+/* IL_1E: ret */
 return ; };
-asm.x6000010 = function _ctor() { var __braille_args__;
-var st_00;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: call Void .ctor()*/
-(asm1.x600000f)(st_00);
-/* IL_06: ret */
-return ; };
-asm.x6000011 = function Main() { var __braille_args__;
-var loc0;
-var loc1;
-var loc2;
-var loc3;
+asm.x6000018 = function (T) { 
+ return function Run() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
 var st_03;
 var st_04;
 var st_05;
-var st_06;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0B;
-var st_0C;
-var st_0D;
-var st_0E;
-var st_0F;
-var st_10;
-var st_11;
-var st_12;
-var st_13;
-var st_14;
-var st_15;
-var st_16;
-var __braille_pos_0__;
  __braille_args__ = arguments;
-(((asm1)["TestMono.Derived"])().init)();
-loc0 = null;
-loc1 = null;
-loc2 = null;
-loc3 = null;
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: newobj Void .ctor()*/
-st_00 = (function () { var result;
- result = new (((asm1)["TestMono.Derived"])())();
-(asm1.x6000010)(result);
-return result; })();
-/* IL_05: stloc.0 */
-loc0 = st_00;
-/* IL_06: ldloc.0 */
-st_01 = loc0;
-/* IL_07: callvirt Int32 Do()*/
-st_02 = ((st_01)[((asm1)["TestMono.IBase"])()].x600000c)(st_01);
-/* IL_0C: ldc.i4.2 */
-st_03 = 2;
-/* IL_0D: beq.s IL_11*/
-if (st_02 === st_03){
-__braille_pos_0__ = 0x11;continue;
-}
-/* IL_0F: ldc.i4.1 */
-st_04 = 1;
-/* IL_10: ret */
-return st_04;
-case 0x11:
-/* IL_11: ldloc.0 */
-st_05 = loc0;
-/* IL_12: stloc.1 */
-loc1 = st_05;
-/* IL_13: ldloc.1 */
-st_06 = loc1;
-/* IL_14: callvirt Int32 Do()*/
-st_07 = ((st_06)[((asm1)["TestMono.IBase"])()].x600000c)(st_06);
-/* IL_19: ldc.i4.2 */
-st_08 = 2;
-/* IL_1A: beq.s IL_1E*/
-if (st_07 === st_08){
-__braille_pos_0__ = 0x1E;continue;
-}
-/* IL_1C: ldc.i4.2 */
-st_09 = 2;
+(T.init)();
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: callvirt Void NonGeneric()*/
+((st_00)[((asm1)["I`1"])(T)].x600000c)(st_00);
+/* IL_06: ldarg.0 */
+st_01 = __braille_args__[0];
+/* IL_07: ldarg.1 */
+st_02 = __braille_args__[1];
+/* IL_08: callvirt Void GenericArg(T)*/
+((st_01)[((asm1)["I`1"])(T)].x600000d)(st_01,st_02);
+/* IL_0D: ldarg.0 */
+st_03 = __braille_args__[0];
+/* IL_0E: callvirt T GenericReturn()*/
+st_04 = ((st_03)[((asm1)["I`1"])(T)].x600000e)(st_03);
+/* IL_13: box T*/
+st_05 = box(st_04,T);
+/* IL_18: call Void Log(System.Object)*/
+braille_test_log(st_05);
 /* IL_1D: ret */
-return st_09;
-case 0x1E:
-/* IL_1E: ldloc.0 */
-st_0A = loc0;
-/* IL_1F: castclass TestMono.Derived*/
-st_0B = st_0A;
-/* IL_24: stloc.2 */
-loc2 = st_0B;
-/* IL_25: ldloc.2 */
-st_0C = loc2;
-/* IL_26: callvirt Int32 Do()*/
-st_0D = (st_0C.vtable.x600000e)(st_0C);
-/* IL_2B: ldc.i4.1 */
-st_0E = 1;
-/* IL_2C: beq.s IL_30*/
-if (st_0D === st_0E){
-__braille_pos_0__ = 0x30;continue;
-}
-/* IL_2E: ldc.i4.3 */
-st_0F = 3;
-/* IL_2F: ret */
-return st_0F;
-case 0x30:
-/* IL_30: ldloc.0 */
-st_10 = loc0;
-/* IL_31: castclass TestMono.Base*/
-st_11 = st_10;
-/* IL_36: stloc.3 */
-loc3 = st_11;
-/* IL_37: ldloc.3 */
-st_12 = loc3;
-/* IL_38: callvirt Int32 Do()*/
-st_13 = (st_12.vtable.x600000e)(st_12);
-/* IL_3D: ldc.i4.1 */
-st_14 = 1;
-/* IL_3E: beq.s IL_42*/
-if (st_13 === st_14){
-__braille_pos_0__ = 0x42;continue;
-}
-/* IL_40: ldc.i4.4 */
-st_15 = 4;
-/* IL_41: ret */
-return st_15;
-case 0x42:
-/* IL_42: ldc.i4.0 */
-st_16 = 0;
-/* IL_43: ret */
-return st_16;
-}
-} };
-asm.x6000012 = function _ctor() { var __braille_args__;
+return ; }; };
+asm.x6000019 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
@@ -4318,38 +4307,43 @@ TestHelper.prototype = new (((asm0)["System.Object"])())();;
 c = TestHelper;
 ct = c;
 return c; }; })();
-(asm)["TestMono.IBase"] = (function () { var ct;
- ct = null;
-return function () { var c;
+(asm)["I`1"] = (function () { var ct;
+ ct = { 
+ 
+};
+return function (T) { var c;
 var initialized;
- c = ct;
+ c = tree_get([ T ],ct);
 if (c){
 return c;
 }
 initialized = false;;
-function IBase() { 
- (IBase.init)();
-this.constructor = IBase; };
-IBase.init = function () { 
+function I_1() { 
+ (I_1.init)();
+this.constructor = I_1; };
+I_1.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-IBase.Interfaces = [  ];
-IBase.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IBase) != -1; };
-IBase.IsValueType = false;
-IBase.IsPrimitive = false;
-IBase.IsNullable = false;
-IBase.prototype.vtable = { 
-'x600000c': asm1.x600000c 
+I_1.Interfaces = [  ];
+I_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(I_1) != -1; };
+I_1.IsValueType = false;
+I_1.IsPrimitive = false;
+I_1.IsNullable = false;
+I_1.GenericArguments = [ T ];
+I_1.prototype.vtable = { 
+'x600000c': asm1.x600000c,
+'x600000d': asm1.x600000d,
+'x600000e': asm1.x600000e 
 }; };
-IBase.prototype = { 
+I_1.prototype = { 
  
 };;
-c = IBase;
-ct = c;
+c = I_1;
+tree_set([ T ],ct,c);
 return c; }; })();
-(asm)["TestMono.IDerived"] = (function () { var ct;
+asm.A = (function () { var ct;
  ct = null;
 return function () { var c;
 var initialized;
@@ -4358,102 +4352,81 @@ if (c){
 return c;
 }
 initialized = false;;
-function IDerived() { 
- (IDerived.init)();
-this.constructor = IDerived; };
-IDerived.init = function () { 
+function A() { 
+ (A.init)();
+this.constructor = A; };
+A.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-IDerived.Interfaces = [ ((asm1)["TestMono.IBase"])() ];
-IDerived.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IDerived) != -1; };
-IDerived.IsValueType = false;
-IDerived.IsPrimitive = false;
-IDerived.IsNullable = false;
-IDerived.prototype.vtable = { 
- 
-}; };
-IDerived.prototype = { 
- 
-};;
-c = IDerived;
-ct = c;
-return c; }; })();
-(asm)["TestMono.Base"] = (function () { var ct;
- ct = null;
-return function () { var c;
-var initialized;
- c = ct;
-if (c){
-return c;
-}
-initialized = false;;
-function Base() { 
- (Base.init)();
-this.constructor = Base; };
-Base.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-Base.Interfaces = [ ((asm1)["TestMono.IBase"])() ];
-Base.IsInst = function (t) { return t instanceof Base; };
-Base.IsValueType = false;
-Base.IsPrimitive = false;
-Base.IsNullable = false;
-Base.prototype.vtable = { 
-'x600000e': asm1.x600000e,
+A.Interfaces = [ ((asm1)["I`1"])(((asm0)["System.Int32"])()) ];
+A.IsInst = function (t) { return t instanceof A; };
+A.IsValueType = false;
+A.IsPrimitive = false;
+A.IsNullable = false;
+A.prototype.Afield = 0;
+A.prototype.vtable = { 
+'x600000f': asm1.x600000f,
+'x6000010': asm1.x6000010,
+'x6000011': asm1.x6000011,
 'x6000003': asm0.x6000003,
 'x6000004': asm0.x6000004,
 'x6000007': asm0.x6000007 
 };
-(Base.prototype)[((asm1)["TestMono.IBase"])()] = { 
-'x600000c': asm1.x600000d 
+(A.prototype)[((asm1)["I`1"])(((asm0)["System.Int32"])())] = { 
+'x600000c': asm1.x600000f,
+'x600000d': asm1.x6000010,
+'x600000e': asm1.x6000011 
 }; };
-Base.prototype = new (((asm0)["System.Object"])())();;
-c = Base;
+A.prototype = new (((asm0)["System.Object"])())();;
+c = A;
 ct = c;
 return c; }; })();
-(asm)["TestMono.Derived"] = (function () { var ct;
- ct = null;
-return function () { var c;
-var initialized;
- c = ct;
-if (c){
-return c;
-}
-initialized = false;;
-function Derived() { 
- (Derived.init)();
-this.constructor = Derived; };
-Derived.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-Derived.Interfaces = [ ((asm1)["TestMono.IDerived"])(),((asm1)["TestMono.IBase"])() ];
-Derived.IsInst = function (t) { return t instanceof Derived; };
-Derived.IsValueType = false;
-Derived.IsPrimitive = false;
-Derived.IsNullable = false;
-Derived.prototype.vtable = { 
-'x600000e': asm1.x600000e,
-'x6000003': asm0.x6000003,
-'x6000004': asm0.x6000004,
-'x6000007': asm0.x6000007 
-};
-(Derived.prototype)[((asm1)["TestMono.IDerived"])()] = { 
+(asm)["B`1"] = (function () { var ct;
+ ct = { 
  
 };
-(Derived.prototype)[((asm1)["TestMono.IBase"])()] = { 
-'x600000c': asm1.x600000d 
+return function (T) { var c;
+var initialized;
+ c = tree_get([ T ],ct);
+if (c){
+return c;
+}
+initialized = false;;
+function B_1() { 
+ (B_1.init)();
+this.constructor = B_1; };
+B_1.init = function () { 
+ if (initialized){
+return;
+}
+initialized = true;
+B_1.Interfaces = [ ((asm1)["I`1"])(T) ];
+B_1.IsInst = function (t) { return t instanceof B_1; };
+B_1.IsValueType = false;
+B_1.IsPrimitive = false;
+B_1.IsNullable = false;
+B_1.GenericArguments = [ T ];
+B_1.prototype.B_1field = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
+B_1.prototype.vtable = { 
+'x6000013': asm1.x6000013,
+'x6000014': asm1.x6000014,
+'x6000015': asm1.x6000015,
+'x6000003': asm0.x6000003,
+'x6000004': asm0.x6000004,
+'x6000007': asm0.x6000007 
+};
+(B_1.prototype)[((asm1)["I`1"])(T)] = { 
+'x600000c': asm1.x6000013,
+'x600000d': asm1.x6000014,
+'x600000e': asm1.x6000015 
 }; };
-Derived.prototype = new (((asm1)["TestMono.Base"])())();;
-c = Derived;
-ct = c;
+B_1.prototype = new (((asm0)["System.Object"])())();;
+c = B_1;
+tree_set([ T ],ct,c);
 return c; }; })();
-(asm)["TestMono.Class1"] = (function () { var ct;
+asm.Program = (function () { var ct;
  ct = null;
 return function () { var c;
 var initialized;
@@ -4462,26 +4435,26 @@ if (c){
 return c;
 }
 initialized = false;;
-function Class1() { 
- (Class1.init)();
-this.constructor = Class1; };
-Class1.init = function () { 
+function Program() { 
+ (Program.init)();
+this.constructor = Program; };
+Program.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-Class1.Interfaces = [  ];
-Class1.IsInst = function (t) { return t instanceof Class1; };
-Class1.IsValueType = false;
-Class1.IsPrimitive = false;
-Class1.IsNullable = false;
-Class1.prototype.vtable = { 
+Program.Interfaces = [  ];
+Program.IsInst = function (t) { return t instanceof Program; };
+Program.IsValueType = false;
+Program.IsPrimitive = false;
+Program.IsNullable = false;
+Program.prototype.vtable = { 
 'x6000003': asm0.x6000003,
 'x6000004': asm0.x6000004,
 'x6000007': asm0.x6000007 
 }; };
-Class1.prototype = new (((asm0)["System.Object"])())();;
-c = Class1;
+Program.prototype = new (((asm0)["System.Object"])())();;
+c = Program;
 ct = c;
 return c; }; })();
-asm.entryPoint = asm.x6000011; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x6000017; })(asm1 || (asm1 = {}));

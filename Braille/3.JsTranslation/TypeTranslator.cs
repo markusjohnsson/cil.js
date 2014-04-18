@@ -170,7 +170,7 @@ namespace Braille.JsTranslation
                              type.ReflectionType.BaseType.FullName != "System.ValueType") ?
                         new JSNewExpression
                         {
-                            Constructor = GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType) 
+                            Constructor = GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType)
                         } :
                         new JSObjectLiteral() as JSExpression
                 }
@@ -230,7 +230,6 @@ namespace Braille.JsTranslation
 
             var prototypeProperties = GetFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
-                .Concat(GetInterfaceMaps(type))
                 .Concat(GetPrototypeMethods(type));
 
             foreach (var f in prototypeProperties)
@@ -242,6 +241,23 @@ namespace Braille.JsTranslation
                         Left = JSIdentifier.Create(n, "prototype", f.Key),
                         Operator = "=",
                         Right = f.Value
+                    }
+                };
+            }
+
+            foreach (var iface in GetInterfaceMaps(type))
+            {
+                yield return new JSStatement
+                {
+                    Expression = new JSBinaryExpression
+                    {
+                        Left = new JSArrayLookupExpression
+                        {
+                            Array = JSIdentifier.Create(n, "prototype"),
+                            Indexer = iface.Key
+                        },
+                        Operator = "=",
+                        Right = iface.Value
                     }
                 };
             }
@@ -263,7 +279,7 @@ namespace Braille.JsTranslation
 
         private JSExpression GetInterfaces(CilType type)
         {
-            return new JSArrayLiteral { Values = type.ReflectionType.GetInterfaces().Select(t => GetTypeIdentifier(t)) };
+            return new JSArrayLiteral { Values = type.ReflectionType.GetInterfaces().Select(t => GetTypeIdentifier(t, typeScope: type.ReflectionType)) };
         }
 
         private JSExpression GetIsInst(CilType type)
@@ -278,15 +294,17 @@ namespace Braille.JsTranslation
             }
         }
 
-        private IEnumerable<KeyValuePair<string, JSExpression>> GetInterfaceMaps(CilType type)
+        private IEnumerable<KeyValuePair<JSExpression, JSExpression>> GetInterfaceMaps(CilType type)
         {
             if (type.ReflectionType.IsInterface)
-                return Enumerable.Empty<KeyValuePair<string, JSExpression>>();
+                return Enumerable.Empty<KeyValuePair<JSExpression, JSExpression>>();
 
             return type.ReflectionType
                 .GetInterfaces()
                 .Select(
-                    iface => new KeyValuePair<string, JSExpression>(iface.FullName, GetInterfaceMap(type, iface)));
+                    iface => new KeyValuePair<JSExpression, JSExpression>(
+                        GetTypeIdentifier(iface, typeScope: type.ReflectionType),
+                        GetInterfaceMap(type, iface)));
         }
 
         private JSExpression GetVtable(CilType type)

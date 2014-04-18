@@ -237,6 +237,8 @@ namespace Braille.Analysis
                     return _object; //universe.GetType("System.Reflection.MemberInfo");
                 case "mul":
                     return InferBinaryArithmeticType(op);
+                case "neg":
+                    return op.Arguments.First().ResultType;
                 case "newarr":
                     return ((Type)op.Instruction.Data).MakeArrayType();
                 case "newobj":
@@ -314,7 +316,7 @@ namespace Braille.Analysis
             }
         }
 
-        private static Type MergeTypes(Type type, Type newType)
+        private Type MergeTypes(Type type, Type newType)
         {
 
             if (type == null)
@@ -339,6 +341,10 @@ namespace Braille.Analysis
                     .Where(t => t.Item1 == t.Item2)
                     .Last()
                     .Item1;
+            }
+            else if (type == boolean && (newType == int32 || newType == int64))
+            {
+                type = newType;
             }
             else
             {

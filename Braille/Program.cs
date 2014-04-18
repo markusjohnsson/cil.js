@@ -10,9 +10,11 @@ namespace Braille
 
             for (int i = 0; i < args.Length - 1; i++)
             {
+                Console.WriteLine("Adding assembly: " + args[i]);
                 compiler.AddAssembly(args[i]);
             }
 
+            Console.WriteLine("Output: " + args[args.Length - 1]);
             compiler.OutputFileName = args[args.Length - 1];
 
             compiler.Compile();

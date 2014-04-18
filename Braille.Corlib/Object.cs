@@ -50,7 +50,13 @@ namespace System
 
     public class Console
     {
-        public static void WriteLine(object s) { }
+        [JsImport("(function (o) { console.log(o); })")]
+        internal extern static void WriteLineImpl(object s);
+
+        public static void WriteLine(object s)
+        {
+            WriteLineImpl(s.ToString());
+        }
     }
 
     public class Delegate
@@ -59,6 +65,13 @@ namespace System
 
     public struct Double
     {
+        public const double Epsilon = 4.9406564584124650e-324;
+        public const double MaxValue = 1.7976931348623157e308;
+        public const double MinValue = -1.7976931348623157e308;
+        public const double NaN = 0.0d / 0.0d;
+        public const double NegativeInfinity = -1.0d / 0.0d;
+        public const double PositiveInfinity = 1.0d / 0.0d;
+
         public override string ToString()
         {
             return InternalFormatting.NumberStructToString(this);
@@ -85,7 +98,8 @@ namespace System
 
     public class InvalidOperationException : Exception
     {
-        public InvalidOperationException(string message): base(message)
+        public InvalidOperationException(string message)
+            : base(message)
         {
 
         }
@@ -148,6 +162,31 @@ namespace System
     public class Math
     {
         public const double PI = 3.14159265359;
+        
+        public static double Sqrt(double v)
+        {
+            return SqrtImpl(v);
+        }
+
+        public static double Floor(double v)
+        {
+            return FloorImpl(v);
+        }
+
+        public static double Pow(double v, double exponent)
+        {
+            return PowImpl(v, exponent);
+        }
+
+        [JsImport("function(o) { return Math.sqrt(o.boxed); }")]
+        internal extern static double SqrtImpl(object v);
+
+        [JsImport("function(o) { return Math.floor(o.boxed); }")]
+        internal extern static double FloorImpl(object v);
+
+        [JsImport("function(a, b) { return Math.pow(a.boxed, b.boxed); }")]
+        internal extern static double PowImpl(object a, object b);
+
     }
 
     public class MulticastDelegate : Delegate
@@ -226,6 +265,28 @@ namespace System
     {
     }
 
+    public class NotSupportedException : Exception
+    {
+        public NotSupportedException(): base("Operation not supported")
+        {
+        }
+
+        public NotSupportedException(string message)
+            : base(message)
+        {
+
+        }
+    }
+
+    public class NotImplementedException : Exception
+    {
+    }
+
+    public static class Environment
+    {
+        public static int CurrentManagedThreadId { get { return 0; } }
+    }
+
     public class Object
     {
         [JsImport("function (a, b) { return a === b; }")]
@@ -268,6 +329,8 @@ namespace System
             return GetTypeImpl(this);
         }
     }
+
+    public delegate TResult Func<T, TResult>(T arg);
 }
 
 namespace Braille.Runtime
@@ -332,12 +395,29 @@ namespace System.Collections
 {
     public interface IEnumerable
     {
+        IEnumerator GetEnumerator();
     }
 
-    public interface IEnumerator
+    public interface IEnumerator : IDisposable
     {
+        object Current { get; }
+        bool MoveNext();
+        void Reset();
+    }
+}
+
+namespace System.Collections.Generic
+{
+    public interface IEnumerable<T>: IEnumerable
+    {
+        IEnumerator<T> GetEnumerator();
     }
 
+    public interface IEnumerator<T>: IEnumerator, IDisposable
+    {
+        T Current { get; }
+        bool MoveNext();
+    }
 }
 
 namespace System.Runtime.InteropServices
@@ -356,6 +436,11 @@ namespace System.Runtime.CompilerServices
         public IndexerNameAttribute(string indexerName)
         {
         }
+    }
+
+    [AttributeUsage(AttributeTargets.Method, Inherited = true)]
+    public sealed class ExtensionAttribute : Attribute
+    { 
     }
 }
 
