@@ -439,7 +439,7 @@ namespace Braille.JsTranslation
                             Function =
                                 replacement != null
                                     ? JSIdentifier.Create(replacement.Replacement)
-                                    : GetMethodAccessor(mi, this.method.ReflectionMethod),
+                                    : GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = ProcessList(frame.Arguments).ToList()
                         };
                     }
@@ -458,7 +458,7 @@ namespace Braille.JsTranslation
                         {
                             Function =
                                 mi.DeclaringType.IsInterface
-                                    ? GetInterfaceMethodAccessor(arglist.First(), mi) :
+                                    ? GetInterfaceMethodAccessor(arglist.First(), thisScope, mi) :
                                 mi.IsVirtual
                                     ? GetVirtualMethodAccessor(arglist.First(), mi) :
                                 replacement != null
@@ -1079,14 +1079,18 @@ namespace Braille.JsTranslation
                 return value;
         }
 
-        private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, MethodBase mi)
+        private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, JSExpression thisScope, MethodBase mi)
         {
             return new JSPropertyAccessExpression
             {
                 Host = new JSArrayLookupExpression
                 {
                     Array = thisArg,
-                    Indexer = GetTypeIdentifier(mi.DeclaringType) 
+                    Indexer = GetTypeIdentifier(
+                        mi.DeclaringType, 
+                        typeScope: this.type.ReflectionType, 
+                        methodScope: this.method.ReflectionMethod, 
+                        thisScope: thisScope) 
                 },
                 Property = GetMethodIdentifier(mi)
             };

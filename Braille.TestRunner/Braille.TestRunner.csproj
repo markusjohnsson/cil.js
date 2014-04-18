@@ -117,7 +117,9 @@
     <Compile Include="MonoTests\static-ctor.cs" />
     <None Include="Tests\AbstractMethods.cs" />
     <Content Include="Tests\GenericInterface.cs" />
-    <Compile Include="Tests\Nullable.cs" />
+    <Content Include="Tests\CallGenericMethod.cs" />
+    <Content Include="Tests\CallGenericMethodWithClassGenericArg.cs" />
+    <Content Include="Tests\Nullable.cs" />
     <None Include="Tests\PrimitiveToString.cs" />
     <None Include="Tests\GenericFieldDefaults.cs" />
     <None Include="Tests\Strings.cs" />

@@ -102,7 +102,7 @@ namespace Braille.JsTranslation
             }
         }
 
-        protected JSExpression GetMethodAccessor(MethodBase mi, MethodBase callingScope = null)
+        protected JSExpression GetMethodAccessor(MethodBase mi, MethodBase callingScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
             var function = new JSPropertyAccessExpression
             {
@@ -129,7 +129,7 @@ namespace Braille.JsTranslation
                         .Concat(
                             classGenArgs,
                             methodGenArgs)
-                        .Select(t => GetTypeIdentifier(t, callingScope))
+                        .Select(t => GetTypeIdentifier(t, methodScope: callingScope, typeScope: typeScope, thisScope: thisScope))
                         .ToList()
                 };
             }
