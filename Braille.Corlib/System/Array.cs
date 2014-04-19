@@ -1,9 +1,11 @@
 using System.Runtime.CompilerServices;
 using Braille.Runtime.TranslatorServices;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace System
 {
-    public class Array
+    public abstract class Array : IEnumerable
     {
         internal object type;
         internal object jsarr;
@@ -19,6 +21,20 @@ namespace System
         public object GetValue(int index)
         {
             return GetValueImpl(this, index);
+        }
+    }
+
+    internal class Array<T> : Array, IEnumerable<T>
+    {
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (var i = 0; i < Length; i++)
+                yield return (T)GetValue(i);
+        }
+
+        Collections.IEnumerator Collections.IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

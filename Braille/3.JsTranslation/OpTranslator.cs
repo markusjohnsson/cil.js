@@ -384,7 +384,7 @@ namespace Braille.JsTranslation
                             d = d.GetGenericArguments()[0];
                             value = JSIdentifier.Create(value, "value");
                         }
-                        
+
                         var boxed = new JSObjectLiteral
                         {
                             Properties = new Dictionary<string, JSExpression>
@@ -575,7 +575,7 @@ namespace Braille.JsTranslation
                         {
                             Name = "__braille_args__[" + idx + "]"
                         } as JSExpression;
-                        
+
                         //if (type.ReflectionType.IsValueType && idx == "0")
                         //    result = Dereference(result);
 
@@ -807,7 +807,7 @@ namespace Braille.JsTranslation
                         Operator = "*"
                     };
                 case "neg":
-                    return new JSUnaryExpression 
+                    return new JSUnaryExpression
                     {
                         Operator = "-",
                         Operand = ProcessInternal(frame.Arguments.Single())
@@ -844,7 +844,7 @@ namespace Braille.JsTranslation
                                             Value = 
                                             new JSNewExpression
                                             {
-                                                Constructor = GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
+                                                Constructor = new JSArrayLookupExpression{ Array = JSIdentifier.Create("arguments"), Indexer = new JSNumberLiteral{ Value = 0 } }
                                             }
                                         }
                                     },
@@ -869,6 +869,10 @@ namespace Braille.JsTranslation
                                         }
                                     }
                                 }
+                            },
+                            Arguments =
+                            {
+                                GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
                             }
                         };
                     }
@@ -1093,10 +1097,10 @@ namespace Braille.JsTranslation
                 {
                     Array = thisArg,
                     Indexer = GetTypeIdentifier(
-                        mi.DeclaringType, 
-                        typeScope: this.type.ReflectionType, 
-                        methodScope: this.method.ReflectionMethod, 
-                        thisScope: thisScope) 
+                        mi.DeclaringType,
+                        typeScope: this.type.ReflectionType,
+                        methodScope: this.method.ReflectionMethod,
+                        thisScope: thisScope)
                 },
                 Property = GetMethodIdentifier(mi)
             };

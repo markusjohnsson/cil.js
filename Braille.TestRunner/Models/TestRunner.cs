@@ -29,10 +29,12 @@ namespace Braille.TestRunner.Models
 
         public TestResult CompileAndRun(params string[] csFiles)
         {
-            List<string> refs = new List<string>();
-            refs.Add(@"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll");
+            var clrRefs = new List<string>();
+            var brlRefs = new List<string>();
+            brlRefs.Add(@"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll");
 
-            string programOutputName = null;
+            string clrProgramOutputName = null;
+            string brlProgramOutputName = null;
             string csProgramFile = null;
 
             var errors = new List<string>();
@@ -40,8 +42,10 @@ namespace Braille.TestRunner.Models
             if (csFiles.Length == 1)
             {
                 csProgramFile = Path.Combine(workingDir, csFiles[0]);
-                programOutputName = csProgramFile + ".exe";
-                CompileAssembly(csProgramFile, programOutputName, refs, errors);
+                brlProgramOutputName = csProgramFile + ".brl.exe";
+                clrProgramOutputName = csProgramFile + ".clr.exe";
+                CompileAssembly(csProgramFile, brlProgramOutputName, true, clrRefs, errors);
+                CompileAssembly(csProgramFile, clrProgramOutputName, false, clrRefs, errors);
             }
             else
             {
@@ -50,20 +54,25 @@ namespace Braille.TestRunner.Models
                     if (Path.GetFileName(csFile) == "Program.cs")
                     {
                         csProgramFile = Path.Combine(workingDir, csFile);
-                        programOutputName = csProgramFile + ".exe";
-                        CompileAssembly(csProgramFile, programOutputName, refs, errors);
+                        brlProgramOutputName = csProgramFile + ".brl.exe";
+                        clrProgramOutputName = csProgramFile + ".clr.exe";
+                        CompileAssembly(csProgramFile, brlProgramOutputName, true, clrRefs, errors);
+                        CompileAssembly(csProgramFile, clrProgramOutputName, false, clrRefs, errors);
                     }
                     else
                     {
                         var file = Path.Combine(workingDir, csFile);
-                        var outputName = file + ".dll";
-                        CompileAssembly(file, outputName, refs, errors);
-                        refs.Add(outputName);
+                        var brlOutputName = file + ".brl.dll";
+                        var clrOutputName = file + ".clr.dll";
+                        CompileAssembly(file, brlOutputName, true, clrRefs, errors);
+                        CompileAssembly(file, clrOutputName, false, clrRefs, errors);
+                        brlRefs.Add(brlOutputName);
+                        clrRefs.Add(clrOutputName);
                     }
                 }
             }
 
-            Debug.Assert(programOutputName != null);
+            Debug.Assert(clrProgramOutputName != null);
             Debug.Assert(csProgramFile != null);
 
             // TODO: we will need to compile two exes since the one that should be converted
@@ -77,7 +86,7 @@ namespace Braille.TestRunner.Models
                 goto DONE;
             }
 
-            var entryPoint = CompileJs(programOutputName, refs, errors);
+            var entryPoint = CompileJs(brlProgramOutputName, brlRefs, errors);
 
             if (errors.Any())
             {
@@ -86,10 +95,10 @@ namespace Braille.TestRunner.Models
             }
 
             int exeExitCode;
-            var exeOutput = ExecuteExe(programOutputName, out exeExitCode);
+            var exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
 
             int jsExitCode;
-            var jsOutput = ExecuteJs(programOutputName, entryPoint, out jsExitCode, errors);
+            var jsOutput = ExecuteJs(brlProgramOutputName, entryPoint, out jsExitCode, errors);
 
             if (errors.Any())
             {
@@ -186,7 +195,7 @@ namespace Braille.TestRunner.Models
             return null;
         }
 
-        private void CompileAssembly(string csFile, string outputName, List<string> refs, List<string> errors)
+        private void CompileAssembly(string csFile, string outputName, bool forBraille, List<string> refs, List<string> errors)
         {
             var codeProvider = new CSharpCodeProvider();
             var icc = codeProvider.CreateCompiler();
@@ -194,7 +203,9 @@ namespace Braille.TestRunner.Models
             var parameters = new CompilerParameters();
             parameters.GenerateExecutable = outputName.EndsWith("exe");
             parameters.OutputAssembly = outputName;
-            parameters.CoreAssemblyFileName = @"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll";
+
+            if (forBraille)
+                parameters.CoreAssemblyFileName = @"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll";
 
             if (refs != null)
             {

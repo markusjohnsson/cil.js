@@ -54,22 +54,29 @@ namespace Braille.JsTranslation
                     return new JSIdentifier { Name = type.Name };
                 }
                 else
+                {
                     return
-                        (typeScope == type.DeclaringType && thisScope == null) ? // TODO: this is for when T is used inside the initializer - this method should be overridden in TypeTranslator instead of having this case here
+                        // TODO: this is for when T is used inside the type initializer - this method should be overridden in TypeTranslator instead of having this case here
+                        (typeScope == type.DeclaringType && thisScope == null) ?
                         JSIdentifier.Create(type.Name) :
                         new JSArrayLookupExpression
                         {
                             Array = JSIdentifier.Create(thisScope, "constructor", "GenericArguments"),
                             Indexer = new JSNumberLiteral { Value = typeScope.GetGenericArguments().IndexOf(type) }
                         };
+                }
             }
-            else if (type.IsGenericType && !type.IsGenericTypeDefinition)
+            else if (type.IsGenericType)
             {
                 return new JSCallExpression
                 {
-                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type),
-                        string.Join(".", new[] { type.Namespace, type.DeclaringType != null ? (type.DeclaringType.Name + "+" + type.Name) : type.Name }.Where(e => e != null))),
-                    Arguments = type.GetGenericArguments().Select(g => GetTypeIdentifier(g, methodScope, typeScope, thisScope)).ToList()
+                    Function = JSIdentifier.Create(
+                        GetAssemblyIdentifier(type), ConstructFullName(type)),
+                    Arguments = type
+                        .GetGenericArguments()
+                        .Select(
+                            g => GetTypeIdentifier(g, methodScope, typeScope, thisScope))
+                        .ToList()
                 };
             }
             else
@@ -81,10 +88,25 @@ namespace Braille.JsTranslation
             }
         }
 
+        private static string ConstructFullName(Type type)
+        {
+            var name = "";
+
+            if (type.Namespace != null)
+                name = type.Namespace + ".";
+
+            if (type.DeclaringType != null)
+                name += type.DeclaringType.Name + "+";
+
+            name += type.Name;
+
+            return name;
+        }
+
         protected static string GetSimpleName(CilType type)
         {
             var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
-            if (n == "String" || n == "Number" || n == "Boolean" || n == "Object")
+            if (n == "String" || n == "Number" || n == "Boolean" || n == "Object" || n == "function")
                 return "$$" + n;
             return n;
         }

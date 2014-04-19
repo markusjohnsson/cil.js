@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="MonoTests\static-ctor.cs" />
+    <Content Include="Tests\ArrayIteration.cs" />
     <Compile Include="Tests\NestedClasses.cs" />
     <None Include="Tests\AbstractMethods.cs" />
     <Content Include="Tests\GenericInterface.cs" />

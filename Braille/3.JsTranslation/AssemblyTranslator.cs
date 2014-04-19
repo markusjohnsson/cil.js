@@ -115,7 +115,7 @@ function new_string(str) {
 }
 
 function new_array(type, length) {
-    var r = new (asm0['System.Array']())();
+    var r = new (asm0['System.Array`1'](type))();
     r.type = type;
     r.jsarr = new Array(length);
     return r;
