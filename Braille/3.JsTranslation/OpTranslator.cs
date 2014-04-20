@@ -177,6 +177,12 @@ namespace Braille.JsTranslation
                         Operator = "=",
                         Right = new JSNumberLiteral { Value = -1 }
                     }.ToStatement();
+                    yield return new JSBinaryExpression
+                    {
+                        Left = new JSIdentifier { Name = "__braille_outer_pos__" },
+                        Operator = "=",
+                        Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
+                    }.ToStatement();
                     yield return new JSBreakExpression().ToStatement();
                     break;
                 case "switch":

@@ -4686,6 +4686,7 @@ var st_05;
 var st_06;
 var st_07;
 var st_08;
+var __braille_pos_0__;
  __braille_args__ = arguments;
 ((asm1.A)().init)();
 (((asm0)["System.Int32"])().init)();
@@ -4693,6 +4694,10 @@ loc0 = null;
 loc1 = 0;
 loc2 = null;
 loc3 = null;
+__braille_pos_0__ = 0x0;
+while (__braille_pos_0__ >= 0){
+switch (__braille_pos_0__) {
+case 0x0:
 /* IL_00: newobj Void .ctor()*/
 st_00 = (function () { var result;
  result = new ((arguments)[0])();
@@ -4741,12 +4746,17 @@ __braille_pos_1__ = 0xF;continue;
 }
 /* IL_29: leave.s IL_3C*/
 __braille_pos_1__ = -1;
+__braille_pos_0__ = 0x3C;
 break;
 }
 }
+break;
 }catch (e) {}
+case 0x3C:
 /* IL_3C: ret */
-return ; };
+return ;
+}
+} };
 asm.x6000012 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;

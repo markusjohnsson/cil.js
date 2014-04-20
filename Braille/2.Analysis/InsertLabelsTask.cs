@@ -42,6 +42,8 @@ namespace Braille.Analysis
                     case "brtrue.s":
                     case "brfalse":
                     case "brfalse.s":
+                    case "leave":
+                    case "leave.s":
                         {
                             var targetPosition = GetTargetPosition(f.Instruction);
                             var targetExpression = opExpressions.Where(f2 => f2.Position == targetPosition).First();

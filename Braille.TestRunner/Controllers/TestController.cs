@@ -13,7 +13,7 @@ namespace Braille.TestRunner.Controllers
 {
     public class RunJsViewModel
     {
-        public string ScriptPath { get { return TestName + ".exe.js"; } }
+        public string ScriptPath { get { return TestName + ".brl.exe.js"; } }
 
         public string TestName { get; set; }
     }

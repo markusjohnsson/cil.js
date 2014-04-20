@@ -22,6 +22,8 @@ namespace System
         {
             return GetValueImpl(this, index);
         }
+
+        public abstract IEnumerator GetEnumerator();
     }
 
     internal class Array<T> : Array, IEnumerable<T>

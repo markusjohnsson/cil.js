@@ -4492,7 +4492,6 @@ st_00 = __braille_args__[0];
 /* IL_06: ret */
 return ; };
 asm.x600000c = function Main() { var __braille_args__;
-var loc0;
 var st_00;
 var st_01;
 var st_02;
@@ -4501,139 +4500,80 @@ var st_04;
 var st_05;
 var st_06;
 var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0B;
-var st_0C;
-var st_0D;
-var st_0E;
-var st_0F;
-var st_10;
-var st_11;
  __braille_args__ = arguments;
-(((asm0)["System.Int32"])().init)();
-loc0 = null;
-/* IL_00: ldc.i4.5 */
-st_00 = 5;
-/* IL_01: newarr System.Int32*/
-st_01 = new_array(((asm0)["System.Int32"])(),st_00);
-/* IL_06: stloc.0 */
-loc0 = st_01;
-/* IL_07: ldloc.0 */
-st_02 = loc0;
-/* IL_08: ldc.i4.0 */
-st_03 = 0;
-/* IL_09: ldc.i4.s 44*/
-st_04 = 44;
-/* IL_0B: stelem.i4 */
-(st_02.jsarr)[st_03] = st_04;
-/* IL_0C: ldloc.0 */
-st_05 = loc0;
-/* IL_0D: ldc.i4.1 */
-st_06 = 1;
-/* IL_0E: ldc.i4.s 43*/
-st_07 = 43;
-/* IL_10: stelem.i4 */
-(st_05.jsarr)[st_06] = st_07;
-/* IL_11: ldloc.0 */
-st_08 = loc0;
-/* IL_12: ldc.i4.2 */
-st_09 = 2;
-/* IL_13: ldc.i4.s 42*/
-st_0A = 42;
-/* IL_15: stelem.i4 */
-(st_08.jsarr)[st_09] = st_0A;
-/* IL_16: ldloc.0 */
-st_0B = loc0;
-/* IL_17: ldc.i4.3 */
-st_0C = 3;
-/* IL_18: ldc.i4.s 41*/
-st_0D = 41;
-/* IL_1A: stelem.i4 */
-(st_0B.jsarr)[st_0C] = st_0D;
-/* IL_1B: ldloc.0 */
-st_0E = loc0;
-/* IL_1C: ldc.i4.4 */
-st_0F = 4;
-/* IL_1D: ldc.i4.s 40*/
-st_10 = 40;
-/* IL_1F: stelem.i4 */
-(st_0E.jsarr)[st_0F] = st_10;
-/* IL_20: ldloc.0 */
-st_11 = loc0;
-/* IL_21: call Void PrintArray(System.Collections.IEnumerable)*/
-(asm1.x600000d)(st_11);
-/* IL_26: ret */
+/* IL_00: ldc.i4.s 123*/
+st_00 = 123;
+/* IL_02: call Void Neg(System.Int32)*/
+(asm1.x600000d)(st_00);
+/* IL_07: ldc.i4.s 133*/
+st_01 = -123;
+/* IL_09: call Void Neg(System.Int32)*/
+(asm1.x600000d)(st_01);
+/* IL_0E: ldc.i4 444123*/
+st_02 = 444123;
+/* IL_13: call Void Neg(System.Int32)*/
+(asm1.x600000d)(st_02);
+/* IL_18: ldc.i4 -518495*/
+st_03 = -518495;
+/* IL_1D: call Void Neg(System.Int32)*/
+(asm1.x600000d)(st_03);
+/* IL_22: ldc.r8 123*/
+st_04 = 123;
+/* IL_2B: call Void Neg(System.Double)*/
+(asm1.x600000e)(st_04);
+/* IL_30: ldc.r8 -123*/
+st_05 = -123;
+/* IL_39: call Void Neg(System.Double)*/
+(asm1.x600000e)(st_05);
+/* IL_3E: ldc.r8 444123*/
+st_06 = 444123;
+/* IL_47: call Void Neg(System.Double)*/
+(asm1.x600000e)(st_06);
+/* IL_4C: ldc.r8 -518495*/
+st_07 = -518495;
+/* IL_55: call Void Neg(System.Double)*/
+(asm1.x600000e)(st_07);
+/* IL_5A: ret */
 return ; };
-asm.x600000d = function PrintArray() { var __braille_args__;
-var loc0;
-var loc1;
-var loc2;
+asm.x600000d = function Neg() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var __braille_pos_0__;
  __braille_args__ = arguments;
-loc0 = null;
-loc1 = null;
-loc2 = null;
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
+(((asm0)["System.Int32"])().init)();
 /* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
-/* IL_01: callvirt IEnumerator GetEnumerator()*/
-st_01 = ((st_00)[((asm0)["System.Collections.IEnumerable"])()].x600000f)(st_00);
-/* IL_06: stloc.1 */
-loc1 = st_01;
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_07: br.s IL_16*/
-__braille_pos_1__ = 0x16;
-continue;
-case 0x9:
-/* IL_09: ldloc.1 */
-st_02 = loc1;
-/* IL_0A: callvirt Object get_Current()*/
-st_03 = ((st_02)[((asm0)["System.Collections.IEnumerator"])()].x6000075)(st_02);
-/* IL_0F: stloc.0 */
-loc0 = st_03;
-/* IL_10: ldloc.0 */
-st_04 = loc0;
-/* IL_11: call Void Log(System.Object)*/
-(braille_test_log)(st_04);
-case 0x16:
-/* IL_16: ldloc.1 */
-st_05 = loc1;
-/* IL_17: callvirt Boolean MoveNext()*/
-st_06 = ((st_05)[((asm0)["System.Collections.IEnumerator"])()].x6000076)(st_05);
-/* IL_1C: brtrue.s IL_09*/
-if (st_06){
-__braille_pos_1__ = 0x9;continue;
-}
-/* IL_1E: leave.s IL_2C*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x2C;
-break;
-}
-}
-break;
-}catch (e) {}
-case 0x2C:
-/* IL_2C: ret */
-return ;
-}
-} };
-asm.x600000e = function _ctor() { var __braille_args__;
+/* IL_01: neg */
+st_01 = (-st_00);
+/* IL_02: box System.Int32*/
+st_02 = { 
+'boxed': st_01,
+'vtable': ((asm0)["System.Int32"])().prototype.vtable 
+};
+/* IL_07: call Void Log(System.Object)*/
+(braille_test_log)(st_02);
+/* IL_0C: ret */
+return ; };
+asm.x600000e = function Neg() { var __braille_args__;
+var st_00;
+var st_01;
+var st_02;
+ __braille_args__ = arguments;
+(((asm0)["System.Double"])().init)();
+/* IL_00: ldarg.0 */
+st_00 = __braille_args__[0];
+/* IL_01: neg */
+st_01 = (-st_00);
+/* IL_02: box System.Double*/
+st_02 = { 
+'boxed': st_01,
+'vtable': ((asm0)["System.Double"])().prototype.vtable 
+};
+/* IL_07: call Void Log(System.Object)*/
+(braille_test_log)(st_02);
+/* IL_0C: ret */
+return ; };
+asm.x600000f = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */

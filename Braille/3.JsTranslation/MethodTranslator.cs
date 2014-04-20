@@ -149,11 +149,6 @@ namespace Braille.JsTranslation
 
             foreach (var frame in frames)
             {
-                if (frame.IsLabel)
-                {
-                    block.InsertLabel(frame.Position);
-                }
-
                 if (currentBlock != null && false == currentBlock.Contains(frame))
                 {
                     var parentBlock = blockStack.Pop();
@@ -209,6 +204,11 @@ namespace Braille.JsTranslation
                     awaitedBlock = tryBlockQueue.Dequeue();
                 }
 
+                if (frame.IsLabel)
+                {
+                    block.InsertLabel(frame.Position);
+                }
+
                 block.AddStatements(exprToJsTransform.Process(frame));
             }
 
@@ -225,7 +225,7 @@ namespace Braille.JsTranslation
                             }
                         }));
 
-            functionBlock.AddRange(block.Build());
+            functionBlock.AddRange(block.Build().Where(s => !(s.Expression is JSBreakExpression)));
 
             var function = new JSFunctionDelcaration
             {
