@@ -62,7 +62,7 @@ namespace Braille.JsTranslation
                                 {
                                     Expression = new JSIdentifier 
                                     {
-                                        Name = "return arguments[0]._methodPtr.apply(arguments[0]._target, Array(arguments).shift())"
+                                        Name = "return arguments[0]._methodPtr.apply(arguments[0]._target, Array.prototype.slice.call(arguments, 1))"
                                     }
                                 }
                             }

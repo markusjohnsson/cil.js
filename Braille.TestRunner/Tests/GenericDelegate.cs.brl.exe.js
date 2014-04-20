@@ -2232,7 +2232,7 @@ st_01 = loc0;
 /* IL_06: ret */
 return st_01; };
 asm.x6000068 = function Invoke() { 
- return arguments[0]._methodPtr.apply(arguments[0]._target, Array(arguments).shift()); };
+ return arguments[0]._methodPtr.apply(arguments[0]._target, Array.prototype.slice.call(arguments, 1)); };
 asm.x6000067 = function ctor() { 
  arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];; };
 asm.x6000074 = function _ctor() { var __braille_args__;
@@ -4492,7 +4492,7 @@ st_00 = __braille_args__[0];
 /* IL_06: ret */
 return ; };
 asm.x600000d = function Invoke() { 
- return arguments[0]._methodPtr.apply(arguments[0]._target, Array(arguments).shift()); };
+ return arguments[0]._methodPtr.apply(arguments[0]._target, Array.prototype.slice.call(arguments, 1)); };
 asm.x600000c = function ctor() { 
  arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];; };
 asm.x600000e = function _ctor() { var __braille_args__;

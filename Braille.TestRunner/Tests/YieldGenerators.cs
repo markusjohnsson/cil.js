@@ -42,23 +42,8 @@ public class P { public int Prop { get; set; } }
 
 public class Program
 {
-    public static IEnumerable<P> X()
-    {
-        yield return new P { Prop = 11 };
-        yield return new P { Prop = 22 };
-        yield return new P { Prop = 33 };
-        yield return new P { Prop = 44 };
-        yield return new P { Prop = 55 };
-    }
-
-
-
     public static void Main()
     {
-        //foreach (var x in X())
-        //    TestLog.Log(x.Prop);
-
-
         var arr = new P[5];
         arr[0] = new P { Prop = 11 };
         arr[1] = new P { Prop = 22 };
@@ -66,14 +51,10 @@ public class Program
         arr[3] = new P { Prop = 44 };
         arr[4] = new P { Prop = 55 };
 
-        //foreach (var x in arr)
-        //    TestLog.Log(x.Prop);
-
-
-        //TestLog.Log(arr.FirstOrDefault().Prop);
+        TestLog.Log(arr.FirstOrDefault().Prop);
         TestLog.Log(arr.Any());
-        //TestLog.Log(arr.Select(p => p.Prop).FirstOrDefault());
-        //TestLog.Log(arr.Where(p => p.Prop == 22).FirstOrDefault());
+        TestLog.Log(arr.Select(p => p.Prop).FirstOrDefault());
+        TestLog.Log(arr.Where(p => p.Prop == 22).FirstOrDefault().Prop);
     }
 }
 
