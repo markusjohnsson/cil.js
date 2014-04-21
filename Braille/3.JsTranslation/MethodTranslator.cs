@@ -62,7 +62,14 @@ namespace Braille.JsTranslation
                                 {
                                     Expression = new JSIdentifier 
                                     {
-                                        Name = "return arguments[0]._methodPtr.apply(arguments[0]._target, Array.prototype.slice.call(arguments, 1))"
+                                        Name = @"
+                                            var m = arguments[0]._methodPtr;
+                                            var t = arguments[0]._target;
+                                            if (t != null)
+                                                arguments[0] = t;
+                                            else
+                                                arguments = Array.prototype.slice.call(arguments, 1);
+                                            return m.apply(null, arguments)"
                                     }
                                 }
                             }
@@ -195,6 +202,11 @@ namespace Braille.JsTranslation
                     currentBlock = tryBlockStack.Pop();
                 }
 
+                if (frame.IsLabel)
+                {
+                    block.InsertLabel(frame.Position);
+                }
+
                 while (awaitedBlock != null && awaitedBlock.Contains(frame))
                 {
                     blockStack.Push(block);
@@ -202,11 +214,6 @@ namespace Braille.JsTranslation
                     tryBlockStack.Push(currentBlock);
                     currentBlock = awaitedBlock;
                     awaitedBlock = tryBlockQueue.Dequeue();
-                }
-
-                if (frame.IsLabel)
-                {
-                    block.InsertLabel(frame.Position);
                 }
 
                 block.AddStatements(exprToJsTransform.Process(frame));

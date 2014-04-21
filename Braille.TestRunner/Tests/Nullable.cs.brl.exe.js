@@ -1084,7 +1084,7 @@ st_06 = {
  return loc2; } 
 };
 /* IL_0F: initobj System.Nullable`1[T]*/
-(st_06.w)(new (((asm0)["System.Nullable`1"])(T))());
+(((asm0)["System.Nullable`1"])(T).IsValueType) ? ((st_06.w)(new (((asm0)["System.Nullable`1"])(T))())) : (null);
 /* IL_14: ldloc.2 */
 st_07 = loc2;
 /* IL_15: stloc.0 */
@@ -2232,7 +2232,14 @@ st_01 = loc0;
 /* IL_06: ret */
 return st_01; };
 asm.x6000068 = function Invoke() { 
- return arguments[0]._methodPtr.apply(arguments[0]._target, Array.prototype.slice.call(arguments, 1)); };
+ 
+                                            var m = arguments[0]._methodPtr;
+                                            var t = arguments[0]._target;
+                                            if (t != null)
+                                                arguments[0] = t;
+                                            else
+                                                arguments = Array.prototype.slice.call(arguments, 1);
+                                            return m.apply(null, arguments); };
 asm.x6000067 = function ctor() { 
  arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];; };
 asm.x6000074 = function _ctor() { var __braille_args__;
@@ -4541,7 +4548,7 @@ st_00 = {
  return loc2; } 
 };
 /* IL_03: initobj System.Nullable`1[A]*/
-(st_00.w)(new (((asm0)["System.Nullable`1"])((asm1.A)()))());
+(((asm0)["System.Nullable`1"])((asm1.A)()).IsValueType) ? ((st_00.w)(new (((asm0)["System.Nullable`1"])((asm1.A)()))())) : (null);
 /* IL_08: ldloc.2 */
 st_01 = loc2;
 /* IL_09: call Void Print(System.Nullable`1[A])*/
@@ -4554,7 +4561,7 @@ st_02 = {
  return loc3; } 
 };
 /* IL_11: initobj System.Nullable`1[A]*/
-(st_02.w)(new (((asm0)["System.Nullable`1"])((asm1.A)()))());
+(((asm0)["System.Nullable`1"])((asm1.A)()).IsValueType) ? ((st_02.w)(new (((asm0)["System.Nullable`1"])((asm1.A)()))())) : (null);
 /* IL_16: ldloc.3 */
 st_03 = loc3;
 /* IL_17: call Void Print(System.Nullable`1[A])*/
@@ -4567,7 +4574,7 @@ st_04 = {
  return loc0; } 
 };
 /* IL_1F: initobj A*/
-(st_04.w)(new ((asm1.A)())());
+((asm1.A)().IsValueType) ? ((st_04.w)(new ((asm1.A)())())) : (null);
 /* IL_24: ldloca.s 0*/
 st_05 = { 
 'w': function () { 
@@ -4601,7 +4608,7 @@ st_09 = {
  return loc4; } 
 };
 /* IL_3B: initobj A*/
-(st_09.w)(new ((asm1.A)())());
+((asm1.A)().IsValueType) ? ((st_09.w)(new ((asm1.A)())())) : (null);
 /* IL_40: ldloc.s 4*/
 st_0A = loc4;
 /* IL_42: newobj Void .ctor(A)*/
@@ -4628,7 +4635,7 @@ st_0D = {
  return loc5; } 
 };
 /* IL_55: initobj System.Nullable`1[A]*/
-(st_0D.w)(new (((asm0)["System.Nullable`1"])((asm1.A)()))());
+(((asm0)["System.Nullable`1"])((asm1.A)()).IsValueType) ? ((st_0D.w)(new (((asm0)["System.Nullable`1"])((asm1.A)()))())) : (null);
 /* IL_5A: ldloc.s 5*/
 st_0E = loc5;
 /* IL_5C: box System.Nullable`1[A]*/
@@ -4646,7 +4653,7 @@ st_10 = {
  return loc1; } 
 };
 /* IL_69: initobj A*/
-(st_10.w)(new ((asm1.A)())());
+((asm1.A)().IsValueType) ? ((st_10.w)(new ((asm1.A)())())) : (null);
 /* IL_6E: ldloca.s 1*/
 st_11 = { 
 'w': function () { 
@@ -4675,7 +4682,7 @@ st_15 = {
  return loc6; } 
 };
 /* IL_85: initobj A*/
-(st_15.w)(new ((asm1.A)())());
+((asm1.A)().IsValueType) ? ((st_15.w)(new ((asm1.A)())())) : (null);
 /* IL_8A: ldloc.s 6*/
 st_16 = loc6;
 /* IL_8C: box A*/

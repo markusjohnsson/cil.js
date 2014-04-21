@@ -545,21 +545,31 @@ namespace Braille.JsTranslation
                 case "endfinally":
                     return new JSEmptyExpression();
                 case "initobj":
-                    return new JSCallExpression
                     {
-                        Function = new JSPropertyAccessExpression
+                        var typeTok = (Type)frame.Instruction.Data;
+                        var typeExpr = GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
+
+                        return new JSConditionalExpression
                         {
-                            Host = ProcessInternal(frame.Arguments.Single()),
-                            Property = "w"
-                        },
-                        Arguments = 
-                        {
-                            new JSNewExpression
+                            Condition = JSIdentifier.Create(typeExpr, "IsValueType"),
+                            TrueValue = new JSCallExpression
                             {
-                                Constructor = GetTypeIdentifier((Type)frame.Instruction.Data, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
-                            }
-                        }
-                    };
+                                Function = new JSPropertyAccessExpression
+                                {
+                                    Host = ProcessInternal(frame.Arguments.Single()),
+                                    Property = "w"
+                                },
+                                Arguments = 
+                                {
+                                    new JSNewExpression 
+                                    {
+                                        Constructor = typeExpr
+                                    }
+                                }
+                            },
+                            FalseValue = new JSNullLiteral()
+                        };
+                    }
                 case "isinst":
                     {
                         var targetType = (Type)frame.Instruction.Data;

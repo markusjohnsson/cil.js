@@ -51,10 +51,11 @@ public class Program
         arr[3] = new P { Prop = 44 };
         arr[4] = new P { Prop = 55 };
 
-        TestLog.Log(arr.FirstOrDefault().Prop);
-        TestLog.Log(arr.Any());
+        //TestLog.Log(arr.FirstOrDefault().Prop);
+        //TestLog.Log(arr.Any());
         TestLog.Log(arr.Select(p => p.Prop).FirstOrDefault());
-        TestLog.Log(arr.Where(p => p.Prop == 22).FirstOrDefault().Prop);
+        //TestLog.Log(arr.Where(p => p.Prop == 22).FirstOrDefault().Prop);
+        //TestLog.Log(arr.Where(p => p.Prop == 99).FirstOrDefault()); // null
     }
 }
 

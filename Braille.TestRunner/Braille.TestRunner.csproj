@@ -114,11 +114,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="MonoTests\static-ctor.cs" />
+    <None Include="Tests\Closure.cs" />
+    <None Include="MonoTests\static-ctor.cs" />
     <Content Include="Tests\YieldGenerators.cs" />
     <Content Include="Tests\ArrayIteration.cs" />
     <Content Include="Tests\Negate.cs" />
-    <Compile Include="Tests\NestedClasses.cs" />
+    <None Include="MonoTests\Initobj.cs" />
+    <None Include="Tests\NestedClasses.cs" />
     <None Include="Tests\AbstractMethods.cs" />
     <Content Include="Tests\GenericInterface.cs" />
     <Content Include="Tests\CallGenericMethod.cs" />
@@ -174,13 +176,6 @@
     <None Include="MonoTests\interface.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="MonoTests\iface.cs.exe.js" />
-    <Content Include="MonoTests\iface2.cs.exe.js" />
-    <Content Include="MonoTests\iface3.cs.exe.js" />
-    <Content Include="MonoTests\iface4.cs.exe.js" />
-    <Content Include="MonoTests\iface6.cs.exe.js" />
-    <Content Include="MonoTests\iface7.cs.exe.js" />
-    <Content Include="MonoTests\interface.cs.exe.js" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Scripts\rx.binding.js" />
@@ -195,24 +190,6 @@
     <Content Include="Scripts\rx.lite.js" />
     <Content Include="Scripts\rx.lite.min.js" />
     <Content Include="Scripts\rx.min.js" />
-    <Content Include="Tests\CallInstanceMethods.cs.exe.js" />
-    <Content Include="Tests\CallStaticMethods.cs.exe.js" />
-    <Content Include="Tests\Class01.cs.exe.js" />
-    <Content Include="Tests\Class02.cs.exe.js" />
-    <Content Include="Tests\CSStringConverter.cs.exe.js" />
-    <Content Include="Tests\Delegate.cs.exe.js" />
-    <Content Include="Tests\Foreach.cs.exe.js" />
-    <Content Include="Tests\GenericClassBasics.cs.exe.js" />
-    <Content Include="Tests\GenericDelegate.cs.exe.js" />
-    <Content Include="Tests\IsInstClass.cs.exe.js" />
-    <Content Include="Tests\IsInstDelegate.cs.exe.js" />
-    <Content Include="Tests\IsInstGenericClass.cs.exe.js" />
-    <Content Include="Tests\IsInstGenericMethod.cs.exe.js" />
-    <Content Include="Tests\Properties.cs.exe.js" />
-    <Content Include="Tests\StringExtractor.cs.exe.js" />
-    <Content Include="Tests\Struct.cs.exe.js" />
-    <Content Include="Tests\Structs.cs.exe.js" />
-    <Content Include="Tests\TestTest.cs.exe.js" />
     <Content Include="Views\Test\Run.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +197,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="TestRunner.html" />
-    <Content Include="Tests\As.cs.exe.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

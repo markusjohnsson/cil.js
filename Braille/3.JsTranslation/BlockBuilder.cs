@@ -76,7 +76,7 @@ namespace Braille.JsTranslation
 
                     if (ifier != null && ifier.Name == "__braille_outer_pos__")
                     {
-                        ifier.Name = "__braille_pos_" + (depth - 1) + "__";
+                        ifier.Name = "__braille_pos_" + Math.Max(0, depth - 1) + "__";
                     }
 
                     //if (ifier != null && ifier.Name == "__braille_outer_pos_marked__")

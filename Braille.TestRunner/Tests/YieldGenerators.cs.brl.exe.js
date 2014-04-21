@@ -1084,7 +1084,7 @@ st_06 = {
  return loc2; } 
 };
 /* IL_0F: initobj System.Nullable`1[T]*/
-(st_06.w)(new (((asm0)["System.Nullable`1"])(T))());
+(((asm0)["System.Nullable`1"])(T).IsValueType) ? ((st_06.w)(new (((asm0)["System.Nullable`1"])(T))())) : (null);
 /* IL_14: ldloc.2 */
 st_07 = loc2;
 /* IL_15: stloc.0 */
@@ -2232,7 +2232,14 @@ st_01 = loc0;
 /* IL_06: ret */
 return st_01; };
 asm.x6000068 = function Invoke() { 
- return arguments[0]._methodPtr.apply(arguments[0]._target, Array.prototype.slice.call(arguments, 1)); };
+ 
+                                            var m = arguments[0]._methodPtr;
+                                            var t = arguments[0]._target;
+                                            if (t != null)
+                                                arguments[0] = t;
+                                            else
+                                                arguments = Array.prototype.slice.call(arguments, 1);
+                                            return m.apply(null, arguments); };
 asm.x6000067 = function ctor() { 
  arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];; };
 asm.x6000074 = function _ctor() { var __braille_args__;
@@ -4511,7 +4518,7 @@ st_00 = -2;
 /* IL_02: newobj Void .ctor(System.Int32)*/
 st_01 = (function () { var result;
  result = new ((arguments)[0])();
-(asm1.x600001e)(result,st_00);
+(asm1.x600001d)(result,st_00);
 return result; })(((asm1)["E+<Select>d__0`2"])(T,TResult));
 /* IL_07: stloc.0 */
 loc0 = st_01;
@@ -4550,7 +4557,7 @@ st_00 = -2;
 /* IL_02: newobj Void .ctor(System.Int32)*/
 st_01 = (function () { var result;
  result = new ((arguments)[0])();
-(asm1.x6000027)(result,st_00);
+(asm1.x6000026)(result,st_00);
 return result; })(((asm1)["E+<Where>d__6`1"])(T));
 /* IL_07: stloc.0 */
 loc0 = st_01;
@@ -4652,7 +4659,7 @@ st_07 = {
  return loc3; } 
 };
 /* IL_2B: initobj T*/
-(st_07.w)(new T());
+(T.IsValueType) ? ((st_07.w)(new T())) : (null);
 /* IL_30: ldloc.3 */
 st_08 = loc3;
 /* IL_31: ret */
@@ -4812,40 +4819,21 @@ var st_1A;
 var st_1B;
 var st_1C;
 var st_1F;
+var st_24;
 var st_20;
 var st_21;
 var st_22;
 var st_23;
-var st_24;
 var st_25;
 var st_26;
-var st_2B;
 var st_27;
 var st_28;
-var st_29;
-var st_2A;
-var st_2C;
-var st_2D;
-var st_2E;
-var st_2F;
-var st_34;
-var st_30;
-var st_31;
-var st_32;
-var st_33;
-var st_35;
-var st_36;
-var st_37;
-var st_38;
-var st_39;
 var __braille_pos_0__;
  __braille_args__ = arguments;
 ((asm1.P)().init)();
-(((asm0)["System.Int32"])().init)();
-(((asm0)["System.Boolean"])().init)();
 ((asm1.Program)().init)();
+(((asm0)["System.Int32"])().init)();
 (((asm0)["System.Func`2"])((asm1.P)(),((asm0)["System.Int32"])()).init)();
-(((asm0)["System.Func`2"])((asm1.P)(),((asm0)["System.Boolean"])()).init)();
 loc0 = null;
 loc1 = null;
 loc2 = null;
@@ -4968,98 +4956,39 @@ st_1F = loc5;
 /* IL_66: stelem.ref */
 (st_1D.jsarr)[st_1E] = st_1F;
 /* IL_67: ldloc.0 */
-st_20 = loc0;
-/* IL_68: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P])*/
-st_21 = ((asm1.x600000e)((asm1.P)()))(st_20);
-/* IL_6D: callvirt Int32 get_Prop()*/
-st_22 = (asm1.x6000010)(st_21);
-/* IL_72: box System.Int32*/
-st_23 = { 
-'boxed': st_22,
-'vtable': ((asm0)["System.Int32"])().prototype.vtable 
-};
-/* IL_77: call Void Log(System.Object)*/
-(braille_test_log)(st_23);
-/* IL_7C: ldloc.0 */
 st_24 = loc0;
-/* IL_7D: call Boolean Any[P](System.Collections.Generic.IEnumerable`1[P])*/
-st_25 = ((asm1.x600000f)((asm1.P)()))(st_24);
-/* IL_82: box System.Boolean*/
-st_26 = { 
-'boxed': st_25,
-'vtable': ((asm0)["System.Boolean"])().prototype.vtable 
-};
-/* IL_87: call Void Log(System.Object)*/
-(braille_test_log)(st_26);
-/* IL_8C: ldloc.0 */
-st_2B = loc0;
-/* IL_8D: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate7*/
-st_27 = ((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate7"];
-/* IL_92: brtrue.s IL_A5*/
-if (st_27){
-__braille_pos_0__ = 0xA5;continue;
+/* IL_68: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
+st_20 = ((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate6"];
+/* IL_6D: brtrue.s IL_80*/
+if (st_20){
+__braille_pos_0__ = 0x80;continue;
 }
-/* IL_94: ldnull */
-st_28 = null;
-/* IL_96: ldftn Int32 <Main>b__5(P)*/
-st_29 = asm1.x6000015;
-/* IL_9B: newobj Void .ctor(System.Object, System.IntPtr)*/
-st_2A = (function () { var result;
+/* IL_6F: ldnull */
+st_21 = null;
+/* IL_71: ldftn Int32 <Main>b__5(P)*/
+st_22 = asm1.x6000015;
+/* IL_76: newobj Void .ctor(System.Object, System.IntPtr)*/
+st_23 = (function () { var result;
  result = new ((arguments)[0])();
-(asm0.x6000067)(result,st_28,st_29);
+(asm0.x6000067)(result,st_21,st_22);
 return result; })(((asm0)["System.Func`2"])((asm1.P)(),((asm0)["System.Int32"])()));
-/* IL_A0: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate7*/
-((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate7"] = st_2A;
-case 0xA5:
-/* IL_A5: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate7*/
-st_2C = ((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate7"];
-/* IL_AA: call IEnumerable`1 Select[P, System.Int32](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Int32])*/
-st_2D = ((asm1.x600000c)((asm1.P)(),((asm0)["System.Int32"])()))(st_2B,st_2C);
-/* IL_AF: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32])*/
-st_2E = ((asm1.x600000e)(((asm0)["System.Int32"])()))(st_2D);
-/* IL_B4: box System.Int32*/
-st_2F = { 
-'boxed': st_2E,
+/* IL_7B: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
+((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate6"] = st_23;
+case 0x80:
+/* IL_80: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
+st_25 = ((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate6"];
+/* IL_85: call IEnumerable`1 Select[P, System.Int32](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Int32])*/
+st_26 = ((asm1.x600000c)((asm1.P)(),((asm0)["System.Int32"])()))(st_24,st_25);
+/* IL_8A: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32])*/
+st_27 = ((asm1.x600000e)(((asm0)["System.Int32"])()))(st_26);
+/* IL_8F: box System.Int32*/
+st_28 = { 
+'boxed': st_27,
 'vtable': ((asm0)["System.Int32"])().prototype.vtable 
 };
-/* IL_B9: call Void Log(System.Object)*/
-(braille_test_log)(st_2F);
-/* IL_BE: ldloc.0 */
-st_34 = loc0;
-/* IL_BF: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate8*/
-st_30 = ((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate8"];
-/* IL_C4: brtrue.s IL_D7*/
-if (st_30){
-__braille_pos_0__ = 0xD7;continue;
-}
-/* IL_C6: ldnull */
-st_31 = null;
-/* IL_C8: ldftn Boolean <Main>b__6(P)*/
-st_32 = asm1.x6000016;
-/* IL_CD: newobj Void .ctor(System.Object, System.IntPtr)*/
-st_33 = (function () { var result;
- result = new ((arguments)[0])();
-(asm0.x6000067)(result,st_31,st_32);
-return result; })(((asm0)["System.Func`2"])((asm1.P)(),((asm0)["System.Boolean"])()));
-/* IL_D2: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate8*/
-((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate8"] = st_33;
-case 0xD7:
-/* IL_D7: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate8*/
-st_35 = ((asm1.Program)())["CS$<>9__CachedAnonymousMethodDelegate8"];
-/* IL_DC: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean])*/
-st_36 = ((asm1.x600000d)((asm1.P)()))(st_34,st_35);
-/* IL_E1: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P])*/
-st_37 = ((asm1.x600000e)((asm1.P)()))(st_36);
-/* IL_E6: callvirt Int32 get_Prop()*/
-st_38 = (asm1.x6000010)(st_37);
-/* IL_EB: box System.Int32*/
-st_39 = { 
-'boxed': st_38,
-'vtable': ((asm0)["System.Int32"])().prototype.vtable 
-};
-/* IL_F0: call Void Log(System.Object)*/
-(braille_test_log)(st_39);
-/* IL_F5: ret */
+/* IL_94: call Void Log(System.Object)*/
+(braille_test_log)(st_28);
+/* IL_99: ret */
 return ;
 }
 } };
@@ -5073,22 +5002,6 @@ st_00 = __braille_args__[0];
 st_01 = (asm1.x6000010)(st_00);
 /* IL_06: ret */
 return st_01; };
-asm.x6000016 = function _Main_b__6() { var __braille_args__;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
- __braille_args__ = arguments;
-/* IL_00: ldarg.0 */
-st_00 = __braille_args__[0];
-/* IL_01: callvirt Int32 get_Prop()*/
-st_01 = (asm1.x6000010)(st_00);
-/* IL_06: ldc.i4.s 22*/
-st_02 = 22;
-/* IL_09: ceq */
-st_03 = (st_01 === st_02) ? (1) : (0);
-/* IL_0A: ret */
-return st_03; };
 asm.x6000014 = function _ctor() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
@@ -5097,7 +5010,7 @@ st_00 = __braille_args__[0];
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000017 = function System_Collections_Generic_IEnumerable_TResult__GetEnumerator() { var __braille_args__;
+asm.x6000016 = function System_Collections_Generic_IEnumerable_TResult__GetEnumerator() { var __braille_args__;
 var loc0;
 var st_01;
 var st_00;
@@ -5166,7 +5079,7 @@ st_09 = 0;
 /* IL_23: newobj Void .ctor(System.Int32)*/
 st_0A = (function () { var result;
  result = new ((arguments)[0])();
-(asm1.x600001e)(result,st_09);
+(asm1.x600001d)(result,st_09);
 return result; })(((asm1)["E+<Select>d__0`2"])(((arguments)[0].constructor.GenericArguments)[0],((arguments)[0].constructor.GenericArguments)[1]));
 /* IL_28: stloc.0 */
 loc0 = st_0A;
@@ -5193,17 +5106,17 @@ st_11 = loc0;
 return st_11;
 }
 } };
-asm.x6000018 = function System_Collections_IEnumerable_GetEnumerator() { var __braille_args__;
+asm.x6000017 = function System_Collections_IEnumerable_GetEnumerator() { var __braille_args__;
 var st_00;
 var st_01;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()*/
-st_01 = (asm1.x6000017)(st_00);
+st_01 = (asm1.x6000016)(st_00);
 /* IL_06: ret */
 return st_01; };
-asm.x6000019 = function MoveNext() { var __braille_args__;
+asm.x6000018 = function MoveNext() { var __braille_args__;
 var loc0;
 var loc1;
 var st_00;
@@ -5357,7 +5270,7 @@ __braille_pos_1__ = 0x3C;continue;
 /* IL_83: ldarg.0 */
 st_1D = __braille_args__[0];
 /* IL_84: call Void <>m__Finally3()*/
-(asm1.x600001f)(st_1D);
+(asm1.x600001e)(st_1D);
 case 0x89:
 /* IL_89: ldc.i4.0 */
 st_1E = 0;
@@ -5378,7 +5291,7 @@ st_1F = loc0;
 return st_1F;
 }
 } };
-asm.x600001a = function System_Collections_Generic_IEnumerator_TResult__get_Current() { var __braille_args__;
+asm.x6000019 = function System_Collections_Generic_IEnumerator_TResult__get_Current() { var __braille_args__;
 var st_00;
 var st_01;
  __braille_args__ = arguments;
@@ -5388,7 +5301,7 @@ st_00 = __braille_args__[0];
 st_01 = (st_00)["_Select_d__0_2<>2__current"];
 /* IL_06: ret */
 return st_01; };
-asm.x600001b = function System_Collections_IEnumerator_Reset() { var __braille_args__;
+asm.x600001a = function System_Collections_IEnumerator_Reset() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 (((asm0)["System.NotSupportedException"])().init)();
@@ -5399,7 +5312,7 @@ st_00 = (function () { var result;
 return result; })(((asm0)["System.NotSupportedException"])());
 /* IL_05: throw */
 throw st_00; };
-asm.x600001c = function System_IDisposable_Dispose() { var __braille_args__;
+asm.x600001b = function System_IDisposable_Dispose() { var __braille_args__;
 var loc0;
 var st_00;
 var st_01;
@@ -5438,26 +5351,18 @@ continue;
 case 0x17:
 /* IL_17: ret */
 return ;
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
 case 0x18:
+try {
 /* IL_18: leave.s IL_21*/
 __braille_pos_1__ = -1;
 __braille_pos_0__ = 0x21;
-break;
-}
-}
-break;
 }catch (e) {}
 case 0x21:
 /* IL_21: ret */
 return ;
 }
 } };
-asm.x600001d = function System_Collections_IEnumerator_get_Current() { var __braille_args__;
+asm.x600001c = function System_Collections_IEnumerator_get_Current() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
@@ -5471,7 +5376,7 @@ st_01 = (st_00)["_Select_d__0_2<>2__current"];
 st_02 = box(st_01,((arguments)[0].constructor.GenericArguments)[1]);
 /* IL_0B: ret */
 return st_02; };
-asm.x600001f = function __m__Finally3() { var __braille_args__;
+asm.x600001e = function __m__Finally3() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
@@ -5509,7 +5414,7 @@ case 0x1A:
 return ;
 }
 } };
-asm.x600001e = function _ctor() { var __braille_args__;
+asm.x600001d = function _ctor() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
@@ -5533,7 +5438,7 @@ st_04 = (asm0.x6000066)();
 (st_03)["_Select_d__0_2<>l__initialThreadId"] = st_04;
 /* IL_18: ret */
 return ; };
-asm.x6000020 = function System_Collections_Generic_IEnumerable_T__GetEnumerator() { var __braille_args__;
+asm.x600001f = function System_Collections_Generic_IEnumerable_T__GetEnumerator() { var __braille_args__;
 var loc0;
 var st_01;
 var st_00;
@@ -5601,7 +5506,7 @@ st_09 = 0;
 /* IL_23: newobj Void .ctor(System.Int32)*/
 st_0A = (function () { var result;
  result = new ((arguments)[0])();
-(asm1.x6000027)(result,st_09);
+(asm1.x6000026)(result,st_09);
 return result; })(((asm1)["E+<Where>d__6`1"])(((arguments)[0].constructor.GenericArguments)[0]));
 /* IL_28: stloc.0 */
 loc0 = st_0A;
@@ -5628,17 +5533,17 @@ st_11 = loc0;
 return st_11;
 }
 } };
-asm.x6000021 = function System_Collections_IEnumerable_GetEnumerator() { var __braille_args__;
+asm.x6000020 = function System_Collections_IEnumerable_GetEnumerator() { var __braille_args__;
 var st_00;
 var st_01;
  __braille_args__ = arguments;
 /* IL_00: ldarg.0 */
 st_00 = __braille_args__[0];
 /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<T>.GetEnumerator()*/
-st_01 = (asm1.x6000020)(st_00);
+st_01 = (asm1.x600001f)(st_00);
 /* IL_06: ret */
 return st_01; };
-asm.x6000022 = function MoveNext() { var __braille_args__;
+asm.x6000021 = function MoveNext() { var __braille_args__;
 var loc0;
 var loc1;
 var st_00;
@@ -5802,7 +5707,7 @@ __braille_pos_1__ = 0x3C;continue;
 /* IL_8B: ldarg.0 */
 st_1F = __braille_args__[0];
 /* IL_8C: call Void <>m__Finally9()*/
-(asm1.x6000028)(st_1F);
+(asm1.x6000027)(st_1F);
 case 0x91:
 /* IL_91: ldc.i4.0 */
 st_20 = 0;
@@ -5823,7 +5728,7 @@ st_21 = loc0;
 return st_21;
 }
 } };
-asm.x6000023 = function System_Collections_Generic_IEnumerator_T__get_Current() { var __braille_args__;
+asm.x6000022 = function System_Collections_Generic_IEnumerator_T__get_Current() { var __braille_args__;
 var st_00;
 var st_01;
  __braille_args__ = arguments;
@@ -5833,7 +5738,7 @@ st_00 = __braille_args__[0];
 st_01 = (st_00)["_Where_d__6_1<>2__current"];
 /* IL_06: ret */
 return st_01; };
-asm.x6000024 = function System_Collections_IEnumerator_Reset() { var __braille_args__;
+asm.x6000023 = function System_Collections_IEnumerator_Reset() { var __braille_args__;
 var st_00;
  __braille_args__ = arguments;
 (((asm0)["System.NotSupportedException"])().init)();
@@ -5844,7 +5749,7 @@ st_00 = (function () { var result;
 return result; })(((asm0)["System.NotSupportedException"])());
 /* IL_05: throw */
 throw st_00; };
-asm.x6000025 = function System_IDisposable_Dispose() { var __braille_args__;
+asm.x6000024 = function System_IDisposable_Dispose() { var __braille_args__;
 var loc0;
 var st_00;
 var st_01;
@@ -5883,26 +5788,18 @@ continue;
 case 0x17:
 /* IL_17: ret */
 return ;
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
 case 0x18:
+try {
 /* IL_18: leave.s IL_21*/
 __braille_pos_1__ = -1;
 __braille_pos_0__ = 0x21;
-break;
-}
-}
-break;
 }catch (e) {}
 case 0x21:
 /* IL_21: ret */
 return ;
 }
 } };
-asm.x6000026 = function System_Collections_IEnumerator_get_Current() { var __braille_args__;
+asm.x6000025 = function System_Collections_IEnumerator_get_Current() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
@@ -5916,7 +5813,7 @@ st_01 = (st_00)["_Where_d__6_1<>2__current"];
 st_02 = box(st_01,((arguments)[0].constructor.GenericArguments)[0]);
 /* IL_0B: ret */
 return st_02; };
-asm.x6000028 = function __m__Finally9() { var __braille_args__;
+asm.x6000027 = function __m__Finally9() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
@@ -5954,7 +5851,7 @@ case 0x1A:
 return ;
 }
 } };
-asm.x6000027 = function _ctor() { var __braille_args__;
+asm.x6000026 = function _ctor() { var __braille_args__;
 var st_00;
 var st_01;
 var st_02;
@@ -6120,8 +6017,7 @@ Program.init = function () {
 return;
 }
 initialized = true;
-(Program)["CS$<>9__CachedAnonymousMethodDelegate7"] = null;
-(Program)["CS$<>9__CachedAnonymousMethodDelegate8"] = null;
+(Program)["CS$<>9__CachedAnonymousMethodDelegate6"] = null;
 Program.Interfaces = [  ];
 Program.IsInst = function (t) { return t instanceof Program; };
 Program.IsValueType = false;
@@ -6176,22 +6072,22 @@ _Select_d__0_2.prototype.vtable = {
 'x6000007': asm0.x6000007 
 };
 (_Select_d__0_2.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult)] = { 
-'x6000010': asm1.x6000017 
+'x6000010': asm1.x6000016 
 };
 (_Select_d__0_2.prototype)[((asm0)["System.Collections.IEnumerable"])()] = { 
-'x600000f': asm1.x6000018 
+'x600000f': asm1.x6000017 
 };
 (_Select_d__0_2.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult)] = { 
-'x6000078': asm1.x600001a,
-'x6000079': asm1.x6000019 
+'x6000078': asm1.x6000019,
+'x6000079': asm1.x6000018 
 };
 (_Select_d__0_2.prototype)[((asm0)["System.Collections.IEnumerator"])()] = { 
-'x6000075': asm1.x600001d,
-'x6000076': asm1.x6000019,
-'x6000077': asm1.x600001b 
+'x6000075': asm1.x600001c,
+'x6000076': asm1.x6000018,
+'x6000077': asm1.x600001a 
 };
 (_Select_d__0_2.prototype)[((asm0)["System.IDisposable"])()] = { 
-'x600004c': asm1.x600001c 
+'x600004c': asm1.x600001b 
 }; };
 _Select_d__0_2.prototype = new (((asm0)["System.Object"])())();;
 c = _Select_d__0_2;
@@ -6237,22 +6133,22 @@ _Where_d__6_1.prototype.vtable = {
 'x6000007': asm0.x6000007 
 };
 (_Where_d__6_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = { 
-'x6000010': asm1.x6000020 
+'x6000010': asm1.x600001f 
 };
 (_Where_d__6_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = { 
-'x600000f': asm1.x6000021 
+'x600000f': asm1.x6000020 
 };
 (_Where_d__6_1.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = { 
-'x6000078': asm1.x6000023,
-'x6000079': asm1.x6000022 
+'x6000078': asm1.x6000022,
+'x6000079': asm1.x6000021 
 };
 (_Where_d__6_1.prototype)[((asm0)["System.Collections.IEnumerator"])()] = { 
-'x6000075': asm1.x6000026,
-'x6000076': asm1.x6000022,
-'x6000077': asm1.x6000024 
+'x6000075': asm1.x6000025,
+'x6000076': asm1.x6000021,
+'x6000077': asm1.x6000023 
 };
 (_Where_d__6_1.prototype)[((asm0)["System.IDisposable"])()] = { 
-'x600004c': asm1.x6000025 
+'x600004c': asm1.x6000024 
 }; };
 _Where_d__6_1.prototype = new (((asm0)["System.Object"])())();;
 c = _Where_d__6_1;
