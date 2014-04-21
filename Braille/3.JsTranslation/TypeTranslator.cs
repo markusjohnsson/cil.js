@@ -313,7 +313,7 @@ namespace Braille.JsTranslation
             {
                 Properties = type
                     .ReflectionType
-                    .GetMethods()
+                    .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
                         m => GetMethodIdentifier(m.GetBaseDefinition()),

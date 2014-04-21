@@ -17,8 +17,6 @@ namespace Braille.JsTranslation
         private CilMethod method;
         private List<CilAssembly> world;
 
-        private HashSet<OpExpression> processedDups = new HashSet<OpExpression>();
-
         public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method)
             : base(context)
         {
@@ -522,26 +520,7 @@ namespace Braille.JsTranslation
                         Operator = "/"
                     };
                 case "dup":
-                    {
-                        // TODO: eliminate dups after analysis
-
-                        var name = "_b_dup_" + frame.Instruction.Position;
-                        if (processedDups.Add(frame))
-                        {
-                            return new JSVariableDelcaration
-                            {
-                                Name = name,
-                                Value = ProcessInternal(frame.Arguments.Single())
-                            };
-                        }
-                        else
-                        {
-                            return new JSIdentifier
-                            {
-                                Name = name
-                            };
-                        }
-                    }
+                    return ProcessInternal(frame.Arguments.Single());
                 case "endfinally":
                     return new JSEmptyExpression();
                 case "initobj":
