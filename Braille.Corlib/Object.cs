@@ -50,8 +50,8 @@ namespace System
 
     public class Console
     {
-        [JsImport("(function (o) { console.log(o); })")]
-        internal extern static void WriteLineImpl(object s);
+        [JsImport("(function (o) { console.log(o.jsstr); })")]
+        internal extern static void WriteLineImpl(string s);
 
         public static void WriteLine(object s)
         {

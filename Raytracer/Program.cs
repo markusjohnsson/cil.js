@@ -1,6 +1,7 @@
 ﻿
 
 using Braille.Runtime.TranslatorServices;
+using System;
 using System.Collections.Generic;
 
 namespace System.Linq
@@ -77,6 +78,35 @@ namespace System.Linq
 
 namespace Raytracer
 {
+    public class Stopwatch
+    {
+        [JsImport(@"function() { return Date.now(); }")]
+        internal static extern int Now();
+
+        int start;
+        int end;
+
+        public Stopwatch(int start)
+        {
+            this.start = start;
+        }
+
+        public static Stopwatch StartNew()
+        {
+            return new Stopwatch(Now());
+        }
+
+        public void Stop()
+        {
+            end = Now();
+        }
+
+        public int TotalSeconds
+        {
+            get { return (end - start) / 1000; }
+        }
+    }
+
     public class Program
     {
         [JsImport(@"function() { return document.getElementById(""canvas"").getContext(""2d""); }")]
@@ -98,6 +128,7 @@ namespace Raytracer
 
         public static void Main() 
         {
+            var sw = Stopwatch.StartNew();
             var ctx = GetContext();
             var imgData = CreateImageData(ctx);
 
@@ -105,6 +136,10 @@ namespace Raytracer
             raytracer.Render(raytracer.DefaultScene);
 
             PutImageData(ctx, imgData);
+
+            sw.Stop();
+            Console.WriteLine(sw.TotalSeconds);
+
         }
     }
 }
