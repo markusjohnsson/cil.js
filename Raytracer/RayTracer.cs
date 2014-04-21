@@ -24,14 +24,12 @@ namespace RayTracer
         {
             return scene.Things
                         .Select(obj => obj.Intersect(ray))
-                        .Where(inter => inter != null)
-                        .OrderBy(inter => inter.Dist);
+                        .Where(inter => inter != null);
         }
 
         private double TestRay(Ray ray, Scene scene)
         {
-            var isects = Intersections(ray, scene);
-            ISect isect = isects.FirstOrDefault();
+            ISect isect = Intersections(ray, scene).MinByOrDefault(isec => isec.Dist);
             if (isect == null)
                 return 0;
             return isect.Dist;
@@ -39,8 +37,7 @@ namespace RayTracer
 
         private Color TraceRay(Ray ray, Scene scene, int depth)
         {
-            var isects = Intersections(ray, scene);
-            ISect isect = isects.FirstOrDefault();
+            ISect isect = Intersections(ray, scene).MinByOrDefault(isec => isec.Dist);
             if (isect == null)
                 return Color.Background;
             return Shade(isect, scene, depth);

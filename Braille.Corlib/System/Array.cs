@@ -23,18 +23,23 @@ namespace System
             return GetValueImpl(this, index);
         }
 
-        public abstract IEnumerator GetEnumerator();
+        public IEnumerator GetEnumerator()
+        {
+            return GetEnumeratorImpl();
+        }
+
+        protected abstract IEnumerator GetEnumeratorImpl();
     }
 
     internal class Array<T> : Array, IEnumerable<T>
     {
-        public IEnumerator<T> GetEnumerator()
+        public new IEnumerator<T> GetEnumerator()
         {
             for (var i = 0; i < Length; i++)
                 yield return (T)GetValue(i);
         }
 
-        Collections.IEnumerator Collections.IEnumerable.GetEnumerator()
+        protected override IEnumerator GetEnumeratorImpl()
         {
             return GetEnumerator();
         }
