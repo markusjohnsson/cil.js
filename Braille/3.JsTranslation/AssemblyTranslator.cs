@@ -135,18 +135,26 @@ function new_array(type, length) {
                     if (function == null)
                         continue;
                     
-                    var accessor = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = GetMethodIdentifier(method.ReflectionMethod)
-                    };
+                    var accessor = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
+
+                    var firstCallFunction = methodTranslator.GetFirstCallInitializer(asm, type, method);
 
                     yield return new JSBinaryExpression
                     {
                         Left = accessor,
                         Operator = "=",
-                        Right = function
+                        Right = firstCallFunction ?? function
                     };
+
+                    if (firstCallFunction != null)
+                    {
+                        yield return new JSBinaryExpression
+                        {
+                            Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_"),
+                            Operator = "=",
+                            Right = function
+                        };
+                    }
 
                     if (method.IsAssemblyStatic)
                     {

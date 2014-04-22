@@ -26,6 +26,84 @@ namespace Braille.JsTranslation
             expressionBuilder = new OpExpressionBuilder(context.ReflectionUniverse);
         }
 
+        public JSFunctionDelcaration GetFirstCallInitializer(CilAssembly assembly, CilType type, CilMethod method)
+        {
+            if (type.IsIgnored)
+            {
+                throw new ArgumentException("cannot translate method of ignored class");
+            }
+
+            if (method.GetReplacement() != null || type.IsInterface || method.ReflectionMethod.IsAbstract)
+            {
+                return null;
+            }
+
+            if (type.IsUserDelegate)
+            {
+                return null;
+            }
+            else
+            {
+                if (method.ReferencedTypes.Length == 0)
+                    return null;
+
+                var functionBlock = new List<JSStatement>();
+
+                var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
+
+                foreach (var t in method.ReferencedTypes)
+                {
+                    if (t.IsGenericParameter) // types shall be initialized before they are used as generic parameters 
+                        continue; 
+
+                    functionBlock.Add(
+                        new JSCallExpression
+                        {
+                            Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
+                        }
+                        .ToStatement());
+                }
+
+                functionBlock.Add(
+                    new JSBinaryExpression
+                    {
+                        Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod)),
+                        Operator = "=",
+                        Right = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_")
+                    }.ToStatement());
+
+                JSExpression openMethod = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
+                JSExpression closedMethod;
+
+                if (HasGenericParameters(method))
+                {
+                    closedMethod = new JSCallExpression
+                    {
+                        Function = openMethod,
+                        Arguments = GetGenericParameterList(method.ReflectionMethod)
+                            .Select(t => JSIdentifier.Create(t.Name))
+                            .ToList()
+                    };
+                }
+                else
+                    closedMethod = openMethod;
+
+                functionBlock.Add(
+                    new JSReturnExpression
+                    {
+                        Expression = new JSCallExpression
+                        {
+                            Function = JSIdentifier.Create(closedMethod, "apply"),
+                            Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
+                        }
+                    }.ToStatement());
+
+                var f = new JSFunctionDelcaration { Body = functionBlock };
+
+                return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
+            }
+        }
+
         public JSFunctionDelcaration Translate(CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)
@@ -50,6 +128,9 @@ namespace Braille.JsTranslation
 
         private JSFunctionDelcaration TranslateDelegateMethod(CilMethod method)
         {
+            // TODO: we should avoid the extra trampoline for invoking delegates. 
+            // We could leave the codegen here though as it can be useful for reflection later
+
             switch (method.Name)
             {
                 case "Invoke":
@@ -96,13 +177,20 @@ namespace Braille.JsTranslation
 
         private JSFunctionDelcaration TransformNormalMethod(CilAssembly asm, CilType type, CilMethod method)
         {
-            var frames = expressionBuilder.Build(method);
-
-            insertFrameLabelsTask.Process(frames);
-
-            var exprToJsTransform = new OpTranslator(context, asm, type, method);
-
             var functionBlock = new List<JSStatement>();
+
+            var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
+
+            //foreach (var t in method.ReferencedTypes)
+            //{
+            //    functionBlock.Add(
+            //        new JSCallExpression
+            //        {
+            //            Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
+            //        }
+            //        .ToStatement());
+            //}
+
             functionBlock.Add(
                 new JSStatement
                 {
@@ -112,18 +200,6 @@ namespace Braille.JsTranslation
                         Value = new JSIdentifier { Name = "arguments" }
                     }
                 });
-
-            var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
-
-            foreach (var t in method.ReferencedTypes)
-            {
-                functionBlock.Add(
-                    new JSCallExpression
-                    {
-                        Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
-                    }
-                    .ToStatement());
-            }
 
             var locIdx = 0;
 
@@ -141,6 +217,12 @@ namespace Braille.JsTranslation
                 locIdx++;
             }
 
+            var frames = expressionBuilder.Build(method);
+
+            insertFrameLabelsTask.Process(frames);
+
+            var exprToJsTransform = new OpTranslator(context, asm, type, method);
+
             var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, frames));
 
             var block = new BlockBuilder(0);
@@ -152,7 +234,6 @@ namespace Braille.JsTranslation
             var tryBlockStack = new Stack<TryCatchFinallyFrameSpan>();
 
             awaitedBlock = tryBlockQueue.Dequeue();
-
 
             foreach (var frame in frames)
             {
@@ -241,10 +322,15 @@ namespace Braille.JsTranslation
             };
 
             return
-                (method.ReflectionMethod.IsGenericMethodDefinition) ||
-                (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType) ?
+                HasGenericParameters(method) ?
                     CreateGenericFunction(method, function) :
                     function;
+        }
+
+        private static bool HasGenericParameters(CilMethod method)
+        {
+            return (method.ReflectionMethod.IsGenericMethodDefinition) ||
+                   (method.ReflectionMethod.IsStatic && method.ReflectionMethod.DeclaringType.IsGenericType);
         }
 
         private JSFunctionDelcaration CreateGenericFunction(CilMethod method, JSFunctionDelcaration function)
@@ -254,15 +340,20 @@ namespace Braille.JsTranslation
             // For static methods on generic classes, the type arguments are passed to 
             // the method at the call site rather than wired through the generic class type.
 
-            var classGenArgs = (mi.IsStatic && mi.DeclaringType.IsGenericType) ? mi.DeclaringType.GetGenericArguments() : new Type[0];
-            var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
-            var types = classGenArgs.Concat(methodGenArgs);
+            var types = GetGenericParameterList(mi);
 
             return new JSFunctionDelcaration
             {
                 Body = { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
                 Parameters = types.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
             };
+        }
+
+        private static IEnumerable<Type> GetGenericParameterList(MethodBase mi)
+        {
+            var classGenArgs = (mi.IsStatic && mi.DeclaringType.IsGenericType) ? mi.DeclaringType.GetGenericArguments() : new Type[0];
+            var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
+            return classGenArgs.Concat(methodGenArgs);
         }
     }
 }

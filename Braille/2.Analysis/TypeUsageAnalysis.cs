@@ -31,7 +31,8 @@ namespace Braille.Analysis
             if (t.IsGenericType)
             {
                 foreach (var genericArgument in t.GetGenericArguments())
-                    yield return genericArgument;
+                    foreach (var g in ExpandGenericTypes(genericArgument))
+                        yield return g;
             }
             yield return t;
         }
@@ -49,6 +50,13 @@ namespace Braille.Analysis
                     var d = (IKVM.Reflection.Type)op.Instruction.Data;
                     //if (d.IsGenericParameter)
                         yield return d;
+                    break;
+                case "call":
+                case "callvirt":
+                    var mi = (MethodBase)op.Instruction.Data;
+                    if (mi.IsGenericMethod)
+                        foreach (var g in mi.GetGenericArguments())
+                            yield return g;
                     break;
                 case "initobj":
                 case "isinst":
