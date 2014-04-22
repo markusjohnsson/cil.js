@@ -458,6 +458,23 @@ namespace Braille.JsTranslation
                         if (replacement != null && replacement.Kind == ReplacementKind.Raw)
                             return new JSIdentifier { Name = replacement.Replacement };
 
+                        if (mi.Name == "Invoke" && mi.DeclaringType.BaseType.FullName == "System.MulticastDelegate")
+                        {
+                            return new JSCallExpression
+                            {
+                                Function = JSIdentifier.Create(arglist.First(), "_methodPtr", "apply"),
+                                Arguments = {
+                                    new JSNullLiteral(),
+                                    new JSConditionalExpression
+                                    {   
+                                        Condition = JSIdentifier.Create(arglist.First(), "_target"),
+                                        TrueValue = new JSArrayLiteral { Values = arglist.Skip(1).StartWith(JSIdentifier.Create(arglist.First(), "_target")).ToList() },
+                                        FalseValue = new JSArrayLiteral { Values = arglist.Skip(1).ToList() }
+                                    }
+                                }
+                            };
+                        }
+
                         return new JSCallExpression
                         {
                             Function =

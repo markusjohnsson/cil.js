@@ -623,10 +623,7 @@ st_14 = loc0;
 return st_14;
 }
 } };
-asm.x600001f = function () { 
- asm.x600001f = asm.x600001f_;
-return (asm.x600001f.apply)(this,arguments); };
-asm.x600001f_ = function Equals() { var __braille_args__;
+asm.x600001f = function Equals() { var __braille_args__;
 var loc0;
 var loc1;
 var st_00;
@@ -994,10 +991,6 @@ st_02 = loc0;
 /* IL_0C: ret */
 return st_02; }; };
 asm.x6000026 = function (T) { 
- return function () { 
- asm.x6000026 = asm.x6000026_;
-return ((asm.x6000026)(T).apply)(this,arguments); }; };
-asm.x6000026_ = function (T) { 
  return function Box() { var __braille_args__;
 var loc0;
 var loc1;
@@ -2601,10 +2594,7 @@ asm.x6000083 = function System_IDisposable_Dispose() { var __braille_args__;
 /* IL_00: nop */
 /* IL_01: ret */
 return ; };
-asm.x6000084 = function () { 
- asm.x6000084 = asm.x6000084_;
-return (asm.x6000084.apply)(this,arguments); };
-asm.x6000084_ = function System_Collections_IEnumerator_get_Current() { var __braille_args__;
+asm.x6000084 = function System_Collections_IEnumerator_get_Current() { var __braille_args__;
 var loc0;
 var st_00;
 var st_01;
@@ -4761,10 +4751,6 @@ return ;
 }
 } };
 asm.x6000011 = function (T) { 
- return function () { 
- asm.x6000011 = asm.x6000011_;
-return ((asm.x6000011)(T).apply)(this,arguments); }; };
-asm.x6000011_ = function (T) { 
  return function As() { var __braille_args__;
 var st_00;
 var st_01;

@@ -47,8 +47,7 @@ namespace Braille.Analysis
             switch (opc_)
             {
                 case "box":
-                    var d = (IKVM.Reflection.Type)op.Instruction.Data;
-                    //if (d.IsGenericParameter)
+                    var d = (Type)op.Instruction.Data;
                         yield return d;
                     break;
                 case "call":

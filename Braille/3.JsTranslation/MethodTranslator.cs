@@ -44,7 +44,7 @@ namespace Braille.JsTranslation
             }
             else
             {
-                if (method.ReferencedTypes.Length == 0)
+                if (method.ReferencedTypes.All(p => p.IsGenericParameter))
                     return null;
 
                 var functionBlock = new List<JSStatement>();
