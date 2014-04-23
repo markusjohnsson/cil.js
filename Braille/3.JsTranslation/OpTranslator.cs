@@ -543,7 +543,7 @@ namespace Braille.JsTranslation
                 case "initobj":
                     {
                         var typeTok = (Type)frame.Instruction.Data;
-                        var typeExpr = GetTypeAccessor(typeTok, thisScope); //GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
+                        var typeExpr = GetTypeAccessor(typeTok, thisScope); 
 
                         return new JSConditionalExpression
                         {
@@ -587,9 +587,6 @@ namespace Braille.JsTranslation
                         {
                             Name = "__braille_args__[" + idx + "]"
                         } as JSExpression;
-
-                        //if (type.ReflectionType.IsValueType && idx == "0")
-                        //    result = Dereference(result);
 
                         return result;
                     }
@@ -728,7 +725,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return WrapInReaderWriter(new JSArrayLookupExpression
                         {
-                            Array = GetTypeAccessor(field.DeclaringType, thisScope), //GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Array = GetTypeAccessor(field.DeclaringType, thisScope), 
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)field.Name
@@ -736,23 +733,11 @@ namespace Braille.JsTranslation
                         });
                     }
                 case "ldind":
+                    return new JSPropertyAccessExpression
                     {
-                        return new JSPropertyAccessExpression
-                        {
-                            Host = ProcessInternal(frame.Arguments.Single()),
-                            Property = "boxed"
-                        };
-                        //return new JSCallExpression
-                        //{
-                        //    Function = new JSPropertyAccessExpression
-                        //    {
-                        //        Host = ProcessInternal(frame.Arguments.Single()),
-                        //        Property = "r"
-                        //    }
-                        //};
-                        //Debugger.Break();
-                        //return new JSEmptyExpression();
-                    }
+                        Host = ProcessInternal(frame.Arguments.Single()),
+                        Property = "boxed"
+                    };
                 case "ldftn":
                     {
                         var methodBase = (MethodBase)frame.Instruction.Data;
@@ -793,7 +778,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return new JSPropertyAccessExpression
                         {
-                            Host = GetTypeAccessor(field.DeclaringType, thisScope), //GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Host = GetTypeAccessor(field.DeclaringType, thisScope),
                             Property = (string)field.Name
                         };
                     }
@@ -833,7 +818,7 @@ namespace Braille.JsTranslation
                         Function = JSIdentifier.Create("new_array"),
                         Arguments = 
                         {
-                            GetTypeAccessor(elementType, thisScope),// GetTypeIdentifier(elementType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            GetTypeAccessor(elementType, thisScope),
                             length
                         }
                     };
@@ -885,7 +870,6 @@ namespace Braille.JsTranslation
                             Arguments =
                             {
                                 GetTypeAccessor(ctor.DeclaringType, thisScope)
-                                //GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
                             }
                         };
                     }
@@ -1010,7 +994,7 @@ namespace Braille.JsTranslation
                         {
                             Left = new JSArrayLookupExpression
                             {
-                                Array = GetTypeAccessor(field.DeclaringType, thisScope), // GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                                Array = GetTypeAccessor(field.DeclaringType, thisScope), 
                                 Indexer = new JSStringLiteral
                                 {
                                     Value = (string)field.Name
@@ -1043,19 +1027,8 @@ namespace Braille.JsTranslation
                             { 
                                 prop,
                                 GetTypeAccessor(ttype, thisScope)
-                                //GetTypeIdentifier(ttype, method.ReflectionMethod, type.ReflectionType, thisScope)
                             }
                         };
-                    //return new JSBinaryExpression
-                    //{
-                    //    Left = new JSPropertyAccessExpression
-                    //    {
-                    //        Host = prop,
-                    //        Property = "boxed"
-                    //    },
-                    //    Operator = "||",
-                    //    Right = prop
-                    //};
                     else
                         return new JSPropertyAccessExpression
                         {
@@ -1120,11 +1093,6 @@ namespace Braille.JsTranslation
                 {
                     Array = thisArg,
                     Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
-                    //GetTypeIdentifier(
-                    //    mi.DeclaringType,
-                    //    typeScope: this.type.ReflectionType,
-                    //    methodScope: this.method.ReflectionMethod,
-                    //    thisScope: thisScope)
                 },
                 Property = GetMethodIdentifier(mi)
             };
