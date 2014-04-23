@@ -29,7 +29,7 @@ namespace Braille
                 i++;
             }
 
-            throw new Exception("Element not found");
+            return -1;
         }
     }
 }

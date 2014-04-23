@@ -22,6 +22,9 @@ namespace Braille.Analysis
             method.ReferencedTypes = opAst
                 .SelectMany(op => FindTypes(method, op))
                 .SelectMany(t => ExpandGenericTypes(t))
+
+                // only collect types that need initialization. generic parameters should already be initialized when method is called
+                .Where(t => !t.IsGenericParameter) 
                 .Distinct()
                 .ToArray();
         }

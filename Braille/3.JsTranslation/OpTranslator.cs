@@ -377,7 +377,7 @@ namespace Braille.JsTranslation
                             return new JSCallExpression
                             {
                                 Function = JSIdentifier.Create("box"),
-                                Arguments = { value, GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope) }
+                                Arguments = { value, GetTypeAccessor(d, thisScope) }
                             };
                         }
 
@@ -399,7 +399,7 @@ namespace Braille.JsTranslation
                                 },
                                 {
                                     "vtable",  JSIdentifier
-                                        .Create(GetTypeIdentifier(d, this.method.ReflectionMethod, this.type.ReflectionType, thisScope), "prototype", "vtable")
+                                        .Create(GetTypeAccessor(d, thisScope), "prototype", "vtable")
                                 }
                             }
                         };
@@ -543,7 +543,7 @@ namespace Braille.JsTranslation
                 case "initobj":
                     {
                         var typeTok = (Type)frame.Instruction.Data;
-                        var typeExpr = GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
+                        var typeExpr = GetTypeAccessor(typeTok, thisScope); //GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
 
                         return new JSConditionalExpression
                         {
@@ -571,7 +571,7 @@ namespace Braille.JsTranslation
                         var targetType = (Type)frame.Instruction.Data;
                         return new JSCallExpression
                         {
-                            Function = new JSPropertyAccessExpression { Host = GetTypeIdentifier(targetType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope), Property = "IsInst" },
+                            Function = new JSPropertyAccessExpression { Host = GetTypeAccessor(targetType, thisScope), Property = "IsInst" },
                             Arguments = new List<JSExpression> { ProcessInternal(frame.Arguments.Single()) }
                         };
 
@@ -728,7 +728,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return WrapInReaderWriter(new JSArrayLookupExpression
                         {
-                            Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Array = GetTypeAccessor(field.DeclaringType, thisScope), //GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)field.Name
@@ -793,7 +793,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return new JSPropertyAccessExpression
                         {
-                            Host = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Host = GetTypeAccessor(field.DeclaringType, thisScope), //GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Property = (string)field.Name
                         };
                     }
@@ -833,7 +833,7 @@ namespace Braille.JsTranslation
                         Function = JSIdentifier.Create("new_array"),
                         Arguments = 
                         {
-                            GetTypeIdentifier(elementType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            GetTypeAccessor(elementType, thisScope),// GetTypeIdentifier(elementType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             length
                         }
                     };
@@ -884,7 +884,8 @@ namespace Braille.JsTranslation
                             },
                             Arguments =
                             {
-                                GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
+                                GetTypeAccessor(ctor.DeclaringType, thisScope)
+                                //GetTypeIdentifier(ctor.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
                             }
                         };
                     }
@@ -1009,7 +1010,7 @@ namespace Braille.JsTranslation
                         {
                             Left = new JSArrayLookupExpression
                             {
-                                Array = GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                                Array = GetTypeAccessor(field.DeclaringType, thisScope), // GetTypeIdentifier(field.DeclaringType, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                                 Indexer = new JSStringLiteral
                                 {
                                     Value = (string)field.Name
@@ -1041,7 +1042,8 @@ namespace Braille.JsTranslation
                             Arguments = 
                             { 
                                 prop,
-                                GetTypeIdentifier(ttype, method.ReflectionMethod, type.ReflectionType, thisScope)
+                                GetTypeAccessor(ttype, thisScope)
+                                //GetTypeIdentifier(ttype, method.ReflectionMethod, type.ReflectionType, thisScope)
                             }
                         };
                     //return new JSBinaryExpression
@@ -1066,6 +1068,15 @@ namespace Braille.JsTranslation
                         Text = opc + ": opcode not implmented"
                     };
             }
+        }
+
+        private JSExpression GetTypeAccessor(Type typeTok, JSExpression thisScope)
+        {
+            var idx = method.ReferencedTypes.IndexOf(typeTok);
+            if (idx == -1)
+                return GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
+            else
+                return JSIdentifier.Create("t" + idx);
         }
 
         private JSExpression DereferenceIfNeeded(VariableInfo argument, JSExpression argExpression)
@@ -1108,11 +1119,12 @@ namespace Braille.JsTranslation
                 Host = new JSArrayLookupExpression
                 {
                     Array = thisArg,
-                    Indexer = GetTypeIdentifier(
-                        mi.DeclaringType,
-                        typeScope: this.type.ReflectionType,
-                        methodScope: this.method.ReflectionMethod,
-                        thisScope: thisScope)
+                    Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
+                    //GetTypeIdentifier(
+                    //    mi.DeclaringType,
+                    //    typeScope: this.type.ReflectionType,
+                    //    methodScope: this.method.ReflectionMethod,
+                    //    thisScope: thisScope)
                 },
                 Property = GetMethodIdentifier(mi)
             };

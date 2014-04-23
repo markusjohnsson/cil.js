@@ -44,9 +44,6 @@ namespace Braille.JsTranslation
             }
             else
             {
-                if (method.ReferencedTypes.All(p => p.IsGenericParameter))
-                    return null;
-
                 var functionBlock = new List<JSStatement>();
 
                 var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
@@ -54,7 +51,7 @@ namespace Braille.JsTranslation
                 foreach (var t in method.ReferencedTypes)
                 {
                     if (t.IsGenericParameter) // types shall be initialized before they are used as generic parameters 
-                        continue; 
+                        continue;
 
                     functionBlock.Add(
                         new JSCallExpression
@@ -177,19 +174,28 @@ namespace Braille.JsTranslation
 
         private JSFunctionDelcaration TransformNormalMethod(CilAssembly asm, CilType type, CilMethod method)
         {
+            var frames = expressionBuilder.Build(method); // static analysis happens here
+
             var functionBlock = new List<JSStatement>();
 
             var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
 
-            //foreach (var t in method.ReferencedTypes)
-            //{
-            //    functionBlock.Add(
-            //        new JSCallExpression
-            //        {
-            //            Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
-            //        }
-            //        .ToStatement());
-            //}
+            if (method.ReferencedTypes != null)
+            {
+                var tIdx = 0;
+                foreach (var t in method.ReferencedTypes)
+                {
+                    functionBlock.Add(
+                        new JSVariableDelcaration
+                        {
+                            Name = "t" + tIdx,
+                            Value = GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope)
+                        }
+                        .ToStatement());
+
+                    tIdx++;
+                }
+            }
 
             functionBlock.Add(
                 new JSStatement
@@ -216,8 +222,6 @@ namespace Braille.JsTranslation
                     });
                 locIdx++;
             }
-
-            var frames = expressionBuilder.Build(method);
 
             insertFrameLabelsTask.Process(frames);
 
