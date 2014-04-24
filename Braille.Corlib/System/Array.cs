@@ -33,10 +33,51 @@ namespace System
 
     internal class Array<T> : Array, IEnumerable<T>
     {
-        public new IEnumerator<T> GetEnumerator()
+        [JsReplace("{0}.jsarr[{1}]")]
+        private extern T GetTypedValue(int index);
+
+        class ArrayEnumerator : IEnumerator<T>
         {
-            for (var i = 0; i < Length; i++)
-                yield return (T)GetValue(i);
+            internal int index;
+            internal int length;
+            internal Array<T> source;
+            
+            public ArrayEnumerator(Array<T> arr)
+            {
+                source = arr;
+                index = -1;
+                length = arr.Length;
+            }
+
+            public T Current
+            {
+                get { return source.GetTypedValue(index); }
+            }
+
+            public bool MoveNext()
+            {
+                index++;
+                return index < length;
+            }
+
+            object IEnumerator.Current
+            {
+                get { return Current; }
+            }
+
+            public void Reset()
+            {
+                index = -1;
+            }
+
+            public void Dispose()
+            {   
+            }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new ArrayEnumerator(this);
         }
 
         protected override IEnumerator GetEnumeratorImpl()

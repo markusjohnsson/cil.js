@@ -51,13 +51,15 @@
     <Compile Include="2.Analysis\Ast\ExceptionNode.cs" />
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
-    <Compile Include="2.Analysis\DataFlowAnalysis.cs" />
+    <Compile Include="2.Analysis\LocalsAnalyzer.cs" />
+    <Compile Include="2.Analysis\StackAnalyzer.cs" />
     <Compile Include="2.Analysis\TypeInference.cs" />
     <Compile Include="2.Analysis\TypeUsageAnalysis.cs" />
     <Compile Include="3.JsTranslation\AbstractTranslator.cs" />
     <Compile Include="3.JsTranslation\AssemblyTranslator.cs" />
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />
+    <Compile Include="3.JsTranslation\JSAst\JSTemplatedRawExpression.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />
     <Compile Include="LinqExtensions.cs" />
     <Compile Include="3.JsTranslation\BlockBuilder.cs" />

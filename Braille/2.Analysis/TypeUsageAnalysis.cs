@@ -49,9 +49,12 @@ namespace Braille.Analysis
 
             switch (opc_)
             {
+                case "initobj":
+                case "isinst":
+                case "newarr":
                 case "box":
                     var d = (Type)op.Instruction.Data;
-                        yield return d;
+                    yield return d;
                     break;
                 case "call":
                 case "callvirt":
@@ -59,11 +62,6 @@ namespace Braille.Analysis
                     if (mi.IsGenericMethod)
                         foreach (var g in mi.GetGenericArguments())
                             yield return g;
-                    break;
-                case "initobj":
-                case "isinst":
-                case "newarr":
-                    yield return (Type)op.Instruction.Data;
                     break;
                 case "ldsfld":
                 case "newobj":

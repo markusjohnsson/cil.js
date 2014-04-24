@@ -112,5 +112,7 @@ namespace Braille.Ast
 
         }
 
+
+        public Analysis.LocalInfo[] Locals { get; set; }
     }
 }

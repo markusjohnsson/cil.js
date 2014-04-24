@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Braille.Analysis
 {
-    class DataFlowAnalysis
+    class StackAnalyzer
     {
         public void Analyze(CilMethod method, List<OpExpression> infos)
         {

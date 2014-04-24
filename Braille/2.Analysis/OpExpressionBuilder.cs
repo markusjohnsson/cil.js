@@ -20,6 +20,16 @@ namespace Braille.Analysis
         }
     }
 
+    class LocalInfo
+    {
+        public bool IsUsed = false;
+        public bool IsAssigned = false;
+
+        public LocalVariableInfo ReflectionObject { get; set; }
+
+        public bool NeedInit { get; set; }
+    }
+
     class OpExpressionBuilder
     {
         private Universe universe;
@@ -38,11 +48,14 @@ namespace Braille.Analysis
             // Turn stack based OpInstructions into variable based OpExpressions
 
             // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
-            var dataFlowAnalysis = new DataFlowAnalysis();
-            dataFlowAnalysis.Analyze(method, opInfos);
+            var stackAnalyzer = new StackAnalyzer();
+            stackAnalyzer.Analyze(method, opInfos);
 
             // - Introduce variables to replace stack based on flow analysis
             ReplaceStack(method, opInfos);
+
+            var localsAnalyzer = new LocalsAnalyzer();
+            localsAnalyzer.Analyze(method, opInfos);
 
             opInfos = opInfos
                 .Where(o => o.StackBefore != null) // unreachable

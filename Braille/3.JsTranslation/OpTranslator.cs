@@ -433,10 +433,18 @@ namespace Braille.JsTranslation
                             return new JSEmptyExpression();
                         }
 
+                        var args = ProcessList(frame.Arguments).ToList();
+
                         var replacement = CilMethod.GetReplacement(mi);
 
                         if (replacement != null && replacement.Kind == ReplacementKind.Raw)
-                            return new JSIdentifier { Name = replacement.Replacement };
+                        {
+                            return new JSTemplatedRawExpression
+                            {
+                                TemplateString = replacement.Replacement,
+                                Arguments = args
+                            };
+                        }
 
                         return new JSCallExpression
                         {
@@ -444,7 +452,7 @@ namespace Braille.JsTranslation
                                 replacement != null
                                     ? JSIdentifier.Create("(" + replacement.Replacement + ")")
                                     : GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
-                            Arguments = ProcessList(frame.Arguments).ToList()
+                            Arguments = args
                         };
                     }
                 case "callvirt":
@@ -456,7 +464,13 @@ namespace Braille.JsTranslation
                         var replacement = CilMethod.GetReplacement(mi);
 
                         if (replacement != null && replacement.Kind == ReplacementKind.Raw)
-                            return new JSIdentifier { Name = replacement.Replacement };
+                        {
+                            return new JSTemplatedRawExpression
+                            {
+                                TemplateString = replacement.Replacement,
+                                Arguments = arglist
+                            };
+                        }
 
                         if (mi.Name == "Invoke" && mi.DeclaringType.BaseType.FullName == "System.MulticastDelegate")
                         {
@@ -543,7 +557,7 @@ namespace Braille.JsTranslation
                 case "initobj":
                     {
                         var typeTok = (Type)frame.Instruction.Data;
-                        var typeExpr = GetTypeAccessor(typeTok, thisScope); 
+                        var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
                         return new JSConditionalExpression
                         {
@@ -585,7 +599,7 @@ namespace Braille.JsTranslation
                         var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id;
                         var result = new JSIdentifier
                         {
-                            Name = "__braille_args__[" + idx + "]"
+                            Name = "arg" + idx //"__braille_args__[" + idx + "]"
                         } as JSExpression;
 
                         return result;
@@ -596,9 +610,11 @@ namespace Braille.JsTranslation
                         if (frame.Instruction.Data != null)
                             id = frame.Instruction.Data.ToString();
 
+                        var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarga".Length) + id;
+
                         return WrapInReaderWriter(new JSIdentifier
                         {
-                            Name = "__braille_args__[" + opc.Replace(".s", ".").Replace(".", "").Substring("ldarga".Length) + id + "]"
+                            Name = "arg" + idx //"__braille_args__[" +  + "]"
                         });
                     }
                 case "ldc":
@@ -725,7 +741,7 @@ namespace Braille.JsTranslation
                         var field = (FieldInfo)frame.Instruction.Data;
                         return WrapInReaderWriter(new JSArrayLookupExpression
                         {
-                            Array = GetTypeAccessor(field.DeclaringType, thisScope), 
+                            Array = GetTypeAccessor(field.DeclaringType, thisScope),
                             Indexer = new JSStringLiteral
                             {
                                 Value = (string)field.Name
@@ -994,7 +1010,7 @@ namespace Braille.JsTranslation
                         {
                             Left = new JSArrayLookupExpression
                             {
-                                Array = GetTypeAccessor(field.DeclaringType, thisScope), 
+                                Array = GetTypeAccessor(field.DeclaringType, thisScope),
                                 Indexer = new JSStringLiteral
                                 {
                                     Value = (string)field.Name

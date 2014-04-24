@@ -95,7 +95,13 @@ namespace Braille.JsTranslation
                         }
                     }.ToStatement());
 
-                var f = new JSFunctionDelcaration { Body = functionBlock };
+                var ps = GetParameterCount(method);
+
+                var f = new JSFunctionDelcaration
+                {
+                    Body = functionBlock,
+                    Parameters = Enumerable.Range(0, ps).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
+                };
 
                 return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
             }
@@ -197,30 +203,37 @@ namespace Braille.JsTranslation
                 }
             }
 
-            functionBlock.Add(
-                new JSStatement
-                {
-                    Expression = new JSVariableDelcaration
-                    {
-                        Name = "__braille_args__",
-                        Value = new JSIdentifier { Name = "arguments" }
-                    }
-                });
+            //functionBlock.Add(
+            //    new JSStatement
+            //    {
+            //        Expression = new JSVariableDelcaration
+            //        {
+            //            Name = "__braille_args__",
+            //            Value = new JSIdentifier { Name = "arguments" }
+            //        }
+            //    });
 
-            var locIdx = 0;
-
-            foreach (var loc in method.ReflectionMethod.GetMethodBody().LocalVariables)
+            if (method.ReflectionMethod.GetMethodBody().InitLocals)
             {
-                functionBlock.Add(
-                    new JSStatement
+                var locIdx = 0;
+
+                foreach (var loc in method.ReflectionMethod.GetMethodBody().LocalVariables)
+                {
+                    if (method.Locals[locIdx].NeedInit)
                     {
-                        Expression = new JSVariableDelcaration
-                        {
-                            Name = "loc" + locIdx,
-                            Value = GetDefaultValue(loc.LocalType, methodScope: method.ReflectionMethod, typeScope: method.ReflectionMethod.DeclaringType, thisScope: thisScope)
-                        }
-                    });
-                locIdx++;
+                        functionBlock.Add(
+                            new JSStatement
+                            {
+                                Expression = new JSVariableDelcaration
+                                {
+                                    Name = "loc" + locIdx,
+                                    Value = GetDefaultValue(loc.LocalType, methodScope: method.ReflectionMethod, typeScope: method.ReflectionMethod.DeclaringType, thisScope: thisScope)
+                                }
+                            });
+                    }
+
+                    locIdx++;
+                }
             }
 
             insertFrameLabelsTask.Process(frames);
@@ -319,16 +332,32 @@ namespace Braille.JsTranslation
 
             functionBlock.AddRange(block.Build().Where(s => !(s.Expression is JSBreakExpression)));
 
+            var ps = GetParameterCount(method);
+
             var function = new JSFunctionDelcaration
             {
                 Body = functionBlock,
-                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_")
+                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_"),
+                Parameters = Enumerable.Range(0, ps).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
             };
 
             return
                 HasGenericParameters(method) ?
                     CreateGenericFunction(method, function) :
                     function;
+        }
+
+        private static int GetParameterCount(CilMethod method)
+        {
+            var ps = method
+                .ReflectionMethod
+                .GetParameters()
+                .Length;
+
+            if (false == method.ReflectionMethod.IsStatic)
+                ps++;
+
+            return ps;
         }
 
         private static bool HasGenericParameters(CilMethod method)
