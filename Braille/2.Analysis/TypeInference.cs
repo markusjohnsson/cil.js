@@ -53,8 +53,20 @@ namespace Braille.Analysis
 
         public void InferTypes(CilMethod method, IEnumerable<OpExpression> opAst)
         {
-            foreach (var op in opAst)
+            var visitedTargets = new HashSet<OpExpression>();
+            var processStack = new Stack<OpExpression>();
+            processStack.Push(opAst.First());
+
+            while (processStack.Any())
             {
+                var op = processStack.Pop();
+
+                if (!visitedTargets.Add(op))
+                    continue; // visited already
+
+                foreach (var t in op.Targets)
+                    processStack.Push(t);
+
                 if (op.PushCount == 0)
                     continue;
 
@@ -120,7 +132,7 @@ namespace Braille.Analysis
                 case "div.un":
                     return InferBinaryArithmeticType(op);
                 case "dup":
-                    return op.StackBefore.Last().Type;
+                    return op.Targeting.First().ResultType;
                 case "endfinally":
                     return null;
                 case "initobj":

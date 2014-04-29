@@ -5960,194 +5960,67 @@ st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000d = function get_zerop() { var loc0;
+asm.x600000c_init = function () { 
+ ((asm1.Program)().init)(); };
+asm.x600000c = function (arg0) { 
+ (asm.x600000c_init.apply)(this,arguments);
+asm.x600000c = asm.x600000c_;
+return (asm.x600000c.apply)(this,arguments); };
+asm.x600000c_ = function add_MyEvent(arg0) { var t0;
 var st_00;
 var st_01;
 var st_02;
 var st_03;
-var st_04;
-var st_05;
- loc0 = new ((asm1.Point)())();
-/* IL_00: ldloca.s 0*/
-st_00 = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_02: ldc.i4.0 */
-st_01 = 0;
-/* IL_03: ldc.i4.0 */
-st_02 = 0;
-/* IL_04: call Void .ctor(System.Int32, System.Int32)*/
-(asm1.x600000c)(st_00,st_01,st_02);
-/* IL_09: ldloca.s 0*/
-st_03 = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_0B: ldc.i4.0 */
-st_04 = 0;
-/* IL_0C: stfld Int32 z*/
-(st_03.r)().z = st_04;
-/* IL_11: ldloc.0 */
-st_05 = loc0;
-/* IL_12: ret */
-return st_05; };
-asm.x600000e = function struct_param(arg0) { var st_00;
-var st_02;
-var st_01;
-var st_03;
-var st_04;
-var st_06;
-var st_05;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0B;
-var st_0C;
-var st_0D;
-var st_0E;
-var st_0F;
-var st_10;
-var st_11;
-var __braille_pos_0__;
- __braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarga.s 0*/
-st_00 = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_02: ldfld Int32 x*/
-st_02 = (st_00.r)().x;
-/* IL_07: ldarga.s 0*/
-st_01 = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_09: ldfld Int32 y*/
-st_03 = (st_01.r)().y;
-/* IL_0E: bne.un.s IL_29*/
-if (st_02 != st_03){
-__braille_pos_0__ = 0x29;continue;
-}
-/* IL_10: ldarga.s 0*/
-st_04 = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_12: ldfld Int32 y*/
-st_06 = (st_04.r)().y;
-/* IL_17: ldarga.s 0*/
-st_05 = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_19: ldfld Int32 z*/
-st_07 = (st_05.r)().z;
-/* IL_1E: bne.un.s IL_29*/
-if (st_06 != st_07){
-__braille_pos_0__ = 0x29;continue;
-}
-/* IL_20: ldarga.s 0*/
-st_08 = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_22: ldfld Int32 z*/
-st_09 = (st_08.r)().z;
-/* IL_27: brfalse.s IL_2B*/
-if ((!st_09)){
-__braille_pos_0__ = 0x2B;continue;
-}
-case 0x29:
-/* IL_29: ldc.i4.1 */
-st_0A = 1;
-/* IL_2A: ret */
-return st_0A;
-case 0x2B:
-/* IL_2B: ldarga.s 0*/
-st_0B = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_2D: ldc.i4.1 */
-st_0C = 1;
-/* IL_2E: stfld Int32 x*/
-(st_0B.r)().x = st_0C;
-/* IL_33: ldarga.s 0*/
-st_0D = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_35: ldc.i4.2 */
-st_0E = 2;
-/* IL_36: stfld Int32 y*/
-(st_0D.r)().y = st_0E;
-/* IL_3B: ldarga.s 0*/
-st_0F = { 
-'w': function () { 
- arg0 = (arguments)[0]; },
-'r': function () { 
- return arg0; } 
-};
-/* IL_3D: ldc.i4.3 */
-st_10 = 3;
-/* IL_3E: stfld Int32 z*/
-(st_0F.r)().z = st_10;
-/* IL_43: ldc.i4.0 */
-st_11 = 0;
-/* IL_44: ret */
-return st_11;
-}
-} };
-asm.x600000c = function _ctor(arg0,arg1,arg2) { var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldarg.1 */
-st_01 = arg1;
-/* IL_02: stfld Int32 x*/
-(st_00.r)().x = st_01;
-/* IL_07: ldarg.0 */
-st_02 = arg0;
-/* IL_08: ldarg.2 */
-st_03 = arg2;
-/* IL_09: stfld Int32 y*/
-(st_02.r)().y = st_03;
-/* IL_0E: ldarg.0 */
-st_04 = arg0;
-/* IL_0F: ldc.i4.5 */
-st_05 = 5;
-/* IL_10: stfld Int32 z*/
-(st_04.r)().z = st_05;
+ t0 = (asm1.Program)();
+/* IL_00: ldsfld EventHandler MyEvent*/
+st_00 = t0.MyEvent;
+/* IL_05: ldarg.0 */
+st_01 = arg0;
+/* IL_06: call Delegate Combine(System.Delegate, System.Delegate)*/
+st_02 = (asm0.x600000a)(st_00,st_01);
+/* IL_0B: castclass System.EventHandler*/
+st_03 = st_02;
+/* IL_10: stsfld EventHandler MyEvent*/
+(t0)["MyEvent"] = st_03;
 /* IL_15: ret */
 return ; };
-asm.x600000f = function Main() { var loc0;
+asm.x600000d_init = function () { 
+ ((asm1.Program)().init)(); };
+asm.x600000d = function (arg0) { 
+ (asm.x600000d_init.apply)(this,arguments);
+asm.x600000d = asm.x600000d_;
+return (asm.x600000d.apply)(this,arguments); };
+asm.x600000d_ = function remove_MyEvent(arg0) { var t0;
+var st_00;
+var st_01;
+var st_02;
+var st_03;
+ t0 = (asm1.Program)();
+/* IL_00: ldsfld EventHandler MyEvent*/
+st_00 = t0.MyEvent;
+/* IL_05: ldarg.0 */
+st_01 = arg0;
+/* IL_06: call Delegate Remove(System.Delegate, System.Delegate)*/
+st_02 = (asm0.x600000b)(st_00,st_01);
+/* IL_0B: castclass System.EventHandler*/
+st_03 = st_02;
+/* IL_10: stsfld EventHandler MyEvent*/
+(t0)["MyEvent"] = st_03;
+/* IL_15: ret */
+return ; };
+asm.x600000e_init = function () { 
+ ((asm1.Program)().init)();
+(((asm0)["System.EventHandler"])().init)();
+(((asm0)["System.Object"])().init)();
+(((asm0)["System.EventArgs"])().init)(); };
+asm.x600000e = function () { 
+ (asm.x600000e_init.apply)(this,arguments);
+asm.x600000e = asm.x600000e_;
+return (asm.x600000e.apply)(this,arguments); };
+asm.x600000e_ = function Main() { var t0;
+var t1;
+var t2;
+var t3;
 var st_00;
 var st_01;
 var st_02;
@@ -6165,399 +6038,105 @@ var st_0D;
 var st_0E;
 var st_0F;
 var st_10;
-var st_11;
-var st_12;
-var st_13;
-var st_14;
-var st_15;
-var st_16;
-var st_17;
-var st_18;
-var st_19;
-var st_1A;
-var st_1B;
-var st_1C;
-var st_1D;
-var st_1E;
-var st_1F;
-var st_20;
-var st_21;
-var st_22;
-var st_23;
-var st_24;
-var st_25;
-var st_26;
-var st_27;
-var st_29;
-var st_28;
-var st_2A;
-var st_2B;
-var st_2D;
-var st_2C;
-var st_2E;
-var st_2F;
-var st_30;
-var st_31;
-var st_32;
-var st_33;
-var st_34;
-var st_35;
-var st_37;
-var st_36;
-var st_38;
-var st_39;
-var st_3B;
-var st_3A;
-var st_3C;
-var st_3D;
-var st_3E;
-var st_3F;
-var st_40;
 var __braille_pos_0__;
-var loc1;
-var loc2;
- loc0 = new ((asm1.Point)())();
+ t0 = (asm1.Program)();
+t1 = ((asm0)["System.EventHandler"])();
+t2 = ((asm0)["System.Object"])();
+t3 = ((asm0)["System.EventArgs"])();
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
-/* IL_00: ldloca.s 0*/
-st_00 = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_02: ldc.i4.s 10*/
-st_01 = 10;
-/* IL_04: ldc.i4.s 20*/
-st_02 = 20;
-/* IL_06: call Void .ctor(System.Int32, System.Int32)*/
-(asm1.x600000c)(st_00,st_01,st_02);
-/* IL_0B: ldloc.0 */
-st_03 = loc0;
-/* IL_0C: stloc.1 */
-loc1 = st_03;
-/* IL_0D: ldloca.s 1*/
-st_04 = { 
-'w': function () { 
- loc1 = (arguments)[0]; },
-'r': function () { 
- return loc1; } 
-};
-/* IL_0F: ldfld Int32 x*/
-st_05 = (st_04.r)().x;
-/* IL_14: ldc.i4.s 10*/
-st_06 = 10;
-/* IL_16: beq.s IL_1A*/
-if (st_05 === st_06){
-__braille_pos_0__ = 0x1A;continue;
+/* IL_00: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
+st_00 = (t0)["CS$<>9__CachedAnonymousMethodDelegate1"];
+/* IL_05: brtrue.s IL_18*/
+if (st_00){
+__braille_pos_0__ = 0x18;continue;
 }
-/* IL_18: ldc.i4.1 */
-st_07 = 1;
-/* IL_19: ret */
-return st_07;
-case 0x1A:
-/* IL_1A: ldloca.s 1*/
-st_08 = { 
-'w': function () { 
- loc1 = (arguments)[0]; },
-'r': function () { 
- return loc1; } 
-};
-/* IL_1C: ldfld Int32 y*/
-st_09 = (st_08.r)().y;
-/* IL_21: ldc.i4.s 20*/
-st_0A = 20;
-/* IL_23: beq.s IL_27*/
-if (st_09 === st_0A){
-__braille_pos_0__ = 0x27;continue;
-}
-/* IL_25: ldc.i4.2 */
-st_0B = 2;
-/* IL_26: ret */
-return st_0B;
-case 0x27:
-/* IL_27: ldloca.s 1*/
-st_0C = { 
-'w': function () { 
- loc1 = (arguments)[0]; },
-'r': function () { 
- return loc1; } 
-};
-/* IL_29: ldfld Int32 z*/
-st_0D = (st_0C.r)().z;
-/* IL_2E: ldc.i4.5 */
-st_0E = 5;
-/* IL_2F: beq.s IL_33*/
-if (st_0D === st_0E){
-__braille_pos_0__ = 0x33;continue;
-}
-/* IL_31: ldc.i4.3 */
-st_0F = 3;
-/* IL_32: ret */
-return st_0F;
-case 0x33:
-/* IL_33: ldloca.s 0*/
-st_10 = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_35: ldfld Int32 x*/
-st_11 = (st_10.r)().x;
-/* IL_3A: ldc.i4.s 10*/
-st_12 = 10;
-/* IL_3C: beq.s IL_40*/
-if (st_11 === st_12){
-__braille_pos_0__ = 0x40;continue;
-}
-/* IL_3E: ldc.i4.4 */
-st_13 = 4;
-/* IL_3F: ret */
-return st_13;
-case 0x40:
-/* IL_40: ldloca.s 0*/
-st_14 = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_42: ldfld Int32 y*/
-st_15 = (st_14.r)().y;
-/* IL_47: ldc.i4.s 20*/
-st_16 = 20;
-/* IL_49: beq.s IL_4D*/
-if (st_15 === st_16){
-__braille_pos_0__ = 0x4D;continue;
-}
-/* IL_4B: ldc.i4.5 */
-st_17 = 5;
-/* IL_4C: ret */
-return st_17;
-case 0x4D:
-/* IL_4D: ldloca.s 0*/
-st_18 = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_4F: ldfld Int32 z*/
-st_19 = (st_18.r)().z;
-/* IL_54: ldc.i4.5 */
-st_1A = 5;
-/* IL_55: beq.s IL_59*/
-if (st_19 === st_1A){
-__braille_pos_0__ = 0x59;continue;
-}
-/* IL_57: ldc.i4.6 */
-st_1B = 6;
-/* IL_58: ret */
-return st_1B;
-case 0x59:
-/* IL_59: ldloca.s 0*/
-st_1C = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_5B: ldc.i4.7 */
-st_1D = 7;
-/* IL_5C: stfld Int32 z*/
-(st_1C.r)().z = st_1D;
-/* IL_61: ldloca.s 0*/
-st_1E = { 
-'w': function () { 
- loc0 = (arguments)[0]; },
-'r': function () { 
- return loc0; } 
-};
-/* IL_63: ldfld Int32 z*/
-st_1F = (st_1E.r)().z;
-/* IL_68: ldc.i4.7 */
-st_20 = 7;
-/* IL_69: beq.s IL_6D*/
-if (st_1F === st_20){
-__braille_pos_0__ = 0x6D;continue;
-}
-/* IL_6B: ldc.i4.7 */
-st_21 = 7;
+/* IL_07: ldnull */
+st_01 = null;
+/* IL_09: ldftn Void <Main>b__0(System.Object, System.EventArgs)*/
+st_02 = asm1.x6000011;
+/* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
+st_03 = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000017)(result,st_01,st_02);
+return result; })(t1);
+/* IL_13: stsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
+(t0)["CS$<>9__CachedAnonymousMethodDelegate1"] = st_03;
+case 0x18:
+/* IL_18: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
+st_04 = (t0)["CS$<>9__CachedAnonymousMethodDelegate1"];
+/* IL_1D: call Void add_MyEvent(System.EventHandler)*/
+(asm1.x600000c)(st_04);
+/* IL_22: ldnull */
+st_05 = null;
+/* IL_24: ldftn Void Handler(System.Object, System.EventArgs)*/
+st_06 = asm1.x600000f;
+/* IL_29: newobj Void .ctor(System.Object, System.IntPtr)*/
+st_07 = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000017)(result,st_05,st_06);
+return result; })(t1);
+/* IL_2E: call Void add_MyEvent(System.EventHandler)*/
+(asm1.x600000c)(st_07);
+/* IL_33: ldsfld EventHandler MyEvent*/
+st_08 = t0.MyEvent;
+/* IL_38: newobj Void .ctor()*/
+st_09 = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000009)(result);
+return result; })(t2);
+/* IL_3D: newobj Void .ctor()*/
+st_0A = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000015)(result);
+return result; })(t3);
+/* IL_42: callvirt Void Invoke(System.Object, System.EventArgs)*/
+(st_08._methodPtr.apply)(null,(st_08._target) ? ([ st_08._target,st_09,st_0A ]) : ([ st_09,st_0A ]));
+/* IL_47: ldnull */
+st_0B = null;
+/* IL_49: ldftn Void Handler(System.Object, System.EventArgs)*/
+st_0C = asm1.x600000f;
+/* IL_4E: newobj Void .ctor(System.Object, System.IntPtr)*/
+st_0D = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000017)(result,st_0B,st_0C);
+return result; })(t1);
+/* IL_53: call Void remove_MyEvent(System.EventHandler)*/
+(asm1.x600000d)(st_0D);
+/* IL_58: ldsfld EventHandler MyEvent*/
+st_0E = t0.MyEvent;
+/* IL_5D: newobj Void .ctor()*/
+st_0F = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000009)(result);
+return result; })(t2);
+/* IL_62: newobj Void .ctor()*/
+st_10 = (function () { var result;
+ result = new ((arguments)[0])();
+(asm0.x6000015)(result);
+return result; })(t3);
+/* IL_67: callvirt Void Invoke(System.Object, System.EventArgs)*/
+(st_0E._methodPtr.apply)(null,(st_0E._target) ? ([ st_0E._target,st_0F,st_10 ]) : ([ st_0F,st_10 ]));
 /* IL_6C: ret */
-return st_21;
-case 0x6D:
-/* IL_6D: ldloca.s 1*/
-st_22 = { 
-'w': function () { 
- loc1 = (arguments)[0]; },
-'r': function () { 
- return loc1; } 
-};
-/* IL_6F: ldfld Int32 x*/
-st_23 = (st_22.r)().x;
-/* IL_74: ldc.i4.s 10*/
-st_24 = 10;
-/* IL_76: beq.s IL_7A*/
-if (st_23 === st_24){
-__braille_pos_0__ = 0x7A;continue;
-}
-/* IL_78: ldc.i4.8 */
-st_25 = 8;
-/* IL_79: ret */
-return st_25;
-case 0x7A:
-/* IL_7A: call Point get_zerop()*/
-st_26 = (asm1.x600000d)();
-/* IL_7F: stloc.2 */
-loc2 = st_26;
-/* IL_80: ldloca.s 2*/
-st_27 = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_82: ldfld Int32 x*/
-st_29 = (st_27.r)().x;
-/* IL_87: ldloca.s 2*/
-st_28 = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_89: ldfld Int32 y*/
-st_2A = (st_28.r)().y;
-/* IL_8E: bne.un.s IL_A9*/
-if (st_29 != st_2A){
-__braille_pos_0__ = 0xA9;continue;
-}
-/* IL_90: ldloca.s 2*/
-st_2B = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_92: ldfld Int32 y*/
-st_2D = (st_2B.r)().y;
-/* IL_97: ldloca.s 2*/
-st_2C = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_99: ldfld Int32 z*/
-st_2E = (st_2C.r)().z;
-/* IL_9E: bne.un.s IL_A9*/
-if (st_2D != st_2E){
-__braille_pos_0__ = 0xA9;continue;
-}
-/* IL_A0: ldloca.s 2*/
-st_2F = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_A2: ldfld Int32 z*/
-st_30 = (st_2F.r)().z;
-/* IL_A7: brfalse.s IL_AC*/
-if ((!st_30)){
-__braille_pos_0__ = 0xAC;continue;
-}
-case 0xA9:
-/* IL_A9: ldc.i4.s 9*/
-st_31 = 9;
-/* IL_AB: ret */
-return st_31;
-case 0xAC:
-/* IL_AC: ldloc.2 */
-st_32 = loc2;
-/* IL_AD: call Int32 struct_param(Point)*/
-st_33 = (asm1.x600000e)(clone_value(st_32));
-/* IL_B2: brfalse.s IL_B7*/
-if ((!st_33)){
-__braille_pos_0__ = 0xB7;continue;
-}
-/* IL_B4: ldc.i4.s 10*/
-st_34 = 10;
-/* IL_B6: ret */
-return st_34;
-case 0xB7:
-/* IL_B7: ldloca.s 2*/
-st_35 = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_B9: ldfld Int32 x*/
-st_37 = (st_35.r)().x;
-/* IL_BE: ldloca.s 2*/
-st_36 = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_C0: ldfld Int32 y*/
-st_38 = (st_36.r)().y;
-/* IL_C5: bne.un.s IL_E0*/
-if (st_37 != st_38){
-__braille_pos_0__ = 0xE0;continue;
-}
-/* IL_C7: ldloca.s 2*/
-st_39 = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_C9: ldfld Int32 y*/
-st_3B = (st_39.r)().y;
-/* IL_CE: ldloca.s 2*/
-st_3A = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_D0: ldfld Int32 z*/
-st_3C = (st_3A.r)().z;
-/* IL_D5: bne.un.s IL_E0*/
-if (st_3B != st_3C){
-__braille_pos_0__ = 0xE0;continue;
-}
-/* IL_D7: ldloca.s 2*/
-st_3D = { 
-'w': function () { 
- loc2 = (arguments)[0]; },
-'r': function () { 
- return loc2; } 
-};
-/* IL_D9: ldfld Int32 z*/
-st_3E = (st_3D.r)().z;
-/* IL_DE: brfalse.s IL_E3*/
-if ((!st_3E)){
-__braille_pos_0__ = 0xE3;continue;
-}
-case 0xE0:
-/* IL_E0: ldc.i4.s 11*/
-st_3F = 11;
-/* IL_E2: ret */
-return st_3F;
-case 0xE3:
-/* IL_E3: ldc.i4.0 */
-st_40 = 0;
-/* IL_E4: ret */
-return st_40;
+return ;
 }
 } };
+asm.x600000f = function Handler(arg0,arg1) { var st_00;
+ /* IL_00: ldstr Second*/
+st_00 = new_string("Second");
+/* IL_05: call Void Log(System.Object)*/
+(braille_test_log)(st_00);
+/* IL_0A: ret */
+return ; };
+asm.x6000011 = function _Main_b__0(arg0,arg1) { var st_00;
+ /* IL_00: ldstr First*/
+st_00 = new_string("First");
+/* IL_05: call Void Log(System.Object)*/
+(braille_test_log)(st_00);
+/* IL_0A: ret */
+return ; };
 asm.x6000010 = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -6626,7 +6205,7 @@ TestHelper.prototype = new (((asm0)["System.Object"])())();;
 c = TestHelper;
 ct = c;
 return c; }; })();
-asm.Point = (function () { var ct;
+asm.Program = (function () { var ct;
  ct = null;
 return function () { var c;
 var initialized;
@@ -6635,62 +6214,28 @@ if (c){
 return c;
 }
 initialized = false;;
-function Point() { 
- (Point.init)();
-this.constructor = Point; };
-Point.init = function () { 
+function Program() { 
+ (Program.init)();
+this.constructor = Program; };
+Program.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-Point.Interfaces = [  ];
-Point.IsInst = function (t) { return t instanceof Point; };
-Point.IsValueType = true;
-Point.IsPrimitive = false;
-Point.IsNullable = false;
-Point.prototype.x = 0;
-Point.prototype.y = 0;
-Point.prototype.z = 0;
-Point.prototype.vtable = { 
+Program.MyEvent = null;
+(Program)["CS$<>9__CachedAnonymousMethodDelegate1"] = null;
+Program.Interfaces = [  ];
+Program.IsInst = function (t) { return t instanceof Program; };
+Program.IsValueType = false;
+Program.IsPrimitive = false;
+Program.IsNullable = false;
+Program.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
 'asm0.x6000007': asm0.x6000007 
 }; };
-Point.prototype = { 
- 
-};;
-c = Point;
+Program.prototype = new (((asm0)["System.Object"])())();;
+c = Program;
 ct = c;
 return c; }; })();
-asm.test = (function () { var ct;
- ct = null;
-return function () { var c;
-var initialized;
- c = ct;
-if (c){
-return c;
-}
-initialized = false;;
-function test() { 
- (test.init)();
-this.constructor = test; };
-test.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-test.Interfaces = [  ];
-test.IsInst = function (t) { return t instanceof test; };
-test.IsValueType = false;
-test.IsPrimitive = false;
-test.IsNullable = false;
-test.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
-}; };
-test.prototype = new (((asm0)["System.Object"])())();;
-c = test;
-ct = c;
-return c; }; })();
-asm.entryPoint = asm.x600000f; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x600000e; })(asm1 || (asm1 = {}));

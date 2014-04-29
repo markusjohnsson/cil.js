@@ -137,7 +137,21 @@ function new_array(type, length) {
                     
                     var accessor = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
 
-                    var firstCallFunction = methodTranslator.GetFirstCallInitializer(asm, type, method);
+                    var initializer = methodTranslator.GetInitializer(asm, type, method);
+
+                    JSExpression firstCallFunction = null;
+
+                    if (initializer != null)
+                    {
+                        firstCallFunction = methodTranslator.GetFirstCallInitializer(asm, type, method);
+
+                        yield return new JSBinaryExpression
+                        {
+                            Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init"),
+                            Operator = "=",
+                            Right = initializer
+                        };
+                    }
 
                     yield return new JSBinaryExpression
                     {

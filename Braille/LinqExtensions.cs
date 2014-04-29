@@ -16,6 +16,13 @@ namespace Braille
             return new[] { start }.Concat(source);
         }
 
+        public static bool IsEmpty<T>(this IEnumerable<T> source)
+        {
+            foreach (var x in source)
+                return false;
+            return true;
+        }
+
         public static int IndexOf<T>(this IEnumerable<T> source, T needle)
         {
             var i = 0;

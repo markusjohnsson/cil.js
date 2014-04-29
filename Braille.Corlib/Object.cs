@@ -59,10 +59,6 @@ namespace System
         }
     }
 
-    public class Delegate
-    {
-    }
-
     public struct Double
     {
         public const double Epsilon = 4.9406564584124650e-324;
@@ -189,10 +185,6 @@ namespace System
 
     }
 
-    public class MulticastDelegate : Delegate
-    {
-    }
-
     public class ParamArrayAttribute : Attribute
     {
     }
@@ -289,7 +281,7 @@ namespace System
 
     public class Object
     {
-        [JsImport("function (a, b) { return a === b; }")]
+        [JsImport("function (a, b) { return Number(a === b); }")]
         private extern static bool ReferenceEqualsImpl(object a, object b);
 
         [JsImport("function (o) { return o.constructor; }")]

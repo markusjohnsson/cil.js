@@ -4,6 +4,7 @@ using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
@@ -309,6 +310,15 @@ namespace Braille.JsTranslation
 
         private JSExpression GetVtable(CilType type)
         {
+            Debug.WriteLine("xx");
+            Debug.WriteLine(
+                string.Join("\n",type
+                    .ReflectionType
+                    .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+                    .Where(m => m.IsVirtual)
+                    .Select(m => GetMethodIdentifier(m.GetBaseDefinition()))
+                    .ToList()));
+            
             return new JSObjectLiteral
             {
                 Properties = type
@@ -316,7 +326,7 @@ namespace Braille.JsTranslation
                     .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
-                        m => GetMethodIdentifier(m.GetBaseDefinition()),
+                        m => GetVirtualMethodIdentifier(m),
                         m => GetMethodAccessor(m))
             };
         }

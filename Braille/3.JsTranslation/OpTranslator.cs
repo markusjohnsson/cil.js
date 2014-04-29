@@ -495,7 +495,7 @@ namespace Braille.JsTranslation
                                 mi.DeclaringType.IsInterface
                                     ? GetInterfaceMethodAccessor(arglist.First(), thisScope, mi) :
                                 mi.IsVirtual
-                                    ? GetVirtualMethodAccessor(arglist.First(), mi) :
+                                    ? GetVirtualMethodAccessor(arglist.First(), (MethodInfo)mi) :
                                 replacement != null
                                     ? JSIdentifier.Create(replacement.Replacement)
                                     : GetMethodAccessor(mi, this.method.ReflectionMethod),
@@ -758,6 +758,25 @@ namespace Braille.JsTranslation
                     {
                         var methodBase = (MethodBase)frame.Instruction.Data;
                         return GetMethodAccessor(methodBase, this.method.ReflectionMethod);
+                        //return new JSCallExpression
+                        //{
+                        //    Function = new JSFunctionDelcaration
+                        //    {
+                        //        Body = 
+                        //        {
+                        //            new JSCallExpression 
+                        //            {
+                        //                Function = JSIdentifier.Create(
+                        //                    GetTypeAccessor(type.ReflectionType, thisScope), 
+                        //                    GetMethodIdentifier(methodBase) + "_init")
+                        //            }.ToStatement(),
+                        //            new JSReturnExpression 
+                        //            { 
+                        //                Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod) 
+                        //            }.ToStatement()
+                        //        }
+                        //    }
+                        //};
                     }
                 case "ldlen":
                     return JSIdentifier.Create(ProcessInternal(frame.Arguments.Single()), "jsarr", "length");
@@ -1114,7 +1133,7 @@ namespace Braille.JsTranslation
             };
         }
 
-        private JSPropertyAccessExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodBase mi)
+        private JSPropertyAccessExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodInfo mi)
         {
             return new JSPropertyAccessExpression
             {
@@ -1123,7 +1142,7 @@ namespace Braille.JsTranslation
                     Host = thisArg,
                     Property = "vtable"
                 },
-                Property = GetMethodIdentifier(mi)
+                Property = GetVirtualMethodIdentifier(mi)
             };
         }
 

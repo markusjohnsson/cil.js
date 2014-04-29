@@ -6,6 +6,38 @@ using System.Text;
 
 namespace Braille.Analysis
 {
+    abstract class FlowControlPass
+    {
+        private Stack<OpExpression> processStack;
+        
+        public FlowControlPass()
+        {
+            processStack = new Stack<OpExpression>();
+        }
+
+        public void Run(CilMethod method, List<OpExpression> infos)
+        {
+            processStack.Push(infos.First());
+            
+            //foreach (var opInfo in infos)
+            while (processStack.Any())
+            {
+                var opInfo = processStack.Pop();
+
+                Process(opInfo);
+            }
+        }
+
+        protected virtual void Process(OpExpression opInfo)
+        {
+        }
+
+        protected void MarkTargetForUpdate(OpExpression target)
+        {
+            processStack.Push(target);
+        }
+    }
+
     class StackAnalyzer
     {
         public void Analyze(CilMethod method, List<OpExpression> infos)
@@ -13,15 +45,11 @@ namespace Braille.Analysis
             if (infos.Any() == false)
                 return;
 
+            infos.First().StackBefore = new List<StackUseDefinition>();
+
             var methodBody = method
                 .ReflectionMethod
                 .GetMethodBody();
-
-            var exceptionHandlers = methodBody == null ?
-                Enumerable.Empty<int>() :
-                methodBody.ExceptionHandlingClauses.Select(e => e.HandlerOffset);
-
-            infos.First().StackBefore = new List<StackUseDefinition>();
 
             var processStack = new Stack<OpExpression>();
             processStack.Push(infos.First());

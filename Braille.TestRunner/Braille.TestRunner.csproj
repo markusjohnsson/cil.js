@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Tests\Events.cs" />
     <None Include="Tests\Closure.cs" />
     <None Include="MonoTests\static-ctor.cs" />
     <Content Include="Tests\YieldGenerators.cs" />

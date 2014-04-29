@@ -124,6 +124,13 @@ namespace Braille.JsTranslation
             }
         }
 
+        protected string GetVirtualMethodIdentifier(MethodInfo m)
+        {
+            return String.Format("{0}.{1}",
+                GetAssemblyIdentifier(m.GetBaseDefinition().DeclaringType),
+                GetMethodIdentifier(m.GetBaseDefinition()));
+        }
+
         protected JSExpression GetMethodAccessor(MethodBase mi, MethodBase callingScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
             var function = new JSPropertyAccessExpression

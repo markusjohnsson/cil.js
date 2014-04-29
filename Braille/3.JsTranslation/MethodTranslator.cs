@@ -26,6 +26,61 @@ namespace Braille.JsTranslation
             expressionBuilder = new OpExpressionBuilder(context.ReflectionUniverse);
         }
 
+        public JSFunctionDelcaration GetInitializer(CilAssembly assembly, CilType type, CilMethod method)
+        {
+            if (type.IsIgnored)
+            {
+                throw new ArgumentException("cannot translate method of ignored class");
+            }
+
+            if (NeedInitializer(type, method) == false)
+                return null;
+
+            var functionBlock = new List<JSStatement>();
+
+            var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
+
+            foreach (var t in method.ReferencedTypes)
+            {
+                if (t.IsGenericParameter) // types shall be initialized before they are used as generic parameters 
+                    continue;
+
+                functionBlock.Add(
+                    new JSCallExpression
+                    {
+                        Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
+                    }
+                    .ToStatement());
+            }
+
+            var f = new JSFunctionDelcaration
+            {
+                Body = functionBlock
+            };
+
+            return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
+        }
+
+        public static bool NeedInitializer(CilType type, CilMethod method)
+        {
+            if (method.GetReplacement() != null || type.IsInterface || method.ReflectionMethod.IsAbstract)
+            {
+                return false;
+            }
+
+            if (type.IsUserDelegate)
+            {
+                return false;
+            }
+
+            if (method.ReferencedTypes.Where(t => !t.IsGenericParameter).IsEmpty())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public JSFunctionDelcaration GetFirstCallInitializer(CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)
@@ -33,78 +88,80 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (method.GetReplacement() != null || type.IsInterface || method.ReflectionMethod.IsAbstract)
+            if (!NeedInitializer(type, method))
             {
-                return null;
+                throw new ArgumentException("method has no initialization");
             }
 
-            if (type.IsUserDelegate)
+            var functionBlock = new List<JSStatement>();
+
+            JSExpression closedMethodInitializer;
+            JSExpression openMethodInitializer = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init");
+
+            if (HasGenericParameters(method))
             {
-                return null;
+                closedMethodInitializer = new JSCallExpression
+                {
+                    Function = openMethodInitializer,
+                    Arguments = GetGenericParameterList(method.ReflectionMethod)
+                        .Select(t => JSIdentifier.Create(t.Name))
+                        .ToList()
+                };
             }
             else
+                closedMethodInitializer = openMethodInitializer;
+
+            functionBlock.Add(
+                new JSCallExpression
+                {
+                    Function = JSIdentifier.Create(closedMethodInitializer, "apply"),
+                    Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
+
+                }.ToStatement());
+
+            functionBlock.Add(
+                new JSBinaryExpression
+                {
+                    Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod)),
+                    Operator = "=",
+                    Right = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_")
+                }.ToStatement());
+
+            JSExpression openMethodImplementation = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
+            JSExpression closedMethodImplementation;
+
+            if (HasGenericParameters(method))
             {
-                var functionBlock = new List<JSStatement>();
-
-                var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
-
-                foreach (var t in method.ReferencedTypes)
+                closedMethodImplementation = new JSCallExpression
                 {
-                    if (t.IsGenericParameter) // types shall be initialized before they are used as generic parameters 
-                        continue;
-
-                    functionBlock.Add(
-                        new JSCallExpression
-                        {
-                            Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
-                        }
-                        .ToStatement());
-                }
-
-                functionBlock.Add(
-                    new JSBinaryExpression
-                    {
-                        Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod)),
-                        Operator = "=",
-                        Right = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_")
-                    }.ToStatement());
-
-                JSExpression openMethod = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
-                JSExpression closedMethod;
-
-                if (HasGenericParameters(method))
-                {
-                    closedMethod = new JSCallExpression
-                    {
-                        Function = openMethod,
-                        Arguments = GetGenericParameterList(method.ReflectionMethod)
-                            .Select(t => JSIdentifier.Create(t.Name))
-                            .ToList()
-                    };
-                }
-                else
-                    closedMethod = openMethod;
-
-                functionBlock.Add(
-                    new JSReturnExpression
-                    {
-                        Expression = new JSCallExpression
-                        {
-                            Function = JSIdentifier.Create(closedMethod, "apply"),
-                            Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
-                        }
-                    }.ToStatement());
-
-                var ps = GetParameterCount(method);
-
-                var f = new JSFunctionDelcaration
-                {
-                    Body = functionBlock,
-                    Parameters = Enumerable.Range(0, ps).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
+                    Function = openMethodImplementation,
+                    Arguments = GetGenericParameterList(method.ReflectionMethod)
+                        .Select(t => JSIdentifier.Create(t.Name))
+                        .ToList()
                 };
-
-                return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
             }
+            else
+                closedMethodImplementation = openMethodImplementation;
+
+            functionBlock.Add(
+                new JSReturnExpression
+                {
+                    Expression = new JSCallExpression
+                    {
+                        Function = JSIdentifier.Create(closedMethodImplementation, "apply"),
+                        Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
+                    }
+                }.ToStatement());
+
+            var ps = GetParameterCount(method);
+
+            var f = new JSFunctionDelcaration
+            {
+                Body = functionBlock,
+                Parameters = Enumerable.Range(0, ps).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
+            };
+
+            return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
         }
 
         public JSFunctionDelcaration Translate(CilAssembly assembly, CilType type, CilMethod method)

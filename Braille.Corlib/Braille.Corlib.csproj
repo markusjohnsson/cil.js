@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delegate.cs" />
+    <Compile Include="System\MulticastDelegate.cs" />
+    <Compile Include="System\EventArgs.cs" />
+    <Compile Include="System\EventHandler.cs" />
     <Compile Include="System\Array.cs" />
     <Compile Include="System.Diagnostics\DebuggerStepThroughAttribute.cs" />
     <Compile Include="System\Attribute.cs" />
