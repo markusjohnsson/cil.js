@@ -3915,6 +3915,8 @@ initialized = false;;
 function $$Object() { 
  ($$Object.init)();
 this.constructor = $$Object; };
+c = $$Object;
+ct = c;
 $$Object.init = function () { 
  if (initialized){
 return;
@@ -3933,8 +3935,6 @@ $$Object.prototype.vtable = {
 $$Object.prototype = { 
  
 };;
-c = $$Object;
-ct = c;
 return c; }; })();
 (asm)["System.Delegate"] = (function () { var ct;
  ct = null;
@@ -3948,6 +3948,8 @@ initialized = false;;
 function Delegate() { 
  (Delegate.init)();
 this.constructor = Delegate; };
+c = Delegate;
+ct = c;
 Delegate.init = function () { 
  if (initialized){
 return;
@@ -3968,8 +3970,6 @@ Delegate.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Delegate.prototype = new (((asm0)["System.Object"])())();;
-c = Delegate;
-ct = c;
 return c; }; })();
 (asm)["System.MulticastDelegate"] = (function () { var ct;
  ct = null;
@@ -3983,6 +3983,8 @@ initialized = false;;
 function MulticastDelegate() { 
  (MulticastDelegate.init)();
 this.constructor = MulticastDelegate; };
+c = MulticastDelegate;
+ct = c;
 MulticastDelegate.init = function () { 
  if (initialized){
 return;
@@ -4004,8 +4006,6 @@ MulticastDelegate.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 MulticastDelegate.prototype = new (((asm0)["System.Delegate"])())();;
-c = MulticastDelegate;
-ct = c;
 return c; }; })();
 (asm)["System.EventArgs"] = (function () { var ct;
  ct = null;
@@ -4019,6 +4019,8 @@ initialized = false;;
 function EventArgs() { 
  (EventArgs.init)();
 this.constructor = EventArgs; };
+c = EventArgs;
+ct = c;
 EventArgs.init = function () { 
  if (initialized){
 return;
@@ -4037,8 +4039,6 @@ EventArgs.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 EventArgs.prototype = new (((asm0)["System.Object"])())();;
-c = EventArgs;
-ct = c;
 return c; }; })();
 (asm)["System.EventHandler"] = (function () { var ct;
  ct = null;
@@ -4052,6 +4052,8 @@ initialized = false;;
 function EventHandler() { 
  (EventHandler.init)();
 this.constructor = EventHandler; };
+c = EventHandler;
+ct = c;
 EventHandler.init = function () { 
  if (initialized){
 return;
@@ -4076,8 +4078,6 @@ EventHandler.prototype.vtable = {
 EventHandler.prototype = { 
  
 };;
-c = EventHandler;
-ct = c;
 return c; }; })();
 (asm)["System.Collections.IEnumerable"] = (function () { var ct;
  ct = null;
@@ -4091,6 +4091,8 @@ initialized = false;;
 function IEnumerable() { 
  (IEnumerable.init)();
 this.constructor = IEnumerable; };
+c = IEnumerable;
+ct = c;
 IEnumerable.init = function () { 
  if (initialized){
 return;
@@ -4107,8 +4109,6 @@ IEnumerable.prototype.vtable = {
 IEnumerable.prototype = { 
  
 };;
-c = IEnumerable;
-ct = c;
 return c; }; })();
 (asm)["System.Array"] = (function () { var ct;
  ct = null;
@@ -4122,6 +4122,8 @@ initialized = false;;
 function Array() { 
  (Array.init)();
 this.constructor = Array; };
+c = Array;
+ct = c;
 Array.init = function () { 
  if (initialized){
 return;
@@ -4145,8 +4147,6 @@ Array.prototype.vtable = {
 'x6000019': asm0.x600001e 
 }; };
 Array.prototype = new (((asm0)["System.Object"])())();;
-c = Array;
-ct = c;
 return c; }; })();
 (asm)["System.Collections.Generic.IEnumerable`1"] = (function () { var ct;
  ct = { 
@@ -4162,6 +4162,8 @@ initialized = false;;
 function IEnumerable_1() { 
  (IEnumerable_1.init)();
 this.constructor = IEnumerable_1; };
+c = IEnumerable_1;
+tree_set([ T ],ct,c);
 IEnumerable_1.init = function () { 
  if (initialized){
 return;
@@ -4179,8 +4181,6 @@ IEnumerable_1.prototype.vtable = {
 IEnumerable_1.prototype = { 
  
 };;
-c = IEnumerable_1;
-tree_set([ T ],ct,c);
 return c; }; })();
 (asm)["System.Array`1"] = (function () { var ct;
  ct = { 
@@ -4196,6 +4196,8 @@ initialized = false;;
 function Array_1() { 
  (Array_1.init)();
 this.constructor = Array_1; };
+c = Array_1;
+tree_set([ T ],ct,c);
 Array_1.init = function () { 
  if (initialized){
 return;
@@ -4224,8 +4226,6 @@ Array_1.prototype.vtable = {
 'x6000019': asm0.x600001e 
 }; };
 Array_1.prototype = new (((asm0)["System.Array"])())();;
-c = Array_1;
-tree_set([ T ],ct,c);
 return c; }; })();
 (asm)["System.IDisposable"] = (function () { var ct;
  ct = null;
@@ -4239,6 +4239,8 @@ initialized = false;;
 function IDisposable() { 
  (IDisposable.init)();
 this.constructor = IDisposable; };
+c = IDisposable;
+ct = c;
 IDisposable.init = function () { 
  if (initialized){
 return;
@@ -4255,8 +4257,6 @@ IDisposable.prototype.vtable = {
 IDisposable.prototype = { 
  
 };;
-c = IDisposable;
-ct = c;
 return c; }; })();
 (asm)["System.Collections.IEnumerator"] = (function () { var ct;
  ct = null;
@@ -4270,6 +4270,8 @@ initialized = false;;
 function IEnumerator() { 
  (IEnumerator.init)();
 this.constructor = IEnumerator; };
+c = IEnumerator;
+ct = c;
 IEnumerator.init = function () { 
  if (initialized){
 return;
@@ -4288,8 +4290,6 @@ IEnumerator.prototype.vtable = {
 IEnumerator.prototype = { 
  
 };;
-c = IEnumerator;
-ct = c;
 return c; }; })();
 (asm)["System.Collections.Generic.IEnumerator`1"] = (function () { var ct;
  ct = { 
@@ -4305,6 +4305,8 @@ initialized = false;;
 function IEnumerator_1() { 
  (IEnumerator_1.init)();
 this.constructor = IEnumerator_1; };
+c = IEnumerator_1;
+tree_set([ T ],ct,c);
 IEnumerator_1.init = function () { 
  if (initialized){
 return;
@@ -4323,8 +4325,6 @@ IEnumerator_1.prototype.vtable = {
 IEnumerator_1.prototype = { 
  
 };;
-c = IEnumerator_1;
-tree_set([ T ],ct,c);
 return c; }; })();
 (asm)["System.Array`1+ArrayEnumerator"] = (function () { var ct;
  ct = { 
@@ -4340,6 +4340,8 @@ initialized = false;;
 function ArrayEnumerator() { 
  (ArrayEnumerator.init)();
 this.constructor = ArrayEnumerator; };
+c = ArrayEnumerator;
+tree_set([ T ],ct,c);
 ArrayEnumerator.init = function () { 
  if (initialized){
 return;
@@ -4377,8 +4379,6 @@ ArrayEnumerator.prototype.vtable = {
 'x6000026': asm0.x6000031 
 }; };
 ArrayEnumerator.prototype = new (((asm0)["System.Object"])())();;
-c = ArrayEnumerator;
-tree_set([ T ],ct,c);
 return c; }; })();
 (asm)["System.Attribute"] = (function () { var ct;
  ct = null;
@@ -4392,6 +4392,8 @@ initialized = false;;
 function Attribute() { 
  (Attribute.init)();
 this.constructor = Attribute; };
+c = Attribute;
+ct = c;
 Attribute.init = function () { 
  if (initialized){
 return;
@@ -4408,8 +4410,6 @@ Attribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Attribute.prototype = new (((asm0)["System.Object"])())();;
-c = Attribute;
-ct = c;
 return c; }; })();
 (asm)["System.Diagnostics.DebuggerStepThroughAttribute"] = (function () { var ct;
  ct = null;
@@ -4423,6 +4423,8 @@ initialized = false;;
 function DebuggerStepThroughAttribute() { 
  (DebuggerStepThroughAttribute.init)();
 this.constructor = DebuggerStepThroughAttribute; };
+c = DebuggerStepThroughAttribute;
+ct = c;
 DebuggerStepThroughAttribute.init = function () { 
  if (initialized){
 return;
@@ -4439,8 +4441,6 @@ DebuggerStepThroughAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 DebuggerStepThroughAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = DebuggerStepThroughAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.ValueType"] = (function () { var ct;
  ct = null;
@@ -4454,6 +4454,8 @@ initialized = false;;
 function ValueType() { 
  (ValueType.init)();
 this.constructor = ValueType; };
+c = ValueType;
+ct = c;
 ValueType.init = function () { 
  if (initialized){
 return;
@@ -4470,8 +4472,6 @@ ValueType.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 ValueType.prototype = new (((asm0)["System.Object"])())();;
-c = ValueType;
-ct = c;
 return c; }; })();
 (asm)["System.Enum"] = (function () { var ct;
  ct = null;
@@ -4485,6 +4485,8 @@ initialized = false;;
 function Enum() { 
  (Enum.init)();
 this.constructor = Enum; };
+c = Enum;
+ct = c;
 Enum.init = function () { 
  if (initialized){
 return;
@@ -4503,8 +4505,6 @@ Enum.prototype.vtable = {
 Enum.prototype = { 
  
 };;
-c = Enum;
-ct = c;
 return c; }; })();
 (asm)["System.AttributeTargets"] = (function () { var ct;
  ct = null;
@@ -4518,6 +4518,8 @@ initialized = false;;
 function AttributeTargets() { 
  (AttributeTargets.init)();
 this.constructor = AttributeTargets; };
+c = AttributeTargets;
+ct = c;
 AttributeTargets.init = function () { 
  if (initialized){
 return;
@@ -4551,8 +4553,6 @@ AttributeTargets.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 AttributeTargets.prototype = new (((asm0)["System.Enum"])())();;
-c = AttributeTargets;
-ct = c;
 return c; }; })();
 (asm)["System.ComVisibleAttribute"] = (function () { var ct;
  ct = null;
@@ -4566,6 +4566,8 @@ initialized = false;;
 function ComVisibleAttribute() { 
  (ComVisibleAttribute.init)();
 this.constructor = ComVisibleAttribute; };
+c = ComVisibleAttribute;
+ct = c;
 ComVisibleAttribute.init = function () { 
  if (initialized){
 return;
@@ -4582,8 +4584,6 @@ ComVisibleAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 ComVisibleAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = ComVisibleAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.Nullable`1"] = (function () { var ct;
  ct = { 
@@ -4599,6 +4599,8 @@ initialized = false;;
 function Nullable_1() { 
  (Nullable_1.init)();
 this.constructor = Nullable_1; };
+c = Nullable_1;
+tree_set([ T ],ct,c);
 Nullable_1.init = function () { 
  if (initialized){
 return;
@@ -4620,8 +4622,6 @@ Nullable_1.prototype.vtable = {
 Nullable_1.prototype = { 
  
 };;
-c = Nullable_1;
-tree_set([ T ],ct,c);
 return c; }; })();
 (asm)["System.SerializableAttribute"] = (function () { var ct;
  ct = null;
@@ -4635,6 +4635,8 @@ initialized = false;;
 function SerializableAttribute() { 
  (SerializableAttribute.init)();
 this.constructor = SerializableAttribute; };
+c = SerializableAttribute;
+ct = c;
 SerializableAttribute.init = function () { 
  if (initialized){
 return;
@@ -4651,8 +4653,6 @@ SerializableAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 SerializableAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = SerializableAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.String"] = (function () { var ct;
  ct = null;
@@ -4666,6 +4666,8 @@ initialized = false;;
 function $$String() { 
  ($$String.init)();
 this.constructor = $$String; };
+c = $$String;
+ct = c;
 $$String.init = function () { 
  if (initialized){
 return;
@@ -4685,8 +4687,6 @@ $$String.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 $$String.prototype = new (((asm0)["System.Object"])())();;
-c = $$String;
-ct = c;
 return c; }; })();
 (asm)["System.Reflection.DefaultMemberAttribute"] = (function () { var ct;
  ct = null;
@@ -4700,6 +4700,8 @@ initialized = false;;
 function DefaultMemberAttribute() { 
  (DefaultMemberAttribute.init)();
 this.constructor = DefaultMemberAttribute; };
+c = DefaultMemberAttribute;
+ct = c;
 DefaultMemberAttribute.init = function () { 
  if (initialized){
 return;
@@ -4717,8 +4719,6 @@ DefaultMemberAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 DefaultMemberAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = DefaultMemberAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.AttributeUsageAttribute"] = (function () { var ct;
  ct = null;
@@ -4732,6 +4732,8 @@ initialized = false;;
 function AttributeUsageAttribute() { 
  (AttributeUsageAttribute.init)();
 this.constructor = AttributeUsageAttribute; };
+c = AttributeUsageAttribute;
+ct = c;
 AttributeUsageAttribute.init = function () { 
  if (initialized){
 return;
@@ -4750,8 +4752,6 @@ AttributeUsageAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 AttributeUsageAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = AttributeUsageAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.Boolean"] = (function () { var ct;
  ct = null;
@@ -4765,6 +4765,8 @@ initialized = false;;
 function $$Boolean() { 
  ($$Boolean.init)();
 this.constructor = $$Boolean; };
+c = $$Boolean;
+ct = c;
 $$Boolean.init = function () { 
  if (initialized){
 return;
@@ -4783,8 +4785,6 @@ $$Boolean.prototype.vtable = {
 $$Boolean.prototype = { 
  
 };;
-c = $$Boolean;
-ct = c;
 return c; }; })();
 (asm)["System.Byte"] = (function () { var ct;
  ct = null;
@@ -4798,6 +4798,8 @@ initialized = false;;
 function Byte() { 
  (Byte.init)();
 this.constructor = Byte; };
+c = Byte;
+ct = c;
 Byte.init = function () { 
  if (initialized){
 return;
@@ -4816,8 +4818,6 @@ Byte.prototype.vtable = {
 Byte.prototype = { 
  
 };;
-c = Byte;
-ct = c;
 return c; }; })();
 (asm)["System.Char"] = (function () { var ct;
  ct = null;
@@ -4831,6 +4831,8 @@ initialized = false;;
 function Char() { 
  (Char.init)();
 this.constructor = Char; };
+c = Char;
+ct = c;
 Char.init = function () { 
  if (initialized){
 return;
@@ -4851,8 +4853,6 @@ Char.prototype.vtable = {
 Char.prototype = { 
  
 };;
-c = Char;
-ct = c;
 return c; }; })();
 (asm)["System.Console"] = (function () { var ct;
  ct = null;
@@ -4866,6 +4866,8 @@ initialized = false;;
 function Console() { 
  (Console.init)();
 this.constructor = Console; };
+c = Console;
+ct = c;
 Console.init = function () { 
  if (initialized){
 return;
@@ -4882,8 +4884,6 @@ Console.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Console.prototype = new (((asm0)["System.Object"])())();;
-c = Console;
-ct = c;
 return c; }; })();
 (asm)["System.Double"] = (function () { var ct;
  ct = null;
@@ -4897,6 +4897,8 @@ initialized = false;;
 function Double() { 
  (Double.init)();
 this.constructor = Double; };
+c = Double;
+ct = c;
 Double.init = function () { 
  if (initialized){
 return;
@@ -4921,8 +4923,6 @@ Double.prototype.vtable = {
 Double.prototype = { 
  
 };;
-c = Double;
-ct = c;
 return c; }; })();
 (asm)["System.Exception"] = (function () { var ct;
  ct = null;
@@ -4936,6 +4936,8 @@ initialized = false;;
 function Exception() { 
  (Exception.init)();
 this.constructor = Exception; };
+c = Exception;
+ct = c;
 Exception.init = function () { 
  if (initialized){
 return;
@@ -4953,8 +4955,6 @@ Exception.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Exception.prototype = new (((asm0)["System.Object"])())();;
-c = Exception;
-ct = c;
 return c; }; })();
 (asm)["System.InvalidOperationException"] = (function () { var ct;
  ct = null;
@@ -4968,6 +4968,8 @@ initialized = false;;
 function InvalidOperationException() { 
  (InvalidOperationException.init)();
 this.constructor = InvalidOperationException; };
+c = InvalidOperationException;
+ct = c;
 InvalidOperationException.init = function () { 
  if (initialized){
 return;
@@ -4984,8 +4986,6 @@ InvalidOperationException.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 InvalidOperationException.prototype = new (((asm0)["System.Exception"])())();;
-c = InvalidOperationException;
-ct = c;
 return c; }; })();
 (asm)["System.FlagsAttribute"] = (function () { var ct;
  ct = null;
@@ -4999,6 +4999,8 @@ initialized = false;;
 function FlagsAttribute() { 
  (FlagsAttribute.init)();
 this.constructor = FlagsAttribute; };
+c = FlagsAttribute;
+ct = c;
 FlagsAttribute.init = function () { 
  if (initialized){
 return;
@@ -5015,8 +5017,6 @@ FlagsAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 FlagsAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = FlagsAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.ICloneable"] = (function () { var ct;
  ct = null;
@@ -5030,6 +5030,8 @@ initialized = false;;
 function ICloneable() { 
  (ICloneable.init)();
 this.constructor = ICloneable; };
+c = ICloneable;
+ct = c;
 ICloneable.init = function () { 
  if (initialized){
 return;
@@ -5046,8 +5048,6 @@ ICloneable.prototype.vtable = {
 ICloneable.prototype = { 
  
 };;
-c = ICloneable;
-ct = c;
 return c; }; })();
 (asm)["System.Int16"] = (function () { var ct;
  ct = null;
@@ -5061,6 +5061,8 @@ initialized = false;;
 function Int16() { 
  (Int16.init)();
 this.constructor = Int16; };
+c = Int16;
+ct = c;
 Int16.init = function () { 
  if (initialized){
 return;
@@ -5079,8 +5081,6 @@ Int16.prototype.vtable = {
 Int16.prototype = { 
  
 };;
-c = Int16;
-ct = c;
 return c; }; })();
 (asm)["System.Int32"] = (function () { var ct;
  ct = null;
@@ -5094,6 +5094,8 @@ initialized = false;;
 function Int32() { 
  (Int32.init)();
 this.constructor = Int32; };
+c = Int32;
+ct = c;
 Int32.init = function () { 
  if (initialized){
 return;
@@ -5112,8 +5114,6 @@ Int32.prototype.vtable = {
 Int32.prototype = { 
  
 };;
-c = Int32;
-ct = c;
 return c; }; })();
 (asm)["System.InternalFormatting"] = (function () { var ct;
  ct = null;
@@ -5127,6 +5127,8 @@ initialized = false;;
 function InternalFormatting() { 
  (InternalFormatting.init)();
 this.constructor = InternalFormatting; };
+c = InternalFormatting;
+ct = c;
 InternalFormatting.init = function () { 
  if (initialized){
 return;
@@ -5143,8 +5145,6 @@ InternalFormatting.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 InternalFormatting.prototype = new (((asm0)["System.Object"])())();;
-c = InternalFormatting;
-ct = c;
 return c; }; })();
 (asm)["System.Int64"] = (function () { var ct;
  ct = null;
@@ -5158,6 +5158,8 @@ initialized = false;;
 function Int64() { 
  (Int64.init)();
 this.constructor = Int64; };
+c = Int64;
+ct = c;
 Int64.init = function () { 
  if (initialized){
 return;
@@ -5176,8 +5178,6 @@ Int64.prototype.vtable = {
 Int64.prototype = { 
  
 };;
-c = Int64;
-ct = c;
 return c; }; })();
 (asm)["System.IntPtr"] = (function () { var ct;
  ct = null;
@@ -5191,6 +5191,8 @@ initialized = false;;
 function IntPtr() { 
  (IntPtr.init)();
 this.constructor = IntPtr; };
+c = IntPtr;
+ct = c;
 IntPtr.init = function () { 
  if (initialized){
 return;
@@ -5209,8 +5211,6 @@ IntPtr.prototype.vtable = {
 IntPtr.prototype = { 
  
 };;
-c = IntPtr;
-ct = c;
 return c; }; })();
 (asm)["System.Math"] = (function () { var ct;
  ct = null;
@@ -5224,6 +5224,8 @@ initialized = false;;
 function Math() { 
  (Math.init)();
 this.constructor = Math; };
+c = Math;
+ct = c;
 Math.init = function () { 
  if (initialized){
 return;
@@ -5241,8 +5243,6 @@ Math.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Math.prototype = new (((asm0)["System.Object"])())();;
-c = Math;
-ct = c;
 return c; }; })();
 (asm)["System.ParamArrayAttribute"] = (function () { var ct;
  ct = null;
@@ -5256,6 +5256,8 @@ initialized = false;;
 function ParamArrayAttribute() { 
  (ParamArrayAttribute.init)();
 this.constructor = ParamArrayAttribute; };
+c = ParamArrayAttribute;
+ct = c;
 ParamArrayAttribute.init = function () { 
  if (initialized){
 return;
@@ -5272,8 +5274,6 @@ ParamArrayAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 ParamArrayAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = ParamArrayAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.RuntimeFieldHandle"] = (function () { var ct;
  ct = null;
@@ -5287,6 +5287,8 @@ initialized = false;;
 function RuntimeFieldHandle() { 
  (RuntimeFieldHandle.init)();
 this.constructor = RuntimeFieldHandle; };
+c = RuntimeFieldHandle;
+ct = c;
 RuntimeFieldHandle.init = function () { 
  if (initialized){
 return;
@@ -5305,8 +5307,6 @@ RuntimeFieldHandle.prototype.vtable = {
 RuntimeFieldHandle.prototype = { 
  
 };;
-c = RuntimeFieldHandle;
-ct = c;
 return c; }; })();
 (asm)["System.RuntimeTypeHandle"] = (function () { var ct;
  ct = null;
@@ -5320,6 +5320,8 @@ initialized = false;;
 function RuntimeTypeHandle() { 
  (RuntimeTypeHandle.init)();
 this.constructor = RuntimeTypeHandle; };
+c = RuntimeTypeHandle;
+ct = c;
 RuntimeTypeHandle.init = function () { 
  if (initialized){
 return;
@@ -5338,8 +5340,6 @@ RuntimeTypeHandle.prototype.vtable = {
 RuntimeTypeHandle.prototype = { 
  
 };;
-c = RuntimeTypeHandle;
-ct = c;
 return c; }; })();
 (asm)["System.SByte"] = (function () { var ct;
  ct = null;
@@ -5353,6 +5353,8 @@ initialized = false;;
 function SByte() { 
  (SByte.init)();
 this.constructor = SByte; };
+c = SByte;
+ct = c;
 SByte.init = function () { 
  if (initialized){
 return;
@@ -5371,8 +5373,6 @@ SByte.prototype.vtable = {
 SByte.prototype = { 
  
 };;
-c = SByte;
-ct = c;
 return c; }; })();
 (asm)["System.Single"] = (function () { var ct;
  ct = null;
@@ -5386,6 +5386,8 @@ initialized = false;;
 function Single() { 
  (Single.init)();
 this.constructor = Single; };
+c = Single;
+ct = c;
 Single.init = function () { 
  if (initialized){
 return;
@@ -5404,8 +5406,6 @@ Single.prototype.vtable = {
 Single.prototype = { 
  
 };;
-c = Single;
-ct = c;
 return c; }; })();
 (asm)["System.Type"] = (function () { var ct;
  ct = null;
@@ -5419,6 +5419,8 @@ initialized = false;;
 function Type() { 
  (Type.init)();
 this.constructor = Type; };
+c = Type;
+ct = c;
 Type.init = function () { 
  if (initialized){
 return;
@@ -5435,8 +5437,6 @@ Type.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Type.prototype = new (((asm0)["System.Object"])())();;
-c = Type;
-ct = c;
 return c; }; })();
 (asm)["System.UInt16"] = (function () { var ct;
  ct = null;
@@ -5450,6 +5450,8 @@ initialized = false;;
 function UInt16() { 
  (UInt16.init)();
 this.constructor = UInt16; };
+c = UInt16;
+ct = c;
 UInt16.init = function () { 
  if (initialized){
 return;
@@ -5468,8 +5470,6 @@ UInt16.prototype.vtable = {
 UInt16.prototype = { 
  
 };;
-c = UInt16;
-ct = c;
 return c; }; })();
 (asm)["System.UInt32"] = (function () { var ct;
  ct = null;
@@ -5483,6 +5483,8 @@ initialized = false;;
 function UInt32() { 
  (UInt32.init)();
 this.constructor = UInt32; };
+c = UInt32;
+ct = c;
 UInt32.init = function () { 
  if (initialized){
 return;
@@ -5501,8 +5503,6 @@ UInt32.prototype.vtable = {
 UInt32.prototype = { 
  
 };;
-c = UInt32;
-ct = c;
 return c; }; })();
 (asm)["System.UInt64"] = (function () { var ct;
  ct = null;
@@ -5516,6 +5516,8 @@ initialized = false;;
 function UInt64() { 
  (UInt64.init)();
 this.constructor = UInt64; };
+c = UInt64;
+ct = c;
 UInt64.init = function () { 
  if (initialized){
 return;
@@ -5534,8 +5536,6 @@ UInt64.prototype.vtable = {
 UInt64.prototype = { 
  
 };;
-c = UInt64;
-ct = c;
 return c; }; })();
 (asm)["System.UIntPtr"] = (function () { var ct;
  ct = null;
@@ -5549,6 +5549,8 @@ initialized = false;;
 function UIntPtr() { 
  (UIntPtr.init)();
 this.constructor = UIntPtr; };
+c = UIntPtr;
+ct = c;
 UIntPtr.init = function () { 
  if (initialized){
 return;
@@ -5567,8 +5569,6 @@ UIntPtr.prototype.vtable = {
 UIntPtr.prototype = { 
  
 };;
-c = UIntPtr;
-ct = c;
 return c; }; })();
 (asm)["System.Void"] = (function () { var ct;
  ct = null;
@@ -5582,6 +5582,8 @@ initialized = false;;
 function Void() { 
  (Void.init)();
 this.constructor = Void; };
+c = Void;
+ct = c;
 Void.init = function () { 
  if (initialized){
 return;
@@ -5600,8 +5602,6 @@ Void.prototype.vtable = {
 Void.prototype = { 
  
 };;
-c = Void;
-ct = c;
 return c; }; })();
 (asm)["System.NotSupportedException"] = (function () { var ct;
  ct = null;
@@ -5615,6 +5615,8 @@ initialized = false;;
 function NotSupportedException() { 
  (NotSupportedException.init)();
 this.constructor = NotSupportedException; };
+c = NotSupportedException;
+ct = c;
 NotSupportedException.init = function () { 
  if (initialized){
 return;
@@ -5631,8 +5633,6 @@ NotSupportedException.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 NotSupportedException.prototype = new (((asm0)["System.Exception"])())();;
-c = NotSupportedException;
-ct = c;
 return c; }; })();
 (asm)["System.NotImplementedException"] = (function () { var ct;
  ct = null;
@@ -5646,6 +5646,8 @@ initialized = false;;
 function NotImplementedException() { 
  (NotImplementedException.init)();
 this.constructor = NotImplementedException; };
+c = NotImplementedException;
+ct = c;
 NotImplementedException.init = function () { 
  if (initialized){
 return;
@@ -5662,8 +5664,6 @@ NotImplementedException.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 NotImplementedException.prototype = new (((asm0)["System.Exception"])())();;
-c = NotImplementedException;
-ct = c;
 return c; }; })();
 (asm)["System.Environment"] = (function () { var ct;
  ct = null;
@@ -5677,6 +5677,8 @@ initialized = false;;
 function Environment() { 
  (Environment.init)();
 this.constructor = Environment; };
+c = Environment;
+ct = c;
 Environment.init = function () { 
  if (initialized){
 return;
@@ -5693,8 +5695,6 @@ Environment.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Environment.prototype = new (((asm0)["System.Object"])())();;
-c = Environment;
-ct = c;
 return c; }; })();
 (asm)["System.Func`2"] = (function () { var ct;
  ct = { 
@@ -5710,6 +5710,8 @@ initialized = false;;
 function Func_2() { 
  (Func_2.init)();
 this.constructor = Func_2; };
+c = Func_2;
+tree_set([ T,TResult ],ct,c);
 Func_2.init = function () { 
  if (initialized){
 return;
@@ -5735,8 +5737,6 @@ Func_2.prototype.vtable = {
 Func_2.prototype = { 
  
 };;
-c = Func_2;
-tree_set([ T,TResult ],ct,c);
 return c; }; })();
 (asm)["System.Diagnostics.Debugger"] = (function () { var ct;
  ct = null;
@@ -5750,6 +5750,8 @@ initialized = false;;
 function Debugger() { 
  (Debugger.init)();
 this.constructor = Debugger; };
+c = Debugger;
+ct = c;
 Debugger.init = function () { 
  if (initialized){
 return;
@@ -5766,8 +5768,6 @@ Debugger.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Debugger.prototype = new (((asm0)["System.Object"])())();;
-c = Debugger;
-ct = c;
 return c; }; })();
 (asm)["System.Runtime.InteropServices.OutAttribute"] = (function () { var ct;
  ct = null;
@@ -5781,6 +5781,8 @@ initialized = false;;
 function OutAttribute() { 
  (OutAttribute.init)();
 this.constructor = OutAttribute; };
+c = OutAttribute;
+ct = c;
 OutAttribute.init = function () { 
  if (initialized){
 return;
@@ -5797,8 +5799,6 @@ OutAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 OutAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = OutAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.Runtime.CompilerServices.IndexerNameAttribute"] = (function () { var ct;
  ct = null;
@@ -5812,6 +5812,8 @@ initialized = false;;
 function IndexerNameAttribute() { 
  (IndexerNameAttribute.init)();
 this.constructor = IndexerNameAttribute; };
+c = IndexerNameAttribute;
+ct = c;
 IndexerNameAttribute.init = function () { 
  if (initialized){
 return;
@@ -5828,8 +5830,6 @@ IndexerNameAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 IndexerNameAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = IndexerNameAttribute;
-ct = c;
 return c; }; })();
 (asm)["System.Runtime.CompilerServices.ExtensionAttribute"] = (function () { var ct;
  ct = null;
@@ -5843,6 +5843,8 @@ initialized = false;;
 function ExtensionAttribute() { 
  (ExtensionAttribute.init)();
 this.constructor = ExtensionAttribute; };
+c = ExtensionAttribute;
+ct = c;
 ExtensionAttribute.init = function () { 
  if (initialized){
 return;
@@ -5859,8 +5861,6 @@ ExtensionAttribute.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 ExtensionAttribute.prototype = new (((asm0)["System.Attribute"])())();;
-c = ExtensionAttribute;
-ct = c;
 return c; }; })(); })(asm0 || (asm0 = {}));
 var asm1; (function (asm) { 
  
@@ -6068,6 +6068,8 @@ initialized = false;;
 function TestLog() { 
  (TestLog.init)();
 this.constructor = TestLog; };
+c = TestLog;
+ct = c;
 TestLog.init = function () { 
  if (initialized){
 return;
@@ -6084,8 +6086,6 @@ TestLog.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 TestLog.prototype = new (((asm0)["System.Object"])())();;
-c = TestLog;
-ct = c;
 return c; }; })();
 asm.TestHelper = (function () { var ct;
  ct = null;
@@ -6099,6 +6099,8 @@ initialized = false;;
 function TestHelper() { 
  (TestHelper.init)();
 this.constructor = TestHelper; };
+c = TestHelper;
+ct = c;
 TestHelper.init = function () { 
  if (initialized){
 return;
@@ -6115,8 +6117,6 @@ TestHelper.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 TestHelper.prototype = new (((asm0)["System.Object"])())();;
-c = TestHelper;
-ct = c;
 return c; }; })();
 asm.Program = (function () { var ct;
  ct = null;
@@ -6130,6 +6130,8 @@ initialized = false;;
 function Program() { 
  (Program.init)();
 this.constructor = Program; };
+c = Program;
+ct = c;
 Program.init = function () { 
  if (initialized){
 return;
@@ -6146,7 +6148,5 @@ Program.prototype.vtable = {
 'asm0.x6000007': asm0.x6000007 
 }; };
 Program.prototype = new (((asm0)["System.Object"])())();;
-c = Program;
-ct = c;
 return c; }; })();
 asm.entryPoint = asm.x600000c; })(asm1 || (asm1 = {}));

@@ -49,34 +49,7 @@ namespace Braille.JsTranslation
                     Statements = { new JSReturnExpression { Expression = cachedInstance }.ToStatement() }
                 });
 
-            body.AddRange(GetTypeDeclaration(type).Select(s => s.ToStatement()));
-
-            body.Add(
-                new JSBinaryExpression
-                {
-                    Left = cachedInstance,
-                    Operator = "=",
-                    Right = new JSIdentifier { Name = GetSimpleName(type) }
-                }.ToStatement());
-
-            if (isGeneric)
-            {
-                body.Add(
-                    new JSCallExpression
-                    {
-                        Function = JSIdentifier.Create("tree_set"),
-                        Arguments = new List<JSExpression>
-                        {
-                            cacheKey,
-                            cache,
-                            cachedInstance
-                        }
-                    }.ToStatement());
-            }
-            else
-            {
-                body.Add(new JSBinaryExpression { Left = cache, Operator = "=", Right = cachedInstance }.ToStatement());
-            }
+            body.AddRange(GetTypeDeclaration(type, cache, cacheKey, cachedInstance, isGeneric).Select(s => s.ToStatement()));
 
             body.Add(new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement());
 
@@ -123,7 +96,7 @@ namespace Braille.JsTranslation
             };
         }
 
-        public IEnumerable<JSExpression> GetTypeDeclaration(CilType type)
+        public IEnumerable<JSExpression> GetTypeDeclaration(CilType type, JSExpression cache, JSExpression cacheKey, JSExpression cachedInstance, bool isGeneric)
         {
             var n = GetSimpleName(type);
 
@@ -147,6 +120,31 @@ namespace Braille.JsTranslation
                 }
 
             };
+
+            yield return new JSBinaryExpression
+            {
+                Left = cachedInstance,
+                Operator = "=",
+                Right = new JSIdentifier { Name = GetSimpleName(type) }
+            };
+
+            if (isGeneric)
+            {
+                yield return new JSCallExpression
+                {
+                    Function = JSIdentifier.Create("tree_set"),
+                    Arguments = new List<JSExpression>
+                    {
+                        cacheKey,
+                        cache,
+                        cachedInstance
+                    }
+                };
+            }
+            else
+            {
+                yield return new JSBinaryExpression { Left = cache, Operator = "=", Right = cachedInstance };
+            }
 
             yield return new JSBinaryExpression
             {

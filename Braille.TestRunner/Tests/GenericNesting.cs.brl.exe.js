@@ -5970,99 +5970,43 @@ asm.x600000d = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
-(asm1.x600000c)(st_00);
 /* IL_06: ret */
 return ; };
 asm.x600000e = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
+(asm1.x600000d)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x600000f = function (T) { 
- return function Test(arg0) { var st_00;
-var st_01;
-var st_02;
-var __braille_pos_0__;
- __braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: isinst T*/
-st_01 = (T.IsInst)(st_00);
-/* IL_06: brtrue.s IL_0F*/
-if (st_01){
-__braille_pos_0__ = 0xF;continue;
-}
-/* IL_08: ldstr false*/
-st_02 = new_string("false");
-/* IL_0D: br.s IL_14*/
-__braille_pos_0__ = 0x14;
-continue;
-case 0xF:
-/* IL_0F: ldstr true*/
-st_02 = new_string("true");
-case 0x14:
-/* IL_14: call Void Log(System.Object)*/
-(braille_test_log)(st_02);
-/* IL_19: ret */
-return ;
-}
-} }; };
-asm.x6000010 = function _ctor(arg0) { var st_00;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
-return ; };
-asm.x6000011_init = function () { 
+asm.x600000f_init = function () { 
  ((asm1.A)().init)();
-((asm1.B)().init)();
 ((asm1.C)().init)();
-asm.x6000011 = asm.x6000011_; };
-asm.x6000011 = function () { 
- (asm.x6000011_init.apply)(this,arguments);
-return (asm.x6000011.apply)(this,arguments); };
-asm.x6000011_ = function Main() { var t0;
+asm.x600000f = asm.x600000f_; };
+asm.x600000f = function () { 
+ (asm.x600000f_init.apply)(this,arguments);
+return (asm.x600000f.apply)(this,arguments); };
+asm.x600000f_ = function Main() { var t0;
 var t1;
-var t2;
 var st_00;
 var st_01;
-var st_02;
-var st_03;
  t0 = (asm1.A)();
-t1 = (asm1.B)();
-t2 = (asm1.C)();
+t1 = (asm1.C)();
 /* IL_00: newobj Void .ctor()*/
 st_00 = (function () { var result;
  result = new ((arguments)[0])();
 (asm1.x600000c)(result);
 return result; })(t0);
-/* IL_05: call Void Test(System.Object)*/
-((asm1.x600000f)((asm1.A)()))(st_00);
-/* IL_0A: newobj Void .ctor()*/
+/* IL_05: pop */
+/* IL_06: newobj Void .ctor()*/
 st_01 = (function () { var result;
  result = new ((arguments)[0])();
-(asm1.x600000d)(result);
-return result; })(t1);
-/* IL_0F: call Void Test(System.Object)*/
-((asm1.x600000f)((asm1.A)()))(st_01);
-/* IL_14: newobj Void .ctor()*/
-st_02 = (function () { var result;
- result = new ((arguments)[0])();
 (asm1.x600000e)(result);
-return result; })(t2);
-/* IL_19: call Void Test(System.Object)*/
-((asm1.x600000f)((asm1.A)()))(st_02);
-/* IL_1E: ldnull */
-st_03 = null;
-/* IL_1F: call Void Test(System.Object)*/
-((asm1.x600000f)((asm1.A)()))(st_03);
-/* IL_24: ret */
+return result; })(t1);
+/* IL_0B: pop */
+/* IL_0C: ret */
 return ; };
-asm.x6000012 = function _ctor(arg0) { var st_00;
+asm.x6000010 = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -6130,6 +6074,40 @@ TestHelper.prototype.vtable = {
 }; };
 TestHelper.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
+(asm)["I`1"] = (function () { var ct;
+ ct = { 
+ 
+};
+return function (T) { var c;
+var initialized;
+ c = tree_get([ T ],ct);
+if (c){
+return c;
+}
+initialized = false;;
+function I_1() { 
+ (I_1.init)();
+this.constructor = I_1; };
+c = I_1;
+tree_set([ T ],ct,c);
+I_1.init = function () { 
+ if (initialized){
+return;
+}
+initialized = true;
+I_1.Interfaces = [  ];
+I_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(I_1) != -1; };
+I_1.IsValueType = false;
+I_1.IsPrimitive = false;
+I_1.IsNullable = false;
+I_1.GenericArguments = [ T ];
+I_1.prototype.vtable = { 
+ 
+}; };
+I_1.prototype = { 
+ 
+};;
+return c; }; })();
 asm.A = (function () { var ct;
  ct = null;
 return function () { var c;
@@ -6149,7 +6127,7 @@ A.init = function () {
 return;
 }
 initialized = true;
-A.Interfaces = [  ];
+A.Interfaces = [ ((asm1)["I`1"])((asm1.A)()) ];
 A.IsInst = function (t) { return t instanceof A; };
 A.IsValueType = false;
 A.IsPrimitive = false;
@@ -6158,39 +6136,45 @@ A.prototype.vtable = {
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
 'asm0.x6000007': asm0.x6000007 
+};
+(A.prototype)[((asm1)["I`1"])((asm1.A)())] = { 
+ 
 }; };
 A.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
-asm.B = (function () { var ct;
- ct = null;
-return function () { var c;
+(asm)["B`1"] = (function () { var ct;
+ ct = { 
+ 
+};
+return function (T) { var c;
 var initialized;
- c = ct;
+ c = tree_get([ T ],ct);
 if (c){
 return c;
 }
 initialized = false;;
-function B() { 
- (B.init)();
-this.constructor = B; };
-c = B;
-ct = c;
-B.init = function () { 
+function B_1() { 
+ (B_1.init)();
+this.constructor = B_1; };
+c = B_1;
+tree_set([ T ],ct,c);
+B_1.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-B.Interfaces = [  ];
-B.IsInst = function (t) { return t instanceof B; };
-B.IsValueType = false;
-B.IsPrimitive = false;
-B.IsNullable = false;
-B.prototype.vtable = { 
+B_1.Interfaces = [  ];
+B_1.IsInst = function (t) { return t instanceof B_1; };
+B_1.IsValueType = false;
+B_1.IsPrimitive = false;
+B_1.IsNullable = false;
+B_1.GenericArguments = [ T ];
+B_1.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
 'asm0.x6000007': asm0.x6000007 
 }; };
-B.prototype = new ((asm1.A)())();;
+B_1.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
 asm.C = (function () { var ct;
  ct = null;
@@ -6221,41 +6205,7 @@ C.prototype.vtable = {
 'asm0.x6000004': asm0.x6000004,
 'asm0.x6000007': asm0.x6000007 
 }; };
-C.prototype = new (((asm0)["System.Object"])())();;
-return c; }; })();
-(asm)["D`1"] = (function () { var ct;
- ct = { 
- 
-};
-return function (T) { var c;
-var initialized;
- c = tree_get([ T ],ct);
-if (c){
-return c;
-}
-initialized = false;;
-function D_1() { 
- (D_1.init)();
-this.constructor = D_1; };
-c = D_1;
-tree_set([ T ],ct,c);
-D_1.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-D_1.Interfaces = [  ];
-D_1.IsInst = function (t) { return t instanceof D_1; };
-D_1.IsValueType = false;
-D_1.IsPrimitive = false;
-D_1.IsNullable = false;
-D_1.GenericArguments = [ T ];
-D_1.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
-}; };
-D_1.prototype = new (((asm0)["System.Object"])())();;
+C.prototype = new (((asm1)["B`1"])((asm1.C)()))();;
 return c; }; })();
 asm.Program = (function () { var ct;
  ct = null;
@@ -6288,4 +6238,4 @@ Program.prototype.vtable = {
 }; };
 Program.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
-asm.entryPoint = asm.x6000011; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x600000f; })(asm1 || (asm1 = {}));
