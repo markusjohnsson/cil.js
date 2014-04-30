@@ -114,7 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Tests\GenericNesting.cs" />
+    <None Include="Tests\NewslotMethod.cs" />
+    <None Include="Tests\OutParameters.cs" />
+    <None Include="Tests\GenericNesting.cs" />
+    <None Include="Tests\RefParameters.cs" />
     <Content Include="Tests\Events.cs" />
     <None Include="Tests\Closure.cs" />
     <None Include="MonoTests\static-ctor.cs" />
