@@ -142,7 +142,7 @@ namespace Braille.JsTranslation
             return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
         }
 
-        public JSFunctionDelcaration Translate(CilAssembly assembly, CilType type, CilMethod method)
+        public JSExpression Translate(CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)
             {
@@ -152,6 +152,12 @@ namespace Braille.JsTranslation
             if (method.NeedTranslation == false)
             {
                 return null;
+            }
+
+            var r = method.GetReplacement();
+            if (r != null && r.Kind == ReplacementKind.Function)
+            {
+                return new JSIdentifier { Name = r.Replacement };
             }
 
             if (type.IsUserDelegate)

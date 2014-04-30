@@ -449,9 +449,12 @@ namespace Braille.JsTranslation
                         return new JSCallExpression
                         {
                             Function =
+                            /*
                                 replacement != null
                                     ? JSIdentifier.Create("(" + replacement.Replacement + ")")
-                                    : GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                                    : 
+                                    */
+                                    GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = args
                         };
                     }
@@ -496,9 +499,11 @@ namespace Braille.JsTranslation
                                     ? GetInterfaceMethodAccessor(arglist.First(), thisScope, mi) :
                                 mi.IsVirtual
                                     ? GetVirtualMethodAccessor(arglist.First(), (MethodInfo)mi) :
+                                    /*
                                 replacement != null
-                                    ? JSIdentifier.Create(replacement.Replacement)
-                                    : GetMethodAccessor(mi, this.method.ReflectionMethod),
+                                    ? JSIdentifier.Create(replacement.Replacement) :
+                                     */
+                                      GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
                         };
                     }

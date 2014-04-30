@@ -21,7 +21,7 @@ namespace Braille.Analysis
 
                     foreach (var method in t.Methods)
                     {
-                        if (method.NeedTranslation)
+                        if (method.NeedTranslation && method.GetReplacement() == null)
                         {
                             var opInfos = expressionBuilder.Build(method); // static analysis happens here
 

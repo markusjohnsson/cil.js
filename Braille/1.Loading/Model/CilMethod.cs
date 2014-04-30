@@ -142,7 +142,16 @@ namespace Braille.Ast
         {
             get
             {
-                return (!(GetReplacement() != null || DeclaringType.IsInterface || ReflectionMethod.IsAbstract));
+                var r = GetReplacement();
+                if (r != null)
+                {
+                    if (r.Kind == ReplacementKind.Function)
+                        return true;
+                    else
+                        return false;
+                }
+
+                return (!(DeclaringType.IsInterface || ReflectionMethod.IsAbstract));
             }
         }
 
