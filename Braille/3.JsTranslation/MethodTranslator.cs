@@ -23,7 +23,7 @@ namespace Braille.JsTranslation
             : base(context)
         {
             this.context = context;
-            expressionBuilder = new OpExpressionBuilder(context.ReflectionUniverse);
+            expressionBuilder = new OpExpressionBuilder(context);
         }
 
         public JSFunctionDelcaration GetInitializer(CilAssembly assembly, CilType type, CilMethod method)
@@ -33,7 +33,7 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (NeedInitializer(type, method) == false)
+            if (NeedInitializer(method) == false)
                 return null;
 
             var functionBlock = new List<JSStatement>();
@@ -53,6 +53,14 @@ namespace Braille.JsTranslation
                     .ToStatement());
             }
 
+            functionBlock.Add(
+                new JSBinaryExpression
+                {
+                    Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod)),
+                    Operator = "=",
+                    Right = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_")
+                }.ToStatement());
+
             var f = new JSFunctionDelcaration
             {
                 Body = functionBlock
@@ -61,22 +69,22 @@ namespace Braille.JsTranslation
             return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
         }
 
-        public static bool NeedInitializer(CilType type, CilMethod method)
+        public static bool NeedInitializer(CilMethod method)
         {
-            if (method.GetReplacement() != null || type.IsInterface || method.ReflectionMethod.IsAbstract)
+            if (method.GetReplacement() != null || method.DeclaringType.IsInterface || method.ReflectionMethod.IsAbstract)
             {
                 return false;
             }
 
-            if (type.IsUserDelegate)
+            if (method.DeclaringType.IsUserDelegate)
             {
                 return false;
             }
 
-            if (method.ReferencedTypes.Where(t => !t.IsGenericParameter).IsEmpty())
-            {
-                return false;
-            }
+            //if (method.ReferencedTypes.Where(t => !t.IsGenericParameter).IsEmpty())
+            //{
+            //    return false;
+            //}
 
             return true;
         }
@@ -88,9 +96,9 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (!NeedInitializer(type, method))
+            if (!NeedInitializer(method))
             {
-                throw new ArgumentException("method has no initialization");
+                throw new ArgumentException("method need no initialization");
             }
 
             var functionBlock = new List<JSStatement>();
@@ -117,14 +125,6 @@ namespace Braille.JsTranslation
                     Function = JSIdentifier.Create(closedMethodInitializer, "apply"),
                     Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
 
-                }.ToStatement());
-
-            functionBlock.Add(
-                new JSBinaryExpression
-                {
-                    Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod)),
-                    Operator = "=",
-                    Right = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_")
                 }.ToStatement());
 
             JSExpression openMethodImplementation = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));

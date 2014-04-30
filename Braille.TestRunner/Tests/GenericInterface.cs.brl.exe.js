@@ -84,7 +84,12 @@ function new_array(type, length) {
     return r;
 }
 ;
-asm.x6000003 = function ToString(arg0) { var st_00;
+asm.x6000003_init = function () { 
+ asm.x6000003 = asm.x6000003_; };
+asm.x6000003 = function (arg0) { 
+ (asm.x6000003_init.apply)(this,arguments);
+return (asm.x6000003.apply)(this,arguments); };
+asm.x6000003_ = function ToString(arg0) { var st_00;
 var st_01;
 var loc0;
  /* IL_00: nop */
@@ -96,7 +101,12 @@ loc0 = st_00;
 st_01 = loc0;
 /* IL_0A: ret */
 return st_01; };
-asm.x6000004 = function GetHashCode(arg0) { var st_00;
+asm.x6000004_init = function () { 
+ asm.x6000004 = asm.x6000004_; };
+asm.x6000004 = function (arg0) { 
+ (asm.x6000004_init.apply)(this,arguments);
+return (asm.x6000004.apply)(this,arguments); };
+asm.x6000004_ = function GetHashCode(arg0) { var st_00;
 var st_01;
 var loc0;
  /* IL_00: nop */
@@ -108,7 +118,12 @@ loc0 = st_00;
 st_01 = loc0;
 /* IL_06: ret */
 return st_01; };
-asm.x6000005 = function ToJavaScriptString(arg0) { var st_00;
+asm.x6000005_init = function () { 
+ asm.x6000005 = asm.x6000005_; };
+asm.x6000005 = function (arg0) { 
+ (asm.x6000005_init.apply)(this,arguments);
+return (asm.x6000005.apply)(this,arguments); };
+asm.x6000005_ = function ToJavaScriptString(arg0) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -173,7 +188,12 @@ return st_0B;
 }
 } };
 asm.ToJavaScriptString = asm.x6000005;
-asm.x6000006 = function ReferenceEquals(arg0,arg1) { var st_00;
+asm.x6000006_init = function () { 
+ asm.x6000006 = asm.x6000006_; };
+asm.x6000006 = function (arg0,arg1) { 
+ (asm.x6000006_init.apply)(this,arguments);
+return (asm.x6000006.apply)(this,arguments); };
+asm.x6000006_ = function ReferenceEquals(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -191,7 +211,12 @@ loc0 = st_02;
 st_03 = loc0;
 /* IL_0C: ret */
 return st_03; };
-asm.x6000007 = function Equals(arg0,arg1) { var st_00;
+asm.x6000007_init = function () { 
+ asm.x6000007 = asm.x6000007_; };
+asm.x6000007 = function (arg0,arg1) { 
+ (asm.x6000007_init.apply)(this,arguments);
+return (asm.x6000007.apply)(this,arguments); };
+asm.x6000007_ = function Equals(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -209,7 +234,12 @@ loc0 = st_02;
 st_03 = loc0;
 /* IL_0C: ret */
 return st_03; };
-asm.x6000008 = function GetType(arg0) { var st_00;
+asm.x6000008_init = function () { 
+ asm.x6000008 = asm.x6000008_; };
+asm.x6000008 = function (arg0) { 
+ (asm.x6000008_init.apply)(this,arguments);
+return (asm.x6000008.apply)(this,arguments); };
+asm.x6000008_ = function GetType(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -224,7 +254,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x6000009 = function _ctor(arg0) { var __braille_pos_0__;
+asm.x6000009_init = function () { 
+ asm.x6000009 = asm.x6000009_; };
+asm.x6000009 = function (arg0) { 
+ (asm.x6000009_init.apply)(this,arguments);
+return (asm.x6000009.apply)(this,arguments); };
+asm.x6000009_ = function _ctor(arg0) { var __braille_pos_0__;
  __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
@@ -238,10 +273,10 @@ return ;
 }
 } };
 asm.x600000a_init = function () { 
- (((asm0)["System.Exception"])().init)(); };
+ (((asm0)["System.Exception"])().init)();
+asm.x600000a = asm.x600000a_; };
 asm.x600000a = function (arg0,arg1) { 
  (asm.x600000a_init.apply)(this,arguments);
-asm.x600000a = asm.x600000a_;
 return (asm.x600000a.apply)(this,arguments); };
 asm.x600000a_ = function Combine(arg0,arg1) { var t0;
 var st_00;
@@ -411,10 +446,10 @@ return st_20;
 }
 } };
 asm.x600000b_init = function () { 
- (((asm0)["System.Exception"])().init)(); };
+ (((asm0)["System.Exception"])().init)();
+asm.x600000b = asm.x600000b_; };
 asm.x600000b = function (arg0,arg1) { 
  (asm.x600000b_init.apply)(this,arguments);
-asm.x600000b = asm.x600000b_;
 return (asm.x600000b.apply)(this,arguments); };
 asm.x600000b_ = function Remove(arg0,arg1) { var t0;
 var st_00;
@@ -516,10 +551,10 @@ return st_12;
 }
 } };
 asm.x600000c_init = function () { 
- (((asm0)["System.NotImplementedException"])().init)(); };
+ (((asm0)["System.NotImplementedException"])().init)();
+asm.x600000c = asm.x600000c_; };
 asm.x600000c = function (arg0,arg1) { 
  (asm.x600000c_init.apply)(this,arguments);
-asm.x600000c = asm.x600000c_;
 return (asm.x600000c.apply)(this,arguments); };
 asm.x600000c_ = function RemoveImpl(arg0,arg1) { var t0;
 var st_00;
@@ -533,10 +568,10 @@ return result; })(t0);
 /* IL_06: throw */
 throw st_00; };
 asm.x600000d_init = function () { 
- (((asm0)["System.NotImplementedException"])().init)(); };
+ (((asm0)["System.NotImplementedException"])().init)();
+asm.x600000d = asm.x600000d_; };
 asm.x600000d = function (arg0,arg1) { 
  (asm.x600000d_init.apply)(this,arguments);
-asm.x600000d = asm.x600000d_;
 return (asm.x600000d.apply)(this,arguments); };
 asm.x600000d_ = function CombineImpl(arg0,arg1) { var t0;
 var st_00;
@@ -549,7 +584,12 @@ st_00 = (function () { var result;
 return result; })(t0);
 /* IL_06: throw */
 throw st_00; };
-asm.x600000e = function op_Equality(arg0,arg1) { var st_00;
+asm.x600000e_init = function () { 
+ asm.x600000e = asm.x600000e_; };
+asm.x600000e = function (arg0,arg1) { 
+ (asm.x600000e_init.apply)(this,arguments);
+return (asm.x600000e.apply)(this,arguments); };
+asm.x600000e_ = function op_Equality(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -961,7 +1001,12 @@ st_53 = loc5;
 return st_53;
 }
 } };
-asm.x600000f = function op_Inequality(arg0,arg1) { var st_00;
+asm.x600000f_init = function () { 
+ asm.x600000f = asm.x600000f_; };
+asm.x600000f = function (arg0,arg1) { 
+ (asm.x600000f_init.apply)(this,arguments);
+return (asm.x600000f.apply)(this,arguments); };
+asm.x600000f_ = function op_Inequality(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -985,17 +1030,22 @@ loc0 = st_04;
 st_05 = loc0;
 /* IL_0F: ret */
 return st_05; };
-asm.x6000010 = function _ctor(arg0) { var st_00;
+asm.x6000010_init = function () { 
+ asm.x6000010 = asm.x6000010_; };
+asm.x6000010 = function (arg0) { 
+ (asm.x6000010_init.apply)(this,arguments);
+return (asm.x6000010.apply)(this,arguments); };
+asm.x6000010_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
 asm.x6000012_init = function () { 
- (((asm0)["System.Delegate"])().init)(); };
+ (((asm0)["System.Delegate"])().init)();
+asm.x6000012 = asm.x6000012_; };
 asm.x6000012 = function (arg0,arg1) { 
  (asm.x6000012_init.apply)(this,arguments);
-asm.x6000012 = asm.x6000012_;
 return (asm.x6000012.apply)(this,arguments); };
 asm.x6000012_ = function CombineImpl(arg0,arg1) { var t0;
 var st_00;
@@ -1229,10 +1279,10 @@ return st_2E;
 }
 } };
 asm.x6000013_init = function () { 
- (((asm0)["System.Delegate"])().init)(); };
+ (((asm0)["System.Delegate"])().init)();
+asm.x6000013 = asm.x6000013_; };
 asm.x6000013 = function (arg0,arg1) { 
  (asm.x6000013_init.apply)(this,arguments);
-asm.x6000013 = asm.x6000013_;
 return (asm.x6000013.apply)(this,arguments); };
 asm.x6000013_ = function RemoveImpl(arg0,arg1) { var t0;
 var st_00;
@@ -1745,14 +1795,24 @@ st_6F = loc4;
 return st_6F;
 }
 } };
-asm.x6000014 = function _ctor(arg0) { var st_00;
+asm.x6000014_init = function () { 
+ asm.x6000014 = asm.x6000014_; };
+asm.x6000014 = function (arg0) { 
+ (asm.x6000014_init.apply)(this,arguments);
+return (asm.x6000014.apply)(this,arguments); };
+asm.x6000014_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 (asm0.x6000010)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x6000015 = function _ctor(arg0) { var st_00;
+asm.x6000015_init = function () { 
+ asm.x6000015 = asm.x6000015_; };
+asm.x6000015 = function (arg0) { 
+ (asm.x6000015_init.apply)(this,arguments);
+return (asm.x6000015.apply)(this,arguments); };
+asm.x6000015_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -1762,10 +1822,10 @@ st_00 = arg0;
 /* IL_09: ret */
 return ; };
 asm.x6000016_init = function () { 
- (((asm0)["System.EventArgs"])().init)(); };
+ (((asm0)["System.EventArgs"])().init)();
+asm.x6000016 = asm.x6000016_; };
 asm.x6000016 = function () { 
  (asm.x6000016_init.apply)(this,arguments);
-asm.x6000016 = asm.x6000016_;
 return (asm.x6000016.apply)(this,arguments); };
 asm.x6000016_ = function _cctor() { var t0;
 var st_00;
@@ -1790,7 +1850,12 @@ asm.x6000018 = function Invoke() {
                                             return m.apply(null, arguments); };
 asm.x6000017 = function ctor() { 
  arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];; };
-asm.x600001a = function get_Length(arg0) { var st_00;
+asm.x600001a_init = function () { 
+ asm.x600001a = asm.x600001a_; };
+asm.x600001a = function (arg0) { 
+ (asm.x600001a_init.apply)(this,arguments);
+return (asm.x600001a.apply)(this,arguments); };
+asm.x600001a_ = function get_Length(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -1805,7 +1870,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x600001d = function GetValue(arg0,arg1) { var st_00;
+asm.x600001d_init = function () { 
+ asm.x600001d = asm.x600001d_; };
+asm.x600001d = function (arg0,arg1) { 
+ (asm.x600001d_init.apply)(this,arguments);
+return (asm.x600001d.apply)(this,arguments); };
+asm.x600001d_ = function GetValue(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -1823,7 +1893,12 @@ loc0 = st_02;
 st_03 = loc0;
 /* IL_0C: ret */
 return st_03; };
-asm.x600001e = function GetEnumerator(arg0) { var st_00;
+asm.x600001e_init = function () { 
+ asm.x600001e = asm.x600001e_; };
+asm.x600001e = function (arg0) { 
+ (asm.x600001e_init.apply)(this,arguments);
+return (asm.x600001e.apply)(this,arguments); };
+asm.x600001e_ = function GetEnumerator(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -1838,17 +1913,22 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x6000020 = function _ctor(arg0) { var st_00;
+asm.x6000020_init = function () { 
+ asm.x6000020 = asm.x6000020_; };
+asm.x6000020 = function (arg0) { 
+ (asm.x6000020_init.apply)(this,arguments);
+return (asm.x6000020.apply)(this,arguments); };
+asm.x6000020_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
 asm.x6000023_init = function () { 
- (((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]).init)(); };
+ (((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
+asm.x6000023 = asm.x6000023_; };
 asm.x6000023 = function (arg0) { 
  (asm.x6000023_init.apply)(this,arguments);
-asm.x6000023 = asm.x6000023_;
 return (asm.x6000023.apply)(this,arguments); };
 asm.x6000023_ = function GetEnumerator(arg0) { var t0;
 var st_00;
@@ -1870,7 +1950,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x6000024 = function GetEnumeratorImpl(arg0) { var st_00;
+asm.x6000024_init = function () { 
+ asm.x6000024 = asm.x6000024_; };
+asm.x6000024 = function (arg0) { 
+ (asm.x6000024_init.apply)(this,arguments);
+return (asm.x6000024.apply)(this,arguments); };
+asm.x6000024_ = function GetEnumeratorImpl(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -1885,14 +1970,24 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x6000025 = function _ctor(arg0) { var st_00;
+asm.x6000025_init = function () { 
+ asm.x6000025 = asm.x6000025_; };
+asm.x6000025 = function (arg0) { 
+ (asm.x6000025_init.apply)(this,arguments);
+return (asm.x6000025.apply)(this,arguments); };
+asm.x6000025_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 (asm0.x6000020)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x600002d = function get_Current(arg0) { var st_00;
+asm.x600002d_init = function () { 
+ asm.x600002d = asm.x600002d_; };
+asm.x600002d = function (arg0) { 
+ (asm.x600002d_init.apply)(this,arguments);
+return (asm.x600002d.apply)(this,arguments); };
+asm.x600002d_ = function get_Current(arg0) { var st_00;
 var st_02;
 var st_01;
 var st_03;
@@ -1916,7 +2011,12 @@ loc0 = st_04;
 st_05 = loc0;
 /* IL_16: ret */
 return st_05; };
-asm.x600002e = function MoveNext(arg0) { var st_00;
+asm.x600002e_init = function () { 
+ asm.x600002e = asm.x600002e_; };
+asm.x600002e = function (arg0) { 
+ (asm.x600002e_init.apply)(this,arguments);
+return (asm.x600002e.apply)(this,arguments); };
+asm.x600002e_ = function MoveNext(arg0) { var st_00;
 var st_01;
 var st_04;
 var st_02;
@@ -1958,7 +2058,12 @@ loc0 = st_0A;
 st_0B = loc0;
 /* IL_21: ret */
 return st_0B; };
-asm.x600002f = function System_Collections_IEnumerator_get_Current(arg0) { var st_00;
+asm.x600002f_init = function () { 
+ asm.x600002f = asm.x600002f_; };
+asm.x600002f = function (arg0) { 
+ (asm.x600002f_init.apply)(this,arguments);
+return (asm.x600002f.apply)(this,arguments); };
+asm.x600002f_ = function System_Collections_IEnumerator_get_Current(arg0) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -1976,7 +2081,12 @@ loc0 = st_02;
 st_03 = loc0;
 /* IL_10: ret */
 return st_03; };
-asm.x6000030 = function Reset(arg0) { var st_00;
+asm.x6000030_init = function () { 
+ asm.x6000030 = asm.x6000030_; };
+asm.x6000030 = function (arg0) { 
+ (asm.x6000030_init.apply)(this,arguments);
+return (asm.x6000030.apply)(this,arguments); };
+asm.x6000030_ = function Reset(arg0) { var st_00;
 var st_01;
  /* IL_00: nop */
 /* IL_01: ldarg.0 */
@@ -1987,11 +2097,21 @@ st_01 = -1;
 st_00.index = st_01;
 /* IL_08: ret */
 return ; };
-asm.x6000031 = function Dispose(arg0) { 
+asm.x6000031_init = function () { 
+ asm.x6000031 = asm.x6000031_; };
+asm.x6000031 = function (arg0) { 
+ (asm.x6000031_init.apply)(this,arguments);
+return (asm.x6000031.apply)(this,arguments); };
+asm.x6000031_ = function Dispose(arg0) { 
  /* IL_00: nop */
 /* IL_01: ret */
 return ; };
-asm.x600002c = function _ctor(arg0,arg1) { var st_00;
+asm.x600002c_init = function () { 
+ asm.x600002c = asm.x600002c_; };
+asm.x600002c = function (arg0,arg1) { 
+ (asm.x600002c_init.apply)(this,arguments);
+return (asm.x600002c.apply)(this,arguments); };
+asm.x600002c_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -2027,33 +2147,58 @@ st_06.length = st_07;
 /* IL_22: nop */
 /* IL_23: ret */
 return ; };
-asm.x6000032 = function _ctor(arg0) { var st_00;
+asm.x6000032_init = function () { 
+ asm.x6000032 = asm.x6000032_; };
+asm.x6000032 = function (arg0) { 
+ (asm.x6000032_init.apply)(this,arguments);
+return (asm.x6000032.apply)(this,arguments); };
+asm.x6000032_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000033 = function _ctor(arg0) { var st_00;
+asm.x6000033_init = function () { 
+ asm.x6000033 = asm.x6000033_; };
+asm.x6000033 = function (arg0) { 
+ (asm.x6000033_init.apply)(this,arguments);
+return (asm.x6000033.apply)(this,arguments); };
+asm.x6000033_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 (asm0.x6000032)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x6000034 = function _ctor(arg0) { var st_00;
+asm.x6000034_init = function () { 
+ asm.x6000034 = asm.x6000034_; };
+asm.x6000034 = function (arg0) { 
+ (asm.x6000034_init.apply)(this,arguments);
+return (asm.x6000034.apply)(this,arguments); };
+asm.x6000034_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000035 = function _ctor(arg0) { var st_00;
+asm.x6000035_init = function () { 
+ asm.x6000035 = asm.x6000035_; };
+asm.x6000035 = function (arg0) { 
+ (asm.x6000035_init.apply)(this,arguments);
+return (asm.x6000035.apply)(this,arguments); };
+asm.x6000035_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 (asm0.x6000034)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x6000036 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000036_init = function () { 
+ asm.x6000036 = asm.x6000036_; };
+asm.x6000036 = function (arg0,arg1) { 
+ (asm.x6000036_init.apply)(this,arguments);
+return (asm.x6000036.apply)(this,arguments); };
+asm.x6000036_ = function _ctor(arg0,arg1) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -2063,7 +2208,12 @@ st_00 = arg0;
 /* IL_08: nop */
 /* IL_09: ret */
 return ; };
-asm.x6000038 = function get_HasValue(arg0) { var st_00;
+asm.x6000038_init = function () { 
+ asm.x6000038 = asm.x6000038_; };
+asm.x6000038 = function (arg0) { 
+ (asm.x6000038_init.apply)(this,arguments);
+return (asm.x6000038.apply)(this,arguments); };
+asm.x6000038_ = function get_HasValue(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -2079,10 +2229,10 @@ st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
 asm.x6000039_init = function () { 
- (((asm0)["System.InvalidOperationException"])().init)(); };
+ (((asm0)["System.InvalidOperationException"])().init)();
+asm.x6000039 = asm.x6000039_; };
 asm.x6000039 = function (arg0) { 
  (asm.x6000039_init.apply)(this,arguments);
-asm.x6000039 = asm.x6000039_;
 return (asm.x6000039.apply)(this,arguments); };
 asm.x6000039_ = function get_Value(arg0) { var t0;
 var st_00;
@@ -2138,10 +2288,10 @@ return st_07;
 }
 } };
 asm.x600003a_init = function () { 
- (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]).init)(); };
+ (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]).init)();
+asm.x600003a = asm.x600003a_; };
 asm.x600003a = function (arg0,arg1) { 
  (asm.x600003a_init.apply)(this,arguments);
-asm.x600003a = asm.x600003a_;
 return (asm.x600003a.apply)(this,arguments); };
 asm.x600003a_ = function Equals(arg0,arg1) { var t0;
 var st_00;
@@ -2248,7 +2398,12 @@ st_14 = loc0;
 return st_14;
 }
 } };
-asm.x600003b = function Equals(arg0,arg1) { var st_00;
+asm.x600003b_init = function () { 
+ asm.x600003b = asm.x600003b_; };
+asm.x600003b = function (arg0,arg1) { 
+ (asm.x600003b_init.apply)(this,arguments);
+return (asm.x600003b.apply)(this,arguments); };
+asm.x600003b_ = function Equals(arg0,arg1) { var st_00;
 var st_02;
 var st_01;
 var st_03;
@@ -2358,7 +2513,12 @@ st_11 = loc0;
 return st_11;
 }
 } };
-asm.x600003c = function GetHashCode(arg0) { var st_00;
+asm.x600003c_init = function () { 
+ asm.x600003c = asm.x600003c_; };
+asm.x600003c = function (arg0) { 
+ (asm.x600003c_init.apply)(this,arguments);
+return (asm.x600003c.apply)(this,arguments); };
+asm.x600003c_ = function GetHashCode(arg0) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -2416,7 +2576,12 @@ st_07 = loc0;
 return st_07;
 }
 } };
-asm.x600003d = function GetValueOrDefault(arg0) { var st_00;
+asm.x600003d_init = function () { 
+ asm.x600003d = asm.x600003d_; };
+asm.x600003d = function (arg0) { 
+ (asm.x600003d_init.apply)(this,arguments);
+return (asm.x600003d.apply)(this,arguments); };
+asm.x600003d_ = function GetValueOrDefault(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -2431,7 +2596,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x600003e = function GetValueOrDefault(arg0,arg1) { var st_00;
+asm.x600003e_init = function () { 
+ asm.x600003e = asm.x600003e_; };
+asm.x600003e = function (arg0,arg1) { 
+ (asm.x600003e_init.apply)(this,arguments);
+return (asm.x600003e.apply)(this,arguments); };
+asm.x600003e_ = function GetValueOrDefault(arg0,arg1) { var st_00;
 var st_01;
 var st_03;
 var st_02;
@@ -2474,10 +2644,10 @@ return st_04;
 }
 } };
 asm.x600003f_init = function () { 
- (((asm0)["System.String"])().init)(); };
+ (((asm0)["System.String"])().init)();
+asm.x600003f = asm.x600003f_; };
 asm.x600003f = function (arg0) { 
  (asm.x600003f_init.apply)(this,arguments);
-asm.x600003f = asm.x600003f_;
 return (asm.x600003f.apply)(this,arguments); };
 asm.x600003f_ = function ToString(arg0) { var t0;
 var st_00;
@@ -2547,11 +2717,11 @@ return st_09;
 } };
 asm.x6000040_init = function (T) { 
  return function () { 
- (((asm0)["System.Nullable`1"])(T).init)(); }; };
+ (((asm0)["System.Nullable`1"])(T).init)();
+asm.x6000040 = asm.x6000040_; }; };
 asm.x6000040 = function (T) { 
  return function (arg0) { 
  ((asm.x6000040_init)(T).apply)(this,arguments);
-asm.x6000040 = asm.x6000040_;
 return ((asm.x6000040)(T).apply)(this,arguments); }; };
 asm.x6000040_ = function (T) { 
  return function op_Implicit(arg0) { var t0;
@@ -2579,7 +2749,14 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; }; };
+asm.x6000041_init = function (T) { 
+ return function () { 
+ asm.x6000041 = asm.x6000041_; }; };
 asm.x6000041 = function (T) { 
+ return function (arg0) { 
+ ((asm.x6000041_init)(T).apply)(this,arguments);
+return ((asm.x6000041)(T).apply)(this,arguments); }; };
+asm.x6000041_ = function (T) { 
  return function op_Explicit(arg0) { var st_00;
 var st_01;
 var st_02;
@@ -2600,7 +2777,14 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0C: ret */
 return st_02; }; };
+asm.x6000042_init = function (T) { 
+ return function () { 
+ asm.x6000042 = asm.x6000042_; }; };
 asm.x6000042 = function (T) { 
+ return function (arg0) { 
+ ((asm.x6000042_init)(T).apply)(this,arguments);
+return ((asm.x6000042)(T).apply)(this,arguments); }; };
+asm.x6000042_ = function (T) { 
  return function Box(arg0) { var st_00;
 var st_01;
 var st_02;
@@ -2665,11 +2849,11 @@ return st_07;
 } }; };
 asm.x6000043_init = function (T) { 
  return function () { 
- (((asm0)["System.Nullable`1"])(T).init)(); }; };
+ (((asm0)["System.Nullable`1"])(T).init)();
+asm.x6000043 = asm.x6000043_; }; };
 asm.x6000043 = function (T) { 
  return function (arg0) { 
  ((asm.x6000043_init)(T).apply)(this,arguments);
-asm.x6000043 = asm.x6000043_;
 return ((asm.x6000043)(T).apply)(this,arguments); }; };
 asm.x6000043_ = function (T) { 
  return function Unbox(arg0) { var t0;
@@ -2755,7 +2939,12 @@ st_0B = loc0;
 return st_0B;
 }
 } }; };
-asm.x6000037 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000037_init = function () { 
+ asm.x6000037 = asm.x6000037_; };
+asm.x6000037 = function (arg0,arg1) { 
+ (asm.x6000037_init.apply)(this,arguments);
+return (asm.x6000037.apply)(this,arguments); };
+asm.x6000037_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -2774,7 +2963,12 @@ st_03 = arg1;
 (st_02.r)().value = st_03;
 /* IL_0F: ret */
 return ; };
-asm.x6000044 = function _ctor(arg0) { var st_00;
+asm.x6000044_init = function () { 
+ asm.x6000044 = asm.x6000044_; };
+asm.x6000044 = function (arg0) { 
+ (asm.x6000044_init.apply)(this,arguments);
+return (asm.x6000044.apply)(this,arguments); };
+asm.x6000044_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -2782,10 +2976,10 @@ st_00 = arg0;
 /* IL_06: ret */
 return ; };
 asm.x6000048_init = function () { 
- (((asm0)["System.Exception"])().init)(); };
+ (((asm0)["System.Exception"])().init)();
+asm.x6000048 = asm.x6000048_; };
 asm.x6000048 = function (arg0,arg1) { 
  (asm.x6000048_init.apply)(this,arguments);
-asm.x6000048 = asm.x6000048_;
 return (asm.x6000048.apply)(this,arguments); };
 asm.x6000048_ = function get_Chars(arg0,arg1) { var t0;
 var st_00;
@@ -2802,10 +2996,10 @@ return result; })(t0);
 /* IL_0B: throw */
 throw st_01; };
 asm.x6000049_init = function () { 
- (((asm0)["System.String"])().init)(); };
+ (((asm0)["System.String"])().init)();
+asm.x6000049 = asm.x6000049_; };
 asm.x6000049 = function (arg0,arg1) { 
  (asm.x6000049_init.apply)(this,arguments);
-asm.x6000049 = asm.x6000049_;
 return (asm.x6000049.apply)(this,arguments); };
 asm.x6000049_ = function Concat(arg0,arg1) { var t0;
 var st_00;
@@ -2856,10 +3050,10 @@ st_0A = loc0;
 /* IL_1A: ret */
 return st_0A; };
 asm.x600004a_init = function () { 
- (((asm0)["System.String"])().init)(); };
+ (((asm0)["System.String"])().init)();
+asm.x600004a = asm.x600004a_; };
 asm.x600004a = function (arg0,arg1) { 
  (asm.x600004a_init.apply)(this,arguments);
-asm.x600004a = asm.x600004a_;
 return (asm.x600004a.apply)(this,arguments); };
 asm.x600004a_ = function Concat(arg0,arg1) { var t0;
 var st_00;
@@ -2915,7 +3109,12 @@ loc0 = st_0B;
 st_0C = loc0;
 /* IL_24: ret */
 return st_0C; };
-asm.x600004b = function Concat(arg0) { var st_00;
+asm.x600004b_init = function () { 
+ asm.x600004b = asm.x600004b_; };
+asm.x600004b = function (arg0) { 
+ (asm.x600004b_init.apply)(this,arguments);
+return (asm.x600004b.apply)(this,arguments); };
+asm.x600004b_ = function Concat(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -2931,10 +3130,10 @@ st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
 asm.x600004c_init = function () { 
- (((asm0)["System.Exception"])().init)(); };
+ (((asm0)["System.Exception"])().init)();
+asm.x600004c = asm.x600004c_; };
 asm.x600004c = function (arg0) { 
  (asm.x600004c_init.apply)(this,arguments);
-asm.x600004c = asm.x600004c_;
 return (asm.x600004c.apply)(this,arguments); };
 asm.x600004c_ = function Concat(arg0) { var t0;
 var st_00;
@@ -2950,7 +3149,12 @@ st_01 = (function () { var result;
 return result; })(t0);
 /* IL_0B: throw */
 throw st_01; };
-asm.x600004d = function get_Length(arg0) { var st_00;
+asm.x600004d_init = function () { 
+ asm.x600004d = asm.x600004d_; };
+asm.x600004d = function (arg0) { 
+ (asm.x600004d_init.apply)(this,arguments);
+return (asm.x600004d.apply)(this,arguments); };
+asm.x600004d_ = function get_Length(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -2965,7 +3169,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x600004e = function ToString(arg0) { var st_00;
+asm.x600004e_init = function () { 
+ asm.x600004e = asm.x600004e_; };
+asm.x600004e = function (arg0) { 
+ (asm.x600004e_init.apply)(this,arguments);
+return (asm.x600004e.apply)(this,arguments); };
+asm.x600004e_ = function ToString(arg0) { var st_00;
 var st_01;
 var loc0;
  /* IL_00: nop */
@@ -2977,7 +3186,12 @@ loc0 = st_00;
 st_01 = loc0;
 /* IL_06: ret */
 return st_01; };
-asm.x600004f = function op_Inequality(arg0,arg1) { var st_00;
+asm.x600004f_init = function () { 
+ asm.x600004f = asm.x600004f_; };
+asm.x600004f = function (arg0,arg1) { 
+ (asm.x600004f_init.apply)(this,arguments);
+return (asm.x600004f.apply)(this,arguments); };
+asm.x600004f_ = function op_Inequality(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -3001,7 +3215,12 @@ loc0 = st_04;
 st_05 = loc0;
 /* IL_0F: ret */
 return st_05; };
-asm.x6000050 = function op_Equality(arg0,arg1) { var st_00;
+asm.x6000050_init = function () { 
+ asm.x6000050 = asm.x6000050_; };
+asm.x6000050 = function (arg0,arg1) { 
+ (asm.x6000050_init.apply)(this,arguments);
+return (asm.x6000050.apply)(this,arguments); };
+asm.x6000050_ = function op_Equality(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -3019,7 +3238,12 @@ loc0 = st_02;
 st_03 = loc0;
 /* IL_0C: ret */
 return st_03; };
-asm.x6000051 = function Equals(arg0,arg1) { var st_00;
+asm.x6000051_init = function () { 
+ asm.x6000051 = asm.x6000051_; };
+asm.x6000051 = function (arg0,arg1) { 
+ (asm.x6000051_init.apply)(this,arguments);
+return (asm.x6000051.apply)(this,arguments); };
+asm.x6000051_ = function Equals(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -3037,17 +3261,22 @@ loc0 = st_02;
 st_03 = loc0;
 /* IL_0C: ret */
 return st_03; };
-asm.x6000052 = function _ctor(arg0) { var st_00;
+asm.x6000052_init = function () { 
+ asm.x6000052 = asm.x6000052_; };
+asm.x6000052 = function (arg0) { 
+ (asm.x6000052_init.apply)(this,arguments);
+return (asm.x6000052.apply)(this,arguments); };
+asm.x6000052_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
 asm.x6000053_init = function () { 
- (((asm0)["System.String"])().init)(); };
+ (((asm0)["System.String"])().init)();
+asm.x6000053 = asm.x6000053_; };
 asm.x6000053 = function () { 
  (asm.x6000053_init.apply)(this,arguments);
-asm.x6000053 = asm.x6000053_;
 return (asm.x6000053.apply)(this,arguments); };
 asm.x6000053_ = function _cctor() { var t0;
 var st_00;
@@ -3058,7 +3287,12 @@ st_00 = new_string("");
 (t0)["Empty"] = st_00;
 /* IL_0A: ret */
 return ; };
-asm.x6000055 = function get_MemberName(arg0) { var st_00;
+asm.x6000055_init = function () { 
+ asm.x6000055 = asm.x6000055_; };
+asm.x6000055 = function (arg0) { 
+ (asm.x6000055_init.apply)(this,arguments);
+return (asm.x6000055.apply)(this,arguments); };
+asm.x6000055_ = function get_MemberName(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -3073,7 +3307,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0B: ret */
 return st_02; };
-asm.x6000054 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000054_init = function () { 
+ asm.x6000054 = asm.x6000054_; };
+asm.x6000054 = function (arg0,arg1) { 
+ (asm.x6000054_init.apply)(this,arguments);
+return (asm.x6000054.apply)(this,arguments); };
+asm.x6000054_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldarg.0 */
@@ -3091,7 +3330,12 @@ st_01.System_ReflectionDefaultMemberAttributemember_name = st_02;
 /* IL_0F: nop */
 /* IL_10: ret */
 return ; };
-asm.x6000057 = function get_ValidOn(arg0) { var st_00;
+asm.x6000057_init = function () { 
+ asm.x6000057 = asm.x6000057_; };
+asm.x6000057 = function (arg0) { 
+ (asm.x6000057_init.apply)(this,arguments);
+return (asm.x6000057.apply)(this,arguments); };
+asm.x6000057_ = function get_ValidOn(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -3105,7 +3349,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0A: ret */
 return st_02; };
-asm.x6000058 = function set_ValidOn(arg0,arg1) { var st_00;
+asm.x6000058_init = function () { 
+ asm.x6000058 = asm.x6000058_; };
+asm.x6000058 = function (arg0,arg1) { 
+ (asm.x6000058_init.apply)(this,arguments);
+return (asm.x6000058.apply)(this,arguments); };
+asm.x6000058_ = function set_ValidOn(arg0,arg1) { var st_00;
 var st_01;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -3115,7 +3364,12 @@ st_01 = arg1;
 (st_00)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"] = st_01;
 /* IL_07: ret */
 return ; };
-asm.x6000059 = function get_Inherited(arg0) { var st_00;
+asm.x6000059_init = function () { 
+ asm.x6000059 = asm.x6000059_; };
+asm.x6000059 = function (arg0) { 
+ (asm.x6000059_init.apply)(this,arguments);
+return (asm.x6000059.apply)(this,arguments); };
+asm.x6000059_ = function get_Inherited(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -3129,7 +3383,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0A: ret */
 return st_02; };
-asm.x600005a = function set_Inherited(arg0,arg1) { var st_00;
+asm.x600005a_init = function () { 
+ asm.x600005a = asm.x600005a_; };
+asm.x600005a = function (arg0,arg1) { 
+ (asm.x600005a_init.apply)(this,arguments);
+return (asm.x600005a.apply)(this,arguments); };
+asm.x600005a_ = function set_Inherited(arg0,arg1) { var st_00;
 var st_01;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -3139,7 +3398,12 @@ st_01 = arg1;
 (st_00)["SystemAttributeUsageAttribute<Inherited>k__BackingField"] = st_01;
 /* IL_07: ret */
 return ; };
-asm.x6000056 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000056_init = function () { 
+ asm.x6000056 = asm.x6000056_; };
+asm.x6000056 = function (arg0,arg1) { 
+ (asm.x6000056_init.apply)(this,arguments);
+return (asm.x6000056.apply)(this,arguments); };
+asm.x6000056_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldarg.0 */
@@ -3158,7 +3422,12 @@ st_02 = arg1;
 /* IL_10: nop */
 /* IL_11: ret */
 return ; };
-asm.x600005b = function ToString(arg0) { var st_00;
+asm.x600005b_init = function () { 
+ asm.x600005b = asm.x600005b_; };
+asm.x600005b = function (arg0) { 
+ (asm.x600005b_init.apply)(this,arguments);
+return (asm.x600005b.apply)(this,arguments); };
+asm.x600005b_ = function ToString(arg0) { var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -3198,10 +3467,10 @@ return st_03;
 }
 } };
 asm.x600005c_init = function () { 
- (((asm0)["System.Byte"])().init)(); };
+ (((asm0)["System.Byte"])().init)();
+asm.x600005c = asm.x600005c_; };
 asm.x600005c = function (arg0) { 
  (asm.x600005c_init.apply)(this,arguments);
-asm.x600005c = asm.x600005c_;
 return (asm.x600005c.apply)(this,arguments); };
 asm.x600005c_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3230,10 +3499,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600005d_init = function () { 
- (((asm0)["System.Char"])().init)(); };
+ (((asm0)["System.Char"])().init)();
+asm.x600005d = asm.x600005d_; };
 asm.x600005d = function (arg0) { 
  (asm.x600005d_init.apply)(this,arguments);
-asm.x600005d = asm.x600005d_;
 return (asm.x600005d.apply)(this,arguments); };
 asm.x600005d_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3261,7 +3530,12 @@ loc0 = st_03;
 st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
-asm.x6000060 = function WriteLine(arg0) { var st_00;
+asm.x6000060_init = function () { 
+ asm.x6000060 = asm.x6000060_; };
+asm.x6000060 = function (arg0) { 
+ (asm.x6000060_init.apply)(this,arguments);
+return (asm.x6000060.apply)(this,arguments); };
+asm.x6000060_ = function WriteLine(arg0) { var st_00;
 var st_01;
  /* IL_00: nop */
 /* IL_01: ldarg.0 */
@@ -3273,17 +3547,22 @@ st_01 = ((st_00.vtable)["asm0.x6000003"])(st_00);
 /* IL_0C: nop */
 /* IL_0D: ret */
 return ; };
-asm.x6000061 = function _ctor(arg0) { var st_00;
+asm.x6000061_init = function () { 
+ asm.x6000061 = asm.x6000061_; };
+asm.x6000061 = function (arg0) { 
+ (asm.x6000061_init.apply)(this,arguments);
+return (asm.x6000061.apply)(this,arguments); };
+asm.x6000061_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
 asm.x6000062_init = function () { 
- (((asm0)["System.Double"])().init)(); };
+ (((asm0)["System.Double"])().init)();
+asm.x6000062 = asm.x6000062_; };
 asm.x6000062 = function (arg0) { 
  (asm.x6000062_init.apply)(this,arguments);
-asm.x6000062 = asm.x6000062_;
 return (asm.x6000062.apply)(this,arguments); };
 asm.x6000062_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3311,7 +3590,12 @@ loc0 = st_03;
 st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
-asm.x6000065 = function get_Message(arg0) { var st_00;
+asm.x6000065_init = function () { 
+ asm.x6000065 = asm.x6000065_; };
+asm.x6000065 = function (arg0) { 
+ (asm.x6000065_init.apply)(this,arguments);
+return (asm.x6000065.apply)(this,arguments); };
+asm.x6000065_ = function get_Message(arg0) { var st_00;
 var st_01;
 var st_02;
 var loc0;
@@ -3325,7 +3609,12 @@ loc0 = st_01;
 st_02 = loc0;
 /* IL_0A: ret */
 return st_02; };
-asm.x6000066 = function set_Message(arg0,arg1) { var st_00;
+asm.x6000066_init = function () { 
+ asm.x6000066 = asm.x6000066_; };
+asm.x6000066 = function (arg0,arg1) { 
+ (asm.x6000066_init.apply)(this,arguments);
+return (asm.x6000066.apply)(this,arguments); };
+asm.x6000066_ = function set_Message(arg0,arg1) { var st_00;
 var st_01;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -3335,7 +3624,12 @@ st_01 = arg1;
 (st_00)["SystemException<Message>k__BackingField"] = st_01;
 /* IL_07: ret */
 return ; };
-asm.x6000063 = function _ctor(arg0) { var st_00;
+asm.x6000063_init = function () { 
+ asm.x6000063 = asm.x6000063_; };
+asm.x6000063 = function (arg0) { 
+ (asm.x6000063_init.apply)(this,arguments);
+return (asm.x6000063.apply)(this,arguments); };
+asm.x6000063_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -3344,7 +3638,12 @@ st_00 = arg0;
 /* IL_08: nop */
 /* IL_09: ret */
 return ; };
-asm.x6000064 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000064_init = function () { 
+ asm.x6000064 = asm.x6000064_; };
+asm.x6000064 = function (arg0,arg1) { 
+ (asm.x6000064_init.apply)(this,arguments);
+return (asm.x6000064.apply)(this,arguments); };
+asm.x6000064_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldarg.0 */
@@ -3362,7 +3661,12 @@ st_02 = arg1;
 /* IL_10: nop */
 /* IL_11: ret */
 return ; };
-asm.x6000067 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000067_init = function () { 
+ asm.x6000067 = asm.x6000067_; };
+asm.x6000067 = function (arg0,arg1) { 
+ (asm.x6000067_init.apply)(this,arguments);
+return (asm.x6000067.apply)(this,arguments); };
+asm.x6000067_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -3375,7 +3679,12 @@ st_01 = arg1;
 /* IL_09: nop */
 /* IL_0A: ret */
 return ; };
-asm.x6000068 = function _ctor(arg0) { var st_00;
+asm.x6000068_init = function () { 
+ asm.x6000068 = asm.x6000068_; };
+asm.x6000068 = function (arg0) { 
+ (asm.x6000068_init.apply)(this,arguments);
+return (asm.x6000068.apply)(this,arguments); };
+asm.x6000068_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -3383,10 +3692,10 @@ st_00 = arg0;
 /* IL_06: ret */
 return ; };
 asm.x600006a_init = function () { 
- (((asm0)["System.Int16"])().init)(); };
+ (((asm0)["System.Int16"])().init)();
+asm.x600006a = asm.x600006a_; };
 asm.x600006a = function (arg0) { 
  (asm.x600006a_init.apply)(this,arguments);
-asm.x600006a = asm.x600006a_;
 return (asm.x600006a.apply)(this,arguments); };
 asm.x600006a_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3415,10 +3724,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600006b_init = function () { 
- (((asm0)["System.Int32"])().init)(); };
+ (((asm0)["System.Int32"])().init)();
+asm.x600006b = asm.x600006b_; };
 asm.x600006b = function (arg0) { 
  (asm.x600006b_init.apply)(this,arguments);
-asm.x600006b = asm.x600006b_;
 return (asm.x600006b.apply)(this,arguments); };
 asm.x600006b_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3447,10 +3756,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600006d_init = function () { 
- (((asm0)["System.Int64"])().init)(); };
+ (((asm0)["System.Int64"])().init)();
+asm.x600006d = asm.x600006d_; };
 asm.x600006d = function (arg0) { 
  (asm.x600006d_init.apply)(this,arguments);
-asm.x600006d = asm.x600006d_;
 return (asm.x600006d.apply)(this,arguments); };
 asm.x600006d_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3479,10 +3788,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600006e_init = function () { 
- (((asm0)["System.IntPtr"])().init)(); };
+ (((asm0)["System.IntPtr"])().init)();
+asm.x600006e = asm.x600006e_; };
 asm.x600006e = function (arg0) { 
  (asm.x600006e_init.apply)(this,arguments);
-asm.x600006e = asm.x600006e_;
 return (asm.x600006e.apply)(this,arguments); };
 asm.x600006e_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3511,10 +3820,10 @@ st_04 = loc0;
 /* IL_15: ret */
 return st_04; };
 asm.x600006f_init = function () { 
- (((asm0)["System.Double"])().init)(); };
+ (((asm0)["System.Double"])().init)();
+asm.x600006f = asm.x600006f_; };
 asm.x600006f = function (arg0) { 
  (asm.x600006f_init.apply)(this,arguments);
-asm.x600006f = asm.x600006f_;
 return (asm.x600006f.apply)(this,arguments); };
 asm.x600006f_ = function Sqrt(arg0) { var t0;
 var st_00;
@@ -3540,10 +3849,10 @@ st_03 = loc0;
 /* IL_10: ret */
 return st_03; };
 asm.x6000070_init = function () { 
- (((asm0)["System.Double"])().init)(); };
+ (((asm0)["System.Double"])().init)();
+asm.x6000070 = asm.x6000070_; };
 asm.x6000070 = function (arg0) { 
  (asm.x6000070_init.apply)(this,arguments);
-asm.x6000070 = asm.x6000070_;
 return (asm.x6000070.apply)(this,arguments); };
 asm.x6000070_ = function Floor(arg0) { var t0;
 var st_00;
@@ -3569,10 +3878,10 @@ st_03 = loc0;
 /* IL_10: ret */
 return st_03; };
 asm.x6000071_init = function () { 
- (((asm0)["System.Double"])().init)(); };
+ (((asm0)["System.Double"])().init)();
+asm.x6000071 = asm.x6000071_; };
 asm.x6000071 = function (arg0,arg1) { 
  (asm.x6000071_init.apply)(this,arguments);
-asm.x6000071 = asm.x6000071_;
 return (asm.x6000071.apply)(this,arguments); };
 asm.x6000071_ = function Pow(arg0,arg1) { var t0;
 var st_00;
@@ -3606,13 +3915,23 @@ loc0 = st_04;
 st_05 = loc0;
 /* IL_16: ret */
 return st_05; };
-asm.x6000075 = function _ctor(arg0) { var st_00;
+asm.x6000075_init = function () { 
+ asm.x6000075 = asm.x6000075_; };
+asm.x6000075 = function (arg0) { 
+ (asm.x6000075_init.apply)(this,arguments);
+return (asm.x6000075.apply)(this,arguments); };
+asm.x6000075_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000076 = function _ctor(arg0) { var st_00;
+asm.x6000076_init = function () { 
+ asm.x6000076 = asm.x6000076_; };
+asm.x6000076 = function (arg0) { 
+ (asm.x6000076_init.apply)(this,arguments);
+return (asm.x6000076.apply)(this,arguments); };
+asm.x6000076_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -3620,10 +3939,10 @@ st_00 = arg0;
 /* IL_06: ret */
 return ; };
 asm.x6000077_init = function () { 
- (((asm0)["System.SByte"])().init)(); };
+ (((asm0)["System.SByte"])().init)();
+asm.x6000077 = asm.x6000077_; };
 asm.x6000077 = function (arg0) { 
  (asm.x6000077_init.apply)(this,arguments);
-asm.x6000077 = asm.x6000077_;
 return (asm.x6000077.apply)(this,arguments); };
 asm.x6000077_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3652,10 +3971,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x6000078_init = function () { 
- (((asm0)["System.Single"])().init)(); };
+ (((asm0)["System.Single"])().init)();
+asm.x6000078 = asm.x6000078_; };
 asm.x6000078 = function (arg0) { 
  (asm.x6000078_init.apply)(this,arguments);
-asm.x6000078 = asm.x6000078_;
 return (asm.x6000078.apply)(this,arguments); };
 asm.x6000078_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3683,17 +4002,22 @@ loc0 = st_03;
 st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
-asm.x6000079 = function _ctor(arg0) { var st_00;
+asm.x6000079_init = function () { 
+ asm.x6000079 = asm.x6000079_; };
+asm.x6000079 = function (arg0) { 
+ (asm.x6000079_init.apply)(this,arguments);
+return (asm.x6000079.apply)(this,arguments); };
+asm.x6000079_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
 asm.x600007a_init = function () { 
- (((asm0)["System.UInt16"])().init)(); };
+ (((asm0)["System.UInt16"])().init)();
+asm.x600007a = asm.x600007a_; };
 asm.x600007a = function (arg0) { 
  (asm.x600007a_init.apply)(this,arguments);
-asm.x600007a = asm.x600007a_;
 return (asm.x600007a.apply)(this,arguments); };
 asm.x600007a_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3722,10 +4046,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600007b_init = function () { 
- (((asm0)["System.UInt32"])().init)(); };
+ (((asm0)["System.UInt32"])().init)();
+asm.x600007b = asm.x600007b_; };
 asm.x600007b = function (arg0) { 
  (asm.x600007b_init.apply)(this,arguments);
-asm.x600007b = asm.x600007b_;
 return (asm.x600007b.apply)(this,arguments); };
 asm.x600007b_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3754,10 +4078,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600007c_init = function () { 
- (((asm0)["System.UInt64"])().init)(); };
+ (((asm0)["System.UInt64"])().init)();
+asm.x600007c = asm.x600007c_; };
 asm.x600007c = function (arg0) { 
  (asm.x600007c_init.apply)(this,arguments);
-asm.x600007c = asm.x600007c_;
 return (asm.x600007c.apply)(this,arguments); };
 asm.x600007c_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3786,10 +4110,10 @@ st_04 = loc0;
 /* IL_11: ret */
 return st_04; };
 asm.x600007d_init = function () { 
- (((asm0)["System.UIntPtr"])().init)(); };
+ (((asm0)["System.UIntPtr"])().init)();
+asm.x600007d = asm.x600007d_; };
 asm.x600007d = function (arg0) { 
  (asm.x600007d_init.apply)(this,arguments);
-asm.x600007d = asm.x600007d_;
 return (asm.x600007d.apply)(this,arguments); };
 asm.x600007d_ = function ToString(arg0) { var t0;
 var st_00;
@@ -3817,7 +4141,12 @@ loc0 = st_03;
 st_04 = loc0;
 /* IL_15: ret */
 return st_04; };
-asm.x600007e = function _ctor(arg0) { var st_00;
+asm.x600007e_init = function () { 
+ asm.x600007e = asm.x600007e_; };
+asm.x600007e = function (arg0) { 
+ (asm.x600007e_init.apply)(this,arguments);
+return (asm.x600007e.apply)(this,arguments); };
+asm.x600007e_ = function _ctor(arg0) { var st_00;
 var st_01;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -3830,7 +4159,12 @@ st_01 = new_string("Operation not supported");
 /* IL_0D: nop */
 /* IL_0E: ret */
 return ; };
-asm.x600007f = function _ctor(arg0,arg1) { var st_00;
+asm.x600007f_init = function () { 
+ asm.x600007f = asm.x600007f_; };
+asm.x600007f = function (arg0,arg1) { 
+ (asm.x600007f_init.apply)(this,arguments);
+return (asm.x600007f.apply)(this,arguments); };
+asm.x600007f_ = function _ctor(arg0,arg1) { var st_00;
 var st_01;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
@@ -3843,14 +4177,24 @@ st_01 = arg1;
 /* IL_09: nop */
 /* IL_0A: ret */
 return ; };
-asm.x6000080 = function _ctor(arg0) { var st_00;
+asm.x6000080_init = function () { 
+ asm.x6000080 = asm.x6000080_; };
+asm.x6000080 = function (arg0) { 
+ (asm.x6000080_init.apply)(this,arguments);
+return (asm.x6000080.apply)(this,arguments); };
+asm.x6000080_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 (asm0.x6000063)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x6000081 = function get_CurrentManagedThreadId() { var st_00;
+asm.x6000081_init = function () { 
+ asm.x6000081 = asm.x6000081_; };
+asm.x6000081 = function () { 
+ (asm.x6000081_init.apply)(this,arguments);
+return (asm.x6000081.apply)(this,arguments); };
+asm.x6000081_ = function get_CurrentManagedThreadId() { var st_00;
 var st_01;
 var loc0;
  /* IL_00: nop */
@@ -3873,20 +4217,35 @@ asm.x6000083 = function Invoke() {
                                             return m.apply(null, arguments); };
 asm.x6000082 = function ctor() { 
  arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];; };
-asm.x600008f = function _ctor(arg0) { var st_00;
+asm.x600008f_init = function () { 
+ asm.x600008f = asm.x600008f_; };
+asm.x600008f = function (arg0) { 
+ (asm.x600008f_init.apply)(this,arguments);
+return (asm.x600008f.apply)(this,arguments); };
+asm.x600008f_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000090 = function _ctor(arg0) { var st_00;
+asm.x6000090_init = function () { 
+ asm.x6000090 = asm.x6000090_; };
+asm.x6000090 = function (arg0) { 
+ (asm.x6000090_init.apply)(this,arguments);
+return (asm.x6000090.apply)(this,arguments); };
+asm.x6000090_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 (asm0.x6000032)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x6000091 = function _ctor(arg0,arg1) { var st_00;
+asm.x6000091_init = function () { 
+ asm.x6000091 = asm.x6000091_; };
+asm.x6000091 = function (arg0,arg1) { 
+ (asm.x6000091_init.apply)(this,arguments);
+return (asm.x6000091.apply)(this,arguments); };
+asm.x6000091_ = function _ctor(arg0,arg1) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -3896,7 +4255,12 @@ st_00 = arg0;
 /* IL_08: nop */
 /* IL_09: ret */
 return ; };
-asm.x6000092 = function _ctor(arg0) { var st_00;
+asm.x6000092_init = function () { 
+ asm.x6000092 = asm.x6000092_; };
+asm.x6000092 = function (arg0) { 
+ (asm.x6000092_init.apply)(this,arguments);
+return (asm.x6000092.apply)(this,arguments); };
+asm.x6000092_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -5948,26 +6312,46 @@ function new_array(type, length) {
     return r;
 }
 ;
-asm.x6000002 = function _ctor(arg0) { var st_00;
+asm.x6000002_init = function () { 
+ asm.x6000002 = asm.x6000002_; };
+asm.x6000002 = function (arg0) { 
+ (asm.x6000002_init.apply)(this,arguments);
+return (asm.x6000002.apply)(this,arguments); };
+asm.x6000002_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000b = function _ctor(arg0) { var st_00;
+asm.x600000b_init = function () { 
+ asm.x600000b = asm.x600000b_; };
+asm.x600000b = function (arg0) { 
+ (asm.x600000b_init.apply)(this,arguments);
+return (asm.x600000b.apply)(this,arguments); };
+asm.x600000b_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000f = function NonGeneric(arg0) { var st_00;
+asm.x600000f_init = function () { 
+ asm.x600000f = asm.x600000f_; };
+asm.x600000f = function (arg0) { 
+ (asm.x600000f_init.apply)(this,arguments);
+return (asm.x600000f.apply)(this,arguments); };
+asm.x600000f_ = function NonGeneric(arg0) { var st_00;
  /* IL_00: ldstr A.NonGeneric*/
 st_00 = new_string("A.NonGeneric");
 /* IL_05: call Void Log(System.Object)*/
 (braille_test_log)(st_00);
 /* IL_0A: ret */
 return ; };
-asm.x6000010 = function GenericArg(arg0,arg1) { var st_00;
+asm.x6000010_init = function () { 
+ asm.x6000010 = asm.x6000010_; };
+asm.x6000010 = function (arg0,arg1) { 
+ (asm.x6000010_init.apply)(this,arguments);
+return (asm.x6000010.apply)(this,arguments); };
+asm.x6000010_ = function GenericArg(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldstr A.GenericArg*/
@@ -5982,7 +6366,12 @@ st_02 = arg1;
 st_01.Afield = st_02;
 /* IL_11: ret */
 return ; };
-asm.x6000011 = function GenericReturn(arg0) { var st_00;
+asm.x6000011_init = function () { 
+ asm.x6000011 = asm.x6000011_; };
+asm.x6000011 = function (arg0) { 
+ (asm.x6000011_init.apply)(this,arguments);
+return (asm.x6000011.apply)(this,arguments); };
+asm.x6000011_ = function GenericReturn(arg0) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldstr A.GenericReturn*/
@@ -5995,20 +6384,35 @@ st_01 = arg0;
 st_02 = st_01.Afield;
 /* IL_10: ret */
 return st_02; };
-asm.x6000012 = function _ctor(arg0) { var st_00;
+asm.x6000012_init = function () { 
+ asm.x6000012 = asm.x6000012_; };
+asm.x6000012 = function (arg0) { 
+ (asm.x6000012_init.apply)(this,arguments);
+return (asm.x6000012.apply)(this,arguments); };
+asm.x6000012_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x6000013 = function NonGeneric(arg0) { var st_00;
+asm.x6000013_init = function () { 
+ asm.x6000013 = asm.x6000013_; };
+asm.x6000013 = function (arg0) { 
+ (asm.x6000013_init.apply)(this,arguments);
+return (asm.x6000013.apply)(this,arguments); };
+asm.x6000013_ = function NonGeneric(arg0) { var st_00;
  /* IL_00: ldstr B.NonGeneric*/
 st_00 = new_string("B.NonGeneric");
 /* IL_05: call Void Log(System.Object)*/
 (braille_test_log)(st_00);
 /* IL_0A: ret */
 return ; };
-asm.x6000014 = function GenericArg(arg0,arg1) { var st_00;
+asm.x6000014_init = function () { 
+ asm.x6000014 = asm.x6000014_; };
+asm.x6000014 = function (arg0,arg1) { 
+ (asm.x6000014_init.apply)(this,arguments);
+return (asm.x6000014.apply)(this,arguments); };
+asm.x6000014_ = function GenericArg(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldstr B.NonGeneric*/
@@ -6023,7 +6427,12 @@ st_02 = arg1;
 st_01.B_1field = st_02;
 /* IL_11: ret */
 return ; };
-asm.x6000015 = function GenericReturn(arg0) { var st_00;
+asm.x6000015_init = function () { 
+ asm.x6000015 = asm.x6000015_; };
+asm.x6000015 = function (arg0) { 
+ (asm.x6000015_init.apply)(this,arguments);
+return (asm.x6000015.apply)(this,arguments); };
+asm.x6000015_ = function GenericReturn(arg0) { var st_00;
 var st_01;
 var st_02;
  /* IL_00: ldstr B.GenericReturn*/
@@ -6036,7 +6445,12 @@ st_01 = arg0;
 st_02 = st_01.B_1field;
 /* IL_10: ret */
 return st_02; };
-asm.x6000016 = function _ctor(arg0) { var st_00;
+asm.x6000016_init = function () { 
+ asm.x6000016 = asm.x6000016_; };
+asm.x6000016 = function (arg0) { 
+ (asm.x6000016_init.apply)(this,arguments);
+return (asm.x6000016.apply)(this,arguments); };
+asm.x6000016_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
@@ -6046,10 +6460,10 @@ asm.x6000017_init = function () {
  ((asm1.A)().init)();
 (((asm0)["System.Int32"])().init)();
 (((asm0)["System.String"])().init)();
-(((asm1)["B`1"])(((asm0)["System.String"])()).init)(); };
+(((asm1)["B`1"])(((asm0)["System.String"])()).init)();
+asm.x6000017 = asm.x6000017_; };
 asm.x6000017 = function () { 
  (asm.x6000017_init.apply)(this,arguments);
-asm.x6000017 = asm.x6000017_;
 return (asm.x6000017.apply)(this,arguments); };
 asm.x6000017_ = function Main() { var t0;
 var t1;
@@ -6083,7 +6497,14 @@ st_03 = new_string("Hello");
 ((asm1.x6000018)(((asm0)["System.String"])()))(st_02,st_03);
 /* IL_1E: ret */
 return ; };
+asm.x6000018_init = function (T) { 
+ return function () { 
+ asm.x6000018 = asm.x6000018_; }; };
 asm.x6000018 = function (T) { 
+ return function (arg0,arg1) { 
+ ((asm.x6000018_init)(T).apply)(this,arguments);
+return ((asm.x6000018)(T).apply)(this,arguments); }; };
+asm.x6000018_ = function (T) { 
  return function Run(arg0,arg1) { var st_00;
 var st_01;
 var st_02;
@@ -6110,7 +6531,12 @@ st_05 = box(st_04,T);
 (braille_test_log)(st_05);
 /* IL_1D: ret */
 return ; }; };
-asm.x6000019 = function _ctor(arg0) { var st_00;
+asm.x6000019_init = function () { 
+ asm.x6000019 = asm.x6000019_; };
+asm.x6000019 = function (arg0) { 
+ (asm.x6000019_init.apply)(this,arguments);
+return (asm.x6000019.apply)(this,arguments); };
+asm.x6000019_ = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/

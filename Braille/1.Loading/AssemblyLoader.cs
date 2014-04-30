@@ -20,11 +20,13 @@ namespace Braille.Loading
         {
             var universe = new Universe();
 
+            var asms = paths
+                .Select((p, i) => Process(universe, p, i))
+                .ToList();
+
             return new Context
             {
-                Assemblies = paths
-                    .Select((p,i) => Process(universe, p, i))
-                    .ToList(),
+                Assemblies = asms,
                 ReflectionUniverse = universe
             };
         }
@@ -67,19 +69,19 @@ namespace Braille.Loading
             foreach (var method in type.GetMethods(flags))
             {
                 if (method.DeclaringType == type)
-                    methods.Add(ProcessMethod(method));
+                    methods.Add(ProcessMethod(result, method));
             }
 
             foreach (var ctor in type.GetConstructors(flags))
             {
                 if (ctor.DeclaringType == type)
-                    methods.Add(ProcessMethod(ctor));
+                    methods.Add(ProcessMethod(result, ctor));
             }
 
             return result;
         }
 
-        private CilMethod ProcessMethod(MethodBase method)
+        private CilMethod ProcessMethod(CilType type, MethodBase method)
         {
             return new CilMethod
             {
@@ -89,7 +91,8 @@ namespace Braille.Loading
                 IsVirtual = method.IsVirtual,
                 IlCode = GetIl(method),
                 MetadataToken = method.MetadataToken,
-                Resolver = new ModuleILResolver(method)
+                Resolver = new ModuleILResolver(method),
+                DeclaringType = type
             };
         }
 

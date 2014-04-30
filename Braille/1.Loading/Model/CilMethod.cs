@@ -40,6 +40,8 @@ namespace Braille.Ast
 
         public Type[] ReferencedTypes { get; set; }
 
+        public CilType DeclaringType { get; set; }
+
         public bool IsPrototypeAccessible
         {
             get
@@ -109,7 +111,6 @@ namespace Braille.Ast
             return attribs
                 .Where(a => a.AttributeType.Name == attribName)
                 .LastOrDefault();
-
         }
 
 

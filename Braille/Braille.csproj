@@ -47,8 +47,10 @@
     <Compile Include="1.Loading\Model\CilType.cs" />
     <Compile Include="1.Loading\Model\Context.cs" />
     <Compile Include="2.Analysis\Ast\BlockKind.cs" />
+    <Compile Include="2.Analysis\Ast\Ops\CallNode.cs" />
     <Compile Include="2.Analysis\Ast\OpExpression.cs" />
     <Compile Include="2.Analysis\Ast\ExceptionNode.cs" />
+    <Compile Include="2.Analysis\Ast\Ops\LoadFunctionNode.cs" />
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
     <Compile Include="2.Analysis\LocalsAnalyzer.cs" />

@@ -756,27 +756,35 @@ namespace Braille.JsTranslation
                     };
                 case "ldftn":
                     {
-                        var methodBase = (MethodBase)frame.Instruction.Data;
-                        return GetMethodAccessor(methodBase, this.method.ReflectionMethod);
-                        //return new JSCallExpression
-                        //{
-                        //    Function = new JSFunctionDelcaration
-                        //    {
-                        //        Body = 
-                        //        {
-                        //            new JSCallExpression 
-                        //            {
-                        //                Function = JSIdentifier.Create(
-                        //                    GetTypeAccessor(type.ReflectionType, thisScope), 
-                        //                    GetMethodIdentifier(methodBase) + "_init")
-                        //            }.ToStatement(),
-                        //            new JSReturnExpression 
-                        //            { 
-                        //                Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod) 
-                        //            }.ToStatement()
-                        //        }
-                        //    }
-                        //};
+                        var target = ((LoadFunctionNode)frame).Target;
+                        var methodBase = target.ReflectionMethod;
+
+                        if (MethodTranslator.NeedInitializer(target))
+                        {
+                            return new JSCallExpression
+                            {
+                                Function = new JSFunctionDelcaration
+                                {
+                                    Body = 
+                                        {
+                                            new JSCallExpression 
+                                            {
+                                                Function = JSIdentifier.Create(
+                                                    GetAssemblyIdentifier(methodBase.DeclaringType), 
+                                                    GetMethodIdentifier(methodBase) + "_init")
+                                            }.ToStatement(),
+                                            new JSReturnExpression 
+                                            { 
+                                                Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod) 
+                                            }.ToStatement()
+                                        }
+                                }
+                            };
+                        }
+                        else
+                        {
+                            return GetMethodAccessor(methodBase, this.method.ReflectionMethod);
+                        }
                     }
                 case "ldlen":
                     return JSIdentifier.Create(ProcessInternal(frame.Arguments.Single()), "jsarr", "length");

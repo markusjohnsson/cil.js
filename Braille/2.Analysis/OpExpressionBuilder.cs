@@ -1,5 +1,6 @@
 ﻿using Braille.Ast;
 using Braille.Loading;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using IKVM.Reflection.Emit;
 using System;
@@ -34,9 +35,32 @@ namespace Braille.Analysis
     {
         private Universe universe;
 
-        public OpExpressionBuilder(Universe universe)
+        struct MethodId
         {
-            this.universe = universe;
+            public int assembly; public int metadataToken;
+            public MethodId(int asm, MethodBase mb)
+            {
+                assembly = asm;
+                metadataToken = mb.MetadataToken;
+            }
+        }
+        private Dictionary<MethodId, CilMethod> methodLookup;
+        private Context context;
+
+        public OpExpressionBuilder(Context context)
+        {
+            this.context = context;
+            universe = context.ReflectionUniverse;
+
+            methodLookup = context
+                .Assemblies
+                .SelectMany(
+                    (a, i) => a
+                        .Types
+                        .SelectMany(t => t.Methods)
+                        .Select(m => new { i, m }))
+                .ToDictionary(
+                    m => new MethodId(m.i, m.m.ReflectionMethod), m => m.m);
         }
 
         public IList<OpExpression> Build(CilMethod method)
@@ -112,7 +136,7 @@ namespace Braille.Analysis
             }
         }
 
-        private static List<OpExpression> CreateOpInfos(CilMethod method)
+        private List<OpExpression> CreateOpInfos(CilMethod method)
         {
             var ilOps = new OpInstructionReader(method.IlCode, method.Resolver);
             var opInfos = new List<OpExpression>();
@@ -126,7 +150,27 @@ namespace Braille.Analysis
                     continue;
                 }
 
-                opInfos.Add(new OpExpression(op, prefixes, GetPopCount(method, op), GetPushCount(method, op)));
+                OpExpression opx;
+
+                if (op.OpCode.Name.StartsWith("call"))
+                {
+                    var mb = (MethodBase)op.Data;
+                    var idx = new MethodId(context.Assemblies.Select(a => a.ReflectionAssembly).IndexOf(mb.DeclaringType.Assembly), mb);
+                    opx = new CallNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), methodLookup[idx]);
+                }
+                else if (op.OpCode.Name.StartsWith("ldftn"))
+                {
+                    var mb = (MethodBase)op.Data;
+                    var idx = new MethodId(context.Assemblies.Select(a => a.ReflectionAssembly).IndexOf(mb.DeclaringType.Assembly), mb);
+                    opx = new LoadFunctionNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), methodLookup[idx]);
+                }
+                else
+                {
+                    opx = new OpExpression(op, prefixes, GetPopCount(method, op), GetPushCount(method, op));
+                }
+
+                opInfos.Add(opx);
+
                 prefixes = new List<OpInstruction>();
             }
 
