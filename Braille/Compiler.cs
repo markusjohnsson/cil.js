@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Braille.Ast;
+using Braille.Analysis;
 
 namespace Braille
 {
@@ -31,21 +32,24 @@ namespace Braille
 
         public CompileResult Compile()
         {
-            var asmTransform = new AssemblyLoader();
+            var loader = new AssemblyLoader();
 
             foreach (var asm in assemblies)
-                asmTransform.AddAssembly(asm);
+                loader.AddAssembly(asm);
 
-            var ctx = asmTransform.Load();
+            var ctx = loader.Load();
             var asms = ctx.Assemblies;
-
-            var asmTransform2 = new AssemblyTranslator(ctx);
 
             File.Delete(OutputFileName);
 
+            var staticAnalyzer = new StaticAnalyzer();
+            staticAnalyzer.Analyze(ctx);
+
+            var translator = new AssemblyTranslator(ctx);
+
             foreach (var asm in asms)
             {
-                var asmExpression = asmTransform2.Translate(asms, asm);
+                var asmExpression = translator.Translate(asms, asm);
                 File.AppendAllText(OutputFileName, 
                     "var " + asm.Identifier + "; (" + 
                         asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));\n");

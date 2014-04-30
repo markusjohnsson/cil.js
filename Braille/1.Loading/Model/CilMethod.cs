@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using Type = IKVM.Reflection.Type;
 using System.Diagnostics;
+using Braille.Ast;
 
 namespace Braille.Ast
 {
@@ -114,6 +115,39 @@ namespace Braille.Ast
         }
 
 
+        public bool NeedInitializer
+        {
+            get
+            {
+                if (GetReplacement() != null || DeclaringType.IsInterface || ReflectionMethod.IsAbstract)
+                {
+                    return false;
+                }
+
+                if (DeclaringType.IsUserDelegate)
+                {
+                    return false;
+                }
+
+                if (ReferencedTypes.Where(t => !t.IsGenericParameter).IsEmpty())
+                {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+
+        public bool NeedTranslation
+        {
+            get
+            {
+                return (!(GetReplacement() != null || DeclaringType.IsInterface || ReflectionMethod.IsAbstract));
+            }
+        }
+
         public Analysis.LocalInfo[] Locals { get; set; }
+
+        public IList<OpExpression> OpTree { get; set; }
     }
 }

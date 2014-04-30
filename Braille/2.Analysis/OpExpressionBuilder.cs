@@ -6,12 +6,13 @@ using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.Analysis
 {
     public static class TypeExtensions
     {
-        public static IEnumerable<IKVM.Reflection.Type> GetTypeChain(this IKVM.Reflection.Type node)
+        public static IEnumerable<Type> GetTypeChain(this IKVM.Reflection.Type node)
         {
             while (node != null)
             {
@@ -69,71 +70,7 @@ namespace Braille.Analysis
 
             var opInfos = CreateOpInfos(method);
 
-            // Turn stack based OpInstructions into variable based OpExpressions
-
-            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
-            var stackAnalyzer = new StackAnalyzer();
-            stackAnalyzer.Analyze(method, opInfos);
-
-            // - Introduce variables to replace stack based on flow analysis
-            ReplaceStack(method, opInfos);
-
-            var localsAnalyzer = new LocalsAnalyzer();
-            localsAnalyzer.Analyze(method, opInfos);
-
-            opInfos = opInfos
-                .Where(o => o.StackBefore != null) // unreachable
-                .Where(
-                    o => false == (
-                            o.Instruction.OpCode.Name == "br.s" &&
-                            o.Targeting.Count == 1 && o.Targeting[0] == o.Prev &&
-                            o.Targets.Count == 1 && o.Targets[0] == o.Next))
-                .ToList();
-
-            // 
-            var typeInference = new TypeInference(universe);
-            typeInference.InferTypes(method, opInfos);
-
-            var typeUsage = new TypeUsageAnalysis(universe);
-            typeUsage.FindTypes(method, opInfos);
-
             return opInfos;
-        }
-
-        private static void ReplaceStack(CilMethod method, List<OpExpression> opInfos)
-        {
-            var counter = 0;
-
-            foreach (var opInfo in opInfos)
-            {
-                if (opInfo.StackBefore == null)
-                    continue;
-
-                foreach (var usage in opInfo.StackBefore.Skip(opInfo.StackBefore.Count() - opInfo.GetRealPopCount()))
-                {
-                    usage.Variable = new VariableInfo
-                    {
-                        Name = string.Format("st_{0:X2}", counter++),
-                        ResultType = usage.Type
-                    };
-
-                    foreach (var def in usage.Definitions)
-                    {
-                        if (def is OpExpression)
-                        {
-                            ((OpExpression)def).StoreLocations.Add(usage.Variable);
-                        }
-                        else if (def is ExceptionNode)
-                        {
-                            ((ExceptionNode)def).StoreLocations.Add(usage.Variable);
-                        }
-                        else
-                        {
-                            throw new NotImplementedException();
-                        }
-                    }
-                }
-            }
         }
 
         private List<OpExpression> CreateOpInfos(CilMethod method)

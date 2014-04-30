@@ -40,7 +40,7 @@ namespace Braille.Analysis
 
     class StackAnalyzer
     {
-        public void Analyze(CilMethod method, List<OpExpression> infos)
+        public void Analyze(CilMethod method, IList<OpExpression> infos)
         {
             if (infos.Any() == false)
                 return;

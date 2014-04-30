@@ -16,14 +16,12 @@ namespace Braille.JsTranslation
         private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
 
-        private OpExpressionBuilder expressionBuilder;
         private Context context;
 
         public MethodTranslator(Context context)
             : base(context)
         {
             this.context = context;
-            expressionBuilder = new OpExpressionBuilder(context);
         }
 
         public JSFunctionDelcaration GetInitializer(CilAssembly assembly, CilType type, CilMethod method)
@@ -33,7 +31,7 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (NeedInitializer(method) == false)
+            if (method.NeedInitializer == false)
                 return null;
 
             var functionBlock = new List<JSStatement>();
@@ -69,26 +67,6 @@ namespace Braille.JsTranslation
             return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
         }
 
-        public static bool NeedInitializer(CilMethod method)
-        {
-            if (method.GetReplacement() != null || method.DeclaringType.IsInterface || method.ReflectionMethod.IsAbstract)
-            {
-                return false;
-            }
-
-            if (method.DeclaringType.IsUserDelegate)
-            {
-                return false;
-            }
-
-            //if (method.ReferencedTypes.Where(t => !t.IsGenericParameter).IsEmpty())
-            //{
-            //    return false;
-            //}
-
-            return true;
-        }
-
         public JSFunctionDelcaration GetFirstCallInitializer(CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)
@@ -96,7 +74,7 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (!NeedInitializer(method))
+            if (!method.NeedInitializer)
             {
                 throw new ArgumentException("method need no initialization");
             }
@@ -171,7 +149,7 @@ namespace Braille.JsTranslation
                 throw new ArgumentException("cannot translate method of ignored class");
             }
 
-            if (method.GetReplacement() != null || type.IsInterface || method.ReflectionMethod.IsAbstract)
+            if (method.NeedTranslation == false)
             {
                 return null;
             }
@@ -237,8 +215,6 @@ namespace Braille.JsTranslation
 
         private JSFunctionDelcaration TransformNormalMethod(CilAssembly asm, CilType type, CilMethod method)
         {
-            var frames = expressionBuilder.Build(method); // static analysis happens here
-
             var functionBlock = new List<JSStatement>();
 
             var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
@@ -293,11 +269,11 @@ namespace Braille.JsTranslation
                 }
             }
 
-            insertFrameLabelsTask.Process(frames);
+            insertFrameLabelsTask.Process(method.OpTree);
 
             var exprToJsTransform = new OpTranslator(context, asm, type, method);
 
-            var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, frames));
+            var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, method.OpTree));
 
             var block = new BlockBuilder(0);
             var blockStack = new Stack<BlockBuilder>();
@@ -309,7 +285,7 @@ namespace Braille.JsTranslation
 
             awaitedBlock = tryBlockQueue.Dequeue();
 
-            foreach (var frame in frames)
+            foreach (var frame in method.OpTree)
             {
                 if (currentBlock != null && false == currentBlock.Contains(frame))
                 {
@@ -375,7 +351,8 @@ namespace Braille.JsTranslation
             }
 
             functionBlock.AddRange(
-                frames
+                method
+                    .OpTree
                     .SelectMany(op => op.StoreLocations)
                     .Distinct()
                     .Select(

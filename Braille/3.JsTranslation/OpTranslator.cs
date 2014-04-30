@@ -759,25 +759,25 @@ namespace Braille.JsTranslation
                         var target = ((LoadFunctionNode)frame).Target;
                         var methodBase = target.ReflectionMethod;
 
-                        if (MethodTranslator.NeedInitializer(target))
+                        if (target.NeedInitializer)
                         {
                             return new JSCallExpression
                             {
                                 Function = new JSFunctionDelcaration
                                 {
                                     Body = 
+                                    {
+                                        new JSCallExpression 
                                         {
-                                            new JSCallExpression 
-                                            {
-                                                Function = JSIdentifier.Create(
-                                                    GetAssemblyIdentifier(methodBase.DeclaringType), 
-                                                    GetMethodIdentifier(methodBase) + "_init")
-                                            }.ToStatement(),
-                                            new JSReturnExpression 
-                                            { 
-                                                Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod) 
-                                            }.ToStatement()
-                                        }
+                                            Function = JSIdentifier.Create(
+                                                GetAssemblyIdentifier(methodBase.DeclaringType), 
+                                                GetMethodIdentifier(methodBase) + "_init")
+                                        }.ToStatement(),
+                                        new JSReturnExpression 
+                                        { 
+                                            Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod) 
+                                        }.ToStatement()
+                                    }
                                 }
                             };
                         }

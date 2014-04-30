@@ -55,6 +55,7 @@
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
     <Compile Include="2.Analysis\LocalsAnalyzer.cs" />
     <Compile Include="2.Analysis\StackAnalyzer.cs" />
+    <Compile Include="2.Analysis\StaticAnalyzer.cs" />
     <Compile Include="2.Analysis\TypeInference.cs" />
     <Compile Include="2.Analysis\TypeUsageAnalysis.cs" />
     <Compile Include="3.JsTranslation\AbstractTranslator.cs" />

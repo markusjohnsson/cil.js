@@ -10,7 +10,7 @@ namespace Braille.Analysis
 {
     class LocalsAnalyzer
     {
-        public void Analyze(CilMethod method, List<OpExpression> infos)
+        public void Analyze(CilMethod method, IList<OpExpression> infos)
         {
             method.Locals = method
                 .ReflectionMethod
@@ -19,7 +19,7 @@ namespace Braille.Analysis
                 .Select(v => new LocalInfo { ReflectionObject = v })
                 .ToArray();
 
-            // TODO: this is screwd up. need to do proper flow analysis. 
+            // TODO: this is probably not enough. need to do proper flow analysis. 
 
             foreach (var op in infos)
             {
