@@ -13,7 +13,7 @@ namespace Braille.JsTranslation
 {
     class MethodTranslator : AbstractTranslator
     {
-        private InsertLabelsTask insertFrameLabelsTask = new InsertLabelsTask();
+        private InsertLabelsPass insertFrameLabelsTask = new InsertLabelsPass();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
 
         private Context context;
@@ -274,8 +274,6 @@ namespace Braille.JsTranslation
                     locIdx++;
                 }
             }
-
-            insertFrameLabelsTask.Process(method.OpTree);
 
             var exprToJsTransform = new OpTranslator(context, asm, type, method);
 

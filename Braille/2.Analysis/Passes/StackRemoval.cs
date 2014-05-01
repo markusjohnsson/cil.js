@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Braille.Analysis.Passes
 {
-    class StackRemoval: IRewriter
+    class StackRemovalPass: IRewriter
     {
         public void Run(CilMethod method)
         {

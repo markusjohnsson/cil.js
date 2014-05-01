@@ -44,12 +44,13 @@ namespace Braille.Analysis
             yield return new StackAnalyzer();
 
             // Turn stack based OpInstructions into variable based OpExpressions
-            yield return new StackRemoval();
+            yield return new StackRemovalPass();
 
             yield return new UnreachableRemoval();
             yield return new LocalsAnalyzer();
             yield return new TypeInference(ctx.ReflectionUniverse);
             yield return new TypeUsageAnalysis(ctx.ReflectionUniverse);
+            yield return new InsertLabelsPass();
         }
 
     }

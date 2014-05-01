@@ -54,12 +54,13 @@
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
     <Compile Include="2.Analysis\LocalsAnalyzer.cs" />
+    <Compile Include="2.Analysis\Passes\AbstractFlowControlPass.cs" />
     <Compile Include="2.Analysis\Passes\IRewriter.cs" />
     <Compile Include="2.Analysis\Passes\UnreachableRemoval.cs" />
-    <Compile Include="2.Analysis\StackAnalyzer.cs" />
+    <Compile Include="2.Analysis\Passes\StackAnalyzer.cs" />
     <Compile Include="2.Analysis\StaticAnalyzer.cs" />
-    <Compile Include="2.Analysis\TypeInference.cs" />
-    <Compile Include="2.Analysis\TypeUsageAnalysis.cs" />
+    <Compile Include="2.Analysis\Passes\TypeInference.cs" />
+    <Compile Include="2.Analysis\Passes\TypeUsageAnalysis.cs" />
     <Compile Include="3.JsTranslation\AbstractTranslator.cs" />
     <Compile Include="3.JsTranslation\AssemblyTranslator.cs" />
     <Compile Include="1.Loading\AssemblyLoader.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="3.JsTranslation\BlockBuilder.cs" />
     <Compile Include="2.Analysis\Ast\Node.cs" />
     <Compile Include="3.JsTranslation\OpTranslator.cs" />
-    <Compile Include="2.Analysis\InsertLabelsTask.cs" />
+    <Compile Include="2.Analysis\Passes\InsertLabelsPass.cs" />
     <Compile Include="1.Loading\Model\OpInstruction.cs" />
     <Compile Include="1.Loading\OpInstructionReader.cs" />
     <Compile Include="2.Analysis\OpExpressionBuilder.cs" />

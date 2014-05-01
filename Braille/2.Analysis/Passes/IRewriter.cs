@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Braille.Analysis.Passes
 {
-    interface IRewriter: IAnalysisPass
-    {
-    }
-
     interface IAnalysisPass
     {
         void Run(CilMethod method);
+    }
+
+    interface IRewriter: IAnalysisPass
+    {
     }
 }
