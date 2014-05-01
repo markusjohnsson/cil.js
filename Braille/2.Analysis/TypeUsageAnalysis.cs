@@ -1,4 +1,5 @@
-﻿using Braille.Ast;
+﻿using Braille.Analysis.Passes;
+using Braille.Ast;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.Analysis
 {
-    class TypeUsageAnalysis
+    class TypeUsageAnalysis: IAnalysisPass
     {
         private Universe universe;
 
@@ -17,8 +18,10 @@ namespace Braille.Analysis
             this.universe = universe;
         }
 
-        public void FindTypes(CilMethod method, IEnumerable<OpExpression> opAst)
+        public void Run(CilMethod method)
         {
+            IEnumerable<OpExpression> opAst = method.OpTree;
+
             method.ReferencedTypes = opAst
                 .SelectMany(op => FindTypes(method, op))
                 .SelectMany(t => ExpandGenericTypes(t))

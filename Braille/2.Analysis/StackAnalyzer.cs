@@ -1,4 +1,5 @@
-﻿using Braille.Ast;
+﻿using Braille.Analysis.Passes;
+using Braille.Ast;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,10 +39,12 @@ namespace Braille.Analysis
         }
     }
 
-    class StackAnalyzer
+    class StackAnalyzer: IAnalysisPass
     {
-        public void Analyze(CilMethod method, IList<OpExpression> infos)
+        public void Run(CilMethod method)
         {
+            IList<OpExpression> infos = method.OpTree;
+
             if (infos.Any() == false)
                 return;
 

@@ -54,6 +54,8 @@
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
     <Compile Include="2.Analysis\LocalsAnalyzer.cs" />
+    <Compile Include="2.Analysis\Passes\IRewriter.cs" />
+    <Compile Include="2.Analysis\Passes\UnreachableRemoval.cs" />
     <Compile Include="2.Analysis\StackAnalyzer.cs" />
     <Compile Include="2.Analysis\StaticAnalyzer.cs" />
     <Compile Include="2.Analysis\TypeInference.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSTemplatedRawExpression.cs" />
+    <Compile Include="2.Analysis\Passes\StackRemoval.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />
     <Compile Include="LinqExtensions.cs" />
     <Compile Include="3.JsTranslation\BlockBuilder.cs" />

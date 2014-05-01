@@ -1,4 +1,5 @@
-﻿using Braille.Ast;
+﻿using Braille.Analysis.Passes;
+using Braille.Ast;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.Analysis
 {
-    class TypeInference
+    class TypeInference: IAnalysisPass
     {
         //private Universe universe;
 
@@ -51,8 +52,10 @@ namespace Braille.Analysis
             mpointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
         }
 
-        public void InferTypes(CilMethod method, IEnumerable<OpExpression> opAst)
+        public void Run(CilMethod method)
         {
+            IList<OpExpression> opAst = method.OpTree;
+
             var visitedTargets = new HashSet<OpExpression>();
             var processStack = new Stack<OpExpression>();
             processStack.Push(opAst.First());

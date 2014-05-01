@@ -1,3 +1,4 @@
+using Braille.Analysis.Passes;
 using Braille.Ast;
 using Braille.Loading;
 using IKVM.Reflection;
@@ -8,10 +9,12 @@ using System.Linq;
 
 namespace Braille.Analysis
 {
-    class LocalsAnalyzer
+    class LocalsAnalyzer: IAnalysisPass
     {
-        public void Analyze(CilMethod method, IList<OpExpression> infos)
+        public void Run(CilMethod method)
         {
+            IList<OpExpression> infos = method.OpTree;
+
             method.Locals = method
                 .ReflectionMethod
                 .GetMethodBody()

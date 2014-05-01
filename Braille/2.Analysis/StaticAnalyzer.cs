@@ -1,4 +1,5 @@
-﻿using Braille.Ast;
+﻿using Braille.Analysis.Passes;
+using Braille.Ast;
 using Braille.Loading.Model;
 using System;
 using System.Collections.Generic;
@@ -25,75 +26,30 @@ namespace Braille.Analysis
                         {
                             var opInfos = expressionBuilder.Build(method); // static analysis happens here
 
-                            // Turn stack based OpInstructions into variable based OpExpressions
-
-                            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
-                            var stackAnalyzer = new StackAnalyzer();
-                            stackAnalyzer.Analyze(method, opInfos);
-
-                            // - Introduce variables to replace stack based on flow analysis
-                            ReplaceStack(method, opInfos);
-
-                            var localsAnalyzer = new LocalsAnalyzer();
-                            localsAnalyzer.Analyze(method, opInfos);
-
-                            opInfos = opInfos
-                                .Where(o => o.StackBefore != null) // unreachable
-                                .Where(
-                                    o => false == (
-                                        o.Instruction.OpCode.Name == "br.s" &&
-                                        o.Targeting.Count == 1 && o.Targeting[0] == o.Prev &&
-                                        o.Targets.Count == 1 && o.Targets[0] == o.Next))
-                                .ToList();
-
-                            // 
-                            var typeInference = new TypeInference(ctx.ReflectionUniverse);
-                            typeInference.InferTypes(method, opInfos);
-
-                            var typeUsage = new TypeUsageAnalysis(ctx.ReflectionUniverse);
-                            typeUsage.FindTypes(method, opInfos);
-
                             method.OpTree = opInfos;
+
+                            foreach (var rewriter in GetPasses(ctx))
+                            {
+                                rewriter.Run(method);
+                            }
                         }
                     }
                 }
             }
         }
 
-        private static void ReplaceStack(CilMethod method, IList<OpExpression> opInfos)
+        public IEnumerable<IAnalysisPass> GetPasses(Context ctx)
         {
-            var counter = 0;
+            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from                
+            yield return new StackAnalyzer();
 
-            foreach (var opInfo in opInfos)
-            {
-                if (opInfo.StackBefore == null)
-                    continue;
+            // Turn stack based OpInstructions into variable based OpExpressions
+            yield return new StackRemoval();
 
-                foreach (var usage in opInfo.StackBefore.Skip(opInfo.StackBefore.Count() - opInfo.GetRealPopCount()))
-                {
-                    usage.Variable = new VariableInfo
-                    {
-                        Name = string.Format("st_{0:X2}", counter++),
-                        ResultType = usage.Type
-                    };
-
-                    foreach (var def in usage.Definitions)
-                    {
-                        if (def is OpExpression)
-                        {
-                            ((OpExpression)def).StoreLocations.Add(usage.Variable);
-                        }
-                        else if (def is ExceptionNode)
-                        {
-                            ((ExceptionNode)def).StoreLocations.Add(usage.Variable);
-                        }
-                        else
-                        {
-                            throw new NotImplementedException();
-                        }
-                    }
-                }
-            }
+            yield return new UnreachableRemoval();
+            yield return new LocalsAnalyzer();
+            yield return new TypeInference(ctx.ReflectionUniverse);
+            yield return new TypeUsageAnalysis(ctx.ReflectionUniverse);
         }
 
     }
