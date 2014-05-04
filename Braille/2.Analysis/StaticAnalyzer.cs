@@ -51,6 +51,7 @@ namespace Braille.Analysis
             yield return new TypeInference(ctx.ReflectionUniverse);
             yield return new TypeUsageAnalysis(ctx.ReflectionUniverse);
             yield return new InsertLabelsPass();
+
         }
 
     }

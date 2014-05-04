@@ -16,12 +16,9 @@ namespace Braille.JsTranslation
         private InsertLabelsPass insertFrameLabelsTask = new InsertLabelsPass();
         private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
 
-        private Context context;
-
         public MethodTranslator(Context context)
             : base(context)
         {
-            this.context = context;
         }
 
         public JSFunctionDelcaration GetInitializer(CilAssembly assembly, CilType type, CilMethod method)
@@ -241,16 +238,6 @@ namespace Braille.JsTranslation
                     tIdx++;
                 }
             }
-
-            //functionBlock.Add(
-            //    new JSStatement
-            //    {
-            //        Expression = new JSVariableDelcaration
-            //        {
-            //            Name = "__braille_args__",
-            //            Value = new JSIdentifier { Name = "arguments" }
-            //        }
-            //    });
 
             if (method.ReflectionMethod.GetMethodBody().InitLocals)
             {

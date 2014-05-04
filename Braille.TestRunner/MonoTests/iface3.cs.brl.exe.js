@@ -78,9 +78,10 @@ function new_string(str) {
 }
 
 function new_array(type, length) {
+    var ctor = type.ArrayType || Array;
     var r = new (asm0['System.Array`1'](type))();
     r.type = type;
-    r.jsarr = new Array(length);
+    r.jsarr = new ctor(length);
     return r;
 }
 ;
@@ -3916,6 +3917,7 @@ $$Object.IsInst = function (t) { return t instanceof $$Object; };
 $$Object.IsValueType = false;
 $$Object.IsPrimitive = false;
 $$Object.IsNullable = false;
+$$Object.ArrayType = Array;
 $$Object.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -3949,6 +3951,7 @@ Delegate.IsInst = function (t) { return t instanceof Delegate; };
 Delegate.IsValueType = false;
 Delegate.IsPrimitive = false;
 Delegate.IsNullable = false;
+Delegate.ArrayType = Array;
 Delegate.prototype._methodPtr = null;
 Delegate.prototype._target = null;
 Delegate.prototype.vtable = { 
@@ -3984,6 +3987,7 @@ MulticastDelegate.IsInst = function (t) { return t instanceof MulticastDelegate;
 MulticastDelegate.IsValueType = false;
 MulticastDelegate.IsPrimitive = false;
 MulticastDelegate.IsNullable = false;
+MulticastDelegate.ArrayType = Array;
 MulticastDelegate.prototype._invocationList = null;
 MulticastDelegate.prototype._methodPtr = null;
 MulticastDelegate.prototype._target = null;
@@ -4021,6 +4025,7 @@ EventArgs.IsInst = function (t) { return t instanceof EventArgs; };
 EventArgs.IsValueType = false;
 EventArgs.IsPrimitive = false;
 EventArgs.IsNullable = false;
+EventArgs.ArrayType = Array;
 (asm0.x6000016)();
 EventArgs.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
@@ -4053,6 +4058,7 @@ EventHandler.IsInst = function (t) { return t instanceof EventHandler; };
 EventHandler.IsValueType = false;
 EventHandler.IsPrimitive = false;
 EventHandler.IsNullable = false;
+EventHandler.ArrayType = Array;
 EventHandler.prototype._invocationList = null;
 EventHandler.prototype._methodPtr = null;
 EventHandler.prototype._target = null;
@@ -4092,6 +4098,7 @@ IEnumerable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnu
 IEnumerable.IsValueType = false;
 IEnumerable.IsPrimitive = false;
 IEnumerable.IsNullable = false;
+IEnumerable.ArrayType = Array;
 IEnumerable.prototype.vtable = { 
 'asm0.x6000019': asm0.x6000019 
 }; };
@@ -4123,6 +4130,7 @@ Array.IsInst = function (t) { return t instanceof Array; };
 Array.IsValueType = false;
 Array.IsPrimitive = false;
 Array.IsNullable = false;
+Array.ArrayType = Array;
 Array.prototype.type = null;
 Array.prototype.jsarr = null;
 Array.prototype.vtable = { 
@@ -4163,6 +4171,7 @@ IEnumerable_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IE
 IEnumerable_1.IsValueType = false;
 IEnumerable_1.IsPrimitive = false;
 IEnumerable_1.IsNullable = false;
+IEnumerable_1.ArrayType = Array;
 IEnumerable_1.GenericArguments = [ T ];
 IEnumerable_1.prototype.vtable = { 
 'asm0.x6000021': asm0.x6000021 
@@ -4197,6 +4206,7 @@ Array_1.IsInst = function (t) { return t instanceof Array_1; };
 Array_1.IsValueType = false;
 Array_1.IsPrimitive = false;
 Array_1.IsNullable = false;
+Array_1.ArrayType = Array;
 Array_1.GenericArguments = [ T ];
 Array_1.prototype.type = null;
 Array_1.prototype.jsarr = null;
@@ -4240,6 +4250,7 @@ IDisposable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IDis
 IDisposable.IsValueType = false;
 IDisposable.IsPrimitive = false;
 IDisposable.IsNullable = false;
+IDisposable.ArrayType = Array;
 IDisposable.prototype.vtable = { 
 'asm0.x6000026': asm0.x6000026 
 }; };
@@ -4271,6 +4282,7 @@ IEnumerator.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnu
 IEnumerator.IsValueType = false;
 IEnumerator.IsPrimitive = false;
 IEnumerator.IsNullable = false;
+IEnumerator.ArrayType = Array;
 IEnumerator.prototype.vtable = { 
 'asm0.x6000027': asm0.x6000027,
 'asm0.x6000028': asm0.x6000028,
@@ -4306,6 +4318,7 @@ IEnumerator_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IE
 IEnumerator_1.IsValueType = false;
 IEnumerator_1.IsPrimitive = false;
 IEnumerator_1.IsNullable = false;
+IEnumerator_1.ArrayType = Array;
 IEnumerator_1.GenericArguments = [ T ];
 IEnumerator_1.prototype.vtable = { 
 'asm0.x600002a': asm0.x600002a,
@@ -4341,6 +4354,7 @@ ArrayEnumerator.IsInst = function (t) { return t instanceof ArrayEnumerator; };
 ArrayEnumerator.IsValueType = false;
 ArrayEnumerator.IsPrimitive = false;
 ArrayEnumerator.IsNullable = false;
+ArrayEnumerator.ArrayType = Array;
 ArrayEnumerator.GenericArguments = [ T ];
 ArrayEnumerator.prototype.index = 0;
 ArrayEnumerator.prototype.length = 0;
@@ -4393,6 +4407,7 @@ Attribute.IsInst = function (t) { return t instanceof Attribute; };
 Attribute.IsValueType = false;
 Attribute.IsPrimitive = false;
 Attribute.IsNullable = false;
+Attribute.ArrayType = Array;
 Attribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4424,6 +4439,7 @@ DebuggerStepThroughAttribute.IsInst = function (t) { return t instanceof Debugge
 DebuggerStepThroughAttribute.IsValueType = false;
 DebuggerStepThroughAttribute.IsPrimitive = false;
 DebuggerStepThroughAttribute.IsNullable = false;
+DebuggerStepThroughAttribute.ArrayType = Array;
 DebuggerStepThroughAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4455,6 +4471,7 @@ ValueType.IsInst = function (t) { return t instanceof ValueType; };
 ValueType.IsValueType = false;
 ValueType.IsPrimitive = false;
 ValueType.IsNullable = false;
+ValueType.ArrayType = Array;
 ValueType.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4486,6 +4503,7 @@ Enum.IsInst = function (t) { return t instanceof Enum; };
 Enum.IsValueType = false;
 Enum.IsPrimitive = false;
 Enum.IsNullable = false;
+Enum.ArrayType = Array;
 Enum.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4535,6 +4553,7 @@ AttributeTargets.IsInst = function (t) { return t instanceof AttributeTargets; }
 AttributeTargets.IsValueType = true;
 AttributeTargets.IsPrimitive = false;
 AttributeTargets.IsNullable = false;
+AttributeTargets.ArrayType = Array;
 AttributeTargets.prototype.value__ = 0;
 AttributeTargets.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
@@ -4567,6 +4586,7 @@ ComVisibleAttribute.IsInst = function (t) { return t instanceof ComVisibleAttrib
 ComVisibleAttribute.IsValueType = false;
 ComVisibleAttribute.IsPrimitive = false;
 ComVisibleAttribute.IsNullable = false;
+ComVisibleAttribute.ArrayType = Array;
 ComVisibleAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4600,6 +4620,7 @@ Nullable_1.IsInst = function (t) { return t instanceof Nullable_1; };
 Nullable_1.IsValueType = true;
 Nullable_1.IsPrimitive = false;
 Nullable_1.IsNullable = true;
+Nullable_1.ArrayType = Array;
 Nullable_1.GenericArguments = [ T ];
 Nullable_1.prototype.value = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
 Nullable_1.prototype.has_value = false;
@@ -4636,6 +4657,7 @@ SerializableAttribute.IsInst = function (t) { return t instanceof SerializableAt
 SerializableAttribute.IsValueType = false;
 SerializableAttribute.IsPrimitive = false;
 SerializableAttribute.IsNullable = false;
+SerializableAttribute.ArrayType = Array;
 SerializableAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4668,6 +4690,7 @@ $$String.IsInst = function (t) { return t instanceof $$String; };
 $$String.IsValueType = false;
 $$String.IsPrimitive = false;
 $$String.IsNullable = false;
+$$String.ArrayType = Array;
 (asm0.x6000053)();
 $$String.prototype.jsstr = null;
 $$String.prototype.vtable = { 
@@ -4701,6 +4724,7 @@ DefaultMemberAttribute.IsInst = function (t) { return t instanceof DefaultMember
 DefaultMemberAttribute.IsValueType = false;
 DefaultMemberAttribute.IsPrimitive = false;
 DefaultMemberAttribute.IsNullable = false;
+DefaultMemberAttribute.ArrayType = Array;
 DefaultMemberAttribute.prototype.System_ReflectionDefaultMemberAttributemember_name = null;
 DefaultMemberAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
@@ -4733,6 +4757,7 @@ AttributeUsageAttribute.IsInst = function (t) { return t instanceof AttributeUsa
 AttributeUsageAttribute.IsValueType = false;
 AttributeUsageAttribute.IsPrimitive = false;
 AttributeUsageAttribute.IsNullable = false;
+AttributeUsageAttribute.ArrayType = Array;
 (AttributeUsageAttribute.prototype)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"] = new (((asm0)["System.AttributeTargets"])())();
 (AttributeUsageAttribute.prototype)["SystemAttributeUsageAttribute<Inherited>k__BackingField"] = false;
 AttributeUsageAttribute.prototype.vtable = { 
@@ -4766,6 +4791,7 @@ $$Boolean.IsInst = function (t) { return t instanceof $$Boolean; };
 $$Boolean.IsValueType = true;
 $$Boolean.IsPrimitive = true;
 $$Boolean.IsNullable = false;
+$$Boolean.ArrayType = Array;
 $$Boolean.prototype.vtable = { 
 'asm0.x6000003': asm0.x600005b,
 'asm0.x6000004': asm0.x6000004,
@@ -4799,6 +4825,7 @@ Byte.IsInst = function (t) { return t instanceof Byte; };
 Byte.IsValueType = true;
 Byte.IsPrimitive = true;
 Byte.IsNullable = false;
+Byte.ArrayType = Uint8Array;
 Byte.prototype.vtable = { 
 'asm0.x6000003': asm0.x600005c,
 'asm0.x6000004': asm0.x6000004,
@@ -4834,6 +4861,7 @@ Char.IsInst = function (t) { return t instanceof Char; };
 Char.IsValueType = true;
 Char.IsPrimitive = true;
 Char.IsNullable = false;
+Char.ArrayType = Uint16Array;
 Char.prototype.vtable = { 
 'asm0.x6000003': asm0.x600005d,
 'asm0.x6000004': asm0.x6000004,
@@ -4867,6 +4895,7 @@ Console.IsInst = function (t) { return t instanceof Console; };
 Console.IsValueType = false;
 Console.IsPrimitive = false;
 Console.IsNullable = false;
+Console.ArrayType = Array;
 Console.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -4904,6 +4933,7 @@ Double.IsInst = function (t) { return t instanceof Double; };
 Double.IsValueType = true;
 Double.IsPrimitive = true;
 Double.IsNullable = false;
+Double.ArrayType = Float64Array;
 Double.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000062,
 'asm0.x6000004': asm0.x6000004,
@@ -4937,6 +4967,7 @@ Exception.IsInst = function (t) { return t instanceof Exception; };
 Exception.IsValueType = false;
 Exception.IsPrimitive = false;
 Exception.IsNullable = false;
+Exception.ArrayType = Array;
 (Exception.prototype)["SystemException<Message>k__BackingField"] = null;
 Exception.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
@@ -4969,6 +5000,7 @@ InvalidOperationException.IsInst = function (t) { return t instanceof InvalidOpe
 InvalidOperationException.IsValueType = false;
 InvalidOperationException.IsPrimitive = false;
 InvalidOperationException.IsNullable = false;
+InvalidOperationException.ArrayType = Array;
 InvalidOperationException.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5000,6 +5032,7 @@ FlagsAttribute.IsInst = function (t) { return t instanceof FlagsAttribute; };
 FlagsAttribute.IsValueType = false;
 FlagsAttribute.IsPrimitive = false;
 FlagsAttribute.IsNullable = false;
+FlagsAttribute.ArrayType = Array;
 FlagsAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5031,6 +5064,7 @@ ICloneable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IClon
 ICloneable.IsValueType = false;
 ICloneable.IsPrimitive = false;
 ICloneable.IsNullable = false;
+ICloneable.ArrayType = Array;
 ICloneable.prototype.vtable = { 
 'asm0.x6000069': asm0.x6000069 
 }; };
@@ -5062,6 +5096,7 @@ Int16.IsInst = function (t) { return t instanceof Int16; };
 Int16.IsValueType = true;
 Int16.IsPrimitive = true;
 Int16.IsNullable = false;
+Int16.ArrayType = Int16Array;
 Int16.prototype.vtable = { 
 'asm0.x6000003': asm0.x600006a,
 'asm0.x6000004': asm0.x6000004,
@@ -5095,6 +5130,7 @@ Int32.IsInst = function (t) { return t instanceof Int32; };
 Int32.IsValueType = true;
 Int32.IsPrimitive = true;
 Int32.IsNullable = false;
+Int32.ArrayType = Int32Array;
 Int32.prototype.vtable = { 
 'asm0.x6000003': asm0.x600006b,
 'asm0.x6000004': asm0.x6000004,
@@ -5128,6 +5164,7 @@ InternalFormatting.IsInst = function (t) { return t instanceof InternalFormattin
 InternalFormatting.IsValueType = false;
 InternalFormatting.IsPrimitive = false;
 InternalFormatting.IsNullable = false;
+InternalFormatting.ArrayType = Array;
 InternalFormatting.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5159,6 +5196,7 @@ Int64.IsInst = function (t) { return t instanceof Int64; };
 Int64.IsValueType = true;
 Int64.IsPrimitive = true;
 Int64.IsNullable = false;
+Int64.ArrayType = Array;
 Int64.prototype.vtable = { 
 'asm0.x6000003': asm0.x600006d,
 'asm0.x6000004': asm0.x6000004,
@@ -5192,6 +5230,7 @@ IntPtr.IsInst = function (t) { return t instanceof IntPtr; };
 IntPtr.IsValueType = true;
 IntPtr.IsPrimitive = true;
 IntPtr.IsNullable = false;
+IntPtr.ArrayType = Array;
 IntPtr.prototype.vtable = { 
 'asm0.x6000003': asm0.x600006e,
 'asm0.x6000004': asm0.x6000004,
@@ -5226,6 +5265,7 @@ Math.IsInst = function (t) { return t instanceof Math; };
 Math.IsValueType = false;
 Math.IsPrimitive = false;
 Math.IsNullable = false;
+Math.ArrayType = Array;
 Math.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5257,6 +5297,7 @@ ParamArrayAttribute.IsInst = function (t) { return t instanceof ParamArrayAttrib
 ParamArrayAttribute.IsValueType = false;
 ParamArrayAttribute.IsPrimitive = false;
 ParamArrayAttribute.IsNullable = false;
+ParamArrayAttribute.ArrayType = Array;
 ParamArrayAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5288,6 +5329,7 @@ RuntimeFieldHandle.IsInst = function (t) { return t instanceof RuntimeFieldHandl
 RuntimeFieldHandle.IsValueType = true;
 RuntimeFieldHandle.IsPrimitive = false;
 RuntimeFieldHandle.IsNullable = false;
+RuntimeFieldHandle.ArrayType = Array;
 RuntimeFieldHandle.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5321,6 +5363,7 @@ RuntimeTypeHandle.IsInst = function (t) { return t instanceof RuntimeTypeHandle;
 RuntimeTypeHandle.IsValueType = true;
 RuntimeTypeHandle.IsPrimitive = false;
 RuntimeTypeHandle.IsNullable = false;
+RuntimeTypeHandle.ArrayType = Array;
 RuntimeTypeHandle.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5354,6 +5397,7 @@ SByte.IsInst = function (t) { return t instanceof SByte; };
 SByte.IsValueType = true;
 SByte.IsPrimitive = true;
 SByte.IsNullable = false;
+SByte.ArrayType = Int8Array;
 SByte.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000077,
 'asm0.x6000004': asm0.x6000004,
@@ -5387,6 +5431,7 @@ Single.IsInst = function (t) { return t instanceof Single; };
 Single.IsValueType = true;
 Single.IsPrimitive = true;
 Single.IsNullable = false;
+Single.ArrayType = Float32Array;
 Single.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000078,
 'asm0.x6000004': asm0.x6000004,
@@ -5420,6 +5465,7 @@ Type.IsInst = function (t) { return t instanceof Type; };
 Type.IsValueType = false;
 Type.IsPrimitive = false;
 Type.IsNullable = false;
+Type.ArrayType = Array;
 Type.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5451,6 +5497,7 @@ UInt16.IsInst = function (t) { return t instanceof UInt16; };
 UInt16.IsValueType = true;
 UInt16.IsPrimitive = true;
 UInt16.IsNullable = false;
+UInt16.ArrayType = Uint16Array;
 UInt16.prototype.vtable = { 
 'asm0.x6000003': asm0.x600007a,
 'asm0.x6000004': asm0.x6000004,
@@ -5484,6 +5531,7 @@ UInt32.IsInst = function (t) { return t instanceof UInt32; };
 UInt32.IsValueType = true;
 UInt32.IsPrimitive = true;
 UInt32.IsNullable = false;
+UInt32.ArrayType = Uint32Array;
 UInt32.prototype.vtable = { 
 'asm0.x6000003': asm0.x600007b,
 'asm0.x6000004': asm0.x6000004,
@@ -5517,6 +5565,7 @@ UInt64.IsInst = function (t) { return t instanceof UInt64; };
 UInt64.IsValueType = true;
 UInt64.IsPrimitive = true;
 UInt64.IsNullable = false;
+UInt64.ArrayType = Array;
 UInt64.prototype.vtable = { 
 'asm0.x6000003': asm0.x600007c,
 'asm0.x6000004': asm0.x6000004,
@@ -5550,6 +5599,7 @@ UIntPtr.IsInst = function (t) { return t instanceof UIntPtr; };
 UIntPtr.IsValueType = true;
 UIntPtr.IsPrimitive = true;
 UIntPtr.IsNullable = false;
+UIntPtr.ArrayType = Array;
 UIntPtr.prototype.vtable = { 
 'asm0.x6000003': asm0.x600007d,
 'asm0.x6000004': asm0.x6000004,
@@ -5583,6 +5633,7 @@ Void.IsInst = function (t) { return t instanceof Void; };
 Void.IsValueType = true;
 Void.IsPrimitive = false;
 Void.IsNullable = false;
+Void.ArrayType = Array;
 Void.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5616,6 +5667,7 @@ NotSupportedException.IsInst = function (t) { return t instanceof NotSupportedEx
 NotSupportedException.IsValueType = false;
 NotSupportedException.IsPrimitive = false;
 NotSupportedException.IsNullable = false;
+NotSupportedException.ArrayType = Array;
 NotSupportedException.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5647,6 +5699,7 @@ NotImplementedException.IsInst = function (t) { return t instanceof NotImplement
 NotImplementedException.IsValueType = false;
 NotImplementedException.IsPrimitive = false;
 NotImplementedException.IsNullable = false;
+NotImplementedException.ArrayType = Array;
 NotImplementedException.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5678,6 +5731,7 @@ Environment.IsInst = function (t) { return t instanceof Environment; };
 Environment.IsValueType = false;
 Environment.IsPrimitive = false;
 Environment.IsNullable = false;
+Environment.ArrayType = Array;
 Environment.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5711,6 +5765,7 @@ Func_2.IsInst = function (t) { return t instanceof Func_2; };
 Func_2.IsValueType = false;
 Func_2.IsPrimitive = false;
 Func_2.IsNullable = false;
+Func_2.ArrayType = Array;
 Func_2.GenericArguments = [ T,TResult ];
 Func_2.prototype._invocationList = null;
 Func_2.prototype._methodPtr = null;
@@ -5751,6 +5806,7 @@ Debugger.IsInst = function (t) { return t instanceof Debugger; };
 Debugger.IsValueType = false;
 Debugger.IsPrimitive = false;
 Debugger.IsNullable = false;
+Debugger.ArrayType = Array;
 Debugger.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5782,6 +5838,7 @@ OutAttribute.IsInst = function (t) { return t instanceof OutAttribute; };
 OutAttribute.IsValueType = false;
 OutAttribute.IsPrimitive = false;
 OutAttribute.IsNullable = false;
+OutAttribute.ArrayType = Array;
 OutAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5813,6 +5870,7 @@ IndexerNameAttribute.IsInst = function (t) { return t instanceof IndexerNameAttr
 IndexerNameAttribute.IsValueType = false;
 IndexerNameAttribute.IsPrimitive = false;
 IndexerNameAttribute.IsNullable = false;
+IndexerNameAttribute.ArrayType = Array;
 IndexerNameAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5844,6 +5902,7 @@ ExtensionAttribute.IsInst = function (t) { return t instanceof ExtensionAttribut
 ExtensionAttribute.IsValueType = false;
 ExtensionAttribute.IsPrimitive = false;
 ExtensionAttribute.IsNullable = false;
+ExtensionAttribute.ArrayType = Array;
 ExtensionAttribute.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -5931,9 +5990,10 @@ function new_string(str) {
 }
 
 function new_array(type, length) {
+    var ctor = type.ArrayType || Array;
     var r = new (asm0['System.Array`1'](type))();
     r.type = type;
-    r.jsarr = new Array(length);
+    r.jsarr = new ctor(length);
     return r;
 }
 ;
@@ -6167,6 +6227,7 @@ TestLog.IsInst = function (t) { return t instanceof TestLog; };
 TestLog.IsValueType = false;
 TestLog.IsPrimitive = false;
 TestLog.IsNullable = false;
+TestLog.ArrayType = Array;
 TestLog.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -6198,6 +6259,7 @@ TestHelper.IsInst = function (t) { return t instanceof TestHelper; };
 TestHelper.IsValueType = false;
 TestHelper.IsPrimitive = false;
 TestHelper.IsNullable = false;
+TestHelper.ArrayType = Array;
 TestHelper.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -6229,6 +6291,7 @@ ICommon.IsInst = function (t) { return t.constructor.Interfaces.indexOf(ICommon)
 ICommon.IsValueType = false;
 ICommon.IsPrimitive = false;
 ICommon.IsNullable = false;
+ICommon.ArrayType = Array;
 ICommon.prototype.vtable = { 
 'asm1.x600000c': asm1.x600000c 
 }; };
@@ -6260,6 +6323,7 @@ Base.IsInst = function (t) { return t instanceof Base; };
 Base.IsValueType = false;
 Base.IsPrimitive = false;
 Base.IsNullable = false;
+Base.ArrayType = Array;
 Base.prototype.vtable = { 
 'asm1.x600000d': asm1.x600000d,
 'asm1.x600000e': asm1.x600000e,
@@ -6296,6 +6360,7 @@ Derived.IsInst = function (t) { return t instanceof Derived; };
 Derived.IsValueType = false;
 Derived.IsPrimitive = false;
 Derived.IsNullable = false;
+Derived.ArrayType = Array;
 Derived.prototype.vtable = { 
 'asm1.x6000010': asm1.x6000010,
 'asm1.x6000011': asm1.x6000011,
@@ -6333,6 +6398,7 @@ ReallyDerived.IsInst = function (t) { return t instanceof ReallyDerived; };
 ReallyDerived.IsValueType = false;
 ReallyDerived.IsPrimitive = false;
 ReallyDerived.IsNullable = false;
+ReallyDerived.ArrayType = Array;
 ReallyDerived.prototype.vtable = { 
 'asm1.x6000011': asm1.x6000013,
 'asm1.x600000e': asm1.x600000e,
@@ -6369,6 +6435,7 @@ Test.IsInst = function (t) { return t instanceof Test; };
 Test.IsValueType = false;
 Test.IsPrimitive = false;
 Test.IsNullable = false;
+Test.ArrayType = Array;
 Test.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,

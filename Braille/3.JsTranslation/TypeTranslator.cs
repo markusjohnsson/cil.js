@@ -201,7 +201,8 @@ namespace Braille.JsTranslation
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsPrimitive", new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive }))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }));
+                .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }))
+                .EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)));
 
             var genericArguments = GetGenericArgumentsArray(type);
             if (genericArguments != null)
@@ -260,6 +261,38 @@ namespace Braille.JsTranslation
                     }
                 };
             }
+        }
+
+        private JSExpression GetArrayType(CilType type)
+        {
+            if (type.ReflectionType.FullName == "System.Byte")
+                return new JSIdentifier { Name = "Uint8Array" };
+
+            if (type.ReflectionType.FullName == "System.SByte")
+                return new JSIdentifier { Name = "Int8Array" };
+
+            if (type.ReflectionType.FullName == "System.Int16")
+                return new JSIdentifier { Name = "Int16Array" };
+
+            if (type.ReflectionType.FullName == "System.UInt16")
+                return new JSIdentifier { Name = "Uint16Array" };
+
+            if (type.ReflectionType.FullName == "System.Int32")
+                return new JSIdentifier { Name = "Int32Array" };
+
+            if (type.ReflectionType.FullName == "System.UInt32")
+                return new JSIdentifier { Name = "Uint32Array" };
+
+            if (type.ReflectionType.FullName == "System.Single")
+                return new JSIdentifier { Name = "Float32Array" };
+
+            if (type.ReflectionType.FullName == "System.Double")
+                return new JSIdentifier { Name = "Float64Array" };
+
+            if (type.ReflectionType.FullName == "System.Char")
+                return new JSIdentifier { Name = "Uint16Array" };
+
+            return new JSIdentifier { Name = "Array" };
         }
 
         private IEnumerable<KeyValuePair<string, JSExpression>> GetPrototypeMethods(CilType type)

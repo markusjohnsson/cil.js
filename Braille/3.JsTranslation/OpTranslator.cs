@@ -449,11 +449,11 @@ namespace Braille.JsTranslation
                         return new JSCallExpression
                         {
                             Function =
-                            /*
-                                replacement != null
-                                    ? JSIdentifier.Create("(" + replacement.Replacement + ")")
-                                    : 
-                                    */
+                                /*
+                                    replacement != null
+                                        ? JSIdentifier.Create("(" + replacement.Replacement + ")")
+                                        : 
+                                        */
                                     GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = args
                         };
@@ -499,10 +499,10 @@ namespace Braille.JsTranslation
                                     ? GetInterfaceMethodAccessor(arglist.First(), thisScope, mi) :
                                 mi.IsVirtual
                                     ? GetVirtualMethodAccessor(arglist.First(), (MethodInfo)mi) :
-                                    /*
-                                replacement != null
-                                    ? JSIdentifier.Create(replacement.Replacement) :
-                                     */
+                                /*
+                            replacement != null
+                                ? JSIdentifier.Create(replacement.Replacement) :
+                                 */
                                       GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
                         };
@@ -889,7 +889,11 @@ namespace Braille.JsTranslation
                                             Value = 
                                             new JSNewExpression
                                             {
-                                                Constructor = new JSArrayLookupExpression{ Array = JSIdentifier.Create("arguments"), Indexer = new JSNumberLiteral{ Value = 0 } }
+                                                Constructor = new JSArrayLookupExpression
+                                                { 
+                                                    Array = JSIdentifier.Create("arguments"), 
+                                                    Indexer = new JSNumberLiteral{ Value = 0 } 
+                                                }
                                             }
                                         }
                                     },

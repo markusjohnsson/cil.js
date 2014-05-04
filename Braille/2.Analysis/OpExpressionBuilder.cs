@@ -36,16 +36,6 @@ namespace Braille.Analysis
     {
         private Universe universe;
 
-        struct MethodId
-        {
-            public int assembly; public int metadataToken;
-            public MethodId(int asm, MethodBase mb)
-            {
-                assembly = asm;
-                metadataToken = mb.MetadataToken;
-            }
-        }
-        private Dictionary<MethodId, CilMethod> methodLookup;
         private Context context;
 
         public OpExpressionBuilder(Context context)
@@ -53,15 +43,6 @@ namespace Braille.Analysis
             this.context = context;
             universe = context.ReflectionUniverse;
 
-            methodLookup = context
-                .Assemblies
-                .SelectMany(
-                    (a, i) => a
-                        .Types
-                        .SelectMany(t => t.Methods)
-                        .Select(m => new { i, m }))
-                .ToDictionary(
-                    m => new MethodId(m.i, m.m.ReflectionMethod), m => m.m);
         }
 
         public IList<OpExpression> Build(CilMethod method)
@@ -91,15 +72,11 @@ namespace Braille.Analysis
 
                 if (op.OpCode.Name.StartsWith("call"))
                 {
-                    var mb = (MethodBase)op.Data;
-                    var idx = new MethodId(context.Assemblies.Select(a => a.ReflectionAssembly).IndexOf(mb.DeclaringType.Assembly), mb);
-                    opx = new CallNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), methodLookup[idx]);
+                    opx = new CallNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
                 }
                 else if (op.OpCode.Name.StartsWith("ldftn"))
                 {
-                    var mb = (MethodBase)op.Data;
-                    var idx = new MethodId(context.Assemblies.Select(a => a.ReflectionAssembly).IndexOf(mb.DeclaringType.Assembly), mb);
-                    opx = new LoadFunctionNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), methodLookup[idx]);
+                    opx = new LoadFunctionNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
                 }
                 else
                 {

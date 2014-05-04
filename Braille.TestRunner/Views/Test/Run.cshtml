@@ -29,9 +29,6 @@
     <script src="~/Scripts/rx.js"></script>
     <script src="~/Scripts/rx.jquery.js"></script>
 
-    <script src="@Model.ScriptPath" type="text/javascript">
-    </script>
-
     <script>
         var item = {
             testHasSucceeded: ko.observable(false),
@@ -78,6 +75,10 @@
 
         window.onload = runScript;
     </script>
+
+    <script src="@Model.ScriptPath" type="text/javascript">
+    </script>
+
 </head>
 <body>
     <div>

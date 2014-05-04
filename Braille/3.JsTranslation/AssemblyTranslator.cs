@@ -115,9 +115,10 @@ function new_string(str) {
 }
 
 function new_array(type, length) {
+    var ctor = type.ArrayType || Array;
     var r = new (asm0['System.Array`1'](type))();
     r.type = type;
-    r.jsarr = new Array(length);
+    r.jsarr = new ctor(length);
     return r;
 }
 "
