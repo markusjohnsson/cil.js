@@ -67,7 +67,8 @@
     <Compile Include="3.JsTranslation\JSAst\JSTemplatedRawExpression.cs" />
     <Compile Include="2.Analysis\Passes\StackRemoval.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />
-    <Compile Include="LinqExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="3.JsTranslation\BlockBuilder.cs" />
     <Compile Include="2.Analysis\Ast\Node.cs" />
     <Compile Include="3.JsTranslation\OpTranslator.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="3.JsTranslation\JSAst\JSStringLiteral.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSVariableDelcaration.cs" />
     <Compile Include="Compiler.cs" />
-    <Compile Include="JsonHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
