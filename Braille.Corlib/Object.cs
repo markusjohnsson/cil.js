@@ -191,10 +191,14 @@ namespace System
 
     public struct RuntimeFieldHandle
     {
+        internal object value;
+        public object Value { get { return value; } }
     }
 
     public struct RuntimeTypeHandle
     {
+        internal object value;
+        public object Value { get { return value; } }
     }
 
     public struct SByte
@@ -416,23 +420,6 @@ namespace System.Runtime.InteropServices
 {
     public class OutAttribute : Attribute
     {
-    }
-}
-
-namespace System.Runtime.CompilerServices
-{
-
-    [AttributeUsage(AttributeTargets.Property, Inherited = true)]
-    public sealed class IndexerNameAttribute : Attribute
-    {
-        public IndexerNameAttribute(string indexerName)
-        {
-        }
-    }
-
-    [AttributeUsage(AttributeTargets.Method, Inherited = true)]
-    public sealed class ExtensionAttribute : Attribute
-    { 
     }
 }
 

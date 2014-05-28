@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Delegate.cs" />
+    <Compile Include="System.Runtime.CompilerServices\ExtensionAttribute.cs" />
+    <Compile Include="System.Runtime.CompilerServices\IndexerNameAttribute.cs" />
+    <Compile Include="System.Runtime.CompilerServices\RuntimeHelpers.cs" />
     <Compile Include="System\MulticastDelegate.cs" />
     <Compile Include="System\EventArgs.cs" />
     <Compile Include="System\EventHandler.cs" />
@@ -51,6 +54,9 @@
   <ItemGroup>
     <Folder Include="Properties\" />
     <Folder Include="System.Collections\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

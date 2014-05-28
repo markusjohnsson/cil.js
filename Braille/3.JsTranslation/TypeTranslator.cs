@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
@@ -399,12 +400,27 @@ namespace Braille.JsTranslation
                 .Select(
                     f => GetFieldInitializer(f, type));
         }
-
+        
+        static Regex regex = new Regex("Size=([0-9]*)");
+                    
         private KeyValuePair<string, JSExpression> GetFieldInitializer(FieldInfo f, CilType type)
         {
-            return new KeyValuePair<string, JSExpression>(
-                GetTranslatedFieldName(type, f),
-                GetDefaultValue(f.FieldType, typeScope: type.ReflectionType));
+            if (regex.IsMatch(f.FieldType.Name))
+            {
+                var size = int.Parse(regex.Match(f.FieldType.Name).Groups[1].Value);
+                var array = new byte[size];
+                f.__GetDataFromRVA(array, 0, size);
+
+                return new KeyValuePair<string, JSExpression>(
+                    GetTranslatedFieldName(type, f),
+                    new JSArrayLiteral { Values = array.Select(b => new JSNumberLiteral { Value = b }) });
+            }
+            else
+            {
+                return new KeyValuePair<string, JSExpression>(
+                    GetTranslatedFieldName(type, f),
+                    GetDefaultValue(f.FieldType, typeScope: type.ReflectionType));
+            }
         }
     }
 }

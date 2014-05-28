@@ -843,7 +843,64 @@ namespace Braille.JsTranslation
                         }
                     };
                 case "ldtoken":
-                    return new JSNullLiteral { };
+                    {
+                        string typeName = null; 
+                        JSExpression value = null;
+
+                        if (frame.Instruction.Data is FieldInfo)
+                        {
+                            typeName = "System.RuntimeFieldHandle";
+                            
+                            var fieldInfo = frame.Instruction.Data as FieldInfo;
+                            
+                            value = new JSObjectLiteral
+                            {
+                                Properties = new Dictionary<string, JSExpression> 
+                                { 
+                                    { "type", GetTypeAccessor(fieldInfo.DeclaringType, thisScope) }, 
+                                    { "field", new JSStringLiteral { Value = fieldInfo.Name } }
+                                }
+                            };
+                        }
+                        else if (frame.Instruction.Data is RuntimeMethodHandle)
+                        {
+                            typeName = "System.RuntimeMethodHandle";
+
+                            var methodInfo = frame.Instruction.Data as MethodInfo;
+
+                            value = new JSObjectLiteral
+                            {
+                                Properties = new Dictionary<string, JSExpression> 
+                                { 
+                                    { "type", GetTypeAccessor(methodInfo.DeclaringType, thisScope) }, 
+                                    { "field", new JSStringLiteral { Value = methodInfo.Name } }
+                                }
+                            };
+                        }
+                        else if (frame.Instruction.Data is Type)
+                        {
+                            typeName = "System.RuntimeTypeHandle";
+                            value = GetTypeAccessor(frame.Instruction.Data as Type, thisScope);
+                        }
+                        else
+                        {
+                            throw new NotImplementedException();
+                        }
+
+                        var handleType = GetTypeAccessor(
+                            this.context.ReflectionUniverse.GetType(typeName),
+                            thisScope);
+
+                        return new JSCallExpression
+                        {
+                            Function = JSIdentifier.Create("new_handle"),
+                            Arguments = 
+                            { 
+                                handleType,
+                                value
+                            }
+                        };
+                    }
                 case "mul":
                     return new JSBinaryExpression
                     {

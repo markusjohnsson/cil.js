@@ -114,6 +114,12 @@ function new_string(str) {
     return r;
 }
 
+function new_handle(type, value) {
+    var r = new type();
+    r.value = value;
+    return r;
+}
+
 function new_array(type, length) {
     var ctor = type.ArrayType || Array;
     var r = new (asm0['System.Array`1'](type))();

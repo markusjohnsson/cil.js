@@ -105,7 +105,7 @@ namespace Braille.JsTranslation
 
         protected static string GetSimpleName(CilType type)
         {
-            var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_");
+            var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_").Replace("=", "_");
             if (n == "String" || n == "Number" || n == "Boolean" || n == "Object" || n == "function")
                 return "$$" + n;
             return n;

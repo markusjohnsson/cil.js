@@ -6097,272 +6097,74 @@ st_00 = arg0;
 /* IL_06: ret */
 return ; };
 asm.x600000c_init = function () { 
- (((asm0)["System.Int32"])().init)();
-((asm1.Iter)().init)();
+ ((asm1.Program)().init)();
+(((asm0)["System.Int32"])().init)();
 asm.x600000c = asm.x600000c_; };
-asm.x600000c = function (arg0) { 
+asm.x600000c = function () { 
  (asm.x600000c_init.apply)(this,arguments);
 return (asm.x600000c.apply)(this,arguments); };
-asm.x600000c_ = function GetEnumerator(arg0) { var t0;
+asm.x600000c_ = function Main() { var t0;
 var t1;
 var st_00;
 var st_01;
 var st_02;
 var st_03;
 var st_04;
-var st_05;
-var st_06;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0B;
-var st_0C;
-var st_0D;
-var st_0E;
-var st_0F;
-var st_10;
-var st_11;
-var st_12;
-var loc0;
- t0 = ((asm0)["System.Int32"])();
-t1 = (asm1.Iter)();
-/* IL_00: ldc.i4.5 */
-st_00 = 5;
-/* IL_01: newarr System.Int32*/
-st_01 = new_array(t0,st_00);
-/* IL_06: stloc.0 */
-loc0 = st_01;
-/* IL_07: ldloc.0 */
-st_02 = loc0;
-/* IL_08: ldc.i4.0 */
-st_03 = 0;
-/* IL_09: ldc.i4.0 */
-st_04 = 0;
-/* IL_0A: stelem.i4 */
-(st_02.jsarr)[st_03] = st_04;
-/* IL_0B: ldloc.0 */
-st_05 = loc0;
-/* IL_0C: ldc.i4.1 */
-st_06 = 1;
-/* IL_0D: ldc.i4.1 */
-st_07 = 1;
-/* IL_0E: stelem.i4 */
-(st_05.jsarr)[st_06] = st_07;
-/* IL_0F: ldloc.0 */
-st_08 = loc0;
-/* IL_10: ldc.i4.2 */
-st_09 = 2;
-/* IL_11: ldc.i4.2 */
-st_0A = 2;
-/* IL_12: stelem.i4 */
-(st_08.jsarr)[st_09] = st_0A;
-/* IL_13: ldloc.0 */
-st_0B = loc0;
-/* IL_14: ldc.i4.3 */
-st_0C = 3;
-/* IL_15: ldc.i4.4 */
-st_0D = 4;
-/* IL_16: stelem.i4 */
-(st_0B.jsarr)[st_0C] = st_0D;
-/* IL_17: ldloc.0 */
-st_0E = loc0;
-/* IL_18: ldc.i4.4 */
-st_0F = 4;
-/* IL_19: ldc.i4.8 */
-st_10 = 8;
-/* IL_1A: stelem.i4 */
-(st_0E.jsarr)[st_0F] = st_10;
-/* IL_1B: ldloc.0 */
-st_11 = loc0;
-/* IL_1C: newobj Void .ctor(System.Int32[])*/
-st_12 = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x600000e)(result,st_11);
-return result; })(t1);
-/* IL_21: ret */
-return st_12; };
-asm.x600000d = function _ctor(arg0) { var st_00;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
-return ; };
-asm.x600000f = function MoveNext(arg0) { var st_00;
-var st_01;
-var st_06;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_07;
-var st_0B;
-var st_08;
-var st_09;
-var st_0A;
-var st_0C;
-var st_0D;
-var loc0;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: dup */
-st_06 = (st_01 = st_00);
-/* IL_02: ldfld Int32 i*/
-st_02 = st_01.Iteri;
-/* IL_07: ldc.i4.1 */
-st_03 = 1;
-/* IL_08: add */
-st_04 = (st_02 + st_03);
-/* IL_09: dup */
-st_07 = (st_05 = st_04);
-/* IL_0A: stloc.0 */
-loc0 = st_05;
-/* IL_0B: stfld Int32 i*/
-st_06.Iteri = st_07;
-/* IL_10: ldloc.0 */
-st_0B = loc0;
-/* IL_11: ldarg.0 */
-st_08 = arg0;
-/* IL_12: ldfld Int32[] nums*/
-st_09 = st_08.Iternums;
-/* IL_17: ldlen */
-st_0A = st_09.jsarr.length;
-/* IL_18: conv.i4 */
-st_0C = st_0A;
-/* IL_1A: clt */
-st_0D = (st_0B < st_0C) ? (1) : (0);
-/* IL_1B: ret */
-return st_0D; };
-asm.x6000010 = function get_Current(arg0) { var st_00;
-var st_02;
-var st_01;
-var st_03;
-var st_04;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld Int32[] nums*/
-st_02 = st_00.Iternums;
-/* IL_06: ldarg.0 */
-st_01 = arg0;
-/* IL_07: ldfld Int32 i*/
-st_03 = st_01.Iteri;
-/* IL_0C: ldelem.i4 */
-st_04 = (st_02.jsarr)[st_03];
-/* IL_0D: ret */
-return st_04; };
-asm.x600000e = function _ctor(arg0,arg1) { var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldc.i4.m1 */
-st_01 = -1;
-/* IL_02: stfld Int32 i*/
-st_00.Iteri = st_01;
-/* IL_07: ldarg.0 */
-st_02 = arg0;
-/* IL_08: call Void .ctor()*/
-/* IL_0D: ldarg.0 */
-st_03 = arg0;
-/* IL_0E: ldarg.1 */
-st_04 = arg1;
-/* IL_0F: stfld Int32[] nums*/
-st_03.Iternums = st_04;
-/* IL_14: ret */
-return ; };
-asm.x6000011_init = function () { 
- ((asm1.A)().init)();
-(((asm0)["System.Int32"])().init)();
-asm.x6000011 = asm.x6000011_; };
-asm.x6000011 = function () { 
- (asm.x6000011_init.apply)(this,arguments);
-return (asm.x6000011.apply)(this,arguments); };
-asm.x6000011_ = function Main() { var t0;
-var t1;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var st_07;
-var st_08;
-var __braille_pos_0__;
-var loc0;
-var loc2;
- t0 = (asm1.A)();
+ t0 = (asm1.Program)();
 t1 = ((asm0)["System.Int32"])();
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: newobj Void .ctor()*/
-st_00 = (function () { var result;
+/* IL_00: ldsfld Int32 X*/
+st_00 = t0.X;
+/* IL_05: box System.Int32*/
+st_01 = { 
+'boxed': st_00,
+'vtable': t1.prototype.vtable 
+};
+/* IL_0A: call Void Log(System.Object)*/
+(asm1.x6000001)(st_01);
+/* IL_0F: newobj Void .ctor()*/
+st_02 = (function () { var result;
  result = new ((arguments)[0])();
 (asm1.x600000d)(result);
 return result; })(t0);
-/* IL_05: stloc.0 */
-loc0 = st_00;
-/* IL_06: ldloc.0 */
-st_01 = loc0;
-/* IL_07: callvirt Iter GetEnumerator()*/
-st_02 = (asm1.x600000c)(st_01);
-/* IL_0C: stloc.2 */
-loc2 = st_02;
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_0D: br.s IL_21*/
-__braille_pos_1__ = 0x21;
-continue;
-case 0xF:
-/* IL_0F: ldloc.2 */
-st_03 = loc2;
-/* IL_10: callvirt Int32 get_Current()*/
-st_04 = (asm1.x6000010)(st_03);
-/* IL_15: stloc.1 */
-loc1 = st_04;
-/* IL_16: ldloc.1 */
-st_05 = loc1;
-/* IL_17: box System.Int32*/
-st_06 = { 
-'boxed': st_05,
+/* IL_14: ldfld Int32 Y*/
+st_03 = st_02.Y;
+/* IL_19: box System.Int32*/
+st_04 = { 
+'boxed': st_03,
 'vtable': t1.prototype.vtable 
 };
-/* IL_1C: call Void Log(System.Object)*/
-(asm1.x6000001)(st_06);
-case 0x21:
-/* IL_21: ldloc.2 */
-st_07 = loc2;
-/* IL_22: callvirt Boolean MoveNext()*/
-st_08 = (asm1.x600000f)(st_07);
-/* IL_27: brtrue.s IL_0F*/
-if (st_08){
-__braille_pos_1__ = 0xF;continue;
-}
-/* IL_29: leave.s IL_3C*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x3C;
-break;
-}
-}
-break;
-}catch (e) {}
-case 0x3C:
-/* IL_3C: ret */
-return ;
-}
-} };
-asm.x6000012 = function _ctor(arg0) { var st_00;
+/* IL_1E: call Void Log(System.Object)*/
+(asm1.x6000001)(st_04);
+/* IL_23: ret */
+return ; };
+asm.x600000d = function _ctor(arg0) { var st_00;
+var st_01;
+var st_02;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
+/* IL_01: ldc.i4 321*/
+st_01 = 321;
+/* IL_06: stfld Int32 Y*/
+st_00.Y = st_01;
+/* IL_0B: ldarg.0 */
+st_02 = arg0;
+/* IL_0C: call Void .ctor()*/
+/* IL_11: ret */
+return ; };
+asm.x600000e_init = function () { 
+ ((asm1.Program)().init)();
+asm.x600000e = asm.x600000e_; };
+asm.x600000e = function () { 
+ (asm.x600000e_init.apply)(this,arguments);
+return (asm.x600000e.apply)(this,arguments); };
+asm.x600000e_ = function _cctor() { var t0;
+var st_00;
+ t0 = (asm1.Program)();
+/* IL_00: ldc.i4.s 123*/
+st_00 = 123;
+/* IL_02: stsfld Int32 X*/
+(t0)["X"] = st_00;
+/* IL_07: ret */
 return ; };
 asm.TestLog = (function () { var ct;
  ct = null;
@@ -6428,72 +6230,6 @@ TestHelper.prototype.vtable = {
 }; };
 TestHelper.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
-asm.A = (function () { var ct;
- ct = null;
-return function () { var c;
-var initialized;
- c = ct;
-if (c){
-return c;
-}
-initialized = false;;
-function A() { 
- (A.init)();
-this.constructor = A; };
-c = A;
-ct = c;
-A.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-A.Interfaces = [  ];
-A.IsInst = function (t) { return t instanceof A; };
-A.IsValueType = false;
-A.IsPrimitive = false;
-A.IsNullable = false;
-A.ArrayType = Array;
-A.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
-}; };
-A.prototype = new (((asm0)["System.Object"])())();;
-return c; }; })();
-asm.Iter = (function () { var ct;
- ct = null;
-return function () { var c;
-var initialized;
- c = ct;
-if (c){
-return c;
-}
-initialized = false;;
-function Iter() { 
- (Iter.init)();
-this.constructor = Iter; };
-c = Iter;
-ct = c;
-Iter.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-Iter.Interfaces = [  ];
-Iter.IsInst = function (t) { return t instanceof Iter; };
-Iter.IsValueType = false;
-Iter.IsPrimitive = false;
-Iter.IsNullable = false;
-Iter.ArrayType = Array;
-Iter.prototype.Iteri = 0;
-Iter.prototype.Iternums = null;
-Iter.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
-}; };
-Iter.prototype = new (((asm0)["System.Object"])())();;
-return c; }; })();
 asm.Program = (function () { var ct;
  ct = null;
 return function () { var c;
@@ -6513,12 +6249,15 @@ Program.init = function () {
 return;
 }
 initialized = true;
+Program.X = 0;
 Program.Interfaces = [  ];
 Program.IsInst = function (t) { return t instanceof Program; };
 Program.IsValueType = false;
 Program.IsPrimitive = false;
 Program.IsNullable = false;
 Program.ArrayType = Array;
+(asm1.x600000e)();
+Program.prototype.Y = 0;
 Program.prototype.vtable = { 
 'asm0.x6000003': asm0.x6000003,
 'asm0.x6000004': asm0.x6000004,
@@ -6526,4 +6265,4 @@ Program.prototype.vtable = {
 }; };
 Program.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
-asm.entryPoint = asm.x6000011; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x600000c; })(asm1 || (asm1 = {}));
