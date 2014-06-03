@@ -12,6 +12,14 @@ namespace Braille.JsTranslation
         public List<JSStatement> Statements = new List<JSStatement>();
 
         private int depth;
+        public int Depth
+        {
+            get
+            {
+                return depth;
+            }
+        }
+
         private bool hasBranching;
 
         public BlockBuilder(int depth)
@@ -30,7 +38,7 @@ namespace Braille.JsTranslation
                 {
                     Expression = new JSVariableDelcaration
                     {
-                        Name = "__braille_pos_" + depth + "__",
+                        Name = "__braille_pos_" + Depth + "__",
                         Value = new JSNumberLiteral { Value = 0, IsHex = true }
                     }
                 };
@@ -39,7 +47,7 @@ namespace Braille.JsTranslation
                 {
                     Condition = new JSBinaryExpression
                     {
-                        Left = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
+                        Left = new JSIdentifier { Name = "__braille_pos_" + Depth + "__" },
                         Operator = ">=",
                         Right = new JSNumberLiteral { Value = 0 }
                     },
@@ -47,7 +55,7 @@ namespace Braille.JsTranslation
                     {
                         new JSSwitchStatement
                         {
-                            Value = new JSIdentifier { Name = "__braille_pos_" + depth + "__" },
+                            Value = new JSIdentifier { Name = "__braille_pos_" + Depth + "__" },
                             Statements = Statements
                         }
                     }
@@ -71,12 +79,12 @@ namespace Braille.JsTranslation
                     var ifier = x as JSIdentifier;
                     if (ifier != null && ifier.Name == "__braille_pos__")
                     {
-                        ifier.Name = "__braille_pos_" + depth + "__";
+                        ifier.Name = "__braille_pos_" + Depth + "__";
                     }
 
                     if (ifier != null && ifier.Name == "__braille_outer_pos__")
                     {
-                        ifier.Name = "__braille_pos_" + Math.Max(0, depth - 1) + "__";
+                        ifier.Name = "__braille_pos_" + Math.Max(0, Depth - 1) + "__";
                     }
 
                     //if (ifier != null && ifier.Name == "__braille_outer_pos_marked__")

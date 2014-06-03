@@ -13,8 +13,8 @@ namespace Braille.JsTranslation
 {
     class MethodTranslator : AbstractTranslator
     {
-        private InsertLabelsPass insertFrameLabelsTask = new InsertLabelsPass();
-        private ExtractTryCatchRegionsTask insertTryCatchRegionsTask = new ExtractTryCatchRegionsTask();
+        private InsertLabelsPass insertLabelsPass = new InsertLabelsPass();
+        private ProtectedRegionsExtractor protectedRegionsExtractor = new ProtectedRegionsExtractor();
 
         public MethodTranslator(Context context)
             : base(context)
@@ -264,64 +264,80 @@ namespace Braille.JsTranslation
 
             var exprToJsTransform = new OpTranslator(context, asm, type, method);
 
-            var tryBlockQueue = new Queue<TryCatchFinallyFrameSpan>(insertTryCatchRegionsTask.Process(method, method.OpTree));
+            var regionQueue = new Queue<ProtectedRegionSpan>(protectedRegionsExtractor.Process(method, method.OpTree));
 
             var block = new BlockBuilder(0);
             var blockStack = new Stack<BlockBuilder>();
 
-            TryCatchFinallyFrameSpan awaitedBlock = null;
-            TryCatchFinallyFrameSpan currentBlock = null;
+            ProtectedRegionSpan awaitedRegion = null;
+            ProtectedRegionSpan currentRegion = null;
 
-            var tryBlockStack = new Stack<TryCatchFinallyFrameSpan>();
+            var regionStack = new Stack<ProtectedRegionSpan>();
 
-            awaitedBlock = tryBlockQueue.Dequeue();
+            awaitedRegion = regionQueue.Dequeue();
 
             foreach (var frame in method.OpTree)
             {
-                if (currentBlock != null && false == currentBlock.Contains(frame))
+                var jsStatement = exprToJsTransform.Process(frame);
+
+                if (currentRegion != null && false == currentRegion.Contains(frame))
                 {
+                    // currentBlock has ended, let's wrap it up
+
                     var parentBlock = blockStack.Pop();
-                    switch (currentBlock.Type)
+                    switch (currentRegion.Type)
                     {
-                        case FrameSpanType.Try:
+                        case RegionType.Try:
                             parentBlock.Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
                             break;
-                        case FrameSpanType.Catch:
-                            block.Statements.Insert(0, new JSStatement { Expression = new JSBinaryExpression { Left = new JSIdentifier { Name = "__braille_error_handled_" + (blockStack.Count - 1) + "__" }, Operator = "=", Right = new JSBoolLiteral { Value = false } } });
+                        case RegionType.Catch:
+                            block.Statements.Insert(0,
+                                new JSStatement
+                                {
+                                    Expression = new JSBinaryExpression
+                                    {
+                                        Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
+                                        Operator = "=",
+                                        Right = new JSBoolLiteral { Value = false }
+                                    }
+                                });
                             parentBlock.Statements.Add(new JSIfStatement
                             {
                                 Condition = new JSBinaryExpression
                                 {
                                     Left = new JSIdentifier { Name = "__braille_error__" },
                                     Operator = "instanceof",
-                                    Right = new JSIdentifier { Name = currentBlock.CatchType }
+                                    Right = new JSIdentifier { Name = currentRegion.CatchType }
                                 },
                                 Statements = block.Build().ToList()
                             });
                             break;
-                        case FrameSpanType.Fault:
+                        case RegionType.Fault:
                             block.Statements.Add(new JSStatement { Expression = new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } } });
                             parentBlock.Statements.Add(new JSIfStatement
                             {
                                 Condition = new JSBinaryExpression
                                 {
-                                    Left = new JSIdentifier { Name = "__braille_error_handled_" + (blockStack.Count - 1) + "__" },
+                                    Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
                                     Operator = "===",
                                     Right = new JSBoolLiteral { Value = false }
                                 },
                                 Statements = block.Build().ToList()
                             });
                             break;
-                        case FrameSpanType.CatchWrapper:
-                            block.Statements.Insert(0, new JSStatement { Expression = new JSVariableDelcaration { Name = "__braille_error_handled_" + blockStack.Count + "__", Value = new JSBoolLiteral { Value = false } } });
+                        case RegionType.CatchWrapper:
+                            block.Statements.Insert(0, new JSStatement
+                            {
+                                Expression = new JSVariableDelcaration { Name = "__braille_error_handled_" + block.Depth + "__", Value = new JSBoolLiteral { Value = false } }
+                            });
                             parentBlock.Statements.Add(new JSCatchBlock { Error = new JSIdentifier { Name = "__braille_error__" }, Statements = block.Build().ToList() });
                             break;
-                        case FrameSpanType.Finally:
+                        case RegionType.Finally:
                             parentBlock.Statements.Add(new JSFinallyBlock { Statements = block.Build().ToList() });
                             break;
                     }
                     block = parentBlock;
-                    currentBlock = tryBlockStack.Pop();
+                    currentRegion = regionStack.Pop();
                 }
 
                 if (frame.IsLabel)
@@ -329,16 +345,19 @@ namespace Braille.JsTranslation
                     block.InsertLabel(frame.Position);
                 }
 
-                while (awaitedBlock != null && awaitedBlock.Contains(frame))
+                while (awaitedRegion != null && awaitedRegion.Contains(frame))
                 {
+                    // we've entered awaitedBlock
+
                     blockStack.Push(block);
                     block = new BlockBuilder(blockStack.Count);
-                    tryBlockStack.Push(currentBlock);
-                    currentBlock = awaitedBlock;
-                    awaitedBlock = tryBlockQueue.Dequeue();
+
+                    regionStack.Push(currentRegion);
+                    currentRegion = awaitedRegion;
+                    awaitedRegion = regionQueue.Dequeue();
                 }
 
-                block.AddStatements(exprToJsTransform.Process(frame));
+                block.AddStatements(jsStatement);
             }
 
             functionBlock.AddRange(
