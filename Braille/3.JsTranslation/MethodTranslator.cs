@@ -1,11 +1,9 @@
-﻿using Braille.Analysis;
-using Braille.Ast;
+﻿using Braille.Ast;
 using Braille.JSAst;
 using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
@@ -13,9 +11,6 @@ namespace Braille.JsTranslation
 {
     class MethodTranslator : AbstractTranslator
     {
-        private InsertLabelsPass insertLabelsPass = new InsertLabelsPass();
-        private ProtectedRegionsExtractor protectedRegionsExtractor = new ProtectedRegionsExtractor();
-
         public MethodTranslator(Context context)
             : base(context)
         {
@@ -262,104 +257,6 @@ namespace Braille.JsTranslation
                 }
             }
 
-            var exprToJsTransform = new OpTranslator(context, asm, type, method);
-
-            var regionQueue = new Queue<ProtectedRegionSpan>(protectedRegionsExtractor.Process(method, method.OpTree));
-
-            var block = new BlockBuilder(0);
-            var blockStack = new Stack<BlockBuilder>();
-
-            ProtectedRegionSpan awaitedRegion = null;
-            ProtectedRegionSpan currentRegion = null;
-
-            var regionStack = new Stack<ProtectedRegionSpan>();
-
-            awaitedRegion = regionQueue.Dequeue();
-
-            foreach (var frame in method.OpTree)
-            {
-                var jsStatement = exprToJsTransform.Process(frame);
-
-                if (currentRegion != null && false == currentRegion.Contains(frame))
-                {
-                    // currentBlock has ended, let's wrap it up
-
-                    var parentBlock = blockStack.Pop();
-                    switch (currentRegion.Type)
-                    {
-                        case RegionType.Try:
-                            parentBlock.Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
-                            break;
-                        case RegionType.Catch:
-                            block.Statements.Insert(0,
-                                new JSStatement
-                                {
-                                    Expression = new JSBinaryExpression
-                                    {
-                                        Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
-                                        Operator = "=",
-                                        Right = new JSBoolLiteral { Value = false }
-                                    }
-                                });
-                            parentBlock.Statements.Add(new JSIfStatement
-                            {
-                                Condition = new JSBinaryExpression
-                                {
-                                    Left = new JSIdentifier { Name = "__braille_error__" },
-                                    Operator = "instanceof",
-                                    Right = new JSIdentifier { Name = currentRegion.CatchType }
-                                },
-                                Statements = block.Build().ToList()
-                            });
-                            break;
-                        case RegionType.Fault:
-                            block.Statements.Add(new JSStatement { Expression = new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } } });
-                            parentBlock.Statements.Add(new JSIfStatement
-                            {
-                                Condition = new JSBinaryExpression
-                                {
-                                    Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
-                                    Operator = "===",
-                                    Right = new JSBoolLiteral { Value = false }
-                                },
-                                Statements = block.Build().ToList()
-                            });
-                            break;
-                        case RegionType.CatchWrapper:
-                            block.Statements.Insert(0, new JSStatement
-                            {
-                                Expression = new JSVariableDelcaration { Name = "__braille_error_handled_" + block.Depth + "__", Value = new JSBoolLiteral { Value = false } }
-                            });
-                            parentBlock.Statements.Add(new JSCatchBlock { Error = new JSIdentifier { Name = "__braille_error__" }, Statements = block.Build().ToList() });
-                            break;
-                        case RegionType.Finally:
-                            parentBlock.Statements.Add(new JSFinallyBlock { Statements = block.Build().ToList() });
-                            break;
-                    }
-                    block = parentBlock;
-                    currentRegion = regionStack.Pop();
-                }
-
-                if (frame.IsLabel)
-                {
-                    block.InsertLabel(frame.Position);
-                }
-
-                while (awaitedRegion != null && awaitedRegion.Contains(frame))
-                {
-                    // we've entered awaitedBlock
-
-                    blockStack.Push(block);
-                    block = new BlockBuilder(blockStack.Count);
-
-                    regionStack.Push(currentRegion);
-                    currentRegion = awaitedRegion;
-                    awaitedRegion = regionQueue.Dequeue();
-                }
-
-                block.AddStatements(jsStatement);
-            }
-
             functionBlock.AddRange(
                 method
                     .OpTree
@@ -374,7 +271,9 @@ namespace Braille.JsTranslation
                             }
                         }));
 
-            functionBlock.AddRange(block.Build().Where(s => !(s.Expression is JSBreakExpression)));
+            var blockTranslator = new BlockTranslator(context, asm, type, method, thisScope);
+
+            functionBlock.AddRange(blockTranslator.Transform(method.Block).Where(s => !(s.Expression is JSBreakExpression)));
 
             var ps = GetParameterCount(method);
 

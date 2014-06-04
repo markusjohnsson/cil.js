@@ -10,18 +10,6 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.Analysis
 {
-    public static class TypeExtensions
-    {
-        public static IEnumerable<Type> GetTypeChain(this IKVM.Reflection.Type node)
-        {
-            while (node != null)
-            {
-                yield return node;
-                node = node.BaseType;
-            }
-        }
-    }
-
     class LocalInfo
     {
         public bool IsUsed = false;

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Braille.Analysis;
+using Braille.Ast;
 
 namespace Braille.JsTranslation
 {
@@ -113,7 +115,7 @@ namespace Braille.JsTranslation
             }
         }
 
-        internal void InsertLabel(int p)
+        public void InsertLabel(int p)
         {
             if (false == hasBranching)
                 Statements.Insert(0, new JSSwitchCase { Value = new JSNumberLiteral { Value = 0, IsHex = true } });
@@ -123,7 +125,62 @@ namespace Braille.JsTranslation
             Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = p, IsHex = true } });
         }
 
-        internal void AddStatements(IEnumerable<JSStatement> statements)
+        public void InsertBlock(BlockBuilder block, BlockKind kind, JSExpression catchType)
+        {
+            switch (kind)
+            {
+                case BlockKind.Try:
+                    Statements.Add(new JSTryBlock { Statements = block.Build().ToList() });
+                    break;
+                case BlockKind.Catch:
+                    block.Statements.Insert(0,
+                        new JSStatement
+                        {
+                            Expression = new JSBinaryExpression
+                            {
+                                Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
+                                Operator = "=",
+                                Right = new JSBoolLiteral { Value = false }
+                            }
+                        });
+                    Statements.Add(new JSIfStatement
+                    {
+                        Condition = new JSBinaryExpression
+                        {
+                            Left = new JSIdentifier { Name = "__braille_error__" },
+                            Operator = "instanceof",
+                            Right = catchType
+                        },
+                        Statements = block.Build().ToList()
+                    });
+                    break;
+                case BlockKind.Fault:
+                    block.Statements.Add(new JSStatement { Expression = new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } } });
+                    Statements.Add(new JSIfStatement
+                    {
+                        Condition = new JSBinaryExpression
+                        {
+                            Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
+                            Operator = "===",
+                            Right = new JSBoolLiteral { Value = false }
+                        },
+                        Statements = block.Build().ToList()
+                    });
+                    break;
+                case BlockKind.CatchWrapper:
+                    block.Statements.Insert(0, new JSStatement
+                    {
+                        Expression = new JSVariableDelcaration { Name = "__braille_error_handled_" + block.Depth + "__", Value = new JSBoolLiteral { Value = false } }
+                    });
+                    Statements.Add(new JSCatchBlock { Error = new JSIdentifier { Name = "__braille_error__" }, Statements = block.Build().ToList() });
+                    break;
+                case BlockKind.Finally:
+                    Statements.Add(new JSFinallyBlock { Statements = block.Build().ToList() });
+                    break;
+            }
+        }
+
+        public void InsertStatements(IEnumerable<JSStatement> statements)
         {
             Statements.AddRange(statements);
         }

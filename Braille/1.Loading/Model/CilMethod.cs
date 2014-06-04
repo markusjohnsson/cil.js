@@ -158,5 +158,7 @@ namespace Braille.Ast
         public Analysis.LocalInfo[] Locals { get; set; }
 
         public IList<OpExpression> OpTree { get; set; }
+
+        public Block Block { get; set; }
     }
 }

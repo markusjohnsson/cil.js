@@ -40,7 +40,7 @@ namespace Braille.Analysis
 
         public IEnumerable<IAnalysisPass> GetPasses(Context ctx)
         {
-            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from                
+            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
             yield return new StackAnalyzer();
 
             // Turn stack based OpInstructions into variable based OpExpressions
@@ -52,6 +52,7 @@ namespace Braille.Analysis
             yield return new TypeUsageAnalysis(ctx.ReflectionUniverse);
             yield return new InsertLabelsPass();
 
+            yield return new CreateBlocksPass();
         }
 
     }

@@ -46,15 +46,18 @@
     <Compile Include="1.Loading\Model\CilMethod.cs" />
     <Compile Include="1.Loading\Model\CilType.cs" />
     <Compile Include="1.Loading\Model\Context.cs" />
+    <Compile Include="2.Analysis\Ast\Block.cs" />
     <Compile Include="2.Analysis\Ast\Ops\CallNode.cs" />
     <Compile Include="2.Analysis\Ast\OpExpression.cs" />
     <Compile Include="2.Analysis\Ast\ExceptionNode.cs" />
     <Compile Include="2.Analysis\Ast\Ops\LoadFunctionNode.cs" />
     <Compile Include="2.Analysis\Ast\StackUseDefinition.cs" />
     <Compile Include="2.Analysis\Ast\VariableInfo.cs" />
+    <Compile Include="2.Analysis\Ast\JumpLabel.cs" />
     <Compile Include="2.Analysis\Passes\LocalsAnalyzer.cs" />
     <Compile Include="2.Analysis\Passes\AbstractFlowControlPass.cs" />
     <Compile Include="2.Analysis\Passes\IRewriter.cs" />
+    <Compile Include="2.Analysis\Passes\CreateBlocksPass.cs" />
     <Compile Include="2.Analysis\Passes\UnreachableRemoval.cs" />
     <Compile Include="2.Analysis\Passes\StackAnalyzer.cs" />
     <Compile Include="2.Analysis\StaticAnalyzer.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="3.JsTranslation\AssemblyTranslator.cs" />
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />
+    <Compile Include="3.JsTranslation\BlockTranslator.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSTemplatedRawExpression.cs" />
     <Compile Include="2.Analysis\Passes\StackRemoval.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />
@@ -76,7 +80,6 @@
     <Compile Include="1.Loading\Model\OpInstruction.cs" />
     <Compile Include="1.Loading\OpInstructionReader.cs" />
     <Compile Include="2.Analysis\OpExpressionBuilder.cs" />
-    <Compile Include="2.Analysis\ExtractTryCatchRegionsTask.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSBreakExpression.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSConditionalExpression.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSIfStatement.cs" />
