@@ -6229,7 +6229,10 @@ break;
 }
 }
 break;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x2C:
 /* IL_2C: ret */
 return ;

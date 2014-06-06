@@ -53,6 +53,7 @@ namespace Braille.Analysis
             yield return new InsertLabelsPass();
 
             yield return new CreateBlocksPass();
+            yield return new AggregateBlocksPass();
         }
 
     }

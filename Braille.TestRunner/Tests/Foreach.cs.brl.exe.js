@@ -6352,7 +6352,10 @@ break;
 }
 }
 break;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x3C:
 /* IL_3C: ret */
 return ;

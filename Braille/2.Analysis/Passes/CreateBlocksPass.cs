@@ -41,8 +41,8 @@ namespace Braille.Analysis.Passes
             public IEnumerable<ProtectedRegionSpan> GetSpans()
             {
                 yield return TrySpan;
-                if (GetExceptionHandlers().Any())
-                    yield return new ProtectedRegionSpan(GetExceptionHandlers().Min(c => c.From), GetExceptionHandlers().Max(c => c.To), RegionKind.CatchWrapper);
+                //if (GetExceptionHandlers().Any())
+                //    yield return new ProtectedRegionSpan(GetExceptionHandlers().Min(c => c.From), GetExceptionHandlers().Max(c => c.To), RegionKind.CatchWrapper);
                 foreach (var span in CatchSpan)
                     yield return span;
                 if (FaultSpan != null)
@@ -110,7 +110,8 @@ namespace Braille.Analysis.Passes
                     // we've entered awaitedRegion
 
                     blockStack.Push(block);
-                    block = new Block(Convert(awaitedRegion.Type));
+
+                    block = CreateBlock(awaitedRegion);
 
                     regionStack.Push(currentRegion);
                     currentRegion = awaitedRegion;
@@ -123,22 +124,22 @@ namespace Braille.Analysis.Passes
             method.Block = rootBlock;
         }
 
-        private BlockKind Convert(RegionKind regionType)
+        private Block CreateBlock(ProtectedRegionSpan regionSpan)
         {
-            switch (regionType)
+            switch (regionSpan.Type)
             {
                 case RegionKind.Try:
-                    return BlockKind.Try;
-                case RegionKind.CatchWrapper:
-                    return BlockKind.CatchWrapper;
+                    return new TryBlock();
+                //case RegionKind.CatchWrapper:
+                //    return BlockKind.CatchWrapper;
                 case RegionKind.Catch:
-                    return BlockKind.Catch;
+                    return new CatchBlock(regionSpan.CatchType);
                 case RegionKind.Finally:
-                    return BlockKind.Finally;
+                    return new FinallyBlock();
                 case RegionKind.Fault:
-                    return BlockKind.Fault;
+                    return new FaultBlock();
                 default:
-                    return BlockKind.Normal;
+                    return new Block(BlockKind.Normal);
             }
         }
 

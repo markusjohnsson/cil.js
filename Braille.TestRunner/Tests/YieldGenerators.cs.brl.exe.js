@@ -6248,7 +6248,10 @@ break;
 }
 }
 break;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x28:
 /* IL_28: ldloca.s 3*/
 st_07 = { 
@@ -6331,7 +6334,10 @@ break;
 }
 }
 break;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x28:
 /* IL_28: ldc.i4.0 */
 st_07 = 0;
@@ -6866,7 +6872,10 @@ break;
 }
 }
 break;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x94:
 /* IL_94: ldloc.0 */
 st_1F = loc0;
@@ -6939,7 +6948,10 @@ try {
 /* IL_18: leave.s IL_21*/
 __braille_pos_1__ = -1;
 __braille_pos_0__ = 0x21;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x21:
 /* IL_21: ret */
 return ;
@@ -7291,7 +7303,10 @@ break;
 }
 }
 break;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x9C:
 /* IL_9C: ldloc.0 */
 st_21 = loc0;
@@ -7364,7 +7379,10 @@ try {
 /* IL_18: leave.s IL_21*/
 __braille_pos_1__ = -1;
 __braille_pos_0__ = 0x21;
-}catch (e) {}
+}
+catch (_) {
+
+}
 case 0x21:
 /* IL_21: ret */
 return ;

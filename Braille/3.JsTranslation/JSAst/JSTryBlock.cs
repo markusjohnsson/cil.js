@@ -33,7 +33,7 @@ namespace Braille.JSAst
 
         public override string ToString()
         {
-            return "catch (" + Error.ToString() + ") {\n" + string.Join("\n", Statements) + "\n}";
+            return string.Format("catch ({0}) {{\n{1}\n}}", Error, Statements == null ? "" : string.Join("\n", Statements));
         }
     }
 

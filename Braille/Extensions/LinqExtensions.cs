@@ -38,5 +38,13 @@ namespace Braille
 
             return -1;
         }
+
+        public static void ReplaceRange<T>(this List<T> source, T from, T to, IEnumerable<T> replacement)
+        {
+            var fromIndex = source.IndexOf(from);
+            var toIndex = source.IndexOf(to) + 1;
+            source.RemoveRange(fromIndex, toIndex - fromIndex);
+            source.InsertRange(fromIndex, replacement);
+        }
     }
 }
