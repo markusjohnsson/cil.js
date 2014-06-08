@@ -11,12 +11,50 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
+    /// <summary>
+    /// Translates CilTypes into JavaScript AST. 
+    /// 
+    /// Type methods are not translated here, only type initialization, vtables, interface maps and default field values.
+    /// </summary>
     class TypeTranslator : AbstractTranslator
     {
         public TypeTranslator(Context context)
             : base(context)
         {
         }
+
+        // The structure of the type initializer is approximately as follows:
+        // 
+        //     asm[fullname] = (function () {
+        // 
+        //         var ct = ... // keeps cached instances of constructor(s) (one for each unique generic arguments setup)
+        //         
+        //         return function (generic_parameters) {
+        //             
+        //             // early return if there is a cached instance of the constructor
+        //
+        //             // object constructor in the JavaScript sense
+        //             function escaped_simple_name() {}  
+        //
+        //             // cache constructor instance 
+        //
+        //             // type initializer (not needed to create type hierarchy, but needed to create object instances)
+        //             escaped_simple_name.init = function() {
+        //
+        //                 // set field default values
+        //                 escaped_simple_name.prototype.myField = 0;
+        //
+        //                 // create vtable and interface maps
+        //                 escaped_simple_name.prototype.vtable = ...
+        //
+        //                 escaped_simple_name.prototype[interface_type] = ...
+        //             }
+        //             
+        //             escaped_simple_name.prototype = new asm0['basetype']();
+        //
+        //             return escaped_simple_name;
+        //         })();
+        //     }
 
         public JSExpression Translate(CilType type)
         {
@@ -359,7 +397,7 @@ namespace Braille.JsTranslation
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
                         m => GetVirtualMethodIdentifier(m),
-                        m => GetMethodAccessor(m))
+                        m => new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m) }.ToStatement()  } } as JSExpression)
             };
         }
 
@@ -379,7 +417,7 @@ namespace Braille.JsTranslation
                         (ifaceMethod, targetMethod) => new { ifaceMethod, targetMethod })
                     .ToDictionary(
                         m => GetMethodIdentifier(m.ifaceMethod),
-                        m => GetMethodAccessor(m.targetMethod))
+                        m => new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m.targetMethod) }.ToStatement() } } as JSExpression)
             };
         }
 

@@ -55,9 +55,10 @@ function unbox_any(o, type) {
 }
 
 function tree_get(a, s) {
-    if (a.length == 0) return s;
-    var c = s[a[0]];
-    return c && tree_get(a.slice(1), c);
+    var c = s;
+    for (var i = 0; c && i < a.length; i++)
+        c = c[a[i]];
+    return c;
 }
 
 function tree_set(a, s, v) {
@@ -169,7 +170,7 @@ case 0x19:
 /* IL_19: ldarg.0 */
 st_08 = arg0;
 /* IL_1A: callvirt String ToString()*/
-st_09 = ((st_08.vtable)["asm0.x6000003"])(st_08);
+st_09 = (((st_08.vtable)["asm0.x6000003"])())(st_08);
 /* IL_1F: ldfld Object jsstr*/
 st_0A = st_09.jsstr;
 /* IL_24: stloc.0 */
@@ -409,7 +410,7 @@ st_1D = arg0;
 /* IL_4D: ldarg.1 */
 st_1E = arg1;
 /* IL_4E: callvirt Delegate CombineImpl(System.Delegate)*/
-st_1F = ((st_1D.vtable)["asm0.x600000d"])(st_1D,st_1E);
+st_1F = (((st_1D.vtable)["asm0.x600000d"])())(st_1D,st_1E);
 /* IL_53: stloc.0 */
 loc0 = st_1F;
 case 0x56:
@@ -514,7 +515,7 @@ st_0F = arg0;
 /* IL_2E: ldarg.1 */
 st_10 = arg1;
 /* IL_2F: callvirt Delegate RemoveImpl(System.Delegate)*/
-st_11 = ((st_0F.vtable)["asm0.x600000c"])(st_0F,st_10);
+st_11 = (((st_0F.vtable)["asm0.x600000c"])())(st_0F,st_10);
 /* IL_34: stloc.0 */
 loc0 = st_11;
 case 0x37:
@@ -1851,7 +1852,7 @@ var loc0;
 /* IL_01: ldarg.0 */
 st_00 = arg0;
 /* IL_02: callvirt IEnumerator GetEnumeratorImpl()*/
-st_01 = ((st_00.vtable)["asm0.x6000024"])(st_00);
+st_01 = (((st_00.vtable)["asm0.x6000024"])())(st_00);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -1871,11 +1872,13 @@ asm.x6000028 = function (arg0) {
  (asm.x6000028_init.apply)(this,arguments);
 return (asm.x6000028.apply)(this,arguments); };
 asm.x6000028_ = function GetEnumerator(arg0) { var t0;
+var t1;
 var st_00;
 var st_01;
 var st_02;
 var loc0;
- t0 = ((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]);
+ t0 = ((arguments)[0].constructor.GenericArguments)[0];
+t1 = ((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]);
 /* IL_00: nop */
 /* IL_01: ldarg.0 */
 st_00 = arg0;
@@ -1883,7 +1886,7 @@ st_00 = arg0;
 st_01 = (function () { var result;
  result = new ((arguments)[0])();
 (asm0.x6000031)(result,st_00);
-return result; })(t0);
+return result; })(t1);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -1978,18 +1981,20 @@ loc0 = st_0A;
 st_0B = loc0;
 /* IL_21: ret */
 return st_0B; };
-asm.x6000034 = function System_Collections_IEnumerator_get_Current(arg0) { var st_00;
+asm.x6000034 = function System_Collections_IEnumerator_get_Current(arg0) { var t0;
+var st_00;
 var st_01;
 var st_02;
 var st_03;
 var loc0;
- /* IL_00: nop */
+ t0 = ((arguments)[0].constructor.GenericArguments)[0];
+/* IL_00: nop */
 /* IL_01: ldarg.0 */
 st_00 = arg0;
 /* IL_02: call T get_Current()*/
 st_01 = (asm0.x6000032)(st_00);
 /* IL_07: box T*/
-st_02 = box(st_01,((arguments)[0].constructor.GenericArguments)[0]);
+st_02 = box(st_01,t0);
 /* IL_0C: stloc.0 */
 loc0 = st_02;
 /* IL_0F: ldloc.0 */
@@ -2158,6 +2163,7 @@ asm.x600003e = function (arg0,arg1) {
  (asm.x600003e_init.apply)(this,arguments);
 return (asm.x600003e.apply)(this,arguments); };
 asm.x600003e_ = function Equals(arg0,arg1) { var t0;
+var t1;
 var st_00;
 var st_01;
 var st_02;
@@ -2182,7 +2188,8 @@ var st_14;
 var __braille_pos_0__;
 var loc1;
 var loc0;
- t0 = ((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]);
+ t0 = (((arguments)[0].r)().constructor.GenericArguments)[0];
+t1 = ((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]);
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
@@ -2224,7 +2231,7 @@ case 0x18:
 /* IL_18: ldarg.1 */
 st_0A = arg1;
 /* IL_19: isinst System.Nullable`1[T]*/
-st_0B = (t0.IsInst)(st_0A);
+st_0B = (t1.IsInst)(st_0A);
 /* IL_1E: ldnull */
 st_0C = null;
 /* IL_20: cgt.un */
@@ -2250,7 +2257,7 @@ st_11 = arg0;
 /* IL_2A: ldarg.1 */
 st_10 = arg1;
 /* IL_2B: unbox.any System.Nullable`1[T]*/
-st_12 = unbox_any(st_10,t0);
+st_12 = unbox_any(st_10,t1);
 /* IL_30: call Boolean Equals(System.Nullable`1[T])*/
 st_13 = (asm0.x600003f)(st_11,clone_value(st_12));
 /* IL_35: stloc.0 */
@@ -2262,7 +2269,8 @@ st_14 = loc0;
 return st_14;
 }
 } };
-asm.x600003f = function Equals(arg0,arg1) { var st_00;
+asm.x600003f = function Equals(arg0,arg1) { var t0;
+var st_00;
 var st_02;
 var st_01;
 var st_03;
@@ -2283,7 +2291,8 @@ var st_11;
 var __braille_pos_0__;
 var loc1;
 var loc0;
- __braille_pos_0__ = 0x0;
+ t0 = (((arguments)[0].r)().constructor.GenericArguments)[0];
+__braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
@@ -2359,10 +2368,10 @@ st_0C = arg0;
 /* IL_2E: ldfld T value*/
 st_0D = (st_0C.r)().value;
 /* IL_33: box T*/
-st_0F = box(st_0D,(((arguments)[0].r)().constructor.GenericArguments)[0]);
+st_0F = box(st_0D,t0);
 /* IL_3E: callvirt Boolean Equals(System.Object)*/
 /* ignoring prefixes constrained.*/
-st_10 = ((st_0E.vtable)["asm0.x6000007"])(st_0E,st_0F);
+st_10 = (((st_0E.vtable)["asm0.x6000007"])())(st_0E,st_0F);
 /* IL_43: stloc.0 */
 loc0 = st_10;
 case 0x46:
@@ -2420,7 +2429,7 @@ st_05 = {
 };
 /* IL_1B: callvirt Int32 GetHashCode()*/
 /* ignoring prefixes constrained.*/
-st_06 = ((st_05.vtable)["asm0.x6000004"])(st_05);
+st_06 = (((st_05.vtable)["asm0.x6000004"])())(st_05);
 /* IL_20: stloc.0 */
 loc0 = st_06;
 case 0x23:
@@ -2541,7 +2550,7 @@ st_06 = {
 };
 /* IL_1A: callvirt String ToString()*/
 /* ignoring prefixes constrained.*/
-st_07 = ((st_06.vtable)["asm0.x6000003"])(st_06);
+st_07 = (((st_06.vtable)["asm0.x6000003"])())(st_06);
 /* IL_1F: stloc.0 */
 loc0 = st_07;
 /* IL_20: br.s IL_2A*/
@@ -2569,11 +2578,13 @@ asm.x6000044 = function (T) {
 return ((asm.x6000044)(T).apply)(this,arguments); }; };
 asm.x6000044_ = function (T) { 
  return function op_Implicit(arg0) { var t0;
+var t1;
 var st_00;
 var st_01;
 var st_02;
 var loc0;
- t0 = ((asm0)["System.Nullable`1"])(T);
+ t0 = T;
+t1 = ((asm0)["System.Nullable`1"])(T);
 /* IL_00: nop */
 /* IL_01: ldarg.0 */
 st_00 = arg0;
@@ -2586,7 +2597,7 @@ st_01 = (function () { var result;
 'r': function () { 
  return result; } 
 },clone_value(st_00));
-return result; })(t0);
+return result; })(t1);
 /* IL_07: stloc.0 */
 loc0 = st_01;
 /* IL_0A: ldloc.0 */
@@ -2615,7 +2626,8 @@ st_02 = loc0;
 /* IL_0C: ret */
 return st_02; }; };
 asm.x6000046 = function (T) { 
- return function Box(arg0) { var st_00;
+ return function Box(arg0) { var t0;
+var st_00;
 var st_01;
 var st_02;
 var st_03;
@@ -2626,7 +2638,8 @@ var st_07;
 var __braille_pos_0__;
 var loc1;
 var loc0;
- __braille_pos_0__ = 0x0;
+ t0 = T;
+__braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
@@ -2667,7 +2680,7 @@ st_04 = {
 /* IL_12: ldfld T value*/
 st_05 = (st_04.r)().value;
 /* IL_17: box T*/
-st_06 = box(st_05,T);
+st_06 = box(st_05,t0);
 /* IL_1C: stloc.0 */
 loc0 = st_06;
 case 0x1F:
@@ -2687,6 +2700,7 @@ asm.x6000047 = function (T) {
 return ((asm.x6000047)(T).apply)(this,arguments); }; };
 asm.x6000047_ = function (T) { 
  return function Unbox(arg0) { var t0;
+var t1;
 var loc2;
 var st_00;
 var st_01;
@@ -2703,7 +2717,8 @@ var st_0B;
 var __braille_pos_0__;
 var loc1;
 var loc0;
- t0 = ((asm0)["System.Nullable`1"])(T);
+ t0 = T;
+t1 = ((asm0)["System.Nullable`1"])(T);
 loc2 = new (((asm0)["System.Nullable`1"])(T))();
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
@@ -2737,7 +2752,7 @@ st_06 = {
  return loc2; } 
 };
 /* IL_0F: initobj System.Nullable`1[T]*/
-(t0.IsValueType) ? ((st_06.w)(new t0())) : (null);
+(t1.IsValueType) ? ((st_06.w)(new t1())) : (null);
 /* IL_14: ldloc.2 */
 st_07 = loc2;
 /* IL_15: stloc.0 */
@@ -2749,7 +2764,7 @@ case 0x18:
 /* IL_18: ldarg.0 */
 st_08 = arg0;
 /* IL_19: unbox.any T*/
-st_09 = unbox_any(st_08,T);
+st_09 = unbox_any(st_08,t0);
 /* IL_1E: newobj Void .ctor(T)*/
 st_0A = (function () { var result;
  result = new ((arguments)[0])();
@@ -2759,7 +2774,7 @@ st_0A = (function () { var result;
 'r': function () { 
  return result; } 
 },clone_value(st_09));
-return result; })(t0);
+return result; })(t1);
 /* IL_23: stloc.0 */
 loc0 = st_0A;
 case 0x26:
@@ -2909,7 +2924,7 @@ st_04 = 0;
 /* IL_0A: ldarg.0 */
 st_02 = arg0;
 /* IL_0B: callvirt String ToString()*/
-st_05 = ((st_02.vtable)["asm0.x6000003"])(st_02);
+st_05 = (((st_02.vtable)["asm0.x6000003"])())(st_02);
 /* IL_10: stelem.ref */
 (st_03.jsarr)[st_04] = st_05;
 /* IL_11: ldloc.1 */
@@ -2919,7 +2934,7 @@ st_08 = 1;
 /* IL_13: ldarg.1 */
 st_06 = arg1;
 /* IL_14: callvirt String ToString()*/
-st_09 = ((st_06.vtable)["asm0.x6000003"])(st_06);
+st_09 = (((st_06.vtable)["asm0.x6000003"])())(st_06);
 /* IL_19: stelem.ref */
 (st_07.jsarr)[st_08] = st_09;
 /* IL_1A: ldloc.1 */
@@ -3286,7 +3301,7 @@ var st_01;
 /* IL_01: ldarg.0 */
 st_00 = arg0;
 /* IL_02: callvirt String ToString()*/
-st_01 = ((st_00.vtable)["asm0.x6000003"])(st_00);
+st_01 = (((st_00.vtable)["asm0.x6000003"])())(st_00);
 /* IL_07: call Void WriteLineImpl(System.String)*/
 (asm0.x6000063)(st_01);
 /* IL_0C: nop */
@@ -3965,9 +3980,12 @@ $$Object.IsPrimitive = false;
 $$Object.IsNullable = false;
 $$Object.ArrayType = Array;
 $$Object.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 $$Object.prototype = { 
  
@@ -4001,11 +4019,16 @@ Delegate.ArrayType = Array;
 Delegate.prototype._methodPtr = null;
 Delegate.prototype._target = null;
 Delegate.prototype.vtable = { 
-'asm0.x600000c': asm0.x600000c,
-'asm0.x600000d': asm0.x600000d,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x600000c': function () { 
+ return asm0.x600000c; },
+'asm0.x600000d': function () { 
+ return asm0.x600000d; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Delegate.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4035,9 +4058,12 @@ Attribute.IsPrimitive = false;
 Attribute.IsNullable = false;
 Attribute.ArrayType = Array;
 Attribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Attribute.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4067,9 +4093,12 @@ ExtensionAttribute.IsPrimitive = false;
 ExtensionAttribute.IsNullable = false;
 ExtensionAttribute.ArrayType = Array;
 ExtensionAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 ExtensionAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4099,9 +4128,12 @@ IndexerNameAttribute.IsPrimitive = false;
 IndexerNameAttribute.IsNullable = false;
 IndexerNameAttribute.ArrayType = Array;
 IndexerNameAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 IndexerNameAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4131,9 +4163,12 @@ RuntimeHelpers.IsPrimitive = false;
 RuntimeHelpers.IsNullable = false;
 RuntimeHelpers.ArrayType = Array;
 RuntimeHelpers.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 RuntimeHelpers.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4166,11 +4201,16 @@ MulticastDelegate.prototype._invocationList = null;
 MulticastDelegate.prototype._methodPtr = null;
 MulticastDelegate.prototype._target = null;
 MulticastDelegate.prototype.vtable = { 
-'asm0.x600000d': asm0.x6000017,
-'asm0.x600000c': asm0.x6000018,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x600000d': function () { 
+ return asm0.x6000017; },
+'asm0.x600000c': function () { 
+ return asm0.x6000018; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 MulticastDelegate.prototype = new (((asm0)["System.Delegate"])())();;
 return c; }; })();
@@ -4202,9 +4242,12 @@ EventArgs.IsNullable = false;
 EventArgs.ArrayType = Array;
 (asm0.x600001b)();
 EventArgs.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 EventArgs.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4237,12 +4280,18 @@ EventHandler.prototype._invocationList = null;
 EventHandler.prototype._methodPtr = null;
 EventHandler.prototype._target = null;
 EventHandler.prototype.vtable = { 
-'asm0.x600001d': asm0.x600001d,
-'asm0.x600000d': asm0.x6000017,
-'asm0.x600000c': asm0.x6000018,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x600001d': function () { 
+ return asm0.x600001d; },
+'asm0.x600000d': function () { 
+ return asm0.x6000017; },
+'asm0.x600000c': function () { 
+ return asm0.x6000018; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 EventHandler.prototype = { 
  
@@ -4274,7 +4323,8 @@ IEnumerable.IsPrimitive = false;
 IEnumerable.IsNullable = false;
 IEnumerable.ArrayType = Array;
 IEnumerable.prototype.vtable = { 
-'asm0.x600001e': asm0.x600001e 
+'asm0.x600001e': function () { 
+ return asm0.x600001e; } 
 }; };
 IEnumerable.prototype = { 
  
@@ -4308,14 +4358,20 @@ Array.ArrayType = Array;
 Array.prototype.type = null;
 Array.prototype.jsarr = null;
 Array.prototype.vtable = { 
-'asm0.x6000023': asm0.x6000023,
-'asm0.x6000024': asm0.x6000024,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000023': function () { 
+ return asm0.x6000023; },
+'asm0.x6000024': function () { 
+ return asm0.x6000024; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 };
 (Array.prototype)[((asm0)["System.Collections.IEnumerable"])()] = { 
-'x600001e': asm0.x6000023 
+'x600001e': function () { 
+ return asm0.x6000023; } 
 }; };
 Array.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4348,7 +4404,8 @@ IEnumerable_1.IsNullable = false;
 IEnumerable_1.ArrayType = Array;
 IEnumerable_1.GenericArguments = [ T ];
 IEnumerable_1.prototype.vtable = { 
-'asm0.x6000026': asm0.x6000026 
+'asm0.x6000026': function () { 
+ return asm0.x6000026; } 
 }; };
 IEnumerable_1.prototype = { 
  
@@ -4385,18 +4442,26 @@ Array_1.GenericArguments = [ T ];
 Array_1.prototype.type = null;
 Array_1.prototype.jsarr = null;
 Array_1.prototype.vtable = { 
-'asm0.x6000028': asm0.x6000028,
-'asm0.x6000024': asm0.x6000029,
-'asm0.x6000023': asm0.x6000023,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000028': function () { 
+ return asm0.x6000028; },
+'asm0.x6000024': function () { 
+ return asm0.x6000029; },
+'asm0.x6000023': function () { 
+ return asm0.x6000023; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 };
 (Array_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = { 
-'x6000026': asm0.x6000028 
+'x6000026': function () { 
+ return asm0.x6000028; } 
 };
 (Array_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = { 
-'x600001e': asm0.x6000023 
+'x600001e': function () { 
+ return asm0.x6000023; } 
 }; };
 Array_1.prototype = new (((asm0)["System.Array"])())();;
 return c; }; })();
@@ -4426,7 +4491,8 @@ IDisposable.IsPrimitive = false;
 IDisposable.IsNullable = false;
 IDisposable.ArrayType = Array;
 IDisposable.prototype.vtable = { 
-'asm0.x600002b': asm0.x600002b 
+'asm0.x600002b': function () { 
+ return asm0.x600002b; } 
 }; };
 IDisposable.prototype = { 
  
@@ -4458,9 +4524,12 @@ IEnumerator.IsPrimitive = false;
 IEnumerator.IsNullable = false;
 IEnumerator.ArrayType = Array;
 IEnumerator.prototype.vtable = { 
-'asm0.x600002c': asm0.x600002c,
-'asm0.x600002d': asm0.x600002d,
-'asm0.x600002e': asm0.x600002e 
+'asm0.x600002c': function () { 
+ return asm0.x600002c; },
+'asm0.x600002d': function () { 
+ return asm0.x600002d; },
+'asm0.x600002e': function () { 
+ return asm0.x600002e; } 
 }; };
 IEnumerator.prototype = { 
  
@@ -4495,8 +4564,10 @@ IEnumerator_1.IsNullable = false;
 IEnumerator_1.ArrayType = Array;
 IEnumerator_1.GenericArguments = [ T ];
 IEnumerator_1.prototype.vtable = { 
-'asm0.x600002f': asm0.x600002f,
-'asm0.x6000030': asm0.x6000030 
+'asm0.x600002f': function () { 
+ return asm0.x600002f; },
+'asm0.x6000030': function () { 
+ return asm0.x6000030; } 
 }; };
 IEnumerator_1.prototype = { 
  
@@ -4534,26 +4605,40 @@ ArrayEnumerator.prototype.index = 0;
 ArrayEnumerator.prototype.length = 0;
 ArrayEnumerator.prototype.source = null;
 ArrayEnumerator.prototype.vtable = { 
-'asm0.x6000032': asm0.x6000032,
-'asm0.x6000033': asm0.x6000033,
-'asm0.x6000034': asm0.x6000034,
-'asm0.x6000035': asm0.x6000035,
-'asm0.x6000036': asm0.x6000036,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000032': function () { 
+ return asm0.x6000032; },
+'asm0.x6000033': function () { 
+ return asm0.x6000033; },
+'asm0.x6000034': function () { 
+ return asm0.x6000034; },
+'asm0.x6000035': function () { 
+ return asm0.x6000035; },
+'asm0.x6000036': function () { 
+ return asm0.x6000036; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 };
 (ArrayEnumerator.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = { 
-'x600002f': asm0.x6000032,
-'x6000030': asm0.x6000033 
+'x600002f': function () { 
+ return asm0.x6000032; },
+'x6000030': function () { 
+ return asm0.x6000033; } 
 };
 (ArrayEnumerator.prototype)[((asm0)["System.Collections.IEnumerator"])()] = { 
-'x600002c': asm0.x6000034,
-'x600002d': asm0.x6000033,
-'x600002e': asm0.x6000035 
+'x600002c': function () { 
+ return asm0.x6000034; },
+'x600002d': function () { 
+ return asm0.x6000033; },
+'x600002e': function () { 
+ return asm0.x6000035; } 
 };
 (ArrayEnumerator.prototype)[((asm0)["System.IDisposable"])()] = { 
-'x600002b': asm0.x6000036 
+'x600002b': function () { 
+ return asm0.x6000036; } 
 }; };
 ArrayEnumerator.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4583,9 +4668,12 @@ DebuggerStepThroughAttribute.IsPrimitive = false;
 DebuggerStepThroughAttribute.IsNullable = false;
 DebuggerStepThroughAttribute.ArrayType = Array;
 DebuggerStepThroughAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 DebuggerStepThroughAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4615,9 +4703,12 @@ ValueType.IsPrimitive = false;
 ValueType.IsNullable = false;
 ValueType.ArrayType = Array;
 ValueType.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 ValueType.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4647,9 +4738,12 @@ Enum.IsPrimitive = false;
 Enum.IsNullable = false;
 Enum.ArrayType = Array;
 Enum.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Enum.prototype = { 
  
@@ -4698,9 +4792,12 @@ AttributeTargets.IsNullable = false;
 AttributeTargets.ArrayType = Array;
 AttributeTargets.prototype.value__ = 0;
 AttributeTargets.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 AttributeTargets.prototype = new (((asm0)["System.Enum"])())();;
 return c; }; })();
@@ -4730,9 +4827,12 @@ ComVisibleAttribute.IsPrimitive = false;
 ComVisibleAttribute.IsNullable = false;
 ComVisibleAttribute.ArrayType = Array;
 ComVisibleAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 ComVisibleAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4767,9 +4867,12 @@ Nullable_1.GenericArguments = [ T ];
 Nullable_1.prototype.value = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
 Nullable_1.prototype.has_value = false;
 Nullable_1.prototype.vtable = { 
-'asm0.x6000007': asm0.x600003e,
-'asm0.x6000004': asm0.x6000040,
-'asm0.x6000003': asm0.x6000043 
+'asm0.x6000007': function () { 
+ return asm0.x600003e; },
+'asm0.x6000004': function () { 
+ return asm0.x6000040; },
+'asm0.x6000003': function () { 
+ return asm0.x6000043; } 
 }; };
 Nullable_1.prototype = { 
  
@@ -4801,9 +4904,12 @@ SerializableAttribute.IsPrimitive = false;
 SerializableAttribute.IsNullable = false;
 SerializableAttribute.ArrayType = Array;
 SerializableAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 SerializableAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4836,9 +4942,12 @@ $$String.ArrayType = Array;
 (asm0.x6000057)();
 $$String.prototype.jsstr = null;
 $$String.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000052,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000052; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 $$String.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -4869,9 +4978,12 @@ DefaultMemberAttribute.IsNullable = false;
 DefaultMemberAttribute.ArrayType = Array;
 DefaultMemberAttribute.prototype.System_ReflectionDefaultMemberAttributemember_name = null;
 DefaultMemberAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 DefaultMemberAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4903,9 +5015,12 @@ AttributeUsageAttribute.ArrayType = Array;
 (AttributeUsageAttribute.prototype)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"] = new (((asm0)["System.AttributeTargets"])())();
 (AttributeUsageAttribute.prototype)["SystemAttributeUsageAttribute<Inherited>k__BackingField"] = false;
 AttributeUsageAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 AttributeUsageAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -4935,9 +5050,12 @@ $$Boolean.IsPrimitive = true;
 $$Boolean.IsNullable = false;
 $$Boolean.ArrayType = Array;
 $$Boolean.prototype.vtable = { 
-'asm0.x6000003': asm0.x600005f,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x600005f; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 $$Boolean.prototype = { 
  
@@ -4969,9 +5087,12 @@ Byte.IsPrimitive = true;
 Byte.IsNullable = false;
 Byte.ArrayType = Uint8Array;
 Byte.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000060,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000060; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Byte.prototype = { 
  
@@ -5005,9 +5126,12 @@ Char.IsPrimitive = true;
 Char.IsNullable = false;
 Char.ArrayType = Uint16Array;
 Char.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000061,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000061; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Char.prototype = { 
  
@@ -5039,9 +5163,12 @@ Console.IsPrimitive = false;
 Console.IsNullable = false;
 Console.ArrayType = Array;
 Console.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Console.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5077,9 +5204,12 @@ Double.IsPrimitive = true;
 Double.IsNullable = false;
 Double.ArrayType = Float64Array;
 Double.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000066,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000066; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Double.prototype = { 
  
@@ -5112,9 +5242,12 @@ Exception.IsNullable = false;
 Exception.ArrayType = Array;
 (Exception.prototype)["SystemException<Message>k__BackingField"] = null;
 Exception.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Exception.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5144,9 +5277,12 @@ InvalidOperationException.IsPrimitive = false;
 InvalidOperationException.IsNullable = false;
 InvalidOperationException.ArrayType = Array;
 InvalidOperationException.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 InvalidOperationException.prototype = new (((asm0)["System.Exception"])())();;
 return c; }; })();
@@ -5176,9 +5312,12 @@ FlagsAttribute.IsPrimitive = false;
 FlagsAttribute.IsNullable = false;
 FlagsAttribute.ArrayType = Array;
 FlagsAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 FlagsAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -5208,7 +5347,8 @@ ICloneable.IsPrimitive = false;
 ICloneable.IsNullable = false;
 ICloneable.ArrayType = Array;
 ICloneable.prototype.vtable = { 
-'asm0.x600006d': asm0.x600006d 
+'asm0.x600006d': function () { 
+ return asm0.x600006d; } 
 }; };
 ICloneable.prototype = { 
  
@@ -5240,9 +5380,12 @@ Int16.IsPrimitive = true;
 Int16.IsNullable = false;
 Int16.ArrayType = Int16Array;
 Int16.prototype.vtable = { 
-'asm0.x6000003': asm0.x600006e,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x600006e; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Int16.prototype = { 
  
@@ -5274,9 +5417,12 @@ Int32.IsPrimitive = true;
 Int32.IsNullable = false;
 Int32.ArrayType = Int32Array;
 Int32.prototype.vtable = { 
-'asm0.x6000003': asm0.x600006f,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x600006f; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Int32.prototype = { 
  
@@ -5308,9 +5454,12 @@ InternalFormatting.IsPrimitive = false;
 InternalFormatting.IsNullable = false;
 InternalFormatting.ArrayType = Array;
 InternalFormatting.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 InternalFormatting.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5340,9 +5489,12 @@ Int64.IsPrimitive = true;
 Int64.IsNullable = false;
 Int64.ArrayType = Array;
 Int64.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000071,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000071; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Int64.prototype = { 
  
@@ -5374,9 +5526,12 @@ IntPtr.IsPrimitive = true;
 IntPtr.IsNullable = false;
 IntPtr.ArrayType = Array;
 IntPtr.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000072,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000072; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 IntPtr.prototype = { 
  
@@ -5409,9 +5564,12 @@ Math.IsPrimitive = false;
 Math.IsNullable = false;
 Math.ArrayType = Array;
 Math.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Math.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5441,9 +5599,12 @@ ParamArrayAttribute.IsPrimitive = false;
 ParamArrayAttribute.IsNullable = false;
 ParamArrayAttribute.ArrayType = Array;
 ParamArrayAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 ParamArrayAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })();
@@ -5474,9 +5635,12 @@ RuntimeFieldHandle.IsNullable = false;
 RuntimeFieldHandle.ArrayType = Array;
 RuntimeFieldHandle.prototype.value = null;
 RuntimeFieldHandle.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 RuntimeFieldHandle.prototype = { 
  
@@ -5509,9 +5673,12 @@ RuntimeTypeHandle.IsNullable = false;
 RuntimeTypeHandle.ArrayType = Array;
 RuntimeTypeHandle.prototype.value = null;
 RuntimeTypeHandle.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 RuntimeTypeHandle.prototype = { 
  
@@ -5543,9 +5710,12 @@ SByte.IsPrimitive = true;
 SByte.IsNullable = false;
 SByte.ArrayType = Int8Array;
 SByte.prototype.vtable = { 
-'asm0.x6000003': asm0.x600007d,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x600007d; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 SByte.prototype = { 
  
@@ -5577,9 +5747,12 @@ Single.IsPrimitive = true;
 Single.IsNullable = false;
 Single.ArrayType = Float32Array;
 Single.prototype.vtable = { 
-'asm0.x6000003': asm0.x600007e,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x600007e; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Single.prototype = { 
  
@@ -5611,9 +5784,12 @@ Type.IsPrimitive = false;
 Type.IsNullable = false;
 Type.ArrayType = Array;
 Type.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Type.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5643,9 +5819,12 @@ UInt16.IsPrimitive = true;
 UInt16.IsNullable = false;
 UInt16.ArrayType = Uint16Array;
 UInt16.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000080,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000080; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 UInt16.prototype = { 
  
@@ -5677,9 +5856,12 @@ UInt32.IsPrimitive = true;
 UInt32.IsNullable = false;
 UInt32.ArrayType = Uint32Array;
 UInt32.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000081,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000081; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 UInt32.prototype = { 
  
@@ -5711,9 +5893,12 @@ UInt64.IsPrimitive = true;
 UInt64.IsNullable = false;
 UInt64.ArrayType = Array;
 UInt64.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000082,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000082; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 UInt64.prototype = { 
  
@@ -5745,9 +5930,12 @@ UIntPtr.IsPrimitive = true;
 UIntPtr.IsNullable = false;
 UIntPtr.ArrayType = Array;
 UIntPtr.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000083,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000083; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 UIntPtr.prototype = { 
  
@@ -5779,9 +5967,12 @@ Void.IsPrimitive = false;
 Void.IsNullable = false;
 Void.ArrayType = Array;
 Void.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Void.prototype = { 
  
@@ -5813,9 +6004,12 @@ NotSupportedException.IsPrimitive = false;
 NotSupportedException.IsNullable = false;
 NotSupportedException.ArrayType = Array;
 NotSupportedException.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 NotSupportedException.prototype = new (((asm0)["System.Exception"])())();;
 return c; }; })();
@@ -5845,9 +6039,12 @@ NotImplementedException.IsPrimitive = false;
 NotImplementedException.IsNullable = false;
 NotImplementedException.ArrayType = Array;
 NotImplementedException.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 NotImplementedException.prototype = new (((asm0)["System.Exception"])())();;
 return c; }; })();
@@ -5877,9 +6074,12 @@ Environment.IsPrimitive = false;
 Environment.IsNullable = false;
 Environment.ArrayType = Array;
 Environment.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Environment.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5915,12 +6115,18 @@ Func_2.prototype._invocationList = null;
 Func_2.prototype._methodPtr = null;
 Func_2.prototype._target = null;
 Func_2.prototype.vtable = { 
-'asm0.x6000089': asm0.x6000089,
-'asm0.x600000d': asm0.x6000017,
-'asm0.x600000c': asm0.x6000018,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000089': function () { 
+ return asm0.x6000089; },
+'asm0.x600000d': function () { 
+ return asm0.x6000017; },
+'asm0.x600000c': function () { 
+ return asm0.x6000018; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Func_2.prototype = { 
  
@@ -5952,9 +6158,12 @@ Debugger.IsPrimitive = false;
 Debugger.IsNullable = false;
 Debugger.ArrayType = Array;
 Debugger.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Debugger.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -5984,9 +6193,12 @@ OutAttribute.IsPrimitive = false;
 OutAttribute.IsNullable = false;
 OutAttribute.ArrayType = Array;
 OutAttribute.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 OutAttribute.prototype = new (((asm0)["System.Attribute"])())();;
 return c; }; })(); })(asm0 || (asm0 = {}));
@@ -6047,9 +6259,10 @@ function unbox_any(o, type) {
 }
 
 function tree_get(a, s) {
-    if (a.length == 0) return s;
-    var c = s[a[0]];
-    return c && tree_get(a.slice(1), c);
+    var c = s;
+    for (var i = 0; c && i < a.length; i++)
+        c = c[a[i]];
+    return c;
 }
 
 function tree_set(a, s, v) {
@@ -6393,9 +6606,12 @@ TestLog.IsPrimitive = false;
 TestLog.IsNullable = false;
 TestLog.ArrayType = Array;
 TestLog.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 TestLog.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -6425,9 +6641,12 @@ TestHelper.IsPrimitive = false;
 TestHelper.IsNullable = false;
 TestHelper.ArrayType = Array;
 TestHelper.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 TestHelper.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
@@ -6463,12 +6682,18 @@ FuncX_2.prototype._invocationList = null;
 FuncX_2.prototype._methodPtr = null;
 FuncX_2.prototype._target = null;
 FuncX_2.prototype.vtable = { 
-'asm1.x600000d': asm1.x600000d,
-'asm0.x600000d': asm0.x6000017,
-'asm0.x600000c': asm0.x6000018,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm1.x600000d': function () { 
+ return asm1.x600000d; },
+'asm0.x600000d': function () { 
+ return asm0.x6000017; },
+'asm0.x600000c': function () { 
+ return asm0.x6000018; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 FuncX_2.prototype = { 
  
@@ -6506,12 +6731,18 @@ FuncX_1.prototype._invocationList = null;
 FuncX_1.prototype._methodPtr = null;
 FuncX_1.prototype._target = null;
 FuncX_1.prototype.vtable = { 
-'asm1.x600000f': asm1.x600000f,
-'asm0.x600000d': asm0.x6000017,
-'asm0.x600000c': asm0.x6000018,
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm1.x600000f': function () { 
+ return asm1.x600000f; },
+'asm0.x600000d': function () { 
+ return asm0.x6000017; },
+'asm0.x600000c': function () { 
+ return asm0.x6000018; },
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 FuncX_1.prototype = { 
  
@@ -6544,9 +6775,12 @@ Program.IsPrimitive = false;
 Program.IsNullable = false;
 Program.ArrayType = Array;
 Program.prototype.vtable = { 
-'asm0.x6000003': asm0.x6000003,
-'asm0.x6000004': asm0.x6000004,
-'asm0.x6000007': asm0.x6000007 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
 }; };
 Program.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();

@@ -92,9 +92,10 @@ function unbox_any(o, type) {
 }
 
 function tree_get(a, s) {
-    if (a.length == 0) return s;
-    var c = s[a[0]];
-    return c && tree_get(a.slice(1), c);
+    var c = s;
+    for (var i = 0; c && i < a.length; i++)
+        c = c[a[i]];
+    return c;
 }
 
 function tree_set(a, s, v) {

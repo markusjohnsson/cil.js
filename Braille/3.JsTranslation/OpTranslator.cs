@@ -10,6 +10,9 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
+    /// <summary>
+    /// Translates individual OpExpressions into JavaScript AST.
+    /// </summary>
     class OpTranslator : AbstractTranslator
     {
         private CilAssembly assembly;
@@ -1196,27 +1199,59 @@ namespace Braille.JsTranslation
 
         private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, JSExpression thisScope, MethodBase mi)
         {
-            return new JSPropertyAccessExpression
+            // vtables and interface maps are dictionaries of function references:
+            //
+            //  {
+            //      "asm0.x60000001": function () { return asm0.x60000104; },
+            //      "asm0.x60000004": function () { return asm0.x60000106; }
+            //  }
+            //
+            // The references are wrapped in functions because the value of asm0.xAAAAAAAA might 
+            // be updated by the method initialization function, which types that the method depends on. 
+            //
+            // We might be able to change this later and just store the reference to the actual method implementation.
+            // To accomplish this, we need to call the init function when the vtable or interface map is created.
+
+            return new JSCallExpression
             {
-                Host = new JSArrayLookupExpression
+                Function = new JSPropertyAccessExpression
                 {
-                    Array = thisArg,
-                    Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
-                },
-                Property = GetMethodIdentifier(mi)
+                    Host = new JSArrayLookupExpression
+                    {
+                        Array = thisArg,
+                        Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
+                    },
+                    Property = GetMethodIdentifier(mi)
+                }
             };
         }
 
-        private JSPropertyAccessExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodInfo mi)
+        private JSExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodInfo mi)
         {
-            return new JSPropertyAccessExpression
+            // vtables and interface maps are dictionaries of function references:
+            //
+            //  {
+            //      "asm0.x60000001": function () { return asm0.x60000104; },
+            //      "asm0.x60000004": function () { return asm0.x60000106; }
+            //  }
+            //
+            // The references are wrapped in functions because the value of asm0.xAAAAAAAA might 
+            // be updated by the method initialization function, which types that the method depends on. 
+            //
+            // We might be able to change this later and just store the reference to the actual method implementation.
+            // To accomplish this, we need to call the init function when the vtable or interface map is created.
+
+            return new JSCallExpression
             {
-                Host = new JSPropertyAccessExpression
+                Function = new JSPropertyAccessExpression
                 {
-                    Host = thisArg,
-                    Property = "vtable"
-                },
-                Property = GetVirtualMethodIdentifier(mi)
+                    Host = new JSPropertyAccessExpression
+                    {
+                        Host = thisArg,
+                        Property = "vtable"
+                    },
+                    Property = GetVirtualMethodIdentifier(mi)
+                }
             };
         }
 

@@ -25,9 +25,6 @@ namespace Braille.Analysis
             method.ReferencedTypes = opAst
                 .SelectMany(op => FindTypes(method, op))
                 .SelectMany(t => ExpandGenericTypes(t))
-
-                // only collect types that need initialization. generic parameters should already be initialized when method is called
-                .Where(t => !t.IsGenericParameter) 
                 .Distinct()
                 .ToArray();
         }
@@ -65,6 +62,10 @@ namespace Braille.Analysis
                     if (mi.IsGenericMethod)
                         foreach (var g in mi.GetGenericArguments())
                             yield return g;
+
+                    if (mi.DeclaringType.IsInterface)
+                        yield return mi.DeclaringType;
+
                     break;
                 case "ldsfld":
                 case "newobj":

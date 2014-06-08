@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace Braille.JsTranslation
 {
+    /// <summary>
+    /// Translates blocks (method bodies, try-catch-finally constructs) into JavaScript AST.
+    /// </summary>
     class BlockTranslator : AbstractTranslator
     {
         private CilType type;
@@ -40,22 +43,24 @@ namespace Braille.JsTranslation
 
                 if (protectedRegion != null)
                 {
-                    builder.InsertStatements(CreateJsTryBlock(protectedRegion.TryBlock, depth + 1));
-
-                    if (protectedRegion.CatchBlocks.Any())
-                        builder.InsertStatements(CreateJsCatchBlock(protectedRegion.CatchBlocks, depth + 1));
-
-                    if (protectedRegion.FinallyBlock != null)
-                        builder.InsertStatements(CreateJsFinallyBlock(protectedRegion.FinallyBlock, depth + 1));
-
-                    if (protectedRegion.FaultBlock != null)
-                        builder.InsertStatements(CreateJsFaultBlock(protectedRegion.FaultBlock, depth + 1));
-
                     if (protectedRegion.CatchBlocks.Count == 0 &&
                         protectedRegion.FaultBlock == null &&
                         protectedRegion.FinallyBlock == null)
                     {
-                        builder.InsertStatements(CreateJsCatchBlock(new[] { new CatchBlock(null) }, depth + 1));
+                        builder.InsertStatements(CreateJsBlock(protectedRegion.TryBlock, depth + 1).Build());
+                    }
+                    else
+                    {
+                        builder.InsertStatements(CreateJsTryBlock(protectedRegion.TryBlock, depth + 1));
+
+                        if (protectedRegion.CatchBlocks.Any())
+                            builder.InsertStatements(CreateJsCatchBlock(protectedRegion.CatchBlocks, depth + 1));
+
+                        if (protectedRegion.FinallyBlock != null)
+                            builder.InsertStatements(CreateJsFinallyBlock(protectedRegion.FinallyBlock, depth + 1));
+
+                        if (protectedRegion.FaultBlock != null)
+                            builder.InsertStatements(CreateJsFaultBlock(protectedRegion.FaultBlock, depth + 1));
                     }
                 }
                 else if (label != null)
