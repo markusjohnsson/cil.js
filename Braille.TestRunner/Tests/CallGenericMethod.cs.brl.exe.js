@@ -6335,18 +6335,26 @@ st_00 = arg0;
 return ; };
 asm.x6000011_init = function () { 
  (((asm0)["System.Int32"])().init)();
+(((asm0)["System.String"])().init)();
 asm.x6000011 = asm.x6000011_; };
 asm.x6000011 = function () { 
  (asm.x6000011_init.apply)(this,arguments);
 return (asm.x6000011.apply)(this,arguments); };
 asm.x6000011_ = function Main() { var t0;
+var t1;
 var st_00;
+var st_01;
  t0 = ((asm0)["System.Int32"])();
+t1 = ((asm0)["System.String"])();
 /* IL_00: ldc.i4.s 123*/
 st_00 = 123;
 /* IL_02: call Void Y[System.Int32](System.Int32)*/
 ((asm1.x6000012)(((asm0)["System.Int32"])()))(st_00);
-/* IL_07: ret */
+/* IL_07: ldstr Hello*/
+st_01 = new_string("Hello");
+/* IL_0C: call Void Y[System.String](System.String)*/
+((asm1.x6000012)(((asm0)["System.String"])()))(st_01);
+/* IL_11: ret */
 return ; };
 asm.x6000012_init = function (T) { 
  return function () { 

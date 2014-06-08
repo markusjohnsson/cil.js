@@ -14,6 +14,7 @@ public class Program
     public static void Main()
     {
         Y(123);
+        Y("Hello");
     }
 
     public static void Y<T>(T t)
