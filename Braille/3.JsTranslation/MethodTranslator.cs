@@ -172,38 +172,26 @@ namespace Braille.JsTranslation
                     return new JSFunctionDelcaration
                     {
                         Name = "Invoke",
-                        Body = new List<JSStatement> 
-                            {
-                                new JSStatement 
-                                {
-                                    Expression = new JSIdentifier 
-                                    {
-                                        Name = @"
-                                            var m = arguments[0]._methodPtr;
-                                            var t = arguments[0]._target;
-                                            if (t != null)
-                                                arguments[0] = t;
-                                            else
-                                                arguments = Array.prototype.slice.call(arguments, 1);
-                                            return m.apply(null, arguments)"
-                                    }
-                                }
-                            }
+                        Body = 
+                        {
+                            JSFactory.RawStatement(@"
+                                var m = arguments[0]._methodPtr;
+                                var t = arguments[0]._target;
+                                if (t != null)
+                                    arguments[0] = t;
+                                else
+                                    arguments = Array.prototype.slice.call(arguments, 1);
+                                return m.apply(null, arguments)")
+                        }
                     };
                 case ".ctor":
                     return new JSFunctionDelcaration
                     {
                         Name = "ctor",
-                        Body = new List<JSStatement> 
-                            {
-                                new JSStatement 
-                                {
-                                    Expression = new JSIdentifier 
-                                    {
-                                        Name = "arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];"
-                                    }
-                                }
-                            }
+                        Body = 
+                        {
+                            JSFactory.RawStatement("arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];")
+                        }
                     };
                 default:
                     return JSFunctionDelcaration.Empty;
@@ -242,7 +230,7 @@ namespace Braille.JsTranslation
                     if (method.Locals[locIdx].NeedInit)
                     {
                         functionBlock.Add(
-                            new JSStatement
+                            new JSExpressionStatement
                             {
                                 Expression = new JSVariableDelcaration
                                 {
@@ -262,7 +250,7 @@ namespace Braille.JsTranslation
                     .SelectMany(op => op.StoreLocations)
                     .Distinct()
                     .Select(
-                        n => new JSStatement
+                        n => new JSExpressionStatement
                         {
                             Expression = new JSVariableDelcaration
                             {
@@ -272,7 +260,7 @@ namespace Braille.JsTranslation
 
             var blockTranslator = new BlockTranslator(context, asm, type, method, thisScope);
 
-            functionBlock.AddRange(blockTranslator.Transform(method.Block).Where(s => !(s.Expression is JSBreakExpression)));
+            functionBlock.AddRange(blockTranslator.Transform(method.Block).Where(s => !(s is JSExpressionStatement) || !(((JSExpressionStatement)s).Expression is JSBreakExpression)));
 
             var ps = GetParameterCount(method);
 
@@ -319,7 +307,7 @@ namespace Braille.JsTranslation
 
             return new JSFunctionDelcaration
             {
-                Body = { new JSStatement { Expression = new JSReturnExpression { Expression = function } } },
+                Body = { new JSExpressionStatement { Expression = new JSReturnExpression { Expression = function } } },
                 Parameters = types.Select(t => new JSFunctionParameter { Name = t.Name }).ToList()
             };
         }

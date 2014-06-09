@@ -9,7 +9,7 @@ namespace Braille.JSAst
     {
         public IEnumerable<JSExpression> Values { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return string.Format("[ {0} ]", Values == null ? "" : string.Join(",", Values.Select(v => v.ToString())));
         }

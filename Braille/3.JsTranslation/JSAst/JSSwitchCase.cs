@@ -9,14 +9,15 @@ namespace Braille.JSAst
     {
         public JSExpression Value { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return "case " + Value.ToString() + ":";
+            return "case " + Value.ToString(formatting) + ":";
         }
 
         public override IEnumerable<JSExpression> GetChildren()
         {
             yield return Value;
         }
+
     }
 }

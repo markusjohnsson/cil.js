@@ -32,47 +32,38 @@ namespace Braille.JsTranslation
         public IEnumerable<JSStatement> Process(OpExpression node)
         {
 
-            yield return new JSStatement
-            {
-                Expression = new JSLineComment
+            yield return JSFactory.Statement(
+                new JSLineComment
                 {
                     Text = node.Instruction.ToString()
-                }
-            };
+                });
 
             var opc = node.Instruction.OpCode.Name;
 
             if (node.Prefixes.Any())
             {
-                yield return new JSStatement
-                {
-                    Expression = new JSLineComment
+                yield return JSFactory.Statement(
+                    new JSLineComment
                     {
                         Text = "ignoring prefixes " + string.Join(",", node.Prefixes.Select(o => o.OpCode.Name))
-                    }
-                };
+                    });
             }
 
             switch (opc)
             {
                 case "br":
                 case "br.s":
-                    yield return new JSStatement
-                    {
-                        Expression = new JSBinaryExpression
+                    yield return JSFactory.Statement(
+                        new JSBinaryExpression
+                        {
+                            Left = new JSIdentifier
                             {
-                                Left = new JSIdentifier
-                                {
-                                    Name = "__braille_pos__"
-                                },
-                                Operator = "=",
-                                Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
-                            }
-                    };
-                    yield return new JSStatement
-                    {
-                        Expression = new JSContinueExpression()
-                    };
+                                Name = "__braille_pos__"
+                            },
+                            Operator = "=",
+                            Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
+                        });
+                    yield return JSFactory.Statement(new JSContinueExpression());
                     break;
 
                 case "beq":
@@ -114,20 +105,15 @@ namespace Braille.JsTranslation
                     {
                         Condition = ProcessInternal(node.Arguments.Single()),
                         Statements = {
-                            new JSStatement
-                            {
-                                Expression = JSFactory
+                            JSFactory.Statement(
+                                JSFactory
                                     .Assignment(
                                         new JSIdentifier
                                         {
                                             Name = "__braille_pos__"
                                         },
-                                        new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
-                            },
-                            new JSStatement
-                            {
-                                Expression = new JSContinueExpression()
-                            }       
+                                        new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })),
+                            JSFactory.Statement(new JSContinueExpression())
                         }
                     };
                     break;
@@ -142,20 +128,15 @@ namespace Braille.JsTranslation
                             Operand = ProcessInternal(node.Arguments.Single())
                         },
                         Statements = {
-                            new JSStatement
-                            {
-                                Expression = JSFactory
+                            JSFactory.Statement(
+                                JSFactory
                                     .Assignment(
                                         new JSIdentifier
                                         {
                                             Name = "__braille_pos__"
                                         },
-                                        new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
-                            },
-                            new JSStatement
-                            {
-                                Expression = new JSContinueExpression()
-                            }       
+                                        new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })),
+                            JSFactory.Statement(new JSContinueExpression())
                         }
                     };
                     break;
@@ -190,7 +171,7 @@ namespace Braille.JsTranslation
                     break;
                 case "switch":
 
-                    yield return new JSStatement
+                    yield return new JSExpressionStatement
                     {
                         Expression = new JSVariableDelcaration
                         {
@@ -217,14 +198,14 @@ namespace Braille.JsTranslation
                                     },
                                     new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
                                 .ToStatement(),
-                            new JSStatement
+                            new JSExpressionStatement
                             {
                                 Expression = new JSContinueExpression()
                             }       
                         }
                     };
-                    
-                    yield return new JSStatement
+
+                    yield return new JSExpressionStatement
                     {
                         Expression = new JSVariableDelcaration
                         {
@@ -251,7 +232,7 @@ namespace Braille.JsTranslation
                             })
                         .ToStatement();
 
-                    yield return new JSStatement
+                    yield return new JSExpressionStatement
                     {
                         Expression = new JSContinueExpression()
                     };
@@ -259,7 +240,7 @@ namespace Braille.JsTranslation
 
                 default:
 
-                    yield return new JSStatement
+                    yield return new JSExpressionStatement
                     {
                         Expression = WrapInStore(node.StoreLocations, ProcessInternal(node))
                     };
@@ -297,7 +278,7 @@ namespace Braille.JsTranslation
                             "__braille_pos__",
                             new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true })
                         .ToStatement(),
-                    new JSStatement
+                    new JSExpressionStatement
                     {
                         Expression = new JSContinueExpression()
                     }       
@@ -924,7 +905,7 @@ namespace Braille.JsTranslation
                             {
                                 Body = new List<JSStatement> 
                                 {
-                                    new JSStatement
+                                    new JSExpressionStatement
                                     { 
                                         Expression = new JSVariableDelcaration 
                                         { 
@@ -940,7 +921,7 @@ namespace Braille.JsTranslation
                                             }
                                         }
                                     },
-                                    new JSStatement 
+                                    new JSExpressionStatement 
                                     {
                                         Expression = new JSCallExpression
                                         {
@@ -953,7 +934,7 @@ namespace Braille.JsTranslation
                                                 .ToList()
                                         }
                                     },
-                                    new JSStatement 
+                                    new JSExpressionStatement 
                                     {
                                         Expression = new JSReturnExpression
                                         {
@@ -1268,7 +1249,7 @@ namespace Braille.JsTranslation
                         { 
                             Body = 
                             { 
-                                new JSStatement { Expression = new JSReturnExpression { Expression = ifier } }
+                                new JSExpressionStatement { Expression = new JSReturnExpression { Expression = ifier } }
                             }
                         }
                     }

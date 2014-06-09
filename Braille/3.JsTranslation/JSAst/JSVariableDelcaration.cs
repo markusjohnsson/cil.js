@@ -23,12 +23,12 @@ namespace Braille.JSAst
         }
         public JSExpression Value { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             if (Value == null)
                 return ""; //string.Format("{0}", Name);
             else
-                return string.Format("{0} = {1}", Name, Value.ToString());
+                return string.Format("{0} = {1}", Name, Value.ToString(formatting));
         }
 
 

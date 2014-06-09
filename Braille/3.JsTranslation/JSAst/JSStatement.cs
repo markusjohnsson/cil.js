@@ -5,16 +5,42 @@ using System.Text;
 
 namespace Braille.JSAst
 {
-    class JSStatement : JSExpression
-    {
-        public JSExpression Expression { get; set; }
+    abstract class JSStatement : JSExpression
+    {   
+    }
 
-        public override string ToString()
+    class JSExpressionStatement: JSStatement
+    {
+        private JSExpression _Expression;
+        public JSExpression Expression
+        {
+            get
+            {
+                return _Expression;
+            }
+            set
+            {
+                if (value == null)
+                    throw new InvalidOperationException();
+                _Expression = value;
+            }
+        }
+
+        public JSExpressionStatement()
+        {
+        }
+
+        public JSExpressionStatement(JSExpression expression)
+        {
+            Expression = expression;
+        }
+
+        public override string ToString(Formatting formatting)
         {
             if (Expression is JSLineComment)
-                return Expression.ToString();
+                return Expression.ToString(formatting);
 
-            var result = Expression.ToString();
+            var result = Expression.ToString(formatting);
 
             if (string.IsNullOrWhiteSpace(result))
                 return string.Empty;

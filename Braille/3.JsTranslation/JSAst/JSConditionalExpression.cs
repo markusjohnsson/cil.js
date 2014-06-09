@@ -10,7 +10,7 @@ namespace Braille.JSAst
 
         public JSExpression FalseValue { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return String.Format("({0}) ? ({1}) : ({2})", Condition, TrueValue, FalseValue);
         }

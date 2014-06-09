@@ -12,28 +12,57 @@ namespace Braille.JSAst
         public string Name { get; set; }
         public List<JSStatement> Body { get; set; }
         public List<JSFunctionParameter> Parameters { get; set; }
-        
+
         public JSFunctionDelcaration()
         {
             Body = new List<JSStatement>();
             Parameters = new List<JSFunctionParameter>();
         }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            // todo: let this happen in OpToJsTransform
             var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration))
                 .OfType<JSVariableDelcaration>()
                 .Select(v => v.Name)
                 .Distinct();
 
-            return string.Format("function {0}({1}) {{ {2}\n {3} }}",
-                Name ?? "",
-                Parameters == null ?
-                    "" : string.Join(",", Parameters.Select(p => p.ToString())),
-                string.Join("\n", variables.Select(v => "var " + v + ";")),
-                Body == null ?
-                    "" : string.Join("\n", Body.Select(p => p.ToString()).Where(s => !string.IsNullOrWhiteSpace(s))));
+            var sb = new StringBuilder();
+
+            sb.Append(formatting.Indentation);
+            sb.Append("function ");
+
+            if (Name != null)
+                sb.Append(Name);
+
+            sb.Append("(");
+
+            if (Parameters != null)
+                sb.Append(string.Join(",", Parameters.Select(p => p.ToString(formatting))));
+
+            sb.Append(")");
+
+            sb.Append(formatting.NewLine + formatting.Indentation + "{");
+
+            formatting.IncreaseIndentation();
+            
+            {
+                var indent = formatting.NewLine + formatting.Indentation;
+
+                sb.Append(indent);
+                sb.Append(string.Join(indent, variables.Select(v => "var " + v + ";")));
+
+                if (Body != null)
+                {
+                    sb.Append(indent);
+                    sb.Append(string.Join(indent, Body.Select(p => p.ToString(formatting)).Where(s => !string.IsNullOrWhiteSpace(s))));
+                }
+            }
+            
+            formatting.DecreaseIndentation();
+
+            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+
+            return sb.ToString();
         }
 
         public override IEnumerable<JSExpression> GetChildren()
@@ -47,6 +76,6 @@ namespace Braille.JSAst
                     yield return x;
         }
 
-        
+
     }
 }

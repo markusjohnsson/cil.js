@@ -10,19 +10,23 @@ namespace Braille.JSAst
     {
         public List<JSStatement> Statements { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            var result = "try {\n" + string.Join("\n", Statements) + "\n}";
-
-            if (InsertEmptyCatch)
-            {
-                result += "catch (e) {}";
-            }
-
-            return result;
+            var sb = new StringBuilder();
+            sb.Append(formatting.NewLine + formatting.Indentation + "try {");
+            formatting.IncreaseIndentation();
+            sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+            formatting.DecreaseIndentation();
+            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+            
+            return sb.ToString();
         }
 
-        public bool InsertEmptyCatch { get; set; }
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            foreach (var s in Statements)
+                yield return s;
+        }
     }
 
     class JSCatchBlock : JSStatement
@@ -31,9 +35,30 @@ namespace Braille.JSAst
 
         public JSIdentifier Error { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return string.Format("catch ({0}) {{\n{1}\n}}", Error, Statements == null ? "" : string.Join("\n", Statements));
+
+            var sb = new StringBuilder();
+            sb.Append(formatting.NewLine + formatting.Indentation + "catch (");
+            sb.Append(Error.ToString(formatting));
+            sb.Append("){");
+
+            formatting.IncreaseIndentation();
+            if (Statements != null)
+                sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+            formatting.DecreaseIndentation();
+            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+
+            return sb.ToString();
+        }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            foreach (var s in Statements)
+                yield return s;
+
+            if (Error != null)
+                yield return Error;
         }
     }
 
@@ -41,11 +66,22 @@ namespace Braille.JSAst
     {
         public List<JSStatement> Statements { get; set; }
 
-        public JSIdentifier Error { get; set; }
-
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return "finally {\n" + string.Join("\n", Statements) + "\n}";
+            var sb = new StringBuilder();
+            sb.Append(formatting.NewLine + formatting.Indentation + "finally {");
+            formatting.IncreaseIndentation();
+            sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+            formatting.DecreaseIndentation();
+            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+
+            return sb.ToString();
+        }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            foreach (var s in Statements)
+                yield return s;
         }
     }
 }

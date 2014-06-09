@@ -16,9 +16,24 @@ namespace Braille.JSAst
 
         public List<JSStatement> Statements { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return String.Format("while ({0}){{\n{1}\n}}", Condition, string.Join("", Statements));
+            var sb = new StringBuilder();
+            sb.Append(formatting.NewLine + formatting.Indentation + "while (");
+            sb.Append(Condition.ToString(formatting));
+            sb.Append("){");
+
+            formatting.IncreaseIndentation();
+            if (Statements != null)
+            {
+                sb.Append(formatting.NewLine);
+                sb.Append(formatting.Indentation);
+                sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+            }
+            formatting.DecreaseIndentation();
+            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+
+            return sb.ToString();
         }
 
         public override IEnumerable<JSExpression> GetChildren()

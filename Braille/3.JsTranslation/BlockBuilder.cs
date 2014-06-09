@@ -36,14 +36,12 @@ namespace Braille.JsTranslation
 
             if (hasBranching)
             {
-                yield return new JSStatement
-                {
-                    Expression = new JSVariableDelcaration
+                yield return JSFactory.Statement(
+                    new JSVariableDelcaration
                     {
                         Name = "__braille_pos_" + Depth + "__",
                         Value = new JSNumberLiteral { Value = 0, IsHex = true }
-                    }
-                };
+                    });
 
                 yield return new JSWhileLoopStatement
                 {
@@ -67,7 +65,7 @@ namespace Braille.JsTranslation
             }
             else
             {
-                foreach (var stmnt in Statements.Where(s => !(s.Expression is JSBreakExpression)))
+                foreach (var stmnt in Statements.Where(s => !(s is JSExpressionStatement) || !(((JSExpressionStatement)s).Expression is JSBreakExpression)))
                     yield return stmnt;
             }
         }
@@ -88,29 +86,6 @@ namespace Braille.JsTranslation
                     {
                         ifier.Name = "__braille_pos_" + Math.Max(0, Depth - 1) + "__";
                     }
-
-                    //if (ifier != null && ifier.Name == "__braille_outer_pos_marked__")
-                    //{
-                    //    ifier.Name = "__braille__" + depth + "__";
-                    //}
-
-                    //if (ifier != null && ifier.Name == "__braille_outer_pos_unmarked__")
-                    //{
-                    //    ifier.Name = "__braille_outer_pos_marked__";
-                    //}
-                }
-            }
-        }
-
-        private void InsertMissingCatchBlocks()
-        {
-            foreach (var pair in Statements.Zip(Statements.Skip(1).EndWith(null), (current, next) => new { current, next }))
-            {
-                if (pair.current is JSTryBlock &&
-                    false == pair.next is JSCatchBlock &&
-                    false == pair.next is JSFinallyBlock)
-                {
-                    ((JSTryBlock)pair.current).InsertEmptyCatch = true;
                 }
             }
         }

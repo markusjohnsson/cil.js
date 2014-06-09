@@ -7,7 +7,7 @@ namespace Braille.JSAst
 {
     class JSContinueExpression : JSExpression
     {
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return "continue";
         }

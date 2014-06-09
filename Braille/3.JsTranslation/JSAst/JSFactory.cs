@@ -68,6 +68,19 @@ namespace Braille.JSAst
         }
         #endregion
 
+        public static JSStatement Statement(JSExpression s)
+        {
+            return new JSExpressionStatement(s);
+        }
 
+        public static JSStatement RawStatement(string p)
+        {
+            return Statement(RawExpression(p));
+        }
+
+        public static JSExpression RawExpression(string p)
+        {
+            return new JSIdentifier { Name = p };
+        }
     }
 }

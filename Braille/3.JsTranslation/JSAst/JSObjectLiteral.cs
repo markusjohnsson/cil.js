@@ -14,11 +14,24 @@ namespace Braille.JSAst
             Properties = new Dictionary<string, JSExpression>();
         }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return string.Format("{{ \n{0} \n}}",
-                string.Join(",\n",
+            var sb = new StringBuilder();
+            sb.Append("{");
+
+            formatting.IncreaseIndentation();
+
+            {
+                sb.Append(string.Join("," + formatting.NewLine + formatting.Indentation,
                     Properties.Select(p => string.Format("'{0}': {1}", p.Key, p.Value.ToString()))));
+
+                sb.Append(formatting.NewLine);
+            }
+
+            formatting.DecreaseIndentation();
+
+            sb.Append(formatting.Indentation + "}");
+            return sb.ToString();
         }
 
         public override IEnumerable<JSExpression> GetChildren()

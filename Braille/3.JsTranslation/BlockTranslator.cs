@@ -91,14 +91,12 @@ namespace Braille.JsTranslation
 
             var statements = new List<JSStatement> 
             {
-                new JSStatement
-                {
-                    Expression = new JSVariableDelcaration
+                JSFactory.Statement(
+                    new JSVariableDelcaration
                     {
                         Name = handledFlag.Name,
                         Value = new JSBoolLiteral { Value = false }
-                    }
-                }
+                    })
             };
 
             foreach (var catchBlock in catchBlocks)
@@ -142,10 +140,7 @@ namespace Braille.JsTranslation
         {
             var block = CreateJsBlock(faultBlock, p);
 
-            block.Statements.Add(new JSStatement
-            {
-                Expression = new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } }
-            });
+            block.Statements.Add(JSFactory.Statement(new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } }));
 
             yield return new JSIfStatement
             {

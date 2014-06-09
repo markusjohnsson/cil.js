@@ -23,7 +23,7 @@ namespace Braille.JSAst
             }
         }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return Name;
         }

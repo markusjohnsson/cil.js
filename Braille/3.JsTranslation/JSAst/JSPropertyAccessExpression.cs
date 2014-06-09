@@ -19,7 +19,7 @@ namespace Braille.JSAst
 
         }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             if (SafeChars.IsMatch(Property))
                 return Host.ToString() + "." + Property;
@@ -28,7 +28,7 @@ namespace Braille.JSAst
                 {
                     Array = Host,
                     Indexer = new JSStringLiteral { Value = Property }
-                }.ToString();
+                }.ToString(formatting);
         }
 
         private string _Property;

@@ -15,7 +15,7 @@ namespace Braille.JSAst
             Arguments = new List<JSExpression>();
         }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return String.Format("new {0}({1})", WrapIfNeeded(), Arguments == null ? "" : string.Join(",", Arguments));
         }

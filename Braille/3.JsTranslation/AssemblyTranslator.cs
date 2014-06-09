@@ -24,7 +24,7 @@ namespace Braille.JsTranslation
             return new JSFunctionDelcaration
             {
                 Parameters = new List<JSFunctionParameter> { new JSFunctionParameter { Name = "asm" } },
-                Body = GetBody(world, asm).Select(s => new JSStatement { Expression = s }).ToList()
+                Body = GetBody(world, asm).Select(s => JSFactory.Statement(s)).ToList()
             };
         }
 

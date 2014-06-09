@@ -7,7 +7,7 @@ namespace Braille.JSAst
 {
     class JSEmptyExpression : JSExpression
     {
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return "";
         }

@@ -37,7 +37,7 @@ namespace Braille.JSAst
 
         public string Operator { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return string.Format("{0} {1} {2}", WrapBinaryExpressions(Left), Operator, WrapBinaryExpressions(Right));
         }

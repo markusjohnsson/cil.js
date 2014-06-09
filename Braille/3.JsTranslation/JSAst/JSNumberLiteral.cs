@@ -12,7 +12,7 @@ namespace Braille.JSAst
 
         public double Value { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return IsHex ? "0x"+((int)Value).ToString("X") : Value.ToString(CultureInfo.InvariantCulture);
         }

@@ -8,9 +8,9 @@ namespace Braille.JSAst
     class JSThrowExpression: JSExpression
     {
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return "throw " + Expression.ToString();
+            return "throw " + Expression.ToString(formatting);
         }
 
         public JSExpression Expression { get; set; }

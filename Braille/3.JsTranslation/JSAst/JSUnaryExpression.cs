@@ -12,9 +12,9 @@ namespace Braille.JSAst
 
         public JSExpression Operand { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return "(" + Operator + Operand.ToString() + ")";
+            return "(" + Operator + Operand.ToString(formatting) + ")";
         }
 
 

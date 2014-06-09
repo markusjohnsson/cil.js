@@ -7,7 +7,7 @@ namespace Braille.JSAst
 {
     class JSNullLiteral: JSExpression
     {
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return "null";
         }

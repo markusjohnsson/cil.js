@@ -17,7 +17,7 @@ namespace Braille.JSAst
             }
             set
             {
-                if (value == null || string.IsNullOrWhiteSpace(value.ToString()))
+                if (value == null)
                     throw new InvalidOperationException();
                 _Array = value;
             }
@@ -31,15 +31,15 @@ namespace Braille.JSAst
             }
             set
             {
-                if (value == null || string.IsNullOrWhiteSpace(value.ToString()))
+                if (value == null)
                     throw new InvalidOperationException();
                 _Indexer = value;
             }
         }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
-            return string.Format("({0})[{1}]", Array.ToString(), Indexer.ToString());
+            return string.Format("({0})[{1}]", Array.ToString(formatting), Indexer.ToString(formatting));
         }
 
         public override IEnumerable<JSExpression> GetChildren()

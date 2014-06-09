@@ -9,7 +9,7 @@ namespace Braille.JSAst
     {
         public bool Value { get; set; }
 
-        public override string ToString()
+        public override string ToString(Formatting formatting)
         {
             return Value ? "true": "false";
         }
