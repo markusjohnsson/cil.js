@@ -53,14 +53,12 @@ namespace Braille.JsTranslation
                     {
                         builder.InsertStatements(CreateJsTryBlock(protectedRegion.TryBlock, depth + 1));
 
-                        if (protectedRegion.CatchBlocks.Any())
-                            builder.InsertStatements(CreateJsCatchBlock(protectedRegion.CatchBlocks, depth + 1));
+                        if (protectedRegion.CatchBlocks.Any() || protectedRegion.FaultBlock != null)
+                            builder.InsertStatements(CreateJsCatchBlock(protectedRegion.CatchBlocks, protectedRegion.FaultBlock, depth + 1));
 
                         if (protectedRegion.FinallyBlock != null)
                             builder.InsertStatements(CreateJsFinallyBlock(protectedRegion.FinallyBlock, depth + 1));
 
-                        if (protectedRegion.FaultBlock != null)
-                            builder.InsertStatements(CreateJsFaultBlock(protectedRegion.FaultBlock, depth + 1));
                     }
                 }
                 else if (label != null)
@@ -81,7 +79,7 @@ namespace Braille.JsTranslation
             yield return new JSTryBlock { Statements = CreateJsBlock(tryBlock, depth).Build().ToList() };
         }
 
-        private IEnumerable<JSStatement> CreateJsCatchBlock(IEnumerable<CatchBlock> catchBlocks, int p)
+        private IEnumerable<JSStatement> CreateJsCatchBlock(IEnumerable<CatchBlock> catchBlocks, FaultBlock faultBlock, int p)
         {
             if (catchBlocks.Count() == 1 && catchBlocks.First().CatchType == null)
             {
@@ -89,13 +87,15 @@ namespace Braille.JsTranslation
                 yield break;
             }
 
+            var handledFlag = new JSIdentifier { Name = "__braille_error_handled_" + p + "__" };
+
             var statements = new List<JSStatement> 
             {
                 new JSStatement
                 {
                     Expression = new JSVariableDelcaration
                     {
-                        Name = "__braille_error_handled_" + p + "__",
+                        Name = handledFlag.Name,
                         Value = new JSBoolLiteral { Value = false }
                     }
                 }
@@ -109,9 +109,9 @@ namespace Braille.JsTranslation
                     {
                         Expression = new JSBinaryExpression
                         {
-                            Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
+                            Left = handledFlag,
                             Operator = "=",
-                            Right = new JSBoolLiteral { Value = false }
+                            Right = new JSBoolLiteral { Value = true }
                         }
                     });
 
@@ -119,12 +119,22 @@ namespace Braille.JsTranslation
                 {
                     Condition = new JSBinaryExpression
                     {
-                        Left = new JSIdentifier { Name = "__braille_error__" },
-                        Operator = "instanceof",
-                        Right = GetTypeIdentifier(catchBlock.CatchType, method.ReflectionMethod, type.ReflectionType, this_)
+                        Left = new JSUnaryExpression { Operand = handledFlag, Operator = "!" },
+                        Operator = "&&",
+                        Right = new JSBinaryExpression
+                        {
+                            Left = new JSIdentifier { Name = "__braille_error__" },
+                            Operator = "instanceof",
+                            Right = GetTypeIdentifier(catchBlock.CatchType, method.ReflectionMethod, type.ReflectionType, this_)
+                        }
                     },
                     Statements = block.Build().ToList()
                 });
+            }
+
+            if (faultBlock != null)
+            {
+                statements.AddRange(CreateJsFaultBlock(faultBlock, p));
             }
 
             yield return new JSCatchBlock
@@ -157,7 +167,10 @@ namespace Braille.JsTranslation
 
         private IEnumerable<JSStatement> CreateJsFinallyBlock(FinallyBlock finallyBlock, int p)
         {
-            yield return new JSFinallyBlock { Statements = CreateJsBlock(finallyBlock, p).Build().ToList() };
+            yield return new JSFinallyBlock
+            {
+                Statements = CreateJsBlock(finallyBlock, p).Build().ToList()
+            };
         }
     }
 }

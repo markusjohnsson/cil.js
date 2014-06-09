@@ -6309,1524 +6309,113 @@ st_00 = arg0;
 /* IL_01: call Void .ctor()*/
 /* IL_06: ret */
 return ; };
-asm.x600000c_init = function (T,TResult) { 
- return function () { 
- (((asm1)["E+<Select>d__0`2"])(T,TResult).init)();
-asm.x600000c = asm.x600000c_; }; };
-asm.x600000c = function (T,TResult) { 
- return function (arg0,arg1) { 
- ((asm.x600000c_init)(T,TResult).apply)(this,arguments);
-return ((asm.x600000c)(T,TResult).apply)(this,arguments); }; };
-asm.x600000c_ = function (T,TResult) { 
- return function Select(arg0,arg1) { var t0;
-var t1;
-var t2;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var loc0;
- t0 = T;
-t1 = TResult;
-t2 = ((asm1)["E+<Select>d__0`2"])(T,TResult);
-/* IL_00: ldc.i4.s 254*/
-st_00 = -2;
-/* IL_02: newobj Void .ctor(System.Int32)*/
-st_01 = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x600001d)(result,st_00);
-return result; })(t2);
-/* IL_07: stloc.0 */
-loc0 = st_01;
-/* IL_08: ldloc.0 */
-st_02 = loc0;
-/* IL_09: ldarg.0 */
-st_03 = arg0;
-/* IL_0A: stfld IKVM.Reflection.GenericFieldInstance*/
-(st_02)["<>3__source"] = st_03;
-/* IL_0F: ldloc.0 */
-st_04 = loc0;
-/* IL_10: ldarg.1 */
-st_05 = arg1;
-/* IL_11: stfld IKVM.Reflection.GenericFieldInstance*/
-(st_04)["<>3__selector"] = st_05;
-/* IL_16: ldloc.0 */
-st_06 = loc0;
-/* IL_17: ret */
-return st_06; }; };
-asm.x600000d_init = function (T) { 
- return function () { 
- (((asm1)["E+<Where>d__6`1"])(T).init)();
-asm.x600000d = asm.x600000d_; }; };
-asm.x600000d = function (T) { 
- return function (arg0,arg1) { 
- ((asm.x600000d_init)(T).apply)(this,arguments);
-return ((asm.x600000d)(T).apply)(this,arguments); }; };
-asm.x600000d_ = function (T) { 
- return function Where(arg0,arg1) { var t0;
-var t1;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var loc0;
- t0 = T;
-t1 = ((asm1)["E+<Where>d__6`1"])(T);
-/* IL_00: ldc.i4.s 254*/
-st_00 = -2;
-/* IL_02: newobj Void .ctor(System.Int32)*/
-st_01 = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x6000026)(result,st_00);
-return result; })(t1);
-/* IL_07: stloc.0 */
-loc0 = st_01;
-/* IL_08: ldloc.0 */
-st_02 = loc0;
-/* IL_09: ldarg.0 */
-st_03 = arg0;
-/* IL_0A: stfld IKVM.Reflection.GenericFieldInstance*/
-(st_02)["<>3__source"] = st_03;
-/* IL_0F: ldloc.0 */
-st_04 = loc0;
-/* IL_10: ldarg.1 */
-st_05 = arg1;
-/* IL_11: stfld IKVM.Reflection.GenericFieldInstance*/
-(st_04)["<>3__predicate"] = st_05;
-/* IL_16: ldloc.0 */
-st_06 = loc0;
-/* IL_17: ret */
-return st_06; }; };
-asm.x600000e_init = function (T) { 
- return function () { 
- (((asm0)["System.Collections.Generic.IEnumerable`1"])(T).init)();
-(((asm0)["System.Collections.Generic.IEnumerator`1"])(T).init)();
-(((asm0)["System.IDisposable"])().init)();
-asm.x600000e = asm.x600000e_; }; };
-asm.x600000e = function (T) { 
- return function (arg0) { 
- ((asm.x600000e_init)(T).apply)(this,arguments);
-return ((asm.x600000e)(T).apply)(this,arguments); }; };
-asm.x600000e_ = function (T) { 
- return function FirstOrDefault(arg0) { var t0;
-var t1;
-var t2;
-var t3;
-var loc3;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0B;
-var __braille_pos_0__;
-var loc2;
- t0 = T;
-t1 = ((asm0)["System.Collections.Generic.IEnumerable`1"])(T);
-t2 = ((asm0)["System.Collections.Generic.IEnumerator`1"])(T);
-t3 = ((asm0)["System.IDisposable"])();
-loc3 = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: callvirt IEnumerator`1 GetEnumerator()*/
-st_01 = (((st_00)[t1].x6000026)())(st_00);
-/* IL_06: stloc.2 */
-loc2 = st_01;
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_07: br.s IL_14*/
-__braille_pos_1__ = 0x14;
-continue;
-case 0x9:
-/* IL_09: ldloc.2 */
-st_02 = loc2;
-/* IL_0A: callvirt T get_Current()*/
-st_03 = (((st_02)[t2].x600002f)())(st_02);
-/* IL_0F: stloc.0 */
-loc0 = st_03;
-/* IL_10: ldloc.0 */
-st_04 = loc0;
-/* IL_11: stloc.1 */
-loc1 = st_04;
-/* IL_12: leave.s IL_32*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x32;
-break;
-case 0x14:
-/* IL_14: ldloc.2 */
-st_05 = loc2;
-/* IL_15: callvirt Boolean MoveNext()*/
-st_06 = (((st_05)[t2].x6000030)())(st_05);
-/* IL_1A: brtrue.s IL_09*/
-if (st_06){
-__braille_pos_1__ = 0x9;continue;
-}
-/* IL_1C: leave.s IL_28*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x28;
-break;
-}
-}
-break;
-}
-finally {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_1E: ldloc.2 */
-st_07 = loc2;
-/* IL_1F: brfalse.s IL_27*/
-if ((!st_07)){
-__braille_pos_1__ = 0x27;continue;
-}
-/* IL_21: ldloc.2 */
-st_08 = loc2;
-/* IL_22: callvirt Void Dispose()*/
-(((st_08)[t3].x600002b)())(st_08);
-case 0x27:
-/* IL_27: endfinally */
-__braille_pos_1__ = -1;
-break;
-}
-}
-break;
-}
-case 0x28:
-/* IL_28: ldloca.s 3*/
-st_09 = { 
-'w': function () { 
- loc3 = (arguments)[0]; },
-'r': function () { 
- return loc3; } 
-};
-/* IL_2B: initobj T*/
-(t0.IsValueType) ? ((st_09.w)(new t0())) : (null);
-/* IL_30: ldloc.3 */
-st_0A = loc3;
-/* IL_31: ret */
-return st_0A;
-case 0x32:
-/* IL_32: ldloc.1 */
-st_0B = loc1;
-/* IL_33: ret */
-return st_0B;
-}
-} }; };
-asm.x600000f_init = function (T) { 
- return function () { 
- (((asm0)["System.Collections.Generic.IEnumerable`1"])(T).init)();
-(((asm0)["System.Collections.Generic.IEnumerator`1"])(T).init)();
-(((asm0)["System.IDisposable"])().init)();
-asm.x600000f = asm.x600000f_; }; };
-asm.x600000f = function (T) { 
- return function (arg0) { 
- ((asm.x600000f_init)(T).apply)(this,arguments);
-return ((asm.x600000f)(T).apply)(this,arguments); }; };
-asm.x600000f_ = function (T) { 
- return function Any(arg0) { var t0;
-var t1;
-var t2;
-var t3;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var __braille_pos_0__;
-var loc1;
- t0 = T;
-t1 = ((asm0)["System.Collections.Generic.IEnumerable`1"])(T);
-t2 = ((asm0)["System.Collections.Generic.IEnumerator`1"])(T);
-t3 = ((asm0)["System.IDisposable"])();
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: callvirt IEnumerator`1 GetEnumerator()*/
-st_01 = (((st_00)[t1].x6000026)())(st_00);
-/* IL_06: stloc.1 */
-loc1 = st_01;
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_07: br.s IL_14*/
-__braille_pos_1__ = 0x14;
-continue;
-case 0x9:
-/* IL_09: ldloc.1 */
-st_02 = loc1;
-/* IL_0A: callvirt T get_Current()*/
-st_03 = (((st_02)[t2].x600002f)())(st_02);
-/* IL_0F: pop */
-
-/* IL_10: ldc.i4.1 */
-st_04 = 1;
-/* IL_11: stloc.0 */
-loc0 = st_04;
-/* IL_12: leave.s IL_2A*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x2A;
-break;
-case 0x14:
-/* IL_14: ldloc.1 */
-st_05 = loc1;
-/* IL_15: callvirt Boolean MoveNext()*/
-st_06 = (((st_05)[t2].x6000030)())(st_05);
-/* IL_1A: brtrue.s IL_09*/
-if (st_06){
-__braille_pos_1__ = 0x9;continue;
-}
-/* IL_1C: leave.s IL_28*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x28;
-break;
-}
-}
-break;
-}
-finally {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_1E: ldloc.1 */
-st_07 = loc1;
-/* IL_1F: brfalse.s IL_27*/
-if ((!st_07)){
-__braille_pos_1__ = 0x27;continue;
-}
-/* IL_21: ldloc.1 */
-st_08 = loc1;
-/* IL_22: callvirt Void Dispose()*/
-(((st_08)[t3].x600002b)())(st_08);
-case 0x27:
-/* IL_27: endfinally */
-__braille_pos_1__ = -1;
-break;
-}
-}
-break;
-}
-case 0x28:
-/* IL_28: ldc.i4.0 */
-st_09 = 0;
-/* IL_29: ret */
-return st_09;
-case 0x2A:
-/* IL_2A: ldloc.0 */
-st_0A = loc0;
-/* IL_2B: ret */
-return st_0A;
-}
-} }; };
-asm.x6000010 = function get_Prop(arg0) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld Int32 <Prop>k__BackingField*/
-st_01 = (st_00)["P<Prop>k__BackingField"];
-/* IL_06: ret */
-return st_01; };
-asm.x6000011 = function set_Prop(arg0,arg1) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldarg.1 */
-st_01 = arg1;
-/* IL_02: stfld Int32 <Prop>k__BackingField*/
-(st_00)["P<Prop>k__BackingField"] = st_01;
-/* IL_07: ret */
-return ; };
-asm.x6000012 = function _ctor(arg0) { var st_00;
+asm.x600000c = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
+(asm0.x6000067)(st_00);
 /* IL_06: ret */
 return ; };
-asm.x6000013_init = function () { 
- ((asm1.P)().init)();
-((asm1.Program)().init)();
-(((asm0)["System.Int32"])().init)();
-(((asm0)["System.Func`2"])((asm1.P)(),((asm0)["System.Int32"])()).init)();
-asm.x6000013 = asm.x6000013_; };
-asm.x6000013 = function () { 
- (asm.x6000013_init.apply)(this,arguments);
-return (asm.x6000013.apply)(this,arguments); };
-asm.x6000013_ = function Main() { var t0;
+asm.x600000d = function _ctor(arg0) { var st_00;
+ /* IL_00: ldarg.0 */
+st_00 = arg0;
+/* IL_01: call Void .ctor()*/
+(asm0.x6000067)(st_00);
+/* IL_06: ret */
+return ; };
+asm.x600000e = function _ctor(arg0) { var st_00;
+ /* IL_00: ldarg.0 */
+st_00 = arg0;
+/* IL_01: call Void .ctor()*/
+(asm1.x600000d)(st_00);
+/* IL_06: ret */
+return ; };
+asm.x600000f_init = function () { 
+ ((asm1.A)().init)();
+((asm1.B)().init)();
+((asm1.C)().init)();
+asm.x600000f = asm.x600000f_; };
+asm.x600000f = function () { 
+ (asm.x600000f_init.apply)(this,arguments);
+return (asm.x600000f.apply)(this,arguments); };
+asm.x600000f_ = function Main() { var t0;
 var t1;
 var t2;
-var t3;
 var st_00;
 var st_01;
-var st_05;
-var st_06;
 var st_02;
-var st_03;
-var st_04;
-var st_07;
-var st_0B;
-var st_0C;
-var st_08;
-var st_09;
-var st_0A;
-var st_0D;
-var st_11;
-var st_12;
-var st_0E;
-var st_0F;
-var st_10;
-var st_13;
-var st_17;
-var st_18;
-var st_14;
-var st_15;
-var st_16;
-var st_19;
-var st_1D;
-var st_1E;
-var st_1A;
-var st_1B;
-var st_1C;
-var st_1F;
-var st_24;
-var st_20;
-var st_21;
-var st_22;
-var st_23;
-var st_25;
-var st_26;
-var st_27;
-var st_28;
-var __braille_pos_0__;
-var loc0;
-var loc1;
-var loc2;
-var loc3;
-var loc4;
-var loc5;
- t0 = (asm1.P)();
-t1 = (asm1.Program)();
-t2 = ((asm0)["System.Int32"])();
-t3 = ((asm0)["System.Func`2"])((asm1.P)(),((asm0)["System.Int32"])());
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldc.i4.5 */
-st_00 = 5;
-/* IL_01: newarr P*/
-st_01 = new_array(t0,st_00);
-/* IL_06: stloc.0 */
-loc0 = st_01;
-/* IL_07: ldloc.0 */
-st_05 = loc0;
-/* IL_08: ldc.i4.0 */
-st_06 = 0;
-/* IL_09: newobj Void .ctor()*/
+ t0 = (asm1.A)();
+t1 = (asm1.B)();
+t2 = (asm1.C)();
+/* IL_00: newobj Void .ctor()*/
+st_00 = (function () { var result;
+ result = new ((arguments)[0])();
+(asm1.x600000c)(result);
+return result; })(t0);
+/* IL_05: call Void TestTryCatch(System.Exception)*/
+(asm1.x6000010)(st_00);
+/* IL_0A: newobj Void .ctor()*/
+st_01 = (function () { var result;
+ result = new ((arguments)[0])();
+(asm1.x600000d)(result);
+return result; })(t1);
+/* IL_0F: call Void TestTryCatch(System.Exception)*/
+(asm1.x6000010)(st_01);
+/* IL_14: newobj Void .ctor()*/
 st_02 = (function () { var result;
  result = new ((arguments)[0])();
-(asm1.x6000012)(result);
-return result; })(t0);
-/* IL_0E: stloc.1 */
-loc1 = st_02;
-/* IL_0F: ldloc.1 */
-st_03 = loc1;
-/* IL_10: ldc.i4.s 11*/
-st_04 = 11;
-/* IL_12: callvirt Void set_Prop(System.Int32)*/
-(asm1.x6000011)(st_03,st_04);
-/* IL_17: ldloc.1 */
-st_07 = loc1;
-/* IL_18: stelem.ref */
-(st_05.jsarr)[st_06] = st_07;
-/* IL_19: ldloc.0 */
-st_0B = loc0;
-/* IL_1A: ldc.i4.1 */
-st_0C = 1;
-/* IL_1B: newobj Void .ctor()*/
-st_08 = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x6000012)(result);
-return result; })(t0);
-/* IL_20: stloc.2 */
-loc2 = st_08;
-/* IL_21: ldloc.2 */
-st_09 = loc2;
-/* IL_22: ldc.i4.s 22*/
-st_0A = 22;
-/* IL_24: callvirt Void set_Prop(System.Int32)*/
-(asm1.x6000011)(st_09,st_0A);
-/* IL_29: ldloc.2 */
-st_0D = loc2;
-/* IL_2A: stelem.ref */
-(st_0B.jsarr)[st_0C] = st_0D;
-/* IL_2B: ldloc.0 */
-st_11 = loc0;
-/* IL_2C: ldc.i4.2 */
-st_12 = 2;
-/* IL_2D: newobj Void .ctor()*/
-st_0E = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x6000012)(result);
-return result; })(t0);
-/* IL_32: stloc.3 */
-loc3 = st_0E;
-/* IL_33: ldloc.3 */
-st_0F = loc3;
-/* IL_34: ldc.i4.s 33*/
-st_10 = 33;
-/* IL_36: callvirt Void set_Prop(System.Int32)*/
-(asm1.x6000011)(st_0F,st_10);
-/* IL_3B: ldloc.3 */
-st_13 = loc3;
-/* IL_3C: stelem.ref */
-(st_11.jsarr)[st_12] = st_13;
-/* IL_3D: ldloc.0 */
-st_17 = loc0;
-/* IL_3E: ldc.i4.3 */
-st_18 = 3;
-/* IL_3F: newobj Void .ctor()*/
-st_14 = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x6000012)(result);
-return result; })(t0);
-/* IL_44: stloc.s 4*/
-loc4 = st_14;
-/* IL_46: ldloc.s 4*/
-st_15 = loc4;
-/* IL_48: ldc.i4.s 44*/
-st_16 = 44;
-/* IL_4A: callvirt Void set_Prop(System.Int32)*/
-(asm1.x6000011)(st_15,st_16);
-/* IL_4F: ldloc.s 4*/
-st_19 = loc4;
-/* IL_51: stelem.ref */
-(st_17.jsarr)[st_18] = st_19;
-/* IL_52: ldloc.0 */
-st_1D = loc0;
-/* IL_53: ldc.i4.4 */
-st_1E = 4;
-/* IL_54: newobj Void .ctor()*/
-st_1A = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x6000012)(result);
-return result; })(t0);
-/* IL_59: stloc.s 5*/
-loc5 = st_1A;
-/* IL_5B: ldloc.s 5*/
-st_1B = loc5;
-/* IL_5D: ldc.i4.s 55*/
-st_1C = 55;
-/* IL_5F: callvirt Void set_Prop(System.Int32)*/
-(asm1.x6000011)(st_1B,st_1C);
-/* IL_64: ldloc.s 5*/
-st_1F = loc5;
-/* IL_66: stelem.ref */
-(st_1D.jsarr)[st_1E] = st_1F;
-/* IL_67: ldloc.0 */
-st_24 = loc0;
-/* IL_68: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
-st_20 = (t1)["CS$<>9__CachedAnonymousMethodDelegate6"];
-/* IL_6D: brtrue.s IL_80*/
-if (st_20){
-__braille_pos_0__ = 0x80;continue;
-}
-/* IL_6F: ldnull */
-st_21 = null;
-/* IL_71: ldftn Int32 <Main>b__5(P)*/
-st_22 = asm1.x6000015;
-/* IL_76: newobj Void .ctor(System.Object, System.IntPtr)*/
-st_23 = (function () { var result;
- result = new ((arguments)[0])();
-(asm0.x6000088)(result,st_21,st_22);
-return result; })(t3);
-/* IL_7B: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
-(t1)["CS$<>9__CachedAnonymousMethodDelegate6"] = st_23;
-case 0x80:
-/* IL_80: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
-st_25 = (t1)["CS$<>9__CachedAnonymousMethodDelegate6"];
-/* IL_85: call IEnumerable`1 Select[P, System.Int32](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Int32])*/
-st_26 = ((asm1.x600000c)((asm1.P)(),((asm0)["System.Int32"])()))(st_24,st_25);
-/* IL_8A: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32])*/
-st_27 = ((asm1.x600000e)(((asm0)["System.Int32"])()))(st_26);
-/* IL_8F: box System.Int32*/
-st_28 = { 
-'boxed': st_27,
-'vtable': t2.prototype.vtable 
-};
-/* IL_94: call Void Log(System.Object)*/
-(asm1.x6000001)(st_28);
-/* IL_99: ret */
-return ;
-}
-} };
-asm.x6000015 = function _Main_b__5(arg0) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: callvirt Int32 get_Prop()*/
-st_01 = (asm1.x6000010)(st_00);
-/* IL_06: ret */
-return st_01; };
-asm.x6000014 = function _ctor(arg0) { var st_00;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: call Void .ctor()*/
-/* IL_06: ret */
-return ; };
-asm.x6000016_init = function () { 
- (((asm1)["E+<Select>d__0`2"])(((arguments)[0].constructor.GenericArguments)[0],((arguments)[0].constructor.GenericArguments)[1]).init)();
-asm.x6000016 = asm.x6000016_; };
-asm.x6000016 = function (arg0) { 
- (asm.x6000016_init.apply)(this,arguments);
-return (asm.x6000016.apply)(this,arguments); };
-asm.x6000016_ = function System_Collections_Generic_IEnumerable_TResult__GetEnumerator(arg0) { var t0;
-var t1;
-var t2;
-var st_01;
-var st_00;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0C;
-var st_0B;
-var st_0D;
-var st_0F;
-var st_0E;
-var st_10;
-var st_11;
-var __braille_pos_0__;
-var loc0;
- t0 = ((arguments)[0].constructor.GenericArguments)[0];
-t1 = ((arguments)[0].constructor.GenericArguments)[1];
-t2 = ((asm1)["E+<Select>d__0`2"])(((arguments)[0].constructor.GenericArguments)[0],((arguments)[0].constructor.GenericArguments)[1]);
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: call Int32 get_CurrentManagedThreadId()*/
-st_01 = (asm0.x6000087)();
-/* IL_05: ldarg.0 */
-st_00 = arg0;
-/* IL_06: ldfld Int32 <>l__initialThreadId*/
-st_02 = (st_00)["_Select_d__0_2<>l__initialThreadId"];
-/* IL_0B: bne.un.s IL_22*/
-if (st_01 != st_02){
-__braille_pos_0__ = 0x22;continue;
-}
-/* IL_0D: ldarg.0 */
-st_03 = arg0;
-/* IL_0E: ldfld Int32 <>1__state*/
-st_04 = (st_03)["_Select_d__0_2<>1__state"];
-/* IL_13: ldc.i4.s 254*/
-st_05 = -2;
-/* IL_15: bne.un.s IL_22*/
-if (st_04 != st_05){
-__braille_pos_0__ = 0x22;continue;
-}
-/* IL_17: ldarg.0 */
-st_06 = arg0;
-/* IL_18: ldc.i4.0 */
-st_07 = 0;
-/* IL_19: stfld Int32 <>1__state*/
-(st_06)["_Select_d__0_2<>1__state"] = st_07;
-/* IL_1E: ldarg.0 */
-st_08 = arg0;
-/* IL_1F: stloc.0 */
-loc0 = st_08;
-/* IL_20: br.s IL_29*/
-__braille_pos_0__ = 0x29;
-continue;
-case 0x22:
-/* IL_22: ldc.i4.0 */
-st_09 = 0;
-/* IL_23: newobj Void .ctor(System.Int32)*/
-st_0A = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x600001d)(result,st_09);
+(asm1.x600000e)(result);
 return result; })(t2);
-/* IL_28: stloc.0 */
-loc0 = st_0A;
-case 0x29:
-/* IL_29: ldloc.0 */
-st_0C = loc0;
-/* IL_2A: ldarg.0 */
-st_0B = arg0;
-/* IL_2B: ldfld IEnumerable`1 <>3__source*/
-st_0D = (st_0B)["<>3__source"];
-/* IL_30: stfld IEnumerable`1 source*/
-st_0C.source = st_0D;
-/* IL_35: ldloc.0 */
-st_0F = loc0;
-/* IL_36: ldarg.0 */
-st_0E = arg0;
-/* IL_37: ldfld Func`2 <>3__selector*/
-st_10 = (st_0E)["<>3__selector"];
-/* IL_3C: stfld Func`2 selector*/
-st_0F.selector = st_10;
-/* IL_41: ldloc.0 */
-st_11 = loc0;
-/* IL_42: ret */
-return st_11;
-}
-} };
-asm.x6000017 = function System_Collections_IEnumerable_GetEnumerator(arg0) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()*/
-st_01 = (asm1.x6000016)(st_00);
-/* IL_06: ret */
-return st_01; };
-asm.x6000018_init = function () { 
- (((asm0)["System.Collections.Generic.IEnumerable`1"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-(((asm0)["System.Collections.Generic.IEnumerator`1"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-asm.x6000018 = asm.x6000018_; };
-asm.x6000018 = function (arg0) { 
- (asm.x6000018_init.apply)(this,arguments);
-return (asm.x6000018.apply)(this,arguments); };
-asm.x6000018_ = function MoveNext(arg0) { var t0;
-var t1;
-var t2;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_07;
-var st_05;
-var st_06;
-var st_08;
-var st_09;
-var st_0A;
-var st_0D;
-var st_0B;
-var st_0C;
-var st_0E;
-var st_13;
-var st_0F;
-var st_11;
-var st_10;
-var st_12;
-var st_14;
-var st_15;
-var st_16;
-var st_17;
-var st_18;
-var st_19;
-var st_1A;
-var st_1B;
-var st_1C;
-var st_1D;
-var st_1E;
-var st_1F;
-var st_20;
-var __braille_pos_0__;
- t0 = ((arguments)[0].constructor.GenericArguments)[0];
-t1 = ((asm0)["System.Collections.Generic.IEnumerable`1"])(((arguments)[0].constructor.GenericArguments)[0]);
-t2 = ((asm0)["System.Collections.Generic.IEnumerator`1"])(((arguments)[0].constructor.GenericArguments)[0]);
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld Int32 <>1__state*/
-st_01 = (st_00)["_Select_d__0_2<>1__state"];
-/* IL_06: stloc.1 */
-loc1 = st_01;
-/* IL_07: ldloc.1 */
-st_02 = loc1;
-/* IL_08: switch System.Int32[]*/
-__braille_switch_value__ = st_02;
-if (__braille_switch_value__ >= 0x3){
-__braille_pos_1__ = 0x19;continue;
-}
-__braille_jmp__ = [ 0x2,0x70,0x56 ];
-__braille_pos_1__ = (0x19 + (__braille_jmp__)[__braille_switch_value__]);
-continue;
-case 0x19:
-/* IL_19: br.s IL_89*/
-__braille_pos_1__ = 0x89;
-continue;
-case 0x1B:
-/* IL_1B: ldarg.0 */
-st_03 = arg0;
-/* IL_1C: ldc.i4.m1 */
-st_04 = -1;
-/* IL_1D: stfld Int32 <>1__state*/
-(st_03)["_Select_d__0_2<>1__state"] = st_04;
-/* IL_22: ldarg.0 */
-st_07 = arg0;
-/* IL_23: ldarg.0 */
-st_05 = arg0;
-/* IL_24: ldfld IEnumerable`1 source*/
-st_06 = st_05.source;
-/* IL_29: callvirt IEnumerator`1 GetEnumerator()*/
-st_08 = (((st_06)[t1].x6000026)())(st_06);
-/* IL_2E: stfld IEnumerator`1 <>7__wrap2*/
-(st_07)["<>7__wrap2"] = st_08;
-/* IL_33: ldarg.0 */
-st_09 = arg0;
-/* IL_34: ldc.i4.1 */
-st_0A = 1;
-/* IL_35: stfld Int32 <>1__state*/
-(st_09)["_Select_d__0_2<>1__state"] = st_0A;
-/* IL_3A: br.s IL_76*/
-__braille_pos_1__ = 0x76;
-continue;
-case 0x3C:
-/* IL_3C: ldarg.0 */
-st_0D = arg0;
-/* IL_3D: ldarg.0 */
-st_0B = arg0;
-/* IL_3E: ldfld IEnumerator`1 <>7__wrap2*/
-st_0C = (st_0B)["<>7__wrap2"];
-/* IL_43: callvirt T get_Current()*/
-st_0E = (((st_0C)[t2].x600002f)())(st_0C);
-/* IL_48: stfld T <s>5__1*/
-(st_0D)["<s>5__1"] = st_0E;
-/* IL_4D: ldarg.0 */
-st_13 = arg0;
-/* IL_4E: ldarg.0 */
-st_0F = arg0;
-/* IL_4F: ldfld Func`2 selector*/
-st_11 = st_0F.selector;
-/* IL_54: ldarg.0 */
-st_10 = arg0;
-/* IL_55: ldfld T <s>5__1*/
-st_12 = (st_10)["<s>5__1"];
-/* IL_5A: callvirt TResult Invoke(T)*/
-st_14 = (st_11._methodPtr.apply)(null,(st_11._target) ? ([ st_11._target,st_12 ]) : ([ st_12 ]));
-/* IL_5F: stfld TResult <>2__current*/
-(st_13)["_Select_d__0_2<>2__current"] = st_14;
-/* IL_64: ldarg.0 */
-st_15 = arg0;
-/* IL_65: ldc.i4.2 */
-st_16 = 2;
-/* IL_66: stfld Int32 <>1__state*/
-(st_15)["_Select_d__0_2<>1__state"] = st_16;
-/* IL_6B: ldc.i4.1 */
-st_17 = 1;
-/* IL_6C: stloc.0 */
-loc0 = st_17;
-/* IL_6D: leave.s IL_94*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x94;
-break;
-case 0x6F:
-/* IL_6F: ldarg.0 */
-st_18 = arg0;
-/* IL_70: ldc.i4.1 */
-st_19 = 1;
-/* IL_71: stfld Int32 <>1__state*/
-(st_18)["_Select_d__0_2<>1__state"] = st_19;
-case 0x76:
-/* IL_76: ldarg.0 */
-st_1A = arg0;
-/* IL_77: ldfld IEnumerator`1 <>7__wrap2*/
-st_1B = (st_1A)["<>7__wrap2"];
-/* IL_7C: callvirt Boolean MoveNext()*/
-st_1C = (((st_1B)[t2].x6000030)())(st_1B);
-/* IL_81: brtrue.s IL_3C*/
-if (st_1C){
-__braille_pos_1__ = 0x3C;continue;
-}
-/* IL_83: ldarg.0 */
-st_1D = arg0;
-/* IL_84: call Void <>m__Finally3()*/
-(asm1.x600001e)(st_1D);
-case 0x89:
-/* IL_89: ldc.i4.0 */
-st_1E = 0;
-/* IL_8A: stloc.0 */
-loc0 = st_1E;
-/* IL_8B: leave.s IL_94*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x94;
-break;
-}
-}
-break;
-}
-catch (__braille_error__) {
-__braille_error_handled_1__ = false;
-if (__braille_error_handled_0__ === false){
-/* IL_8D: ldarg.0 */st_1F = arg0;/* IL_8E: call Void System.IDisposable.Dispose()*/(asm1.x600001b)(st_1F);/* IL_93: endfinally */__braille_pos_1__ = -1;throw __braille_error__;
-}
-}
-case 0x94:
-/* IL_94: ldloc.0 */
-st_20 = loc0;
-/* IL_95: ret */
-return st_20;
-}
-} };
-asm.x6000019 = function System_Collections_Generic_IEnumerator_TResult__get_Current(arg0) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld TResult <>2__current*/
-st_01 = (st_00)["_Select_d__0_2<>2__current"];
-/* IL_06: ret */
-return st_01; };
-asm.x600001a_init = function () { 
- (((asm0)["System.NotSupportedException"])().init)();
-asm.x600001a = asm.x600001a_; };
-asm.x600001a = function (arg0) { 
- (asm.x600001a_init.apply)(this,arguments);
-return (asm.x600001a.apply)(this,arguments); };
-asm.x600001a_ = function System_Collections_IEnumerator_Reset(arg0) { var t0;
-var st_00;
- t0 = ((asm0)["System.NotSupportedException"])();
-/* IL_00: newobj Void .ctor()*/
-st_00 = (function () { var result;
- result = new ((arguments)[0])();
-(asm0.x6000084)(result);
-return result; })(t0);
-/* IL_05: throw */
-throw st_00; };
-asm.x600001b = function System_IDisposable_Dispose(arg0) { var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var __braille_pos_0__;
-var loc0;
-var __braille_switch_value__;
-var __braille_jmp__;
- __braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld Int32 <>1__state*/
-st_01 = (st_00)["_Select_d__0_2<>1__state"];
-/* IL_06: stloc.0 */
-loc0 = st_01;
-/* IL_07: ldloc.0 */
-st_02 = loc0;
-/* IL_08: ldc.i4.1 */
-st_03 = 1;
-/* IL_09: sub */
-st_04 = (st_02 - st_03);
-/* IL_0A: switch System.Int32[]*/
-__braille_switch_value__ = st_04;
-if (__braille_switch_value__ >= 0x2){
-__braille_pos_0__ = 0x17;continue;
-}
-__braille_jmp__ = [ 0x1,0x1 ];
-__braille_pos_0__ = (0x17 + (__braille_jmp__)[__braille_switch_value__]);
-continue;
-case 0x17:
-/* IL_17: ret */
-return ;
-case 0x18:
-try {
-/* IL_18: leave.s IL_21*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x21;
-}
-finally {
-/* IL_1A: ldarg.0 */
-st_05 = arg0;
-/* IL_1B: call Void <>m__Finally3()*/
-(asm1.x600001e)(st_05);
-/* IL_20: endfinally */
-__braille_pos_1__ = -1;
-}
-case 0x21:
-/* IL_21: ret */
-return ;
-}
-} };
-asm.x600001c = function System_Collections_IEnumerator_get_Current(arg0) { var t0;
-var st_00;
-var st_01;
-var st_02;
- t0 = ((arguments)[0].constructor.GenericArguments)[1];
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld TResult <>2__current*/
-st_01 = (st_00)["_Select_d__0_2<>2__current"];
-/* IL_06: box TResult*/
-st_02 = box(st_01,t0);
-/* IL_0B: ret */
-return st_02; };
-asm.x600001e_init = function () { 
- (((asm0)["System.IDisposable"])().init)();
-asm.x600001e = asm.x600001e_; };
-asm.x600001e = function (arg0) { 
- (asm.x600001e_init.apply)(this,arguments);
-return (asm.x600001e.apply)(this,arguments); };
-asm.x600001e_ = function __m__Finally3(arg0) { var t0;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var __braille_pos_0__;
- t0 = ((asm0)["System.IDisposable"])();
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldc.i4.m1 */
-st_01 = -1;
-/* IL_02: stfld Int32 <>1__state*/
-(st_00)["_Select_d__0_2<>1__state"] = st_01;
-/* IL_07: ldarg.0 */
-st_02 = arg0;
-/* IL_08: ldfld IEnumerator`1 <>7__wrap2*/
-st_03 = (st_02)["<>7__wrap2"];
-/* IL_0D: brfalse.s IL_1A*/
-if ((!st_03)){
-__braille_pos_0__ = 0x1A;continue;
-}
-/* IL_0F: ldarg.0 */
-st_04 = arg0;
-/* IL_10: ldfld IEnumerator`1 <>7__wrap2*/
-st_05 = (st_04)["<>7__wrap2"];
-/* IL_15: callvirt Void Dispose()*/
-(((st_05)[t0].x600002b)())(st_05);
-case 0x1A:
-/* IL_1A: ret */
-return ;
-}
-} };
-asm.x600001d = function _ctor(arg0,arg1) { var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: call Void .ctor()*/
-/* IL_06: ldarg.0 */
-st_01 = arg0;
-/* IL_07: ldarg.1 */
-st_02 = arg1;
-/* IL_08: stfld Int32 <>1__state*/
-(st_01)["_Select_d__0_2<>1__state"] = st_02;
-/* IL_0D: ldarg.0 */
-st_03 = arg0;
-/* IL_0E: call Int32 get_CurrentManagedThreadId()*/
-st_04 = (asm0.x6000087)();
-/* IL_13: stfld Int32 <>l__initialThreadId*/
-(st_03)["_Select_d__0_2<>l__initialThreadId"] = st_04;
-/* IL_18: ret */
+/* IL_19: call Void TestTryCatch(System.Exception)*/
+(asm1.x6000010)(st_02);
+/* IL_1E: ret */
 return ; };
-asm.x600001f_init = function () { 
- (((asm1)["E+<Where>d__6`1"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-asm.x600001f = asm.x600001f_; };
-asm.x600001f = function (arg0) { 
- (asm.x600001f_init.apply)(this,arguments);
-return (asm.x600001f.apply)(this,arguments); };
-asm.x600001f_ = function System_Collections_Generic_IEnumerable_T__GetEnumerator(arg0) { var t0;
-var t1;
-var st_01;
-var st_00;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var st_06;
-var st_07;
-var st_08;
-var st_09;
-var st_0A;
-var st_0C;
-var st_0B;
-var st_0D;
-var st_0F;
-var st_0E;
-var st_10;
-var st_11;
-var __braille_pos_0__;
-var loc0;
- t0 = ((arguments)[0].constructor.GenericArguments)[0];
-t1 = ((asm1)["E+<Where>d__6`1"])(((arguments)[0].constructor.GenericArguments)[0]);
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: call Int32 get_CurrentManagedThreadId()*/
-st_01 = (asm0.x6000087)();
-/* IL_05: ldarg.0 */
-st_00 = arg0;
-/* IL_06: ldfld Int32 <>l__initialThreadId*/
-st_02 = (st_00)["_Where_d__6_1<>l__initialThreadId"];
-/* IL_0B: bne.un.s IL_22*/
-if (st_01 != st_02){
-__braille_pos_0__ = 0x22;continue;
-}
-/* IL_0D: ldarg.0 */
-st_03 = arg0;
-/* IL_0E: ldfld Int32 <>1__state*/
-st_04 = (st_03)["_Where_d__6_1<>1__state"];
-/* IL_13: ldc.i4.s 254*/
-st_05 = -2;
-/* IL_15: bne.un.s IL_22*/
-if (st_04 != st_05){
-__braille_pos_0__ = 0x22;continue;
-}
-/* IL_17: ldarg.0 */
-st_06 = arg0;
-/* IL_18: ldc.i4.0 */
-st_07 = 0;
-/* IL_19: stfld Int32 <>1__state*/
-(st_06)["_Where_d__6_1<>1__state"] = st_07;
-/* IL_1E: ldarg.0 */
-st_08 = arg0;
-/* IL_1F: stloc.0 */
-loc0 = st_08;
-/* IL_20: br.s IL_29*/
-__braille_pos_0__ = 0x29;
-continue;
-case 0x22:
-/* IL_22: ldc.i4.0 */
-st_09 = 0;
-/* IL_23: newobj Void .ctor(System.Int32)*/
-st_0A = (function () { var result;
- result = new ((arguments)[0])();
-(asm1.x6000026)(result,st_09);
-return result; })(t1);
-/* IL_28: stloc.0 */
-loc0 = st_0A;
-case 0x29:
-/* IL_29: ldloc.0 */
-st_0C = loc0;
-/* IL_2A: ldarg.0 */
-st_0B = arg0;
-/* IL_2B: ldfld IEnumerable`1 <>3__source*/
-st_0D = (st_0B)["<>3__source"];
-/* IL_30: stfld IEnumerable`1 source*/
-st_0C.source = st_0D;
-/* IL_35: ldloc.0 */
-st_0F = loc0;
-/* IL_36: ldarg.0 */
-st_0E = arg0;
-/* IL_37: ldfld Func`2 <>3__predicate*/
-st_10 = (st_0E)["<>3__predicate"];
-/* IL_3C: stfld Func`2 predicate*/
-st_0F.predicate = st_10;
-/* IL_41: ldloc.0 */
-st_11 = loc0;
-/* IL_42: ret */
-return st_11;
-}
-} };
-asm.x6000020 = function System_Collections_IEnumerable_GetEnumerator(arg0) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<T>.GetEnumerator()*/
-st_01 = (asm1.x600001f)(st_00);
-/* IL_06: ret */
-return st_01; };
-asm.x6000021_init = function () { 
- (((asm0)["System.Collections.Generic.IEnumerable`1"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-(((asm0)["System.Collections.Generic.IEnumerator`1"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-asm.x6000021 = asm.x6000021_; };
-asm.x6000021 = function (arg0) { 
- (asm.x6000021_init.apply)(this,arguments);
-return (asm.x6000021.apply)(this,arguments); };
-asm.x6000021_ = function MoveNext(arg0) { var t0;
-var t1;
-var t2;
-var st_00;
+asm.x6000010 = function TestTryCatch(arg0) { var st_00;
 var st_01;
 var st_02;
 var st_03;
 var st_04;
-var st_07;
-var st_05;
-var st_06;
-var st_08;
-var st_09;
-var st_0A;
-var st_0D;
-var st_0B;
-var st_0C;
-var st_0E;
-var st_0F;
-var st_11;
-var st_10;
-var st_12;
-var st_13;
-var st_15;
-var st_14;
-var st_16;
-var st_17;
-var st_18;
-var st_19;
-var st_1A;
-var st_1B;
-var st_1C;
-var st_1D;
-var st_1E;
-var st_1F;
-var st_20;
-var st_21;
-var st_22;
 var __braille_pos_0__;
- t0 = ((arguments)[0].constructor.GenericArguments)[0];
-t1 = ((asm0)["System.Collections.Generic.IEnumerable`1"])(((arguments)[0].constructor.GenericArguments)[0]);
-t2 = ((asm0)["System.Collections.Generic.IEnumerator`1"])(((arguments)[0].constructor.GenericArguments)[0]);
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-try {
-__braille_pos_1__ = 0x0;
-while (__braille_pos_1__ >= 0){
-switch (__braille_pos_1__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld Int32 <>1__state*/
-st_01 = (st_00)["_Where_d__6_1<>1__state"];
-/* IL_06: stloc.1 */
-loc1 = st_01;
-/* IL_07: ldloc.1 */
-st_02 = loc1;
-/* IL_08: switch System.Int32[]*/
-__braille_switch_value__ = st_02;
-if (__braille_switch_value__ >= 0x3){
-__braille_pos_1__ = 0x19;continue;
-}
-__braille_jmp__ = [ 0x2,0x78,0x5E ];
-__braille_pos_1__ = (0x19 + (__braille_jmp__)[__braille_switch_value__]);
-continue;
-case 0x19:
-/* IL_19: br.s IL_91*/
-__braille_pos_1__ = 0x91;
-continue;
-case 0x1B:
-/* IL_1B: ldarg.0 */
-st_03 = arg0;
-/* IL_1C: ldc.i4.m1 */
-st_04 = -1;
-/* IL_1D: stfld Int32 <>1__state*/
-(st_03)["_Where_d__6_1<>1__state"] = st_04;
-/* IL_22: ldarg.0 */
-st_07 = arg0;
-/* IL_23: ldarg.0 */
-st_05 = arg0;
-/* IL_24: ldfld IEnumerable`1 source*/
-st_06 = st_05.source;
-/* IL_29: callvirt IEnumerator`1 GetEnumerator()*/
-st_08 = (((st_06)[t1].x6000026)())(st_06);
-/* IL_2E: stfld IEnumerator`1 <>7__wrap8*/
-(st_07)["<>7__wrap8"] = st_08;
-/* IL_33: ldarg.0 */
-st_09 = arg0;
-/* IL_34: ldc.i4.1 */
-st_0A = 1;
-/* IL_35: stfld Int32 <>1__state*/
-(st_09)["_Where_d__6_1<>1__state"] = st_0A;
-/* IL_3A: br.s IL_7E*/
-__braille_pos_1__ = 0x7E;
-continue;
-case 0x3C:
-/* IL_3C: ldarg.0 */
-st_0D = arg0;
-/* IL_3D: ldarg.0 */
-st_0B = arg0;
-/* IL_3E: ldfld IEnumerator`1 <>7__wrap8*/
-st_0C = (st_0B)["<>7__wrap8"];
-/* IL_43: callvirt T get_Current()*/
-st_0E = (((st_0C)[t2].x600002f)())(st_0C);
-/* IL_48: stfld T <s>5__7*/
-(st_0D)["<s>5__7"] = st_0E;
-/* IL_4D: ldarg.0 */
-st_0F = arg0;
-/* IL_4E: ldfld Func`2 predicate*/
-st_11 = st_0F.predicate;
-/* IL_53: ldarg.0 */
-st_10 = arg0;
-/* IL_54: ldfld T <s>5__7*/
-st_12 = (st_10)["<s>5__7"];
-/* IL_59: callvirt Boolean Invoke(T)*/
-st_13 = (st_11._methodPtr.apply)(null,(st_11._target) ? ([ st_11._target,st_12 ]) : ([ st_12 ]));
-/* IL_5E: brfalse.s IL_7E*/
-if ((!st_13)){
-__braille_pos_1__ = 0x7E;continue;
-}
-/* IL_60: ldarg.0 */
-st_15 = arg0;
-/* IL_61: ldarg.0 */
-st_14 = arg0;
-/* IL_62: ldfld T <s>5__7*/
-st_16 = (st_14)["<s>5__7"];
-/* IL_67: stfld T <>2__current*/
-(st_15)["_Where_d__6_1<>2__current"] = st_16;
-/* IL_6C: ldarg.0 */
-st_17 = arg0;
-/* IL_6D: ldc.i4.2 */
-st_18 = 2;
-/* IL_6E: stfld Int32 <>1__state*/
-(st_17)["_Where_d__6_1<>1__state"] = st_18;
-/* IL_73: ldc.i4.1 */
-st_19 = 1;
-/* IL_74: stloc.0 */
-loc0 = st_19;
-/* IL_75: leave.s IL_9C*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x9C;
-break;
-case 0x77:
-/* IL_77: ldarg.0 */
-st_1A = arg0;
-/* IL_78: ldc.i4.1 */
-st_1B = 1;
-/* IL_79: stfld Int32 <>1__state*/
-(st_1A)["_Where_d__6_1<>1__state"] = st_1B;
-case 0x7E:
-/* IL_7E: ldarg.0 */
-st_1C = arg0;
-/* IL_7F: ldfld IEnumerator`1 <>7__wrap8*/
-st_1D = (st_1C)["<>7__wrap8"];
-/* IL_84: callvirt Boolean MoveNext()*/
-st_1E = (((st_1D)[t2].x6000030)())(st_1D);
-/* IL_89: brtrue.s IL_3C*/
-if (st_1E){
-__braille_pos_1__ = 0x3C;continue;
-}
-/* IL_8B: ldarg.0 */
-st_1F = arg0;
-/* IL_8C: call Void <>m__Finally9()*/
-(asm1.x6000027)(st_1F);
-case 0x91:
-/* IL_91: ldc.i4.0 */
-st_20 = 0;
-/* IL_92: stloc.0 */
-loc0 = st_20;
-/* IL_93: leave.s IL_9C*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x9C;
-break;
-}
-}
-break;
-}
-catch (__braille_error__) {
-__braille_error_handled_1__ = false;
-if (__braille_error_handled_0__ === false){
-/* IL_95: ldarg.0 */st_21 = arg0;/* IL_96: call Void System.IDisposable.Dispose()*/(asm1.x6000024)(st_21);/* IL_9B: endfinally */__braille_pos_1__ = -1;throw __braille_error__;
-}
-}
-case 0x9C:
-/* IL_9C: ldloc.0 */
-st_22 = loc0;
-/* IL_9D: ret */
-return st_22;
-}
-} };
-asm.x6000022 = function System_Collections_Generic_IEnumerator_T__get_Current(arg0) { var st_00;
-var st_01;
- /* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld T <>2__current*/
-st_01 = (st_00)["_Where_d__6_1<>2__current"];
-/* IL_06: ret */
-return st_01; };
-asm.x6000023_init = function () { 
- (((asm0)["System.NotSupportedException"])().init)();
-asm.x6000023 = asm.x6000023_; };
-asm.x6000023 = function (arg0) { 
- (asm.x6000023_init.apply)(this,arguments);
-return (asm.x6000023.apply)(this,arguments); };
-asm.x6000023_ = function System_Collections_IEnumerator_Reset(arg0) { var t0;
-var st_00;
- t0 = ((asm0)["System.NotSupportedException"])();
-/* IL_00: newobj Void .ctor()*/
-st_00 = (function () { var result;
- result = new ((arguments)[0])();
-(asm0.x6000084)(result);
-return result; })(t0);
-/* IL_05: throw */
-throw st_00; };
-asm.x6000024 = function System_IDisposable_Dispose(arg0) { var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var __braille_pos_0__;
-var loc0;
-var __braille_switch_value__;
-var __braille_jmp__;
  __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
 case 0x0:
+try {
 /* IL_00: ldarg.0 */
 st_00 = arg0;
-/* IL_01: ldfld Int32 <>1__state*/
-st_01 = (st_00)["_Where_d__6_1<>1__state"];
-/* IL_06: stloc.0 */
-loc0 = st_01;
-/* IL_07: ldloc.0 */
-st_02 = loc0;
-/* IL_08: ldc.i4.1 */
-st_03 = 1;
-/* IL_09: sub */
-st_04 = (st_02 - st_03);
-/* IL_0A: switch System.Int32[]*/
-__braille_switch_value__ = st_04;
-if (__braille_switch_value__ >= 0x2){
-__braille_pos_0__ = 0x17;continue;
+/* IL_01: throw */
+throw st_00;
 }
-__braille_jmp__ = [ 0x1,0x1 ];
-__braille_pos_0__ = (0x17 + (__braille_jmp__)[__braille_switch_value__]);
-continue;
-case 0x17:
-/* IL_17: ret */
-return ;
-case 0x18:
-try {
-/* IL_18: leave.s IL_21*/
-__braille_pos_1__ = -1;
-__braille_pos_0__ = 0x21;
+catch (__braille_error__) {
+__braille_error_handled_1__ = false;
+if ((!__braille_error_handled_1__) && (__braille_error__ instanceof (asm1.C)())){
+__braille_error_handled_1__ = true;/* IL_02: pop *//* IL_03: ldstr C*/st_01 = new_string("C");/* IL_08: call Void Log(System.Object)*/(asm1.x6000001)(st_01);/* IL_0D: leave.s IL_29*/__braille_pos_1__ = -1;__braille_pos_0__ = 0x29;
+}
+if ((!__braille_error_handled_1__) && (__braille_error__ instanceof (asm1.B)())){
+__braille_error_handled_1__ = true;/* IL_0F: pop *//* IL_10: ldstr B*/st_02 = new_string("B");/* IL_15: call Void Log(System.Object)*/(asm1.x6000001)(st_02);/* IL_1A: leave.s IL_29*/__braille_pos_1__ = -1;__braille_pos_0__ = 0x29;
+}
+if ((!__braille_error_handled_1__) && (__braille_error__ instanceof (asm1.A)())){
+__braille_error_handled_1__ = true;/* IL_1C: pop *//* IL_1D: ldstr A*/st_03 = new_string("A");/* IL_22: call Void Log(System.Object)*/(asm1.x6000001)(st_03);/* IL_27: leave.s IL_29*/__braille_pos_1__ = -1;__braille_pos_0__ = 0x29;
+}
 }
 finally {
-/* IL_1A: ldarg.0 */
-st_05 = arg0;
-/* IL_1B: call Void <>m__Finally9()*/
-(asm1.x6000027)(st_05);
-/* IL_20: endfinally */
+/* IL_2B: ldstr Finally*/
+st_04 = new_string("Finally");
+/* IL_30: call Void Log(System.Object)*/
+(asm1.x6000001)(st_04);
+/* IL_35: endfinally */
 __braille_pos_1__ = -1;
 }
-case 0x21:
-/* IL_21: ret */
+case 0x36:
+/* IL_36: ret */
 return ;
 }
 } };
-asm.x6000025 = function System_Collections_IEnumerator_get_Current(arg0) { var t0;
-var st_00;
-var st_01;
-var st_02;
- t0 = ((arguments)[0].constructor.GenericArguments)[0];
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldfld T <>2__current*/
-st_01 = (st_00)["_Where_d__6_1<>2__current"];
-/* IL_06: box T*/
-st_02 = box(st_01,t0);
-/* IL_0B: ret */
-return st_02; };
-asm.x6000027_init = function () { 
- (((asm0)["System.IDisposable"])().init)();
-asm.x6000027 = asm.x6000027_; };
-asm.x6000027 = function (arg0) { 
- (asm.x6000027_init.apply)(this,arguments);
-return (asm.x6000027.apply)(this,arguments); };
-asm.x6000027_ = function __m__Finally9(arg0) { var t0;
-var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
-var st_05;
-var __braille_pos_0__;
- t0 = ((asm0)["System.IDisposable"])();
-__braille_pos_0__ = 0x0;
-while (__braille_pos_0__ >= 0){
-switch (__braille_pos_0__) {
-case 0x0:
-/* IL_00: ldarg.0 */
-st_00 = arg0;
-/* IL_01: ldc.i4.m1 */
-st_01 = -1;
-/* IL_02: stfld Int32 <>1__state*/
-(st_00)["_Where_d__6_1<>1__state"] = st_01;
-/* IL_07: ldarg.0 */
-st_02 = arg0;
-/* IL_08: ldfld IEnumerator`1 <>7__wrap8*/
-st_03 = (st_02)["<>7__wrap8"];
-/* IL_0D: brfalse.s IL_1A*/
-if ((!st_03)){
-__braille_pos_0__ = 0x1A;continue;
-}
-/* IL_0F: ldarg.0 */
-st_04 = arg0;
-/* IL_10: ldfld IEnumerator`1 <>7__wrap8*/
-st_05 = (st_04)["<>7__wrap8"];
-/* IL_15: callvirt Void Dispose()*/
-(((st_05)[t0].x600002b)())(st_05);
-case 0x1A:
-/* IL_1A: ret */
-return ;
-}
-} };
-asm.x6000026 = function _ctor(arg0,arg1) { var st_00;
-var st_01;
-var st_02;
-var st_03;
-var st_04;
+asm.x6000011 = function _ctor(arg0) { var st_00;
  /* IL_00: ldarg.0 */
 st_00 = arg0;
 /* IL_01: call Void .ctor()*/
-/* IL_06: ldarg.0 */
-st_01 = arg0;
-/* IL_07: ldarg.1 */
-st_02 = arg1;
-/* IL_08: stfld Int32 <>1__state*/
-(st_01)["_Where_d__6_1<>1__state"] = st_02;
-/* IL_0D: ldarg.0 */
-st_03 = arg0;
-/* IL_0E: call Int32 get_CurrentManagedThreadId()*/
-st_04 = (asm0.x6000087)();
-/* IL_13: stfld Int32 <>l__initialThreadId*/
-(st_03)["_Where_d__6_1<>l__initialThreadId"] = st_04;
-/* IL_18: ret */
+/* IL_06: ret */
 return ; };
 asm.TestLog = (function () { var ct;
  ct = null;
@@ -7898,7 +6487,7 @@ TestHelper.prototype.vtable = {
 }; };
 TestHelper.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
-asm.E = (function () { var ct;
+asm.A = (function () { var ct;
  ct = null;
 return function () { var c;
 var initialized;
@@ -7907,23 +6496,23 @@ if (c){
 return c;
 }
 initialized = false;;
-function E() { 
- (E.init)();
-this.constructor = E; };
-c = E;
+function A() { 
+ (A.init)();
+this.constructor = A; };
+c = A;
 ct = c;
-E.init = function () { 
+A.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-E.Interfaces = [  ];
-E.IsInst = function (t) { return t instanceof E; };
-E.IsValueType = false;
-E.IsPrimitive = false;
-E.IsNullable = false;
-E.ArrayType = Array;
-E.prototype.vtable = { 
+A.Interfaces = [  ];
+A.IsInst = function (t) { return t instanceof A; };
+A.IsValueType = false;
+A.IsPrimitive = false;
+A.IsNullable = false;
+A.ArrayType = Array;
+A.prototype.vtable = { 
 'asm0.x6000003': function () { 
  return asm0.x6000003; },
 'asm0.x6000004': function () { 
@@ -7931,9 +6520,9 @@ E.prototype.vtable = {
 'asm0.x6000007': function () { 
  return asm0.x6000007; } 
 }; };
-E.prototype = new (((asm0)["System.Object"])())();;
+A.prototype = new (((asm0)["System.Exception"])())();;
 return c; }; })();
-asm.P = (function () { var ct;
+asm.B = (function () { var ct;
  ct = null;
 return function () { var c;
 var initialized;
@@ -7942,24 +6531,23 @@ if (c){
 return c;
 }
 initialized = false;;
-function P() { 
- (P.init)();
-this.constructor = P; };
-c = P;
+function B() { 
+ (B.init)();
+this.constructor = B; };
+c = B;
 ct = c;
-P.init = function () { 
+B.init = function () { 
  if (initialized){
 return;
 }
 initialized = true;
-P.Interfaces = [  ];
-P.IsInst = function (t) { return t instanceof P; };
-P.IsValueType = false;
-P.IsPrimitive = false;
-P.IsNullable = false;
-P.ArrayType = Array;
-(P.prototype)["P<Prop>k__BackingField"] = 0;
-P.prototype.vtable = { 
+B.Interfaces = [  ];
+B.IsInst = function (t) { return t instanceof B; };
+B.IsValueType = false;
+B.IsPrimitive = false;
+B.IsNullable = false;
+B.ArrayType = Array;
+B.prototype.vtable = { 
 'asm0.x6000003': function () { 
  return asm0.x6000003; },
 'asm0.x6000004': function () { 
@@ -7967,7 +6555,42 @@ P.prototype.vtable = {
 'asm0.x6000007': function () { 
  return asm0.x6000007; } 
 }; };
-P.prototype = new (((asm0)["System.Object"])())();;
+B.prototype = new (((asm0)["System.Exception"])())();;
+return c; }; })();
+asm.C = (function () { var ct;
+ ct = null;
+return function () { var c;
+var initialized;
+ c = ct;
+if (c){
+return c;
+}
+initialized = false;;
+function C() { 
+ (C.init)();
+this.constructor = C; };
+c = C;
+ct = c;
+C.init = function () { 
+ if (initialized){
+return;
+}
+initialized = true;
+C.Interfaces = [  ];
+C.IsInst = function (t) { return t instanceof C; };
+C.IsValueType = false;
+C.IsPrimitive = false;
+C.IsNullable = false;
+C.ArrayType = Array;
+C.prototype.vtable = { 
+'asm0.x6000003': function () { 
+ return asm0.x6000003; },
+'asm0.x6000004': function () { 
+ return asm0.x6000004; },
+'asm0.x6000007': function () { 
+ return asm0.x6000007; } 
+}; };
+C.prototype = new ((asm1.B)())();;
 return c; }; })();
 asm.Program = (function () { var ct;
  ct = null;
@@ -7988,7 +6611,6 @@ Program.init = function () {
 return;
 }
 initialized = true;
-(Program)["CS$<>9__CachedAnonymousMethodDelegate6"] = null;
 Program.Interfaces = [  ];
 Program.IsInst = function (t) { return t instanceof Program; };
 Program.IsValueType = false;
@@ -8005,178 +6627,4 @@ Program.prototype.vtable = {
 }; };
 Program.prototype = new (((asm0)["System.Object"])())();;
 return c; }; })();
-(asm)["E+<Select>d__0`2"] = (function () { var ct;
- ct = { 
- 
-};
-return function (T,TResult) { var c;
-var initialized;
- c = tree_get([ T,TResult ],ct);
-if (c){
-return c;
-}
-initialized = false;;
-function _Select_d__0_2() { 
- (_Select_d__0_2.init)();
-this.constructor = _Select_d__0_2; };
-c = _Select_d__0_2;
-tree_set([ T,TResult ],ct,c);
-_Select_d__0_2.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-_Select_d__0_2.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult),((asm0)["System.Collections.IEnumerable"])(),((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult),((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
-_Select_d__0_2.IsInst = function (t) { return t instanceof _Select_d__0_2; };
-_Select_d__0_2.IsValueType = false;
-_Select_d__0_2.IsPrimitive = false;
-_Select_d__0_2.IsNullable = false;
-_Select_d__0_2.ArrayType = Array;
-_Select_d__0_2.GenericArguments = [ T,TResult ];
-(_Select_d__0_2.prototype)["_Select_d__0_2<>2__current"] = (TResult.IsValueType) ? ((TResult.IsPrimitive) ? (0) : (new TResult())) : (null);
-(_Select_d__0_2.prototype)["_Select_d__0_2<>1__state"] = 0;
-(_Select_d__0_2.prototype)["_Select_d__0_2<>l__initialThreadId"] = 0;
-_Select_d__0_2.prototype.source = null;
-(_Select_d__0_2.prototype)["<>3__source"] = null;
-_Select_d__0_2.prototype.selector = null;
-(_Select_d__0_2.prototype)["<>3__selector"] = null;
-(_Select_d__0_2.prototype)["<s>5__1"] = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
-(_Select_d__0_2.prototype)["<>7__wrap2"] = null;
-_Select_d__0_2.prototype.vtable = { 
-'asm1.x6000016': function () { 
- return asm1.x6000016; },
-'asm1.x6000017': function () { 
- return asm1.x6000017; },
-'asm1.x6000018': function () { 
- return asm1.x6000018; },
-'asm1.x6000019': function () { 
- return asm1.x6000019; },
-'asm1.x600001a': function () { 
- return asm1.x600001a; },
-'asm1.x600001b': function () { 
- return asm1.x600001b; },
-'asm1.x600001c': function () { 
- return asm1.x600001c; },
-'asm0.x6000003': function () { 
- return asm0.x6000003; },
-'asm0.x6000004': function () { 
- return asm0.x6000004; },
-'asm0.x6000007': function () { 
- return asm0.x6000007; } 
-};
-(_Select_d__0_2.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult)] = { 
-'x6000026': function () { 
- return asm1.x6000016; } 
-};
-(_Select_d__0_2.prototype)[((asm0)["System.Collections.IEnumerable"])()] = { 
-'x600001e': function () { 
- return asm1.x6000017; } 
-};
-(_Select_d__0_2.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult)] = { 
-'x600002f': function () { 
- return asm1.x6000019; },
-'x6000030': function () { 
- return asm1.x6000018; } 
-};
-(_Select_d__0_2.prototype)[((asm0)["System.Collections.IEnumerator"])()] = { 
-'x600002c': function () { 
- return asm1.x600001c; },
-'x600002d': function () { 
- return asm1.x6000018; },
-'x600002e': function () { 
- return asm1.x600001a; } 
-};
-(_Select_d__0_2.prototype)[((asm0)["System.IDisposable"])()] = { 
-'x600002b': function () { 
- return asm1.x600001b; } 
-}; };
-_Select_d__0_2.prototype = new (((asm0)["System.Object"])())();;
-return c; }; })();
-(asm)["E+<Where>d__6`1"] = (function () { var ct;
- ct = { 
- 
-};
-return function (T) { var c;
-var initialized;
- c = tree_get([ T ],ct);
-if (c){
-return c;
-}
-initialized = false;;
-function _Where_d__6_1() { 
- (_Where_d__6_1.init)();
-this.constructor = _Where_d__6_1; };
-c = _Where_d__6_1;
-tree_set([ T ],ct,c);
-_Where_d__6_1.init = function () { 
- if (initialized){
-return;
-}
-initialized = true;
-_Where_d__6_1.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerable`1"])(T),((asm0)["System.Collections.IEnumerable"])(),((asm0)["System.Collections.Generic.IEnumerator`1"])(T),((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
-_Where_d__6_1.IsInst = function (t) { return t instanceof _Where_d__6_1; };
-_Where_d__6_1.IsValueType = false;
-_Where_d__6_1.IsPrimitive = false;
-_Where_d__6_1.IsNullable = false;
-_Where_d__6_1.ArrayType = Array;
-_Where_d__6_1.GenericArguments = [ T ];
-(_Where_d__6_1.prototype)["_Where_d__6_1<>2__current"] = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
-(_Where_d__6_1.prototype)["_Where_d__6_1<>1__state"] = 0;
-(_Where_d__6_1.prototype)["_Where_d__6_1<>l__initialThreadId"] = 0;
-_Where_d__6_1.prototype.source = null;
-(_Where_d__6_1.prototype)["<>3__source"] = null;
-_Where_d__6_1.prototype.predicate = null;
-(_Where_d__6_1.prototype)["<>3__predicate"] = null;
-(_Where_d__6_1.prototype)["<s>5__7"] = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
-(_Where_d__6_1.prototype)["<>7__wrap8"] = null;
-_Where_d__6_1.prototype.vtable = { 
-'asm1.x600001f': function () { 
- return asm1.x600001f; },
-'asm1.x6000020': function () { 
- return asm1.x6000020; },
-'asm1.x6000021': function () { 
- return asm1.x6000021; },
-'asm1.x6000022': function () { 
- return asm1.x6000022; },
-'asm1.x6000023': function () { 
- return asm1.x6000023; },
-'asm1.x6000024': function () { 
- return asm1.x6000024; },
-'asm1.x6000025': function () { 
- return asm1.x6000025; },
-'asm0.x6000003': function () { 
- return asm0.x6000003; },
-'asm0.x6000004': function () { 
- return asm0.x6000004; },
-'asm0.x6000007': function () { 
- return asm0.x6000007; } 
-};
-(_Where_d__6_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = { 
-'x6000026': function () { 
- return asm1.x600001f; } 
-};
-(_Where_d__6_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = { 
-'x600001e': function () { 
- return asm1.x6000020; } 
-};
-(_Where_d__6_1.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = { 
-'x600002f': function () { 
- return asm1.x6000022; },
-'x6000030': function () { 
- return asm1.x6000021; } 
-};
-(_Where_d__6_1.prototype)[((asm0)["System.Collections.IEnumerator"])()] = { 
-'x600002c': function () { 
- return asm1.x6000025; },
-'x600002d': function () { 
- return asm1.x6000021; },
-'x600002e': function () { 
- return asm1.x6000023; } 
-};
-(_Where_d__6_1.prototype)[((asm0)["System.IDisposable"])()] = { 
-'x600002b': function () { 
- return asm1.x6000024; } 
-}; };
-_Where_d__6_1.prototype = new (((asm0)["System.Object"])())();;
-return c; }; })();
-asm.entryPoint = asm.x6000013; })(asm1 || (asm1 = {}));
+asm.entryPoint = asm.x600000f; })(asm1 || (asm1 = {}));

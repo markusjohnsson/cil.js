@@ -115,7 +115,11 @@ namespace Braille.Analysis.Passes
 
                     regionStack.Push(currentRegion);
                     currentRegion = awaitedRegion;
-                    awaitedRegion = regionQueue.Dequeue();
+
+                    if (regionQueue.Any())
+                        awaitedRegion = regionQueue.Dequeue();
+                    else
+                        awaitedRegion = null;
                 }
 
                 block.Ast.Add(op);

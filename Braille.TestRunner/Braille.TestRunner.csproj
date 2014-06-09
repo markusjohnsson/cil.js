@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <None Include="FailingTests\ArrayInitializer.cs" />
+    <None Include="Tests\Exceptions.cs" />
     <Compile Include="Tests\TypedArrays.cs" />
     <None Include="Tests\NewslotMethod.cs" />
     <None Include="Tests\OutParameters.cs" />

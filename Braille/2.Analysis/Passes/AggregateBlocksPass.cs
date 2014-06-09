@@ -15,7 +15,10 @@ namespace Braille.Analysis.Passes
         {
             var replacements = new List<List<Block>>();
 
+
+
             var currentAggregate = new List<Block>();
+
             foreach (var node in block.Ast)
             {
                 if (node is TryBlock ||
@@ -23,7 +26,18 @@ namespace Braille.Analysis.Passes
                     node is FinallyBlock ||
                     node is FaultBlock)
                 {
-                    currentAggregate.Add((Block)node);
+                    if (node is FinallyBlock && currentAggregate.Count == 0)
+                    {
+                        // nasty solution for rare case where there is a leave(.s) op between catch and finally. 
+                        // TODO: read up un what's happening
+
+                        replacements.Last().Add((Block)node);
+                    }
+                    else
+                    {
+                        currentAggregate.Add((Block)node);
+                    }
+
                     RewriteBlock((Block)node);
                 }
                 else if (currentAggregate.Count > 0)

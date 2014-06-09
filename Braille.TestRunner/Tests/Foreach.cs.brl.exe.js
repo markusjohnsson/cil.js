@@ -6488,12 +6488,14 @@ return ; };
 asm.x6000011_init = function () { 
  ((asm1.A)().init)();
 (((asm0)["System.Int32"])().init)();
+(((asm0)["System.IDisposable"])().init)();
 asm.x6000011 = asm.x6000011_; };
 asm.x6000011 = function () { 
  (asm.x6000011_init.apply)(this,arguments);
 return (asm.x6000011.apply)(this,arguments); };
 asm.x6000011_ = function Main() { var t0;
 var t1;
+var t2;
 var st_00;
 var st_01;
 var st_02;
@@ -6503,13 +6505,16 @@ var st_05;
 var st_06;
 var st_07;
 var st_08;
+var st_09;
+var st_0A;
+var st_0B;
+var st_0C;
 var __braille_pos_0__;
 var loc0;
 var loc2;
-var __braille_pos_1__;
-var loc1;
  t0 = (asm1.A)();
 t1 = ((asm0)["System.Int32"])();
+t2 = ((asm0)["System.IDisposable"])();
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
@@ -6527,6 +6532,7 @@ st_01 = loc0;
 st_02 = (asm1.x600000c)(st_01);
 /* IL_0C: stloc.2 */
 loc2 = st_02;
+try {
 __braille_pos_1__ = 0x0;
 while (__braille_pos_1__ >= 0){
 switch (__braille_pos_1__) {
@@ -6566,6 +6572,36 @@ break;
 }
 }
 break;
+}
+finally {
+__braille_pos_1__ = 0x0;
+while (__braille_pos_1__ >= 0){
+switch (__braille_pos_1__) {
+case 0x0:
+/* IL_2B: ldloc.2 */
+st_09 = loc2;
+/* IL_2C: isinst System.IDisposable*/
+st_0A = (t2.IsInst)(st_09);
+/* IL_31: stloc.3 */
+loc3 = st_0A;
+/* IL_32: ldloc.3 */
+st_0B = loc3;
+/* IL_33: brfalse.s IL_3B*/
+if ((!st_0B)){
+__braille_pos_1__ = 0x3B;continue;
+}
+/* IL_35: ldloc.3 */
+st_0C = loc3;
+/* IL_36: callvirt Void Dispose()*/
+(((st_0C)[t2].x600002b)())(st_0C);
+case 0x3B:
+/* IL_3B: endfinally */
+__braille_pos_1__ = -1;
+break;
+}
+}
+break;
+}
 case 0x3C:
 /* IL_3C: ret */
 return ;

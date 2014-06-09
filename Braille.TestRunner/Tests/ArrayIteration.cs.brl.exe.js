@@ -6391,12 +6391,14 @@ return ; };
 asm.x600000d_init = function () { 
  (((asm0)["System.Collections.IEnumerable"])().init)();
 (((asm0)["System.Collections.IEnumerator"])().init)();
+(((asm0)["System.IDisposable"])().init)();
 asm.x600000d = asm.x600000d_; };
 asm.x600000d = function (arg0) { 
  (asm.x600000d_init.apply)(this,arguments);
 return (asm.x600000d.apply)(this,arguments); };
 asm.x600000d_ = function PrintArray(arg0) { var t0;
 var t1;
+var t2;
 var st_00;
 var st_01;
 var st_02;
@@ -6404,12 +6406,14 @@ var st_03;
 var st_04;
 var st_05;
 var st_06;
+var st_07;
+var st_08;
+var st_09;
 var __braille_pos_0__;
 var loc1;
-var __braille_pos_1__;
-var loc0;
  t0 = ((asm0)["System.Collections.IEnumerable"])();
 t1 = ((asm0)["System.Collections.IEnumerator"])();
+t2 = ((asm0)["System.IDisposable"])();
 __braille_pos_0__ = 0x0;
 while (__braille_pos_0__ >= 0){
 switch (__braille_pos_0__) {
@@ -6420,6 +6424,7 @@ st_00 = arg0;
 st_01 = (((st_00)[t0].x600001e)())(st_00);
 /* IL_06: stloc.1 */
 loc1 = st_01;
+try {
 __braille_pos_1__ = 0x0;
 while (__braille_pos_1__ >= 0){
 switch (__braille_pos_1__) {
@@ -6454,6 +6459,34 @@ break;
 }
 }
 break;
+}
+finally {
+__braille_pos_1__ = 0x0;
+while (__braille_pos_1__ >= 0){
+switch (__braille_pos_1__) {
+case 0x0:
+/* IL_20: ldloc.1 */
+st_07 = loc1;
+/* IL_21: stloc.2 */
+loc2 = st_07;
+/* IL_22: ldloc.2 */
+st_08 = loc2;
+/* IL_23: brfalse.s IL_2B*/
+if ((!st_08)){
+__braille_pos_1__ = 0x2B;continue;
+}
+/* IL_25: ldloc.2 */
+st_09 = loc2;
+/* IL_26: callvirt Void Dispose()*/
+(((st_09)[t2].x600002b)())(st_09);
+case 0x2B:
+/* IL_2B: endfinally */
+__braille_pos_1__ = -1;
+break;
+}
+}
+break;
+}
 case 0x2C:
 /* IL_2C: ret */
 return ;

@@ -11,7 +11,7 @@ namespace Braille.Analysis.Passes
         public void Run(CilMethod method)
         {
             method.OpTree = method.OpTree
-                .Where(o => o.StackBefore != null) // unreachable
+                //.Where(o => o.StackBefore != null) // unreachable
                 .Where(
                     o => false == (
                         o.Instruction.OpCode.Name == "br.s" &&

@@ -1,5 +1,6 @@
 ﻿using Braille.Analysis.Passes;
 using Braille.Ast;
+using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,9 +22,18 @@ namespace Braille.Analysis
                 .GetMethodBody();
 
             var processStack = new Stack<OpExpression>();
+            
+            var handlers = methodBody != null ? methodBody.ExceptionHandlingClauses : new List<ExceptionHandlingClause>();
+
+            foreach (var handler in handlers.Where(h => h.TryOffset == 0))
+            {
+                var handlerStart = method.OpTree.First(i => i.Position == handler.HandlerOffset);
+                handlerStart.StackBefore = new List<StackUseDefinition>();
+                processStack.Push(handlerStart);
+            }
+            
             processStack.Push(infos.First());
 
-            //foreach (var opInfo in infos)
             while (processStack.Any())
             {
                 var opInfo = processStack.Pop();
@@ -44,10 +54,10 @@ namespace Braille.Analysis
         {
             foreach (var target in opInfo.Targets)
             {
-                if (target.IsHandlerStart)
-                {
-                    newStack.Push(new StackUseDefinition { Definitions = new List<Node> { new ExceptionNode() } });
-                }
+                //if (target.IsHandlerStart)
+                //{
+                //    newStack.Push(new StackUseDefinition { Definitions = new List<Node> { new ExceptionNode() } });
+                //}
 
                 if (UpdateTargetStack(newStack, target))
                     processStack.Push(target);
@@ -70,7 +80,12 @@ namespace Braille.Analysis
             }
             else
             {
-                for (var i = 0; i < opInfo.InstructionPopCount; i++)
+                var popCount = opInfo.InstructionPopCount;
+
+                if (opInfo.IsHandlerStart)
+                    popCount--;
+
+                for (var i = 0; i < popCount; i++)
                 {
                     newStack.Pop();
                 }
@@ -80,7 +95,7 @@ namespace Braille.Analysis
             {
                 newStack.Push(
                     new StackUseDefinition
-                    {   
+                    {
                         Definitions = new List<Node> { opInfo }
                     });
             }

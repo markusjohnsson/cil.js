@@ -125,6 +125,10 @@ namespace Braille.Analysis
                     if (opInfo.Next != null)
                         opInfo.Targets.Add(opInfo.Next);
                 }
+                else if (opInfo.Instruction.OpCode.FlowControl == FlowControl.Throw)
+                {
+                    // nothing
+                }
                 else
                 {
                     if (opInfo.Next != null)
@@ -135,12 +139,14 @@ namespace Braille.Analysis
                 {
                     foreach (var handler in handlers.Where(t => t.TryOffset == opInfo.Next.Position))
                     {
-                        if (handler.Flags != ExceptionHandlingClauseOptions.Clause)
+                        if (handler.Flags != ExceptionHandlingClauseOptions.Clause &&
+                            handler.Flags != ExceptionHandlingClauseOptions.Finally)
+                        {
                             continue;
+                        }
 
                         var handlerStart = opInfos.First(i => i.Position == handler.HandlerOffset);
-                        handlerStart.IsHandlerStart = true;
-
+                        
                         opInfo.Targets.Add(handlerStart);
                     }
                 }
@@ -151,6 +157,14 @@ namespace Braille.Analysis
                 }
             }
 
+            foreach (var handler in handlers)
+            {
+                if (handler.Flags != ExceptionHandlingClauseOptions.Clause)
+                    continue;
+
+                var handlerStart = opInfos.First(i => i.Position == handler.HandlerOffset);
+                handlerStart.IsHandlerStart = true;
+            }
             return opInfos;
         }
 

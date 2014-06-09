@@ -170,6 +170,15 @@ namespace Braille.JsTranslation
                 case "bne.un.s":
                     yield return CreateComparisonBranch(node, "!=");
                     break;
+                case "endfinally":
+                    yield return new JSBinaryExpression
+                    {
+                        Left = new JSIdentifier { Name = "__braille_pos__" },
+                        Operator = "=",
+                        Right = new JSNumberLiteral { Value = -1 }
+                    }.ToStatement();
+                    yield return new JSBreakExpression().ToStatement();
+                    break;
                 case "leave":
                 case "leave.s":
                     yield return new JSBinaryExpression
@@ -560,8 +569,6 @@ namespace Braille.JsTranslation
                     };
                 case "dup":
                     return ProcessInternal(frame.Arguments.Single());
-                case "endfinally":
-                    return new JSEmptyExpression();
                 case "initobj":
                     {
                         var typeTok = (Type)frame.Instruction.Data;
