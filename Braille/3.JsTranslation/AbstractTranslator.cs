@@ -58,10 +58,10 @@ namespace Braille.JsTranslation
                     return
                         // TODO: this is for when T is used inside the type initializer - this method should be overridden in TypeTranslator instead of having this case here
                         (typeScope == type.DeclaringType && thisScope == null) ?
-                        JSIdentifier.Create(type.Name) :
+                        JSFactory.Identifier(type.Name) :
                         new JSArrayLookupExpression
                         {
-                            Array = JSIdentifier.Create(thisScope, "constructor", "GenericArguments"),
+                            Array = JSFactory.Identifier(thisScope, "constructor", "GenericArguments"),
                             Indexer = new JSNumberLiteral { Value = typeScope.GetGenericArguments().IndexOf(type) }
                         };
                 }
@@ -70,7 +70,7 @@ namespace Braille.JsTranslation
             {
                 return new JSCallExpression
                 {
-                    Function = JSIdentifier.Create(
+                    Function = JSFactory.Identifier(
                         GetAssemblyIdentifier(type), ConstructFullName(type)),
                     Arguments = type
                         .GetGenericArguments()
@@ -83,7 +83,7 @@ namespace Braille.JsTranslation
             {
                 return new JSCallExpression
                 {
-                    Function = JSIdentifier.Create(GetAssemblyIdentifier(type), type.FullName)
+                    Function = JSFactory.Identifier(GetAssemblyIdentifier(type), type.FullName)
                 };
             }
         }
@@ -195,10 +195,10 @@ namespace Braille.JsTranslation
             var t = GetTypeIdentifier(fieldType, methodScope, typeScope, thisScope);
             return new JSConditionalExpression
             {
-                Condition = JSIdentifier.Create(t, "IsValueType"),
+                Condition = JSFactory.Identifier(t, "IsValueType"),
                 TrueValue = new JSConditionalExpression
                 {
-                    Condition = JSIdentifier.Create(t, "IsPrimitive"),
+                    Condition = JSFactory.Identifier(t, "IsPrimitive"),
                     TrueValue = new JSNumberLiteral { Value = 0 },
                     FalseValue = new JSNewExpression { Constructor = t }
                 },
@@ -212,12 +212,12 @@ namespace Braille.JsTranslation
                 ? null
                 : new JSArrayLookupExpression
                 {
-                    Array = JSIdentifier.Create("arguments"),
+                    Array = JSFactory.Identifier("arguments"),
                     Indexer = new JSNumberLiteral { Value = 0 }
                 } as JSExpression;
 
             if (thisScope != null && typeScope.IsValueType)
-                thisScope = new JSCallExpression { Function = JSIdentifier.Create(thisScope, "r") };
+                thisScope = new JSCallExpression { Function = JSFactory.Identifier(thisScope, "r") };
 
             return thisScope;
         }

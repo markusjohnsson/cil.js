@@ -143,7 +143,7 @@ function new_array(type, length) {
                     if (function == null)
                         continue;
                     
-                    var accessor = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
+                    var accessor = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod));
 
                     var initializer = methodTranslator.GetInitializer(asm, type, method);
 
@@ -153,48 +153,42 @@ function new_array(type, length) {
                     {
                         firstCallFunction = methodTranslator.GetFirstCallInitializer(asm, type, method);
 
-                        yield return new JSBinaryExpression
-                        {
-                            Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init"),
-                            Operator = "=",
-                            Right = initializer
-                        };
+                        yield return JSFactory
+                            .Assignment(
+                                JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init"),
+                                initializer)
+                            .ToStatement();
                     }
 
-                    yield return new JSBinaryExpression
-                    {
-                        Left = accessor,
-                        Operator = "=",
-                        Right = firstCallFunction ?? function
-                    };
+                    yield return JSFactory
+                        .Assignment(
+                            accessor,
+                            firstCallFunction ?? function)
+                        .ToStatement();
 
                     if (firstCallFunction != null)
                     {
-                        yield return new JSBinaryExpression
-                        {
-                            Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_"),
-                            Operator = "=",
-                            Right = function
-                        };
+                        yield return JSFactory
+                            .Assignment(
+                                JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_"),
+                                function);
                     }
 
                     if (method.IsAssemblyStatic)
                     {
                         Debug.Assert(method.ReflectionMethod.IsStatic);
 
-                        yield return new JSBinaryExpression
-                        {
-                            Left = new JSPropertyAccessExpression 
-                            {
-                                Host = new JSIdentifier { Name = "asm" },
+                        yield return JSFactory
+                            .Assignment(
+                                new JSPropertyAccessExpression 
+                                {
+                                    Host = new JSIdentifier { Name = "asm" },
 
-                                // CHECKER TODO: check that there are no name conflicts for Assembly Statics
+                                    // CHECKER TODO: check that there are no name conflicts for Assembly Statics
 
-                                Property = method.Name
-                            },
-                            Operator = "=",
-                            Right = accessor
-                        };
+                                    Property = method.Name
+                                },
+                                accessor);
                     }
                 }
             }
@@ -204,37 +198,25 @@ function new_array(type, length) {
                 if (t.IsIgnored)
                     continue;
 
-                yield return new JSBinaryExpression
-                {
-                    Left = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = t.ReflectionType.FullName
-                    },
-                    Operator = "=",
-                    Right = new JSCallExpression
-                    {
-                        Function = typeTranslator.Translate(t)
-                    }
-                };
+                yield return JSFactory
+                    .Assignment(
+                        new JSPropertyAccessExpression
+                        {
+                            Host = new JSIdentifier { Name = "asm" },
+                            Property = t.ReflectionType.FullName
+                        },
+                        new JSCallExpression
+                        {
+                            Function = typeTranslator.Translate(t)
+                        });
             }
 
             if (asm.EntryPoint != null)
             {
-                yield return new JSBinaryExpression
-                {
-                    Left = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = "entryPoint"
-                    },
-                    Operator = "=",
-                    Right = new JSPropertyAccessExpression
-                    {
-                        Host = new JSIdentifier { Name = "asm" },
-                        Property = "x" + asm.EntryPoint.MetadataToken.ToString("x")
-                    }
-                };
+                yield return JSFactory
+                    .Assignment(
+                        JSFactory.Identifier("asm", "entryPoint"),
+                        JSFactory.Identifier("asm", "x" + asm.EntryPoint.MetadataToken.ToString("x")));
             }
         }
     }

@@ -69,6 +69,7 @@
     <Compile Include="1.Loading\AssemblyLoader.cs" />
     <Compile Include="1.Loading\ByteArrayReader.cs" />
     <Compile Include="3.JsTranslation\BlockTranslator.cs" />
+    <Compile Include="3.JsTranslation\JSAst\JSFactory.cs" />
     <Compile Include="3.JsTranslation\JSAst\JSTemplatedRawExpression.cs" />
     <Compile Include="2.Analysis\Passes\StackRemoval.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />

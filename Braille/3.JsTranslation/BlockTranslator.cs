@@ -105,15 +105,9 @@ namespace Braille.JsTranslation
             {
                 var block = CreateJsBlock(catchBlock, p);
                 block.Statements.Insert(0,
-                    new JSStatement
-                    {
-                        Expression = new JSBinaryExpression
-                        {
-                            Left = handledFlag,
-                            Operator = "=",
-                            Right = new JSBoolLiteral { Value = true }
-                        }
-                    });
+                    JSFactory
+                        .Assignment(handledFlag, new JSBoolLiteral { Value = true })
+                        .ToStatement());
 
                 statements.Add(new JSIfStatement
                 {

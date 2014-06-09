@@ -38,18 +38,17 @@ namespace Braille.JsTranslation
                 functionBlock.Add(
                     new JSCallExpression
                     {
-                        Function = JSIdentifier.Create(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
+                        Function = JSFactory.Identifier(GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope), "init")
                     }
                     .ToStatement());
             }
 
             functionBlock.Add(
-                new JSBinaryExpression
-                {
-                    Left = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod)),
-                    Operator = "=",
-                    Right = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_")
-                }.ToStatement());
+                JSFactory
+                    .Assignment(
+                        JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod)),
+                        JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_"))
+                    .ToStatement());
 
             var f = new JSFunctionDelcaration
             {
@@ -74,7 +73,7 @@ namespace Braille.JsTranslation
             var functionBlock = new List<JSStatement>();
 
             JSExpression closedMethodInitializer;
-            JSExpression openMethodInitializer = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init");
+            JSExpression openMethodInitializer = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init");
 
             if (HasGenericParameters(method))
             {
@@ -82,7 +81,7 @@ namespace Braille.JsTranslation
                 {
                     Function = openMethodInitializer,
                     Arguments = GetGenericParameterList(method.ReflectionMethod)
-                        .Select(t => JSIdentifier.Create(t.Name))
+                        .Select(t => JSFactory.Identifier(t.Name))
                         .ToList()
                 };
             }
@@ -92,12 +91,12 @@ namespace Braille.JsTranslation
             functionBlock.Add(
                 new JSCallExpression
                 {
-                    Function = JSIdentifier.Create(closedMethodInitializer, "apply"),
-                    Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
+                    Function = JSFactory.Identifier(closedMethodInitializer, "apply"),
+                    Arguments = { JSFactory.Identifier("this"), JSFactory.Identifier("arguments") }
 
                 }.ToStatement());
 
-            JSExpression openMethodImplementation = JSIdentifier.Create("asm", GetMethodIdentifier(method.ReflectionMethod));
+            JSExpression openMethodImplementation = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod));
             JSExpression closedMethodImplementation;
 
             if (HasGenericParameters(method))
@@ -106,7 +105,7 @@ namespace Braille.JsTranslation
                 {
                     Function = openMethodImplementation,
                     Arguments = GetGenericParameterList(method.ReflectionMethod)
-                        .Select(t => JSIdentifier.Create(t.Name))
+                        .Select(t => JSFactory.Identifier(t.Name))
                         .ToList()
                 };
             }
@@ -118,8 +117,8 @@ namespace Braille.JsTranslation
                 {
                     Expression = new JSCallExpression
                     {
-                        Function = JSIdentifier.Create(closedMethodImplementation, "apply"),
-                        Arguments = { JSIdentifier.Create("this"), JSIdentifier.Create("arguments") }
+                        Function = JSFactory.Identifier(closedMethodImplementation, "apply"),
+                        Arguments = { JSFactory.Identifier("this"), JSFactory.Identifier("arguments") }
                     }
                 }.ToStatement());
 

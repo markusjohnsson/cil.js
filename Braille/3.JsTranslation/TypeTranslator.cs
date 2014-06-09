@@ -62,8 +62,8 @@ namespace Braille.JsTranslation
 
             var body = new List<JSStatement>();
 
-            var cachedInstance = JSIdentifier.Create("c");
-            var cache = JSIdentifier.Create("ct");
+            var cachedInstance = JSFactory.Identifier("c");
+            var cache = JSFactory.Identifier("ct");
 
             var cacheKey = isGeneric ? GetGenericArgumentsArray(type) : null;
 
@@ -90,7 +90,7 @@ namespace Braille.JsTranslation
 
             body.AddRange(GetTypeDeclaration(type, cache, cacheKey, cachedInstance, isGeneric).Select(s => s.ToStatement()));
 
-            body.Add(new JSReturnExpression { Expression = JSIdentifier.Create("c") }.ToStatement());
+            body.Add(new JSReturnExpression { Expression = JSFactory.Identifier("c") }.ToStatement());
 
             return new JSFunctionDelcaration
             {
@@ -148,30 +148,28 @@ namespace Braille.JsTranslation
             yield return new JSFunctionDelcaration
             {
                 Name = n,
-                Body = {
-                    new JSCallExpression { Function = JSIdentifier.Create(n, "init") }.ToStatement(),
-                    new JSBinaryExpression 
-                    {
-                        Left = JSIdentifier.Create("this", "constructor"),
-                        Operator = "=",
-                        Right = JSIdentifier.Create(n)
-                    }.ToStatement()
+                Body = 
+                {
+                    new JSCallExpression { Function = JSFactory.Identifier(n, "init") }.ToStatement(),
+                    JSFactory
+                        .Assignment(
+                            JSFactory.Identifier("this", "constructor"),
+                            JSFactory.Identifier(n))
+                        .ToStatement()
                 }
 
             };
 
-            yield return new JSBinaryExpression
-            {
-                Left = cachedInstance,
-                Operator = "=",
-                Right = new JSIdentifier { Name = GetSimpleName(type) }
-            };
+            yield return JSFactory
+                .Assignment(
+                    cachedInstance,
+                    new JSIdentifier { Name = GetSimpleName(type) });
 
             if (isGeneric)
             {
                 yield return new JSCallExpression
                 {
-                    Function = JSIdentifier.Create("tree_set"),
+                    Function = JSFactory.Identifier("tree_set"),
                     Arguments = new List<JSExpression>
                     {
                         cacheKey,
@@ -182,38 +180,30 @@ namespace Braille.JsTranslation
             }
             else
             {
-                yield return new JSBinaryExpression { Left = cache, Operator = "=", Right = cachedInstance };
+                yield return JSFactory.Assignment(cache, cachedInstance);
             }
 
-            yield return new JSBinaryExpression
-            {
-                Left = JSIdentifier.Create(n, "init"),
-                Operator = "=",
-                Right = new JSFunctionDelcaration
-                {
-                    Body =
-                        GetInitialization(n, type)
-                        .ToList()
-                }
-            };
+            yield return JSFactory
+                .Assignment(
+                    JSFactory.Identifier(n, "init"),
+                    new JSFunctionDelcaration
+                    {
+                        Body =
+                            GetInitialization(n, type)
+                            .ToList()
+                    });
 
-            yield return new JSStatement
-            {
-                Expression = new JSBinaryExpression
-                {
-                    Left = JSIdentifier.Create(n, "prototype"),
-                    Operator = "=",
-                    Right = (type.ReflectionType.BaseType != null &&
-                             type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
-                             type.ReflectionType.BaseType.FullName != "System.ValueType") ?
+            yield return JSFactory
+                .Assignment(
+                    JSFactory.Identifier(n, "prototype"),
+                    (type.ReflectionType.BaseType != null &&
+                     type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
+                     type.ReflectionType.BaseType.FullName != "System.ValueType") ?
                         new JSNewExpression
                         {
                             Constructor = GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType)
                         } :
-                        new JSObjectLiteral() as JSExpression
-                }
-            };
-
+                        new JSObjectLiteral() as JSExpression);
         }
 
         public IEnumerable<JSStatement> GetInitialization(string n, CilType type)
@@ -228,12 +218,11 @@ namespace Braille.JsTranslation
                 }
             };
 
-            yield return new JSBinaryExpression
-            {
-                Left = new JSIdentifier { Name = "initialized" },
-                Operator = "=",
-                Right = new JSBoolLiteral { Value = true }
-            }.ToStatement();
+            yield return JSFactory
+                .Assignment(
+                    new JSIdentifier { Name = "initialized" },
+                    new JSBoolLiteral { Value = true })
+                .ToStatement();
 
             var staticProperties = GetStaticFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
@@ -249,12 +238,11 @@ namespace Braille.JsTranslation
 
             foreach (var p in staticProperties)
             {
-                yield return new JSBinaryExpression
-                {
-                    Left = JSIdentifier.Create(n, p.Key),
-                    Operator = "=",
-                    Right = p.Value
-                }.ToStatement();
+                yield return JSFactory
+                    .Assignment(
+                        JSFactory.Identifier(n, p.Key),
+                        p.Value)
+                    .ToStatement();
             }
 
             var cctors = type.ReflectionType.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
@@ -273,32 +261,24 @@ namespace Braille.JsTranslation
 
             foreach (var f in prototypeProperties)
             {
-                yield return new JSStatement
-                {
-                    Expression = new JSBinaryExpression
-                    {
-                        Left = JSIdentifier.Create(n, "prototype", f.Key),
-                        Operator = "=",
-                        Right = f.Value
-                    }
-                };
+                yield return JSFactory
+                    .Assignment(
+                        JSFactory.Identifier(n, "prototype", f.Key),
+                        f.Value)
+                    .ToStatement();
             }
 
             foreach (var iface in GetInterfaceMaps(type))
             {
-                yield return new JSStatement
-                {
-                    Expression = new JSBinaryExpression
-                    {
-                        Left = new JSArrayLookupExpression
+                yield return JSFactory
+                    .Assignment(
+                        new JSArrayLookupExpression
                         {
-                            Array = JSIdentifier.Create(n, "prototype"),
+                            Array = JSFactory.Identifier(n, "prototype"),
                             Indexer = iface.Key
                         },
-                        Operator = "=",
-                        Right = iface.Value
-                    }
-                };
+                        iface.Value)
+                    .ToStatement();
             }
         }
 
