@@ -23,7 +23,7 @@ namespace Braille.JSAst
 
             {
                 sb.Append(string.Join("," + formatting.NewLine + formatting.Indentation,
-                    Properties.Select(p => string.Format("'{0}': {1}", p.Key, p.Value.ToString()))));
+                    Properties.Select(p => string.Format("'{0}': {1}", p.Key, p.Value.ToString(formatting)))));
 
                 sb.Append(formatting.NewLine);
             }

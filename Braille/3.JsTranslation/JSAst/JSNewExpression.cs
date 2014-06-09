@@ -17,15 +17,15 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return String.Format("new {0}({1})", WrapIfNeeded(), Arguments == null ? "" : string.Join(",", Arguments));
+            return String.Format("new {0}({1})", WrapIfNeeded(formatting), Arguments == null ? "" : string.Join(",", Arguments.Select(a => a.ToString(formatting))));
         }
 
-        private string WrapIfNeeded()
+        private string WrapIfNeeded(Formatting formatting)
         {
             if (Constructor is JSIdentifier)
-                return Constructor.ToString();
+                return Constructor.ToString(formatting);
             else
-                return "(" + Constructor.ToString() + ")";
+                return "(" + Constructor.ToString(formatting) + ")";
         }
 
         public override IEnumerable<JSExpression> GetChildren()

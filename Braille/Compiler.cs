@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Braille.Ast;
 using Braille.Analysis;
+using Braille.JSAst;
 
 namespace Braille
 {
@@ -46,7 +47,7 @@ namespace Braille
             staticAnalyzer.Analyze(ctx);
 
             var translator = new AssemblyTranslator(ctx);
-
+            
             foreach (var asm in asms)
             {
                 var asmExpression = translator.Translate(asms, asm);

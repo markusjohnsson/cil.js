@@ -11,7 +11,7 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return string.Format("[ {0} ]", Values == null ? "" : string.Join(",", Values.Select(v => v.ToString())));
+            return string.Format("[ {0} ]", Values == null ? "" : string.Join(",", Values.Select(v => v.ToString(formatting))));
         }
 
         public override IEnumerable<JSExpression> GetChildren()

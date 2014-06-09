@@ -22,7 +22,7 @@ namespace Braille.JSAst
         public override string ToString(Formatting formatting)
         {
             if (SafeChars.IsMatch(Property))
-                return Host.ToString() + "." + Property;
+                return Host.ToString(formatting) + "." + Property;
             else
                 return new JSArrayLookupExpression
                 {

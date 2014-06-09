@@ -20,12 +20,12 @@ namespace Braille.JSAst
             var s = "";
 
             if (Function is JSIdentifier)
-                s += Function.ToString();
+                s += Function.ToString(formatting);
             else
-                s += "(" + Function.ToString() + ")";
+                s += "(" + Function.ToString(formatting) + ")";
 
             if (Arguments != null)
-                s += string.Format("({0})", string.Join(",", Arguments));
+                s += string.Format("({0})", string.Join(",", Arguments.Select(a => a.ToString(formatting))));
             else
                 s += "()";
 

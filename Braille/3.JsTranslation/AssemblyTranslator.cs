@@ -37,97 +37,97 @@ namespace Braille.JsTranslation
                 // A constructed generic type should always have the same constructor instance (for the same type arguments)
                 Name =
                     @"
-function clone_value(v) {
-    if (v == null) return v;
-    if (typeof v === 'number') return v;
-    if (typeof v === 'function') return v;
-    if (!v.constructor.IsValueType) return v;
-    var result = new v.constructor();
-//    var result = {};
-    for (var p in v) {
-        if (v.hasOwnProperty(p))
-            result[p] = clone_value(v[p]);
-    }
-    return result;
-}
-
-function box(v, type) {
-    if (v === null)
-        return v;
-    
-    if (type.IsNullable) {
-        if (v.has_value)
-            return box(v.value, type.GenericArguments[0]);
-        else
-            return null;
-    }
-
-    if (!type.IsValueType)
-        return v;
-    
-    return {
-        'boxed': v,
-        'vtable': type.prototype.vtable
-    };
-}
-
-function unbox(o, type) {
-    return o.boxed;
-}
-
-function unbox_any(o, type) {
-    if (type.IsNullable) {
-        var result = new type();
-        if (o !== null) {
-            result.value = o.boxed;
-            result.has_value = true;
+    function clone_value(v) {
+        if (v == null) return v;
+        if (typeof v === 'number') return v;
+        if (typeof v === 'function') return v;
+        if (!v.constructor.IsValueType) return v;
+        var result = new v.constructor();
+    //    var result = {};
+        for (var p in v) {
+            if (v.hasOwnProperty(p))
+                result[p] = clone_value(v[p]);
         }
         return result;
     }
+
+    function box(v, type) {
+        if (v === null)
+            return v;
     
-    if (type.IsValueType)
+        if (type.IsNullable) {
+            if (v.has_value)
+                return box(v.value, type.GenericArguments[0]);
+            else
+                return null;
+        }
+
+        if (!type.IsValueType)
+            return v;
+    
+        return {
+            'boxed': v,
+            'vtable': type.prototype.vtable
+        };
+    }
+
+    function unbox(o, type) {
         return o.boxed;
-    else
-        return o;
-}
-
-function tree_get(a, s) {
-    var c = s;
-    for (var i = 0; c && i < a.length; i++)
-        c = c[a[i]];
-    return c;
-}
-
-function tree_set(a, s, v) {
-    if (a.length == 1) {
-        s[a[0]] = v;
     }
-    else {
-        var c = s[a[0]];
-        if (!c) s[a[0]] = c = {};
-        tree_set(a.slice(1), c, v);
+
+    function unbox_any(o, type) {
+        if (type.IsNullable) {
+            var result = new type();
+            if (o !== null) {
+                result.value = o.boxed;
+                result.has_value = true;
+            }
+            return result;
+        }
+    
+        if (type.IsValueType)
+            return o.boxed;
+        else
+            return o;
     }
-}
 
-function new_string(str) {
-    var r = new (asm0['System.String']())();
-    r.jsstr = str;
-    return r;
-}
+    function tree_get(a, s) {
+        var c = s;
+        for (var i = 0; c && i < a.length; i++)
+            c = c[a[i]];
+        return c;
+    }
 
-function new_handle(type, value) {
-    var r = new type();
-    r.value = value;
-    return r;
-}
+    function tree_set(a, s, v) {
+        if (a.length == 1) {
+            s[a[0]] = v;
+        }
+        else {
+            var c = s[a[0]];
+            if (!c) s[a[0]] = c = {};
+            tree_set(a.slice(1), c, v);
+        }
+    }
 
-function new_array(type, length) {
-    var ctor = type.ArrayType || Array;
-    var r = new (asm0['System.Array`1'](type))();
-    r.type = type;
-    r.jsarr = new ctor(length);
-    return r;
-}
+    function new_string(str) {
+        var r = new (asm0['System.String']())();
+        r.jsstr = str;
+        return r;
+    }
+
+    function new_handle(type, value) {
+        var r = new type();
+        r.value = value;
+        return r;
+    }
+
+    function new_array(type, length) {
+        var ctor = type.ArrayType || Array;
+        var r = new (asm0['System.Array`1'](type))();
+        r.type = type;
+        r.jsarr = new ctor(length);
+        return r;
+    }
 "
             };
 

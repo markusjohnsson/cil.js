@@ -360,15 +360,6 @@ namespace Braille.JsTranslation
 
         private JSExpression GetVtable(CilType type)
         {
-            Debug.WriteLine("xx");
-            Debug.WriteLine(
-                string.Join("\n",type
-                    .ReflectionType
-                    .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
-                    .Where(m => m.IsVirtual)
-                    .Select(m => GetMethodIdentifier(m.GetBaseDefinition()))
-                    .ToList()));
-            
             return new JSObjectLiteral
             {
                 Properties = type

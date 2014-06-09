@@ -28,7 +28,6 @@ namespace Braille.JSAst
 
             var sb = new StringBuilder();
 
-            sb.Append(formatting.Indentation);
             sb.Append("function ");
 
             if (Name != null)

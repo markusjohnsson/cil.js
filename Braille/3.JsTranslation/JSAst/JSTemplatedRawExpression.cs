@@ -14,7 +14,7 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return string.Format(TemplateString, Arguments.Cast<object>().ToArray());
+            return string.Format(TemplateString, Arguments.Select(a => (object)a.ToString(formatting)).ToArray());
         }
 
         public override IEnumerable<JSExpression> GetChildren()

@@ -39,15 +39,15 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return string.Format("{0} {1} {2}", WrapBinaryExpressions(Left), Operator, WrapBinaryExpressions(Right));
+            return string.Format("{0} {1} {2}", WrapBinaryExpressions(Left, formatting), Operator, WrapBinaryExpressions(Right, formatting));
         }
 
-        private string WrapBinaryExpressions(JSExpression expression)
+        private string WrapBinaryExpressions(JSExpression expression, Formatting formatting)
         {
             if (expression is JSBinaryExpression)
-                return "(" + expression.ToString() + ")";
+                return "(" + expression.ToString(formatting) + ")";
             else
-                return expression.ToString();
+                return expression.ToString(formatting);
         }
 
         public override IEnumerable<JSExpression> GetChildren()
