@@ -10,16 +10,6 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.Analysis
 {
-    class LocalInfo
-    {
-        public bool IsUsed = false;
-        public bool IsAssigned = false;
-
-        public LocalVariableInfo ReflectionObject { get; set; }
-
-        public bool NeedInit { get; set; }
-    }
-
     class OpExpressionBuilder
     {
         private Universe universe;

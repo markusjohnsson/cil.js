@@ -338,7 +338,7 @@ namespace Braille.JsTranslation
                     };
                 case "box":
                     {
-                        var d = (IKVM.Reflection.Type)frame.Instruction.Data;
+                        var d = (Type)frame.Instruction.Data;
                         var value = ProcessInternal(frame.Arguments.Single());
                         var originalValue = value;
 
@@ -394,7 +394,7 @@ namespace Braille.JsTranslation
                 case "call":
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
-
+                        
                         if (mi.DeclaringType.FullName == "System.Object" &&
                             mi is ConstructorInfo &&
                             mi.GetParameters().Length == 0)
@@ -417,13 +417,7 @@ namespace Braille.JsTranslation
 
                         return new JSCallExpression
                         {
-                            Function =
-                                /*
-                                    replacement != null
-                                        ? JSFactory.Identifier("(" + replacement.Replacement + ")")
-                                        : 
-                                        */
-                                    GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Function = GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = args
                         };
                     }
@@ -468,10 +462,6 @@ namespace Braille.JsTranslation
                                     ? GetInterfaceMethodAccessor(arglist.First(), thisScope, mi) :
                                 mi.IsVirtual
                                     ? GetVirtualMethodAccessor(arglist.First(), (MethodInfo)mi) :
-                                /*
-                            replacement != null
-                                ? JSFactory.Identifier(replacement.Replacement) :
-                                 */
                                       GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
                         };

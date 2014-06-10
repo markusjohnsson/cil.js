@@ -99,6 +99,8 @@ namespace Braille.JsTranslation
                     })
             };
 
+            var exceptionObject = new JSIdentifier { Name = "__braille_error__" };
+
             foreach (var catchBlock in catchBlocks)
             {
                 var block = CreateJsBlock(catchBlock, p);
@@ -106,6 +108,18 @@ namespace Braille.JsTranslation
                     JSFactory
                         .Assignment(handledFlag, new JSBoolLiteral { Value = true })
                         .ToStatement());
+
+                // assign the exception object to
+                var expression = catchBlock.Ast.FirstOrDefault() as OpExpression;
+                if (expression != null)
+                {
+                    var exception = expression.StackBefore.First().Definitions.SingleOrDefault() as ExceptionNode;
+
+                    foreach (var location in exception.StoreLocations)
+                    {
+                        block.Statements.Insert(0, JSFactory.Assignment(location.Name, exceptionObject).ToStatement());
+                    }
+                }
 
                 statements.Add(new JSIfStatement
                 {
@@ -115,7 +129,7 @@ namespace Braille.JsTranslation
                         Operator = "&&",
                         Right = new JSBinaryExpression
                         {
-                            Left = new JSIdentifier { Name = "__braille_error__" },
+                            Left = exceptionObject,
                             Operator = "instanceof",
                             Right = GetTypeIdentifier(catchBlock.CatchType, method.ReflectionMethod, type.ReflectionType, this_)
                         }
@@ -131,7 +145,7 @@ namespace Braille.JsTranslation
 
             yield return new JSCatchBlock
             {
-                Error = new JSIdentifier { Name = "__braille_error__" },
+                Error = exceptionObject,
                 Statements = statements
             };
         }

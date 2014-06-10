@@ -247,14 +247,14 @@ namespace Braille.JsTranslation
             functionBlock.AddRange(
                 method
                     .OpTree
-                    .SelectMany(op => op.StoreLocations)
+                    .SelectMany(op => op.StackBefore.Where(d => d.Variable != null).Select(d => d.Variable.Name))
                     .Distinct()
                     .Select(
                         n => new JSExpressionStatement
                         {
                             Expression = new JSVariableDelcaration
                             {
-                                Name = n.Name
+                                Name = n
                             }
                         }));
 

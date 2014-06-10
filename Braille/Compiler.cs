@@ -6,6 +6,7 @@ using System.Linq;
 using Braille.Ast;
 using Braille.Analysis;
 using Braille.JSAst;
+using System;
 
 namespace Braille
 {
@@ -53,7 +54,7 @@ namespace Braille
                 var asmExpression = translator.Translate(asms, asm);
                 File.AppendAllText(OutputFileName, 
                     "var " + asm.Identifier + "; (" + 
-                        asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));\n");
+                        asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));" + Environment.NewLine);
             }
 
             return new CompileResult

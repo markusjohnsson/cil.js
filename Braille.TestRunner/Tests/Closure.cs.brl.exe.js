@@ -167,7 +167,8 @@ var asm0; (function (asm)
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_19*/
                 
-                if (st_05){__braille_pos_0__ = 0x19;
+                if (st_05){
+                    __braille_pos_0__ = 0x19;
                     continue;
                 }
                 /* IL_0C: ldstr */
@@ -312,8 +313,8 @@ var asm0; (function (asm)
         var st_13;
         var st_14;
         var st_15;
-        var st_17;
         var st_16;
+        var st_17;
         var st_18;
         var st_19;
         var st_1A;
@@ -351,7 +352,8 @@ var asm0; (function (asm)
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_20*/
                 
-                if (st_05){__braille_pos_0__ = 0x20;
+                if (st_05){
+                    __braille_pos_0__ = 0x20;
                     continue;
                 }
                 /* IL_0C: nop */
@@ -372,7 +374,8 @@ var asm0; (function (asm)
                 st_0B = loc1;
                 /* IL_16: brtrue.s IL_1C*/
                 
-                if (st_0B){__braille_pos_0__ = 0x1C;
+                if (st_0B){
+                    __braille_pos_0__ = 0x1C;
                     continue;
                 }
                 /* IL_18: ldnull */
@@ -407,7 +410,8 @@ var asm0; (function (asm)
                 st_13 = loc1;
                 /* IL_29: brtrue.s IL_2F*/
                 
-                if (st_13){__braille_pos_0__ = 0x2F;
+                if (st_13){
+                    __braille_pos_0__ = 0x2F;
                     continue;
                 }
                 /* IL_2B: ldarg.0 */
@@ -434,7 +438,8 @@ var asm0; (function (asm)
                 st_1A = loc1;
                 /* IL_3F: brtrue.s IL_4C*/
                 
-                if (st_1A){__braille_pos_0__ = 0x4C;
+                if (st_1A){
+                    __braille_pos_0__ = 0x4C;
                     continue;
                 }
                 /* IL_41: ldstr Incompatible delegate types*/
@@ -489,8 +494,8 @@ var asm0; (function (asm)
         var st_05;
         var st_06;
         var st_07;
-        var st_09;
         var st_08;
+        var st_09;
         var st_0A;
         var st_0B;
         var st_0C;
@@ -528,7 +533,8 @@ var asm0; (function (asm)
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_10*/
                 
-                if (st_05){__braille_pos_0__ = 0x10;
+                if (st_05){
+                    __braille_pos_0__ = 0x10;
                     continue;
                 }
                 /* IL_0C: ldarg.0 */
@@ -555,7 +561,8 @@ var asm0; (function (asm)
                 st_0C = loc1;
                 /* IL_20: brtrue.s IL_2D*/
                 
-                if (st_0C){__braille_pos_0__ = 0x2D;
+                if (st_0C){
+                    __braille_pos_0__ = 0x2D;
                     continue;
                 }
                 /* IL_22: ldstr Incompatible delegate types*/
@@ -668,15 +675,15 @@ var asm0; (function (asm)
         var st_12;
         var st_13;
         var st_14;
-        var st_16;
         var st_15;
+        var st_16;
         var st_17;
         var st_18;
         var st_19;
         var st_1A;
         var st_1B;
-        var st_1D;
         var st_1C;
+        var st_1D;
         var st_1E;
         var st_1F;
         var st_20;
@@ -691,10 +698,10 @@ var asm0; (function (asm)
         var st_29;
         var st_2A;
         var st_2B;
-        var st_2F;
         var st_2C;
         var st_2D;
         var st_2E;
+        var st_2F;
         var st_30;
         var st_31;
         var st_32;
@@ -716,10 +723,10 @@ var asm0; (function (asm)
         var st_42;
         var st_43;
         var st_44;
-        var st_48;
         var st_45;
         var st_46;
         var st_47;
+        var st_48;
         var st_49;
         var st_4A;
         var st_4B;
@@ -775,7 +782,8 @@ var asm0; (function (asm)
                 st_09 = loc6;
                 /* IL_1A: brtrue.s IL_27*/
                 
-                if (st_09){__braille_pos_0__ = 0x27;
+                if (st_09){
+                    __braille_pos_0__ = 0x27;
                     continue;
                 }
                 /* IL_1C: ldloc.1 */
@@ -806,7 +814,8 @@ var asm0; (function (asm)
                 st_12 = loc6;
                 /* IL_32: brtrue.s IL_3C*/
                 
-                if (st_12){__braille_pos_0__ = 0x3C;
+                if (st_12){
+                    __braille_pos_0__ = 0x3C;
                     continue;
                 }
                 /* IL_34: ldc.i4.0 */
@@ -833,7 +842,8 @@ var asm0; (function (asm)
                 st_19 = loc6;
                 /* IL_51: brtrue.s IL_5B*/
                 
-                if (st_19){__braille_pos_0__ = 0x5B;
+                if (st_19){
+                    __braille_pos_0__ = 0x5B;
                     continue;
                 }
                 /* IL_53: ldc.i4.0 */
@@ -860,7 +870,8 @@ var asm0; (function (asm)
                 st_20 = loc6;
                 /* IL_70: brtrue.s IL_7A*/
                 
-                if (st_20){__braille_pos_0__ = 0x7A;
+                if (st_20){
+                    __braille_pos_0__ = 0x7A;
                     continue;
                 }
                 /* IL_72: ldc.i4.0 */
@@ -877,7 +888,8 @@ var asm0; (function (asm)
                 st_23 = st_22._invocationList;
                 /* IL_80: brfalse.s IL_8D*/
                 
-                if ((!st_23)){__braille_pos_0__ = 0x8D;
+                if ((!st_23)){
+                    __braille_pos_0__ = 0x8D;
                     continue;
                 }
                 /* IL_82: ldloc.1 */
@@ -903,7 +915,8 @@ var asm0; (function (asm)
                 st_28 = loc6;
                 /* IL_93: brtrue.s IL_F9*/
                 
-                if (st_28){__braille_pos_0__ = 0xF9;
+                if (st_28){
+                    __braille_pos_0__ = 0xF9;
                     continue;
                 }
                 /* IL_95: nop */
@@ -932,7 +945,8 @@ var asm0; (function (asm)
                 st_32 = loc6;
                 /* IL_AC: brtrue.s IL_B3*/
                 
-                if (st_32){__braille_pos_0__ = 0xB3;
+                if (st_32){
+                    __braille_pos_0__ = 0xB3;
                     continue;
                 }
                 /* IL_AE: ldc.i4.0 */
@@ -985,7 +999,8 @@ var asm0; (function (asm)
                 st_40 = loc6;
                 /* IL_D7: brtrue.s IL_DE*/
                 
-                if (st_40){__braille_pos_0__ = 0xDE;
+                if (st_40){
+                    __braille_pos_0__ = 0xDE;
                     continue;
                 }
                 /* IL_D9: ldc.i4.0 */
@@ -1025,7 +1040,8 @@ var asm0; (function (asm)
                 st_4B = loc6;
                 /* IL_F2: brtrue.s IL_B7*/
                 
-                if (st_4B){__braille_pos_0__ = 0xB7;
+                if (st_4B){
+                    __braille_pos_0__ = 0xB7;
                     continue;
                 }
                 /* IL_F4: ldc.i4.1 */
@@ -1042,7 +1058,8 @@ var asm0; (function (asm)
                 st_4E = st_4D._invocationList;
                 /* IL_FF: brtrue.s IL_10C*/
                 
-                if (st_4E){__braille_pos_0__ = 0x10C;
+                if (st_4E){
+                    __braille_pos_0__ = 0x10C;
                     continue;
                 }
                 /* IL_101: ldloc.1 */
@@ -1210,27 +1227,27 @@ var asm0; (function (asm)
         var st_0A;
         var st_0B;
         var st_0C;
-        var st_10;
-        var st_11;
         var st_0D;
         var st_0E;
         var st_0F;
+        var st_10;
+        var st_11;
         var st_12;
         var st_13;
         var st_14;
         var st_15;
-        var st_19;
         var st_16;
         var st_17;
         var st_18;
+        var st_19;
         var st_1A;
         var st_1B;
         var st_1C;
-        var st_21;
         var st_1D;
         var st_1E;
         var st_1F;
         var st_20;
+        var st_21;
         var st_22;
         var st_23;
         var st_24;
@@ -1272,7 +1289,8 @@ var asm0; (function (asm)
                 st_04 = loc3;
                 /* IL_0C: brtrue.s IL_4C*/
                 
-                if (st_04){__braille_pos_0__ = 0x4C;
+                if (st_04){
+                    __braille_pos_0__ = 0x4C;
                     continue;
                 }
                 /* IL_0E: nop */
@@ -1342,7 +1360,8 @@ var asm0; (function (asm)
                 st_1C = loc3;
                 /* IL_3F: brtrue.s IL_23*/
                 
-                if (st_1C){__braille_pos_0__ = 0x23;
+                if (st_1C){
+                    __braille_pos_0__ = 0x23;
                     continue;
                 }
                 /* IL_41: ldloc.0 */
@@ -1454,10 +1473,10 @@ var asm0; (function (asm)
         var st_1D;
         var st_1E;
         var st_1F;
-        var st_23;
         var st_20;
         var st_21;
         var st_22;
+        var st_23;
         var st_24;
         var st_25;
         var st_26;
@@ -1491,10 +1510,10 @@ var asm0; (function (asm)
         var st_42;
         var st_43;
         var st_44;
-        var st_48;
         var st_45;
         var st_46;
         var st_47;
+        var st_48;
         var st_49;
         var st_4A;
         var st_4B;
@@ -1511,23 +1530,23 @@ var asm0; (function (asm)
         var st_56;
         var st_57;
         var st_58;
-        var st_60;
         var st_59;
         var st_5A;
-        var st_61;
         var st_5B;
         var st_5C;
         var st_5D;
         var st_5E;
         var st_5F;
+        var st_60;
+        var st_61;
         var st_62;
         var st_63;
         var st_64;
         var st_65;
-        var st_69;
         var st_66;
         var st_67;
         var st_68;
+        var st_69;
         var st_6A;
         var st_6B;
         var st_6C;
@@ -1568,7 +1587,8 @@ var asm0; (function (asm)
                 st_06 = loc5;
                 /* IL_11: brtrue.s IL_34*/
                 
-                if (st_06){__braille_pos_0__ = 0x34;
+                if (st_06){
+                    __braille_pos_0__ = 0x34;
                     continue;
                 }
                 /* IL_13: nop */
@@ -1589,7 +1609,8 @@ var asm0; (function (asm)
                 st_0C = loc5;
                 /* IL_22: brtrue.s IL_2C*/
                 
-                if (st_0C){__braille_pos_0__ = 0x2C;
+                if (st_0C){
+                    __braille_pos_0__ = 0x2C;
                     continue;
                 }
                 /* IL_24: ldnull */
@@ -1644,7 +1665,8 @@ var asm0; (function (asm)
                 st_19 = loc5;
                 /* IL_50: brtrue.s IL_56*/
                 
-                if (st_19){__braille_pos_0__ = 0x56;
+                if (st_19){
+                    __braille_pos_0__ = 0x56;
                     continue;
                 }
                 /* IL_52: ldloc.0 */
@@ -1683,7 +1705,8 @@ var asm0; (function (asm)
                 st_26 = loc5;
                 /* IL_69: brtrue.s IL_3B*/
                 
-                if (st_26){__braille_pos_0__ = 0x3B;
+                if (st_26){
+                    __braille_pos_0__ = 0x3B;
                     continue;
                 }
                 /* IL_6B: ldloc.0 */
@@ -1702,7 +1725,8 @@ var asm0; (function (asm)
                 st_2C = loc5;
                 /* IL_76: brtrue.s IL_80*/
                 
-                if (st_2C){__braille_pos_0__ = 0x80;
+                if (st_2C){
+                    __braille_pos_0__ = 0x80;
                     continue;
                 }
                 /* IL_78: ldnull */
@@ -1729,7 +1753,8 @@ var asm0; (function (asm)
                 st_33 = loc5;
                 /* IL_8B: brtrue.s IL_C9*/
                 
-                if (st_33){__braille_pos_0__ = 0xC9;
+                if (st_33){
+                    __braille_pos_0__ = 0xC9;
                     continue;
                 }
                 /* IL_8D: ldc.i4.0 */
@@ -1762,7 +1787,8 @@ var asm0; (function (asm)
                 st_3D = loc5;
                 /* IL_A6: brtrue.s IL_B4*/
                 
-                if (st_3D){__braille_pos_0__ = 0xB4;
+                if (st_3D){
+                    __braille_pos_0__ = 0xB4;
                     continue;
                 }
                 /* IL_A8: ldarg.0 */
@@ -1806,7 +1832,8 @@ var asm0; (function (asm)
                 st_4B = loc5;
                 /* IL_C7: brtrue.s IL_91*/
                 
-                if (st_4B){__braille_pos_0__ = 0x91;
+                if (st_4B){
+                    __braille_pos_0__ = 0x91;
                     continue;
                 }
                 case 0xC9:
@@ -1850,7 +1877,8 @@ var asm0; (function (asm)
                 st_58 = loc5;
                 /* IL_EB: brtrue.s IL_FC*/
                 
-                if (st_58){__braille_pos_0__ = 0xFC;
+                if (st_58){
+                    __braille_pos_0__ = 0xFC;
                     continue;
                 }
                 /* IL_ED: ldloc.2 */
@@ -1903,7 +1931,8 @@ var asm0; (function (asm)
                 st_6C = loc5;
                 /* IL_10F: brtrue.s IL_D6*/
                 
-                if (st_6C){__braille_pos_0__ = 0xD6;
+                if (st_6C){
+                    __braille_pos_0__ = 0xD6;
                     continue;
                 }
                 /* IL_111: ldloc.2 */
@@ -2128,8 +2157,8 @@ var asm0; (function (asm)
     asm.x6000032 = function get_Current(arg0)
     {
         var st_00;
-        var st_02;
         var st_01;
+        var st_02;
         var st_03;
         var st_04;
         var st_05;
@@ -2156,13 +2185,13 @@ var asm0; (function (asm)
     {
         var st_00;
         var st_01;
-        var st_04;
         var st_02;
         var st_03;
+        var st_04;
         var st_05;
         var st_06;
-        var st_08;
         var st_07;
+        var st_08;
         var st_09;
         var st_0A;
         var st_0B;
@@ -2248,8 +2277,8 @@ var asm0; (function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var st_06;
         var st_05;
+        var st_06;
         var st_07;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
@@ -2385,7 +2414,8 @@ var asm0; (function (asm)
                 st_02 = loc1;
                 /* IL_09: brtrue.s IL_16*/
                 
-                if (st_02){__braille_pos_0__ = 0x16;
+                if (st_02){
+                    __braille_pos_0__ = 0x16;
                     continue;
                 }
                 /* IL_0B: ldstr Nullable object must have a value.*/
@@ -2446,8 +2476,8 @@ var asm0; (function (asm)
         var st_0D;
         var st_0E;
         var st_0F;
-        var st_11;
         var st_10;
+        var st_11;
         var st_12;
         var st_13;
         var st_14;
@@ -2480,7 +2510,8 @@ var asm0; (function (asm)
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_18*/
                 
-                if (st_05){__braille_pos_0__ = 0x18;
+                if (st_05){
+                    __braille_pos_0__ = 0x18;
                     continue;
                 }
                 /* IL_0C: ldarg.0 */
@@ -2511,7 +2542,8 @@ var asm0; (function (asm)
                 st_0E = loc1;
                 /* IL_23: brtrue.s IL_29*/
                 
-                if (st_0E){__braille_pos_0__ = 0x29;
+                if (st_0E){
+                    __braille_pos_0__ = 0x29;
                     continue;
                 }
                 /* IL_25: ldc.i4.0 */
@@ -2544,8 +2576,8 @@ var asm0; (function (asm)
     {
         var t0;
         var st_00;
-        var st_02;
         var st_01;
+        var st_02;
         var st_03;
         var st_04;
         var st_05;
@@ -2555,9 +2587,9 @@ var asm0; (function (asm)
         var st_09;
         var st_0A;
         var st_0B;
-        var st_0E;
         var st_0C;
         var st_0D;
+        var st_0E;
         var st_0F;
         var st_10;
         var st_11;
@@ -2599,7 +2631,8 @@ var asm0; (function (asm)
                 st_05 = loc1;
                 /* IL_12: brtrue.s IL_18*/
                 
-                if (st_05){__braille_pos_0__ = 0x18;
+                if (st_05){
+                    __braille_pos_0__ = 0x18;
                     continue;
                 }
                 /* IL_14: ldc.i4.0 */
@@ -2620,7 +2653,8 @@ var asm0; (function (asm)
                 st_09 = loc1;
                 /* IL_20: brtrue.s IL_26*/
                 
-                if (st_09){__braille_pos_0__ = 0x26;
+                if (st_09){
+                    __braille_pos_0__ = 0x26;
                     continue;
                 }
                 /* IL_22: ldc.i4.1 */
@@ -2705,7 +2739,8 @@ var asm0; (function (asm)
                 st_02 = loc1;
                 /* IL_09: brtrue.s IL_0F*/
                 
-                if (st_02){__braille_pos_0__ = 0xF;
+                if (st_02){
+                    __braille_pos_0__ = 0xF;
                     continue;
                 }
                 /* IL_0B: ldc.i4.0 */
@@ -2765,8 +2800,8 @@ var asm0; (function (asm)
     {
         var st_00;
         var st_01;
-        var st_03;
         var st_02;
+        var st_03;
         var st_04;
         var __braille_pos_0__;
         var loc0;
@@ -2784,7 +2819,8 @@ var asm0; (function (asm)
                 st_01 = (st_00.r)().has_value;
                 /* IL_07: brtrue.s IL_0C*/
                 
-                if (st_01){__braille_pos_0__ = 0xC;
+                if (st_01){
+                    __braille_pos_0__ = 0xC;
                     continue;
                 }
                 /* IL_09: ldarg.1 */
@@ -2860,7 +2896,8 @@ var asm0; (function (asm)
                 st_04 = loc1;
                 /* IL_0C: brtrue.s IL_22*/
                 
-                if (st_04){__braille_pos_0__ = 0x22;
+                if (st_04){
+                    __braille_pos_0__ = 0x22;
                     continue;
                 }
                 /* IL_0E: ldarg.0 */
@@ -3038,7 +3075,8 @@ var asm0; (function (asm)
                     st_02 = loc1;
                     /* IL_0A: brtrue.s IL_10*/
                     
-                    if (st_02){__braille_pos_0__ = 0x10;
+                    if (st_02){
+                        __braille_pos_0__ = 0x10;
                         continue;
                     }
                     /* IL_0C: ldnull */
@@ -3146,7 +3184,8 @@ var asm0; (function (asm)
                     st_05 = loc1;
                     /* IL_0A: brtrue.s IL_18*/
                     
-                    if (st_05){__braille_pos_0__ = 0x18;
+                    if (st_05){
+                        __braille_pos_0__ = 0x18;
                         continue;
                     }
                     /* IL_0C: ldloca.s 2*/
@@ -3351,13 +3390,13 @@ var asm0; (function (asm)
         var t0;
         var st_00;
         var st_01;
+        var st_02;
         var st_03;
         var st_04;
-        var st_02;
         var st_05;
+        var st_06;
         var st_07;
         var st_08;
-        var st_06;
         var st_09;
         var st_0A;
         var st_0B;
@@ -3731,7 +3770,8 @@ var asm0; (function (asm)
                 st_01 = st_00.boxed;
                 /* IL_03: brtrue.s IL_0C*/
                 
-                if (st_01){__braille_pos_0__ = 0xC;
+                if (st_01){
+                    __braille_pos_0__ = 0xC;
                     continue;
                 }
                 /* IL_05: ldstr False*/
@@ -4240,8 +4280,8 @@ var asm0; (function (asm)
     {
         var t0;
         var st_00;
-        var st_02;
         var st_01;
+        var st_02;
         var st_03;
         var st_04;
         var st_05;
@@ -4679,7 +4719,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function $$Object()
@@ -4694,7 +4735,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 $$Object.Interfaces = [  ];
@@ -4735,7 +4777,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Delegate()
@@ -4750,7 +4793,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Delegate.Interfaces = [  ];
@@ -4802,7 +4846,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Attribute()
@@ -4817,7 +4862,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Attribute.Interfaces = [  ];
@@ -4857,7 +4903,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function ExtensionAttribute()
@@ -4872,7 +4919,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 ExtensionAttribute.Interfaces = [  ];
@@ -4912,7 +4960,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IndexerNameAttribute()
@@ -4927,7 +4976,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IndexerNameAttribute.Interfaces = [  ];
@@ -4967,7 +5017,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function RuntimeHelpers()
@@ -4982,7 +5033,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 RuntimeHelpers.Interfaces = [  ];
@@ -5022,7 +5074,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function MulticastDelegate()
@@ -5037,7 +5090,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 MulticastDelegate.Interfaces = [  ];
@@ -5090,7 +5144,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function EventArgs()
@@ -5105,7 +5160,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 EventArgs.Empty = null;
@@ -5147,7 +5203,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function EventHandler()
@@ -5162,7 +5219,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 EventHandler.Interfaces = [  ];
@@ -5221,7 +5279,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IEnumerable()
@@ -5236,7 +5295,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IEnumerable.Interfaces = [  ];
@@ -5267,7 +5327,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Array()
@@ -5282,7 +5343,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Array.Interfaces = [ ((asm0)["System.Collections.IEnumerable"])() ];
@@ -5341,7 +5403,8 @@ var asm0; (function (asm)
             var initialized;
             c = tree_get([ T ],ct);
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IEnumerable_1()
@@ -5356,7 +5419,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IEnumerable_1.Interfaces = [ ((asm0)["System.Collections.IEnumerable"])() ];
@@ -5389,7 +5453,8 @@ var asm0; (function (asm)
             var initialized;
             c = tree_get([ T ],ct);
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Array_1()
@@ -5404,7 +5469,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Array_1.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerable`1"])(T),((asm0)["System.Collections.IEnumerable"])() ];
@@ -5474,7 +5540,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IDisposable()
@@ -5489,7 +5556,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IDisposable.Interfaces = [  ];
@@ -5520,7 +5588,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IEnumerator()
@@ -5535,7 +5604,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IEnumerator.Interfaces = [ ((asm0)["System.IDisposable"])() ];
@@ -5577,7 +5647,8 @@ var asm0; (function (asm)
             var initialized;
             c = tree_get([ T ],ct);
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IEnumerator_1()
@@ -5592,7 +5663,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IEnumerator_1.Interfaces = [ ((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
@@ -5630,7 +5702,8 @@ var asm0; (function (asm)
             var initialized;
             c = tree_get([ T ],ct);
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function ArrayEnumerator()
@@ -5645,7 +5718,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 ArrayEnumerator.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerator`1"])(T),((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
@@ -5747,7 +5821,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function DebuggerStepThroughAttribute()
@@ -5762,7 +5837,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 DebuggerStepThroughAttribute.Interfaces = [  ];
@@ -5802,7 +5878,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function ValueType()
@@ -5817,7 +5894,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 ValueType.Interfaces = [  ];
@@ -5857,7 +5935,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Enum()
@@ -5872,7 +5951,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Enum.Interfaces = [  ];
@@ -5913,7 +5993,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function AttributeTargets()
@@ -5928,7 +6009,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 AttributeTargets.Assembly = new (((asm0)["System.AttributeTargets"])())();
@@ -5985,7 +6067,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function ComVisibleAttribute()
@@ -6000,7 +6083,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 ComVisibleAttribute.Interfaces = [  ];
@@ -6041,7 +6125,8 @@ var asm0; (function (asm)
             var initialized;
             c = tree_get([ T ],ct);
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Nullable_1()
@@ -6056,7 +6141,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Nullable_1.Interfaces = [  ];
@@ -6100,7 +6186,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function SerializableAttribute()
@@ -6115,7 +6202,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 SerializableAttribute.Interfaces = [  ];
@@ -6155,7 +6243,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function $$String()
@@ -6170,7 +6259,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 $$String.Empty = null;
@@ -6213,7 +6303,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function DefaultMemberAttribute()
@@ -6228,7 +6319,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 DefaultMemberAttribute.Interfaces = [  ];
@@ -6269,7 +6361,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function AttributeUsageAttribute()
@@ -6284,7 +6377,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 AttributeUsageAttribute.Interfaces = [  ];
@@ -6326,7 +6420,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function $$Boolean()
@@ -6341,7 +6436,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 $$Boolean.Interfaces = [  ];
@@ -6382,7 +6478,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Byte()
@@ -6397,7 +6494,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Byte.Interfaces = [  ];
@@ -6438,7 +6536,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Char()
@@ -6453,7 +6552,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Char.MinValue = 0;
@@ -6496,7 +6596,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Console()
@@ -6511,7 +6612,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Console.Interfaces = [  ];
@@ -6551,7 +6653,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Double()
@@ -6566,7 +6669,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Double.Epsilon = 0;
@@ -6613,7 +6717,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Exception()
@@ -6628,7 +6733,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Exception.Interfaces = [  ];
@@ -6669,7 +6775,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function InvalidOperationException()
@@ -6684,7 +6791,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 InvalidOperationException.Interfaces = [  ];
@@ -6724,7 +6832,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function FlagsAttribute()
@@ -6739,7 +6848,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 FlagsAttribute.Interfaces = [  ];
@@ -6779,7 +6889,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function ICloneable()
@@ -6794,7 +6905,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 ICloneable.Interfaces = [  ];
@@ -6825,7 +6937,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Int16()
@@ -6840,7 +6953,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Int16.Interfaces = [  ];
@@ -6881,7 +6995,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Int32()
@@ -6896,7 +7011,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Int32.Interfaces = [  ];
@@ -6937,7 +7053,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function InternalFormatting()
@@ -6952,7 +7069,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 InternalFormatting.Interfaces = [  ];
@@ -6992,7 +7110,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Int64()
@@ -7007,7 +7126,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Int64.Interfaces = [  ];
@@ -7048,7 +7168,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function IntPtr()
@@ -7063,7 +7184,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 IntPtr.Interfaces = [  ];
@@ -7104,7 +7226,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Math()
@@ -7119,7 +7242,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Math.PI = 0;
@@ -7160,7 +7284,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function ParamArrayAttribute()
@@ -7175,7 +7300,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 ParamArrayAttribute.Interfaces = [  ];
@@ -7215,7 +7341,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function RuntimeFieldHandle()
@@ -7230,7 +7357,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 RuntimeFieldHandle.Interfaces = [  ];
@@ -7272,7 +7400,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function RuntimeTypeHandle()
@@ -7287,7 +7416,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 RuntimeTypeHandle.Interfaces = [  ];
@@ -7329,7 +7459,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function SByte()
@@ -7344,7 +7475,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 SByte.Interfaces = [  ];
@@ -7385,7 +7517,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Single()
@@ -7400,7 +7533,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Single.Interfaces = [  ];
@@ -7441,7 +7575,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Type()
@@ -7456,7 +7591,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Type.Interfaces = [  ];
@@ -7496,7 +7632,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function UInt16()
@@ -7511,7 +7648,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 UInt16.Interfaces = [  ];
@@ -7552,7 +7690,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function UInt32()
@@ -7567,7 +7706,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 UInt32.Interfaces = [  ];
@@ -7608,7 +7748,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function UInt64()
@@ -7623,7 +7764,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 UInt64.Interfaces = [  ];
@@ -7664,7 +7806,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function UIntPtr()
@@ -7679,7 +7822,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 UIntPtr.Interfaces = [  ];
@@ -7720,7 +7864,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Void()
@@ -7735,7 +7880,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Void.Interfaces = [  ];
@@ -7776,7 +7922,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function NotSupportedException()
@@ -7791,7 +7938,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 NotSupportedException.Interfaces = [  ];
@@ -7831,7 +7979,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function NotImplementedException()
@@ -7846,7 +7995,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 NotImplementedException.Interfaces = [  ];
@@ -7886,7 +8036,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Environment()
@@ -7901,7 +8052,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Environment.Interfaces = [  ];
@@ -7942,7 +8094,8 @@ var asm0; (function (asm)
             var initialized;
             c = tree_get([ T,TResult ],ct);
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Func_2()
@@ -7957,7 +8110,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Func_2.Interfaces = [  ];
@@ -8017,7 +8171,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Debugger()
@@ -8032,7 +8187,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Debugger.Interfaces = [  ];
@@ -8072,7 +8228,8 @@ var asm0; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function OutAttribute()
@@ -8087,7 +8244,8 @@ var asm0; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 OutAttribute.Interfaces = [  ];
@@ -8303,10 +8461,10 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var st_00;
-        var st_04;
         var st_01;
         var st_02;
         var st_03;
+        var st_04;
         var st_05;
         var st_06;
         var st_07;
@@ -8401,8 +8559,8 @@ var asm1; (function (asm)
     };;
     asm.x6000014 = function _Main_b__1(arg0)
     {
-        var st_01;
         var st_00;
+        var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
         st_01 = arg0;
@@ -8434,7 +8592,8 @@ var asm1; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function TestLog()
@@ -8449,7 +8608,8 @@ var asm1; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 TestLog.Interfaces = [  ];
@@ -8489,7 +8649,8 @@ var asm1; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function TestHelper()
@@ -8504,7 +8665,8 @@ var asm1; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 TestHelper.Interfaces = [  ];
@@ -8544,7 +8706,8 @@ var asm1; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function A()
@@ -8559,7 +8722,8 @@ var asm1; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 A.Interfaces = [  ];
@@ -8600,7 +8764,8 @@ var asm1; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function X()
@@ -8615,7 +8780,8 @@ var asm1; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 X.Interfaces = [  ];
@@ -8674,7 +8840,8 @@ var asm1; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function Program()
@@ -8689,7 +8856,8 @@ var asm1; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 Program.Interfaces = [  ];
@@ -8729,7 +8897,8 @@ var asm1; (function (asm)
             var initialized;
             c = ct;
             
-            if (c){return c;
+            if (c){
+                return c;
             }
             initialized = false;;
             function __c__DisplayClass2()
@@ -8744,7 +8913,8 @@ var asm1; (function (asm)
             {
                 
                 
-                if (initialized){return;
+                if (initialized){
+                    return;
                 }
                 initialized = true;
                 __c__DisplayClass2.Interfaces = [  ];

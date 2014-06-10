@@ -9,6 +9,16 @@ using System.Linq;
 
 namespace Braille.Analysis
 {
+    class LocalInfo
+    {
+        public bool IsUsed = false;
+        public bool IsAssigned = false;
+
+        public LocalVariableInfo ReflectionObject { get; set; }
+
+        public bool NeedInit { get; set; }
+    }
+
     class LocalsAnalyzer: IAnalysisPass
     {
         public void Run(CilMethod method)

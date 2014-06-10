@@ -2,15 +2,19 @@
 using System;
 
 class A : Exception
-{ 
+{
+    public A() : base("Exception A") { }
 }
 
 class B : Exception
-{ 
+{
+    public B() : base("Exception B") { }
+    protected B(string msg) : base(msg) { }
 }
 
 class C : B
-{ 
+{
+    public C() : base("Exception C") { }
 }
 
 public class Program
@@ -28,17 +32,17 @@ public class Program
         {
             throw e;
         }
-        catch (C)
+        catch (C c)
         {
-            TestLog.Log("C");
+            TestLog.Log(c.Message);
         }
-        catch (B)
+        catch (B b)
         {
-            TestLog.Log("B");
+            TestLog.Log(b.Message);
         }
-        catch (A)
+        catch (A a)
         {
-            TestLog.Log("A");
+            TestLog.Log(a.Message);
         }
         finally
         {

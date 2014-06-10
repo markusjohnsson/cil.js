@@ -28,7 +28,22 @@ namespace Braille.Analysis
             foreach (var handler in handlers.Where(h => h.TryOffset == 0))
             {
                 var handlerStart = method.OpTree.First(i => i.Position == handler.HandlerOffset);
-                handlerStart.StackBefore = new List<StackUseDefinition>();
+
+                if (handler.Flags == ExceptionHandlingClauseOptions.Clause)
+                {
+                    handlerStart.StackBefore = new List<StackUseDefinition> 
+                    { 
+                        new StackUseDefinition 
+                        { 
+                            Definitions = new List<Node> { new ExceptionNode() } 
+                        }
+                    };
+                }
+                else
+                {
+                    handlerStart.StackBefore = new List<StackUseDefinition>();
+                }
+
                 processStack.Push(handlerStart);
             }
             
@@ -54,10 +69,10 @@ namespace Braille.Analysis
         {
             foreach (var target in opInfo.Targets)
             {
-                //if (target.IsHandlerStart)
-                //{
-                //    newStack.Push(new StackUseDefinition { Definitions = new List<Node> { new ExceptionNode() } });
-                //}
+                if (target.IsHandlerStart)
+                {
+                    newStack.Push(new StackUseDefinition { Definitions = new List<Node> { new ExceptionNode() } });
+                }
 
                 if (UpdateTargetStack(newStack, target))
                     processStack.Push(target);
@@ -82,8 +97,8 @@ namespace Braille.Analysis
             {
                 var popCount = opInfo.InstructionPopCount;
 
-                if (opInfo.IsHandlerStart)
-                    popCount--;
+                //if (opInfo.IsHandlerStart)
+                //    popCount--;
 
                 for (var i = 0; i < popCount; i++)
                 {
