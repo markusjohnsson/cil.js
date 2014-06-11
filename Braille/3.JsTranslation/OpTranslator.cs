@@ -49,6 +49,8 @@ namespace Braille.JsTranslation
                     });
             }
 
+            var thisScope = GetThisScope(method.ReflectionMethod, type.ReflectionType);
+
             switch (opc)
             {
                 case "br":
@@ -58,7 +60,7 @@ namespace Braille.JsTranslation
                         {
                             Left = new JSIdentifier
                             {
-                                Name = "__braille_pos__"
+                                Name = "__pos__"
                             },
                             Operator = "=",
                             Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
@@ -110,7 +112,7 @@ namespace Braille.JsTranslation
                                     .Assignment(
                                         new JSIdentifier
                                         {
-                                            Name = "__braille_pos__"
+                                            Name = "__pos__"
                                         },
                                         new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })),
                             JSFactory.Statement(new JSContinueExpression())
@@ -133,7 +135,7 @@ namespace Braille.JsTranslation
                                     .Assignment(
                                         new JSIdentifier
                                         {
-                                            Name = "__braille_pos__"
+                                            Name = "__pos__"
                                         },
                                         new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })),
                             JSFactory.Statement(new JSContinueExpression())
@@ -150,7 +152,7 @@ namespace Braille.JsTranslation
                 case "endfinally":
                     yield return JSFactory
                         .Assignment(
-                            new JSIdentifier { Name = "__braille_pos__" },
+                            new JSIdentifier { Name = "__pos__" },
                             new JSNumberLiteral { Value = -1 })
                         .ToStatement();
                     yield return new JSBreakExpression().ToStatement();
@@ -159,23 +161,51 @@ namespace Braille.JsTranslation
                 case "leave.s":
                     yield return JSFactory
                         .Assignment(
-                            new JSIdentifier { Name = "__braille_pos__" },
+                            new JSIdentifier { Name = "__pos__" },
                             new JSNumberLiteral { Value = -1 })
                         .ToStatement();
                     yield return JSFactory
                         .Assignment(
-                            new JSIdentifier { Name = "__braille_outer_pos__" },
+                            new JSIdentifier { Name = "__outer_pos__" },
                             new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
                         .ToStatement();
                     yield return new JSBreakExpression().ToStatement();
                     break;
+                case "newobj":
+                    {
+                        var ctor = (ConstructorInfo)node.Instruction.Data;
+                        var argList = ProcessList(node.Arguments);
+
+                        yield return JSFactory
+                            .Statement(
+                                WrapInStore(node.StoreLocations, 
+                                new JSNewExpression
+                                {
+                                    Constructor = GetTypeAccessor(ctor.DeclaringType, thisScope)
+                                }));
+
+                        yield return JSFactory
+                            .Statement(
+                                new JSCallExpression
+                                {
+                                    Function = GetMethodAccessor(ctor, this.method.ReflectionMethod),
+                                    Arguments = argList
+                                        .StartWith(
+                                            ctor.DeclaringType.IsValueType ? 
+                                                WrapInReaderWriter(JSFactory.Identifier(node.StoreLocations.First().Name)): 
+                                                JSFactory.Identifier(node.StoreLocations.First().Name))
+                                        .ToList()
+                                });
+
+                        break;
+                    }
                 case "switch":
 
                     yield return new JSExpressionStatement
                     {
                         Expression = new JSVariableDelcaration
                         {
-                            Name = "__braille_switch_value__",
+                            Name = "__switch_value__",
                             Value = ProcessInternal(node.Arguments.Single())
                         }
                     };
@@ -184,7 +214,7 @@ namespace Braille.JsTranslation
                     {
                         Condition = new JSBinaryExpression
                         {
-                            Left = new JSIdentifier { Name = "__braille_switch_value__" },
+                            Left = new JSIdentifier { Name = "__switch_value__" },
                             Operator = ">=",
                             Right = new JSNumberLiteral { Value = ((int[])node.Instruction.Data).Length, IsHex = true }
                         },
@@ -194,7 +224,7 @@ namespace Braille.JsTranslation
                                 .Assignment(
                                     new JSIdentifier
                                     {
-                                        Name = "__braille_pos__"
+                                        Name = "__pos__"
                                     },
                                     new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
                                 .ToStatement(),
@@ -209,7 +239,7 @@ namespace Braille.JsTranslation
                     {
                         Expression = new JSVariableDelcaration
                         {
-                            Name = "__braille_jmp__",
+                            Name = "__jmp__",
                             Value = new JSArrayLiteral { Values = ((int[])node.Instruction.Data).Select(d => new JSNumberLiteral { Value = d, IsHex = true }) }
                         }
                     };
@@ -218,7 +248,7 @@ namespace Braille.JsTranslation
                         .Assignment(
                             new JSIdentifier
                             {
-                                Name = "__braille_pos__"
+                                Name = "__pos__"
                             },
                             new JSBinaryExpression
                             {
@@ -226,8 +256,8 @@ namespace Braille.JsTranslation
                                 Operator = "+",
                                 Right = new JSArrayLookupExpression
                                 {
-                                    Array = new JSIdentifier { Name = "__braille_jmp__" },
-                                    Indexer = new JSIdentifier { Name = "__braille_switch_value__" }
+                                    Array = new JSIdentifier { Name = "__jmp__" },
+                                    Indexer = new JSIdentifier { Name = "__switch_value__" }
                                 }
                             })
                         .ToStatement();
@@ -240,9 +270,11 @@ namespace Braille.JsTranslation
 
                 default:
 
+                    var expressions = ProcessInternal(node);
+
                     yield return new JSExpressionStatement
                     {
-                        Expression = WrapInStore(node.StoreLocations, ProcessInternal(node))
+                        Expression = WrapInStore(node.StoreLocations, expressions)
                     };
                     break;
             }
@@ -275,7 +307,7 @@ namespace Braille.JsTranslation
                 {
                     JSFactory
                         .Assignment(
-                            "__braille_pos__",
+                            "__pos__",
                             new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true })
                         .ToStatement(),
                     new JSExpressionStatement
@@ -481,17 +513,34 @@ namespace Braille.JsTranslation
                         FalseValue = new JSNumberLiteral { Value = 0 }
                     };
                 case "cgt":
-                    return new JSConditionalExpression
+                    if (opc == "cgt.un" && frame.Arguments.First().ResultType.IsClass)
                     {
-                        Condition = new JSBinaryExpression
+                        return new JSConditionalExpression
                         {
-                            Left = ProcessInternal(frame.Arguments.First()),
-                            Right = ProcessInternal(frame.Arguments.Last()),
-                            Operator = ">"
-                        },
-                        TrueValue = new JSNumberLiteral { Value = 1 },
-                        FalseValue = new JSNumberLiteral { Value = 0 }
-                    };
+                            Condition = new JSBinaryExpression
+                            {
+                                Left = ProcessInternal(frame.Arguments.First()),
+                                Right = ProcessInternal(frame.Arguments.Last()),
+                                Operator = "!=="
+                            },
+                            TrueValue = new JSNumberLiteral { Value = 1 },
+                            FalseValue = new JSNumberLiteral { Value = 0 }
+                        };
+                    }
+                    else
+                    {
+                        return new JSConditionalExpression
+                        {
+                            Condition = new JSBinaryExpression
+                            {
+                                Left = ProcessInternal(frame.Arguments.First()),
+                                Right = ProcessInternal(frame.Arguments.Last()),
+                                Operator = ">"
+                            },
+                            TrueValue = new JSNumberLiteral { Value = 1 },
+                            FalseValue = new JSNumberLiteral { Value = 0 }
+                        }; 
+                    }
                 case "clt":
                     return new JSConditionalExpression
                     {
@@ -505,15 +554,29 @@ namespace Braille.JsTranslation
                         FalseValue = new JSNumberLiteral { Value = 0 }
                     };
                 case "conv":
-                    return ProcessInternal(frame.Arguments.Single());
+                    var expr = ProcessInternal(frame.Arguments.Single());
+
+                    if (IsIntegerType(frame.ResultType))
+                        return JSFactory.Truncate(expr);
+                    else
+                        return expr;
                 case "div":
                 case "div.un":
-                    return new JSBinaryExpression
+                    var divExpression = 
+                        new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(frame.Arguments.First()),
+                            Right = ProcessInternal(frame.Arguments.Last()),
+                            Operator = "/"
+                        };
+                    if (IsIntegerType(frame.ResultType))
                     {
-                        Left = ProcessInternal(frame.Arguments.First()),
-                        Right = ProcessInternal(frame.Arguments.Last()),
-                        Operator = "/"
-                    };
+                        return JSFactory.Truncate(divExpression);
+                    }
+                    else
+                    {
+                        return divExpression;
+                    }
                 case "dup":
                     return ProcessInternal(frame.Arguments.Single());
                 case "initobj":
@@ -561,7 +624,7 @@ namespace Braille.JsTranslation
                         var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id;
                         var result = new JSIdentifier
                         {
-                            Name = "arg" + idx //"__braille_args__[" + idx + "]"
+                            Name = "arg" + idx //"__args__[" + idx + "]"
                         } as JSExpression;
 
                         return result;
@@ -576,7 +639,7 @@ namespace Braille.JsTranslation
 
                         return WrapInReaderWriter(new JSIdentifier
                         {
-                            Name = "arg" + idx //"__braille_args__[" +  + "]"
+                            Name = "arg" + idx //"__args__[" +  + "]"
                         });
                     }
                 case "ldc":
@@ -884,61 +947,6 @@ namespace Braille.JsTranslation
                             length
                         }
                     };
-                case "newobj":
-                    {
-                        var ctor = (ConstructorInfo)frame.Instruction.Data;
-                        var argList = ProcessList(frame.Arguments);
-
-                        return new JSCallExpression
-                        {
-                            Function = new JSFunctionDelcaration
-                            {
-                                Body = new List<JSStatement> 
-                                {
-                                    new JSExpressionStatement
-                                    { 
-                                        Expression = new JSVariableDelcaration 
-                                        { 
-                                            Name = "result", 
-                                            Value = 
-                                            new JSNewExpression
-                                            {
-                                                Constructor = new JSArrayLookupExpression
-                                                { 
-                                                    Array = JSFactory.Identifier("arguments"), 
-                                                    Indexer = new JSNumberLiteral{ Value = 0 } 
-                                                }
-                                            }
-                                        }
-                                    },
-                                    new JSExpressionStatement 
-                                    {
-                                        Expression = new JSCallExpression
-                                        {
-                                            Function = GetMethodAccessor(ctor, this.method.ReflectionMethod),
-                                            Arguments = argList
-                                                .StartWith(
-                                                    ctor.DeclaringType.IsValueType ? 
-                                                        WrapInReaderWriter(new JSIdentifier { Name = "result" }): 
-                                                        new JSIdentifier { Name  = "result" })
-                                                .ToList()
-                                        }
-                                    },
-                                    new JSExpressionStatement 
-                                    {
-                                        Expression = new JSReturnExpression
-                                        {
-                                            Expression = new JSIdentifier { Name = "result" }
-                                        }
-                                    }
-                                }
-                            },
-                            Arguments =
-                            {
-                                GetTypeAccessor(ctor.DeclaringType, thisScope)
-                            }
-                        };
-                    }
                 case "nop":
                     return new JSEmptyExpression();
                 case "or":
@@ -1101,6 +1109,15 @@ namespace Braille.JsTranslation
                         Text = opc + ": opcode not implmented"
                     };
             }
+        }
+
+        private bool IsIntegerType(Type type)
+        {
+            return
+                type == context.SystemTypes.Int16 ||
+                type == context.SystemTypes.Int32 ||
+                type == context.SystemTypes.UInt16 ||
+                type == context.SystemTypes.UInt32;
         }
 
         private JSExpression GetTypeAccessor(Type typeTok, JSExpression thisScope)

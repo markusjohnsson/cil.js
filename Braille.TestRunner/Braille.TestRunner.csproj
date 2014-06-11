@@ -116,7 +116,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <None Include="FailingTests\ArrayInitializer.cs" />
     <None Include="Tests\Exceptions.cs" />
-    <Compile Include="Tests\TypedArrays.cs" />
+    <None Include="Tests\IntegerArithmetic.cs" />
+    <None Include="Tests\IntegerConversion.cs" />
+    <None Include="Tests\TypedArrays.cs" />
     <None Include="Tests\NewslotMethod.cs" />
     <None Include="Tests\OutParameters.cs" />
     <None Include="Tests\GenericNesting.cs" />
@@ -153,6 +155,7 @@
     <None Include="MonoTests\struct.cs" />
     <None Include="MonoTests\string.cs" />
     <None Include="MonoTests\nullable_boxing.2.cs" />
+    <None Include="MonoTests\array-cast.cs" />
     <Compile Include="TestInclude.cs" />
     <None Include="Tests\CSStringConverter.cs" />
     <None Include="Tests\StringExtractor.cs" />

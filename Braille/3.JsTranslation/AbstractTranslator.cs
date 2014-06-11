@@ -34,7 +34,16 @@ namespace Braille.JsTranslation
 
         protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
-            if (type.IsGenericParameter)
+            if (type.IsArray)
+            {
+                var genericArray = context.ReflectionUniverse.GetType("System.Array`1");
+                return GetTypeIdentifier(
+                    genericArray.MakeGenericType(type.GetElementType()),
+                    methodScope,
+                    typeScope,
+                    thisScope);
+            }
+            else if (type.IsGenericParameter)
             {
                 if (type.DeclaringType == null &&
                     type.DeclaringMethod == null)

@@ -39,7 +39,7 @@ namespace Braille.JsTranslation
                 yield return JSFactory.Statement(
                     new JSVariableDelcaration
                     {
-                        Name = "__braille_pos_" + Depth + "__",
+                        Name = "__pos_" + Depth + "__",
                         Value = new JSNumberLiteral { Value = 0, IsHex = true }
                     });
 
@@ -47,7 +47,7 @@ namespace Braille.JsTranslation
                 {
                     Condition = new JSBinaryExpression
                     {
-                        Left = new JSIdentifier { Name = "__braille_pos_" + Depth + "__" },
+                        Left = new JSIdentifier { Name = "__pos_" + Depth + "__" },
                         Operator = ">=",
                         Right = new JSNumberLiteral { Value = 0 }
                     },
@@ -55,7 +55,7 @@ namespace Braille.JsTranslation
                     {
                         new JSSwitchStatement
                         {
-                            Value = new JSIdentifier { Name = "__braille_pos_" + Depth + "__" },
+                            Value = new JSIdentifier { Name = "__pos_" + Depth + "__" },
                             Statements = Statements
                         }
                     }
@@ -77,14 +77,14 @@ namespace Braille.JsTranslation
                 foreach (var x in stmt.GetChildrenRecursive(_ => true))
                 {
                     var ifier = x as JSIdentifier;
-                    if (ifier != null && ifier.Name == "__braille_pos__")
+                    if (ifier != null && ifier.Name == "__pos__")
                     {
-                        ifier.Name = "__braille_pos_" + Depth + "__";
+                        ifier.Name = "__pos_" + Depth + "__";
                     }
 
-                    if (ifier != null && ifier.Name == "__braille_outer_pos__")
+                    if (ifier != null && ifier.Name == "__outer_pos__")
                     {
-                        ifier.Name = "__braille_pos_" + Math.Max(0, Depth - 1) + "__";
+                        ifier.Name = "__pos_" + Math.Max(0, Depth - 1) + "__";
                     }
                 }
             }

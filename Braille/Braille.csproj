@@ -46,6 +46,7 @@
     <Compile Include="1.Loading\Model\CilMethod.cs" />
     <Compile Include="1.Loading\Model\CilType.cs" />
     <Compile Include="1.Loading\Model\Context.cs" />
+    <Compile Include="1.Loading\Model\SystemTypes.cs" />
     <Compile Include="2.Analysis\Ast\Block.cs" />
     <Compile Include="2.Analysis\Ast\Ops\CallNode.cs" />
     <Compile Include="2.Analysis\Ast\OpExpression.cs" />

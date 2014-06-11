@@ -26,9 +26,11 @@ namespace Braille.JSAst
             formatting.IncreaseIndentation();
             if (Statements != null)
             {
-                sb.Append(formatting.NewLine);
-                sb.Append(formatting.Indentation);
-                sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+                foreach (var s in Statements)
+                {
+                    sb.Append(formatting.NewLine + formatting.Indentation);
+                    sb.Append(s.ToString(formatting));
+                }
             }
             formatting.DecreaseIndentation();
             sb.Append(formatting.NewLine + formatting.Indentation + "}");

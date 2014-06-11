@@ -15,7 +15,16 @@ namespace Braille.JSAst
             var sb = new StringBuilder();
             sb.Append(formatting.NewLine + formatting.Indentation + "try {");
             formatting.IncreaseIndentation();
-            sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+
+            if (Statements != null)
+            {
+                foreach (var s in Statements)
+                {
+                    sb.Append(formatting.NewLine + formatting.Indentation);
+                    sb.Append(s.ToString(formatting));
+                }
+            }
+
             formatting.DecreaseIndentation();
             sb.Append(formatting.NewLine + formatting.Indentation + "}");
             
@@ -44,8 +53,16 @@ namespace Braille.JSAst
             sb.Append("){");
 
             formatting.IncreaseIndentation();
+            
             if (Statements != null)
-                sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+            {
+                foreach (var s in Statements)
+                {
+                    sb.Append(formatting.NewLine + formatting.Indentation);
+                    sb.Append(s.ToString(formatting));
+                }
+            }
+
             formatting.DecreaseIndentation();
             sb.Append(formatting.NewLine + formatting.Indentation + "}");
 
@@ -71,7 +88,16 @@ namespace Braille.JSAst
             var sb = new StringBuilder();
             sb.Append(formatting.NewLine + formatting.Indentation + "finally {");
             formatting.IncreaseIndentation();
-            sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+            
+            if (Statements != null)
+            {
+                foreach (var s in Statements)
+                {
+                    sb.Append(formatting.NewLine + formatting.Indentation);
+                    sb.Append(s.ToString(formatting));
+                }
+            }
+
             formatting.DecreaseIndentation();
             sb.Append(formatting.NewLine + formatting.Indentation + "}");
 

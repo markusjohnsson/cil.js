@@ -82,5 +82,20 @@ namespace Braille.JSAst
         {
             return new JSIdentifier { Name = p };
         }
+
+        public static JSExpression Truncate(JSExpression expr)
+        {
+            return new JSBinaryExpression { Left = expr, Operator = "|", Right = Number(0) };
+        }
+
+        public static JSExpression Number(int p)
+        {
+            return new JSNumberLiteral { Value = p };
+        }
+
+        public static JSExpression Hex(int p)
+        {
+            return new JSNumberLiteral { Value = p, IsHex = true };
+        }
     }
 }

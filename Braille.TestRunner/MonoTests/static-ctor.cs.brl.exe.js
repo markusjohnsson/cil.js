@@ -140,14 +140,14 @@ var asm0; (function (asm)
         var st_09;
         var st_0A;
         var st_0B;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -168,7 +168,7 @@ var asm0; (function (asm)
                 /* IL_0A: brtrue.s IL_19*/
                 
                 if (st_05){
-                    __braille_pos_0__ = 0x19;
+                    __pos_0__ = 0x19;
                     continue;
                 }
                 /* IL_0C: ldstr */
@@ -178,7 +178,7 @@ var asm0; (function (asm)
                 /* IL_16: stloc.0 */
                 loc0 = st_07;
                 /* IL_17: br.s IL_27*/
-                __braille_pos_0__ = 0x27;
+                __pos_0__ = 0x27;
                 continue;
                 case 0x19:
                 /* IL_19: ldarg.0 */
@@ -260,15 +260,15 @@ var asm0; (function (asm)
     };;
     asm.x6000009 = function _ctor(arg0)
     {
-        var __braille_pos_0__;
-        __braille_pos_0__ = 0x0;
+        var __pos_0__;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: br.s IL_02*/
-                __braille_pos_0__ = 0x2;
+                __pos_0__ = 0x2;
                 continue;
                 case 0x2:
                 /* IL_02: ret */
@@ -324,15 +324,15 @@ var asm0; (function (asm)
         var st_1E;
         var st_1F;
         var st_20;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.Exception"])();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -353,7 +353,7 @@ var asm0; (function (asm)
                 /* IL_0A: brtrue.s IL_20*/
                 
                 if (st_05){
-                    __braille_pos_0__ = 0x20;
+                    __pos_0__ = 0x20;
                     continue;
                 }
                 /* IL_0C: nop */
@@ -375,7 +375,7 @@ var asm0; (function (asm)
                 /* IL_16: brtrue.s IL_1C*/
                 
                 if (st_0B){
-                    __braille_pos_0__ = 0x1C;
+                    __pos_0__ = 0x1C;
                     continue;
                 }
                 /* IL_18: ldnull */
@@ -383,7 +383,7 @@ var asm0; (function (asm)
                 /* IL_19: stloc.0 */
                 loc0 = st_0C;
                 /* IL_1A: br.s IL_56*/
-                __braille_pos_0__ = 0x56;
+                __pos_0__ = 0x56;
                 continue;
                 case 0x1C:
                 /* IL_1C: ldarg.1 */
@@ -391,7 +391,7 @@ var asm0; (function (asm)
                 /* IL_1D: stloc.0 */
                 loc0 = st_0D;
                 /* IL_1E: br.s IL_56*/
-                __braille_pos_0__ = 0x56;
+                __pos_0__ = 0x56;
                 continue;
                 case 0x20:
                 /* IL_20: ldarg.1 */
@@ -411,7 +411,7 @@ var asm0; (function (asm)
                 /* IL_29: brtrue.s IL_2F*/
                 
                 if (st_13){
-                    __braille_pos_0__ = 0x2F;
+                    __pos_0__ = 0x2F;
                     continue;
                 }
                 /* IL_2B: ldarg.0 */
@@ -419,7 +419,7 @@ var asm0; (function (asm)
                 /* IL_2C: stloc.0 */
                 loc0 = st_14;
                 /* IL_2D: br.s IL_56*/
-                __braille_pos_0__ = 0x56;
+                __pos_0__ = 0x56;
                 continue;
                 case 0x2F:
                 /* IL_2F: ldarg.0 */
@@ -439,19 +439,14 @@ var asm0; (function (asm)
                 /* IL_3F: brtrue.s IL_4C*/
                 
                 if (st_1A){
-                    __braille_pos_0__ = 0x4C;
+                    __pos_0__ = 0x4C;
                     continue;
                 }
                 /* IL_41: ldstr Incompatible delegate types*/
                 st_1B = new_string("Incompatible delegate types");
                 /* IL_46: newobj Void .ctor(System.String)*/
-                st_1C = (function ()
-                {
-                    var result;
-                    result = new ((arguments)[0])();
-                    (asm0.x6000068)(result,st_1B);
-                    return result;
-                })(t0);
+                st_1C = new t0();
+                (asm0.x6000068)(st_1C,st_1B);
                 /* IL_4B: throw */
                 throw st_1C;
                 case 0x4C:
@@ -505,15 +500,15 @@ var asm0; (function (asm)
         var st_10;
         var st_11;
         var st_12;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.Exception"])();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -534,7 +529,7 @@ var asm0; (function (asm)
                 /* IL_0A: brtrue.s IL_10*/
                 
                 if (st_05){
-                    __braille_pos_0__ = 0x10;
+                    __pos_0__ = 0x10;
                     continue;
                 }
                 /* IL_0C: ldarg.0 */
@@ -542,7 +537,7 @@ var asm0; (function (asm)
                 /* IL_0D: stloc.0 */
                 loc0 = st_06;
                 /* IL_0E: br.s IL_37*/
-                __braille_pos_0__ = 0x37;
+                __pos_0__ = 0x37;
                 continue;
                 case 0x10:
                 /* IL_10: ldarg.0 */
@@ -562,19 +557,14 @@ var asm0; (function (asm)
                 /* IL_20: brtrue.s IL_2D*/
                 
                 if (st_0C){
-                    __braille_pos_0__ = 0x2D;
+                    __pos_0__ = 0x2D;
                     continue;
                 }
                 /* IL_22: ldstr Incompatible delegate types*/
                 st_0D = new_string("Incompatible delegate types");
                 /* IL_27: newobj Void .ctor(System.String)*/
-                st_0E = (function ()
-                {
-                    var result;
-                    result = new ((arguments)[0])();
-                    (asm0.x6000068)(result,st_0D);
-                    return result;
-                })(t0);
+                st_0E = new t0();
+                (asm0.x6000068)(st_0E,st_0D);
                 /* IL_2C: throw */
                 throw st_0E;
                 case 0x2D:
@@ -613,13 +603,8 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.NotImplementedException"])();
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
-        st_00 = (function ()
-        {
-            var result;
-            result = new ((arguments)[0])();
-            (asm0.x6000086)(result);
-            return result;
-        })(t0);
+        st_00 = new t0();
+        (asm0.x6000086)(st_00);
         /* IL_06: throw */
         throw st_00;
     };
@@ -642,13 +627,8 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.NotImplementedException"])();
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
-        st_00 = (function ()
-        {
-            var result;
-            result = new ((arguments)[0])();
-            (asm0.x6000086)(result);
-            return result;
-        })(t0);
+        st_00 = new t0();
+        (asm0.x6000086)(st_00);
         /* IL_06: throw */
         throw st_00;
     };
@@ -738,7 +718,7 @@ var asm0; (function (asm)
         var st_51;
         var st_52;
         var st_53;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc0;
         var loc1;
         var loc6;
@@ -746,11 +726,11 @@ var asm0; (function (asm)
         var loc2;
         var loc3;
         var loc4;
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -783,7 +763,7 @@ var asm0; (function (asm)
                 /* IL_1A: brtrue.s IL_27*/
                 
                 if (st_09){
-                    __braille_pos_0__ = 0x27;
+                    __pos_0__ = 0x27;
                     continue;
                 }
                 /* IL_1C: ldloc.1 */
@@ -795,7 +775,7 @@ var asm0; (function (asm)
                 /* IL_20: stloc.s 5*/
                 loc5 = st_0C;
                 /* IL_22: br IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0x27:
                 /* IL_27: ldloc.1 */
@@ -815,7 +795,7 @@ var asm0; (function (asm)
                 /* IL_32: brtrue.s IL_3C*/
                 
                 if (st_12){
-                    __braille_pos_0__ = 0x3C;
+                    __pos_0__ = 0x3C;
                     continue;
                 }
                 /* IL_34: ldc.i4.0 */
@@ -823,7 +803,7 @@ var asm0; (function (asm)
                 /* IL_35: stloc.s 5*/
                 loc5 = st_13;
                 /* IL_37: br IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0x3C:
                 /* IL_3C: ldloc.0 */
@@ -843,7 +823,7 @@ var asm0; (function (asm)
                 /* IL_51: brtrue.s IL_5B*/
                 
                 if (st_19){
-                    __braille_pos_0__ = 0x5B;
+                    __pos_0__ = 0x5B;
                     continue;
                 }
                 /* IL_53: ldc.i4.0 */
@@ -851,7 +831,7 @@ var asm0; (function (asm)
                 /* IL_54: stloc.s 5*/
                 loc5 = st_1A;
                 /* IL_56: br IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0x5B:
                 /* IL_5B: ldloc.0 */
@@ -871,7 +851,7 @@ var asm0; (function (asm)
                 /* IL_70: brtrue.s IL_7A*/
                 
                 if (st_20){
-                    __braille_pos_0__ = 0x7A;
+                    __pos_0__ = 0x7A;
                     continue;
                 }
                 /* IL_72: ldc.i4.0 */
@@ -879,7 +859,7 @@ var asm0; (function (asm)
                 /* IL_73: stloc.s 5*/
                 loc5 = st_21;
                 /* IL_75: br IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0x7A:
                 /* IL_7A: ldloc.0 */
@@ -889,7 +869,7 @@ var asm0; (function (asm)
                 /* IL_80: brfalse.s IL_8D*/
                 
                 if ((!st_23)){
-                    __braille_pos_0__ = 0x8D;
+                    __pos_0__ = 0x8D;
                     continue;
                 }
                 /* IL_82: ldloc.1 */
@@ -901,7 +881,7 @@ var asm0; (function (asm)
                 /* IL_8A: ceq */
                 st_27 = (st_25 === st_26) ? (1) : (0);
                 /* IL_8B: br.s IL_8E*/
-                __braille_pos_0__ = 0x8E;
+                __pos_0__ = 0x8E;
                 continue;
                 case 0x8D:
                 /* IL_8D: ldc.i4.1 */
@@ -916,7 +896,7 @@ var asm0; (function (asm)
                 /* IL_93: brtrue.s IL_F9*/
                 
                 if (st_28){
-                    __braille_pos_0__ = 0xF9;
+                    __pos_0__ = 0xF9;
                     continue;
                 }
                 /* IL_95: nop */
@@ -928,7 +908,7 @@ var asm0; (function (asm)
                 /* IL_9C: ldlen */
                 st_2B = st_2A.jsarr.length;
                 /* IL_9D: conv.i4 */
-                st_2F = st_2B;
+                st_2F = (st_2B | 0);
                 /* IL_9E: ldloc.1 */
                 st_2C = loc1;
                 /* IL_9F: ldfld Delegate[] _invocationList*/
@@ -936,7 +916,7 @@ var asm0; (function (asm)
                 /* IL_A4: ldlen */
                 st_2E = st_2D.jsarr.length;
                 /* IL_A5: conv.i4 */
-                st_30 = st_2E;
+                st_30 = (st_2E | 0);
                 /* IL_A7: ceq */
                 st_31 = (st_2F === st_30) ? (1) : (0);
                 /* IL_A8: stloc.s 6*/
@@ -946,7 +926,7 @@ var asm0; (function (asm)
                 /* IL_AC: brtrue.s IL_B3*/
                 
                 if (st_32){
-                    __braille_pos_0__ = 0xB3;
+                    __pos_0__ = 0xB3;
                     continue;
                 }
                 /* IL_AE: ldc.i4.0 */
@@ -954,7 +934,7 @@ var asm0; (function (asm)
                 /* IL_AF: stloc.s 5*/
                 loc5 = st_33;
                 /* IL_B1: br.s IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0xB3:
                 /* IL_B3: ldc.i4.0 */
@@ -962,7 +942,7 @@ var asm0; (function (asm)
                 /* IL_B4: stloc.2 */
                 loc2 = st_34;
                 /* IL_B5: br.s IL_E3*/
-                __braille_pos_0__ = 0xE3;
+                __pos_0__ = 0xE3;
                 continue;
                 case 0xB7:
                 /* IL_B7: nop */
@@ -1000,7 +980,7 @@ var asm0; (function (asm)
                 /* IL_D7: brtrue.s IL_DE*/
                 
                 if (st_40){
-                    __braille_pos_0__ = 0xDE;
+                    __pos_0__ = 0xDE;
                     continue;
                 }
                 /* IL_D9: ldc.i4.0 */
@@ -1008,7 +988,7 @@ var asm0; (function (asm)
                 /* IL_DA: stloc.s 5*/
                 loc5 = st_41;
                 /* IL_DC: br.s IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0xDE:
                 /* IL_DE: nop */
@@ -1031,7 +1011,7 @@ var asm0; (function (asm)
                 /* IL_EA: ldlen */
                 st_47 = st_46.jsarr.length;
                 /* IL_EB: conv.i4 */
-                st_49 = st_47;
+                st_49 = (st_47 | 0);
                 /* IL_ED: clt */
                 st_4A = (st_48 < st_49) ? (1) : (0);
                 /* IL_EE: stloc.s 6*/
@@ -1041,7 +1021,7 @@ var asm0; (function (asm)
                 /* IL_F2: brtrue.s IL_B7*/
                 
                 if (st_4B){
-                    __braille_pos_0__ = 0xB7;
+                    __pos_0__ = 0xB7;
                     continue;
                 }
                 /* IL_F4: ldc.i4.1 */
@@ -1049,7 +1029,7 @@ var asm0; (function (asm)
                 /* IL_F5: stloc.s 5*/
                 loc5 = st_4C;
                 /* IL_F7: br.s IL_112*/
-                __braille_pos_0__ = 0x112;
+                __pos_0__ = 0x112;
                 continue;
                 case 0xF9:
                 /* IL_F9: ldloc.0 */
@@ -1059,7 +1039,7 @@ var asm0; (function (asm)
                 /* IL_FF: brtrue.s IL_10C*/
                 
                 if (st_4E){
-                    __braille_pos_0__ = 0x10C;
+                    __pos_0__ = 0x10C;
                     continue;
                 }
                 /* IL_101: ldloc.1 */
@@ -1071,7 +1051,7 @@ var asm0; (function (asm)
                 /* IL_109: ceq */
                 st_52 = (st_50 === st_51) ? (1) : (0);
                 /* IL_10A: br.s IL_10D*/
-                __braille_pos_0__ = 0x10D;
+                __pos_0__ = 0x10D;
                 continue;
                 case 0x10C:
                 /* IL_10C: ldc.i4.0 */
@@ -1261,17 +1241,17 @@ var asm0; (function (asm)
         var st_2C;
         var st_2D;
         var st_2E;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc3;
         var loc0;
         var loc1;
         var loc2;
         t0 = ((asm0)["System.Delegate"])();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -1290,7 +1270,7 @@ var asm0; (function (asm)
                 /* IL_0C: brtrue.s IL_4C*/
                 
                 if (st_04){
-                    __braille_pos_0__ = 0x4C;
+                    __pos_0__ = 0x4C;
                     continue;
                 }
                 /* IL_0E: nop */
@@ -1302,7 +1282,7 @@ var asm0; (function (asm)
                 /* IL_15: ldlen */
                 st_07 = st_06.jsarr.length;
                 /* IL_16: conv.i4 */
-                st_08 = st_07;
+                st_08 = (st_07 | 0);
                 /* IL_17: ldc.i4.1 */
                 st_09 = 1;
                 /* IL_18: add */
@@ -1316,7 +1296,7 @@ var asm0; (function (asm)
                 /* IL_20: stloc.1 */
                 loc1 = st_0C;
                 /* IL_21: br.s IL_32*/
-                __braille_pos_0__ = 0x32;
+                __pos_0__ = 0x32;
                 continue;
                 case 0x23:
                 /* IL_23: ldloc.0 */
@@ -1351,7 +1331,7 @@ var asm0; (function (asm)
                 /* IL_39: ldlen */
                 st_18 = st_17.jsarr.length;
                 /* IL_3A: conv.i4 */
-                st_1A = st_18;
+                st_1A = (st_18 | 0);
                 /* IL_3C: clt */
                 st_1B = (st_19 < st_1A) ? (1) : (0);
                 /* IL_3D: stloc.3 */
@@ -1361,7 +1341,7 @@ var asm0; (function (asm)
                 /* IL_3F: brtrue.s IL_23*/
                 
                 if (st_1C){
-                    __braille_pos_0__ = 0x23;
+                    __pos_0__ = 0x23;
                     continue;
                 }
                 /* IL_41: ldloc.0 */
@@ -1371,7 +1351,7 @@ var asm0; (function (asm)
                 /* IL_43: ldlen */
                 st_1E = st_1D.jsarr.length;
                 /* IL_44: conv.i4 */
-                st_1F = st_1E;
+                st_1F = (st_1E | 0);
                 /* IL_45: ldc.i4.1 */
                 st_20 = 1;
                 /* IL_46: sub */
@@ -1383,7 +1363,7 @@ var asm0; (function (asm)
                 /* IL_49: nop */
                 
                 /* IL_4A: br.s IL_5D*/
-                __braille_pos_0__ = 0x5D;
+                __pos_0__ = 0x5D;
                 continue;
                 case 0x4C:
                 /* IL_4C: nop */
@@ -1553,7 +1533,7 @@ var asm0; (function (asm)
         var st_6D;
         var st_6E;
         var st_6F;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc5;
         var loc4;
         var loc0;
@@ -1561,11 +1541,11 @@ var asm0; (function (asm)
         var loc2;
         var loc3;
         t0 = ((asm0)["System.Delegate"])();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -1588,7 +1568,7 @@ var asm0; (function (asm)
                 /* IL_11: brtrue.s IL_34*/
                 
                 if (st_06){
-                    __braille_pos_0__ = 0x34;
+                    __pos_0__ = 0x34;
                     continue;
                 }
                 /* IL_13: nop */
@@ -1610,7 +1590,7 @@ var asm0; (function (asm)
                 /* IL_22: brtrue.s IL_2C*/
                 
                 if (st_0C){
-                    __braille_pos_0__ = 0x2C;
+                    __pos_0__ = 0x2C;
                     continue;
                 }
                 /* IL_24: ldnull */
@@ -1618,7 +1598,7 @@ var asm0; (function (asm)
                 /* IL_25: stloc.s 4*/
                 loc4 = st_0D;
                 /* IL_27: br IL_11B*/
-                __braille_pos_0__ = 0x11B;
+                __pos_0__ = 0x11B;
                 continue;
                 case 0x2C:
                 /* IL_2C: ldarg.0 */
@@ -1626,7 +1606,7 @@ var asm0; (function (asm)
                 /* IL_2D: stloc.s 4*/
                 loc4 = st_0E;
                 /* IL_2F: br IL_11B*/
-                __braille_pos_0__ = 0x11B;
+                __pos_0__ = 0x11B;
                 continue;
                 case 0x34:
                 /* IL_34: nop */
@@ -1640,7 +1620,7 @@ var asm0; (function (asm)
                 /* IL_38: stloc.1 */
                 loc1 = st_10;
                 /* IL_39: br.s IL_5A*/
-                __braille_pos_0__ = 0x5A;
+                __pos_0__ = 0x5A;
                 continue;
                 case 0x3B:
                 /* IL_3B: ldarg.0 */
@@ -1666,7 +1646,7 @@ var asm0; (function (asm)
                 /* IL_50: brtrue.s IL_56*/
                 
                 if (st_19){
-                    __braille_pos_0__ = 0x56;
+                    __pos_0__ = 0x56;
                     continue;
                 }
                 /* IL_52: ldloc.0 */
@@ -1696,7 +1676,7 @@ var asm0; (function (asm)
                 /* IL_61: ldlen */
                 st_22 = st_21.jsarr.length;
                 /* IL_62: conv.i4 */
-                st_24 = st_22;
+                st_24 = (st_22 | 0);
                 /* IL_64: clt */
                 st_25 = (st_23 < st_24) ? (1) : (0);
                 /* IL_65: stloc.s 5*/
@@ -1706,7 +1686,7 @@ var asm0; (function (asm)
                 /* IL_69: brtrue.s IL_3B*/
                 
                 if (st_26){
-                    __braille_pos_0__ = 0x3B;
+                    __pos_0__ = 0x3B;
                     continue;
                 }
                 /* IL_6B: ldloc.0 */
@@ -1726,7 +1706,7 @@ var asm0; (function (asm)
                 /* IL_76: brtrue.s IL_80*/
                 
                 if (st_2C){
-                    __braille_pos_0__ = 0x80;
+                    __pos_0__ = 0x80;
                     continue;
                 }
                 /* IL_78: ldnull */
@@ -1734,7 +1714,7 @@ var asm0; (function (asm)
                 /* IL_79: stloc.s 4*/
                 loc4 = st_2D;
                 /* IL_7B: br IL_11B*/
-                __braille_pos_0__ = 0x11B;
+                __pos_0__ = 0x11B;
                 continue;
                 case 0x80:
                 /* IL_80: ldloc.0 */
@@ -1754,7 +1734,7 @@ var asm0; (function (asm)
                 /* IL_8B: brtrue.s IL_C9*/
                 
                 if (st_33){
-                    __braille_pos_0__ = 0xC9;
+                    __pos_0__ = 0xC9;
                     continue;
                 }
                 /* IL_8D: ldc.i4.0 */
@@ -1762,7 +1742,7 @@ var asm0; (function (asm)
                 /* IL_8E: stloc.1 */
                 loc1 = st_34;
                 /* IL_8F: br.s IL_B8*/
-                __braille_pos_0__ = 0xB8;
+                __pos_0__ = 0xB8;
                 continue;
                 case 0x91:
                 /* IL_91: ldarg.0 */
@@ -1788,7 +1768,7 @@ var asm0; (function (asm)
                 /* IL_A6: brtrue.s IL_B4*/
                 
                 if (st_3D){
-                    __braille_pos_0__ = 0xB4;
+                    __pos_0__ = 0xB4;
                     continue;
                 }
                 /* IL_A8: ldarg.0 */
@@ -1802,7 +1782,7 @@ var asm0; (function (asm)
                 /* IL_B0: stloc.s 4*/
                 loc4 = st_41;
                 /* IL_B2: br.s IL_11B*/
-                __braille_pos_0__ = 0x11B;
+                __pos_0__ = 0x11B;
                 continue;
                 case 0xB4:
                 /* IL_B4: ldloc.1 */
@@ -1823,7 +1803,7 @@ var asm0; (function (asm)
                 /* IL_BF: ldlen */
                 st_47 = st_46.jsarr.length;
                 /* IL_C0: conv.i4 */
-                st_49 = st_47;
+                st_49 = (st_47 | 0);
                 /* IL_C2: clt */
                 st_4A = (st_48 < st_49) ? (1) : (0);
                 /* IL_C3: stloc.s 5*/
@@ -1833,7 +1813,7 @@ var asm0; (function (asm)
                 /* IL_C7: brtrue.s IL_91*/
                 
                 if (st_4B){
-                    __braille_pos_0__ = 0x91;
+                    __pos_0__ = 0x91;
                     continue;
                 }
                 case 0xC9:
@@ -1852,7 +1832,7 @@ var asm0; (function (asm)
                 /* IL_D3: stloc.3 */
                 loc3 = st_4F;
                 /* IL_D4: br.s IL_100*/
-                __braille_pos_0__ = 0x100;
+                __pos_0__ = 0x100;
                 continue;
                 case 0xD6:
                 /* IL_D6: ldarg.0 */
@@ -1878,7 +1858,7 @@ var asm0; (function (asm)
                 /* IL_EB: brtrue.s IL_FC*/
                 
                 if (st_58){
-                    __braille_pos_0__ = 0xFC;
+                    __pos_0__ = 0xFC;
                     continue;
                 }
                 /* IL_ED: ldloc.2 */
@@ -1922,7 +1902,7 @@ var asm0; (function (asm)
                 /* IL_107: ldlen */
                 st_68 = st_67.jsarr.length;
                 /* IL_108: conv.i4 */
-                st_6A = st_68;
+                st_6A = (st_68 | 0);
                 /* IL_10A: clt */
                 st_6B = (st_69 < st_6A) ? (1) : (0);
                 /* IL_10B: stloc.s 5*/
@@ -1932,7 +1912,7 @@ var asm0; (function (asm)
                 /* IL_10F: brtrue.s IL_D6*/
                 
                 if (st_6C){
-                    __braille_pos_0__ = 0xD6;
+                    __pos_0__ = 0xD6;
                     continue;
                 }
                 /* IL_111: ldloc.2 */
@@ -1989,13 +1969,8 @@ var asm0; (function (asm)
         var st_00;
         t0 = ((asm0)["System.EventArgs"])();
         /* IL_00: newobj Void .ctor()*/
-        st_00 = (function ()
-        {
-            var result;
-            result = new ((arguments)[0])();
-            (asm0.x600001a)(result);
-            return result;
-        })(t0);
+        st_00 = new t0();
+        (asm0.x600001a)(st_00);
         /* IL_05: stsfld EventArgs Empty*/
         (t0)["Empty"] = st_00;
         /* IL_0A: ret */
@@ -2112,13 +2087,8 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: newobj Void .ctor(System.Array`1[T])*/
-        st_01 = (function ()
-        {
-            var result;
-            result = new ((arguments)[0])();
-            (asm0.x6000031)(result,st_00);
-            return result;
-        })(t1);
+        st_01 = new t1();
+        (asm0.x6000031)(st_01,st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -2392,15 +2362,15 @@ var asm0; (function (asm)
         var st_05;
         var st_06;
         var st_07;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.InvalidOperationException"])();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -2415,19 +2385,14 @@ var asm0; (function (asm)
                 /* IL_09: brtrue.s IL_16*/
                 
                 if (st_02){
-                    __braille_pos_0__ = 0x16;
+                    __pos_0__ = 0x16;
                     continue;
                 }
                 /* IL_0B: ldstr Nullable object must have a value.*/
                 st_03 = new_string("Nullable object must have a value.");
                 /* IL_10: newobj Void .ctor(System.String)*/
-                st_04 = (function ()
-                {
-                    var result;
-                    result = new ((arguments)[0])();
-                    (asm0.x600006b)(result,st_03);
-                    return result;
-                })(t0);
+                st_04 = new t0();
+                (asm0.x600006b)(st_04,st_03);
                 /* IL_15: throw */
                 throw st_04;
                 case 0x16:
@@ -2481,16 +2446,16 @@ var asm0; (function (asm)
         var st_12;
         var st_13;
         var st_14;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
         t0 = (((arguments)[0].r)().constructor.GenericArguments)[0];
         t1 = ((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]);
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -2511,7 +2476,7 @@ var asm0; (function (asm)
                 /* IL_0A: brtrue.s IL_18*/
                 
                 if (st_05){
-                    __braille_pos_0__ = 0x18;
+                    __pos_0__ = 0x18;
                     continue;
                 }
                 /* IL_0C: ldarg.0 */
@@ -2525,7 +2490,7 @@ var asm0; (function (asm)
                 /* IL_15: stloc.0 */
                 loc0 = st_09;
                 /* IL_16: br.s IL_38*/
-                __braille_pos_0__ = 0x38;
+                __pos_0__ = 0x38;
                 continue;
                 case 0x18:
                 /* IL_18: ldarg.1 */
@@ -2543,7 +2508,7 @@ var asm0; (function (asm)
                 /* IL_23: brtrue.s IL_29*/
                 
                 if (st_0E){
-                    __braille_pos_0__ = 0x29;
+                    __pos_0__ = 0x29;
                     continue;
                 }
                 /* IL_25: ldc.i4.0 */
@@ -2551,7 +2516,7 @@ var asm0; (function (asm)
                 /* IL_26: stloc.0 */
                 loc0 = st_0F;
                 /* IL_27: br.s IL_38*/
-                __braille_pos_0__ = 0x38;
+                __pos_0__ = 0x38;
                 continue;
                 case 0x29:
                 /* IL_29: ldarg.0 */
@@ -2593,15 +2558,15 @@ var asm0; (function (asm)
         var st_0F;
         var st_10;
         var st_11;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
         t0 = (((arguments)[0].r)().constructor.GenericArguments)[0];
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -2632,7 +2597,7 @@ var asm0; (function (asm)
                 /* IL_12: brtrue.s IL_18*/
                 
                 if (st_05){
-                    __braille_pos_0__ = 0x18;
+                    __pos_0__ = 0x18;
                     continue;
                 }
                 /* IL_14: ldc.i4.0 */
@@ -2640,7 +2605,7 @@ var asm0; (function (asm)
                 /* IL_15: stloc.0 */
                 loc0 = st_06;
                 /* IL_16: br.s IL_46*/
-                __braille_pos_0__ = 0x46;
+                __pos_0__ = 0x46;
                 continue;
                 case 0x18:
                 /* IL_18: ldarg.0 */
@@ -2654,7 +2619,7 @@ var asm0; (function (asm)
                 /* IL_20: brtrue.s IL_26*/
                 
                 if (st_09){
-                    __braille_pos_0__ = 0x26;
+                    __pos_0__ = 0x26;
                     continue;
                 }
                 /* IL_22: ldc.i4.1 */
@@ -2662,7 +2627,7 @@ var asm0; (function (asm)
                 /* IL_23: stloc.0 */
                 loc0 = st_0A;
                 /* IL_24: br.s IL_46*/
-                __braille_pos_0__ = 0x46;
+                __pos_0__ = 0x46;
                 continue;
                 case 0x26:
                 /* IL_26: ldarga.s 1*/
@@ -2718,14 +2683,14 @@ var asm0; (function (asm)
         var st_05;
         var st_06;
         var st_07;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -2740,7 +2705,7 @@ var asm0; (function (asm)
                 /* IL_09: brtrue.s IL_0F*/
                 
                 if (st_02){
-                    __braille_pos_0__ = 0xF;
+                    __pos_0__ = 0xF;
                     continue;
                 }
                 /* IL_0B: ldc.i4.0 */
@@ -2748,7 +2713,7 @@ var asm0; (function (asm)
                 /* IL_0C: stloc.0 */
                 loc0 = st_03;
                 /* IL_0D: br.s IL_23*/
-                __braille_pos_0__ = 0x23;
+                __pos_0__ = 0x23;
                 continue;
                 case 0xF:
                 /* IL_0F: ldarg.0 */
@@ -2803,13 +2768,13 @@ var asm0; (function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc0;
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -2820,13 +2785,13 @@ var asm0; (function (asm)
                 /* IL_07: brtrue.s IL_0C*/
                 
                 if (st_01){
-                    __braille_pos_0__ = 0xC;
+                    __pos_0__ = 0xC;
                     continue;
                 }
                 /* IL_09: ldarg.1 */
                 st_03 = arg1;
                 /* IL_0A: br.s IL_12*/
-                __braille_pos_0__ = 0x12;
+                __pos_0__ = 0x12;
                 continue;
                 case 0xC:
                 /* IL_0C: ldarg.0 */
@@ -2870,15 +2835,15 @@ var asm0; (function (asm)
         var st_07;
         var st_08;
         var st_09;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.String"])();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -2897,7 +2862,7 @@ var asm0; (function (asm)
                 /* IL_0C: brtrue.s IL_22*/
                 
                 if (st_04){
-                    __braille_pos_0__ = 0x22;
+                    __pos_0__ = 0x22;
                     continue;
                 }
                 /* IL_0E: ldarg.0 */
@@ -2920,7 +2885,7 @@ var asm0; (function (asm)
                 /* IL_1F: stloc.0 */
                 loc0 = st_07;
                 /* IL_20: br.s IL_2A*/
-                __braille_pos_0__ = 0x2A;
+                __pos_0__ = 0x2A;
                 continue;
                 case 0x22:
                 /* IL_22: ldsfld String Empty*/
@@ -2972,23 +2937,18 @@ var asm0; (function (asm)
             /* IL_01: ldarg.0 */
             st_00 = arg0;
             /* IL_02: newobj Void .ctor(T)*/
-            st_01 = (function ()
-            {
-                var result;
-                result = new ((arguments)[0])();
-                (asm0.x600003b)({'w': function ()
-                    {
-                        
-                        result = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        
-                        return result;
-                    }
-                },clone_value(st_00));
-                return result;
-            })(t1);
+            st_01 = new t1();
+            (asm0.x600003b)({'w': function ()
+                {
+                    
+                    st_01 = (arguments)[0];
+                },
+                'r': function ()
+                {
+                    
+                    return st_01;
+                }
+            },clone_value(st_00));
             /* IL_07: stloc.0 */
             loc0 = st_01;
             /* IL_0A: ldloc.0 */
@@ -3043,15 +3003,15 @@ var asm0; (function (asm)
             var st_05;
             var st_06;
             var st_07;
-            var __braille_pos_0__;
+            var __pos_0__;
             var loc1;
             var loc0;
             t0 = T;
-            __braille_pos_0__ = 0x0;
+            __pos_0__ = 0x0;
             
-            while (__braille_pos_0__ >= 0){
+            while (__pos_0__ >= 0){
                 
-                switch (__braille_pos_0__){
+                switch (__pos_0__){
                     case 0x0:
                     /* IL_00: nop */
                     
@@ -3076,7 +3036,7 @@ var asm0; (function (asm)
                     /* IL_0A: brtrue.s IL_10*/
                     
                     if (st_02){
-                        __braille_pos_0__ = 0x10;
+                        __pos_0__ = 0x10;
                         continue;
                     }
                     /* IL_0C: ldnull */
@@ -3084,7 +3044,7 @@ var asm0; (function (asm)
                     /* IL_0D: stloc.0 */
                     loc0 = st_03;
                     /* IL_0E: br.s IL_1F*/
-                    __braille_pos_0__ = 0x1F;
+                    __pos_0__ = 0x1F;
                     continue;
                     case 0x10:
                     /* IL_10: ldarga.s 0*/
@@ -3154,17 +3114,17 @@ var asm0; (function (asm)
             var st_09;
             var st_0A;
             var st_0B;
-            var __braille_pos_0__;
+            var __pos_0__;
             var loc1;
             var loc0;
             t0 = T;
             t1 = ((asm0)["System.Nullable`1"])(T);
             loc2 = new (((asm0)["System.Nullable`1"])(T))();
-            __braille_pos_0__ = 0x0;
+            __pos_0__ = 0x0;
             
-            while (__braille_pos_0__ >= 0){
+            while (__pos_0__ >= 0){
                 
-                switch (__braille_pos_0__){
+                switch (__pos_0__){
                     case 0x0:
                     /* IL_00: nop */
                     
@@ -3185,7 +3145,7 @@ var asm0; (function (asm)
                     /* IL_0A: brtrue.s IL_18*/
                     
                     if (st_05){
-                        __braille_pos_0__ = 0x18;
+                        __pos_0__ = 0x18;
                         continue;
                     }
                     /* IL_0C: ldloca.s 2*/
@@ -3207,7 +3167,7 @@ var asm0; (function (asm)
                     /* IL_15: stloc.0 */
                     loc0 = st_07;
                     /* IL_16: br.s IL_26*/
-                    __braille_pos_0__ = 0x26;
+                    __pos_0__ = 0x26;
                     continue;
                     case 0x18:
                     /* IL_18: ldarg.0 */
@@ -3215,23 +3175,18 @@ var asm0; (function (asm)
                     /* IL_19: unbox.any T*/
                     st_09 = unbox_any(st_08,t0);
                     /* IL_1E: newobj Void .ctor(T)*/
-                    st_0A = (function ()
-                    {
-                        var result;
-                        result = new ((arguments)[0])();
-                        (asm0.x600003b)({'w': function ()
-                            {
-                                
-                                result = (arguments)[0];
-                            },
-                            'r': function ()
-                            {
-                                
-                                return result;
-                            }
-                        },clone_value(st_09));
-                        return result;
-                    })(t1);
+                    st_0A = new t1();
+                    (asm0.x600003b)({'w': function ()
+                        {
+                            
+                            st_0A = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            
+                            return st_0A;
+                        }
+                    },clone_value(st_09));
                     /* IL_23: stloc.0 */
                     loc0 = st_0A;
                     case 0x26:
@@ -3300,13 +3255,8 @@ var asm0; (function (asm)
         /* IL_01: ldstr Not implemented.*/
         st_00 = new_string("Not implemented.");
         /* IL_06: newobj Void .ctor(System.String)*/
-        st_01 = (function ()
-        {
-            var result;
-            result = new ((arguments)[0])();
-            (asm0.x6000068)(result,st_00);
-            return result;
-        })(t0);
+        st_01 = new t0();
+        (asm0.x6000068)(st_01,st_00);
         /* IL_0B: throw */
         throw st_01;
     };
@@ -3482,13 +3432,8 @@ var asm0; (function (asm)
         /* IL_01: ldstr Not implemented*/
         st_00 = new_string("Not implemented");
         /* IL_06: newobj Void .ctor(System.String)*/
-        st_01 = (function ()
-        {
-            var result;
-            result = new ((arguments)[0])();
-            (asm0.x6000068)(result,st_00);
-            return result;
-        })(t0);
+        st_01 = new t0();
+        (asm0.x6000068)(st_01,st_00);
         /* IL_0B: throw */
         throw st_01;
     };
@@ -3754,13 +3699,13 @@ var asm0; (function (asm)
         var st_01;
         var st_02;
         var st_03;
-        var __braille_pos_0__;
+        var __pos_0__;
         var loc0;
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: nop */
                 
@@ -3771,13 +3716,13 @@ var asm0; (function (asm)
                 /* IL_03: brtrue.s IL_0C*/
                 
                 if (st_01){
-                    __braille_pos_0__ = 0xC;
+                    __pos_0__ = 0xC;
                     continue;
                 }
                 /* IL_05: ldstr False*/
                 st_02 = new_string("False");
                 /* IL_0A: br.s IL_11*/
-                __braille_pos_0__ = 0x11;
+                __pos_0__ = 0x11;
                 continue;
                 case 0xC:
                 /* IL_0C: ldstr True*/
@@ -4740,7 +4685,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 $$Object.Interfaces = [  ];
-                $$Object.IsInst = function (t) { return t instanceof $$Object; };
+                $$Object.IsInst = function (t) { return t instanceof $$Object ? t : null; };
                 $$Object.IsValueType = false;
                 $$Object.IsPrimitive = false;
                 $$Object.IsNullable = false;
@@ -4798,7 +4743,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Delegate.Interfaces = [  ];
-                Delegate.IsInst = function (t) { return t instanceof Delegate; };
+                Delegate.IsInst = function (t) { return t instanceof Delegate ? t : null; };
                 Delegate.IsValueType = false;
                 Delegate.IsPrimitive = false;
                 Delegate.IsNullable = false;
@@ -4867,7 +4812,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Attribute.Interfaces = [  ];
-                Attribute.IsInst = function (t) { return t instanceof Attribute; };
+                Attribute.IsInst = function (t) { return t instanceof Attribute ? t : null; };
                 Attribute.IsValueType = false;
                 Attribute.IsPrimitive = false;
                 Attribute.IsNullable = false;
@@ -4924,7 +4869,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 ExtensionAttribute.Interfaces = [  ];
-                ExtensionAttribute.IsInst = function (t) { return t instanceof ExtensionAttribute; };
+                ExtensionAttribute.IsInst = function (t) { return t instanceof ExtensionAttribute ? t : null; };
                 ExtensionAttribute.IsValueType = false;
                 ExtensionAttribute.IsPrimitive = false;
                 ExtensionAttribute.IsNullable = false;
@@ -4981,7 +4926,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IndexerNameAttribute.Interfaces = [  ];
-                IndexerNameAttribute.IsInst = function (t) { return t instanceof IndexerNameAttribute; };
+                IndexerNameAttribute.IsInst = function (t) { return t instanceof IndexerNameAttribute ? t : null; };
                 IndexerNameAttribute.IsValueType = false;
                 IndexerNameAttribute.IsPrimitive = false;
                 IndexerNameAttribute.IsNullable = false;
@@ -5038,7 +4983,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 RuntimeHelpers.Interfaces = [  ];
-                RuntimeHelpers.IsInst = function (t) { return t instanceof RuntimeHelpers; };
+                RuntimeHelpers.IsInst = function (t) { return t instanceof RuntimeHelpers ? t : null; };
                 RuntimeHelpers.IsValueType = false;
                 RuntimeHelpers.IsPrimitive = false;
                 RuntimeHelpers.IsNullable = false;
@@ -5095,7 +5040,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 MulticastDelegate.Interfaces = [  ];
-                MulticastDelegate.IsInst = function (t) { return t instanceof MulticastDelegate; };
+                MulticastDelegate.IsInst = function (t) { return t instanceof MulticastDelegate ? t : null; };
                 MulticastDelegate.IsValueType = false;
                 MulticastDelegate.IsPrimitive = false;
                 MulticastDelegate.IsNullable = false;
@@ -5166,7 +5111,7 @@ var asm0; (function (asm)
                 initialized = true;
                 EventArgs.Empty = null;
                 EventArgs.Interfaces = [  ];
-                EventArgs.IsInst = function (t) { return t instanceof EventArgs; };
+                EventArgs.IsInst = function (t) { return t instanceof EventArgs ? t : null; };
                 EventArgs.IsValueType = false;
                 EventArgs.IsPrimitive = false;
                 EventArgs.IsNullable = false;
@@ -5224,7 +5169,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 EventHandler.Interfaces = [  ];
-                EventHandler.IsInst = function (t) { return t instanceof EventHandler; };
+                EventHandler.IsInst = function (t) { return t instanceof EventHandler ? t : null; };
                 EventHandler.IsValueType = false;
                 EventHandler.IsPrimitive = false;
                 EventHandler.IsNullable = false;
@@ -5300,7 +5245,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IEnumerable.Interfaces = [  ];
-                IEnumerable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerable) != -1; };
+                IEnumerable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerable) != -1 ? t : null; };
                 IEnumerable.IsValueType = false;
                 IEnumerable.IsPrimitive = false;
                 IEnumerable.IsNullable = false;
@@ -5348,7 +5293,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Array.Interfaces = [ ((asm0)["System.Collections.IEnumerable"])() ];
-                Array.IsInst = function (t) { return t instanceof Array; };
+                Array.IsInst = function (t) { return t instanceof Array ? t : null; };
                 Array.IsValueType = false;
                 Array.IsPrimitive = false;
                 Array.IsNullable = false;
@@ -5424,7 +5369,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IEnumerable_1.Interfaces = [ ((asm0)["System.Collections.IEnumerable"])() ];
-                IEnumerable_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerable_1) != -1; };
+                IEnumerable_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerable_1) != -1 ? t : null; };
                 IEnumerable_1.IsValueType = false;
                 IEnumerable_1.IsPrimitive = false;
                 IEnumerable_1.IsNullable = false;
@@ -5474,7 +5419,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Array_1.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerable`1"])(T),((asm0)["System.Collections.IEnumerable"])() ];
-                Array_1.IsInst = function (t) { return t instanceof Array_1; };
+                Array_1.IsInst = function (t) { return t instanceof asm0['System.Array']() && t.type.prototype instanceof T ? t : null; };
                 Array_1.IsValueType = false;
                 Array_1.IsPrimitive = false;
                 Array_1.IsNullable = false;
@@ -5561,7 +5506,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IDisposable.Interfaces = [  ];
-                IDisposable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IDisposable) != -1; };
+                IDisposable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IDisposable) != -1 ? t : null; };
                 IDisposable.IsValueType = false;
                 IDisposable.IsPrimitive = false;
                 IDisposable.IsNullable = false;
@@ -5609,7 +5554,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IEnumerator.Interfaces = [ ((asm0)["System.IDisposable"])() ];
-                IEnumerator.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerator) != -1; };
+                IEnumerator.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerator) != -1 ? t : null; };
                 IEnumerator.IsValueType = false;
                 IEnumerator.IsPrimitive = false;
                 IEnumerator.IsNullable = false;
@@ -5668,7 +5613,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IEnumerator_1.Interfaces = [ ((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
-                IEnumerator_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerator_1) != -1; };
+                IEnumerator_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerator_1) != -1 ? t : null; };
                 IEnumerator_1.IsValueType = false;
                 IEnumerator_1.IsPrimitive = false;
                 IEnumerator_1.IsNullable = false;
@@ -5723,7 +5668,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 ArrayEnumerator.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerator`1"])(T),((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
-                ArrayEnumerator.IsInst = function (t) { return t instanceof ArrayEnumerator; };
+                ArrayEnumerator.IsInst = function (t) { return t instanceof ArrayEnumerator ? t : null; };
                 ArrayEnumerator.IsValueType = false;
                 ArrayEnumerator.IsPrimitive = false;
                 ArrayEnumerator.IsNullable = false;
@@ -5842,7 +5787,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 DebuggerStepThroughAttribute.Interfaces = [  ];
-                DebuggerStepThroughAttribute.IsInst = function (t) { return t instanceof DebuggerStepThroughAttribute; };
+                DebuggerStepThroughAttribute.IsInst = function (t) { return t instanceof DebuggerStepThroughAttribute ? t : null; };
                 DebuggerStepThroughAttribute.IsValueType = false;
                 DebuggerStepThroughAttribute.IsPrimitive = false;
                 DebuggerStepThroughAttribute.IsNullable = false;
@@ -5899,7 +5844,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 ValueType.Interfaces = [  ];
-                ValueType.IsInst = function (t) { return t instanceof ValueType; };
+                ValueType.IsInst = function (t) { return t instanceof ValueType ? t : null; };
                 ValueType.IsValueType = false;
                 ValueType.IsPrimitive = false;
                 ValueType.IsNullable = false;
@@ -5956,7 +5901,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Enum.Interfaces = [  ];
-                Enum.IsInst = function (t) { return t instanceof Enum; };
+                Enum.IsInst = function (t) { return t instanceof Enum ? t : null; };
                 Enum.IsValueType = false;
                 Enum.IsPrimitive = false;
                 Enum.IsNullable = false;
@@ -6030,7 +5975,7 @@ var asm0; (function (asm)
                 AttributeTargets.GenericParameter = new (((asm0)["System.AttributeTargets"])())();
                 AttributeTargets.All = new (((asm0)["System.AttributeTargets"])())();
                 AttributeTargets.Interfaces = [  ];
-                AttributeTargets.IsInst = function (t) { return t instanceof AttributeTargets; };
+                AttributeTargets.IsInst = function (t) { return t instanceof AttributeTargets ? t : null; };
                 AttributeTargets.IsValueType = true;
                 AttributeTargets.IsPrimitive = false;
                 AttributeTargets.IsNullable = false;
@@ -6088,7 +6033,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 ComVisibleAttribute.Interfaces = [  ];
-                ComVisibleAttribute.IsInst = function (t) { return t instanceof ComVisibleAttribute; };
+                ComVisibleAttribute.IsInst = function (t) { return t instanceof ComVisibleAttribute ? t : null; };
                 ComVisibleAttribute.IsValueType = false;
                 ComVisibleAttribute.IsPrimitive = false;
                 ComVisibleAttribute.IsNullable = false;
@@ -6146,7 +6091,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Nullable_1.Interfaces = [  ];
-                Nullable_1.IsInst = function (t) { return t instanceof Nullable_1; };
+                Nullable_1.IsInst = function (t) { return t instanceof Nullable_1 ? t : null; };
                 Nullable_1.IsValueType = true;
                 Nullable_1.IsPrimitive = false;
                 Nullable_1.IsNullable = true;
@@ -6207,7 +6152,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 SerializableAttribute.Interfaces = [  ];
-                SerializableAttribute.IsInst = function (t) { return t instanceof SerializableAttribute; };
+                SerializableAttribute.IsInst = function (t) { return t instanceof SerializableAttribute ? t : null; };
                 SerializableAttribute.IsValueType = false;
                 SerializableAttribute.IsPrimitive = false;
                 SerializableAttribute.IsNullable = false;
@@ -6265,7 +6210,7 @@ var asm0; (function (asm)
                 initialized = true;
                 $$String.Empty = null;
                 $$String.Interfaces = [  ];
-                $$String.IsInst = function (t) { return t instanceof $$String; };
+                $$String.IsInst = function (t) { return t instanceof $$String ? t : null; };
                 $$String.IsValueType = false;
                 $$String.IsPrimitive = false;
                 $$String.IsNullable = false;
@@ -6324,7 +6269,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 DefaultMemberAttribute.Interfaces = [  ];
-                DefaultMemberAttribute.IsInst = function (t) { return t instanceof DefaultMemberAttribute; };
+                DefaultMemberAttribute.IsInst = function (t) { return t instanceof DefaultMemberAttribute ? t : null; };
                 DefaultMemberAttribute.IsValueType = false;
                 DefaultMemberAttribute.IsPrimitive = false;
                 DefaultMemberAttribute.IsNullable = false;
@@ -6382,7 +6327,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 AttributeUsageAttribute.Interfaces = [  ];
-                AttributeUsageAttribute.IsInst = function (t) { return t instanceof AttributeUsageAttribute; };
+                AttributeUsageAttribute.IsInst = function (t) { return t instanceof AttributeUsageAttribute ? t : null; };
                 AttributeUsageAttribute.IsValueType = false;
                 AttributeUsageAttribute.IsPrimitive = false;
                 AttributeUsageAttribute.IsNullable = false;
@@ -6441,7 +6386,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 $$Boolean.Interfaces = [  ];
-                $$Boolean.IsInst = function (t) { return t instanceof $$Boolean; };
+                $$Boolean.IsInst = function (t) { return t instanceof $$Boolean ? t : null; };
                 $$Boolean.IsValueType = true;
                 $$Boolean.IsPrimitive = true;
                 $$Boolean.IsNullable = false;
@@ -6499,7 +6444,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Byte.Interfaces = [  ];
-                Byte.IsInst = function (t) { return t instanceof Byte; };
+                Byte.IsInst = function (t) { return t instanceof Byte ? t : null; };
                 Byte.IsValueType = true;
                 Byte.IsPrimitive = true;
                 Byte.IsNullable = false;
@@ -6559,7 +6504,7 @@ var asm0; (function (asm)
                 Char.MinValue = 0;
                 Char.MaxValue = 0;
                 Char.Interfaces = [  ];
-                Char.IsInst = function (t) { return t instanceof Char; };
+                Char.IsInst = function (t) { return t instanceof Char ? t : null; };
                 Char.IsValueType = true;
                 Char.IsPrimitive = true;
                 Char.IsNullable = false;
@@ -6617,7 +6562,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Console.Interfaces = [  ];
-                Console.IsInst = function (t) { return t instanceof Console; };
+                Console.IsInst = function (t) { return t instanceof Console ? t : null; };
                 Console.IsValueType = false;
                 Console.IsPrimitive = false;
                 Console.IsNullable = false;
@@ -6680,7 +6625,7 @@ var asm0; (function (asm)
                 Double.NegativeInfinity = 0;
                 Double.PositiveInfinity = 0;
                 Double.Interfaces = [  ];
-                Double.IsInst = function (t) { return t instanceof Double; };
+                Double.IsInst = function (t) { return t instanceof Double ? t : null; };
                 Double.IsValueType = true;
                 Double.IsPrimitive = true;
                 Double.IsNullable = false;
@@ -6738,7 +6683,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Exception.Interfaces = [  ];
-                Exception.IsInst = function (t) { return t instanceof Exception; };
+                Exception.IsInst = function (t) { return t instanceof Exception ? t : null; };
                 Exception.IsValueType = false;
                 Exception.IsPrimitive = false;
                 Exception.IsNullable = false;
@@ -6796,7 +6741,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 InvalidOperationException.Interfaces = [  ];
-                InvalidOperationException.IsInst = function (t) { return t instanceof InvalidOperationException; };
+                InvalidOperationException.IsInst = function (t) { return t instanceof InvalidOperationException ? t : null; };
                 InvalidOperationException.IsValueType = false;
                 InvalidOperationException.IsPrimitive = false;
                 InvalidOperationException.IsNullable = false;
@@ -6853,7 +6798,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 FlagsAttribute.Interfaces = [  ];
-                FlagsAttribute.IsInst = function (t) { return t instanceof FlagsAttribute; };
+                FlagsAttribute.IsInst = function (t) { return t instanceof FlagsAttribute ? t : null; };
                 FlagsAttribute.IsValueType = false;
                 FlagsAttribute.IsPrimitive = false;
                 FlagsAttribute.IsNullable = false;
@@ -6910,7 +6855,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 ICloneable.Interfaces = [  ];
-                ICloneable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(ICloneable) != -1; };
+                ICloneable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(ICloneable) != -1 ? t : null; };
                 ICloneable.IsValueType = false;
                 ICloneable.IsPrimitive = false;
                 ICloneable.IsNullable = false;
@@ -6958,7 +6903,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Int16.Interfaces = [  ];
-                Int16.IsInst = function (t) { return t instanceof Int16; };
+                Int16.IsInst = function (t) { return t instanceof Int16 ? t : null; };
                 Int16.IsValueType = true;
                 Int16.IsPrimitive = true;
                 Int16.IsNullable = false;
@@ -7016,7 +6961,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Int32.Interfaces = [  ];
-                Int32.IsInst = function (t) { return t instanceof Int32; };
+                Int32.IsInst = function (t) { return t instanceof Int32 ? t : null; };
                 Int32.IsValueType = true;
                 Int32.IsPrimitive = true;
                 Int32.IsNullable = false;
@@ -7074,7 +7019,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 InternalFormatting.Interfaces = [  ];
-                InternalFormatting.IsInst = function (t) { return t instanceof InternalFormatting; };
+                InternalFormatting.IsInst = function (t) { return t instanceof InternalFormatting ? t : null; };
                 InternalFormatting.IsValueType = false;
                 InternalFormatting.IsPrimitive = false;
                 InternalFormatting.IsNullable = false;
@@ -7131,7 +7076,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Int64.Interfaces = [  ];
-                Int64.IsInst = function (t) { return t instanceof Int64; };
+                Int64.IsInst = function (t) { return t instanceof Int64 ? t : null; };
                 Int64.IsValueType = true;
                 Int64.IsPrimitive = true;
                 Int64.IsNullable = false;
@@ -7189,7 +7134,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 IntPtr.Interfaces = [  ];
-                IntPtr.IsInst = function (t) { return t instanceof IntPtr; };
+                IntPtr.IsInst = function (t) { return t instanceof IntPtr ? t : null; };
                 IntPtr.IsValueType = true;
                 IntPtr.IsPrimitive = true;
                 IntPtr.IsNullable = false;
@@ -7248,7 +7193,7 @@ var asm0; (function (asm)
                 initialized = true;
                 Math.PI = 0;
                 Math.Interfaces = [  ];
-                Math.IsInst = function (t) { return t instanceof Math; };
+                Math.IsInst = function (t) { return t instanceof Math ? t : null; };
                 Math.IsValueType = false;
                 Math.IsPrimitive = false;
                 Math.IsNullable = false;
@@ -7305,7 +7250,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 ParamArrayAttribute.Interfaces = [  ];
-                ParamArrayAttribute.IsInst = function (t) { return t instanceof ParamArrayAttribute; };
+                ParamArrayAttribute.IsInst = function (t) { return t instanceof ParamArrayAttribute ? t : null; };
                 ParamArrayAttribute.IsValueType = false;
                 ParamArrayAttribute.IsPrimitive = false;
                 ParamArrayAttribute.IsNullable = false;
@@ -7362,7 +7307,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 RuntimeFieldHandle.Interfaces = [  ];
-                RuntimeFieldHandle.IsInst = function (t) { return t instanceof RuntimeFieldHandle; };
+                RuntimeFieldHandle.IsInst = function (t) { return t instanceof RuntimeFieldHandle ? t : null; };
                 RuntimeFieldHandle.IsValueType = true;
                 RuntimeFieldHandle.IsPrimitive = false;
                 RuntimeFieldHandle.IsNullable = false;
@@ -7421,7 +7366,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 RuntimeTypeHandle.Interfaces = [  ];
-                RuntimeTypeHandle.IsInst = function (t) { return t instanceof RuntimeTypeHandle; };
+                RuntimeTypeHandle.IsInst = function (t) { return t instanceof RuntimeTypeHandle ? t : null; };
                 RuntimeTypeHandle.IsValueType = true;
                 RuntimeTypeHandle.IsPrimitive = false;
                 RuntimeTypeHandle.IsNullable = false;
@@ -7480,7 +7425,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 SByte.Interfaces = [  ];
-                SByte.IsInst = function (t) { return t instanceof SByte; };
+                SByte.IsInst = function (t) { return t instanceof SByte ? t : null; };
                 SByte.IsValueType = true;
                 SByte.IsPrimitive = true;
                 SByte.IsNullable = false;
@@ -7538,7 +7483,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Single.Interfaces = [  ];
-                Single.IsInst = function (t) { return t instanceof Single; };
+                Single.IsInst = function (t) { return t instanceof Single ? t : null; };
                 Single.IsValueType = true;
                 Single.IsPrimitive = true;
                 Single.IsNullable = false;
@@ -7596,7 +7541,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Type.Interfaces = [  ];
-                Type.IsInst = function (t) { return t instanceof Type; };
+                Type.IsInst = function (t) { return t instanceof Type ? t : null; };
                 Type.IsValueType = false;
                 Type.IsPrimitive = false;
                 Type.IsNullable = false;
@@ -7653,7 +7598,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 UInt16.Interfaces = [  ];
-                UInt16.IsInst = function (t) { return t instanceof UInt16; };
+                UInt16.IsInst = function (t) { return t instanceof UInt16 ? t : null; };
                 UInt16.IsValueType = true;
                 UInt16.IsPrimitive = true;
                 UInt16.IsNullable = false;
@@ -7711,7 +7656,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 UInt32.Interfaces = [  ];
-                UInt32.IsInst = function (t) { return t instanceof UInt32; };
+                UInt32.IsInst = function (t) { return t instanceof UInt32 ? t : null; };
                 UInt32.IsValueType = true;
                 UInt32.IsPrimitive = true;
                 UInt32.IsNullable = false;
@@ -7769,7 +7714,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 UInt64.Interfaces = [  ];
-                UInt64.IsInst = function (t) { return t instanceof UInt64; };
+                UInt64.IsInst = function (t) { return t instanceof UInt64 ? t : null; };
                 UInt64.IsValueType = true;
                 UInt64.IsPrimitive = true;
                 UInt64.IsNullable = false;
@@ -7827,7 +7772,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 UIntPtr.Interfaces = [  ];
-                UIntPtr.IsInst = function (t) { return t instanceof UIntPtr; };
+                UIntPtr.IsInst = function (t) { return t instanceof UIntPtr ? t : null; };
                 UIntPtr.IsValueType = true;
                 UIntPtr.IsPrimitive = true;
                 UIntPtr.IsNullable = false;
@@ -7885,7 +7830,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Void.Interfaces = [  ];
-                Void.IsInst = function (t) { return t instanceof Void; };
+                Void.IsInst = function (t) { return t instanceof Void ? t : null; };
                 Void.IsValueType = true;
                 Void.IsPrimitive = false;
                 Void.IsNullable = false;
@@ -7943,7 +7888,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 NotSupportedException.Interfaces = [  ];
-                NotSupportedException.IsInst = function (t) { return t instanceof NotSupportedException; };
+                NotSupportedException.IsInst = function (t) { return t instanceof NotSupportedException ? t : null; };
                 NotSupportedException.IsValueType = false;
                 NotSupportedException.IsPrimitive = false;
                 NotSupportedException.IsNullable = false;
@@ -8000,7 +7945,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 NotImplementedException.Interfaces = [  ];
-                NotImplementedException.IsInst = function (t) { return t instanceof NotImplementedException; };
+                NotImplementedException.IsInst = function (t) { return t instanceof NotImplementedException ? t : null; };
                 NotImplementedException.IsValueType = false;
                 NotImplementedException.IsPrimitive = false;
                 NotImplementedException.IsNullable = false;
@@ -8057,7 +8002,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Environment.Interfaces = [  ];
-                Environment.IsInst = function (t) { return t instanceof Environment; };
+                Environment.IsInst = function (t) { return t instanceof Environment ? t : null; };
                 Environment.IsValueType = false;
                 Environment.IsPrimitive = false;
                 Environment.IsNullable = false;
@@ -8115,7 +8060,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Func_2.Interfaces = [  ];
-                Func_2.IsInst = function (t) { return t instanceof Func_2; };
+                Func_2.IsInst = function (t) { return t instanceof Func_2 ? t : null; };
                 Func_2.IsValueType = false;
                 Func_2.IsPrimitive = false;
                 Func_2.IsNullable = false;
@@ -8192,7 +8137,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Debugger.Interfaces = [  ];
-                Debugger.IsInst = function (t) { return t instanceof Debugger; };
+                Debugger.IsInst = function (t) { return t instanceof Debugger ? t : null; };
                 Debugger.IsValueType = false;
                 Debugger.IsPrimitive = false;
                 Debugger.IsNullable = false;
@@ -8249,7 +8194,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 OutAttribute.Interfaces = [  ];
-                OutAttribute.IsInst = function (t) { return t instanceof OutAttribute; };
+                OutAttribute.IsInst = function (t) { return t instanceof OutAttribute ? t : null; };
                 OutAttribute.IsValueType = false;
                 OutAttribute.IsPrimitive = false;
                 OutAttribute.IsNullable = false;
@@ -8468,23 +8413,18 @@ var asm1; (function (asm)
         var st_04;
         var st_05;
         var st_06;
-        var __braille_pos_0__;
+        var __pos_0__;
         t0 = (asm1.Z)();
         t1 = (asm1.test)();
-        __braille_pos_0__ = 0x0;
+        __pos_0__ = 0x0;
         
-        while (__braille_pos_0__ >= 0){
+        while (__pos_0__ >= 0){
             
-            switch (__braille_pos_0__){
+            switch (__pos_0__){
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
-                st_00 = (function ()
-                {
-                    var result;
-                    result = new ((arguments)[0])();
-                    (asm1.x600000f)(result);
-                    return result;
-                })(t0);
+                st_00 = new t0();
+                (asm1.x600000f)(st_00);
                 /* IL_05: pop */
                 
                 /* IL_06: ldsfld Int32 global*/
@@ -8494,7 +8434,7 @@ var asm1; (function (asm)
                 /* IL_0C: beq.s IL_1A*/
                 
                 if (st_01 === st_02){
-                    __braille_pos_0__ = 0x1A;
+                    __pos_0__ = 0x1A;
                     continue;
                 }
                 /* IL_0E: ldstr Error*/
@@ -8557,7 +8497,7 @@ var asm1; (function (asm)
                 }
                 initialized = true;
                 TestLog.Interfaces = [  ];
-                TestLog.IsInst = function (t) { return t instanceof TestLog; };
+                TestLog.IsInst = function (t) { return t instanceof TestLog ? t : null; };
                 TestLog.IsValueType = false;
                 TestLog.IsPrimitive = false;
                 TestLog.IsNullable = false;
@@ -8614,7 +8554,7 @@ var asm1; (function (asm)
                 }
                 initialized = true;
                 TestHelper.Interfaces = [  ];
-                TestHelper.IsInst = function (t) { return t instanceof TestHelper; };
+                TestHelper.IsInst = function (t) { return t instanceof TestHelper ? t : null; };
                 TestHelper.IsValueType = false;
                 TestHelper.IsPrimitive = false;
                 TestHelper.IsNullable = false;
@@ -8671,7 +8611,7 @@ var asm1; (function (asm)
                 }
                 initialized = true;
                 X.Interfaces = [  ];
-                X.IsInst = function (t) { return t instanceof X; };
+                X.IsInst = function (t) { return t instanceof X ? t : null; };
                 X.IsValueType = false;
                 X.IsPrimitive = false;
                 X.IsNullable = false;
@@ -8729,7 +8669,7 @@ var asm1; (function (asm)
                 }
                 initialized = true;
                 Y.Interfaces = [  ];
-                Y.IsInst = function (t) { return t instanceof Y; };
+                Y.IsInst = function (t) { return t instanceof Y ? t : null; };
                 Y.IsValueType = false;
                 Y.IsPrimitive = false;
                 Y.IsNullable = false;
@@ -8786,7 +8726,7 @@ var asm1; (function (asm)
                 }
                 initialized = true;
                 Z.Interfaces = [  ];
-                Z.IsInst = function (t) { return t instanceof Z; };
+                Z.IsInst = function (t) { return t instanceof Z ? t : null; };
                 Z.IsValueType = false;
                 Z.IsPrimitive = false;
                 Z.IsNullable = false;
@@ -8844,7 +8784,7 @@ var asm1; (function (asm)
                 initialized = true;
                 test.global = 0;
                 test.Interfaces = [  ];
-                test.IsInst = function (t) { return t instanceof test; };
+                test.IsInst = function (t) { return t instanceof test ? t : null; };
                 test.IsValueType = false;
                 test.IsPrimitive = false;
                 test.IsNullable = false;

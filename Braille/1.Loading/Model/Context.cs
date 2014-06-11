@@ -1,18 +1,17 @@
 ﻿using Braille.Ast;
 using IKVM.Reflection;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Braille.Loading.Model
 {
     class Context
     {
-        public Universe ReflectionUniverse { get; set; }
+        public Universe ReflectionUniverse { get; private set; }
 
-        public List<CilAssembly> Assemblies { get; set; }
+        public List<CilAssembly> Assemblies { get; private set; }
 
+        public SystemTypes SystemTypes { get; private set; }
 
         struct MethodId
         {
@@ -24,6 +23,13 @@ namespace Braille.Loading.Model
             }
         }
         private Dictionary<MethodId, CilMethod> methodLookup;
+        
+        public Context(Universe universe, List<CilAssembly> asms)
+        {
+            ReflectionUniverse = universe;
+            Assemblies = asms;
+            SystemTypes = new SystemTypes(universe);
+        }
 
         public CilMethod LookupMethod(MethodBase mb)
         {

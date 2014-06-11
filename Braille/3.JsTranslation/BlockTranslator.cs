@@ -87,7 +87,7 @@ namespace Braille.JsTranslation
                 yield break;
             }
 
-            var handledFlag = new JSIdentifier { Name = "__braille_error_handled_" + p + "__" };
+            var handledFlag = new JSIdentifier { Name = "__error_handled_" + p + "__" };
 
             var statements = new List<JSStatement> 
             {
@@ -99,7 +99,7 @@ namespace Braille.JsTranslation
                     })
             };
 
-            var exceptionObject = new JSIdentifier { Name = "__braille_error__" };
+            var exceptionObject = new JSIdentifier { Name = "__error__" };
 
             foreach (var catchBlock in catchBlocks)
             {
@@ -154,13 +154,13 @@ namespace Braille.JsTranslation
         {
             var block = CreateJsBlock(faultBlock, p);
 
-            block.Statements.Add(JSFactory.Statement(new JSThrowExpression { Expression = new JSIdentifier { Name = "__braille_error__" } }));
+            block.Statements.Add(JSFactory.Statement(new JSThrowExpression { Expression = new JSIdentifier { Name = "__error__" } }));
 
             yield return new JSIfStatement
             {
                 Condition = new JSBinaryExpression
                 {
-                    Left = new JSIdentifier { Name = "__braille_error_handled_" + (block.Depth - 1) + "__" },
+                    Left = new JSIdentifier { Name = "__error_handled_" + (block.Depth - 1) + "__" },
                     Operator = "===",
                     Right = new JSBoolLiteral { Value = false }
                 },

@@ -1,5 +1,4 @@
 ﻿using Braille.Ast;
-using Braille.JsTranslation;
 using Braille.Loading.Model;
 using IKVM.Reflection;
 using System.Collections.Generic;
@@ -24,11 +23,7 @@ namespace Braille.Loading
                 .Select((p, i) => Process(universe, p, i))
                 .ToList();
 
-            return new Context
-            {
-                Assemblies = asms,
-                ReflectionUniverse = universe
-            };
+            return new Context(universe, asms);
         }
 
         private CilAssembly Process(Universe universe, string assembly, int index)

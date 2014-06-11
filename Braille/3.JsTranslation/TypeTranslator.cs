@@ -4,10 +4,8 @@ using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
@@ -337,11 +335,15 @@ namespace Braille.JsTranslation
         {
             if (type.IsInterface)
             {
-                return new JSIdentifier { Name = "function (t) { return t.constructor.Interfaces.indexOf(" + GetSimpleName(type) + ") != -1; }" };
+                return JSFactory.RawExpression("function (t) { return t.constructor.Interfaces.indexOf(" + GetSimpleName(type) + ") != -1 ? t : null; }");
+            }
+            else if (type.ReflectionType.FullName == "System.Array`1")
+            {
+                return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && t.type.prototype instanceof T ? t : null; }");
             }
             else
             {
-                return new JSIdentifier { Name = "function (t) { return t instanceof " + GetSimpleName(type) + "; }" };
+                return JSFactory.RawExpression("function (t) { return t instanceof " + GetSimpleName(type) + " ? t : null; }");
             }
         }
 
@@ -368,7 +370,7 @@ namespace Braille.JsTranslation
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
                         m => GetVirtualMethodIdentifier(m),
-                        m => new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m) }.ToStatement()  } } as JSExpression)
+                        m => new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m) }.ToStatement() } } as JSExpression)
             };
         }
 
@@ -409,9 +411,9 @@ namespace Braille.JsTranslation
                 .Select(
                     f => GetFieldInitializer(f, type));
         }
-        
+
         static Regex regex = new Regex("Size=([0-9]*)");
-                    
+
         private KeyValuePair<string, JSExpression> GetFieldInitializer(FieldInfo f, CilType type)
         {
             if (regex.IsMatch(f.FieldType.Name))
