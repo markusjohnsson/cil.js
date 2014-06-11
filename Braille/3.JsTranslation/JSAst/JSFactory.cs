@@ -97,5 +97,10 @@ namespace Braille.JSAst
         {
             return new JSNumberLiteral { Value = p, IsHex = true };
         }
+
+        public static JSExpression Call(JSExpression function, params JSExpression[] args)
+        {
+            return new JSCallExpression { Function = function, Arguments = args.ToList() };
+        }
     }
 }

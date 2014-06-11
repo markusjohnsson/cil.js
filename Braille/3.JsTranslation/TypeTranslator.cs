@@ -337,6 +337,10 @@ namespace Braille.JsTranslation
             {
                 return JSFactory.RawExpression("function (t) { return t.constructor.Interfaces.indexOf(" + GetSimpleName(type) + ") != -1 ? t : null; }");
             }
+            else if (type.ReflectionType.IsPrimitive)
+            {
+                return JSFactory.RawExpression("function (t) { return typeof t == 'number'; }");
+            }
             else if (type.ReflectionType.FullName == "System.Array`1")
             {
                 return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && t.type.prototype instanceof T ? t : null; }");

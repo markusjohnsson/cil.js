@@ -1,7 +1,6 @@
 var asm0; (function (asm)
 {
     
-    
     function clone_value(v) {
         if (v == null) return v;
         if (typeof v === 'number') return v;
@@ -32,28 +31,29 @@ var asm0; (function (asm)
     
         return {
             'boxed': v,
+            'type': type,
             'vtable': type.prototype.vtable
         };
     }
 
     function unbox(o, type) {
-        return o.boxed;
+        return cast_class(o.boxed, type);
     }
 
     function unbox_any(o, type) {
         if (type.IsNullable) {
             var result = new type();
             if (o !== null) {
-                result.value = o.boxed;
+                result.value = cast_class(o.boxed, type.GenericArguments[0]);
                 result.has_value = true;
             }
             return result;
         }
     
         if (type.IsValueType)
-            return o.boxed;
+            return cast_class(o.boxed, type);
         else
-            return o;
+            return cast_class(o, type);
     }
 
     function tree_get(a, s) {
@@ -92,6 +92,15 @@ var asm0; (function (asm)
         r.type = type;
         r.jsarr = new ctor(length);
         return r;
+    }
+
+    function cast_class(obj, type) {
+        if (type.IsInst(obj) || (!type.IsValueType && obj === null))
+            return obj;
+        else {
+            var t = asm0['System.InvalidCastException']();
+            throw new t();
+        }
     }
 ;
     asm.x6000001 = function (a, b) { return Number(a === b); };;
@@ -278,13 +287,11 @@ var asm0; (function (asm)
     };;
     asm.x600000a_init = function ()
     {
-        
         (((asm0)["System.Exception"])().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function (arg0,arg1)
     {
-        
         (asm.x600000a_init.apply)(this,arguments);
         return (asm.x600000a.apply)(this,arguments);
     };;
@@ -468,13 +475,11 @@ var asm0; (function (asm)
     };
     asm.x600000b_init = function ()
     {
-        
         (((asm0)["System.Exception"])().init)();
         asm.x600000b = asm.x600000b_;
     };;
     asm.x600000b = function (arg0,arg1)
     {
-        
         (asm.x600000b_init.apply)(this,arguments);
         return (asm.x600000b.apply)(this,arguments);
     };;
@@ -586,13 +591,11 @@ var asm0; (function (asm)
     };
     asm.x600000c_init = function ()
     {
-        
         (((asm0)["System.NotImplementedException"])().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function (arg0,arg1)
     {
-        
         (asm.x600000c_init.apply)(this,arguments);
         return (asm.x600000c.apply)(this,arguments);
     };;
@@ -604,19 +607,17 @@ var asm0; (function (asm)
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
         st_00 = new t0();
-        (asm0.x6000086)(st_00);
+        (asm0.x6000087)(st_00);
         /* IL_06: throw */
         throw st_00;
     };
     asm.x600000d_init = function ()
     {
-        
         (((asm0)["System.NotImplementedException"])().init)();
         asm.x600000d = asm.x600000d_;
     };;
     asm.x600000d = function (arg0,arg1)
     {
-        
         (asm.x600000d_init.apply)(this,arguments);
         return (asm.x600000d.apply)(this,arguments);
     };;
@@ -628,12 +629,23 @@ var asm0; (function (asm)
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
         st_00 = new t0();
-        (asm0.x6000086)(st_00);
+        (asm0.x6000087)(st_00);
         /* IL_06: throw */
         throw st_00;
     };
-    asm.x600000e = function op_Equality(arg0,arg1)
+    asm.x600000e_init = function ()
     {
+        (((asm0)["System.MulticastDelegate"])().init)();
+        asm.x600000e = asm.x600000e_;
+    };;
+    asm.x600000e = function (arg0,arg1)
+    {
+        (asm.x600000e_init.apply)(this,arguments);
+        return (asm.x600000e.apply)(this,arguments);
+    };;
+    asm.x600000e_ = function op_Equality(arg0,arg1)
+    {
+        var t0;
         var st_00;
         var st_01;
         var st_02;
@@ -726,6 +738,7 @@ var asm0; (function (asm)
         var loc2;
         var loc3;
         var loc4;
+        t0 = ((asm0)["System.MulticastDelegate"])();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -1068,7 +1081,7 @@ var asm0; (function (asm)
                 return st_53;
             }
         }
-    };;
+    };
     asm.x600000f = function op_Inequality(arg0,arg1)
     {
         var st_00;
@@ -1139,7 +1152,6 @@ var asm0; (function (asm)
     };;
     asm.x6000014 = function InitializeArray(arg0,arg1)
     {
-        
         /* IL_00: nop */
         /* IL_01: ret */
         return ;
@@ -1181,13 +1193,11 @@ var asm0; (function (asm)
             ;;
     asm.x6000017_init = function ()
     {
-        
         (((asm0)["System.Delegate"])().init)();
         asm.x6000017 = asm.x6000017_;
     };;
     asm.x6000017 = function (arg0,arg1)
     {
-        
         (asm.x6000017_init.apply)(this,arguments);
         return (asm.x6000017.apply)(this,arguments);
     };;
@@ -1408,13 +1418,11 @@ var asm0; (function (asm)
     };
     asm.x6000018_init = function ()
     {
-        
         (((asm0)["System.Delegate"])().init)();
         asm.x6000018 = asm.x6000018_;
     };;
     asm.x6000018 = function (arg0,arg1)
     {
-        
         (asm.x6000018_init.apply)(this,arguments);
         return (asm.x6000018.apply)(this,arguments);
     };;
@@ -1953,13 +1961,11 @@ var asm0; (function (asm)
     };;
     asm.x600001b_init = function ()
     {
-        
         (((asm0)["System.EventArgs"])().init)();
         asm.x600001b = asm.x600001b_;
     };;
     asm.x600001b = function ()
     {
-        
         (asm.x600001b_init.apply)(this,arguments);
         return (asm.x600001b.apply)(this,arguments);
     };;
@@ -1979,7 +1985,6 @@ var asm0; (function (asm)
     asm.x600001d = function Invoke()
     {
         
-        
                                 var m = arguments[0]._methodPtr;
                                 var t = arguments[0]._target;
                                 if (t != null)
@@ -1990,7 +1995,6 @@ var asm0; (function (asm)
     };;
     asm.x600001c = function ctor()
     {
-        
         arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];;
     };;
     asm.x600001f = function get_Length(arg0)
@@ -2063,13 +2067,11 @@ var asm0; (function (asm)
     };;
     asm.x6000028_init = function ()
     {
-        
         (((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
         asm.x6000028 = asm.x6000028_;
     };;
     asm.x6000028 = function (arg0)
     {
-        
         (asm.x6000028_init.apply)(this,arguments);
         return (asm.x6000028.apply)(this,arguments);
     };;
@@ -2235,7 +2237,6 @@ var asm0; (function (asm)
     };;
     asm.x6000036 = function Dispose(arg0)
     {
-        
         /* IL_00: nop */
         /* IL_01: ret */
         return ;
@@ -2341,13 +2342,11 @@ var asm0; (function (asm)
     };;
     asm.x600003d_init = function ()
     {
-        
         (((asm0)["System.InvalidOperationException"])().init)();
         asm.x600003d = asm.x600003d_;
     };;
     asm.x600003d = function (arg0)
     {
-        
         (asm.x600003d_init.apply)(this,arguments);
         return (asm.x600003d.apply)(this,arguments);
     };;
@@ -2411,13 +2410,11 @@ var asm0; (function (asm)
     };
     asm.x600003e_init = function ()
     {
-        
         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]).init)();
         asm.x600003e = asm.x600003e_;
     };;
     asm.x600003e = function (arg0,arg1)
     {
-        
         (asm.x600003e_init.apply)(this,arguments);
         return (asm.x600003e.apply)(this,arguments);
     };;
@@ -2573,12 +2570,10 @@ var asm0; (function (asm)
                 /* IL_01: ldarga.s 1*/
                 st_00 = {'w': function ()
                     {
-                        
                         arg1 = (arguments)[0];
                     },
                     'r': function ()
                     {
-                        
                         return arg1;
                     }
                 };
@@ -2633,24 +2628,20 @@ var asm0; (function (asm)
                 /* IL_26: ldarga.s 1*/
                 st_0B = {'w': function ()
                     {
-                        
                         arg1 = (arguments)[0];
                     },
                     'r': function ()
                     {
-                        
                         return arg1;
                     }
                 };
                 /* IL_28: ldflda T value*/
                 st_0E = {'w': function ()
                     {
-                        
                         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
                     },
                     'r': function ()
                     {
-                        
                         return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
                     }
                 };
@@ -2721,12 +2712,10 @@ var asm0; (function (asm)
                 /* IL_10: ldflda T value*/
                 st_05 = {'w': function ()
                     {
-                        
                         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
                     },
                     'r': function ()
                     {
-                        
                         return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
                     }
                 };
@@ -2812,13 +2801,11 @@ var asm0; (function (asm)
     };;
     asm.x6000043_init = function ()
     {
-        
         (((asm0)["System.String"])().init)();
         asm.x6000043 = asm.x6000043_;
     };;
     asm.x6000043 = function (arg0)
     {
-        
         (asm.x6000043_init.apply)(this,arguments);
         return (asm.x6000043.apply)(this,arguments);
     };;
@@ -2870,12 +2857,10 @@ var asm0; (function (asm)
                 /* IL_0F: ldflda T value*/
                 st_06 = {'w': function ()
                     {
-                        
                         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
                     },
                     'r': function ()
                     {
-                        
                         return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
                     }
                 };
@@ -2902,27 +2887,22 @@ var asm0; (function (asm)
     };
     asm.x6000044_init = function (T)
     {
-        
         return function ()
         {
-            
             (((asm0)["System.Nullable`1"])(T).init)();
             asm.x6000044 = asm.x6000044_;
         };
     };;
     asm.x6000044 = function (T)
     {
-        
         return function (arg0)
         {
-            
             ((asm.x6000044_init)(T).apply)(this,arguments);
             return ((asm.x6000044)(T).apply)(this,arguments);
         };
     };;
     asm.x6000044_ = function (T)
     {
-        
         return function op_Implicit(arg0)
         {
             var t0;
@@ -2940,12 +2920,10 @@ var asm0; (function (asm)
             st_01 = new t1();
             (asm0.x600003b)({'w': function ()
                 {
-                    
                     st_01 = (arguments)[0];
                 },
                 'r': function ()
                 {
-                    
                     return st_01;
                 }
             },clone_value(st_00));
@@ -2959,7 +2937,6 @@ var asm0; (function (asm)
     };
     asm.x6000045 = function (T)
     {
-        
         return function op_Explicit(arg0)
         {
             var st_00;
@@ -2970,12 +2947,10 @@ var asm0; (function (asm)
             /* IL_01: ldarga.s 0*/
             st_00 = {'w': function ()
                 {
-                    
                     arg0 = (arguments)[0];
                 },
                 'r': function ()
                 {
-                    
                     return arg0;
                 }
             };
@@ -2991,7 +2966,6 @@ var asm0; (function (asm)
     };;
     asm.x6000046 = function (T)
     {
-        
         return function Box(arg0)
         {
             var t0;
@@ -3018,12 +2992,10 @@ var asm0; (function (asm)
                     /* IL_01: ldarga.s 0*/
                     st_00 = {'w': function ()
                         {
-                            
                             arg0 = (arguments)[0];
                         },
                         'r': function ()
                         {
-                            
                             return arg0;
                         }
                     };
@@ -3050,12 +3022,10 @@ var asm0; (function (asm)
                     /* IL_10: ldarga.s 0*/
                     st_04 = {'w': function ()
                         {
-                            
                             arg0 = (arguments)[0];
                         },
                         'r': function ()
                         {
-                            
                             return arg0;
                         }
                     };
@@ -3076,27 +3046,22 @@ var asm0; (function (asm)
     };;
     asm.x6000047_init = function (T)
     {
-        
         return function ()
         {
-            
             (((asm0)["System.Nullable`1"])(T).init)();
             asm.x6000047 = asm.x6000047_;
         };
     };;
     asm.x6000047 = function (T)
     {
-        
         return function (arg0)
         {
-            
             ((asm.x6000047_init)(T).apply)(this,arguments);
             return ((asm.x6000047)(T).apply)(this,arguments);
         };
     };;
     asm.x6000047_ = function (T)
     {
-        
         return function Unbox(arg0)
         {
             var t0;
@@ -3151,12 +3116,10 @@ var asm0; (function (asm)
                     /* IL_0C: ldloca.s 2*/
                     st_06 = {'w': function ()
                         {
-                            
                             loc2 = (arguments)[0];
                         },
                         'r': function ()
                         {
-                            
                             return loc2;
                         }
                     };
@@ -3178,12 +3141,10 @@ var asm0; (function (asm)
                     st_0A = new t1();
                     (asm0.x600003b)({'w': function ()
                         {
-                            
                             st_0A = (arguments)[0];
                         },
                         'r': function ()
                         {
-                            
                             return st_0A;
                         }
                     },clone_value(st_09));
@@ -3235,13 +3196,11 @@ var asm0; (function (asm)
     asm.x600004b = function () { return new_string(String.prototype.concat.apply('', arguments)); };;
     asm.x600004c_init = function ()
     {
-        
         (((asm0)["System.Exception"])().init)();
         asm.x600004c = asm.x600004c_;
     };;
     asm.x600004c = function (arg0,arg1)
     {
-        
         (asm.x600004c_init.apply)(this,arguments);
         return (asm.x600004c.apply)(this,arguments);
     };;
@@ -3262,13 +3221,11 @@ var asm0; (function (asm)
     };
     asm.x600004d_init = function ()
     {
-        
         (((asm0)["System.String"])().init)();
         asm.x600004d = asm.x600004d_;
     };;
     asm.x600004d = function (arg0,arg1)
     {
-        
         (asm.x600004d_init.apply)(this,arguments);
         return (asm.x600004d.apply)(this,arguments);
     };;
@@ -3325,13 +3282,11 @@ var asm0; (function (asm)
     };
     asm.x600004e_init = function ()
     {
-        
         (((asm0)["System.String"])().init)();
         asm.x600004e = asm.x600004e_;
     };;
     asm.x600004e = function (arg0,arg1)
     {
-        
         (asm.x600004e_init.apply)(this,arguments);
         return (asm.x600004e.apply)(this,arguments);
     };;
@@ -3412,13 +3367,11 @@ var asm0; (function (asm)
     };;
     asm.x6000050_init = function ()
     {
-        
         (((asm0)["System.Exception"])().init)();
         asm.x6000050 = asm.x6000050_;
     };;
     asm.x6000050 = function (arg0)
     {
-        
         (asm.x6000050_init.apply)(this,arguments);
         return (asm.x6000050.apply)(this,arguments);
     };;
@@ -3550,13 +3503,11 @@ var asm0; (function (asm)
     };;
     asm.x6000057_init = function ()
     {
-        
         (((asm0)["System.String"])().init)();
         asm.x6000057 = asm.x6000057_;
     };;
     asm.x6000057 = function ()
     {
-        
         (asm.x6000057_init.apply)(this,arguments);
         return (asm.x6000057.apply)(this,arguments);
     };;
@@ -3741,13 +3692,11 @@ var asm0; (function (asm)
     };;
     asm.x6000060_init = function ()
     {
-        
         (((asm0)["System.Byte"])().init)();
         asm.x6000060 = asm.x6000060_;
     };;
     asm.x6000060 = function (arg0)
     {
-        
         (asm.x6000060_init.apply)(this,arguments);
         return (asm.x6000060.apply)(this,arguments);
     };;
@@ -3768,10 +3717,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Byte*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -3781,13 +3731,11 @@ var asm0; (function (asm)
     };
     asm.x6000061_init = function ()
     {
-        
         (((asm0)["System.Char"])().init)();
         asm.x6000061 = asm.x6000061_;
     };;
     asm.x6000061 = function (arg0)
     {
-        
         (asm.x6000061_init.apply)(this,arguments);
         return (asm.x6000061.apply)(this,arguments);
     };;
@@ -3808,6 +3756,7 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Char*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String ToStringImpl(System.Object)*/
@@ -3847,13 +3796,11 @@ var asm0; (function (asm)
     };;
     asm.x6000066_init = function ()
     {
-        
         (((asm0)["System.Double"])().init)();
         asm.x6000066 = asm.x6000066_;
     };;
     asm.x6000066 = function (arg0)
     {
-        
         (asm.x6000066_init.apply)(this,arguments);
         return (asm.x6000066.apply)(this,arguments);
     };;
@@ -3874,10 +3821,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Double*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -3967,6 +3915,22 @@ var asm0; (function (asm)
     asm.x600006c = function _ctor(arg0)
     {
         var st_00;
+        var st_01;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: ldstr Cannot cast from source type to destination type.*/
+        st_01 = new_string("Cannot cast from source type to destination type.");
+        /* IL_06: call Void .ctor(System.String)*/
+        (asm0.x6000068)(st_00,st_01);
+        /* IL_0B: nop */
+        /* IL_0C: nop */
+        /* IL_0D: nop */
+        /* IL_0E: ret */
+        return ;
+    };;
+    asm.x600006d = function _ctor(arg0)
+    {
+        var st_00;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
         /* IL_01: call Void .ctor()*/
@@ -3974,19 +3938,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600006e_init = function ()
+    asm.x600006f_init = function ()
     {
-        
         (((asm0)["System.Int16"])().init)();
-        asm.x600006e = asm.x600006e_;
+        asm.x600006f = asm.x600006f_;
     };;
-    asm.x600006e = function (arg0)
+    asm.x600006f = function (arg0)
     {
-        
-        (asm.x600006e_init.apply)(this,arguments);
-        return (asm.x600006e.apply)(this,arguments);
+        (asm.x600006f_init.apply)(this,arguments);
+        return (asm.x600006f.apply)(this,arguments);
     };;
-    asm.x600006e_ = function ToString(arg0)
+    asm.x600006f_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4003,10 +3965,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Int16*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4014,19 +3977,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x600006f_init = function ()
+    asm.x6000070_init = function ()
     {
-        
         (((asm0)["System.Int32"])().init)();
-        asm.x600006f = asm.x600006f_;
+        asm.x6000070 = asm.x6000070_;
     };;
-    asm.x600006f = function (arg0)
+    asm.x6000070 = function (arg0)
     {
-        
-        (asm.x600006f_init.apply)(this,arguments);
-        return (asm.x600006f.apply)(this,arguments);
+        (asm.x6000070_init.apply)(this,arguments);
+        return (asm.x6000070.apply)(this,arguments);
     };;
-    asm.x600006f_ = function ToString(arg0)
+    asm.x6000070_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4043,10 +4004,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Int32*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4054,20 +4016,18 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x6000070 = function(o) { return new_string(o.boxed.toString()); };;
-    asm.x6000071_init = function ()
+    asm.x6000071 = function(o) { return new_string(o.boxed.toString()); };;
+    asm.x6000072_init = function ()
     {
-        
         (((asm0)["System.Int64"])().init)();
-        asm.x6000071 = asm.x6000071_;
+        asm.x6000072 = asm.x6000072_;
     };;
-    asm.x6000071 = function (arg0)
+    asm.x6000072 = function (arg0)
     {
-        
-        (asm.x6000071_init.apply)(this,arguments);
-        return (asm.x6000071.apply)(this,arguments);
+        (asm.x6000072_init.apply)(this,arguments);
+        return (asm.x6000072.apply)(this,arguments);
     };;
-    asm.x6000071_ = function ToString(arg0)
+    asm.x6000072_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4084,10 +4044,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Int64*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4095,19 +4056,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x6000072_init = function ()
+    asm.x6000073_init = function ()
     {
-        
         (((asm0)["System.IntPtr"])().init)();
-        asm.x6000072 = asm.x6000072_;
+        asm.x6000073 = asm.x6000073_;
     };;
-    asm.x6000072 = function (arg0)
+    asm.x6000073 = function (arg0)
     {
-        
-        (asm.x6000072_init.apply)(this,arguments);
-        return (asm.x6000072.apply)(this,arguments);
+        (asm.x6000073_init.apply)(this,arguments);
+        return (asm.x6000073.apply)(this,arguments);
     };;
-    asm.x6000072_ = function ToString(arg0)
+    asm.x6000073_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4124,10 +4083,11 @@ var asm0; (function (asm)
         st_01 = st_00;
         /* IL_07: box System.IntPtr*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_0C: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_11: stloc.0 */
         loc0 = st_03;
         /* IL_14: ldloc.0 */
@@ -4135,56 +4095,17 @@ var asm0; (function (asm)
         /* IL_15: ret */
         return st_04;
     };
-    asm.x6000073_init = function ()
-    {
-        
-        (((asm0)["System.Double"])().init)();
-        asm.x6000073 = asm.x6000073_;
-    };;
-    asm.x6000073 = function (arg0)
-    {
-        
-        (asm.x6000073_init.apply)(this,arguments);
-        return (asm.x6000073.apply)(this,arguments);
-    };;
-    asm.x6000073_ = function Sqrt(arg0)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_01 = {'boxed': st_00,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: call Double SqrtImpl(System.Object)*/
-        st_02 = (asm0.x6000076)(st_01);
-        /* IL_0C: stloc.0 */
-        loc0 = st_02;
-        /* IL_0F: ldloc.0 */
-        st_03 = loc0;
-        /* IL_10: ret */
-        return st_03;
-    };
     asm.x6000074_init = function ()
     {
-        
         (((asm0)["System.Double"])().init)();
         asm.x6000074 = asm.x6000074_;
     };;
     asm.x6000074 = function (arg0)
     {
-        
         (asm.x6000074_init.apply)(this,arguments);
         return (asm.x6000074.apply)(this,arguments);
     };;
-    asm.x6000074_ = function Floor(arg0)
+    asm.x6000074_ = function Sqrt(arg0)
     {
         var t0;
         var st_00;
@@ -4198,9 +4119,10 @@ var asm0; (function (asm)
         st_00 = arg0;
         /* IL_02: box System.Double*/
         st_01 = {'boxed': st_00,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
-        /* IL_07: call Double FloorImpl(System.Object)*/
+        /* IL_07: call Double SqrtImpl(System.Object)*/
         st_02 = (asm0.x6000077)(st_01);
         /* IL_0C: stloc.0 */
         loc0 = st_02;
@@ -4211,17 +4133,51 @@ var asm0; (function (asm)
     };
     asm.x6000075_init = function ()
     {
-        
         (((asm0)["System.Double"])().init)();
         asm.x6000075 = asm.x6000075_;
     };;
-    asm.x6000075 = function (arg0,arg1)
+    asm.x6000075 = function (arg0)
     {
-        
         (asm.x6000075_init.apply)(this,arguments);
         return (asm.x6000075.apply)(this,arguments);
     };;
-    asm.x6000075_ = function Pow(arg0,arg1)
+    asm.x6000075_ = function Floor(arg0)
+    {
+        var t0;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var loc0;
+        t0 = ((asm0)["System.Double"])();
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        st_00 = arg0;
+        /* IL_02: box System.Double*/
+        st_01 = {'boxed': st_00,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_07: call Double FloorImpl(System.Object)*/
+        st_02 = (asm0.x6000078)(st_01);
+        /* IL_0C: stloc.0 */
+        loc0 = st_02;
+        /* IL_0F: ldloc.0 */
+        st_03 = loc0;
+        /* IL_10: ret */
+        return st_03;
+    };
+    asm.x6000076_init = function ()
+    {
+        (((asm0)["System.Double"])().init)();
+        asm.x6000076 = asm.x6000076_;
+    };;
+    asm.x6000076 = function (arg0,arg1)
+    {
+        (asm.x6000076_init.apply)(this,arguments);
+        return (asm.x6000076.apply)(this,arguments);
+    };;
+    asm.x6000076_ = function Pow(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4237,16 +4193,18 @@ var asm0; (function (asm)
         st_00 = arg0;
         /* IL_02: box System.Double*/
         st_02 = {'boxed': st_00,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_07: ldarg.1 */
         st_01 = arg1;
         /* IL_08: box System.Double*/
         st_03 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_0D: call Double PowImpl(System.Object, System.Object)*/
-        st_04 = (asm0.x6000078)(st_02,st_03);
+        st_04 = (asm0.x6000079)(st_02,st_03);
         /* IL_12: stloc.0 */
         loc0 = st_04;
         /* IL_15: ldloc.0 */
@@ -4254,10 +4212,10 @@ var asm0; (function (asm)
         /* IL_16: ret */
         return st_05;
     };
-    asm.x6000076 = function(o) { return Math.sqrt(o.boxed); };;
-    asm.x6000077 = function(o) { return Math.floor(o.boxed); };;
-    asm.x6000078 = function(a, b) { return Math.pow(a.boxed, b.boxed); };;
-    asm.x6000079 = function _ctor(arg0)
+    asm.x6000077 = function(o) { return Math.sqrt(o.boxed); };;
+    asm.x6000078 = function(o) { return Math.floor(o.boxed); };;
+    asm.x6000079 = function(a, b) { return Math.pow(a.boxed, b.boxed); };;
+    asm.x600007a = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4266,7 +4224,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600007a = function _ctor(arg0)
+    asm.x600007b = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4275,24 +4233,6 @@ var asm0; (function (asm)
         (asm0.x6000011)(st_00);
         /* IL_06: ret */
         return ;
-    };;
-    asm.x600007b = function get_Value(arg0)
-    {
-        var st_00;
-        var st_01;
-        var st_02;
-        var loc0;
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: ldfld Object value*/
-        st_01 = (st_00.r)().value;
-        /* IL_07: stloc.0 */
-        loc0 = st_01;
-        /* IL_0A: ldloc.0 */
-        st_02 = loc0;
-        /* IL_0B: ret */
-        return st_02;
     };;
     asm.x600007c = function get_Value(arg0)
     {
@@ -4312,19 +4252,35 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x600007d_init = function ()
+    asm.x600007d = function get_Value(arg0)
     {
-        
+        var st_00;
+        var st_01;
+        var st_02;
+        var loc0;
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        st_00 = arg0;
+        /* IL_02: ldfld Object value*/
+        st_01 = (st_00.r)().value;
+        /* IL_07: stloc.0 */
+        loc0 = st_01;
+        /* IL_0A: ldloc.0 */
+        st_02 = loc0;
+        /* IL_0B: ret */
+        return st_02;
+    };;
+    asm.x600007e_init = function ()
+    {
         (((asm0)["System.SByte"])().init)();
-        asm.x600007d = asm.x600007d_;
+        asm.x600007e = asm.x600007e_;
     };;
-    asm.x600007d = function (arg0)
+    asm.x600007e = function (arg0)
     {
-        
-        (asm.x600007d_init.apply)(this,arguments);
-        return (asm.x600007d.apply)(this,arguments);
+        (asm.x600007e_init.apply)(this,arguments);
+        return (asm.x600007e.apply)(this,arguments);
     };;
-    asm.x600007d_ = function ToString(arg0)
+    asm.x600007e_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4341,10 +4297,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.SByte*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4352,19 +4309,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x600007e_init = function ()
+    asm.x600007f_init = function ()
     {
-        
         (((asm0)["System.Single"])().init)();
-        asm.x600007e = asm.x600007e_;
+        asm.x600007f = asm.x600007f_;
     };;
-    asm.x600007e = function (arg0)
+    asm.x600007f = function (arg0)
     {
-        
-        (asm.x600007e_init.apply)(this,arguments);
-        return (asm.x600007e.apply)(this,arguments);
+        (asm.x600007f_init.apply)(this,arguments);
+        return (asm.x600007f.apply)(this,arguments);
     };;
-    asm.x600007e_ = function ToString(arg0)
+    asm.x600007f_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4381,10 +4336,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.Single*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4392,7 +4348,7 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x600007f = function _ctor(arg0)
+    asm.x6000080 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4401,19 +4357,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000080_init = function ()
+    asm.x6000081_init = function ()
     {
-        
         (((asm0)["System.UInt16"])().init)();
-        asm.x6000080 = asm.x6000080_;
+        asm.x6000081 = asm.x6000081_;
     };;
-    asm.x6000080 = function (arg0)
+    asm.x6000081 = function (arg0)
     {
-        
-        (asm.x6000080_init.apply)(this,arguments);
-        return (asm.x6000080.apply)(this,arguments);
+        (asm.x6000081_init.apply)(this,arguments);
+        return (asm.x6000081.apply)(this,arguments);
     };;
-    asm.x6000080_ = function ToString(arg0)
+    asm.x6000081_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4430,10 +4384,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.UInt16*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4441,19 +4396,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x6000081_init = function ()
+    asm.x6000082_init = function ()
     {
-        
         (((asm0)["System.UInt32"])().init)();
-        asm.x6000081 = asm.x6000081_;
+        asm.x6000082 = asm.x6000082_;
     };;
-    asm.x6000081 = function (arg0)
+    asm.x6000082 = function (arg0)
     {
-        
-        (asm.x6000081_init.apply)(this,arguments);
-        return (asm.x6000081.apply)(this,arguments);
+        (asm.x6000082_init.apply)(this,arguments);
+        return (asm.x6000082.apply)(this,arguments);
     };;
-    asm.x6000081_ = function ToString(arg0)
+    asm.x6000082_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4470,10 +4423,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.UInt32*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4481,19 +4435,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x6000082_init = function ()
+    asm.x6000083_init = function ()
     {
-        
         (((asm0)["System.UInt64"])().init)();
-        asm.x6000082 = asm.x6000082_;
+        asm.x6000083 = asm.x6000083_;
     };;
-    asm.x6000082 = function (arg0)
+    asm.x6000083 = function (arg0)
     {
-        
-        (asm.x6000082_init.apply)(this,arguments);
-        return (asm.x6000082.apply)(this,arguments);
+        (asm.x6000083_init.apply)(this,arguments);
+        return (asm.x6000083.apply)(this,arguments);
     };;
-    asm.x6000082_ = function ToString(arg0)
+    asm.x6000083_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4510,10 +4462,11 @@ var asm0; (function (asm)
         st_01 = st_00.boxed;
         /* IL_03: box System.UInt64*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4521,19 +4474,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x6000083_init = function ()
+    asm.x6000084_init = function ()
     {
-        
         (((asm0)["System.UIntPtr"])().init)();
-        asm.x6000083 = asm.x6000083_;
+        asm.x6000084 = asm.x6000084_;
     };;
-    asm.x6000083 = function (arg0)
+    asm.x6000084 = function (arg0)
     {
-        
-        (asm.x6000083_init.apply)(this,arguments);
-        return (asm.x6000083.apply)(this,arguments);
+        (asm.x6000084_init.apply)(this,arguments);
+        return (asm.x6000084.apply)(this,arguments);
     };;
-    asm.x6000083_ = function ToString(arg0)
+    asm.x6000084_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4550,10 +4501,11 @@ var asm0; (function (asm)
         st_01 = st_00;
         /* IL_07: box System.UIntPtr*/
         st_02 = {'boxed': st_01,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_0C: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x6000070)(st_02);
+        st_03 = (asm0.x6000071)(st_02);
         /* IL_11: stloc.0 */
         loc0 = st_03;
         /* IL_14: ldloc.0 */
@@ -4561,7 +4513,7 @@ var asm0; (function (asm)
         /* IL_15: ret */
         return st_04;
     };
-    asm.x6000084 = function _ctor(arg0)
+    asm.x6000085 = function _ctor(arg0)
     {
         var st_00;
         var st_01;
@@ -4577,7 +4529,7 @@ var asm0; (function (asm)
         /* IL_0E: ret */
         return ;
     };;
-    asm.x6000085 = function _ctor(arg0,arg1)
+    asm.x6000086 = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4593,7 +4545,7 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };;
-    asm.x6000086 = function _ctor(arg0)
+    asm.x6000087 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4603,7 +4555,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000087 = function get_CurrentManagedThreadId()
+    asm.x6000088 = function get_CurrentManagedThreadId()
     {
         var st_00;
         var st_01;
@@ -4618,9 +4570,8 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return st_01;
     };;
-    asm.x6000089 = function Invoke()
+    asm.x600008a = function Invoke()
     {
-        
         
                                 var m = arguments[0]._methodPtr;
                                 var t = arguments[0]._target;
@@ -4630,12 +4581,11 @@ var asm0; (function (asm)
                                     arguments = Array.prototype.slice.call(arguments, 1);
                                 return m.apply(null, arguments);
     };;
-    asm.x6000088 = function ctor()
+    asm.x6000089 = function ctor()
     {
-        
         arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];;
     };;
-    asm.x6000095 = function _ctor(arg0)
+    asm.x6000096 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4644,7 +4594,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000096 = function _ctor(arg0)
+    asm.x6000097 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4670,7 +4620,6 @@ var asm0; (function (asm)
             initialized = false;;
             function $$Object()
             {
-                
                 ($$Object.init)();
                 this.constructor = $$Object;
             };
@@ -4678,7 +4627,6 @@ var asm0; (function (asm)
             ct = c;
             $$Object.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -4692,17 +4640,14 @@ var asm0; (function (asm)
                 $$Object.ArrayType = Array;
                 $$Object.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -4728,7 +4673,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Delegate()
             {
-                
                 (Delegate.init)();
                 this.constructor = Delegate;
             };
@@ -4736,7 +4680,6 @@ var asm0; (function (asm)
             ct = c;
             Delegate.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -4752,27 +4695,22 @@ var asm0; (function (asm)
                 Delegate.prototype._target = null;
                 Delegate.prototype.vtable = {'asm0.x600000c': function ()
                     {
-                        
                         return asm0.x600000c;
                     },
                     'asm0.x600000d': function ()
                     {
-                        
                         return asm0.x600000d;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -4797,7 +4735,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Attribute()
             {
-                
                 (Attribute.init)();
                 this.constructor = Attribute;
             };
@@ -4805,7 +4742,6 @@ var asm0; (function (asm)
             ct = c;
             Attribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -4819,17 +4755,14 @@ var asm0; (function (asm)
                 Attribute.ArrayType = Array;
                 Attribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -4854,7 +4787,6 @@ var asm0; (function (asm)
             initialized = false;;
             function ExtensionAttribute()
             {
-                
                 (ExtensionAttribute.init)();
                 this.constructor = ExtensionAttribute;
             };
@@ -4862,7 +4794,6 @@ var asm0; (function (asm)
             ct = c;
             ExtensionAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -4876,17 +4807,14 @@ var asm0; (function (asm)
                 ExtensionAttribute.ArrayType = Array;
                 ExtensionAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -4911,7 +4839,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IndexerNameAttribute()
             {
-                
                 (IndexerNameAttribute.init)();
                 this.constructor = IndexerNameAttribute;
             };
@@ -4919,7 +4846,6 @@ var asm0; (function (asm)
             ct = c;
             IndexerNameAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -4933,17 +4859,14 @@ var asm0; (function (asm)
                 IndexerNameAttribute.ArrayType = Array;
                 IndexerNameAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -4968,7 +4891,6 @@ var asm0; (function (asm)
             initialized = false;;
             function RuntimeHelpers()
             {
-                
                 (RuntimeHelpers.init)();
                 this.constructor = RuntimeHelpers;
             };
@@ -4976,7 +4898,6 @@ var asm0; (function (asm)
             ct = c;
             RuntimeHelpers.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -4990,17 +4911,14 @@ var asm0; (function (asm)
                 RuntimeHelpers.ArrayType = Array;
                 RuntimeHelpers.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5025,7 +4943,6 @@ var asm0; (function (asm)
             initialized = false;;
             function MulticastDelegate()
             {
-                
                 (MulticastDelegate.init)();
                 this.constructor = MulticastDelegate;
             };
@@ -5033,7 +4950,6 @@ var asm0; (function (asm)
             ct = c;
             MulticastDelegate.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5050,27 +4966,22 @@ var asm0; (function (asm)
                 MulticastDelegate.prototype._target = null;
                 MulticastDelegate.prototype.vtable = {'asm0.x600000d': function ()
                     {
-                        
                         return asm0.x6000017;
                     },
                     'asm0.x600000c': function ()
                     {
-                        
                         return asm0.x6000018;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5095,7 +5006,6 @@ var asm0; (function (asm)
             initialized = false;;
             function EventArgs()
             {
-                
                 (EventArgs.init)();
                 this.constructor = EventArgs;
             };
@@ -5103,7 +5013,6 @@ var asm0; (function (asm)
             ct = c;
             EventArgs.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5119,17 +5028,14 @@ var asm0; (function (asm)
                 (asm0.x600001b)();
                 EventArgs.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5154,7 +5060,6 @@ var asm0; (function (asm)
             initialized = false;;
             function EventHandler()
             {
-                
                 (EventHandler.init)();
                 this.constructor = EventHandler;
             };
@@ -5162,7 +5067,6 @@ var asm0; (function (asm)
             ct = c;
             EventHandler.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5179,32 +5083,26 @@ var asm0; (function (asm)
                 EventHandler.prototype._target = null;
                 EventHandler.prototype.vtable = {'asm0.x600001d': function ()
                     {
-                        
                         return asm0.x600001d;
                     },
                     'asm0.x600000d': function ()
                     {
-                        
                         return asm0.x6000017;
                     },
                     'asm0.x600000c': function ()
                     {
-                        
                         return asm0.x6000018;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5230,7 +5128,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IEnumerable()
             {
-                
                 (IEnumerable.init)();
                 this.constructor = IEnumerable;
             };
@@ -5238,7 +5135,6 @@ var asm0; (function (asm)
             ct = c;
             IEnumerable.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5252,7 +5148,6 @@ var asm0; (function (asm)
                 IEnumerable.ArrayType = Array;
                 IEnumerable.prototype.vtable = {'asm0.x600001e': function ()
                     {
-                        
                         return asm0.x600001e;
                     }
                 };
@@ -5278,7 +5173,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Array()
             {
-                
                 (Array.init)();
                 this.constructor = Array;
             };
@@ -5286,7 +5180,6 @@ var asm0; (function (asm)
             ct = c;
             Array.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5302,33 +5195,27 @@ var asm0; (function (asm)
                 Array.prototype.jsarr = null;
                 Array.prototype.vtable = {'asm0.x6000023': function ()
                     {
-                        
                         return asm0.x6000023;
                     },
                     'asm0.x6000024': function ()
                     {
-                        
                         return asm0.x6000024;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
                 (Array.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {'x600001e': function ()
                     {
-                        
                         return asm0.x6000023;
                     }
                 };
@@ -5354,7 +5241,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IEnumerable_1()
             {
-                
                 (IEnumerable_1.init)();
                 this.constructor = IEnumerable_1;
             };
@@ -5362,7 +5248,6 @@ var asm0; (function (asm)
             tree_set([ T ],ct,c);
             IEnumerable_1.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5377,7 +5262,6 @@ var asm0; (function (asm)
                 IEnumerable_1.GenericArguments = [ T ];
                 IEnumerable_1.prototype.vtable = {'asm0.x6000026': function ()
                     {
-                        
                         return asm0.x6000026;
                     }
                 };
@@ -5404,7 +5288,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Array_1()
             {
-                
                 (Array_1.init)();
                 this.constructor = Array_1;
             };
@@ -5412,7 +5295,6 @@ var asm0; (function (asm)
             tree_set([ T ],ct,c);
             Array_1.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5429,44 +5311,36 @@ var asm0; (function (asm)
                 Array_1.prototype.jsarr = null;
                 Array_1.prototype.vtable = {'asm0.x6000028': function ()
                     {
-                        
                         return asm0.x6000028;
                     },
                     'asm0.x6000024': function ()
                     {
-                        
                         return asm0.x6000029;
                     },
                     'asm0.x6000023': function ()
                     {
-                        
                         return asm0.x6000023;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
                 (Array_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {'x6000026': function ()
                     {
-                        
                         return asm0.x6000028;
                     }
                 };
                 (Array_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {'x600001e': function ()
                     {
-                        
                         return asm0.x6000023;
                     }
                 };
@@ -5491,7 +5365,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IDisposable()
             {
-                
                 (IDisposable.init)();
                 this.constructor = IDisposable;
             };
@@ -5499,7 +5372,6 @@ var asm0; (function (asm)
             ct = c;
             IDisposable.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5513,7 +5385,6 @@ var asm0; (function (asm)
                 IDisposable.ArrayType = Array;
                 IDisposable.prototype.vtable = {'asm0.x600002b': function ()
                     {
-                        
                         return asm0.x600002b;
                     }
                 };
@@ -5539,7 +5410,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IEnumerator()
             {
-                
                 (IEnumerator.init)();
                 this.constructor = IEnumerator;
             };
@@ -5547,7 +5417,6 @@ var asm0; (function (asm)
             ct = c;
             IEnumerator.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5561,17 +5430,14 @@ var asm0; (function (asm)
                 IEnumerator.ArrayType = Array;
                 IEnumerator.prototype.vtable = {'asm0.x600002c': function ()
                     {
-                        
                         return asm0.x600002c;
                     },
                     'asm0.x600002d': function ()
                     {
-                        
                         return asm0.x600002d;
                     },
                     'asm0.x600002e': function ()
                     {
-                        
                         return asm0.x600002e;
                     }
                 };
@@ -5598,7 +5464,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IEnumerator_1()
             {
-                
                 (IEnumerator_1.init)();
                 this.constructor = IEnumerator_1;
             };
@@ -5606,7 +5471,6 @@ var asm0; (function (asm)
             tree_set([ T ],ct,c);
             IEnumerator_1.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5621,12 +5485,10 @@ var asm0; (function (asm)
                 IEnumerator_1.GenericArguments = [ T ];
                 IEnumerator_1.prototype.vtable = {'asm0.x600002f': function ()
                     {
-                        
                         return asm0.x600002f;
                     },
                     'asm0.x6000030': function ()
                     {
-                        
                         return asm0.x6000030;
                     }
                 };
@@ -5653,7 +5515,6 @@ var asm0; (function (asm)
             initialized = false;;
             function ArrayEnumerator()
             {
-                
                 (ArrayEnumerator.init)();
                 this.constructor = ArrayEnumerator;
             };
@@ -5661,7 +5522,6 @@ var asm0; (function (asm)
             tree_set([ T ],ct,c);
             ArrayEnumerator.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5679,75 +5539,61 @@ var asm0; (function (asm)
                 ArrayEnumerator.prototype.source = null;
                 ArrayEnumerator.prototype.vtable = {'asm0.x6000032': function ()
                     {
-                        
                         return asm0.x6000032;
                     },
                     'asm0.x6000033': function ()
                     {
-                        
                         return asm0.x6000033;
                     },
                     'asm0.x6000034': function ()
                     {
-                        
                         return asm0.x6000034;
                     },
                     'asm0.x6000035': function ()
                     {
-                        
                         return asm0.x6000035;
                     },
                     'asm0.x6000036': function ()
                     {
-                        
                         return asm0.x6000036;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {'x600002f': function ()
                     {
-                        
                         return asm0.x6000032;
                     },
                     'x6000030': function ()
                     {
-                        
                         return asm0.x6000033;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {'x600002c': function ()
                     {
-                        
                         return asm0.x6000034;
                     },
                     'x600002d': function ()
                     {
-                        
                         return asm0.x6000033;
                     },
                     'x600002e': function ()
                     {
-                        
                         return asm0.x6000035;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.IDisposable"])()] = {'x600002b': function ()
                     {
-                        
                         return asm0.x6000036;
                     }
                 };
@@ -5772,7 +5618,6 @@ var asm0; (function (asm)
             initialized = false;;
             function DebuggerStepThroughAttribute()
             {
-                
                 (DebuggerStepThroughAttribute.init)();
                 this.constructor = DebuggerStepThroughAttribute;
             };
@@ -5780,7 +5625,6 @@ var asm0; (function (asm)
             ct = c;
             DebuggerStepThroughAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5794,17 +5638,14 @@ var asm0; (function (asm)
                 DebuggerStepThroughAttribute.ArrayType = Array;
                 DebuggerStepThroughAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5829,7 +5670,6 @@ var asm0; (function (asm)
             initialized = false;;
             function ValueType()
             {
-                
                 (ValueType.init)();
                 this.constructor = ValueType;
             };
@@ -5837,7 +5677,6 @@ var asm0; (function (asm)
             ct = c;
             ValueType.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5851,17 +5690,14 @@ var asm0; (function (asm)
                 ValueType.ArrayType = Array;
                 ValueType.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5886,7 +5722,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Enum()
             {
-                
                 (Enum.init)();
                 this.constructor = Enum;
             };
@@ -5894,7 +5729,6 @@ var asm0; (function (asm)
             ct = c;
             Enum.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5908,17 +5742,14 @@ var asm0; (function (asm)
                 Enum.ArrayType = Array;
                 Enum.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -5944,7 +5775,6 @@ var asm0; (function (asm)
             initialized = false;;
             function AttributeTargets()
             {
-                
                 (AttributeTargets.init)();
                 this.constructor = AttributeTargets;
             };
@@ -5952,7 +5782,6 @@ var asm0; (function (asm)
             ct = c;
             AttributeTargets.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -5983,17 +5812,14 @@ var asm0; (function (asm)
                 AttributeTargets.prototype.value__ = 0;
                 AttributeTargets.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6018,7 +5844,6 @@ var asm0; (function (asm)
             initialized = false;;
             function ComVisibleAttribute()
             {
-                
                 (ComVisibleAttribute.init)();
                 this.constructor = ComVisibleAttribute;
             };
@@ -6026,7 +5851,6 @@ var asm0; (function (asm)
             ct = c;
             ComVisibleAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6040,17 +5864,14 @@ var asm0; (function (asm)
                 ComVisibleAttribute.ArrayType = Array;
                 ComVisibleAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6076,7 +5897,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Nullable_1()
             {
-                
                 (Nullable_1.init)();
                 this.constructor = Nullable_1;
             };
@@ -6084,7 +5904,6 @@ var asm0; (function (asm)
             tree_set([ T ],ct,c);
             Nullable_1.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6101,17 +5920,14 @@ var asm0; (function (asm)
                 Nullable_1.prototype.has_value = false;
                 Nullable_1.prototype.vtable = {'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x600003e;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000040;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000043;
                     }
                 };
@@ -6137,7 +5953,6 @@ var asm0; (function (asm)
             initialized = false;;
             function SerializableAttribute()
             {
-                
                 (SerializableAttribute.init)();
                 this.constructor = SerializableAttribute;
             };
@@ -6145,7 +5960,6 @@ var asm0; (function (asm)
             ct = c;
             SerializableAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6159,17 +5973,14 @@ var asm0; (function (asm)
                 SerializableAttribute.ArrayType = Array;
                 SerializableAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6194,7 +6005,6 @@ var asm0; (function (asm)
             initialized = false;;
             function $$String()
             {
-                
                 ($$String.init)();
                 this.constructor = $$String;
             };
@@ -6202,7 +6012,6 @@ var asm0; (function (asm)
             ct = c;
             $$String.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6219,17 +6028,14 @@ var asm0; (function (asm)
                 $$String.prototype.jsstr = null;
                 $$String.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000052;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6254,7 +6060,6 @@ var asm0; (function (asm)
             initialized = false;;
             function DefaultMemberAttribute()
             {
-                
                 (DefaultMemberAttribute.init)();
                 this.constructor = DefaultMemberAttribute;
             };
@@ -6262,7 +6067,6 @@ var asm0; (function (asm)
             ct = c;
             DefaultMemberAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6277,17 +6081,14 @@ var asm0; (function (asm)
                 DefaultMemberAttribute.prototype.System_ReflectionDefaultMemberAttributemember_name = null;
                 DefaultMemberAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6312,7 +6113,6 @@ var asm0; (function (asm)
             initialized = false;;
             function AttributeUsageAttribute()
             {
-                
                 (AttributeUsageAttribute.init)();
                 this.constructor = AttributeUsageAttribute;
             };
@@ -6320,7 +6120,6 @@ var asm0; (function (asm)
             ct = c;
             AttributeUsageAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6336,17 +6135,14 @@ var asm0; (function (asm)
                 (AttributeUsageAttribute.prototype)["SystemAttributeUsageAttribute<Inherited>k__BackingField"] = false;
                 AttributeUsageAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6371,7 +6167,6 @@ var asm0; (function (asm)
             initialized = false;;
             function $$Boolean()
             {
-                
                 ($$Boolean.init)();
                 this.constructor = $$Boolean;
             };
@@ -6380,30 +6175,26 @@ var asm0; (function (asm)
             $$Boolean.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 $$Boolean.Interfaces = [  ];
-                $$Boolean.IsInst = function (t) { return t instanceof $$Boolean ? t : null; };
+                $$Boolean.IsInst = function (t) { return typeof t == 'number'; };
                 $$Boolean.IsValueType = true;
                 $$Boolean.IsPrimitive = true;
                 $$Boolean.IsNullable = false;
                 $$Boolean.ArrayType = Array;
                 $$Boolean.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x600005f;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6429,7 +6220,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Byte()
             {
-                
                 (Byte.init)();
                 this.constructor = Byte;
             };
@@ -6438,30 +6228,26 @@ var asm0; (function (asm)
             Byte.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 Byte.Interfaces = [  ];
-                Byte.IsInst = function (t) { return t instanceof Byte ? t : null; };
+                Byte.IsInst = function (t) { return typeof t == 'number'; };
                 Byte.IsValueType = true;
                 Byte.IsPrimitive = true;
                 Byte.IsNullable = false;
                 Byte.ArrayType = Uint8Array;
                 Byte.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000060;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6487,7 +6273,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Char()
             {
-                
                 (Char.init)();
                 this.constructor = Char;
             };
@@ -6496,7 +6281,6 @@ var asm0; (function (asm)
             Char.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
@@ -6504,24 +6288,21 @@ var asm0; (function (asm)
                 Char.MinValue = 0;
                 Char.MaxValue = 0;
                 Char.Interfaces = [  ];
-                Char.IsInst = function (t) { return t instanceof Char ? t : null; };
+                Char.IsInst = function (t) { return typeof t == 'number'; };
                 Char.IsValueType = true;
                 Char.IsPrimitive = true;
                 Char.IsNullable = false;
                 Char.ArrayType = Uint16Array;
                 Char.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000061;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6547,7 +6328,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Console()
             {
-                
                 (Console.init)();
                 this.constructor = Console;
             };
@@ -6555,7 +6335,6 @@ var asm0; (function (asm)
             ct = c;
             Console.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6569,17 +6348,14 @@ var asm0; (function (asm)
                 Console.ArrayType = Array;
                 Console.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6604,7 +6380,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Double()
             {
-                
                 (Double.init)();
                 this.constructor = Double;
             };
@@ -6612,7 +6387,6 @@ var asm0; (function (asm)
             ct = c;
             Double.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6625,24 +6399,21 @@ var asm0; (function (asm)
                 Double.NegativeInfinity = 0;
                 Double.PositiveInfinity = 0;
                 Double.Interfaces = [  ];
-                Double.IsInst = function (t) { return t instanceof Double ? t : null; };
+                Double.IsInst = function (t) { return typeof t == 'number'; };
                 Double.IsValueType = true;
                 Double.IsPrimitive = true;
                 Double.IsNullable = false;
                 Double.ArrayType = Float64Array;
                 Double.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000066;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6668,7 +6439,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Exception()
             {
-                
                 (Exception.init)();
                 this.constructor = Exception;
             };
@@ -6676,7 +6446,6 @@ var asm0; (function (asm)
             ct = c;
             Exception.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6691,17 +6460,14 @@ var asm0; (function (asm)
                 (Exception.prototype)["SystemException<Message>k__BackingField"] = null;
                 Exception.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6726,7 +6492,6 @@ var asm0; (function (asm)
             initialized = false;;
             function InvalidOperationException()
             {
-                
                 (InvalidOperationException.init)();
                 this.constructor = InvalidOperationException;
             };
@@ -6734,7 +6499,6 @@ var asm0; (function (asm)
             ct = c;
             InvalidOperationException.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6748,22 +6512,71 @@ var asm0; (function (asm)
                 InvalidOperationException.ArrayType = Array;
                 InvalidOperationException.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
             };
             InvalidOperationException.prototype = new (((asm0)["System.Exception"])())();
+            return c;
+        };
+    })();
+    (asm)["System.InvalidCastException"] = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function InvalidCastException()
+            {
+                (InvalidCastException.init)();
+                this.constructor = InvalidCastException;
+            };
+            c = InvalidCastException;
+            ct = c;
+            InvalidCastException.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                InvalidCastException.Interfaces = [  ];
+                InvalidCastException.IsInst = function (t) { return t instanceof InvalidCastException ? t : null; };
+                InvalidCastException.IsValueType = false;
+                InvalidCastException.IsPrimitive = false;
+                InvalidCastException.IsNullable = false;
+                InvalidCastException.ArrayType = Array;
+                InvalidCastException.prototype.vtable = {'asm0.x6000003': function ()
+                    {
+                        return asm0.x6000003;
+                    },
+                    'asm0.x6000004': function ()
+                    {
+                        return asm0.x6000004;
+                    },
+                    'asm0.x6000007': function ()
+                    {
+                        return asm0.x6000007;
+                    }
+                };
+            };
+            InvalidCastException.prototype = new (((asm0)["System.Exception"])())();
             return c;
         };
     })();
@@ -6783,7 +6596,6 @@ var asm0; (function (asm)
             initialized = false;;
             function FlagsAttribute()
             {
-                
                 (FlagsAttribute.init)();
                 this.constructor = FlagsAttribute;
             };
@@ -6791,7 +6603,6 @@ var asm0; (function (asm)
             ct = c;
             FlagsAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6805,17 +6616,14 @@ var asm0; (function (asm)
                 FlagsAttribute.ArrayType = Array;
                 FlagsAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6840,7 +6648,6 @@ var asm0; (function (asm)
             initialized = false;;
             function ICloneable()
             {
-                
                 (ICloneable.init)();
                 this.constructor = ICloneable;
             };
@@ -6848,7 +6655,6 @@ var asm0; (function (asm)
             ct = c;
             ICloneable.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -6860,10 +6666,9 @@ var asm0; (function (asm)
                 ICloneable.IsPrimitive = false;
                 ICloneable.IsNullable = false;
                 ICloneable.ArrayType = Array;
-                ICloneable.prototype.vtable = {'asm0.x600006d': function ()
+                ICloneable.prototype.vtable = {'asm0.x600006e': function ()
                     {
-                        
-                        return asm0.x600006d;
+                        return asm0.x600006e;
                     }
                 };
             };
@@ -6888,7 +6693,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Int16()
             {
-                
                 (Int16.init)();
                 this.constructor = Int16;
             };
@@ -6897,30 +6701,26 @@ var asm0; (function (asm)
             Int16.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 Int16.Interfaces = [  ];
-                Int16.IsInst = function (t) { return t instanceof Int16 ? t : null; };
+                Int16.IsInst = function (t) { return typeof t == 'number'; };
                 Int16.IsValueType = true;
                 Int16.IsPrimitive = true;
                 Int16.IsNullable = false;
                 Int16.ArrayType = Int16Array;
                 Int16.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x600006e;
+                        return asm0.x600006f;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -6946,7 +6746,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Int32()
             {
-                
                 (Int32.init)();
                 this.constructor = Int32;
             };
@@ -6955,30 +6754,26 @@ var asm0; (function (asm)
             Int32.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 Int32.Interfaces = [  ];
-                Int32.IsInst = function (t) { return t instanceof Int32 ? t : null; };
+                Int32.IsInst = function (t) { return typeof t == 'number'; };
                 Int32.IsValueType = true;
                 Int32.IsPrimitive = true;
                 Int32.IsNullable = false;
                 Int32.ArrayType = Int32Array;
                 Int32.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x600006f;
+                        return asm0.x6000070;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7004,7 +6799,6 @@ var asm0; (function (asm)
             initialized = false;;
             function InternalFormatting()
             {
-                
                 (InternalFormatting.init)();
                 this.constructor = InternalFormatting;
             };
@@ -7012,7 +6806,6 @@ var asm0; (function (asm)
             ct = c;
             InternalFormatting.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7026,17 +6819,14 @@ var asm0; (function (asm)
                 InternalFormatting.ArrayType = Array;
                 InternalFormatting.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7061,7 +6851,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Int64()
             {
-                
                 (Int64.init)();
                 this.constructor = Int64;
             };
@@ -7070,30 +6859,26 @@ var asm0; (function (asm)
             Int64.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 Int64.Interfaces = [  ];
-                Int64.IsInst = function (t) { return t instanceof Int64 ? t : null; };
+                Int64.IsInst = function (t) { return typeof t == 'number'; };
                 Int64.IsValueType = true;
                 Int64.IsPrimitive = true;
                 Int64.IsNullable = false;
                 Int64.ArrayType = Array;
                 Int64.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x6000071;
+                        return asm0.x6000072;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7119,7 +6904,6 @@ var asm0; (function (asm)
             initialized = false;;
             function IntPtr()
             {
-                
                 (IntPtr.init)();
                 this.constructor = IntPtr;
             };
@@ -7128,30 +6912,26 @@ var asm0; (function (asm)
             IntPtr.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 IntPtr.Interfaces = [  ];
-                IntPtr.IsInst = function (t) { return t instanceof IntPtr ? t : null; };
+                IntPtr.IsInst = function (t) { return typeof t == 'number'; };
                 IntPtr.IsValueType = true;
                 IntPtr.IsPrimitive = true;
                 IntPtr.IsNullable = false;
                 IntPtr.ArrayType = Array;
                 IntPtr.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x6000072;
+                        return asm0.x6000073;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7177,7 +6957,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Math()
             {
-                
                 (Math.init)();
                 this.constructor = Math;
             };
@@ -7185,7 +6964,6 @@ var asm0; (function (asm)
             ct = c;
             Math.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7200,17 +6978,14 @@ var asm0; (function (asm)
                 Math.ArrayType = Array;
                 Math.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7235,7 +7010,6 @@ var asm0; (function (asm)
             initialized = false;;
             function ParamArrayAttribute()
             {
-                
                 (ParamArrayAttribute.init)();
                 this.constructor = ParamArrayAttribute;
             };
@@ -7243,7 +7017,6 @@ var asm0; (function (asm)
             ct = c;
             ParamArrayAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7257,17 +7030,14 @@ var asm0; (function (asm)
                 ParamArrayAttribute.ArrayType = Array;
                 ParamArrayAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7292,7 +7062,6 @@ var asm0; (function (asm)
             initialized = false;;
             function RuntimeFieldHandle()
             {
-                
                 (RuntimeFieldHandle.init)();
                 this.constructor = RuntimeFieldHandle;
             };
@@ -7300,7 +7069,6 @@ var asm0; (function (asm)
             ct = c;
             RuntimeFieldHandle.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7315,17 +7083,14 @@ var asm0; (function (asm)
                 RuntimeFieldHandle.prototype.value = null;
                 RuntimeFieldHandle.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7351,7 +7116,6 @@ var asm0; (function (asm)
             initialized = false;;
             function RuntimeTypeHandle()
             {
-                
                 (RuntimeTypeHandle.init)();
                 this.constructor = RuntimeTypeHandle;
             };
@@ -7359,7 +7123,6 @@ var asm0; (function (asm)
             ct = c;
             RuntimeTypeHandle.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7374,17 +7137,14 @@ var asm0; (function (asm)
                 RuntimeTypeHandle.prototype.value = null;
                 RuntimeTypeHandle.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7410,7 +7170,6 @@ var asm0; (function (asm)
             initialized = false;;
             function SByte()
             {
-                
                 (SByte.init)();
                 this.constructor = SByte;
             };
@@ -7419,30 +7178,26 @@ var asm0; (function (asm)
             SByte.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 SByte.Interfaces = [  ];
-                SByte.IsInst = function (t) { return t instanceof SByte ? t : null; };
+                SByte.IsInst = function (t) { return typeof t == 'number'; };
                 SByte.IsValueType = true;
                 SByte.IsPrimitive = true;
                 SByte.IsNullable = false;
                 SByte.ArrayType = Int8Array;
                 SByte.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x600007d;
+                        return asm0.x600007e;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7468,7 +7223,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Single()
             {
-                
                 (Single.init)();
                 this.constructor = Single;
             };
@@ -7477,30 +7231,26 @@ var asm0; (function (asm)
             Single.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 Single.Interfaces = [  ];
-                Single.IsInst = function (t) { return t instanceof Single ? t : null; };
+                Single.IsInst = function (t) { return typeof t == 'number'; };
                 Single.IsValueType = true;
                 Single.IsPrimitive = true;
                 Single.IsNullable = false;
                 Single.ArrayType = Float32Array;
                 Single.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x600007e;
+                        return asm0.x600007f;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7526,7 +7276,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Type()
             {
-                
                 (Type.init)();
                 this.constructor = Type;
             };
@@ -7534,7 +7283,6 @@ var asm0; (function (asm)
             ct = c;
             Type.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7548,17 +7296,14 @@ var asm0; (function (asm)
                 Type.ArrayType = Array;
                 Type.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7583,7 +7328,6 @@ var asm0; (function (asm)
             initialized = false;;
             function UInt16()
             {
-                
                 (UInt16.init)();
                 this.constructor = UInt16;
             };
@@ -7592,30 +7336,26 @@ var asm0; (function (asm)
             UInt16.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 UInt16.Interfaces = [  ];
-                UInt16.IsInst = function (t) { return t instanceof UInt16 ? t : null; };
+                UInt16.IsInst = function (t) { return typeof t == 'number'; };
                 UInt16.IsValueType = true;
                 UInt16.IsPrimitive = true;
                 UInt16.IsNullable = false;
                 UInt16.ArrayType = Uint16Array;
                 UInt16.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x6000080;
+                        return asm0.x6000081;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7641,7 +7381,6 @@ var asm0; (function (asm)
             initialized = false;;
             function UInt32()
             {
-                
                 (UInt32.init)();
                 this.constructor = UInt32;
             };
@@ -7650,30 +7389,26 @@ var asm0; (function (asm)
             UInt32.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 UInt32.Interfaces = [  ];
-                UInt32.IsInst = function (t) { return t instanceof UInt32 ? t : null; };
+                UInt32.IsInst = function (t) { return typeof t == 'number'; };
                 UInt32.IsValueType = true;
                 UInt32.IsPrimitive = true;
                 UInt32.IsNullable = false;
                 UInt32.ArrayType = Uint32Array;
                 UInt32.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x6000081;
+                        return asm0.x6000082;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7699,7 +7434,6 @@ var asm0; (function (asm)
             initialized = false;;
             function UInt64()
             {
-                
                 (UInt64.init)();
                 this.constructor = UInt64;
             };
@@ -7708,30 +7442,26 @@ var asm0; (function (asm)
             UInt64.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 UInt64.Interfaces = [  ];
-                UInt64.IsInst = function (t) { return t instanceof UInt64 ? t : null; };
+                UInt64.IsInst = function (t) { return typeof t == 'number'; };
                 UInt64.IsValueType = true;
                 UInt64.IsPrimitive = true;
                 UInt64.IsNullable = false;
                 UInt64.ArrayType = Array;
                 UInt64.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x6000082;
+                        return asm0.x6000083;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7757,7 +7487,6 @@ var asm0; (function (asm)
             initialized = false;;
             function UIntPtr()
             {
-                
                 (UIntPtr.init)();
                 this.constructor = UIntPtr;
             };
@@ -7766,30 +7495,26 @@ var asm0; (function (asm)
             UIntPtr.init = function ()
             {
                 
-                
                 if (initialized){
                     return;
                 }
                 initialized = true;
                 UIntPtr.Interfaces = [  ];
-                UIntPtr.IsInst = function (t) { return t instanceof UIntPtr ? t : null; };
+                UIntPtr.IsInst = function (t) { return typeof t == 'number'; };
                 UIntPtr.IsValueType = true;
                 UIntPtr.IsPrimitive = true;
                 UIntPtr.IsNullable = false;
                 UIntPtr.ArrayType = Array;
                 UIntPtr.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
-                        return asm0.x6000083;
+                        return asm0.x6000084;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7815,7 +7540,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Void()
             {
-                
                 (Void.init)();
                 this.constructor = Void;
             };
@@ -7823,7 +7547,6 @@ var asm0; (function (asm)
             ct = c;
             Void.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7837,17 +7560,14 @@ var asm0; (function (asm)
                 Void.ArrayType = Array;
                 Void.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7873,7 +7593,6 @@ var asm0; (function (asm)
             initialized = false;;
             function NotSupportedException()
             {
-                
                 (NotSupportedException.init)();
                 this.constructor = NotSupportedException;
             };
@@ -7881,7 +7600,6 @@ var asm0; (function (asm)
             ct = c;
             NotSupportedException.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7895,17 +7613,14 @@ var asm0; (function (asm)
                 NotSupportedException.ArrayType = Array;
                 NotSupportedException.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7930,7 +7645,6 @@ var asm0; (function (asm)
             initialized = false;;
             function NotImplementedException()
             {
-                
                 (NotImplementedException.init)();
                 this.constructor = NotImplementedException;
             };
@@ -7938,7 +7652,6 @@ var asm0; (function (asm)
             ct = c;
             NotImplementedException.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -7952,17 +7665,14 @@ var asm0; (function (asm)
                 NotImplementedException.ArrayType = Array;
                 NotImplementedException.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -7987,7 +7697,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Environment()
             {
-                
                 (Environment.init)();
                 this.constructor = Environment;
             };
@@ -7995,7 +7704,6 @@ var asm0; (function (asm)
             ct = c;
             Environment.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8009,17 +7717,14 @@ var asm0; (function (asm)
                 Environment.ArrayType = Array;
                 Environment.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8045,7 +7750,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Func_2()
             {
-                
                 (Func_2.init)();
                 this.constructor = Func_2;
             };
@@ -8053,7 +7757,6 @@ var asm0; (function (asm)
             tree_set([ T,TResult ],ct,c);
             Func_2.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8069,34 +7772,28 @@ var asm0; (function (asm)
                 Func_2.prototype._invocationList = null;
                 Func_2.prototype._methodPtr = null;
                 Func_2.prototype._target = null;
-                Func_2.prototype.vtable = {'asm0.x6000089': function ()
+                Func_2.prototype.vtable = {'asm0.x600008a': function ()
                     {
-                        
-                        return asm0.x6000089;
+                        return asm0.x600008a;
                     },
                     'asm0.x600000d': function ()
                     {
-                        
                         return asm0.x6000017;
                     },
                     'asm0.x600000c': function ()
                     {
-                        
                         return asm0.x6000018;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8122,7 +7819,6 @@ var asm0; (function (asm)
             initialized = false;;
             function Debugger()
             {
-                
                 (Debugger.init)();
                 this.constructor = Debugger;
             };
@@ -8130,7 +7826,6 @@ var asm0; (function (asm)
             ct = c;
             Debugger.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8144,17 +7839,14 @@ var asm0; (function (asm)
                 Debugger.ArrayType = Array;
                 Debugger.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8179,7 +7871,6 @@ var asm0; (function (asm)
             initialized = false;;
             function OutAttribute()
             {
-                
                 (OutAttribute.init)();
                 this.constructor = OutAttribute;
             };
@@ -8187,7 +7878,6 @@ var asm0; (function (asm)
             ct = c;
             OutAttribute.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8201,17 +7891,14 @@ var asm0; (function (asm)
                 OutAttribute.ArrayType = Array;
                 OutAttribute.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8223,7 +7910,6 @@ var asm0; (function (asm)
 })(asm0 || (asm0 = {}));
 var asm1; (function (asm)
 {
-    
     
     function clone_value(v) {
         if (v == null) return v;
@@ -8255,28 +7941,29 @@ var asm1; (function (asm)
     
         return {
             'boxed': v,
+            'type': type,
             'vtable': type.prototype.vtable
         };
     }
 
     function unbox(o, type) {
-        return o.boxed;
+        return cast_class(o.boxed, type);
     }
 
     function unbox_any(o, type) {
         if (type.IsNullable) {
             var result = new type();
             if (o !== null) {
-                result.value = o.boxed;
+                result.value = cast_class(o.boxed, type.GenericArguments[0]);
                 result.has_value = true;
             }
             return result;
         }
     
         if (type.IsValueType)
-            return o.boxed;
+            return cast_class(o.boxed, type);
         else
-            return o;
+            return cast_class(o, type);
     }
 
     function tree_get(a, s) {
@@ -8316,6 +8003,15 @@ var asm1; (function (asm)
         r.jsarr = new ctor(length);
         return r;
     }
+
+    function cast_class(obj, type) {
+        if (type.IsInst(obj) || (!type.IsValueType && obj === null))
+            return obj;
+        else {
+            var t = asm0['System.InvalidCastException']();
+            throw new t();
+        }
+    }
 ;
     asm.x6000001 = braille_test_log;;
     asm.x6000002 = function _ctor(arg0)
@@ -8339,7 +8035,6 @@ var asm1; (function (asm)
     asm.x600000d = function Invoke()
     {
         
-        
                                 var m = arguments[0]._methodPtr;
                                 var t = arguments[0]._target;
                                 if (t != null)
@@ -8350,7 +8045,6 @@ var asm1; (function (asm)
     };;
     asm.x600000c = function ctor()
     {
-        
         arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];;
     };;
     asm.x600000e = function X(arg0)
@@ -8371,13 +8065,11 @@ var asm1; (function (asm)
     };;
     asm.x6000010_init = function ()
     {
-        
         ((asm1.Foo)().init)();
         asm.x6000010 = asm.x6000010_;
     };;
     asm.x6000010 = function ()
     {
-        
         (asm.x6000010_init.apply)(this,arguments);
         return (asm.x6000010.apply)(this,arguments);
     };;
@@ -8503,13 +8195,11 @@ var asm1; (function (asm)
     };;
     asm.x6000012_init = function ()
     {
-        
         (((asm0)["System.Boolean"])().init)();
         asm.x6000012 = asm.x6000012_;
     };;
     asm.x6000012 = function (arg0,arg1)
     {
-        
         (asm.x6000012_init.apply)(this,arguments);
         return (asm.x6000012.apply)(this,arguments);
     };;
@@ -8533,6 +8223,7 @@ var asm1; (function (asm)
         st_02 = (asm0.x600000e)(st_00,st_01);
         /* IL_07: box System.Boolean*/
         st_03 = {'boxed': st_02,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_0C: call Void Log(System.Object)*/
@@ -8545,6 +8236,7 @@ var asm1; (function (asm)
         st_06 = (asm0.x600000f)(st_04,st_05);
         /* IL_18: box System.Boolean*/
         st_07 = {'boxed': st_06,
+            'type': t0,
             'vtable': t0.prototype.vtable
         };
         /* IL_1D: call Void Log(System.Object)*/
@@ -8577,7 +8269,6 @@ var asm1; (function (asm)
             initialized = false;;
             function TestLog()
             {
-                
                 (TestLog.init)();
                 this.constructor = TestLog;
             };
@@ -8585,7 +8276,6 @@ var asm1; (function (asm)
             ct = c;
             TestLog.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8599,17 +8289,14 @@ var asm1; (function (asm)
                 TestLog.ArrayType = Array;
                 TestLog.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8634,7 +8321,6 @@ var asm1; (function (asm)
             initialized = false;;
             function TestHelper()
             {
-                
                 (TestHelper.init)();
                 this.constructor = TestHelper;
             };
@@ -8642,7 +8328,6 @@ var asm1; (function (asm)
             ct = c;
             TestHelper.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8656,17 +8341,14 @@ var asm1; (function (asm)
                 TestHelper.ArrayType = Array;
                 TestHelper.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8691,7 +8373,6 @@ var asm1; (function (asm)
             initialized = false;;
             function Foo()
             {
-                
                 (Foo.init)();
                 this.constructor = Foo;
             };
@@ -8699,7 +8380,6 @@ var asm1; (function (asm)
             ct = c;
             Foo.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8716,32 +8396,26 @@ var asm1; (function (asm)
                 Foo.prototype._target = null;
                 Foo.prototype.vtable = {'asm1.x600000d': function ()
                     {
-                        
                         return asm1.x600000d;
                     },
                     'asm0.x600000d': function ()
                     {
-                        
                         return asm0.x6000017;
                     },
                     'asm0.x600000c': function ()
                     {
-                        
                         return asm0.x6000018;
                     },
                     'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };
@@ -8767,7 +8441,6 @@ var asm1; (function (asm)
             initialized = false;;
             function Program()
             {
-                
                 (Program.init)();
                 this.constructor = Program;
             };
@@ -8775,7 +8448,6 @@ var asm1; (function (asm)
             ct = c;
             Program.init = function ()
             {
-                
                 
                 if (initialized){
                     return;
@@ -8789,17 +8461,14 @@ var asm1; (function (asm)
                 Program.ArrayType = Array;
                 Program.prototype.vtable = {'asm0.x6000003': function ()
                     {
-                        
                         return asm0.x6000003;
                     },
                     'asm0.x6000004': function ()
                     {
-                        
                         return asm0.x6000004;
                     },
                     'asm0.x6000007': function ()
                     {
-                        
                         return asm0.x6000007;
                     }
                 };

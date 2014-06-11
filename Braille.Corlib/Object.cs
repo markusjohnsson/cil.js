@@ -90,12 +90,26 @@ namespace System
         }
 
         public string Message { get; set; }
+
+        public override string ToString()
+        {
+            return Message;
+        }
     }
 
     public class InvalidOperationException : Exception
     {
         public InvalidOperationException(string message)
             : base(message)
+        {
+
+        }
+    }
+
+    public class InvalidCastException : Exception
+    { 
+        public InvalidCastException()
+            : base("Cannot cast from source type to destination type.")
         {
 
         }
@@ -290,6 +304,9 @@ namespace System
 
         [JsImport("function (o) { return o.constructor; }")]
         private static extern Type GetTypeImpl(object p);
+
+        [JsPrototypeAccessible]
+        private object toString() { return ToJavaScriptString(this); }
 
         public virtual string ToString()
         {

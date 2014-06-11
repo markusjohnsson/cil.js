@@ -8032,28 +8032,23 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000c = function get_X(arg0)
+    asm.x600000c = function _ctor(arg0)
     {
         var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
-        /* IL_01: ldfld String <X>k__BackingField*/
-        st_01 = (st_00)["A<X>k__BackingField"];
+        /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
-        return st_01;
+        return ;
     };;
-    asm.x600000d = function set_X(arg0,arg1)
+    asm.x600000d = function _ctor(arg0)
     {
         var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
-        /* IL_01: ldarg.1 */
-        st_01 = arg1;
-        /* IL_02: stfld String <X>k__BackingField*/
-        (st_00)["A<X>k__BackingField"] = st_01;
-        /* IL_07: ret */
+        /* IL_01: call Void .ctor()*/
+        (asm1.x600000c)(st_00);
+        /* IL_06: ret */
         return ;
     };;
     asm.x600000e = function _ctor(arg0)
@@ -8068,7 +8063,8 @@ var asm1; (function (asm)
     asm.x600000f_init = function ()
     {
         ((asm1.A)().init)();
-        (((asm0)["System.Int32"])().init)();
+        ((asm1.B)().init)();
+        ((asm1.C)().init)();
         asm.x600000f = asm.x600000f_;
     };;
     asm.x600000f = function ()
@@ -8080,118 +8076,128 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var loc0;
+        var t2;
         t0 = (asm1.A)();
-        t1 = ((asm0)["System.Int32"])();
-        /* IL_00: call String GetString()*/
-        st_00 = (asm1.x6000011)();
-        /* IL_05: call Void Log(System.Object)*/
-        (asm1.x6000001)(st_00);
-        /* IL_0A: newobj Void .ctor()*/
-        st_01 = new t0();
-        (asm1.x600000e)(st_01);
-        /* IL_0F: stloc.0 */
-        loc0 = st_01;
-        /* IL_10: ldloc.0 */
-        st_02 = loc0;
-        /* IL_11: ldstr 300*/
-        st_03 = new_string("300");
-        /* IL_16: callvirt Void set_X(System.String)*/
-        (asm1.x600000d)(st_02,st_03);
-        /* IL_1B: ldloc.0 */
-        st_04 = loc0;
-        /* IL_1C: callvirt String get_X()*/
-        st_05 = (asm1.x600000c)(st_04);
-        /* IL_21: call Void Log(System.Object)*/
-        (asm1.x6000001)(st_05);
-        /* IL_26: ldloc.0 */
-        st_06 = loc0;
-        /* IL_27: callvirt String get_X()*/
-        st_07 = (asm1.x600000c)(st_06);
-        /* IL_2C: call String IsString(System.Object)*/
-        st_08 = (asm1.x6000010)(st_07);
-        /* IL_31: call Void Log(System.Object)*/
-        (asm1.x6000001)(st_08);
-        /* IL_36: ldstr 123456789*/
-        st_09 = new_string("123456789");
-        /* IL_3B: callvirt Int32 get_Length()*/
-        st_0A = (asm0.x6000051)(st_09);
-        /* IL_40: box System.Int32*/
-        st_0B = {'boxed': st_0A,
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        };
-        /* IL_45: call Void Log(System.Object)*/
-        (asm1.x6000001)(st_0B);
-        /* IL_4A: ret */
+        t1 = (asm1.B)();
+        t2 = (asm1.C)();
+        /* IL_00: call Void Test[A]()*/
+        ((asm1.x6000010)((asm1.A)()))();
+        /* IL_05: call Void Test[B]()*/
+        ((asm1.x6000010)((asm1.B)()))();
+        /* IL_0A: call Void Test[C]()*/
+        ((asm1.x6000010)((asm1.C)()))();
+        /* IL_0F: ret */
         return ;
     };
-    asm.x6000010_init = function ()
+    asm.x6000010_init = function (T)
     {
-        (((asm0)["System.String"])().init)();
-        asm.x6000010 = asm.x6000010_;
+        return function ()
+        {
+            ((asm1.A)().init)();
+            ((asm1.B)().init)();
+            ((asm1.C)().init)();
+            asm.x6000010 = asm.x6000010_;
+        };
     };;
-    asm.x6000010 = function (arg0)
+    asm.x6000010 = function (T)
     {
-        (asm.x6000010_init.apply)(this,arguments);
-        return (asm.x6000010.apply)(this,arguments);
+        return function ()
+        {
+            ((asm.x6000010_init)(T).apply)(this,arguments);
+            return ((asm.x6000010)(T).apply)(this,arguments);
+        };
     };;
-    asm.x6000010_ = function IsString(arg0)
+    asm.x6000010_ = function (T)
     {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var __pos_0__;
-        t0 = ((asm0)["System.String"])();
-        __pos_0__ = 0x0;
-        
-        while (__pos_0__ >= 0){
-            
-            switch (__pos_0__){
-                case 0x0:
-                /* IL_00: ldarg.0 */
-                st_00 = arg0;
-                /* IL_01: isinst System.String*/
-                st_01 = (t0.IsInst)(st_00);
-                /* IL_06: brtrue.s IL_0E*/
-                
-                if (st_01){
-                    __pos_0__ = 0xE;
-                    continue;
-                }
-                /* IL_08: ldstr false*/
-                st_02 = new_string("false");
-                /* IL_0D: ret */
-                return st_02;
-                case 0xE:
-                /* IL_0E: ldstr true*/
-                st_03 = new_string("true");
-                /* IL_13: ret */
-                return st_03;
-            }
-        }
+        return function Test()
+        {
+            var t0;
+            var t1;
+            var t2;
+            var t3;
+            var st_00;
+            var st_01;
+            var st_02;
+            t0 = (asm1.A)();
+            t1 = T;
+            t2 = (asm1.B)();
+            t3 = (asm1.C)();
+            /* IL_00: newobj Void .ctor()*/
+            st_00 = new t0();
+            (asm1.x600000c)(st_00);
+            /* IL_05: call Void Cast[T](System.Object)*/
+            ((asm1.x6000011)(T))(st_00);
+            /* IL_0A: newobj Void .ctor()*/
+            st_01 = new t2();
+            (asm1.x600000d)(st_01);
+            /* IL_0F: call Void Cast[T](System.Object)*/
+            ((asm1.x6000011)(T))(st_01);
+            /* IL_14: newobj Void .ctor()*/
+            st_02 = new t3();
+            (asm1.x600000e)(st_02);
+            /* IL_19: call Void Cast[T](System.Object)*/
+            ((asm1.x6000011)(T))(st_02);
+            /* IL_1E: ret */
+            return ;
+        };
     };
-    asm.x6000011 = function GetString()
+    asm.x6000011 = function (T)
     {
-        var st_00;
-        /* IL_00: ldstr Hello*/
-        st_00 = new_string("Hello");
-        /* IL_05: ret */
-        return st_00;
+        return function Cast(arg0)
+        {
+            var st_00;
+            var st_01;
+            var st_02;
+            var st_03;
+            var st_04;
+            var __pos_0__;
+            var __error_handled_1__;
+            __pos_0__ = 0x0;
+            
+            while (__pos_0__ >= 0){
+                
+                switch (__pos_0__){
+                    case 0x0:
+                    
+                    try {
+                        /* IL_00: ldarg.0 */
+                        st_00 = arg0;
+                        /* IL_01: unbox.any T*/
+                        st_01 = unbox_any(st_00,T);
+                        /* IL_06: pop */
+                        
+                        /* IL_07: ldstr Success*/
+                        st_02 = new_string("Success");
+                        /* IL_0C: call Void Log(System.Object)*/
+                        (asm1.x6000001)(st_02);
+                        /* IL_11: leave.s IL_20*/
+                        __pos_1__ = -1;
+                        __pos_0__ = 0x20;
+                    }
+                    
+                    catch (__error__){
+                        __error_handled_1__ = false;
+                        
+                        if ((!__error_handled_1__) && (__error__ instanceof ((asm0)["System.Object"])())){
+                            st_03 = __error__;
+                            __error_handled_1__ = true;
+                            /* IL_13: pop */
+                            
+                            /* IL_14: ldstr Failure*/
+                            st_04 = new_string("Failure");
+                            /* IL_19: call Void Log(System.Object)*/
+                            (asm1.x6000001)(st_04);
+                            /* IL_1E: leave.s IL_20*/
+                            __pos_1__ = -1;
+                            __pos_0__ = 0x20;
+                        }
+                    }
+                    case 0x20:
+                    /* IL_20: ret */
+                    return ;
+                }
+            }
+        };
     };;
     asm.x6000012 = function _ctor(arg0)
     {
@@ -8340,7 +8346,6 @@ var asm1; (function (asm)
                 A.IsPrimitive = false;
                 A.IsNullable = false;
                 A.ArrayType = Array;
-                (A.prototype)["A<X>k__BackingField"] = null;
                 A.prototype.vtable = {'asm0.x6000003': function ()
                     {
                         return asm0.x6000003;
@@ -8356,6 +8361,110 @@ var asm1; (function (asm)
                 };
             };
             A.prototype = new (((asm0)["System.Object"])())();
+            return c;
+        };
+    })();
+    asm.B = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function B()
+            {
+                (B.init)();
+                this.constructor = B;
+            };
+            c = B;
+            ct = c;
+            B.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                B.Interfaces = [  ];
+                B.IsInst = function (t) { return t instanceof B ? t : null; };
+                B.IsValueType = false;
+                B.IsPrimitive = false;
+                B.IsNullable = false;
+                B.ArrayType = Array;
+                B.prototype.vtable = {'asm0.x6000003': function ()
+                    {
+                        return asm0.x6000003;
+                    },
+                    'asm0.x6000004': function ()
+                    {
+                        return asm0.x6000004;
+                    },
+                    'asm0.x6000007': function ()
+                    {
+                        return asm0.x6000007;
+                    }
+                };
+            };
+            B.prototype = new ((asm1.A)())();
+            return c;
+        };
+    })();
+    asm.C = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function C()
+            {
+                (C.init)();
+                this.constructor = C;
+            };
+            c = C;
+            ct = c;
+            C.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                C.Interfaces = [  ];
+                C.IsInst = function (t) { return t instanceof C ? t : null; };
+                C.IsValueType = false;
+                C.IsPrimitive = false;
+                C.IsNullable = false;
+                C.ArrayType = Array;
+                C.prototype.vtable = {'asm0.x6000003': function ()
+                    {
+                        return asm0.x6000003;
+                    },
+                    'asm0.x6000004': function ()
+                    {
+                        return asm0.x6000004;
+                    },
+                    'asm0.x6000007': function ()
+                    {
+                        return asm0.x6000007;
+                    }
+                };
+            };
+            C.prototype = new (((asm0)["System.Object"])())();
             return c;
         };
     })();

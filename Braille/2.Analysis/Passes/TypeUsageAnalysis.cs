@@ -49,6 +49,7 @@ namespace Braille.Analysis
 
             switch (opc_)
             {
+                case "castclass":
                 case "initobj":
                 case "isinst":
                 case "newarr":

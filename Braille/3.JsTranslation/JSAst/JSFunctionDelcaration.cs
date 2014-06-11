@@ -21,11 +21,6 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration))
-                .OfType<JSVariableDelcaration>()
-                .Select(v => v.Name)
-                .Distinct();
-
             var sb = new StringBuilder();
 
             sb.Append("function ");
@@ -43,12 +38,20 @@ namespace Braille.JSAst
             sb.Append(formatting.NewLine + formatting.Indentation + "{");
 
             formatting.IncreaseIndentation();
-            
+
             {
+                var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration))
+                    .OfType<JSVariableDelcaration>()
+                    .Select(v => v.Name)
+                    .Distinct();
+
                 var indent = formatting.NewLine + formatting.Indentation;
 
-                sb.Append(indent);
-                sb.Append(string.Join(indent, variables.Select(v => "var " + v + ";")));
+                if (variables.Any())
+                {
+                    sb.Append(indent);
+                    sb.Append(string.Join(indent, variables.Select(v => "var " + v + ";")));
+                }
 
                 if (Body != null)
                 {

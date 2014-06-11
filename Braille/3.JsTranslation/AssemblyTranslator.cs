@@ -67,28 +67,29 @@ namespace Braille.JsTranslation
     
         return {
             'boxed': v,
+            'type': type,
             'vtable': type.prototype.vtable
         };
     }
 
     function unbox(o, type) {
-        return o.boxed;
+        return cast_class(o.boxed, type);
     }
 
     function unbox_any(o, type) {
         if (type.IsNullable) {
             var result = new type();
             if (o !== null) {
-                result.value = o.boxed;
+                result.value = cast_class(o.boxed, type.GenericArguments[0]);
                 result.has_value = true;
             }
             return result;
         }
     
         if (type.IsValueType)
-            return o.boxed;
+            return cast_class(o.boxed, type);
         else
-            return o;
+            return cast_class(o, type);
     }
 
     function tree_get(a, s) {
@@ -127,6 +128,15 @@ namespace Braille.JsTranslation
         r.type = type;
         r.jsarr = new ctor(length);
         return r;
+    }
+
+    function cast_class(obj, type) {
+        if (type.IsInst(obj) || (!type.IsValueType && obj === null))
+            return obj;
+        else {
+            var t = asm0['System.InvalidCastException']();
+            throw new t();
+        }
     }
 "
             };

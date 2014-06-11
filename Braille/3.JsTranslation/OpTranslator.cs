@@ -395,13 +395,9 @@ namespace Braille.JsTranslation
                         {
                             Properties = new Dictionary<string, JSExpression>
                             {
-                                { 
-                                    "boxed", 
-                                    CloneValueTypeIfNeeded(value, d)
-                                },
-                                {
-                                    "vtable",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "vtable")
-                                }
+                                { "boxed", CloneValueTypeIfNeeded(value, d) },
+                                { "type",  GetTypeAccessor(d, thisScope) },
+                                { "vtable",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "vtable") }
                             }
                         };
 
@@ -426,7 +422,7 @@ namespace Braille.JsTranslation
                 case "call":
                     {
                         var mi = ((MethodBase)frame.Instruction.Data);
-                        
+
                         if (mi.DeclaringType.FullName == "System.Object" &&
                             mi is ConstructorInfo &&
                             mi.GetParameters().Length == 0)
@@ -499,7 +495,15 @@ namespace Braille.JsTranslation
                         };
                     }
                 case "castclass":
-                    return ProcessInternal(frame.Arguments.Single());
+                    {
+                        var expr = ProcessInternal(frame.Arguments.Single());
+                        var targetType = (Type)frame.Instruction.Data;
+
+                        if (targetType.FullName == "System.MulticastDelegate")
+                            return expr; 
+
+                        return JSFactory.Call(JSFactory.RawExpression("cast_class"), expr, GetTypeAccessor(targetType, thisScope));
+                    }
                 case "ceq":
                     return new JSConditionalExpression
                     {
@@ -539,7 +543,7 @@ namespace Braille.JsTranslation
                             },
                             TrueValue = new JSNumberLiteral { Value = 1 },
                             FalseValue = new JSNumberLiteral { Value = 0 }
-                        }; 
+                        };
                     }
                 case "clt":
                     return new JSConditionalExpression
@@ -554,15 +558,17 @@ namespace Braille.JsTranslation
                         FalseValue = new JSNumberLiteral { Value = 0 }
                     };
                 case "conv":
-                    var expr = ProcessInternal(frame.Arguments.Single());
+                    {
+                        var expr = ProcessInternal(frame.Arguments.Single());
 
-                    if (IsIntegerType(frame.ResultType))
-                        return JSFactory.Truncate(expr);
-                    else
-                        return expr;
+                        if (IsIntegerType(frame.ResultType))
+                            return JSFactory.Truncate(expr);
+                        else
+                            return expr;
+                    }
                 case "div":
                 case "div.un":
-                    var divExpression = 
+                    var divExpression =
                         new JSBinaryExpression
                         {
                             Left = ProcessInternal(frame.Arguments.First()),
@@ -864,15 +870,15 @@ namespace Braille.JsTranslation
                     };
                 case "ldtoken":
                     {
-                        string typeName = null; 
+                        string typeName = null;
                         JSExpression value = null;
 
                         if (frame.Instruction.Data is FieldInfo)
                         {
                             typeName = "System.RuntimeFieldHandle";
-                            
+
                             var fieldInfo = frame.Instruction.Data as FieldInfo;
-                            
+
                             value = new JSObjectLiteral
                             {
                                 Properties = new Dictionary<string, JSExpression> 
