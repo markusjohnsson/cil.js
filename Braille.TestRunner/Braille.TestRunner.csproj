@@ -115,6 +115,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Tests\CastClass.cs" />
+    <None Include="Tests\Char.cs" />
+    <None Include="Tests\HashCode.cs" />
     <None Include="FailingTests\ArrayInitializer.cs" />
     <None Include="Tests\Exceptions.cs" />
     <None Include="Tests\IntegerArithmetic.cs" />
@@ -209,7 +211,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Content Include="Global.asax" />
-    <Content Include="TestRunner.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

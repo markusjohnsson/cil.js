@@ -305,8 +305,12 @@ namespace System
         [JsImport("function (o) { return o.constructor; }")]
         private static extern Type GetTypeImpl(object p);
 
+        [JsImport("function (o) { return o.hash || (o.hash = asm0.next_hash++); }")]
+        private static extern int GetHashCode(object o);
+
         [JsPrototypeAccessible]
-        private object toString() { return ToJavaScriptString(this); }
+        [JsImport("function () { return asm0.ToJavaScriptString(this); }")]
+        private extern object toString();
 
         public virtual string ToString()
         {
@@ -315,7 +319,7 @@ namespace System
 
         public virtual int GetHashCode()
         {
-            return 0;
+            return GetHashCode(this);
         }
 
         [JsAssemblyStatic]

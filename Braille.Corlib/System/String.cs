@@ -13,11 +13,14 @@ namespace System
         [JsImport("function(a, b) { return a.jsstr === b.jsstr; }")]
         private extern static bool EqualsImpl(string a, string b);
 
-        [JsImport("function () { return new_string(String.prototype.concat.apply('', arguments)); }")]
+        [JsImport("function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); }")]
         private extern static string ConcatImpl(params string[] args);
 
+        [JsImport("function (s, i) { return s.jsstr.charCodeAt(i); }")]
+        private extern static char GetChar(string s, int i);
+
         [IndexerName("Chars")]
-        public char this[int i] { get { throw new Exception("Not implemented."); } }
+        public char this[int i] { get { return GetChar(this, i); } }
 
         public static readonly string Empty = "";
 
@@ -68,6 +71,26 @@ namespace System
         {
             return EqualsImpl(this, other);
         }
-        
+
+        public override bool Equals(object other)
+        {
+            return Equals((string)other);
+        }
+
+        [JsImport(@"
+            function (o) {
+                var str = o.jsstr;
+                var length = str.length;
+                var h = 0;
+                for (var i = 0; i < length; i += 1)
+                    h = (h << 5) - h + str.charCodeAt(i);
+                return h;
+            }")]
+        private extern static int GetHashCodeImpl(string s);
+
+        public override int GetHashCode()
+        {
+            return GetHashCodeImpl(this);
+        }
     }
 }

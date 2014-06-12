@@ -76,9 +76,6 @@ namespace Braille.TestRunner.Models
             Debug.Assert(clrProgramOutputName != null);
             Debug.Assert(csProgramFile != null);
 
-            // TODO: we will need to compile two exes since the one that should be converted
-            // to JS will have a different mscorlib and won't run on the CLR
-            
             var success = true;
 
             if (errors.Any())

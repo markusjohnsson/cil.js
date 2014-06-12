@@ -37,13 +37,14 @@ namespace Braille.JsTranslation
                 // A constructed generic type should always have the same constructor instance (for the same type arguments)
                 Name =
                     @"
+    asm.next_hash = 1;
+
     function clone_value(v) {
         if (v == null) return v;
         if (typeof v === 'number') return v;
         if (typeof v === 'function') return v;
         if (!v.constructor.IsValueType) return v;
         var result = new v.constructor();
-    //    var result = {};
         for (var p in v) {
             if (v.hasOwnProperty(p))
                 result[p] = clone_value(v[p]);

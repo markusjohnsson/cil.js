@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace Braille.TestRunner.Controllers
@@ -21,6 +22,8 @@ namespace Braille.TestRunner.Controllers
     public class IndexViewModel
     {
         public List<IndexTestItem> Items { get; set; }
+
+        public bool AutoRun { get; set; }
     }
 
     public class IndexTestItem
@@ -32,7 +35,7 @@ namespace Braille.TestRunner.Controllers
 
     public class TestController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index([FromUri] bool autoRun = false)
         {
             var rootPath = Server.MapPath("/");
 
@@ -48,7 +51,7 @@ namespace Braille.TestRunner.Controllers
                     })
                 .ToList();
 
-            return View(new IndexViewModel { Items = allTests });
+            return View(new IndexViewModel { Items = allTests, AutoRun = autoRun });
         }
 
         public ActionResult Run(string name)
