@@ -22,6 +22,8 @@ namespace Braille.JSAst
             formatting.IncreaseIndentation();
 
             {
+                sb.Append(formatting.NewLine);
+                sb.Append(formatting.Indentation);
                 sb.Append(string.Join("," + formatting.NewLine + formatting.Indentation,
                     Properties.Select(p => string.Format("'{0}': {1}", p.Key, p.Value.ToString(formatting)))));
 

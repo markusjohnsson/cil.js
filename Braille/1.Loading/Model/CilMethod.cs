@@ -61,6 +61,18 @@ namespace Braille.Ast
             }
         }
 
+        public string AssemblyStaticName
+        {
+            get
+            {
+                return GetAttribute(ReflectionMethod, "JsAssemblyStaticAttribute")
+                    .NamedArguments
+                    .Where(n => n.MemberName == "Name")
+                    .Select(n => (string)n.TypedValue.Value)
+                    .FirstOrDefault();
+            }
+        }
+
         public CilMethodReplacement GetReplacement()
         {
             return GetReplacement(ReflectionMethod);

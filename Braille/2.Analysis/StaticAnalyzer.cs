@@ -48,7 +48,7 @@ namespace Braille.Analysis
 
             yield return new UnreachableRemoval();
             yield return new LocalsAnalyzer();
-            yield return new TypeInference(ctx.ReflectionUniverse);
+            yield return new TypeInference(ctx);
             yield return new TypeUsageAnalysis(ctx.ReflectionUniverse);
             yield return new InsertLabelsPass();
 

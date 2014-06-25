@@ -23,6 +23,11 @@ namespace Braille.JSAst
         }
         #endregion
 
+        public static JSExpression Array(params JSExpression[] exprs)
+        {
+            return new JSArrayLiteral { Values = exprs.ToList() };
+        }
+
         #region Identifier
 
         public static JSExpression Identifier(params string[] ns)
@@ -83,6 +88,11 @@ namespace Braille.JSAst
             return new JSIdentifier { Name = p };
         }
 
+        public static JSExpression Templated(string template, params JSExpression[] exprs)
+        {
+            return new JSTemplatedRawExpression { TemplateString = template, Arguments = exprs.ToList() };
+        }
+
         public static JSExpression Truncate(JSExpression expr)
         {
             return new JSBinaryExpression { Left = expr, Operator = "|", Right = Number(0) };
@@ -94,6 +104,11 @@ namespace Braille.JSAst
         }
 
         public static JSExpression Hex(int p)
+        {
+            return new JSNumberLiteral { Value = p, IsHex = true };
+        }
+
+        public static JSExpression Hex(uint p)
         {
             return new JSNumberLiteral { Value = p, IsHex = true };
         }

@@ -34,14 +34,14 @@ namespace Braille.Loading.Model
             Char = universe.GetType("System.Char");
             Byte = universe.GetType("System.Byte");
             Sbyte = universe.GetType("System.SByte");
-            Int32 = universe.GetType("System.Int16");
+            Int16 = universe.GetType("System.Int16");
             Int32 = universe.GetType("System.Int32");
             Int64 = universe.GetType("System.Int64");
             IntPtr = universe.GetType("System.IntPtr");
-            UInt32 = universe.GetType("System.UInt16");
+            UInt16 = universe.GetType("System.UInt16");
             UInt32 = universe.GetType("System.UInt32");
             UInt64 = universe.GetType("System.UInt64");
-            IntPtr = universe.GetType("System.UIntPtr");
+            UIntPtr = universe.GetType("System.UIntPtr");
             Single = universe.GetType("System.Single");
             Double = universe.GetType("System.Double");
             Object = universe.GetType("System.Object");

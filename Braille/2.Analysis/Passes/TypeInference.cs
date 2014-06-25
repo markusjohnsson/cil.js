@@ -1,5 +1,6 @@
 ﻿using Braille.Analysis.Passes;
 using Braille.Ast;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -11,43 +12,11 @@ namespace Braille.Analysis
 {
     class TypeInference: IAnalysisPass
     {
-        private Type int32;
-        private Type int64;
-        private Type single;
-        private Type _double;
-        private Type uint64;
-        private Type uint32;
-        private Type intPtr;
-        private Type uintPtr;
-        private Type _object;
-        private Type boolean;
-        private Type _null;
-        private Type _string;
-        private Type _char;
-        private Type _byte;
-        private Type _sbyte;
-        private Type mpointer;
-
-        public TypeInference(Universe universe)
+        private SystemTypes types;
+ 
+        public TypeInference(Context context)
         {
-            //this.universe = universe;
-
-            _null = universe.GetType("System.Null");
-            boolean = universe.GetType("System.Boolean");
-            _char = universe.GetType("System.Char");
-            _byte = universe.GetType("System.Byte");
-            _sbyte = universe.GetType("System.SByte");
-            int32 = universe.GetType("System.Int32");
-            int64 = universe.GetType("System.Int64");
-            intPtr = universe.GetType("System.IntPtr");
-            uint32 = universe.GetType("System.UInt32");
-            uint64 = universe.GetType("System.UInt64");
-            uintPtr = universe.GetType("System.UIntPtr");
-            single = universe.GetType("System.Single");
-            _double = universe.GetType("System.Double");
-            _object = universe.GetType("System.Object");
-            _string = universe.GetType("System.String");
-            mpointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
+            this.types = context.SystemTypes;
         }
 
         public void Run(CilMethod method)
@@ -93,7 +62,7 @@ namespace Braille.Analysis
                 case "and":
                     return InferBinaryArithmeticType(op);
                 case "box":
-                    return _object;
+                    return types.Object;
                 case "call":
                 case "callvirt":
                     {
@@ -111,22 +80,22 @@ namespace Braille.Analysis
                 case "ceq":
                 case "cgt":
                 case "clt":
-                    return boolean;
+                    return types.Boolean; // err... should this be int?
                 case "conv":
                     var t =
-                        opc == "conv.i1" ? int32 :
-                        opc == "conv.i2" ? int32 :
-                        opc == "conv.i4" ? int32 :
-                        opc == "conv.i8" ? int64 :
-                        opc == "conv.r4" ? single :
-                        opc == "conv.r8" ? _double :
-                        opc == "conv.u1" ? uint32 :
-                        opc == "conv.u2" ? uint32 :
-                        opc == "conv.u4" ? uint32 :
-                        opc == "conv.u8" ? uint64 :
-                        opc == "conv.i" ? int32 :
-                        opc == "conv.u" ? int32 :
-                        opc == "conv.r.un" ? single : null;
+                        opc == "conv.i1" ? types.Int32 :
+                        opc == "conv.i2" ? types.Int32 :
+                        opc == "conv.i4" ? types.Int32 :
+                        opc == "conv.i8" ? types.Int64 :
+                        opc == "conv.r4" ? types.Single :
+                        opc == "conv.r8" ? types.Double :
+                        opc == "conv.u1" ? types.UInt32 :
+                        opc == "conv.u2" ? types.UInt32 :
+                        opc == "conv.u4" ? types.UInt32 :
+                        opc == "conv.u8" ? types.UInt64 :
+                        opc == "conv.i" ? types.Int32 :
+                        opc == "conv.u" ? types.Int32 :
+                        opc == "conv.r.un" ? types.Single : null;
 
                     return t;
                 case "div":
@@ -155,7 +124,7 @@ namespace Braille.Analysis
                             if (idx == 0)
                             {
                                 if (method.ReflectionMethod.DeclaringType.IsValueType)
-                                    return mpointer.MakeGenericType(method.ReflectionMethod.DeclaringType);
+                                    return types.ManagedPointer.MakeGenericType(method.ReflectionMethod.DeclaringType);
                                 else
                                     return method.ReflectionMethod.DeclaringType;
                             }
@@ -181,38 +150,38 @@ namespace Braille.Analysis
 
                         var args = method.ReflectionMethod.GetParameters();
                         var type = args[idx].ParameterType;
-                        return mpointer.MakeGenericType(type);
+                        return types.ManagedPointer.MakeGenericType(type);
                     }
                 case "ldc":
                     if (opc.StartsWith("ldc.i4"))
                     {
-                        return int32;
+                        return types.Int32;
                     }
                     else if (opc.StartsWith("ldc.i8"))
                     {
-                        return int64;
+                        return types.Int64;
                     }
                     else if (opc.StartsWith("ldc.r8"))
                     {
-                        return _double;
+                        return types.Double;
                     }
                     else
                     {
-                        return single;
+                        return types.Single;
                     }
                 case "ldelem":
                     return (Type)op.Instruction.Data;
                 case "ldelema":
                     {
                         var type = (Type)op.Instruction.Data;
-                        return mpointer.MakeGenericType(type);
+                        return types.ManagedPointer.MakeGenericType(type);
                     }
                 case "ldfld":
                     return ((FieldInfo)op.Instruction.Data).FieldType;
                 case "ldftn":
-                    return intPtr;
+                    return types.IntPtr;
                 case "ldlen":
-                    return uint32;
+                    return types.UInt32;
                 case "ldloc":
                     {
                         var id = "";
@@ -231,10 +200,10 @@ namespace Braille.Analysis
                         var idx = int.Parse(opc.Substring(5).Replace("a.", ".").Replace(".s", ".").Replace(".", "") + id);
 
                         var type = method.ReflectionMethod.GetMethodBody().LocalVariables[idx].LocalType;
-                        return mpointer.MakeGenericType(type);
+                        return types.ManagedPointer.MakeGenericType(type);
                     }
                 case "ldnull":
-                    return _null;
+                    return types.Null;
                 case "ldobj":
                     return (Type)op.Instruction.Data;
                 case "ldsfld":
@@ -242,12 +211,12 @@ namespace Braille.Analysis
                 case "ldflda":
                     {
                         var fieldType = ((FieldInfo)op.Instruction.Data).FieldType;
-                        return mpointer.MakeGenericType(fieldType);
+                        return types.ManagedPointer.MakeGenericType(fieldType);
                     }
                 case "ldstr":
-                    return _string;
+                    return types.String;
                 case "ldtoken":
-                    return _object; //universe.GetType("System.Reflection.MemberInfo");
+                    return types.Object; //universe.GetType("System.Reflection.MemberInfo");
                 case "mul":
                     return InferBinaryArithmeticType(op);
                 case "neg":
@@ -290,16 +259,16 @@ namespace Braille.Analysis
 
         private IKVM.Reflection.Type InferBinaryArithmeticType(OpExpression op)
         {
-            var int32s = new[] { this._char, this._sbyte, int32, this._byte, uint32 };
+            var int32s = new[] { types.Char, types.Sbyte, types.Int32, types.Byte, types.UInt32 };
 
             var a = op.Arguments.First().ResultType;
             var b = op.Arguments.Last().ResultType;
 
             if (int32s.Contains(a))
-                a = int32;
+                a = types.Int32;
 
             if (int32s.Contains(b))
-                b = int32;
+                b = types.Int32;
 
             if (a == b)
                 return a;
@@ -355,7 +324,7 @@ namespace Braille.Analysis
                     .Last()
                     .Item1;
             }
-            else if (type == boolean && (newType == int32 || newType == int64))
+            else if (type == types.Boolean && (newType == types.Int32 || newType == types.Int64))
             {
                 type = newType;
             }

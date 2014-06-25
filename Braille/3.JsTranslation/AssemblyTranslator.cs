@@ -139,6 +139,24 @@ namespace Braille.JsTranslation
             throw new t();
         }
     }
+
+    function make_uint64(n) {
+        if (n < 0) {
+            var t = asm0['System.InvalidOperationException']();
+            throw new t();
+        }
+
+        var bits32 = 0xffffffff;
+
+        var floorN = Math.floor(n);
+        var low = floorN | 0;
+        var high = (floorN / 0x100000000) | 0;
+
+        var low = low & bits32;
+        var high = high & bits32;
+
+        return new Uint32Array([low, high]);
+    }
 "
             };
 
@@ -189,6 +207,8 @@ namespace Braille.JsTranslation
                     {
                         Debug.Assert(method.ReflectionMethod.IsStatic);
 
+                        var name = method.AssemblyStaticName ?? method.Name;
+
                         yield return JSFactory
                             .Assignment(
                                 new JSPropertyAccessExpression 
@@ -197,7 +217,7 @@ namespace Braille.JsTranslation
 
                                     // CHECKER TODO: check that there are no name conflicts for Assembly Statics
 
-                                    Property = method.Name
+                                    Property = name
                                 },
                                 accessor);
                     }

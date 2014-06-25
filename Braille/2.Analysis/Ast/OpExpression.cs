@@ -19,7 +19,7 @@ namespace Braille.Ast
 
         public List<VariableInfo> StoreLocations = new List<VariableInfo>();
 
-        public IEnumerable<VariableInfo> Arguments
+        public IEnumerable<Node> Arguments
         {
             get
             {
