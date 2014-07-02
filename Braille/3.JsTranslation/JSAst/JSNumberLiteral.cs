@@ -14,7 +14,7 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return IsHex ? "0x"+((int)Value).ToString("X") : Value.ToString(CultureInfo.InvariantCulture);
+            return IsHex ? "0x"+((ulong)Value).ToString("X") : Value.ToString(CultureInfo.InvariantCulture);
         }
 
         public override IEnumerable<JSExpression> GetChildren()

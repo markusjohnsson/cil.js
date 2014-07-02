@@ -15,14 +15,14 @@ namespace System
             do
             {
                 var r = a % ten;
-                s = GetLowString(a);
+                s = GetLowString(r) + s;
                 a = a / ten;
             } while (a > 0);
 
             return s;
         }
 
-        [JsReplace("{0}[0].toString()")]
+        [JsReplace("new_string({0}[0].toString())")]
         private static extern string GetLowString(ulong a);    
 
         [JsAssemblyStatic(Name = "UInt64_RightShift")]
@@ -105,6 +105,91 @@ namespace System
                 return s;
             }")]
         public extern static ulong operator *(ulong a, ulong b);
+
+        [JsAssemblyStatic(Name = "UInt64_GreaterThanOrEqual")]
+        [JsImport(@"
+            function UInt64_GreaterThanOrEqual (a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff > 0)
+                    return 1;
+
+                if (bdiff < 0)
+                    return 0;
+
+                return a[0] >= b[0];
+            }")]
+        public extern static bool operator >=(ulong a, ulong b);
+
+        [JsAssemblyStatic(Name = "UInt64_LessThanOrEqual")]
+        [JsImport(@"
+            function UInt64_LessThanOrEqual (a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff < 0)
+                    return 1;
+
+                if (bdiff > 0)
+                    return 0;
+
+                return a[0] <= b[0];
+            }")]
+        public extern static bool operator <=(ulong a, ulong b);
+
+        [JsAssemblyStatic(Name = "UInt64_GreaterThan")]
+        [JsImport(@"
+            function UInt64_GreaterThanOrEqual (a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff > 0)
+                    return 1;
+
+                if (bdiff < 0)
+                    return 0;
+
+                return a[0] > b[0];
+            }")]
+        public extern static bool operator >(ulong a, ulong b);
+
+        [JsAssemblyStatic(Name = "UInt64_LessThan")]
+        [JsImport(@"
+            function UInt64_LesserThan(a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff < 0)
+                    return 1;
+
+                if (bdiff > 0)
+                    return 0;
+
+                return a[0] < b[0];
+            }")]
+        public extern static bool operator <(ulong a, ulong b);
+
+        [JsAssemblyStatic(Name = "UInt64_Modulus")]
+        [JsImport(@"
+            function UInt64_Modulus (n, d) {
+                var greaterThanOrEqual = asm0.UInt64_GreaterThanOrEqual,
+                    subtraction = asm0.XInt64_Subtraction,
+                    leftShift = asm0.XInt64_LeftShift;
+
+                if (d[0] == 0 && d[1] == 0)
+                    throw new Error(""System.DivideByZeroException"");
+
+                var r = new Uint32Array([0, 0]);
+
+                for (var i = 63; i >= 0; i--) {
+                    r = leftShift(r, 1);
+
+                    var li = i < 32 ? 0 : 1;
+                    var s = (i - 32 * li);
+
+                    r[0] |= (n[li] & (1 << s)) >>> s;
+
+                    if (greaterThanOrEqual(r, d)) {
+                        r = subtraction(r, d);
+                    }
+                }
+
+                return r;
+            }")]
+        public extern static ulong operator %(ulong a, ulong b);
 
         public const ulong MAX_VALUE = 0xffffffffffffffff;
     }

@@ -21,7 +21,12 @@ namespace Braille.TestRunner.Controllers
             var dir = Path.Combine(workDir, assemblyTest.Replace("/", "\\"));
             var runner = new Tests(workDir);
 
-            return runner.CompileAndRun(Directory.GetFiles(dir, "*.cs").Select(f => f.Substring(workDir.Length)).ToArray());
+            return runner
+                .CompileAndRun(
+                    Directory
+                        .GetFiles(dir, "*.cs")
+                        .Select(f => f.Substring(workDir.Length))
+                        .ToArray());
         }
     }
 }

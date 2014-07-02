@@ -76,6 +76,8 @@ namespace Braille.TestRunner.Models
             Debug.Assert(clrProgramOutputName != null);
             Debug.Assert(csProgramFile != null);
 
+            string jsOutput = null, exeOutput = null;
+
             var success = true;
 
             if (errors.Any())
@@ -93,10 +95,10 @@ namespace Braille.TestRunner.Models
             }
 
             int exeExitCode;
-            var exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
+            exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
 
             int jsExitCode;
-            var jsOutput = ExecuteJs(brlProgramOutputName, entryPoint, out jsExitCode, errors);
+            jsOutput = ExecuteJs(brlProgramOutputName, entryPoint, out jsExitCode, errors);
 
             if (errors.Any())
             {
@@ -113,7 +115,8 @@ namespace Braille.TestRunner.Models
             if (exeOutput != jsOutput)
             {
                 success = false;
-                errors.Add(string.Format("ERROR: Outputs not equal\nCLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput));
+                //errors.Add(string.Format("ERROR: Outputs not equal\nCLR:\n{0}\nJS:\n{1}", exeOutput, jsOutput));
+                errors.Add("ERROR: Outputs not equal");
             }
 
         DONE:
@@ -121,7 +124,9 @@ namespace Braille.TestRunner.Models
             {
                 File = csProgramFile.Substring(workingDir.Length),
                 Errors = errors,
-                TestSuccess = success
+                TestSuccess = success,
+                JsOutput = !success ? jsOutput : "",
+                ClrOutput = !success ? exeOutput : ""
             };
         }
 

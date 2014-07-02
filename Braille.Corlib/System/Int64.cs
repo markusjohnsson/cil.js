@@ -27,12 +27,20 @@ namespace System
 
         [JsAssemblyStatic(Name = "XInt64_Addition")]
         [JsImport(@"
-            function XInt64_Add(lhs, rhs) 
+            function XInt64_Addition(lhs, rhs) 
             {
-                var low = (lhs[0] + rhs[0]) | 0;
-                var ovfl = (low & 0xff00000000) >> 32;
-                var hi = (ovfl + lhs[1] + rhs[1]) | 0;
-                return new Uint32Array([lo, hi]);
+                var x = new Uint16Array(lhs.buffer);
+                var y = new Uint16Array(rhs.buffer);                
+
+                var a = x[0] + y[0];
+                var o1 = (a & 0xff0000) >> 16;
+                var b = o1 + x[1] + y[1];
+                var o2 = (b & 0xff0000) >> 16;
+                var c = o2 + x[2] + y[2];
+                var o3 = (c & 0xff0000) >> 16;
+                var d = o3 + x[3] + y[3];
+
+                return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             }")]
         public extern static long operator +(long lhs, long rhs);
 
@@ -46,13 +54,13 @@ namespace System
                 var lo = (lhs[0] - rhs[0]) | 0;
                 var df = 0;
                 if (lo < 0) {
-                    lo = 0x1000000 + l;
+                    lo = 0x100000000 + lo;
                     df = -1;
                 }
                 
                 var hi = (df + ((lhs[1] - rhs[1]) | 0)) | 0;
                 if (hi < 0) {
-                    hi = 0x10000 + hi;
+                    hi = 0x100000000 + hi;
                 }
                 
                 return new Uint32Array([lo, hi]);
@@ -103,8 +111,8 @@ namespace System
 
                 var maxShift = 8;
                 if (n > 8) {
-                    return asm0.int64_ShiftLeft(
-                        asm0.int64_ShiftLeft(a, maxShift), 
+                    return asm0.XInt64_LeftShift(
+                        asm0.XInt64_LeftShift(a, maxShift), 
                         n - maxShift);
                 }
           

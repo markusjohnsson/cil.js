@@ -39,12 +39,12 @@
             testHasSucceeded: ko.observable(false),
             testHasFailed: ko.observable(false),
             testRunning: ko.observable(false),
-            errors: ko.observable([])
+            errors: ko.observable([]),
+            jsOutput: ko.observable(""),
+            clrOutput: ko.observable("")
         };
 
         function runScript() {
-
-            ko.applyBindings(item);
 
             braille_test_log_clear();
             var result = "exitCode: " + asm1.entryPoint(); // do not remove "result" local.
@@ -72,13 +72,17 @@
                     else {
                         item.testHasFailed(true);
                         item.errors(result.data.Errors);
+                        item.jsOutput(result.data.JsOutput);
+                        item.clrOutput(result.data.ClrOutput);
                     }
 
                     item.testRunning(false);
                 });
         }
 
-        window.onload = runScript;
+        window.onload = function () {
+            ko.applyBindings(item);
+        }
     </script>
 
     <script src="@Model.ScriptPath" type="text/javascript">
@@ -108,6 +112,14 @@
             <tr>
                 <td colspan="4" data-bind="visible: errors().length > 0">
                     <pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre>
+                </td>
+            </tr>
+            <tr  data-bind="visible: errors().length > 0">
+                <td colspan="2">
+                    <pre data-bind="text: jsOutput"></pre>
+                </td>
+                <td colspan="2">
+                    <pre data-bind="text: clrOutput"></pre>
                 </td>
             </tr>
         </table>

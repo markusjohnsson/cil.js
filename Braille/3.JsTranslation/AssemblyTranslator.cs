@@ -142,8 +142,8 @@ namespace Braille.JsTranslation
 
     function make_uint64(n) {
         if (n < 0) {
-            var t = asm0['System.InvalidOperationException']();
-            throw new t();
+            "/* treat as signed 32 bit int that need to be converted to unsigned before conversion */ + @"
+            n = 0x100000000 + n;
         }
 
         var bits32 = 0xffffffff;

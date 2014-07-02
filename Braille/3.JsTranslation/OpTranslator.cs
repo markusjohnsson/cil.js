@@ -362,7 +362,7 @@ namespace Braille.JsTranslation
                     if (node.ResultType == context.SystemTypes.UInt64)
                     {
                         return JSFactory.Call(
-                            JSFactory.Identifier("asm0", "UInt64_Addition"),
+                            JSFactory.Identifier("asm0", "XInt64_Addition"),
                             ProcessInternal(node.Arguments.First()),
                             ProcessInternal(node.Arguments.Last()));
                     }
@@ -566,7 +566,7 @@ namespace Braille.JsTranslation
                     {
                         if (IsUInt64Operation(node))
                         {
-                            return CreateXInt64BinaryOperation(node, "XInt64_GreaterThan");
+                            return CreateXInt64BinaryOperation(node, "UInt64_GreaterThan");
                         }
                         else
                         {
@@ -586,7 +586,7 @@ namespace Braille.JsTranslation
                 case "clt":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Equality");
+                        return CreateXInt64BinaryOperation(node, "UInt64_LessThan");
                     }
                     else
                     {
@@ -744,8 +744,8 @@ namespace Braille.JsTranslation
                             value = long.Parse(opc.Substring("ldc.i8.".Length));
 
                         var uvalue = (ulong)value;
-                        var low = JSFactory.Hex((uint)((uvalue & 0xffffffff00000000) >> 32));
-                        var high = JSFactory.Hex((uint)(uvalue & 0xffffffff));
+                        var high = JSFactory.Hex((uint)((uvalue & 0xffffffff00000000UL) >> 32));
+                        var low = JSFactory.Hex((uint)(uvalue & 0xffffffffUL));
 
                         return MakeLongValue(low, high);
                     }
@@ -766,7 +766,7 @@ namespace Braille.JsTranslation
                             {
                                 Value = -1L
                             };
-                        else //if (opc.StartsWith("ldc.i8"))
+                        else //if (opc.StartsWith("ldc.r8"))
                             return new JSNumberLiteral
                             {
                                 Value = double.Parse(opc.Substring("ldc.r8.".Length))
@@ -789,7 +789,7 @@ namespace Braille.JsTranslation
                             {
                                 Value = -1L
                             };
-                        else //if (opc.StartsWith("ldc.i8"))
+                        else //if (opc.StartsWith("ldc.r4"))
                             return new JSNumberLiteral
                             {
                                 Value = float.Parse(opc.Substring("ldc.r4.".Length))
@@ -984,7 +984,7 @@ namespace Braille.JsTranslation
                 case "mul":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "UInt64_Multiplication");
+                        return CreateXInt64BinaryOperation(node, "XInt64_Multiplication");
                     }
                     else
                     {
@@ -1019,7 +1019,7 @@ namespace Braille.JsTranslation
                 case "or":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "UInt64_BitwiseOr");
+                        return CreateXInt64BinaryOperation(node, "XInt64_BitwiseOr");
                     }
                     else
                     {
@@ -1034,12 +1034,19 @@ namespace Braille.JsTranslation
                     return new JSEmptyExpression();
                 case "rem":
                 case "rem.un":
-                    return new JSBinaryExpression
+                    if (IsUInt64Operation(node))
                     {
-                        Left = ProcessInternal(node.Arguments.First()),
-                        Right = ProcessInternal(node.Arguments.Last()),
-                        Operator = "%"
-                    };
+                        return CreateXInt64BinaryOperation(node, "UInt64_Modulus");
+                    }
+                    else
+                    {
+                        return new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(node.Arguments.First()),
+                            Right = ProcessInternal(node.Arguments.Last()),
+                            Operator = "%"
+                        };
+                    }
                 case "ret":
                     return new JSReturnExpression
                     {
