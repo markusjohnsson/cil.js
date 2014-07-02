@@ -32,13 +32,13 @@ namespace System
                 var x = new Uint16Array(lhs.buffer);
                 var y = new Uint16Array(rhs.buffer);                
 
-                var a = x[0] + y[0];
+                var a = (x[0] + y[0]) | 0;
                 var o1 = (a & 0xff0000) >> 16;
-                var b = o1 + x[1] + y[1];
+                var b = (o1 + x[1] + y[1]) | 0;
                 var o2 = (b & 0xff0000) >> 16;
-                var c = o2 + x[2] + y[2];
+                var c = (o2 + x[2] + y[2]) | 0;
                 var o3 = (c & 0xff0000) >> 16;
-                var d = o3 + x[3] + y[3];
+                var d = (o3 + x[3] + y[3]) | 0;
 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             }")]
