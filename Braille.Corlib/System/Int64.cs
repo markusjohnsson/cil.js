@@ -46,24 +46,30 @@ namespace System
 
         [JsAssemblyStatic(Name = "XInt64_Subtraction")]
         [JsImport(@"
-            function XInt64_Sub(lhs, rhs) 
+            function XInt64_Subtraction(lhs, rhs) 
             {
                 if (lhs[0] >= rhs[0] && rhs[1] == 0)
                     return new Uint32Array([lhs[0]-rhs[0], lhs[1]]);
 
-                var lo = (lhs[0] - rhs[0]) | 0;
-                var df = 0;
-                if (lo < 0) {
-                    lo = 0x100000000 + lo;
-                    df = -1;
-                }
+                var x = new Uint16Array(lhs.buffer);
+                var y = new Uint16Array(rhs.buffer);                
+
+                var a = (x[0] - y[0]) | 0;
+                var u = 0;
+                if (a < 0) { a = 0x10000 + a; u = -1; }
+
+                var b = (u + ((x[1] - y[1]) | 0)) | 0;
+                u = 0;
+                if (b < 0) { b = 0x10000 + b; u = -1; }
+
+                var c = (u + ((x[2] - y[2]) | 0)) | 0;
+                u = 0;
+                if (c < 0) { c = 0x10000 + c; u = -1; }
+
+                var d = (u + ((x[3] - y[3]) | 0)) | 0;
+                if (d < 0) { d = 0x10000 + d; }
                 
-                var hi = (df + ((lhs[1] - rhs[1]) | 0)) | 0;
-                if (hi < 0) {
-                    hi = 0x100000000 + hi;
-                }
-                
-                return new Uint32Array([lo, hi]);
+                return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             }")]
         public extern static long operator -(long lhs, long rhs);
 
