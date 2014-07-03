@@ -39,29 +39,31 @@ namespace Braille
             foreach (var asm in assemblies)
                 loader.AddAssembly(asm);
 
-            var ctx = loader.Load();
-            var asms = ctx.Assemblies;
-
-            File.Delete(OutputFileName);
-
-            var staticAnalyzer = new StaticAnalyzer();
-            staticAnalyzer.Analyze(ctx);
-
-            var translator = new AssemblyTranslator(ctx);
-            
-            foreach (var asm in asms)
+            using (var ctx = loader.Load())
             {
-                var asmExpression = translator.Translate(asms, asm);
-                File.AppendAllText(OutputFileName, 
-                    "var " + asm.Identifier + "; (" + 
-                        asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));" + Environment.NewLine);
+                var asms = ctx.Assemblies;
+
+                File.Delete(OutputFileName);
+
+                var staticAnalyzer = new StaticAnalyzer();
+                staticAnalyzer.Analyze(ctx);
+
+                var translator = new AssemblyTranslator(ctx);
+
+                foreach (var asm in asms)
+                {
+                    var asmExpression = translator.Translate(asms, asm);
+                    File.AppendAllText(OutputFileName,
+                        "var " + asm.Identifier + "; (" +
+                            asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));" + Environment.NewLine);
+                }
+
+                return new CompileResult
+                {
+                    OutputFileName = OutputFileName,
+                    EntryPointAssembly = ctx.Assemblies.Where(a => a.EntryPoint != null).Select(a => a.Identifier).FirstOrDefault()
+                };
             }
-
-            return new CompileResult
-            {
-                OutputFileName = OutputFileName,
-                EntryPointAssembly = ctx.Assemblies.Where(a => a.EntryPoint != null).Select(a => a.Identifier).FirstOrDefault()
-            };
         }
     }
 }

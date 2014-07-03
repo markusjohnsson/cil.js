@@ -106,8 +106,8 @@ var asm0; (function (asm)
 
     function make_uint64(n) {
         if (n < 0) {
-            var t = asm0['System.InvalidOperationException']();
-            throw new t();
+            
+            n = 0x100000000 + n;
         }
 
         var bits32 = 0xffffffff;
@@ -2858,7 +2858,6 @@ var asm0; (function (asm)
         var st_11;
         var st_12;
         var st_13;
-        var st_14;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -2901,129 +2900,132 @@ var asm0; (function (asm)
                 st_07 = (st_05 % st_06);
                 /* IL_12: stloc.3 */
                 loc3 = st_07;
-                /* IL_13: ldarg.0 */
-                st_08 = arg0;
-                /* IL_14: ldloca.s 0*/
-                st_09 = {
-                    'w': function ()
-                    {
-                        loc0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc0;
-                    }
-                };
-                /* IL_16: call String GetLowString(System.Int64&)*/
-                st_0A = st_08[0].toString();
-                /* IL_1B: stloc.2 */
-                loc2 = st_0A;
-                /* IL_1C: ldloc.0 */
-                st_0B = loc0;
-                /* IL_1D: ldloc.1 */
-                st_0C = loc1;
-                /* IL_1E: div */
-                st_0D = ((st_0B / st_0C) | 0);
-                /* IL_1F: stloc.0 */
-                loc0 = st_0D;
-                /* IL_20: nop */
+                /* IL_13: ldloc.0 */
+                st_08 = loc0;
+                /* IL_14: call String GetLowString(System.Int64)*/
+                st_09 = st_08[0].toString();
+                /* IL_19: stloc.2 */
+                loc2 = st_09;
+                /* IL_1A: ldloc.0 */
+                st_0A = loc0;
+                /* IL_1B: ldloc.1 */
+                st_0B = loc1;
+                /* IL_1C: div */
+                st_0C = ((st_0A / st_0B) | 0);
+                /* IL_1D: stloc.0 */
+                loc0 = st_0C;
+                /* IL_1E: nop */
                 
-                /* IL_21: ldloc.0 */
-                st_0F = loc0;
-                /* IL_22: ldc.i4.0 */
-                st_0E = 0;
-                /* IL_23: conv.i8 */
-                st_10 = make_uint64(st_0E);
-                /* IL_25: cgt */
-                st_11 = (st_0F > st_10) ? (1) : (0);
-                /* IL_26: stloc.s 5*/
-                loc5 = st_11;
-                /* IL_28: ldloc.s 5*/
-                st_12 = loc5;
-                /* IL_2A: brtrue.s IL_0E*/
+                /* IL_1F: ldloc.0 */
+                st_0E = loc0;
+                /* IL_20: ldc.i4.0 */
+                st_0D = 0;
+                /* IL_21: conv.i8 */
+                st_0F = make_uint64(st_0D);
+                /* IL_23: cgt */
+                st_10 = (st_0E > st_0F) ? (1) : (0);
+                /* IL_24: stloc.s 5*/
+                loc5 = st_10;
+                /* IL_26: ldloc.s 5*/
+                st_11 = loc5;
+                /* IL_28: brtrue.s IL_0E*/
                 
-                if (st_12){
+                if (st_11){
                     __pos_0__ = 0xE;
                     continue;
                 }
-                /* IL_2C: ldloc.2 */
-                st_13 = loc2;
-                /* IL_2D: stloc.s 4*/
-                loc4 = st_13;
-                /* IL_31: ldloc.s 4*/
-                st_14 = loc4;
-                /* IL_33: ret */
-                return st_14;
+                /* IL_2A: ldloc.2 */
+                st_12 = loc2;
+                /* IL_2B: stloc.s 4*/
+                loc4 = st_12;
+                /* IL_2F: ldloc.s 4*/
+                st_13 = loc4;
+                /* IL_31: ret */
+                return st_13;
             }
         }
     };;
     asm.x6000061 = 
-            function XInt64_Add(lhs, rhs) 
+            function XInt64_Addition(lhs, rhs) 
             {
-                var low = (lhs[0] + rhs[0]) | 0;
-                var ovfl = (low & 0xff00000000) >> 32;
-                var hi = (ovfl + lhs[1] + rhs[1]) | 0;
-                return new Uint32Array([lo, hi]);
+                var x = new Uint16Array(lhs.buffer);
+                var y = new Uint16Array(rhs.buffer);                
+
+                var a = (x[0] + y[0]) | 0;
+                var o1 = (a & 0xff0000) >> 16;
+                var b = (o1 + x[1] + y[1]) | 0;
+                var o2 = (b & 0xff0000) >> 16;
+                var c = (o2 + x[2] + y[2]) | 0;
+                var o3 = (c & 0xff0000) >> 16;
+                var d = (o3 + x[3] + y[3]) | 0;
+
+                return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-    asm.op_Addition = asm.x6000061;
+    asm.XInt64_Addition = asm.x6000061;
     asm.x6000062 = 
-            function XInt64_Sub(lhs, rhs) 
+            function XInt64_Subtraction(lhs, rhs) 
             {
                 if (lhs[0] >= rhs[0] && rhs[1] == 0)
                     return new Uint32Array([lhs[0]-rhs[0], lhs[1]]);
 
-                var lo = (lhs[0] - rhs[0]) | 0;
-                var df = 0;
-                if (lo < 0) {
-                    lo = 0x1000000 + l;
-                    df = -1;
-                }
+                var x = new Uint16Array(lhs.buffer);
+                var y = new Uint16Array(rhs.buffer);                
+
+                var a = (x[0] - y[0]) | 0;
+                var u = 0;
+                if (a < 0) { a = 0x10000 + a; u = -1; }
+
+                var b = (u + ((x[1] - y[1]) | 0)) | 0;
+                u = 0;
+                if (b < 0) { b = 0x10000 + b; u = -1; }
+
+                var c = (u + ((x[2] - y[2]) | 0)) | 0;
+                u = 0;
+                if (c < 0) { c = 0x10000 + c; u = -1; }
+
+                var d = (u + ((x[3] - y[3]) | 0)) | 0;
+                if (d < 0) { d = 0x10000 + d; }
                 
-                var hi = (df + ((lhs[1] - rhs[1]) | 0)) | 0;
-                if (hi < 0) {
-                    hi = 0x10000 + hi;
-                }
-                
-                return new Uint32Array([lo, hi]);
+                return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-    asm.op_Subtraction = asm.x6000062;
+    asm.XInt64_Subtraction = asm.x6000062;
     asm.x6000063 = 
             function XInt64_BitwiseOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] | rhs[0], lhs[1] | rhs[1]]);
             }
             ;;
-    asm.op_BitwiseOr = asm.x6000063;
+    asm.XInt64_BitwiseOr = asm.x6000063;
     asm.x6000064 = 
             function XInt64_BitwiseAnd(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] & rhs[0], lhs[1] & rhs[1]]);
             }
             ;;
-    asm.op_BitwiseAnd = asm.x6000064;
+    asm.XInt64_BitwiseAnd = asm.x6000064;
     asm.x6000065 = 
             function XInt64_ExclusiveOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] ^ rhs[0], lhs[1] ^ rhs[1]]);
             }
             ;;
-    asm.op_ExclusiveOr = asm.x6000065;
+    asm.XInt64_ExclusiveOr = asm.x6000065;
     asm.x6000066 = 
             function XInt64_OnesComplement(a)
             {
                 return new Uint32Array([~a[0], ~a[1]]);
             }
             ;;
-    asm.op_OnesComplement = asm.x6000066;
+    asm.XInt64_OnesComplement = asm.x6000066;
     asm.x6000067 = 
-            function XInt64_ShiftLeft(a, n)
+            function XInt64_LeftShift(a, n)
             {
                 n = n & 0x3f;
 
                 var maxShift = 8;
                 if (n > 8) {
-                    return asm0.int64_ShiftLeft(
-                        asm0.int64_ShiftLeft(a, maxShift), 
+                    return asm0.XInt64_LeftShift(
+                        asm0.XInt64_LeftShift(a, maxShift), 
                         n - maxShift);
                 }
           
@@ -3037,21 +3039,21 @@ var asm0; (function (asm)
                 return new Uint32Array([ba, bb]);
             }
             ;;
-    asm.op_LeftShift = asm.x6000067;
+    asm.XInt64_LeftShift = asm.x6000067;
     asm.x6000068 = 
             function XInt64_Equality(lhs, rhs)
             {
                 return lhs[0] === rhs[0] && lhs[1] === rhs[1];
             }
             ;;
-    asm.op_Equality = asm.x6000068;
+    asm.XInt64_Equality = asm.x6000068;
     asm.x6000069 = 
             function XInt64_Inequality(lhs, rhs)
             {
                 return lhs[0] !== rhs[0] && lhs[1] !== rhs[1];
             }
             ;;
-    asm.op_Inequality = asm.x6000069;
+    asm.XInt64_Inequality = asm.x6000069;
     asm.x600006a = function op_Decrement(arg0)
     {
         var st_00;
@@ -3076,7 +3078,7 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return st_04;
     };;
-    asm.op_Decrement = asm.x600006a;
+    asm.XInt64_Decrement = asm.x600006a;
     asm.x600006b = function op_Increment(arg0)
     {
         var st_00;
@@ -3101,7 +3103,7 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return st_04;
     };;
-    asm.op_Increment = asm.x600006b;
+    asm.XInt64_Increment = asm.x600006b;
     asm.x600006c = 
             function Int64_RightShift(lhs, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
@@ -3124,7 +3126,7 @@ var asm0; (function (asm)
                 }
                 return result2;
             };;
-    asm.op_RightShift = asm.x600006c;
+    asm.Int64_RightShift = asm.x600006c;
     asm.x6000077 = function _ctor(arg0)
     {
         var st_00;
@@ -4942,6 +4944,7 @@ var asm0; (function (asm)
         var st_12;
         var st_13;
         var st_14;
+        var st_15;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -4981,62 +4984,55 @@ var asm0; (function (asm)
                 /* IL_10: ldloc.1 */
                 st_06 = loc1;
                 /* IL_11: rem.un */
-                st_07 = (st_05 % st_06);
+                st_07 = (asm0.UInt64_Modulus)(st_05,st_06);
                 /* IL_12: stloc.3 */
                 loc3 = st_07;
-                /* IL_13: ldarg.0 */
-                st_08 = arg0;
-                /* IL_14: ldloca.s 0*/
-                st_09 = {
-                    'w': function ()
-                    {
-                        loc0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc0;
-                    }
-                };
-                /* IL_16: call String GetLowString(System.UInt64&)*/
-                st_0A = st_08[0].toString();
-                /* IL_1B: stloc.2 */
-                loc2 = st_0A;
-                /* IL_1C: ldloc.0 */
-                st_0B = loc0;
-                /* IL_1D: ldloc.1 */
-                st_0C = loc1;
-                /* IL_1E: div.un */
-                st_0D = ((st_0B / st_0C) | 0);
-                /* IL_1F: stloc.0 */
-                loc0 = st_0D;
-                /* IL_20: nop */
+                /* IL_13: ldloc.3 */
+                st_08 = loc3;
+                /* IL_14: call String GetLowString(System.UInt64)*/
+                st_09 = new_string(st_08[0].toString());
+                /* IL_19: ldloc.2 */
+                st_0A = loc2;
+                /* IL_1A: call String Concat(System.String, System.String)*/
+                st_0B = (asm0.x60000a5)(st_09,st_0A);
+                /* IL_1F: stloc.2 */
+                loc2 = st_0B;
+                /* IL_20: ldloc.0 */
+                st_0C = loc0;
+                /* IL_21: ldloc.1 */
+                st_0D = loc1;
+                /* IL_22: div.un */
+                st_0E = (asm0.UInt64_Division)(st_0C,st_0D);
+                /* IL_23: stloc.0 */
+                loc0 = st_0E;
+                /* IL_24: nop */
                 
-                /* IL_21: ldloc.0 */
-                st_0F = loc0;
-                /* IL_22: ldc.i4.0 */
-                st_0E = 0;
-                /* IL_23: conv.i8 */
-                st_10 = make_uint64(st_0E);
-                /* IL_25: cgt.un */
-                st_11 = (st_0F > st_10) ? (1) : (0);
-                /* IL_26: stloc.s 5*/
-                loc5 = st_11;
-                /* IL_28: ldloc.s 5*/
-                st_12 = loc5;
-                /* IL_2A: brtrue.s IL_0E*/
+                /* IL_25: ldloc.0 */
+                st_10 = loc0;
+                /* IL_26: ldc.i4.0 */
+                st_0F = 0;
+                /* IL_27: conv.i8 */
+                st_11 = make_uint64(st_0F);
+                /* IL_29: cgt.un */
+                st_12 = (asm0.UInt64_GreaterThan)(st_10,st_11);
+                /* IL_2A: stloc.s 5*/
+                loc5 = st_12;
+                /* IL_2C: ldloc.s 5*/
+                st_13 = loc5;
+                /* IL_2E: brtrue.s IL_0E*/
                 
-                if (st_12){
+                if (st_13){
                     __pos_0__ = 0xE;
                     continue;
                 }
-                /* IL_2C: ldloc.2 */
-                st_13 = loc2;
-                /* IL_2D: stloc.s 4*/
-                loc4 = st_13;
-                /* IL_31: ldloc.s 4*/
-                st_14 = loc4;
-                /* IL_33: ret */
-                return st_14;
+                /* IL_30: ldloc.2 */
+                st_14 = loc2;
+                /* IL_31: stloc.s 4*/
+                loc4 = st_14;
+                /* IL_35: ldloc.s 4*/
+                st_15 = loc4;
+                /* IL_37: ret */
+                return st_15;
             }
         }
     };;
@@ -5057,7 +5053,7 @@ var asm0; (function (asm)
 
                 return new Uint32Array([ at | br, bt ]);
             };;
-    asm.op_RightShift = asm.x60000bb;
+    asm.UInt64_RightShift = asm.x60000bb;
     asm.x60000bc = 
             function UInt64_Division(n, d) {
 
@@ -5083,18 +5079,124 @@ var asm0; (function (asm)
 
                 return q;    
             };;
-    asm.op_Division = asm.x60000bc;
-    asm.x60000bd_init = function ()
+    asm.UInt64_Division = asm.x60000bc;
+    asm.x60000bd = 
+            function XInt64_GreaterThan(a, b) {
+                if (a[0] == 0 && a[1] == 0)
+                    return a;
+
+                if (b[0] == 0 && b[1] == 0)
+                    return b;
+
+                if (asm0.UInt64_GreaterThan(a, b))
+                    return asm0.XInt64_Multiplication(b, a);
+
+                var s = new Uint32Array([0, 0]);
+
+                if (a[0] & 1 == 1) {
+                    s[0] = b[0];
+                    s[1] = b[1];
+                }
+
+                var l = new Uint32Array([1, 0]);
+
+                while (!asm0.XUint64_Equality(a, l)) {
+                    a = asm0.XInt64_RightShift(a, 1);
+                    b = asm0.XInt64_LeftShift(b, 1);
+
+                    if (a[0] & 1 == 1)
+                        s = asm0.Xint64_Addition(b, s);
+                }
+
+                return s;
+            };;
+    asm.XInt64_Multiplication = asm.x60000bd;
+    asm.x60000be = 
+            function UInt64_GreaterThanOrEqual (a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff > 0)
+                    return 1;
+
+                if (bdiff < 0)
+                    return 0;
+
+                return a[0] >= b[0];
+            };;
+    asm.UInt64_GreaterThanOrEqual = asm.x60000be;
+    asm.x60000bf = 
+            function UInt64_LessThanOrEqual (a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff < 0)
+                    return 1;
+
+                if (bdiff > 0)
+                    return 0;
+
+                return a[0] <= b[0];
+            };;
+    asm.UInt64_LessThanOrEqual = asm.x60000bf;
+    asm.x60000c0 = 
+            function UInt64_GreaterThanOrEqual (a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff > 0)
+                    return 1;
+
+                if (bdiff < 0)
+                    return 0;
+
+                return a[0] > b[0];
+            };;
+    asm.UInt64_GreaterThan = asm.x60000c0;
+    asm.x60000c1 = 
+            function UInt64_LesserThan(a, b) {
+                var bdiff = a[1] - b[1];
+                if (bdiff < 0)
+                    return 1;
+
+                if (bdiff > 0)
+                    return 0;
+
+                return a[0] < b[0];
+            };;
+    asm.UInt64_LessThan = asm.x60000c1;
+    asm.x60000c2 = 
+            function UInt64_Modulus (n, d) {
+                var greaterThanOrEqual = asm0.UInt64_GreaterThanOrEqual,
+                    subtraction = asm0.XInt64_Subtraction,
+                    leftShift = asm0.XInt64_LeftShift;
+
+                if (d[0] == 0 && d[1] == 0)
+                    throw new Error("System.DivideByZeroException");
+
+                var r = new Uint32Array([0, 0]);
+
+                for (var i = 63; i >= 0; i--) {
+                    r = leftShift(r, 1);
+
+                    var li = i < 32 ? 0 : 1;
+                    var s = (i - 32 * li);
+
+                    r[0] |= (n[li] & (1 << s)) >>> s;
+
+                    if (greaterThanOrEqual(r, d)) {
+                        r = subtraction(r, d);
+                    }
+                }
+
+                return r;
+            };;
+    asm.UInt64_Modulus = asm.x60000c2;
+    asm.x60000c3_init = function ()
     {
         (((asm0)["System.UIntPtr"])().init)();
-        asm.x60000bd = asm.x60000bd_;
+        asm.x60000c3 = asm.x60000c3_;
     };;
-    asm.x60000bd = function (arg0)
+    asm.x60000c3 = function (arg0)
     {
-        (asm.x60000bd_init.apply)(this,arguments);
-        return (asm.x60000bd.apply)(this,arguments);
+        (asm.x60000c3_init.apply)(this,arguments);
+        return (asm.x60000c3.apply)(this,arguments);
     };;
-    asm.x60000bd_ = function ToString(arg0)
+    asm.x60000c3_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -8511,7 +8613,7 @@ var asm0; (function (asm)
                 UIntPtr.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000bd;
+                        return asm0.x60000c3;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8693,8 +8795,8 @@ var asm1; (function (asm)
 
     function make_uint64(n) {
         if (n < 0) {
-            var t = asm0['System.InvalidOperationException']();
-            throw new t();
+            
+            n = 0x100000000 + n;
         }
 
         var bits32 = 0xffffffff;

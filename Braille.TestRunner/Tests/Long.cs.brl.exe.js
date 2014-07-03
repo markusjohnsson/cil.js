@@ -2997,7 +2997,7 @@ var asm0; (function (asm)
             ;;
     asm.XInt64_BitwiseOr = asm.x6000063;
     asm.x6000064 = 
-            function XInt64_BitwiseAnd(lhs, rhs)
+            function XInt64_BitwiseAnd(lhs, rhs) 
             {
                 return new Uint32Array([lhs[0] & rhs[0], lhs[1] & rhs[1]]);
             }

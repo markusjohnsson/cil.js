@@ -1,11 +1,12 @@
 ﻿using Braille.Ast;
 using IKVM.Reflection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Braille.Loading.Model
 {
-    class Context
+    class Context: IDisposable
     {
         public Universe ReflectionUniverse { get; private set; }
 
@@ -48,6 +49,11 @@ namespace Braille.Loading.Model
             var idx = new MethodId(Assemblies.Select(a => a.ReflectionAssembly).IndexOf(mb.DeclaringType.Assembly), mb);
 
             return methodLookup[idx];
+        }
+
+        public void Dispose()
+        {
+            ReflectionUniverse.Dispose();
         }
     }
 }

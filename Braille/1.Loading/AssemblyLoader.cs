@@ -18,7 +18,7 @@ namespace Braille.Loading
         public Context Load()
         {
             var universe = new Universe();
-
+            
             var asms = paths
                 .Select((p, i) => Process(universe, p, i))
                 .ToList();

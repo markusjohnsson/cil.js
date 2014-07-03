@@ -84,7 +84,7 @@ namespace System
 
         [JsAssemblyStatic(Name = "XInt64_BitwiseAnd")]
         [JsImport(@"
-            function XInt64_BitwiseAnd(lhs, rhs)
+            function XInt64_BitwiseAnd(lhs, rhs) 
             {
                 return new Uint32Array([lhs[0] & rhs[0], lhs[1] & rhs[1]]);
             }
