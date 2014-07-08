@@ -1,5 +1,6 @@
 using Braille.Ast;
 using Braille.JSAst;
+using Braille.JsTranslation.OpTranslators;
 using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
@@ -15,10 +16,10 @@ namespace Braille.JsTranslation
     /// </summary>
     class OpTranslator : AbstractTranslator
     {
-        private CilAssembly assembly;
-        private CilType type;
-        private CilMethod method;
-        private List<CilAssembly> world;
+        protected CilAssembly assembly;
+        protected CilType type;
+        protected CilMethod method;
+        protected List<CilAssembly> world;
 
         public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method)
             : base(context)
@@ -285,6 +286,24 @@ namespace Braille.JsTranslation
 
         }
 
+        protected JSExpression CreateXInt64BinaryOperation(OpExpression node, string functionName)
+        {
+            return JSFactory.Call(
+                JSFactory.Identifier("asm0", functionName),
+                ProcessInternal(node.Arguments.First()),
+                ProcessInternal(node.Arguments.Last()));
+        }
+
+        protected bool IsUInt64Operation(OpExpression frame)
+        {
+            return frame.Arguments.First().ResultType == context.SystemTypes.UInt64;
+        }
+
+        protected bool IsInt64Operation(OpExpression frame)
+        {
+            return frame.Arguments.First().ResultType == context.SystemTypes.Int64;
+        }
+
         private JSExpression WrapInStore(List<VariableInfo> storeTos, JSExpression computation)
         {
             var expression = computation;
@@ -335,7 +354,7 @@ namespace Braille.JsTranslation
             return 1 + i.Position + i.Size + data;
         }
 
-        private JSExpression ProcessInternal(Node innode)
+        protected JSExpression ProcessInternal(Node innode)
         {
             var varInfo = innode as VariableInfo;
 
@@ -359,46 +378,19 @@ namespace Braille.JsTranslation
             switch (opc_)
             {
                 case "add":
-                    if (node.ResultType == context.SystemTypes.UInt64 ||
-                        node.ResultType == context.SystemTypes.Int64)
-                    {
-                        return JSFactory.Call(
-                            JSFactory.Identifier("asm0", "XInt64_Addition"),
-                            ProcessInternal(node.Arguments.First()),
-                            ProcessInternal(node.Arguments.Last()));
-                    }
-                    else
-                    {
-                        var expr = new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "+"
-                        } as JSExpression;
-
-                        if (IsIntegerType(node.ResultType))
-                            expr = JSFactory.Truncate(expr);
-
-                        return expr;
-                    }
                 case "and":
-                    if (node.ResultType == context.SystemTypes.UInt64 ||
-                        node.ResultType == context.SystemTypes.Int64)
-                    {
-                        return JSFactory.Call(
-                            JSFactory.Identifier("asm0", "XInt64_BitwiseAnd"),
-                            ProcessInternal(node.Arguments.First()),
-                            ProcessInternal(node.Arguments.Last()));
-                    }
-                    else
-                    {
-                        return new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "&"
-                        };
-                    }
+                case "div":
+                case "div.un":
+                case "mul":
+                case "neg":
+                case "or":
+                case "rem":
+                case "rem.un":
+                case "shr":
+                case "shr.un":
+                case "sub":
+                    return new ArithmeticTranslator(context, assembly, type, method).Translate(node);
+
                 case "box":
                     {
                         var d = (Type)node.Instruction.Data;
@@ -619,56 +611,7 @@ namespace Braille.JsTranslation
                     }
                 case "conv":
                     {
-                        var expr = ProcessInternal(node.Arguments.Single());
-                        
-                        if (opc == "conv.u8") 
-                        {
-                            return JSFactory.Call(JSFactory.Identifier("conv_u8"), expr);
-                        }
-
-                        if (opc == "conv.i8")
-                        {
-                            return JSFactory.Call(JSFactory.Identifier("conv_i8"), expr); 
-                        }
-
-                        if (node.ResultType == context.SystemTypes.Int64 ||
-                            node.ResultType == context.SystemTypes.UInt64)
-                        {
-                            throw new NotSupportedException(opc);
-                        }
-
-                        if (IsIntegerType(node.ResultType))
-                            return JSFactory.Truncate(expr);
-                        else
-                            return expr;
-                    }
-                case "div":
-                case "div.un":
-                    if (IsUInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "UInt64_Division");
-                    }
-                    else if (IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "Int64_Division");
-                    }
-                    else
-                    {
-                        var divExpression =
-                            new JSBinaryExpression
-                            {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
-                                Operator = "/"
-                            };
-                        if (IsIntegerType(node.ResultType))
-                        {
-                            return JSFactory.Truncate(divExpression);
-                        }
-                        else
-                        {
-                            return divExpression;
-                        }
+                        return new ConversionTranslator(context, assembly, type, method).Translate(node);
                     }
                 case "dup":
                     return ProcessInternal(node.Arguments.Single());
@@ -1023,35 +966,6 @@ namespace Braille.JsTranslation
                             }
                         };
                     }
-                case "mul":
-                    if (IsUInt64Operation(node) || IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Multiplication");
-                    }
-                    else
-                    {
-                        return new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "*"
-                        };
-                    }
-                case "neg":
-                    if (node.ResultType == context.SystemTypes.Int64)
-                    {
-                        return JSFactory.Call(
-                            JSFactory.Identifier("asm0", "Int64_UnaryNegation"),
-                            ProcessInternal(node.Arguments.First()));
-                    }
-                    else
-                    {
-                        return new JSUnaryExpression
-                        {
-                            Operator = "-",
-                            Operand = ProcessInternal(node.Arguments.Single())
-                        };
-                    }
                 case "newarr":
                     var length = ProcessInternal(node.Arguments.First());
                     var elementType = (Type)node.Instruction.Data;
@@ -1067,84 +981,12 @@ namespace Braille.JsTranslation
                     };
                 case "nop":
                     return new JSEmptyExpression();
-                case "or":
-                    if (IsUInt64Operation(node) || IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "XInt64_BitwiseOr");
-                    }
-                    else
-                    {
-                        return new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "|"
-                        };
-                    }
                 case "pop": // todo: remove in stack removal pass
                     return new JSEmptyExpression();
-                case "rem":
-                case "rem.un":
-                    if (IsUInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "UInt64_Modulus");
-                    }
-                    else if (IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "Int64_Modulus");
-                    }
-                    else
-                    {
-                        return new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "%"
-                        };
-                    }
                 case "ret":
                     return new JSReturnExpression
                     {
                         Expression = ProcessInternal(node.Arguments.SingleOrDefault())
-                    };
-                case "shl":
-                    if (IsUInt64Operation(node) || IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "XInt64_LeftShift");
-                    }
-                    else
-                    {
-                        return new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "<<"
-                        };
-                    }
-                case "shr":
-                    if (IsUInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "UInt64_RightShift");
-                    }
-                    else if (IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "Int64_RightShift");
-                    }
-                    else
-                    {
-                        return new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = ">>"
-                        };
-                    }
-                case "shr.un":
-                    return new JSBinaryExpression
-                    {
-                        Left = ProcessInternal(node.Arguments.First()),
-                        Right = ProcessInternal(node.Arguments.Last()),
-                        Operator = ">>>"
                     };
                 case "stelem":
                     return JSFactory
@@ -1225,25 +1067,6 @@ namespace Braille.JsTranslation
                                 },
                                 ProcessInternal(node.Arguments.Last()));
                     }
-                case "sub":
-                    if (IsUInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Subtraction");
-                    }
-                    else
-                    {
-                        var expr = new JSBinaryExpression
-                        {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
-                            Operator = "-"
-                        } as JSExpression;
-
-                        if (IsIntegerType(node.ResultType))
-                            expr = JSFactory.Truncate(expr);
-
-                        return expr;
-                    }
                 case "throw":
                     return new JSThrowExpression
                     {
@@ -1276,24 +1099,6 @@ namespace Braille.JsTranslation
             }
         }
 
-        private JSExpression CreateXInt64BinaryOperation(OpExpression node, string functionName)
-        {
-            return JSFactory.Call(
-                JSFactory.Identifier("asm0", functionName),
-                ProcessInternal(node.Arguments.First()),
-                ProcessInternal(node.Arguments.Last()));
-        }
-
-        private bool IsUInt64Operation(OpExpression frame)
-        {
-            return frame.Arguments.First().ResultType == context.SystemTypes.UInt64;
-        }
-
-        private bool IsInt64Operation(OpExpression frame)
-        {
-            return frame.Arguments.First().ResultType == context.SystemTypes.Int64;
-        }
-
         private static JSExpression MakeLongValue(JSExpression low, JSExpression high)
         {
             return new JSNewExpression
@@ -1306,7 +1111,7 @@ namespace Braille.JsTranslation
             };
         }
 
-        private bool IsIntegerType(Type type)
+        protected bool IsIntegerType(Type type)
         {
             return
                 type.IsPrimitive &&
