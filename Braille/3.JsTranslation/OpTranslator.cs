@@ -172,38 +172,6 @@ namespace Braille.JsTranslation
                         .ToStatement();
                     yield return new JSBreakExpression().ToStatement();
                     break;
-                case "newobj":
-                    {
-                        //
-                        // TODO: this should be a single expression, not multiple
-                        //
-
-                        var ctor = (ConstructorInfo)node.Instruction.Data;
-                        var argList = ProcessList(node.Arguments);
-
-                        yield return JSFactory
-                            .Statement(
-                                WrapInStore(node.StoreLocations,
-                                new JSNewExpression
-                                {
-                                    Constructor = GetTypeAccessor(ctor.DeclaringType, thisScope)
-                                }));
-
-                        yield return JSFactory
-                            .Statement(
-                                new JSCallExpression
-                                {
-                                    Function = GetMethodAccessor(ctor, this.method.ReflectionMethod),
-                                    Arguments = argList
-                                        .StartWith(
-                                            ctor.DeclaringType.IsValueType ?
-                                                WrapInReaderWriter(JSFactory.Identifier(node.StoreLocations.First().Name)) :
-                                                JSFactory.Identifier(node.StoreLocations.First().Name))
-                                        .ToList()
-                                });
-
-                        break;
-                    }
                 case "switch":
 
                     yield return new JSExpressionStatement
@@ -902,6 +870,19 @@ namespace Braille.JsTranslation
                             length
                         }
                     };
+                case "newobj":
+                    {
+                        var ctor = (ConstructorInfo)node.Instruction.Data;
+                        var argList = ProcessList(node.Arguments).StartWith(new JSNullLiteral()); // leave room for "this"
+                        
+                        var newobj = JSFactory.Call(
+                            JSFactory.Identifier("newobj"),
+                            GetTypeAccessor(ctor.DeclaringType, thisScope),
+                            GetMethodAccessor(ctor, this.method.ReflectionMethod),
+                            JSFactory.Array(argList.ToArray()));
+
+                        return newobj;
+                    }
                 case "nop":
                     return new JSEmptyExpression();
                 case "pop": // todo: remove in stack removal pass

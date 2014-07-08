@@ -95,6 +95,22 @@ var asm0; (function (asm)
         return r;
     }
 
+    function newobj(type, ctor, args) {
+        var result = new type();
+        
+        if (type.IsValueType)
+            args[0] = { 
+                w: function(a) { result = a; }, 
+                r: function() { return result; } 
+            };
+        else
+            args[0] = result;
+        
+        ctor.apply(null, args);
+        
+        return result;
+    }
+
     function cast_class(obj, type) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null))
             return obj;
@@ -820,8 +836,7 @@ var asm0; (function (asm)
                 /* IL_41: ldstr Incompatible delegate types*/
                 st_1B = new_string("Incompatible delegate types");
                 /* IL_46: newobj Void .ctor(System.String)*/
-                st_1C = new t0();
-                (asm0.x600004e)(st_1C,st_1B);
+                st_1C = newobj(t0,asm0.x600004e,[ null,st_1B ]);
                 /* IL_4B: throw */
                 throw st_1C;
                 case 0x4C:
@@ -936,8 +951,7 @@ var asm0; (function (asm)
                 /* IL_22: ldstr Incompatible delegate types*/
                 st_0D = new_string("Incompatible delegate types");
                 /* IL_27: newobj Void .ctor(System.String)*/
-                st_0E = new t0();
-                (asm0.x600004e)(st_0E,st_0D);
+                st_0E = newobj(t0,asm0.x600004e,[ null,st_0D ]);
                 /* IL_2C: throw */
                 throw st_0E;
                 case 0x2D:
@@ -974,8 +988,7 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.NotImplementedException"])();
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
-        st_00 = new t0();
-        (asm0.x6000052)(st_00);
+        st_00 = newobj(t0,asm0.x6000052,[ null ]);
         /* IL_06: throw */
         throw st_00;
     };
@@ -996,8 +1009,7 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.NotImplementedException"])();
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
-        st_00 = new t0();
-        (asm0.x6000052)(st_00);
+        st_00 = newobj(t0,asm0.x6000052,[ null ]);
         /* IL_06: throw */
         throw st_00;
     };
@@ -3040,7 +3052,7 @@ var asm0; (function (asm)
         /* IL_03: conv.i8 */
         st_02 = conv_i8(st_00);
         /* IL_04: sub */
-        st_03 = ((st_01 - st_02) | 0);
+        st_03 = (asm0.XInt64_Subtraction)(st_01,st_02);
         /* IL_05: stloc.0 */
         loc0 = st_03;
         /* IL_08: ldloc.0 */
@@ -3226,8 +3238,7 @@ var asm0; (function (asm)
         var st_00;
         t0 = ((asm0)["System.EventArgs"])();
         /* IL_00: newobj Void .ctor()*/
-        st_00 = new t0();
-        (asm0.x600007e)(st_00);
+        st_00 = newobj(t0,asm0.x600007e,[ null ]);
         /* IL_05: stsfld EventArgs Empty*/
         (t0)["Empty"] = st_00;
         /* IL_0A: ret */
@@ -3340,8 +3351,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: newobj Void .ctor(System.Array`1[T])*/
-        st_01 = new t1();
-        (asm0.x600008d)(st_01,st_00);
+        st_01 = newobj(t1,asm0.x600008d,[ null,st_00 ]);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3622,8 +3632,7 @@ var asm0; (function (asm)
                 /* IL_0B: ldstr Nullable object must have a value.*/
                 st_03 = new_string("Nullable object must have a value.");
                 /* IL_10: newobj Void .ctor(System.String)*/
-                st_04 = new t0();
-                (asm0.x600005b)(st_04,st_03);
+                st_04 = newobj(t0,asm0.x600005b,[ null,st_03 ]);
                 /* IL_15: throw */
                 throw st_04;
                 case 0x16:
@@ -4154,17 +4163,7 @@ var asm0; (function (asm)
             /* IL_01: ldarg.0 */
             st_00 = arg0;
             /* IL_02: newobj Void .ctor(T)*/
-            st_01 = new t1();
-            (asm0.x6000095)({
-                'w': function ()
-                {
-                    st_01 = (arguments)[0];
-                },
-                'r': function ()
-                {
-                    return st_01;
-                }
-            },clone_value(st_00));
+            st_01 = newobj(t1,asm0.x6000095,[ null,clone_value(st_00) ]);
             /* IL_07: stloc.0 */
             loc0 = st_01;
             /* IL_0A: ldloc.0 */
@@ -4380,17 +4379,7 @@ var asm0; (function (asm)
                     /* IL_19: unbox.any T*/
                     st_09 = unbox_any(st_08,t0);
                     /* IL_1E: newobj Void .ctor(T)*/
-                    st_0A = new t1();
-                    (asm0.x6000095)({
-                        'w': function ()
-                        {
-                            st_0A = (arguments)[0];
-                        },
-                        'r': function ()
-                        {
-                            return st_0A;
-                        }
-                    },clone_value(st_09));
+                    st_0A = newobj(t1,asm0.x6000095,[ null,clone_value(st_09) ]);
                     /* IL_23: stloc.0 */
                     loc0 = st_0A;
                     case 0x26:
@@ -4625,8 +4614,7 @@ var asm0; (function (asm)
         /* IL_01: ldstr Not implemented*/
         st_00 = new_string("Not implemented");
         /* IL_06: newobj Void .ctor(System.String)*/
-        st_01 = new t0();
-        (asm0.x600004e)(st_01,st_00);
+        st_01 = newobj(t0,asm0.x600004e,[ null,st_00 ]);
         /* IL_0B: throw */
         throw st_01;
     };
@@ -8819,6 +8807,22 @@ var asm1; (function (asm)
         return r;
     }
 
+    function newobj(type, ctor, args) {
+        var result = new type();
+        
+        if (type.IsValueType)
+            args[0] = { 
+                w: function(a) { result = a; }, 
+                r: function() { return result; } 
+            };
+        else
+            args[0] = result;
+        
+        ctor.apply(null, args);
+        
+        return result;
+    }
+
     function cast_class(obj, type) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null))
             return obj;
@@ -8919,8 +8923,7 @@ var asm1; (function (asm)
             /* IL_00: ldc.i4.s 254*/
             st_00 = (-2|0);
             /* IL_02: newobj Void .ctor(System.Int32)*/
-            st_01 = new t2();
-            (asm1.x600001d)(st_01,st_00);
+            st_01 = newobj(t2,asm1.x600001d,[ null,st_00 ]);
             /* IL_07: stloc.0 */
             loc0 = st_01;
             /* IL_08: ldloc.0 */
@@ -8976,8 +8979,7 @@ var asm1; (function (asm)
             /* IL_00: ldc.i4.s 254*/
             st_00 = (-2|0);
             /* IL_02: newobj Void .ctor(System.Int32)*/
-            st_01 = new t1();
-            (asm1.x6000026)(st_01,st_00);
+            st_01 = newobj(t1,asm1.x6000026,[ null,st_00 ]);
             /* IL_07: stloc.0 */
             loc0 = st_01;
             /* IL_08: ldloc.0 */
@@ -9424,8 +9426,7 @@ var asm1; (function (asm)
                 /* IL_08: ldc.i4.0 */
                 st_06 = (0|0);
                 /* IL_09: newobj Void .ctor()*/
-                st_02 = new t0();
-                (asm1.x6000012)(st_02);
+                st_02 = newobj(t0,asm1.x6000012,[ null ]);
                 /* IL_0E: stloc.1 */
                 loc1 = st_02;
                 /* IL_0F: ldloc.1 */
@@ -9443,8 +9444,7 @@ var asm1; (function (asm)
                 /* IL_1A: ldc.i4.1 */
                 st_0C = (1|0);
                 /* IL_1B: newobj Void .ctor()*/
-                st_08 = new t0();
-                (asm1.x6000012)(st_08);
+                st_08 = newobj(t0,asm1.x6000012,[ null ]);
                 /* IL_20: stloc.2 */
                 loc2 = st_08;
                 /* IL_21: ldloc.2 */
@@ -9462,8 +9462,7 @@ var asm1; (function (asm)
                 /* IL_2C: ldc.i4.2 */
                 st_12 = (2|0);
                 /* IL_2D: newobj Void .ctor()*/
-                st_0E = new t0();
-                (asm1.x6000012)(st_0E);
+                st_0E = newobj(t0,asm1.x6000012,[ null ]);
                 /* IL_32: stloc.3 */
                 loc3 = st_0E;
                 /* IL_33: ldloc.3 */
@@ -9481,8 +9480,7 @@ var asm1; (function (asm)
                 /* IL_3E: ldc.i4.3 */
                 st_18 = (3|0);
                 /* IL_3F: newobj Void .ctor()*/
-                st_14 = new t0();
-                (asm1.x6000012)(st_14);
+                st_14 = newobj(t0,asm1.x6000012,[ null ]);
                 /* IL_44: stloc.s 4*/
                 loc4 = st_14;
                 /* IL_46: ldloc.s 4*/
@@ -9500,8 +9498,7 @@ var asm1; (function (asm)
                 /* IL_53: ldc.i4.4 */
                 st_1E = (4|0);
                 /* IL_54: newobj Void .ctor()*/
-                st_1A = new t0();
-                (asm1.x6000012)(st_1A);
+                st_1A = newobj(t0,asm1.x6000012,[ null ]);
                 /* IL_59: stloc.s 5*/
                 loc5 = st_1A;
                 /* IL_5B: ldloc.s 5*/
@@ -9529,8 +9526,7 @@ var asm1; (function (asm)
                 /* IL_71: ldftn Int32 <Main>b__5(P)*/
                 st_22 = asm1.x6000015;
                 /* IL_76: newobj Void .ctor(System.Object, System.IntPtr)*/
-                st_23 = new t3();
-                (asm0.x6000036)(st_23,st_21,st_22);
+                st_23 = newobj(t3,asm0.x6000036,[ null,st_21,st_22 ]);
                 /* IL_7B: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate6*/
                 (t1)["CS$<>9__CachedAnonymousMethodDelegate6"] = st_23;
                 case 0x80:
@@ -9658,8 +9654,7 @@ var asm1; (function (asm)
                 /* IL_22: ldc.i4.0 */
                 st_09 = (0|0);
                 /* IL_23: newobj Void .ctor(System.Int32)*/
-                st_0A = new t2();
-                (asm1.x600001d)(st_0A,st_09);
+                st_0A = newobj(t2,asm1.x600001d,[ null,st_09 ]);
                 /* IL_28: stloc.0 */
                 loc0 = st_0A;
                 case 0x29:
@@ -9943,8 +9938,7 @@ var asm1; (function (asm)
         var st_00;
         t0 = ((asm0)["System.NotSupportedException"])();
         /* IL_00: newobj Void .ctor()*/
-        st_00 = new t0();
-        (asm0.x6000053)(st_00);
+        st_00 = newobj(t0,asm0.x6000053,[ null ]);
         /* IL_05: throw */
         throw st_00;
     };
@@ -10192,8 +10186,7 @@ var asm1; (function (asm)
                 /* IL_22: ldc.i4.0 */
                 st_09 = (0|0);
                 /* IL_23: newobj Void .ctor(System.Int32)*/
-                st_0A = new t1();
-                (asm1.x6000026)(st_0A,st_09);
+                st_0A = newobj(t1,asm1.x6000026,[ null,st_09 ]);
                 /* IL_28: stloc.0 */
                 loc0 = st_0A;
                 case 0x29:
@@ -10489,8 +10482,7 @@ var asm1; (function (asm)
         var st_00;
         t0 = ((asm0)["System.NotSupportedException"])();
         /* IL_00: newobj Void .ctor()*/
-        st_00 = new t0();
-        (asm0.x6000053)(st_00);
+        st_00 = newobj(t0,asm0.x6000053,[ null ]);
         /* IL_05: throw */
         throw st_00;
     };

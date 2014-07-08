@@ -195,7 +195,7 @@ namespace Braille.JsTranslation.OpTranslators
                         Operator = ">>>"
                     };
                 case "sub":
-                    if (IsUInt64Operation(node))
+                    if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
                         return CreateXInt64BinaryOperation(node, "XInt64_Subtraction");
                     }

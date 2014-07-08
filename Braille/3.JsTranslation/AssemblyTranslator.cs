@@ -131,6 +131,22 @@ namespace Braille.JsTranslation
         return r;
     }
 
+    function newobj(type, ctor, args) {
+        var result = new type();
+        
+        if (type.IsValueType)
+            args[0] = { 
+                w: function(a) { result = a; }, 
+                r: function() { return result; } 
+            };
+        else
+            args[0] = result;
+        
+        ctor.apply(null, args);
+        
+        return result;
+    }
+
     function cast_class(obj, type) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null))
             return obj;

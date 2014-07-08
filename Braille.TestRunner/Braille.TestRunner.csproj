@@ -117,6 +117,7 @@
     <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Tests\CastClass.cs" />
     <None Include="Tests\Long.cs" />
+    <None Include="Tests\ULong.cs" />
     <None Include="Tests\Char.cs" />
     <None Include="Tests\HashCode.cs" />
     <None Include="FailingTests\ArrayInitializer.cs" />
