@@ -527,92 +527,15 @@ namespace Braille.JsTranslation
 
                         return JSFactory.Call(JSFactory.RawExpression("cast_class"), expr, GetTypeAccessor(targetType, thisScope));
                     }
+                
                 case "ceq":
-                    if (IsUInt64Operation(node) || IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Equality");
-                    }
-                    else
-                    {
-                        return new JSConditionalExpression
-                        {
-                            Condition = new JSBinaryExpression
-                            {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
-                                Operator = "==="
-                            },
-                            TrueValue = new JSNumberLiteral { Value = 1 },
-                            FalseValue = new JSNumberLiteral { Value = 0 }
-                        };
-                    }
                 case "cgt":
-                    if (opc == "cgt.un" && node.Arguments.First().ResultType.IsClass)
-                    {
-                        return new JSConditionalExpression
-                        {
-                            Condition = new JSBinaryExpression
-                            {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
-                                Operator = "!=="
-                            },
-                            TrueValue = new JSNumberLiteral { Value = 1 },
-                            FalseValue = new JSNumberLiteral { Value = 0 }
-                        };
-                    }
-                    else
-                    {
-                        if (IsUInt64Operation(node))
-                        {
-                            return CreateXInt64BinaryOperation(node, "UInt64_GreaterThan");
-                        }
-                        else if (IsInt64Operation(node))
-                        {
-                            return CreateXInt64BinaryOperation(node, "Int64_GreaterThan");
-                        }
-                        else
-                        {
-                            return new JSConditionalExpression
-                            {
-                                Condition = new JSBinaryExpression
-                                {
-                                    Left = ProcessInternal(node.Arguments.First()),
-                                    Right = ProcessInternal(node.Arguments.Last()),
-                                    Operator = ">"
-                                },
-                                TrueValue = new JSNumberLiteral { Value = 1 },
-                                FalseValue = new JSNumberLiteral { Value = 0 }
-                            };
-                        }
-                    }
                 case "clt":
-                    if (IsUInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "UInt64_LessThan");
-                    }
-                    else if (IsInt64Operation(node))
-                    {
-                        return CreateXInt64BinaryOperation(node, "Int64_LessThan");
-                    }
-                    else
-                    {
-                        return new JSConditionalExpression
-                        {
-                            Condition = new JSBinaryExpression
-                            {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
-                                Operator = "<"
-                            },
-                            TrueValue = new JSNumberLiteral { Value = 1 },
-                            FalseValue = new JSNumberLiteral { Value = 0 }
-                        };
-                    }
+                    return new ComparisonTranslator(context, assembly, type, method).Translate(node);
+
                 case "conv":
-                    {
-                        return new ConversionTranslator(context, assembly, type, method).Translate(node);
-                    }
+                    return new ConversionTranslator(context, assembly, type, method).Translate(node);
+                
                 case "dup":
                     return ProcessInternal(node.Arguments.Single());
                 case "initobj":

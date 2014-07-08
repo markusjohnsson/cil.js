@@ -74,6 +74,7 @@
     <Compile Include="3.JsTranslation\JSAst\JSTemplatedRawExpression.cs" />
     <Compile Include="2.Analysis\Passes\StackRemoval.cs" />
     <Compile Include="3.JsTranslation\OpTranslators\ArithmeticTranslator.cs" />
+    <Compile Include="3.JsTranslation\OpTranslators\ComparisonTranslator.cs" />
     <Compile Include="3.JsTranslation\OpTranslators\ConversionTranslator.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
