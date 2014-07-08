@@ -140,12 +140,29 @@ namespace Braille.JsTranslation
         }
     }
 
-    function make_uint64(n) {
+    function conv_u8(n) {
         if (n < 0) {
-            "/* treat as signed 32 bit int that need to be converted to unsigned before conversion */ + @"
+            "/* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */ + @"
             n = 0x100000000 + n;
         }
 
+        return make_uint64(n);
+    }
+
+    function conv_i8(n) {
+        if (n < 0) {
+            "/* signed 32 bit int */ + @"
+            n = 0x100000000 + n;
+            
+            "/* here, n should be positive and less than 0xffffffff, otherwise, input would not have fit in 32 bit */ + @"
+            
+            return new Uint32Array([ n | 0, 0xffffffff ]);
+        }
+
+        return make_uint64(n);
+    }
+
+    function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);

@@ -104,12 +104,29 @@ var asm0; (function (asm)
         }
     }
 
-    function make_uint64(n) {
+    function conv_u8(n) {
         if (n < 0) {
             
             n = 0x100000000 + n;
         }
 
+        return make_uint64(n);
+    }
+
+    function conv_i8(n) {
+        if (n < 0) {
+            
+            n = 0x100000000 + n;
+            
+            
+            
+            return new Uint32Array([ n | 0, 0xffffffff ]);
+        }
+
+        return make_uint64(n);
+    }
+
+    function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -191,7 +208,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -618,7 +635,7 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldc.i4.0 */
-        st_00 = 0;
+        st_00 = (0|0);
         /* IL_02: stloc.0 */
         loc0 = st_00;
         /* IL_05: ldloc.0 */
@@ -701,7 +718,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -723,7 +740,7 @@ var asm0; (function (asm)
                 /* IL_10: ceq */
                 st_08 = (st_06 === st_07) ? (1) : (0);
                 /* IL_11: ldc.i4.0 */
-                st_09 = 0;
+                st_09 = (0|0);
                 /* IL_13: ceq */
                 st_0A = (st_08 === st_09) ? (1) : (0);
                 /* IL_14: stloc.1 */
@@ -759,7 +776,7 @@ var asm0; (function (asm)
                 /* IL_23: ceq */
                 st_10 = (st_0E === st_0F) ? (1) : (0);
                 /* IL_24: ldc.i4.0 */
-                st_11 = 0;
+                st_11 = (0|0);
                 /* IL_26: ceq */
                 st_12 = (st_10 === st_11) ? (1) : (0);
                 /* IL_27: stloc.1 */
@@ -875,7 +892,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -1117,7 +1134,7 @@ var asm0; (function (asm)
                 /* IL_12: ceq */
                 st_06 = (st_04 === st_05) ? (1) : (0);
                 /* IL_13: ldc.i4.0 */
-                st_07 = 0;
+                st_07 = (0|0);
                 /* IL_15: ceq */
                 st_08 = (st_06 === st_07) ? (1) : (0);
                 /* IL_16: stloc.s 6*/
@@ -1149,7 +1166,7 @@ var asm0; (function (asm)
                 /* IL_2A: ceq */
                 st_0F = (st_0D === st_0E) ? (1) : (0);
                 /* IL_2B: ldc.i4.0 */
-                st_10 = 0;
+                st_10 = (0|0);
                 /* IL_2D: ceq */
                 st_11 = (st_0F === st_10) ? (1) : (0);
                 /* IL_2E: stloc.s 6*/
@@ -1163,7 +1180,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_34: ldc.i4.0 */
-                st_13 = 0;
+                st_13 = (0|0);
                 /* IL_35: stloc.s 5*/
                 loc5 = st_13;
                 /* IL_37: br IL_112*/
@@ -1191,7 +1208,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_53: ldc.i4.0 */
-                st_1A = 0;
+                st_1A = (0|0);
                 /* IL_54: stloc.s 5*/
                 loc5 = st_1A;
                 /* IL_56: br IL_112*/
@@ -1219,7 +1236,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_72: ldc.i4.0 */
-                st_21 = 0;
+                st_21 = (0|0);
                 /* IL_73: stloc.s 5*/
                 loc5 = st_21;
                 /* IL_75: br IL_112*/
@@ -1249,7 +1266,7 @@ var asm0; (function (asm)
                 continue;
                 case 0x8D:
                 /* IL_8D: ldc.i4.1 */
-                st_27 = 1;
+                st_27 = (1|0);
                 case 0x8E:
                 /* IL_8E: nop */
                 
@@ -1294,7 +1311,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_AE: ldc.i4.0 */
-                st_33 = 0;
+                st_33 = (0|0);
                 /* IL_AF: stloc.s 5*/
                 loc5 = st_33;
                 /* IL_B1: br.s IL_112*/
@@ -1302,7 +1319,7 @@ var asm0; (function (asm)
                 continue;
                 case 0xB3:
                 /* IL_B3: ldc.i4.0 */
-                st_34 = 0;
+                st_34 = (0|0);
                 /* IL_B4: stloc.2 */
                 loc2 = st_34;
                 /* IL_B5: br.s IL_E3*/
@@ -1348,7 +1365,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_D9: ldc.i4.0 */
-                st_41 = 0;
+                st_41 = (0|0);
                 /* IL_DA: stloc.s 5*/
                 loc5 = st_41;
                 /* IL_DC: br.s IL_112*/
@@ -1360,9 +1377,9 @@ var asm0; (function (asm)
                 /* IL_DF: ldloc.2 */
                 st_42 = loc2;
                 /* IL_E0: ldc.i4.1 */
-                st_43 = 1;
+                st_43 = (1|0);
                 /* IL_E1: add */
-                st_44 = (st_42 + st_43);
+                st_44 = ((st_42 + st_43) | 0);
                 /* IL_E2: stloc.2 */
                 loc2 = st_44;
                 case 0xE3:
@@ -1389,7 +1406,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_F4: ldc.i4.1 */
-                st_4C = 1;
+                st_4C = (1|0);
                 /* IL_F5: stloc.s 5*/
                 loc5 = st_4C;
                 /* IL_F7: br.s IL_112*/
@@ -1419,7 +1436,7 @@ var asm0; (function (asm)
                 continue;
                 case 0x10C:
                 /* IL_10C: ldc.i4.0 */
-                st_52 = 0;
+                st_52 = (0|0);
                 case 0x10D:
                 /* IL_10D: nop */
                 
@@ -1450,7 +1467,7 @@ var asm0; (function (asm)
         /* IL_03: call Boolean op_Equality(System.Delegate, System.Delegate)*/
         st_02 = (asm0.x600002f)(st_00,st_01);
         /* IL_08: ldc.i4.0 */
-        st_03 = 0;
+        st_03 = (0|0);
         /* IL_0A: ceq */
         st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
@@ -1598,15 +1615,15 @@ var asm0; (function (asm)
                 /* IL_16: conv.i4 */
                 st_08 = (st_07 | 0);
                 /* IL_17: ldc.i4.1 */
-                st_09 = 1;
+                st_09 = (1|0);
                 /* IL_18: add */
-                st_0A = (st_08 + st_09);
+                st_0A = ((st_08 + st_09) | 0);
                 /* IL_19: newarr System.Delegate*/
                 st_0B = new_array(t0,st_0A);
                 /* IL_1E: stloc.0 */
                 loc0 = st_0B;
                 /* IL_1F: ldc.i4.0 */
-                st_0C = 0;
+                st_0C = (0|0);
                 /* IL_20: stloc.1 */
                 loc1 = st_0C;
                 /* IL_21: br.s IL_32*/
@@ -1630,9 +1647,9 @@ var asm0; (function (asm)
                 /* IL_2E: ldloc.1 */
                 st_13 = loc1;
                 /* IL_2F: ldc.i4.1 */
-                st_14 = 1;
+                st_14 = (1|0);
                 /* IL_30: add */
-                st_15 = (st_13 + st_14);
+                st_15 = ((st_13 + st_14) | 0);
                 /* IL_31: stloc.1 */
                 loc1 = st_15;
                 case 0x32:
@@ -1667,9 +1684,9 @@ var asm0; (function (asm)
                 /* IL_44: conv.i4 */
                 st_1F = (st_1E | 0);
                 /* IL_45: ldc.i4.1 */
-                st_20 = 1;
+                st_20 = (1|0);
                 /* IL_46: sub */
-                st_22 = (st_1F - st_20);
+                st_22 = ((st_1F - st_20) | 0);
                 /* IL_47: ldarg.1 */
                 st_23 = arg1;
                 /* IL_48: stelem.ref */
@@ -1683,7 +1700,7 @@ var asm0; (function (asm)
                 /* IL_4C: nop */
                 
                 /* IL_4D: ldc.i4.2 */
-                st_24 = 2;
+                st_24 = (2|0);
                 /* IL_4E: newarr System.Delegate*/
                 st_25 = new_array(t0,st_24);
                 /* IL_53: stloc.0 */
@@ -1691,7 +1708,7 @@ var asm0; (function (asm)
                 /* IL_54: ldloc.0 */
                 st_26 = loc0;
                 /* IL_55: ldc.i4.0 */
-                st_27 = 0;
+                st_27 = (0|0);
                 /* IL_56: ldarg.0 */
                 st_28 = arg0;
                 /* IL_57: stelem.ref */
@@ -1699,7 +1716,7 @@ var asm0; (function (asm)
                 /* IL_58: ldloc.0 */
                 st_29 = loc0;
                 /* IL_59: ldc.i4.1 */
-                st_2A = 1;
+                st_2A = (1|0);
                 /* IL_5A: ldarg.1 */
                 st_2B = arg1;
                 /* IL_5B: stelem.ref */
@@ -1870,7 +1887,7 @@ var asm0; (function (asm)
                 /* IL_09: ceq */
                 st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: ldc.i4.0 */
-                st_04 = 0;
+                st_04 = (0|0);
                 /* IL_0C: ceq */
                 st_05 = (st_03 === st_04) ? (1) : (0);
                 /* IL_0D: stloc.s 5*/
@@ -1892,7 +1909,7 @@ var asm0; (function (asm)
                 /* IL_16: call Boolean op_Equality(System.Delegate, System.Delegate)*/
                 st_09 = (asm0.x600002f)(st_07,st_08);
                 /* IL_1B: ldc.i4.0 */
-                st_0A = 0;
+                st_0A = (0|0);
                 /* IL_1D: ceq */
                 st_0B = (st_09 === st_0A) ? (1) : (0);
                 /* IL_1E: stloc.s 5*/
@@ -1924,11 +1941,11 @@ var asm0; (function (asm)
                 /* IL_34: nop */
                 
                 /* IL_35: ldc.i4.0 */
-                st_0F = 0;
+                st_0F = (0|0);
                 /* IL_36: stloc.0 */
                 loc0 = st_0F;
                 /* IL_37: ldc.i4.0 */
-                st_10 = 0;
+                st_10 = (0|0);
                 /* IL_38: stloc.1 */
                 loc1 = st_10;
                 /* IL_39: br.s IL_5A*/
@@ -1948,7 +1965,7 @@ var asm0; (function (asm)
                 /* IL_44: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
                 st_16 = (asm0.x6000030)(st_14,st_15);
                 /* IL_49: ldc.i4.0 */
-                st_17 = 0;
+                st_17 = (0|0);
                 /* IL_4B: ceq */
                 st_18 = (st_16 === st_17) ? (1) : (0);
                 /* IL_4C: stloc.s 5*/
@@ -1964,18 +1981,18 @@ var asm0; (function (asm)
                 /* IL_52: ldloc.0 */
                 st_1A = loc0;
                 /* IL_53: ldc.i4.1 */
-                st_1B = 1;
+                st_1B = (1|0);
                 /* IL_54: add */
-                st_1C = (st_1A + st_1B);
+                st_1C = ((st_1A + st_1B) | 0);
                 /* IL_55: stloc.0 */
                 loc0 = st_1C;
                 case 0x56:
                 /* IL_56: ldloc.1 */
                 st_1D = loc1;
                 /* IL_57: ldc.i4.1 */
-                st_1E = 1;
+                st_1E = (1|0);
                 /* IL_58: add */
-                st_1F = (st_1D + st_1E);
+                st_1F = ((st_1D + st_1E) | 0);
                 /* IL_59: stloc.1 */
                 loc1 = st_1F;
                 case 0x5A:
@@ -2004,11 +2021,11 @@ var asm0; (function (asm)
                 /* IL_6B: ldloc.0 */
                 st_27 = loc0;
                 /* IL_6C: ldc.i4.0 */
-                st_28 = 0;
+                st_28 = (0|0);
                 /* IL_6E: ceq */
                 st_29 = (st_27 === st_28) ? (1) : (0);
                 /* IL_6F: ldc.i4.0 */
-                st_2A = 0;
+                st_2A = (0|0);
                 /* IL_71: ceq */
                 st_2B = (st_29 === st_2A) ? (1) : (0);
                 /* IL_72: stloc.s 5*/
@@ -2032,11 +2049,11 @@ var asm0; (function (asm)
                 /* IL_80: ldloc.0 */
                 st_2E = loc0;
                 /* IL_81: ldc.i4.1 */
-                st_2F = 1;
+                st_2F = (1|0);
                 /* IL_83: ceq */
                 st_30 = (st_2E === st_2F) ? (1) : (0);
                 /* IL_84: ldc.i4.0 */
-                st_31 = 0;
+                st_31 = (0|0);
                 /* IL_86: ceq */
                 st_32 = (st_30 === st_31) ? (1) : (0);
                 /* IL_87: stloc.s 5*/
@@ -2050,7 +2067,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_8D: ldc.i4.0 */
-                st_34 = 0;
+                st_34 = (0|0);
                 /* IL_8E: stloc.1 */
                 loc1 = st_34;
                 /* IL_8F: br.s IL_B8*/
@@ -2070,7 +2087,7 @@ var asm0; (function (asm)
                 /* IL_9A: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
                 st_3A = (asm0.x6000030)(st_38,st_39);
                 /* IL_9F: ldc.i4.0 */
-                st_3B = 0;
+                st_3B = (0|0);
                 /* IL_A1: ceq */
                 st_3C = (st_3A === st_3B) ? (1) : (0);
                 /* IL_A2: stloc.s 5*/
@@ -2100,9 +2117,9 @@ var asm0; (function (asm)
                 /* IL_B4: ldloc.1 */
                 st_42 = loc1;
                 /* IL_B5: ldc.i4.1 */
-                st_43 = 1;
+                st_43 = (1|0);
                 /* IL_B6: add */
-                st_44 = (st_42 + st_43);
+                st_44 = ((st_42 + st_43) | 0);
                 /* IL_B7: stloc.1 */
                 loc1 = st_44;
                 case 0xB8:
@@ -2136,11 +2153,11 @@ var asm0; (function (asm)
                 /* IL_CF: stloc.2 */
                 loc2 = st_4D;
                 /* IL_D0: ldc.i4.0 */
-                st_4E = 0;
+                st_4E = (0|0);
                 /* IL_D1: stloc.1 */
                 loc1 = st_4E;
                 /* IL_D2: ldc.i4.0 */
-                st_4F = 0;
+                st_4F = (0|0);
                 /* IL_D3: stloc.3 */
                 loc3 = st_4F;
                 /* IL_D4: br.s IL_100*/
@@ -2160,7 +2177,7 @@ var asm0; (function (asm)
                 /* IL_DF: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
                 st_55 = (asm0.x6000030)(st_53,st_54);
                 /* IL_E4: ldc.i4.0 */
-                st_56 = 0;
+                st_56 = (0|0);
                 /* IL_E6: ceq */
                 st_57 = (st_55 === st_56) ? (1) : (0);
                 /* IL_E7: stloc.s 5*/
@@ -2180,9 +2197,9 @@ var asm0; (function (asm)
                 /* IL_EF: dup */
                 st_61 = (st_5A = st_59);
                 /* IL_F0: ldc.i4.1 */
-                st_5B = 1;
+                st_5B = (1|0);
                 /* IL_F1: add */
-                st_5C = (st_5A + st_5B);
+                st_5C = ((st_5A + st_5B) | 0);
                 /* IL_F2: stloc.3 */
                 loc3 = st_5C;
                 /* IL_F3: ldarg.0 */
@@ -2199,9 +2216,9 @@ var asm0; (function (asm)
                 /* IL_FC: ldloc.1 */
                 st_63 = loc1;
                 /* IL_FD: ldc.i4.1 */
-                st_64 = 1;
+                st_64 = (1|0);
                 /* IL_FE: add */
-                st_65 = (st_63 + st_64);
+                st_65 = ((st_63 + st_64) | 0);
                 /* IL_FF: stloc.1 */
                 loc1 = st_65;
                 case 0x100:
@@ -2655,131 +2672,7 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };;
-    asm.x6000055_init = function ()
-    {
-        (((asm0)["System.Double"])().init)();
-        asm.x6000055 = asm.x6000055_;
-    };;
-    asm.x6000055 = function (arg0)
-    {
-        (asm.x6000055_init.apply)(this,arguments);
-        return (asm.x6000055.apply)(this,arguments);
-    };;
-    asm.x6000055_ = function Sqrt(arg0)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_01 = {
-            'boxed': st_00,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: call Double SqrtImpl(System.Object)*/
-        st_02 = (asm0.x6000058)(st_01);
-        /* IL_0C: stloc.0 */
-        loc0 = st_02;
-        /* IL_0F: ldloc.0 */
-        st_03 = loc0;
-        /* IL_10: ret */
-        return st_03;
-    };
-    asm.x6000056_init = function ()
-    {
-        (((asm0)["System.Double"])().init)();
-        asm.x6000056 = asm.x6000056_;
-    };;
-    asm.x6000056 = function (arg0)
-    {
-        (asm.x6000056_init.apply)(this,arguments);
-        return (asm.x6000056.apply)(this,arguments);
-    };;
-    asm.x6000056_ = function Floor(arg0)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_01 = {
-            'boxed': st_00,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: call Double FloorImpl(System.Object)*/
-        st_02 = (asm0.x6000059)(st_01);
-        /* IL_0C: stloc.0 */
-        loc0 = st_02;
-        /* IL_0F: ldloc.0 */
-        st_03 = loc0;
-        /* IL_10: ret */
-        return st_03;
-    };
-    asm.x6000057_init = function ()
-    {
-        (((asm0)["System.Double"])().init)();
-        asm.x6000057 = asm.x6000057_;
-    };;
-    asm.x6000057 = function (arg0,arg1)
-    {
-        (asm.x6000057_init.apply)(this,arguments);
-        return (asm.x6000057.apply)(this,arguments);
-    };;
-    asm.x6000057_ = function Pow(arg0,arg1)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_02 = {
-            'boxed': st_00,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: ldarg.1 */
-        st_01 = arg1;
-        /* IL_08: box System.Double*/
-        st_03 = {
-            'boxed': st_01,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_0D: call Double PowImpl(System.Object, System.Object)*/
-        st_04 = (asm0.x600005a)(st_02,st_03);
-        /* IL_12: stloc.0 */
-        loc0 = st_04;
-        /* IL_15: ldloc.0 */
-        st_05 = loc0;
-        /* IL_16: ret */
-        return st_05;
-    };
-    asm.x6000058 = function(o) { return Math.sqrt(o.boxed); };;
-    asm.x6000059 = function(o) { return Math.floor(o.boxed); };;
-    asm.x600005a = function(a, b) { return Math.pow(a.boxed, b.boxed); };;
-    asm.x600005b = function _ctor(arg0)
+    asm.x6000058 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -2788,7 +2681,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600005c = function _ctor(arg0)
+    asm.x6000059 = function _ctor(arg0)
     {
         var st_00;
         var st_01;
@@ -2804,7 +2697,7 @@ var asm0; (function (asm)
         /* IL_0E: ret */
         return ;
     };;
-    asm.x600005d = function _ctor(arg0)
+    asm.x600005a = function _ctor(arg0)
     {
         var st_00;
         var st_01;
@@ -2820,7 +2713,7 @@ var asm0; (function (asm)
         /* IL_0E: ret */
         return ;
     };;
-    asm.x600005e = function _ctor(arg0,arg1)
+    asm.x600005b = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -2836,8 +2729,19 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };;
-    asm.x600005f = function ToString(arg0)
+    asm.x600005c_init = function ()
     {
+        (((asm0)["System.Int64"])().init)();
+        asm.x600005c = asm.x600005c_;
+    };;
+    asm.x600005c = function (arg0)
+    {
+        (asm.x600005c_init.apply)(this,arguments);
+        return (asm.x600005c.apply)(this,arguments);
+    };;
+    asm.x600005c_ = function ToString(arg0)
+    {
+        var t0;
         var st_00;
         var st_01;
         var st_02;
@@ -2858,13 +2762,29 @@ var asm0; (function (asm)
         var st_11;
         var st_12;
         var st_13;
+        var st_14;
+        var st_15;
+        var st_16;
+        var st_17;
+        var st_18;
+        var st_19;
+        var st_1A;
+        var st_1B;
+        var st_1C;
+        var st_1D;
+        var st_1E;
+        var st_1F;
+        var st_20;
+        var st_21;
+        var st_22;
         var __pos_0__;
         var loc0;
         var loc1;
         var loc2;
-        var loc3;
         var loc5;
         var loc4;
+        var loc3;
+        t0 = ((asm0)["System.Int64"])();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -2880,72 +2800,122 @@ var asm0; (function (asm)
                 /* IL_03: stloc.0 */
                 loc0 = st_01;
                 /* IL_04: ldc.i4.s 10*/
-                st_02 = 10;
+                st_02 = (10|0);
                 /* IL_06: conv.i8 */
-                st_03 = make_uint64(st_02);
+                st_03 = conv_i8(st_02);
                 /* IL_07: stloc.1 */
                 loc1 = st_03;
                 /* IL_08: ldstr */
                 st_04 = new_string("");
                 /* IL_0D: stloc.2 */
                 loc2 = st_04;
-                case 0xE:
-                /* IL_0E: nop */
+                /* IL_0E: ldloc.0 */
+                st_06 = loc0;
+                /* IL_0F: ldc.i4.0 */
+                st_05 = (0|0);
+                /* IL_10: conv.i8 */
+                st_07 = conv_i8(st_05);
+                /* IL_12: clt */
+                st_08 = (asm0.Int64_LessThan)(st_06,st_07);
+                /* IL_13: ldc.i4.0 */
+                st_09 = (0|0);
+                /* IL_15: ceq */
+                st_0A = (st_08 === st_09) ? (1) : (0);
+                /* IL_16: stloc.s 5*/
+                loc5 = st_0A;
+                /* IL_18: ldloc.s 5*/
+                st_0B = loc5;
+                /* IL_1A: brtrue.s IL_37*/
                 
-                /* IL_0F: ldloc.0 */
-                st_05 = loc0;
-                /* IL_10: ldloc.1 */
-                st_06 = loc1;
-                /* IL_11: rem */
-                st_07 = (st_05 % st_06);
-                /* IL_12: stloc.3 */
-                loc3 = st_07;
-                /* IL_13: ldloc.0 */
-                st_08 = loc0;
-                /* IL_14: call String GetLowString(System.Int64)*/
-                st_09 = st_08[0].toString();
-                /* IL_19: stloc.2 */
-                loc2 = st_09;
-                /* IL_1A: ldloc.0 */
-                st_0A = loc0;
-                /* IL_1B: ldloc.1 */
-                st_0B = loc1;
-                /* IL_1C: div */
-                st_0C = ((st_0A / st_0B) | 0);
-                /* IL_1D: stloc.0 */
-                loc0 = st_0C;
-                /* IL_1E: nop */
-                
-                /* IL_1F: ldloc.0 */
-                st_0E = loc0;
-                /* IL_20: ldc.i4.0 */
-                st_0D = 0;
-                /* IL_21: conv.i8 */
-                st_0F = make_uint64(st_0D);
-                /* IL_23: cgt */
-                st_10 = (st_0E > st_0F) ? (1) : (0);
-                /* IL_24: stloc.s 5*/
-                loc5 = st_10;
-                /* IL_26: ldloc.s 5*/
-                st_11 = loc5;
-                /* IL_28: brtrue.s IL_0E*/
-                
-                if (st_11){
-                    __pos_0__ = 0xE;
+                if (st_0B){
+                    __pos_0__ = 0x37;
                     continue;
                 }
-                /* IL_2A: ldloc.2 */
-                st_12 = loc2;
-                /* IL_2B: stloc.s 4*/
-                loc4 = st_12;
-                /* IL_2F: ldloc.s 4*/
-                st_13 = loc4;
-                /* IL_31: ret */
-                return st_13;
+                /* IL_1C: nop */
+                
+                /* IL_1D: ldstr -*/
+                st_0F = new_string("-");
+                /* IL_22: ldloc.0 */
+                st_0C = loc0;
+                /* IL_23: neg */
+                st_0D = (asm0.Int64_UnaryNegation)(st_0C);
+                /* IL_24: box System.Int64*/
+                st_0E = {
+                    'boxed': st_0D,
+                    'type': t0,
+                    'vtable': t0.prototype.vtable
+                };
+                /* IL_29: callvirt String ToString()*/
+                st_10 = (((st_0E.vtable)["asm0.x6000005"])())(st_0E);
+                /* IL_2E: call String Concat(System.String, System.String)*/
+                st_11 = (asm0.x60000a8)(st_0F,st_10);
+                /* IL_33: stloc.s 4*/
+                loc4 = st_11;
+                /* IL_35: br.s IL_5E*/
+                __pos_0__ = 0x5E;
+                continue;
+                case 0x37:
+                /* IL_37: nop */
+                
+                /* IL_38: ldloc.0 */
+                st_12 = loc0;
+                /* IL_39: ldloc.1 */
+                st_13 = loc1;
+                /* IL_3A: rem */
+                st_14 = (asm0.Int64_Modulus)(st_12,st_13);
+                /* IL_3B: stloc.3 */
+                loc3 = st_14;
+                /* IL_3C: ldloc.3 */
+                st_15 = loc3;
+                /* IL_3D: call String GetLowString(System.Int64)*/
+                st_16 = new_string(st_15[0].toString());
+                /* IL_42: ldloc.2 */
+                st_17 = loc2;
+                /* IL_43: call String Concat(System.String, System.String)*/
+                st_18 = (asm0.x60000a8)(st_16,st_17);
+                /* IL_48: stloc.2 */
+                loc2 = st_18;
+                /* IL_49: ldloc.0 */
+                st_19 = loc0;
+                /* IL_4A: ldloc.1 */
+                st_1A = loc1;
+                /* IL_4B: div */
+                st_1B = (asm0.Int64_Division)(st_19,st_1A);
+                /* IL_4C: stloc.0 */
+                loc0 = st_1B;
+                /* IL_4D: nop */
+                
+                /* IL_4E: ldloc.0 */
+                st_1D = loc0;
+                /* IL_4F: ldc.i4.0 */
+                st_1C = (0|0);
+                /* IL_50: conv.i8 */
+                st_1E = conv_i8(st_1C);
+                /* IL_52: cgt */
+                st_1F = (asm0.Int64_GreaterThan)(st_1D,st_1E);
+                /* IL_53: stloc.s 5*/
+                loc5 = st_1F;
+                /* IL_55: ldloc.s 5*/
+                st_20 = loc5;
+                /* IL_57: brtrue.s IL_37*/
+                
+                if (st_20){
+                    __pos_0__ = 0x37;
+                    continue;
+                }
+                /* IL_59: ldloc.2 */
+                st_21 = loc2;
+                /* IL_5A: stloc.s 4*/
+                loc4 = st_21;
+                case 0x5E:
+                /* IL_5E: ldloc.s 4*/
+                st_22 = loc4;
+                /* IL_60: ret */
+                return st_22;
             }
         }
-    };;
-    asm.x6000061 = 
+    };
+    asm.x600005e = 
             function XInt64_Addition(lhs, rhs) 
             {
                 var x = new Uint16Array(lhs.buffer);
@@ -2961,8 +2931,8 @@ var asm0; (function (asm)
 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-    asm.XInt64_Addition = asm.x6000061;
-    asm.x6000062 = 
+    asm.XInt64_Addition = asm.x600005e;
+    asm.x600005f = 
             function XInt64_Subtraction(lhs, rhs) 
             {
                 if (lhs[0] >= rhs[0] && rhs[1] == 0)
@@ -2988,36 +2958,36 @@ var asm0; (function (asm)
                 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-    asm.XInt64_Subtraction = asm.x6000062;
-    asm.x6000063 = 
+    asm.XInt64_Subtraction = asm.x600005f;
+    asm.x6000060 = 
             function XInt64_BitwiseOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] | rhs[0], lhs[1] | rhs[1]]);
             }
             ;;
-    asm.XInt64_BitwiseOr = asm.x6000063;
-    asm.x6000064 = 
-            function XInt64_BitwiseAnd(lhs, rhs)
+    asm.XInt64_BitwiseOr = asm.x6000060;
+    asm.x6000061 = 
+            function XInt64_BitwiseAnd(lhs, rhs) 
             {
                 return new Uint32Array([lhs[0] & rhs[0], lhs[1] & rhs[1]]);
             }
             ;;
-    asm.XInt64_BitwiseAnd = asm.x6000064;
-    asm.x6000065 = 
+    asm.XInt64_BitwiseAnd = asm.x6000061;
+    asm.x6000062 = 
             function XInt64_ExclusiveOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] ^ rhs[0], lhs[1] ^ rhs[1]]);
             }
             ;;
-    asm.XInt64_ExclusiveOr = asm.x6000065;
-    asm.x6000066 = 
+    asm.XInt64_ExclusiveOr = asm.x6000062;
+    asm.x6000063 = 
             function XInt64_OnesComplement(a)
             {
                 return new Uint32Array([~a[0], ~a[1]]);
             }
             ;;
-    asm.XInt64_OnesComplement = asm.x6000066;
-    asm.x6000067 = 
+    asm.XInt64_OnesComplement = asm.x6000063;
+    asm.x6000064 = 
             function XInt64_LeftShift(a, n)
             {
                 n = n & 0x3f;
@@ -3039,22 +3009,22 @@ var asm0; (function (asm)
                 return new Uint32Array([ba, bb]);
             }
             ;;
-    asm.XInt64_LeftShift = asm.x6000067;
-    asm.x6000068 = 
+    asm.XInt64_LeftShift = asm.x6000064;
+    asm.x6000065 = 
             function XInt64_Equality(lhs, rhs)
             {
                 return lhs[0] === rhs[0] && lhs[1] === rhs[1];
             }
             ;;
-    asm.XInt64_Equality = asm.x6000068;
-    asm.x6000069 = 
+    asm.XInt64_Equality = asm.x6000065;
+    asm.x6000066 = 
             function XInt64_Inequality(lhs, rhs)
             {
                 return lhs[0] !== rhs[0] && lhs[1] !== rhs[1];
             }
             ;;
-    asm.XInt64_Inequality = asm.x6000069;
-    asm.x600006a = function op_Decrement(arg0)
+    asm.XInt64_Inequality = asm.x6000066;
+    asm.x6000067 = function op_Decrement(arg0)
     {
         var st_00;
         var st_01;
@@ -3066,11 +3036,11 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_01 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_00 = 1;
+        st_00 = (1|0);
         /* IL_03: conv.i8 */
-        st_02 = make_uint64(st_00);
+        st_02 = conv_i8(st_00);
         /* IL_04: sub */
-        st_03 = (st_01 - st_02);
+        st_03 = ((st_01 - st_02) | 0);
         /* IL_05: stloc.0 */
         loc0 = st_03;
         /* IL_08: ldloc.0 */
@@ -3078,8 +3048,8 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return st_04;
     };;
-    asm.XInt64_Decrement = asm.x600006a;
-    asm.x600006b = function op_Increment(arg0)
+    asm.XInt64_Decrement = asm.x6000067;
+    asm.x6000068 = function op_Increment(arg0)
     {
         var st_00;
         var st_01;
@@ -3091,11 +3061,11 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_01 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_00 = 1;
+        st_00 = (1|0);
         /* IL_03: conv.i8 */
-        st_02 = make_uint64(st_00);
+        st_02 = conv_i8(st_00);
         /* IL_04: add */
-        st_03 = (st_01 + st_02);
+        st_03 = (asm0.XInt64_Addition)(st_01,st_02);
         /* IL_05: stloc.0 */
         loc0 = st_03;
         /* IL_08: ldloc.0 */
@@ -3103,8 +3073,8 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return st_04;
     };;
-    asm.XInt64_Increment = asm.x600006b;
-    asm.x600006c = 
+    asm.XInt64_Increment = asm.x6000068;
+    asm.x6000069 = 
             function Int64_RightShift(lhs, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
@@ -3126,46 +3096,109 @@ var asm0; (function (asm)
                 }
                 return result2;
             };;
-    asm.Int64_RightShift = asm.x600006c;
-    asm.x6000077 = function _ctor(arg0)
-    {
-        var st_00;
-        /* IL_00: ldarg.0 */
-        st_00 = arg0;
-        /* IL_01: call Void .ctor()*/
-        (asm0.x600000c)(st_00);
-        /* IL_06: ret */
-        return ;
-    };;
-    asm.x6000078 = function _ctor(arg0,arg1)
-    {
-        var st_00;
-        /* IL_00: ldarg.0 */
-        st_00 = arg0;
-        /* IL_01: call Void .ctor()*/
-        (asm0.x600000c)(st_00);
-        /* IL_06: nop */
-        /* IL_07: nop */
-        /* IL_08: nop */
-        /* IL_09: ret */
-        return ;
-    };;
-    asm.x6000079 = function InitializeArray(arg0,arg1)
-    {
-        /* IL_00: nop */
-        /* IL_01: ret */
-        return ;
-    };;
+    asm.Int64_RightShift = asm.x6000069;
+    asm.x600006a = 
+            function Int64_Division(n, d) {
+                if (d[0] === 0 && d[1] === 0)
+                    throw new Error("System.DivideByZeroException");
+
+                if (asm0.Int64_isNegative(d))
+                    return asm0.Int64_Division(
+                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
+
+                else if (asm0.Int64_isNegative(n))
+                    return asm0.Int64_UnaryNegation(asm0.Int64_Division(asm0.Int64_UnaryNegation(n), d));
+                else
+                    return asm0.UInt64_Division(n, d);
+            };;
+    asm.Int64_Division = asm.x600006a;
+    asm.x600006b = 
+            function Int64_Modulus(n, d) {
+                if (d[0] === 0 && d[1] === 0)
+                    throw new Error("System.DivideByZeroException");
+
+                if (asm0.Int64_isNegative(d))
+                    return asm0.Int64_Modulus(
+                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
+
+                else if (asm0.Int64_isNegative(n))
+                    return asm0.Int64_UnaryNegation(asm0.Int64_Modulus(asm0.Int64_UnaryNegation(n), d));
+                else
+                    return asm0.UInt64_Modulus(n, d);
+            };;
+    asm.Int64_Modulus = asm.x600006b;
+    asm.x600006c = 
+            function Int64_GreaterThan (a, b) {
+                var an = asm0.Int64_isNegative(a);
+                var bn = asm0.Int64_isNegative(b);
+
+                if (an === bn)
+                    return asm0.UInt64_GreaterThan(a, b);
+                else
+                    return bn ? 1 : 0;
+            };;
+    asm.Int64_GreaterThan = asm.x600006c;
+    asm.x600006d = 
+            function Int64_LessThan (a, b) {
+                var an = asm0.Int64_isNegative(a);
+                var bn = asm0.Int64_isNegative(b);
+
+                if (an === bn)
+                    return asm0.UInt64_LessThan(a, b);
+                else
+                    return an ? 1 : 0;
+            };;
+    asm.Int64_LessThan = asm.x600006d;
+    asm.x600006e = 
+            function Int64_UnaryNegation (a) {
+                var complement = asm0.XInt64_Subtraction(new Uint32Array([0xffffffff, 0xffffffff]), a);
+                return asm0.XInt64_Addition(complement, conv_u8(1));
+            };;
+    asm.Int64_UnaryNegation = asm.x600006e;
+    asm.x600006f = 
+            function isNegative(n) {
+                return asm0.UInt64_GreaterThan(n, [0xffffffff, 0x7fffffff]);
+            };;
+    asm.Int64_isNegative = asm.x600006f;
     asm.x600007a = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
         /* IL_01: call Void .ctor()*/
+        (asm0.x600000c)(st_00);
         /* IL_06: ret */
         return ;
     };;
-    asm.x600007b = function _ctor(arg0)
+    asm.x600007b = function _ctor(arg0,arg1)
+    {
+        var st_00;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: call Void .ctor()*/
+        (asm0.x600000c)(st_00);
+        /* IL_06: nop */
+        /* IL_07: nop */
+        /* IL_08: nop */
+        /* IL_09: ret */
+        return ;
+    };;
+    asm.x600007c = function InitializeArray(arg0,arg1)
+    {
+        /* IL_00: nop */
+        /* IL_01: ret */
+        return ;
+    };;
+    asm.x600007d = function _ctor(arg0)
+    {
+        var st_00;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: call Void .ctor()*/
+        /* IL_06: ret */
+        return ;
+    };;
+    asm.x600007e = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3177,30 +3210,30 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return ;
     };;
-    asm.x600007c_init = function ()
+    asm.x600007f_init = function ()
     {
         (((asm0)["System.EventArgs"])().init)();
-        asm.x600007c = asm.x600007c_;
+        asm.x600007f = asm.x600007f_;
     };;
-    asm.x600007c = function ()
+    asm.x600007f = function ()
     {
-        (asm.x600007c_init.apply)(this,arguments);
-        return (asm.x600007c.apply)(this,arguments);
+        (asm.x600007f_init.apply)(this,arguments);
+        return (asm.x600007f.apply)(this,arguments);
     };;
-    asm.x600007c_ = function _cctor()
+    asm.x600007f_ = function _cctor()
     {
         var t0;
         var st_00;
         t0 = ((asm0)["System.EventArgs"])();
         /* IL_00: newobj Void .ctor()*/
         st_00 = new t0();
-        (asm0.x600007b)(st_00);
+        (asm0.x600007e)(st_00);
         /* IL_05: stsfld EventArgs Empty*/
         (t0)["Empty"] = st_00;
         /* IL_0A: ret */
         return ;
     };
-    asm.x600007e = function Invoke()
+    asm.x6000081 = function Invoke()
     {
         
                                 var m = arguments[0]._methodPtr;
@@ -3211,11 +3244,11 @@ var asm0; (function (asm)
                                     arguments = Array.prototype.slice.call(arguments, 1);
                                 return m.apply(null, arguments);
     };;
-    asm.x600007d = function ctor()
+    asm.x6000080 = function ctor()
     {
         arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];;
     };;
-    asm.x600007f = function get_Length(arg0)
+    asm.x6000082 = function get_Length(arg0)
     {
         var st_00;
         var st_01;
@@ -3225,7 +3258,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-        st_01 = (asm0.x6000080)(st_00);
+        st_01 = (asm0.x6000083)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3233,9 +3266,9 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000080 = function(o) { return o.jsarr.length; };;
-    asm.x6000081 = function(o, i) { return box(o.jsarr[i], o.type); };;
-    asm.x6000082 = function GetValue(arg0,arg1)
+    asm.x6000083 = function(o) { return o.jsarr.length; };;
+    asm.x6000084 = function(o, i) { return box(o.jsarr[i], o.type); };;
+    asm.x6000085 = function GetValue(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -3248,7 +3281,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Object GetValueImpl(System.Object, System.Int32)*/
-        st_02 = (asm0.x6000081)(st_00,st_01);
+        st_02 = (asm0.x6000084)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -3256,7 +3289,7 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x6000083 = function GetEnumerator(arg0)
+    asm.x6000086 = function GetEnumerator(arg0)
     {
         var st_00;
         var st_01;
@@ -3266,7 +3299,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: callvirt IEnumerator GetEnumeratorImpl()*/
-        st_01 = (((st_00.vtable)["asm0.x6000084"])())(st_00);
+        st_01 = (((st_00.vtable)["asm0.x6000087"])())(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3274,7 +3307,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000085 = function _ctor(arg0)
+    asm.x6000088 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3283,17 +3316,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000087_init = function ()
+    asm.x600008a_init = function ()
     {
         (((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-        asm.x6000087 = asm.x6000087_;
+        asm.x600008a = asm.x600008a_;
     };;
-    asm.x6000087 = function (arg0)
+    asm.x600008a = function (arg0)
     {
-        (asm.x6000087_init.apply)(this,arguments);
-        return (asm.x6000087.apply)(this,arguments);
+        (asm.x600008a_init.apply)(this,arguments);
+        return (asm.x600008a.apply)(this,arguments);
     };;
-    asm.x6000087_ = function GetEnumerator(arg0)
+    asm.x600008a_ = function GetEnumerator(arg0)
     {
         var t0;
         var t1;
@@ -3308,7 +3341,7 @@ var asm0; (function (asm)
         st_00 = arg0;
         /* IL_02: newobj Void .ctor(System.Array`1[T])*/
         st_01 = new t1();
-        (asm0.x600008a)(st_01,st_00);
+        (asm0.x600008d)(st_01,st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3316,7 +3349,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };
-    asm.x6000088 = function GetEnumeratorImpl(arg0)
+    asm.x600008b = function GetEnumeratorImpl(arg0)
     {
         var st_00;
         var st_01;
@@ -3326,7 +3359,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call IEnumerator`1 GetEnumerator()*/
-        st_01 = (asm0.x6000087)(st_00);
+        st_01 = (asm0.x600008a)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3334,17 +3367,17 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000089 = function _ctor(arg0)
+    asm.x600008c = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
         /* IL_01: call Void .ctor()*/
-        (asm0.x6000085)(st_00);
+        (asm0.x6000088)(st_00);
         /* IL_06: ret */
         return ;
     };;
-    asm.x600008b = function get_Current(arg0)
+    asm.x600008e = function get_Current(arg0)
     {
         var st_00;
         var st_01;
@@ -3371,7 +3404,7 @@ var asm0; (function (asm)
         /* IL_16: ret */
         return st_05;
     };;
-    asm.x600008c = function MoveNext(arg0)
+    asm.x600008f = function MoveNext(arg0)
     {
         var st_00;
         var st_01;
@@ -3394,9 +3427,9 @@ var asm0; (function (asm)
         /* IL_03: ldfld Int32 index*/
         st_02 = st_01.index;
         /* IL_08: ldc.i4.1 */
-        st_03 = 1;
+        st_03 = (1|0);
         /* IL_09: add */
-        st_05 = (st_02 + st_03);
+        st_05 = ((st_02 + st_03) | 0);
         /* IL_0A: stfld Int32 index*/
         st_04.index = st_05;
         /* IL_0F: ldarg.0 */
@@ -3416,7 +3449,7 @@ var asm0; (function (asm)
         /* IL_21: ret */
         return st_0B;
     };;
-    asm.x600008d = function System_Collections_IEnumerator_get_Current(arg0)
+    asm.x6000090 = function System_Collections_IEnumerator_get_Current(arg0)
     {
         var t0;
         var st_00;
@@ -3429,7 +3462,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call T get_Current()*/
-        st_01 = (asm0.x600008b)(st_00);
+        st_01 = (asm0.x600008e)(st_00);
         /* IL_07: box T*/
         st_02 = box(st_01,t0);
         /* IL_0C: stloc.0 */
@@ -3439,7 +3472,7 @@ var asm0; (function (asm)
         /* IL_10: ret */
         return st_03;
     };;
-    asm.x600008e = function Reset(arg0)
+    asm.x6000091 = function Reset(arg0)
     {
         var st_00;
         var st_01;
@@ -3447,19 +3480,19 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldc.i4.m1 */
-        st_01 = -1;
+        st_01 = (-1|0);
         /* IL_03: stfld Int32 index*/
         st_00.index = st_01;
         /* IL_08: ret */
         return ;
     };;
-    asm.x600008f = function Dispose(arg0)
+    asm.x6000092 = function Dispose(arg0)
     {
         /* IL_00: nop */
         /* IL_01: ret */
         return ;
     };;
-    asm.x600008a = function _ctor(arg0,arg1)
+    asm.x600008d = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -3483,7 +3516,7 @@ var asm0; (function (asm)
         /* IL_0F: ldarg.0 */
         st_03 = arg0;
         /* IL_10: ldc.i4.m1 */
-        st_04 = -1;
+        st_04 = (-1|0);
         /* IL_11: stfld Int32 index*/
         st_03.index = st_04;
         /* IL_16: ldarg.0 */
@@ -3491,14 +3524,14 @@ var asm0; (function (asm)
         /* IL_17: ldarg.1 */
         st_05 = arg1;
         /* IL_18: callvirt Int32 get_Length()*/
-        st_07 = (asm0.x600007f)(st_05);
+        st_07 = (asm0.x6000082)(st_05);
         /* IL_1D: stfld Int32 length*/
         st_06.length = st_07;
         /* IL_22: nop */
         /* IL_23: ret */
         return ;
     };;
-    asm.x6000090 = function _ctor(arg0)
+    asm.x6000093 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3508,7 +3541,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000091 = function _ctor(arg0,arg1)
+    asm.x6000094 = function _ctor(arg0,arg1)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3521,7 +3554,7 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return ;
     };;
-    asm.x6000093 = function get_HasValue(arg0)
+    asm.x6000096 = function get_HasValue(arg0)
     {
         var st_00;
         var st_01;
@@ -3539,17 +3572,17 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000094_init = function ()
+    asm.x6000097_init = function ()
     {
         (((asm0)["System.InvalidOperationException"])().init)();
-        asm.x6000094 = asm.x6000094_;
+        asm.x6000097 = asm.x6000097_;
     };;
-    asm.x6000094 = function (arg0)
+    asm.x6000097 = function (arg0)
     {
-        (asm.x6000094_init.apply)(this,arguments);
-        return (asm.x6000094.apply)(this,arguments);
+        (asm.x6000097_init.apply)(this,arguments);
+        return (asm.x6000097.apply)(this,arguments);
     };;
-    asm.x6000094_ = function get_Value(arg0)
+    asm.x6000097_ = function get_Value(arg0)
     {
         var t0;
         var st_00;
@@ -3590,7 +3623,7 @@ var asm0; (function (asm)
                 st_03 = new_string("Nullable object must have a value.");
                 /* IL_10: newobj Void .ctor(System.String)*/
                 st_04 = new t0();
-                (asm0.x600005e)(st_04,st_03);
+                (asm0.x600005b)(st_04,st_03);
                 /* IL_15: throw */
                 throw st_04;
                 case 0x16:
@@ -3607,17 +3640,17 @@ var asm0; (function (asm)
             }
         }
     };
-    asm.x6000095_init = function ()
+    asm.x6000098_init = function ()
     {
         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]).init)();
-        asm.x6000095 = asm.x6000095_;
+        asm.x6000098 = asm.x6000098_;
     };;
-    asm.x6000095 = function (arg0,arg1)
+    asm.x6000098 = function (arg0,arg1)
     {
-        (asm.x6000095_init.apply)(this,arguments);
-        return (asm.x6000095.apply)(this,arguments);
+        (asm.x6000098_init.apply)(this,arguments);
+        return (asm.x6000098.apply)(this,arguments);
     };;
-    asm.x6000095_ = function Equals(arg0,arg1)
+    asm.x6000098_ = function Equals(arg0,arg1)
     {
         var t0;
         var t1;
@@ -3662,7 +3695,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -3680,7 +3713,7 @@ var asm0; (function (asm)
                 /* IL_0D: ldfld Boolean has_value*/
                 st_07 = (st_06.r)().has_value;
                 /* IL_12: ldc.i4.0 */
-                st_08 = 0;
+                st_08 = (0|0);
                 /* IL_14: ceq */
                 st_09 = (st_07 === st_08) ? (1) : (0);
                 /* IL_15: stloc.0 */
@@ -3708,7 +3741,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_25: ldc.i4.0 */
-                st_0F = 0;
+                st_0F = (0|0);
                 /* IL_26: stloc.0 */
                 loc0 = st_0F;
                 /* IL_27: br.s IL_38*/
@@ -3722,7 +3755,7 @@ var asm0; (function (asm)
                 /* IL_2B: unbox.any System.Nullable`1[T]*/
                 st_12 = unbox_any(st_10,t1);
                 /* IL_30: call Boolean Equals(System.Nullable`1[T])*/
-                st_13 = (asm0.x6000096)(st_11,clone_value(st_12));
+                st_13 = (asm0.x6000099)(st_11,clone_value(st_12));
                 /* IL_35: stloc.0 */
                 loc0 = st_13;
                 case 0x38:
@@ -3733,7 +3766,7 @@ var asm0; (function (asm)
             }
         }
     };
-    asm.x6000096 = function Equals(arg0,arg1)
+    asm.x6000099 = function Equals(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -3796,7 +3829,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_14: ldc.i4.0 */
-                st_06 = 0;
+                st_06 = (0|0);
                 /* IL_15: stloc.0 */
                 loc0 = st_06;
                 /* IL_16: br.s IL_46*/
@@ -3818,7 +3851,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_22: ldc.i4.1 */
-                st_0A = 1;
+                st_0A = (1|0);
                 /* IL_23: stloc.0 */
                 loc0 = st_0A;
                 /* IL_24: br.s IL_46*/
@@ -3866,7 +3899,7 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x6000097 = function GetHashCode(arg0)
+    asm.x600009a = function GetHashCode(arg0)
     {
         var st_00;
         var st_01;
@@ -3902,7 +3935,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_0B: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_0C: stloc.0 */
                 loc0 = st_03;
                 /* IL_0D: br.s IL_23*/
@@ -3935,7 +3968,7 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x6000098 = function GetValueOrDefault(arg0)
+    asm.x600009b = function GetValueOrDefault(arg0)
     {
         var st_00;
         var st_01;
@@ -3953,7 +3986,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000099 = function GetValueOrDefault(arg0,arg1)
+    asm.x600009c = function GetValueOrDefault(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4002,17 +4035,17 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x600009a_init = function ()
+    asm.x600009d_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x600009a = asm.x600009a_;
+        asm.x600009d = asm.x600009d_;
     };;
-    asm.x600009a = function (arg0)
+    asm.x600009d = function (arg0)
     {
-        (asm.x600009a_init.apply)(this,arguments);
-        return (asm.x600009a.apply)(this,arguments);
+        (asm.x600009d_init.apply)(this,arguments);
+        return (asm.x600009d.apply)(this,arguments);
     };;
-    asm.x600009a_ = function ToString(arg0)
+    asm.x600009d_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4042,7 +4075,7 @@ var asm0; (function (asm)
                 /* IL_02: ldfld Boolean has_value*/
                 st_01 = (st_00.r)().has_value;
                 /* IL_07: ldc.i4.0 */
-                st_02 = 0;
+                st_02 = (0|0);
                 /* IL_09: ceq */
                 st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: stloc.1 */
@@ -4089,23 +4122,23 @@ var asm0; (function (asm)
             }
         }
     };
-    asm.x600009b_init = function (T)
+    asm.x600009e_init = function (T)
     {
         return function ()
         {
             (((asm0)["System.Nullable`1"])(T).init)();
-            asm.x600009b = asm.x600009b_;
+            asm.x600009e = asm.x600009e_;
         };
     };;
-    asm.x600009b = function (T)
+    asm.x600009e = function (T)
     {
         return function (arg0)
         {
-            ((asm.x600009b_init)(T).apply)(this,arguments);
-            return ((asm.x600009b)(T).apply)(this,arguments);
+            ((asm.x600009e_init)(T).apply)(this,arguments);
+            return ((asm.x600009e)(T).apply)(this,arguments);
         };
     };;
-    asm.x600009b_ = function (T)
+    asm.x600009e_ = function (T)
     {
         return function op_Implicit(arg0)
         {
@@ -4122,7 +4155,7 @@ var asm0; (function (asm)
             st_00 = arg0;
             /* IL_02: newobj Void .ctor(T)*/
             st_01 = new t1();
-            (asm0.x6000092)({
+            (asm0.x6000095)({
                 'w': function ()
                 {
                     st_01 = (arguments)[0];
@@ -4140,7 +4173,7 @@ var asm0; (function (asm)
             return st_02;
         };
     };
-    asm.x600009c = function (T)
+    asm.x600009f = function (T)
     {
         return function op_Explicit(arg0)
         {
@@ -4161,7 +4194,7 @@ var asm0; (function (asm)
                 }
             };
             /* IL_03: call T get_Value()*/
-            st_01 = (asm0.x6000094)(st_00);
+            st_01 = (asm0.x6000097)(st_00);
             /* IL_08: stloc.0 */
             loc0 = st_01;
             /* IL_0B: ldloc.0 */
@@ -4170,7 +4203,7 @@ var asm0; (function (asm)
             return st_02;
         };
     };;
-    asm.x600009d = function (T)
+    asm.x60000a0 = function (T)
     {
         return function Box(arg0)
         {
@@ -4252,23 +4285,23 @@ var asm0; (function (asm)
             }
         };
     };;
-    asm.x600009e_init = function (T)
+    asm.x60000a1_init = function (T)
     {
         return function ()
         {
             (((asm0)["System.Nullable`1"])(T).init)();
-            asm.x600009e = asm.x600009e_;
+            asm.x60000a1 = asm.x60000a1_;
         };
     };;
-    asm.x600009e = function (T)
+    asm.x60000a1 = function (T)
     {
         return function (arg0)
         {
-            ((asm.x600009e_init)(T).apply)(this,arguments);
-            return ((asm.x600009e)(T).apply)(this,arguments);
+            ((asm.x60000a1_init)(T).apply)(this,arguments);
+            return ((asm.x60000a1)(T).apply)(this,arguments);
         };
     };;
-    asm.x600009e_ = function (T)
+    asm.x60000a1_ = function (T)
     {
         return function Unbox(arg0)
         {
@@ -4308,7 +4341,7 @@ var asm0; (function (asm)
                     /* IL_04: ceq */
                     st_02 = (st_00 === st_01) ? (1) : (0);
                     /* IL_05: ldc.i4.0 */
-                    st_03 = 0;
+                    st_03 = (0|0);
                     /* IL_07: ceq */
                     st_04 = (st_02 === st_03) ? (1) : (0);
                     /* IL_08: stloc.1 */
@@ -4348,7 +4381,7 @@ var asm0; (function (asm)
                     st_09 = unbox_any(st_08,t0);
                     /* IL_1E: newobj Void .ctor(T)*/
                     st_0A = new t1();
-                    (asm0.x6000092)({
+                    (asm0.x6000095)({
                         'w': function ()
                         {
                             st_0A = (arguments)[0];
@@ -4369,7 +4402,7 @@ var asm0; (function (asm)
             }
         };
     };
-    asm.x6000092 = function _ctor(arg0,arg1)
+    asm.x6000095 = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4379,7 +4412,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_01 = 1;
+        st_01 = (1|0);
         /* IL_03: stfld Boolean has_value*/
         (st_00.r)().has_value = st_01;
         /* IL_08: ldarg.0 */
@@ -4391,7 +4424,7 @@ var asm0; (function (asm)
         /* IL_0F: ret */
         return ;
     };;
-    asm.x600009f = function _ctor(arg0)
+    asm.x60000a2 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4401,11 +4434,11 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x60000a0 = function(o) { return o.jsstr.length; };;
-    asm.x60000a1 = function(a, b) { return a.jsstr === b.jsstr; };;
-    asm.x60000a2 = function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); };;
-    asm.x60000a3 = function (s, i) { return s.jsstr.charCodeAt(i); };;
-    asm.x60000a4 = function get_Chars(arg0,arg1)
+    asm.x60000a3 = function(o) { return o.jsstr.length; };;
+    asm.x60000a4 = function(a, b) { return a.jsstr === b.jsstr; };;
+    asm.x60000a5 = function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); };;
+    asm.x60000a6 = function (s, i) { return s.jsstr.charCodeAt(i); };;
+    asm.x60000a7 = function get_Chars(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4418,7 +4451,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Char GetChar(System.String, System.Int32)*/
-        st_02 = (asm0.x60000a3)(st_00,st_01);
+        st_02 = (asm0.x60000a6)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -4426,17 +4459,17 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x60000a5_init = function ()
+    asm.x60000a8_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000a5 = asm.x60000a5_;
+        asm.x60000a8 = asm.x60000a8_;
     };;
-    asm.x60000a5 = function (arg0,arg1)
+    asm.x60000a8 = function (arg0,arg1)
     {
-        (asm.x60000a5_init.apply)(this,arguments);
-        return (asm.x60000a5.apply)(this,arguments);
+        (asm.x60000a8_init.apply)(this,arguments);
+        return (asm.x60000a8.apply)(this,arguments);
     };;
-    asm.x60000a5_ = function Concat(arg0,arg1)
+    asm.x60000a8_ = function Concat(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4455,7 +4488,7 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldc.i4.2 */
-        st_00 = 2;
+        st_00 = (2|0);
         /* IL_02: newarr System.String*/
         st_01 = new_array(t0,st_00);
         /* IL_07: stloc.1 */
@@ -4463,7 +4496,7 @@ var asm0; (function (asm)
         /* IL_08: ldloc.1 */
         st_02 = loc1;
         /* IL_09: ldc.i4.0 */
-        st_03 = 0;
+        st_03 = (0|0);
         /* IL_0A: ldarg.0 */
         st_04 = arg0;
         /* IL_0B: stelem.ref */
@@ -4471,7 +4504,7 @@ var asm0; (function (asm)
         /* IL_0C: ldloc.1 */
         st_05 = loc1;
         /* IL_0D: ldc.i4.1 */
-        st_06 = 1;
+        st_06 = (1|0);
         /* IL_0E: ldarg.1 */
         st_07 = arg1;
         /* IL_0F: stelem.ref */
@@ -4479,7 +4512,7 @@ var asm0; (function (asm)
         /* IL_10: ldloc.1 */
         st_08 = loc1;
         /* IL_11: call String ConcatImpl(System.String[])*/
-        st_09 = (asm0.x60000a2)(st_08);
+        st_09 = (asm0.x60000a5)(st_08);
         /* IL_16: stloc.0 */
         loc0 = st_09;
         /* IL_19: ldloc.0 */
@@ -4487,17 +4520,17 @@ var asm0; (function (asm)
         /* IL_1A: ret */
         return st_0A;
     };
-    asm.x60000a6_init = function ()
+    asm.x60000a9_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000a6 = asm.x60000a6_;
+        asm.x60000a9 = asm.x60000a9_;
     };;
-    asm.x60000a6 = function (arg0,arg1)
+    asm.x60000a9 = function (arg0,arg1)
     {
-        (asm.x60000a6_init.apply)(this,arguments);
-        return (asm.x60000a6.apply)(this,arguments);
+        (asm.x60000a9_init.apply)(this,arguments);
+        return (asm.x60000a9.apply)(this,arguments);
     };;
-    asm.x60000a6_ = function Concat(arg0,arg1)
+    asm.x60000a9_ = function Concat(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4518,7 +4551,7 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldc.i4.2 */
-        st_00 = 2;
+        st_00 = (2|0);
         /* IL_02: newarr System.String*/
         st_01 = new_array(t0,st_00);
         /* IL_07: stloc.1 */
@@ -4526,7 +4559,7 @@ var asm0; (function (asm)
         /* IL_08: ldloc.1 */
         st_03 = loc1;
         /* IL_09: ldc.i4.0 */
-        st_04 = 0;
+        st_04 = (0|0);
         /* IL_0A: ldarg.0 */
         st_02 = arg0;
         /* IL_0B: callvirt String ToString()*/
@@ -4536,7 +4569,7 @@ var asm0; (function (asm)
         /* IL_11: ldloc.1 */
         st_07 = loc1;
         /* IL_12: ldc.i4.1 */
-        st_08 = 1;
+        st_08 = (1|0);
         /* IL_13: ldarg.1 */
         st_06 = arg1;
         /* IL_14: callvirt String ToString()*/
@@ -4546,7 +4579,7 @@ var asm0; (function (asm)
         /* IL_1A: ldloc.1 */
         st_0A = loc1;
         /* IL_1B: call String ConcatImpl(System.String[])*/
-        st_0B = (asm0.x60000a2)(st_0A);
+        st_0B = (asm0.x60000a5)(st_0A);
         /* IL_20: stloc.0 */
         loc0 = st_0B;
         /* IL_23: ldloc.0 */
@@ -4554,7 +4587,7 @@ var asm0; (function (asm)
         /* IL_24: ret */
         return st_0C;
     };
-    asm.x60000a7 = function Concat(arg0)
+    asm.x60000aa = function Concat(arg0)
     {
         var st_00;
         var st_01;
@@ -4564,7 +4597,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call String ConcatImpl(System.String[])*/
-        st_01 = (asm0.x60000a2)(st_00);
+        st_01 = (asm0.x60000a5)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -4572,17 +4605,17 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000a8_init = function ()
+    asm.x60000ab_init = function ()
     {
         (((asm0)["System.Exception"])().init)();
-        asm.x60000a8 = asm.x60000a8_;
+        asm.x60000ab = asm.x60000ab_;
     };;
-    asm.x60000a8 = function (arg0)
+    asm.x60000ab = function (arg0)
     {
-        (asm.x60000a8_init.apply)(this,arguments);
-        return (asm.x60000a8.apply)(this,arguments);
+        (asm.x60000ab_init.apply)(this,arguments);
+        return (asm.x60000ab.apply)(this,arguments);
     };;
-    asm.x60000a8_ = function Concat(arg0)
+    asm.x60000ab_ = function Concat(arg0)
     {
         var t0;
         var st_00;
@@ -4597,7 +4630,7 @@ var asm0; (function (asm)
         /* IL_0B: throw */
         throw st_01;
     };
-    asm.x60000a9 = function get_Length(arg0)
+    asm.x60000ac = function get_Length(arg0)
     {
         var st_00;
         var st_01;
@@ -4607,7 +4640,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-        st_01 = (asm0.x60000a0)(st_00);
+        st_01 = (asm0.x60000a3)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -4615,7 +4648,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000aa = function ToString(arg0)
+    asm.x60000ad = function ToString(arg0)
     {
         var st_00;
         var st_01;
@@ -4630,7 +4663,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return st_01;
     };;
-    asm.x60000ab = function op_Inequality(arg0,arg1)
+    asm.x60000ae = function op_Inequality(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4645,9 +4678,9 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a1)(st_00,st_01);
+        st_02 = (asm0.x60000a4)(st_00,st_01);
         /* IL_08: ldc.i4.0 */
-        st_03 = 0;
+        st_03 = (0|0);
         /* IL_0A: ceq */
         st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
@@ -4657,7 +4690,7 @@ var asm0; (function (asm)
         /* IL_0F: ret */
         return st_05;
     };;
-    asm.x60000ac = function op_Equality(arg0,arg1)
+    asm.x60000af = function op_Equality(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4670,7 +4703,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a1)(st_00,st_01);
+        st_02 = (asm0.x60000a4)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -4678,7 +4711,7 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x60000ad = function Equals(arg0,arg1)
+    asm.x60000b0 = function Equals(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4691,7 +4724,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a1)(st_00,st_01);
+        st_02 = (asm0.x60000a4)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -4699,17 +4732,17 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x60000ae_init = function ()
+    asm.x60000b1_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000ae = asm.x60000ae_;
+        asm.x60000b1 = asm.x60000b1_;
     };;
-    asm.x60000ae = function (arg0,arg1)
+    asm.x60000b1 = function (arg0,arg1)
     {
-        (asm.x60000ae_init.apply)(this,arguments);
-        return (asm.x60000ae.apply)(this,arguments);
+        (asm.x60000b1_init.apply)(this,arguments);
+        return (asm.x60000b1.apply)(this,arguments);
     };;
-    asm.x60000ae_ = function Equals(arg0,arg1)
+    asm.x60000b1_ = function Equals(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4727,7 +4760,7 @@ var asm0; (function (asm)
         /* IL_03: castclass System.String*/
         st_02 = cast_class(st_00,t0);
         /* IL_08: call Boolean Equals(System.String)*/
-        st_03 = (asm0.x60000ad)(st_01,st_02);
+        st_03 = (asm0.x60000b0)(st_01,st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4735,7 +4768,7 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x60000af = 
+    asm.x60000b2 = 
             function (o) {
                 var str = o.jsstr;
                 var length = str.length;
@@ -4744,7 +4777,7 @@ var asm0; (function (asm)
                     h = (h << 5) - h + str.charCodeAt(i);
                 return h;
             };;
-    asm.x60000b0 = function GetHashCode(arg0)
+    asm.x60000b3 = function GetHashCode(arg0)
     {
         var st_00;
         var st_01;
@@ -4754,7 +4787,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call Int32 GetHashCodeImpl(System.String)*/
-        st_01 = (asm0.x60000af)(st_00);
+        st_01 = (asm0.x60000b2)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -4762,7 +4795,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000b1 = function _ctor(arg0)
+    asm.x60000b4 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4771,17 +4804,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x60000b2_init = function ()
+    asm.x60000b5_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000b2 = asm.x60000b2_;
+        asm.x60000b5 = asm.x60000b5_;
     };;
-    asm.x60000b2 = function ()
+    asm.x60000b5 = function ()
     {
-        (asm.x60000b2_init.apply)(this,arguments);
-        return (asm.x60000b2.apply)(this,arguments);
+        (asm.x60000b5_init.apply)(this,arguments);
+        return (asm.x60000b5.apply)(this,arguments);
     };;
-    asm.x60000b2_ = function _cctor()
+    asm.x60000b5_ = function _cctor()
     {
         var t0;
         var st_00;
@@ -4793,7 +4826,7 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };
-    asm.x60000b4 = function get_MemberName(arg0)
+    asm.x60000b7 = function get_MemberName(arg0)
     {
         var st_00;
         var st_01;
@@ -4811,7 +4844,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000b3 = function _ctor(arg0,arg1)
+    asm.x60000b6 = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4832,7 +4865,7 @@ var asm0; (function (asm)
         /* IL_10: ret */
         return ;
     };;
-    asm.x60000b6 = function _ctor(arg0)
+    asm.x60000b9 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4841,17 +4874,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x60000b7_init = function ()
+    asm.x60000ba_init = function ()
     {
         (((asm0)["System.UInt16"])().init)();
-        asm.x60000b7 = asm.x60000b7_;
+        asm.x60000ba = asm.x60000ba_;
     };;
-    asm.x60000b7 = function (arg0)
+    asm.x60000ba = function (arg0)
     {
-        (asm.x60000b7_init.apply)(this,arguments);
-        return (asm.x60000b7.apply)(this,arguments);
+        (asm.x60000ba_init.apply)(this,arguments);
+        return (asm.x60000ba.apply)(this,arguments);
     };;
-    asm.x60000b7_ = function ToString(arg0)
+    asm.x60000ba_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4881,17 +4914,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x60000b8_init = function ()
+    asm.x60000bb_init = function ()
     {
         (((asm0)["System.UInt32"])().init)();
-        asm.x60000b8 = asm.x60000b8_;
+        asm.x60000bb = asm.x60000bb_;
     };;
-    asm.x60000b8 = function (arg0)
+    asm.x60000bb = function (arg0)
     {
-        (asm.x60000b8_init.apply)(this,arguments);
-        return (asm.x60000b8.apply)(this,arguments);
+        (asm.x60000bb_init.apply)(this,arguments);
+        return (asm.x60000bb.apply)(this,arguments);
     };;
-    asm.x60000b8_ = function ToString(arg0)
+    asm.x60000bb_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4921,7 +4954,7 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x60000b9 = function ToString(arg0)
+    asm.x60000bc = function ToString(arg0)
     {
         var st_00;
         var st_01;
@@ -4967,9 +5000,9 @@ var asm0; (function (asm)
                 /* IL_03: stloc.0 */
                 loc0 = st_01;
                 /* IL_04: ldc.i4.s 10*/
-                st_02 = 10;
+                st_02 = (10|0);
                 /* IL_06: conv.i8 */
-                st_03 = make_uint64(st_02);
+                st_03 = conv_i8(st_02);
                 /* IL_07: stloc.1 */
                 loc1 = st_03;
                 /* IL_08: ldstr */
@@ -4994,7 +5027,7 @@ var asm0; (function (asm)
                 /* IL_19: ldloc.2 */
                 st_0A = loc2;
                 /* IL_1A: call String Concat(System.String, System.String)*/
-                st_0B = (asm0.x60000a5)(st_09,st_0A);
+                st_0B = (asm0.x60000a8)(st_09,st_0A);
                 /* IL_1F: stloc.2 */
                 loc2 = st_0B;
                 /* IL_20: ldloc.0 */
@@ -5010,9 +5043,9 @@ var asm0; (function (asm)
                 /* IL_25: ldloc.0 */
                 st_10 = loc0;
                 /* IL_26: ldc.i4.0 */
-                st_0F = 0;
+                st_0F = (0|0);
                 /* IL_27: conv.i8 */
-                st_11 = make_uint64(st_0F);
+                st_11 = conv_i8(st_0F);
                 /* IL_29: cgt.un */
                 st_12 = (asm0.UInt64_GreaterThan)(st_10,st_11);
                 /* IL_2A: stloc.s 5*/
@@ -5036,8 +5069,8 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x60000bb = 
-            function (lhs, rhs) {
+    asm.x60000be = 
+            function UInt64_RightShift(lhs, rhs) {
                 n = n & 0x3f;
 
                 if (n > 32) {
@@ -5053,8 +5086,8 @@ var asm0; (function (asm)
 
                 return new Uint32Array([ at | br, bt ]);
             };;
-    asm.UInt64_RightShift = asm.x60000bb;
-    asm.x60000bc = 
+    asm.UInt64_RightShift = asm.x60000be;
+    asm.x60000bf = 
             function UInt64_Division(n, d) {
 
                 if (d[0] == 0 && d[1] == 0)
@@ -5079,9 +5112,9 @@ var asm0; (function (asm)
 
                 return q;    
             };;
-    asm.UInt64_Division = asm.x60000bc;
-    asm.x60000bd = 
-            function XInt64_GreaterThan(a, b) {
+    asm.UInt64_Division = asm.x60000bf;
+    asm.x60000c0 = 
+            function XInt64_Multiplication(a, b) {
                 if (a[0] == 0 && a[1] == 0)
                     return a;
 
@@ -5110,8 +5143,8 @@ var asm0; (function (asm)
 
                 return s;
             };;
-    asm.XInt64_Multiplication = asm.x60000bd;
-    asm.x60000be = 
+    asm.XInt64_Multiplication = asm.x60000c0;
+    asm.x60000c1 = 
             function UInt64_GreaterThanOrEqual (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
@@ -5120,10 +5153,10 @@ var asm0; (function (asm)
                 if (bdiff < 0)
                     return 0;
 
-                return a[0] >= b[0];
+                return a[0] >= b[0] ? 1: 0;
             };;
-    asm.UInt64_GreaterThanOrEqual = asm.x60000be;
-    asm.x60000bf = 
+    asm.UInt64_GreaterThanOrEqual = asm.x60000c1;
+    asm.x60000c2 = 
             function UInt64_LessThanOrEqual (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
@@ -5132,11 +5165,11 @@ var asm0; (function (asm)
                 if (bdiff > 0)
                     return 0;
 
-                return a[0] <= b[0];
+                return a[0] <= b[0] ? 1: 0;
             };;
-    asm.UInt64_LessThanOrEqual = asm.x60000bf;
-    asm.x60000c0 = 
-            function UInt64_GreaterThanOrEqual (a, b) {
+    asm.UInt64_LessThanOrEqual = asm.x60000c2;
+    asm.x60000c3 = 
+            function UInt64_GreaterThan (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
                     return 1;
@@ -5144,11 +5177,11 @@ var asm0; (function (asm)
                 if (bdiff < 0)
                     return 0;
 
-                return a[0] > b[0];
+                return a[0] > b[0] ? 1: 0;
             };;
-    asm.UInt64_GreaterThan = asm.x60000c0;
-    asm.x60000c1 = 
-            function UInt64_LesserThan(a, b) {
+    asm.UInt64_GreaterThan = asm.x60000c3;
+    asm.x60000c4 = 
+            function UInt64_LessThan(a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
                     return 1;
@@ -5156,10 +5189,10 @@ var asm0; (function (asm)
                 if (bdiff > 0)
                     return 0;
 
-                return a[0] < b[0];
+                return a[0] < b[0] ? 1: 0;
             };;
-    asm.UInt64_LessThan = asm.x60000c1;
-    asm.x60000c2 = 
+    asm.UInt64_LessThan = asm.x60000c4;
+    asm.x60000c5 = 
             function UInt64_Modulus (n, d) {
                 var greaterThanOrEqual = asm0.UInt64_GreaterThanOrEqual,
                     subtraction = asm0.XInt64_Subtraction,
@@ -5185,18 +5218,18 @@ var asm0; (function (asm)
 
                 return r;
             };;
-    asm.UInt64_Modulus = asm.x60000c2;
-    asm.x60000c3_init = function ()
+    asm.UInt64_Modulus = asm.x60000c5;
+    asm.x60000c6_init = function ()
     {
         (((asm0)["System.UIntPtr"])().init)();
-        asm.x60000c3 = asm.x60000c3_;
+        asm.x60000c6 = asm.x60000c6_;
     };;
-    asm.x60000c3 = function (arg0)
+    asm.x60000c6 = function (arg0)
     {
-        (asm.x60000c3_init.apply)(this,arguments);
-        return (asm.x60000c3.apply)(this,arguments);
+        (asm.x60000c6_init.apply)(this,arguments);
+        return (asm.x60000c6.apply)(this,arguments);
     };;
-    asm.x60000c3_ = function ToString(arg0)
+    asm.x60000c6_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -7332,6 +7365,8 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Int64.MaxValue = 0;
+                Int64.MinValue = 0;
                 Int64.Interfaces = [  ];
                 Int64.IsInst = function (t) { return typeof t == 'number'; };
                 Int64.IsValueType = true;
@@ -7341,7 +7376,7 @@ var asm0; (function (asm)
                 Int64.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x600005f;
+                        return asm0.x600005c;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -7608,7 +7643,7 @@ var asm0; (function (asm)
                 EventArgs.IsPrimitive = false;
                 EventArgs.IsNullable = false;
                 EventArgs.ArrayType = Array;
-                (asm0.x600007c)();
+                (asm0.x600007f)();
                 EventArgs.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
@@ -7666,9 +7701,9 @@ var asm0; (function (asm)
                 EventHandler.prototype._methodPtr = null;
                 EventHandler.prototype._target = null;
                 EventHandler.prototype.vtable = {
-                    'asm0.x600007e': function ()
+                    'asm0.x6000081': function ()
                     {
-                        return asm0.x600007e;
+                        return asm0.x6000081;
                     },
                     'asm0.x600002e': function ()
                     {
@@ -7735,13 +7770,13 @@ var asm0; (function (asm)
                 Array.prototype.type = null;
                 Array.prototype.jsarr = null;
                 Array.prototype.vtable = {
-                    'asm0.x6000083': function ()
+                    'asm0.x6000086': function ()
                     {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     },
-                    'asm0.x6000084': function ()
+                    'asm0.x6000087': function ()
                     {
-                        return asm0.x6000084;
+                        return asm0.x6000087;
                     },
                     'asm0.x6000005': function ()
                     {
@@ -7759,7 +7794,7 @@ var asm0; (function (asm)
                 (Array.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x6000049': function ()
                     {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     }
                 };
             };
@@ -7807,17 +7842,17 @@ var asm0; (function (asm)
                 Array_1.prototype.type = null;
                 Array_1.prototype.jsarr = null;
                 Array_1.prototype.vtable = {
+                    'asm0.x600008a': function ()
+                    {
+                        return asm0.x600008a;
+                    },
                     'asm0.x6000087': function ()
                     {
-                        return asm0.x6000087;
+                        return asm0.x600008b;
                     },
-                    'asm0.x6000084': function ()
+                    'asm0.x6000086': function ()
                     {
-                        return asm0.x6000088;
-                    },
-                    'asm0.x6000083': function ()
-                    {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     },
                     'asm0.x6000005': function ()
                     {
@@ -7835,13 +7870,13 @@ var asm0; (function (asm)
                 (Array_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
                     'x600004a': function ()
                     {
-                        return asm0.x6000087;
+                        return asm0.x600008a;
                     }
                 };
                 (Array_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x6000049': function ()
                     {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     }
                 };
             };
@@ -7890,18 +7925,6 @@ var asm0; (function (asm)
                 ArrayEnumerator.prototype.length = 0;
                 ArrayEnumerator.prototype.source = null;
                 ArrayEnumerator.prototype.vtable = {
-                    'asm0.x600008b': function ()
-                    {
-                        return asm0.x600008b;
-                    },
-                    'asm0.x600008c': function ()
-                    {
-                        return asm0.x600008c;
-                    },
-                    'asm0.x600008d': function ()
-                    {
-                        return asm0.x600008d;
-                    },
                     'asm0.x600008e': function ()
                     {
                         return asm0.x600008e;
@@ -7909,6 +7932,18 @@ var asm0; (function (asm)
                     'asm0.x600008f': function ()
                     {
                         return asm0.x600008f;
+                    },
+                    'asm0.x6000090': function ()
+                    {
+                        return asm0.x6000090;
+                    },
+                    'asm0.x6000091': function ()
+                    {
+                        return asm0.x6000091;
+                    },
+                    'asm0.x6000092': function ()
+                    {
+                        return asm0.x6000092;
                     },
                     'asm0.x6000005': function ()
                     {
@@ -7926,31 +7961,31 @@ var asm0; (function (asm)
                 (ArrayEnumerator.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
                     'x6000047': function ()
                     {
-                        return asm0.x600008b;
+                        return asm0.x600008e;
                     },
                     'x6000048': function ()
                     {
-                        return asm0.x600008c;
+                        return asm0.x600008f;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {
                     'x6000044': function ()
                     {
-                        return asm0.x600008d;
+                        return asm0.x6000090;
                     },
                     'x6000045': function ()
                     {
-                        return asm0.x600008c;
+                        return asm0.x600008f;
                     },
                     'x6000046': function ()
                     {
-                        return asm0.x600008e;
+                        return asm0.x6000091;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.IDisposable"])()] = {
                     'x6000039': function ()
                     {
-                        return asm0.x600008f;
+                        return asm0.x6000092;
                     }
                 };
             };
@@ -8176,15 +8211,15 @@ var asm0; (function (asm)
                 Nullable_1.prototype.vtable = {
                     'asm0.x6000009': function ()
                     {
-                        return asm0.x6000095;
+                        return asm0.x6000098;
                     },
                     'asm0.x6000006': function ()
                     {
-                        return asm0.x6000097;
+                        return asm0.x600009a;
                     },
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x600009a;
+                        return asm0.x600009d;
                     }
                 };
             };
@@ -8282,20 +8317,20 @@ var asm0; (function (asm)
                 $$String.IsPrimitive = false;
                 $$String.IsNullable = false;
                 $$String.ArrayType = Array;
-                (asm0.x60000b2)();
+                (asm0.x60000b5)();
                 $$String.prototype.jsstr = null;
                 $$String.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000aa;
+                        return asm0.x60000ad;
                     },
                     'asm0.x6000009': function ()
                     {
-                        return asm0.x60000ae;
+                        return asm0.x60000b1;
                     },
                     'asm0.x6000006': function ()
                     {
-                        return asm0.x60000b0;
+                        return asm0.x60000b3;
                     }
                 };
             };
@@ -8447,7 +8482,7 @@ var asm0; (function (asm)
                 UInt16.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000b7;
+                        return asm0.x60000ba;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8502,7 +8537,7 @@ var asm0; (function (asm)
                 UInt32.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000b8;
+                        return asm0.x60000bb;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8548,7 +8583,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
-                UInt64.MAX_VALUE = 0;
+                UInt64.MaxValue = 0;
                 UInt64.Interfaces = [  ];
                 UInt64.IsInst = function (t) { return typeof t == 'number'; };
                 UInt64.IsValueType = true;
@@ -8558,7 +8593,7 @@ var asm0; (function (asm)
                 UInt64.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000b9;
+                        return asm0.x60000bc;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8613,7 +8648,7 @@ var asm0; (function (asm)
                 UIntPtr.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000c3;
+                        return asm0.x60000c6;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8793,12 +8828,29 @@ var asm1; (function (asm)
         }
     }
 
-    function make_uint64(n) {
+    function conv_u8(n) {
         if (n < 0) {
             
             n = 0x100000000 + n;
         }
 
+        return make_uint64(n);
+    }
+
+    function conv_i8(n) {
+        if (n < 0) {
+            
+            n = 0x100000000 + n;
+            
+            
+            
+            return new Uint32Array([ n | 0, 0xffffffff ]);
+        }
+
+        return make_uint64(n);
+    }
+
+    function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -8846,7 +8898,7 @@ var asm1; (function (asm)
         /* IL_00: ldarg.0 */
         st_00 = arg0;
         /* IL_01: ldc.i4.2 */
-        st_01 = 2;
+        st_01 = (2|0);
         /* IL_02: stind.i4 */
         (st_00.w)(st_01);
         /* IL_03: ret */
@@ -8900,7 +8952,7 @@ var asm1; (function (asm)
             }
         };
         /* IL_0B: ldc.i4.3 */
-        st_02 = 3;
+        st_02 = (3|0);
         /* IL_0C: stfld Int32 U*/
         (st_01.r)().U = st_02;
         /* IL_11: ldloc.0 */
@@ -8940,7 +8992,7 @@ var asm1; (function (asm)
         /* IL_07: ldloc.0 */
         st_01 = loc0;
         /* IL_08: ldc.i4.4 */
-        st_02 = 4;
+        st_02 = (4|0);
         /* IL_09: stfld Int32 V*/
         st_01.V = st_02;
         /* IL_0E: ldloc.0 */

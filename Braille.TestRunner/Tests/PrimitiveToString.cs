@@ -6,8 +6,8 @@
         PrintObject(-111);
         PrintObject(145U);
         PrintObject(222U);
-        //PrintObject(333L);
-        //PrintObject(-333L);
+        PrintObject(333L);
+        PrintObject(-333L);
         PrintObject(444UL);
         PrintObject(555f);
         PrintObject(-555f);

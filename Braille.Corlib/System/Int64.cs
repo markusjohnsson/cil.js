@@ -5,6 +5,9 @@ namespace System
 {
     public struct Int64
     {
+        public const long MaxValue = 0x7fffffffffffffff;
+        public const long MinValue = -9223372036854775808;
+
         public override string ToString()
         {
             var a = this;
@@ -12,18 +15,23 @@ namespace System
 
             var s = "";
 
+            if (a < 0)
+            {
+                return "-" + ((object)(-a)).ToString();
+            }
+
             do
             {
                 var r = a % ten;
-                s = GetLowString(a);
+                s = GetLowString(r) + s;
                 a = a / ten;
             } while (a > 0);
 
             return s;
         }
 
-        [JsReplace("{0}[0].toString()")]
-        private static extern string GetLowString(long a);
+        [JsReplace("new_string({0}[0].toString())")]
+        private static extern string GetLowString(long a);    
 
         [JsAssemblyStatic(Name = "XInt64_Addition")]
         [JsImport(@"
@@ -189,12 +197,83 @@ namespace System
             }")]
         public extern static long operator >>(long a, int n);
 
-        //        [JsAssemblyStatic]
-        //        [JsImport(@"
-        //            function (lhs, rhs)
-        //            {
-        //            }
-        //            ")]
-        //        public extern static long operator -(long lhs, long rhs);
+        [JsAssemblyStatic(Name = "Int64_Division")]
+        [JsImport(@"
+            function Int64_Division(n, d) {
+                if (d[0] === 0 && d[1] === 0)
+                    throw new Error(""System.DivideByZeroException"");
+
+                if (asm0.Int64_isNegative(d))
+                    return asm0.Int64_Division(
+                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
+
+                else if (asm0.Int64_isNegative(n))
+                    return asm0.Int64_UnaryNegation(asm0.Int64_Division(asm0.Int64_UnaryNegation(n), d));
+                else
+                    return asm0.UInt64_Division(n, d);
+            }")]
+        public extern static long operator /(long n, int d);
+
+        [JsAssemblyStatic(Name = "Int64_Modulus")]
+        [JsImport(@"
+            function Int64_Modulus(n, d) {
+                if (d[0] === 0 && d[1] === 0)
+                    throw new Error(""System.DivideByZeroException"");
+
+                if (asm0.Int64_isNegative(d))
+                    return asm0.Int64_Modulus(
+                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
+
+                else if (asm0.Int64_isNegative(n))
+                    return asm0.Int64_UnaryNegation(asm0.Int64_Modulus(asm0.Int64_UnaryNegation(n), d));
+                else
+                    return asm0.UInt64_Modulus(n, d);
+            }")]
+        public extern static long operator %(long n, int d);
+
+        [JsAssemblyStatic(Name = "Int64_GreaterThan")]
+        [JsImport(@"
+            function Int64_GreaterThan (a, b) {
+                var an = asm0.Int64_isNegative(a);
+                var bn = asm0.Int64_isNegative(b);
+
+                if (an === bn)
+                    return asm0.UInt64_GreaterThan(a, b);
+                else
+                    return bn ? 1 : 0;
+            }")]
+        public extern static bool operator >(long a, long b);
+
+        [JsAssemblyStatic(Name = "Int64_LessThan")]
+        [JsImport(@"
+            function Int64_LessThan (a, b) {
+                var an = asm0.Int64_isNegative(a);
+                var bn = asm0.Int64_isNegative(b);
+
+                if (an === bn)
+                    return asm0.UInt64_LessThan(a, b);
+                else
+                    return an ? 1 : 0;
+            }")]
+        public extern static bool operator <(long a, long b);
+
+        [JsAssemblyStatic(Name = "Int64_UnaryNegation")]
+        [JsImport(@"
+            function Int64_UnaryNegation (a) {
+                var complement = asm0.XInt64_Subtraction(new Uint32Array([0xffffffff, 0xffffffff]), a);
+                return asm0.XInt64_Addition(complement, conv_u8(1));
+            }")]
+        public extern static long operator -(long a);
+
+        [JsAssemblyStatic(Name = "Int64_isNegative")]
+        [JsImport(@"
+            function isNegative(n) {
+                return asm0.UInt64_GreaterThan(n, [0xffffffff, 0x7fffffff]);
+            }")]
+        internal static bool isNegative(long n)
+        {
+            return ((ulong)n) > ((ulong)MaxValue);
+        }
+
     }
 }

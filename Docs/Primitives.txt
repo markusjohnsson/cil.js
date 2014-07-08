@@ -1,0 +1,6 @@
+
+sbyte, byte, char, short, ushort, int and uint are modelled at runtime as JavaScript's Number. 
+
+bool is also Number (true = 1, false = 0). This is simplifies compatibility with CLI operations which does not define a boolean type but instead uses 1 and 0.
+
+int64 and uint64 are modelled at runtime as two-element Uint32Array. Arithemetic operations are defined in the types System.Int64 and System.UInt64.

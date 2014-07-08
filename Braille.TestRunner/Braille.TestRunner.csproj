@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Tests\CastClass.cs" />
     <None Include="Tests\Long.cs" />
     <None Include="Tests\Char.cs" />

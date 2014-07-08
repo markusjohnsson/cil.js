@@ -27,7 +27,7 @@ namespace System
 
         [JsAssemblyStatic(Name = "UInt64_RightShift")]
         [JsImport(@"
-            function (lhs, rhs) {
+            function UInt64_RightShift(lhs, rhs) {
                 n = n & 0x3f;
 
                 if (n > 32) {
@@ -75,7 +75,7 @@ namespace System
 
         [JsAssemblyStatic(Name = "XInt64_Multiplication")]
         [JsImport(@"
-            function XInt64_GreaterThan(a, b) {
+            function XInt64_Multiplication(a, b) {
                 if (a[0] == 0 && a[1] == 0)
                     return a;
 
@@ -116,7 +116,7 @@ namespace System
                 if (bdiff < 0)
                     return 0;
 
-                return a[0] >= b[0];
+                return a[0] >= b[0] ? 1: 0;
             }")]
         public extern static bool operator >=(ulong a, ulong b);
 
@@ -130,13 +130,13 @@ namespace System
                 if (bdiff > 0)
                     return 0;
 
-                return a[0] <= b[0];
+                return a[0] <= b[0] ? 1: 0;
             }")]
         public extern static bool operator <=(ulong a, ulong b);
 
         [JsAssemblyStatic(Name = "UInt64_GreaterThan")]
         [JsImport(@"
-            function UInt64_GreaterThanOrEqual (a, b) {
+            function UInt64_GreaterThan (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
                     return 1;
@@ -144,13 +144,13 @@ namespace System
                 if (bdiff < 0)
                     return 0;
 
-                return a[0] > b[0];
+                return a[0] > b[0] ? 1: 0;
             }")]
         public extern static bool operator >(ulong a, ulong b);
 
         [JsAssemblyStatic(Name = "UInt64_LessThan")]
         [JsImport(@"
-            function UInt64_LesserThan(a, b) {
+            function UInt64_LessThan(a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
                     return 1;
@@ -158,7 +158,7 @@ namespace System
                 if (bdiff > 0)
                     return 0;
 
-                return a[0] < b[0];
+                return a[0] < b[0] ? 1: 0;
             }")]
         public extern static bool operator <(ulong a, ulong b);
 
@@ -191,6 +191,6 @@ namespace System
             }")]
         public extern static ulong operator %(ulong a, ulong b);
 
-        public const ulong MAX_VALUE = 0xffffffffffffffff;
+        public const ulong MaxValue = 0xffffffffffffffff;
     }
 }

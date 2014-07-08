@@ -104,12 +104,29 @@ var asm0; (function (asm)
         }
     }
 
-    function make_uint64(n) {
+    function conv_u8(n) {
         if (n < 0) {
             
             n = 0x100000000 + n;
         }
 
+        return make_uint64(n);
+    }
+
+    function conv_i8(n) {
+        if (n < 0) {
+            
+            n = 0x100000000 + n;
+            
+            
+            
+            return new Uint32Array([ n | 0, 0xffffffff ]);
+        }
+
+        return make_uint64(n);
+    }
+
+    function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -191,7 +208,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -618,7 +635,7 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldc.i4.0 */
-        st_00 = 0;
+        st_00 = (0|0);
         /* IL_02: stloc.0 */
         loc0 = st_00;
         /* IL_05: ldloc.0 */
@@ -701,7 +718,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -723,7 +740,7 @@ var asm0; (function (asm)
                 /* IL_10: ceq */
                 st_08 = (st_06 === st_07) ? (1) : (0);
                 /* IL_11: ldc.i4.0 */
-                st_09 = 0;
+                st_09 = (0|0);
                 /* IL_13: ceq */
                 st_0A = (st_08 === st_09) ? (1) : (0);
                 /* IL_14: stloc.1 */
@@ -759,7 +776,7 @@ var asm0; (function (asm)
                 /* IL_23: ceq */
                 st_10 = (st_0E === st_0F) ? (1) : (0);
                 /* IL_24: ldc.i4.0 */
-                st_11 = 0;
+                st_11 = (0|0);
                 /* IL_26: ceq */
                 st_12 = (st_10 === st_11) ? (1) : (0);
                 /* IL_27: stloc.1 */
@@ -875,7 +892,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -1117,7 +1134,7 @@ var asm0; (function (asm)
                 /* IL_12: ceq */
                 st_06 = (st_04 === st_05) ? (1) : (0);
                 /* IL_13: ldc.i4.0 */
-                st_07 = 0;
+                st_07 = (0|0);
                 /* IL_15: ceq */
                 st_08 = (st_06 === st_07) ? (1) : (0);
                 /* IL_16: stloc.s 6*/
@@ -1149,7 +1166,7 @@ var asm0; (function (asm)
                 /* IL_2A: ceq */
                 st_0F = (st_0D === st_0E) ? (1) : (0);
                 /* IL_2B: ldc.i4.0 */
-                st_10 = 0;
+                st_10 = (0|0);
                 /* IL_2D: ceq */
                 st_11 = (st_0F === st_10) ? (1) : (0);
                 /* IL_2E: stloc.s 6*/
@@ -1163,7 +1180,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_34: ldc.i4.0 */
-                st_13 = 0;
+                st_13 = (0|0);
                 /* IL_35: stloc.s 5*/
                 loc5 = st_13;
                 /* IL_37: br IL_112*/
@@ -1191,7 +1208,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_53: ldc.i4.0 */
-                st_1A = 0;
+                st_1A = (0|0);
                 /* IL_54: stloc.s 5*/
                 loc5 = st_1A;
                 /* IL_56: br IL_112*/
@@ -1219,7 +1236,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_72: ldc.i4.0 */
-                st_21 = 0;
+                st_21 = (0|0);
                 /* IL_73: stloc.s 5*/
                 loc5 = st_21;
                 /* IL_75: br IL_112*/
@@ -1249,7 +1266,7 @@ var asm0; (function (asm)
                 continue;
                 case 0x8D:
                 /* IL_8D: ldc.i4.1 */
-                st_27 = 1;
+                st_27 = (1|0);
                 case 0x8E:
                 /* IL_8E: nop */
                 
@@ -1294,7 +1311,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_AE: ldc.i4.0 */
-                st_33 = 0;
+                st_33 = (0|0);
                 /* IL_AF: stloc.s 5*/
                 loc5 = st_33;
                 /* IL_B1: br.s IL_112*/
@@ -1302,7 +1319,7 @@ var asm0; (function (asm)
                 continue;
                 case 0xB3:
                 /* IL_B3: ldc.i4.0 */
-                st_34 = 0;
+                st_34 = (0|0);
                 /* IL_B4: stloc.2 */
                 loc2 = st_34;
                 /* IL_B5: br.s IL_E3*/
@@ -1348,7 +1365,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_D9: ldc.i4.0 */
-                st_41 = 0;
+                st_41 = (0|0);
                 /* IL_DA: stloc.s 5*/
                 loc5 = st_41;
                 /* IL_DC: br.s IL_112*/
@@ -1360,9 +1377,9 @@ var asm0; (function (asm)
                 /* IL_DF: ldloc.2 */
                 st_42 = loc2;
                 /* IL_E0: ldc.i4.1 */
-                st_43 = 1;
+                st_43 = (1|0);
                 /* IL_E1: add */
-                st_44 = (st_42 + st_43);
+                st_44 = ((st_42 + st_43) | 0);
                 /* IL_E2: stloc.2 */
                 loc2 = st_44;
                 case 0xE3:
@@ -1389,7 +1406,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_F4: ldc.i4.1 */
-                st_4C = 1;
+                st_4C = (1|0);
                 /* IL_F5: stloc.s 5*/
                 loc5 = st_4C;
                 /* IL_F7: br.s IL_112*/
@@ -1419,7 +1436,7 @@ var asm0; (function (asm)
                 continue;
                 case 0x10C:
                 /* IL_10C: ldc.i4.0 */
-                st_52 = 0;
+                st_52 = (0|0);
                 case 0x10D:
                 /* IL_10D: nop */
                 
@@ -1450,7 +1467,7 @@ var asm0; (function (asm)
         /* IL_03: call Boolean op_Equality(System.Delegate, System.Delegate)*/
         st_02 = (asm0.x600002f)(st_00,st_01);
         /* IL_08: ldc.i4.0 */
-        st_03 = 0;
+        st_03 = (0|0);
         /* IL_0A: ceq */
         st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
@@ -1598,15 +1615,15 @@ var asm0; (function (asm)
                 /* IL_16: conv.i4 */
                 st_08 = (st_07 | 0);
                 /* IL_17: ldc.i4.1 */
-                st_09 = 1;
+                st_09 = (1|0);
                 /* IL_18: add */
-                st_0A = (st_08 + st_09);
+                st_0A = ((st_08 + st_09) | 0);
                 /* IL_19: newarr System.Delegate*/
                 st_0B = new_array(t0,st_0A);
                 /* IL_1E: stloc.0 */
                 loc0 = st_0B;
                 /* IL_1F: ldc.i4.0 */
-                st_0C = 0;
+                st_0C = (0|0);
                 /* IL_20: stloc.1 */
                 loc1 = st_0C;
                 /* IL_21: br.s IL_32*/
@@ -1630,9 +1647,9 @@ var asm0; (function (asm)
                 /* IL_2E: ldloc.1 */
                 st_13 = loc1;
                 /* IL_2F: ldc.i4.1 */
-                st_14 = 1;
+                st_14 = (1|0);
                 /* IL_30: add */
-                st_15 = (st_13 + st_14);
+                st_15 = ((st_13 + st_14) | 0);
                 /* IL_31: stloc.1 */
                 loc1 = st_15;
                 case 0x32:
@@ -1667,9 +1684,9 @@ var asm0; (function (asm)
                 /* IL_44: conv.i4 */
                 st_1F = (st_1E | 0);
                 /* IL_45: ldc.i4.1 */
-                st_20 = 1;
+                st_20 = (1|0);
                 /* IL_46: sub */
-                st_22 = (st_1F - st_20);
+                st_22 = ((st_1F - st_20) | 0);
                 /* IL_47: ldarg.1 */
                 st_23 = arg1;
                 /* IL_48: stelem.ref */
@@ -1683,7 +1700,7 @@ var asm0; (function (asm)
                 /* IL_4C: nop */
                 
                 /* IL_4D: ldc.i4.2 */
-                st_24 = 2;
+                st_24 = (2|0);
                 /* IL_4E: newarr System.Delegate*/
                 st_25 = new_array(t0,st_24);
                 /* IL_53: stloc.0 */
@@ -1691,7 +1708,7 @@ var asm0; (function (asm)
                 /* IL_54: ldloc.0 */
                 st_26 = loc0;
                 /* IL_55: ldc.i4.0 */
-                st_27 = 0;
+                st_27 = (0|0);
                 /* IL_56: ldarg.0 */
                 st_28 = arg0;
                 /* IL_57: stelem.ref */
@@ -1699,7 +1716,7 @@ var asm0; (function (asm)
                 /* IL_58: ldloc.0 */
                 st_29 = loc0;
                 /* IL_59: ldc.i4.1 */
-                st_2A = 1;
+                st_2A = (1|0);
                 /* IL_5A: ldarg.1 */
                 st_2B = arg1;
                 /* IL_5B: stelem.ref */
@@ -1870,7 +1887,7 @@ var asm0; (function (asm)
                 /* IL_09: ceq */
                 st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: ldc.i4.0 */
-                st_04 = 0;
+                st_04 = (0|0);
                 /* IL_0C: ceq */
                 st_05 = (st_03 === st_04) ? (1) : (0);
                 /* IL_0D: stloc.s 5*/
@@ -1892,7 +1909,7 @@ var asm0; (function (asm)
                 /* IL_16: call Boolean op_Equality(System.Delegate, System.Delegate)*/
                 st_09 = (asm0.x600002f)(st_07,st_08);
                 /* IL_1B: ldc.i4.0 */
-                st_0A = 0;
+                st_0A = (0|0);
                 /* IL_1D: ceq */
                 st_0B = (st_09 === st_0A) ? (1) : (0);
                 /* IL_1E: stloc.s 5*/
@@ -1924,11 +1941,11 @@ var asm0; (function (asm)
                 /* IL_34: nop */
                 
                 /* IL_35: ldc.i4.0 */
-                st_0F = 0;
+                st_0F = (0|0);
                 /* IL_36: stloc.0 */
                 loc0 = st_0F;
                 /* IL_37: ldc.i4.0 */
-                st_10 = 0;
+                st_10 = (0|0);
                 /* IL_38: stloc.1 */
                 loc1 = st_10;
                 /* IL_39: br.s IL_5A*/
@@ -1948,7 +1965,7 @@ var asm0; (function (asm)
                 /* IL_44: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
                 st_16 = (asm0.x6000030)(st_14,st_15);
                 /* IL_49: ldc.i4.0 */
-                st_17 = 0;
+                st_17 = (0|0);
                 /* IL_4B: ceq */
                 st_18 = (st_16 === st_17) ? (1) : (0);
                 /* IL_4C: stloc.s 5*/
@@ -1964,18 +1981,18 @@ var asm0; (function (asm)
                 /* IL_52: ldloc.0 */
                 st_1A = loc0;
                 /* IL_53: ldc.i4.1 */
-                st_1B = 1;
+                st_1B = (1|0);
                 /* IL_54: add */
-                st_1C = (st_1A + st_1B);
+                st_1C = ((st_1A + st_1B) | 0);
                 /* IL_55: stloc.0 */
                 loc0 = st_1C;
                 case 0x56:
                 /* IL_56: ldloc.1 */
                 st_1D = loc1;
                 /* IL_57: ldc.i4.1 */
-                st_1E = 1;
+                st_1E = (1|0);
                 /* IL_58: add */
-                st_1F = (st_1D + st_1E);
+                st_1F = ((st_1D + st_1E) | 0);
                 /* IL_59: stloc.1 */
                 loc1 = st_1F;
                 case 0x5A:
@@ -2004,11 +2021,11 @@ var asm0; (function (asm)
                 /* IL_6B: ldloc.0 */
                 st_27 = loc0;
                 /* IL_6C: ldc.i4.0 */
-                st_28 = 0;
+                st_28 = (0|0);
                 /* IL_6E: ceq */
                 st_29 = (st_27 === st_28) ? (1) : (0);
                 /* IL_6F: ldc.i4.0 */
-                st_2A = 0;
+                st_2A = (0|0);
                 /* IL_71: ceq */
                 st_2B = (st_29 === st_2A) ? (1) : (0);
                 /* IL_72: stloc.s 5*/
@@ -2032,11 +2049,11 @@ var asm0; (function (asm)
                 /* IL_80: ldloc.0 */
                 st_2E = loc0;
                 /* IL_81: ldc.i4.1 */
-                st_2F = 1;
+                st_2F = (1|0);
                 /* IL_83: ceq */
                 st_30 = (st_2E === st_2F) ? (1) : (0);
                 /* IL_84: ldc.i4.0 */
-                st_31 = 0;
+                st_31 = (0|0);
                 /* IL_86: ceq */
                 st_32 = (st_30 === st_31) ? (1) : (0);
                 /* IL_87: stloc.s 5*/
@@ -2050,7 +2067,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_8D: ldc.i4.0 */
-                st_34 = 0;
+                st_34 = (0|0);
                 /* IL_8E: stloc.1 */
                 loc1 = st_34;
                 /* IL_8F: br.s IL_B8*/
@@ -2070,7 +2087,7 @@ var asm0; (function (asm)
                 /* IL_9A: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
                 st_3A = (asm0.x6000030)(st_38,st_39);
                 /* IL_9F: ldc.i4.0 */
-                st_3B = 0;
+                st_3B = (0|0);
                 /* IL_A1: ceq */
                 st_3C = (st_3A === st_3B) ? (1) : (0);
                 /* IL_A2: stloc.s 5*/
@@ -2100,9 +2117,9 @@ var asm0; (function (asm)
                 /* IL_B4: ldloc.1 */
                 st_42 = loc1;
                 /* IL_B5: ldc.i4.1 */
-                st_43 = 1;
+                st_43 = (1|0);
                 /* IL_B6: add */
-                st_44 = (st_42 + st_43);
+                st_44 = ((st_42 + st_43) | 0);
                 /* IL_B7: stloc.1 */
                 loc1 = st_44;
                 case 0xB8:
@@ -2136,11 +2153,11 @@ var asm0; (function (asm)
                 /* IL_CF: stloc.2 */
                 loc2 = st_4D;
                 /* IL_D0: ldc.i4.0 */
-                st_4E = 0;
+                st_4E = (0|0);
                 /* IL_D1: stloc.1 */
                 loc1 = st_4E;
                 /* IL_D2: ldc.i4.0 */
-                st_4F = 0;
+                st_4F = (0|0);
                 /* IL_D3: stloc.3 */
                 loc3 = st_4F;
                 /* IL_D4: br.s IL_100*/
@@ -2160,7 +2177,7 @@ var asm0; (function (asm)
                 /* IL_DF: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
                 st_55 = (asm0.x6000030)(st_53,st_54);
                 /* IL_E4: ldc.i4.0 */
-                st_56 = 0;
+                st_56 = (0|0);
                 /* IL_E6: ceq */
                 st_57 = (st_55 === st_56) ? (1) : (0);
                 /* IL_E7: stloc.s 5*/
@@ -2180,9 +2197,9 @@ var asm0; (function (asm)
                 /* IL_EF: dup */
                 st_61 = (st_5A = st_59);
                 /* IL_F0: ldc.i4.1 */
-                st_5B = 1;
+                st_5B = (1|0);
                 /* IL_F1: add */
-                st_5C = (st_5A + st_5B);
+                st_5C = ((st_5A + st_5B) | 0);
                 /* IL_F2: stloc.3 */
                 loc3 = st_5C;
                 /* IL_F3: ldarg.0 */
@@ -2199,9 +2216,9 @@ var asm0; (function (asm)
                 /* IL_FC: ldloc.1 */
                 st_63 = loc1;
                 /* IL_FD: ldc.i4.1 */
-                st_64 = 1;
+                st_64 = (1|0);
                 /* IL_FE: add */
-                st_65 = (st_63 + st_64);
+                st_65 = ((st_63 + st_64) | 0);
                 /* IL_FF: stloc.1 */
                 loc1 = st_65;
                 case 0x100:
@@ -2655,131 +2672,7 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };;
-    asm.x6000055_init = function ()
-    {
-        (((asm0)["System.Double"])().init)();
-        asm.x6000055 = asm.x6000055_;
-    };;
-    asm.x6000055 = function (arg0)
-    {
-        (asm.x6000055_init.apply)(this,arguments);
-        return (asm.x6000055.apply)(this,arguments);
-    };;
-    asm.x6000055_ = function Sqrt(arg0)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_01 = {
-            'boxed': st_00,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: call Double SqrtImpl(System.Object)*/
-        st_02 = (asm0.x6000058)(st_01);
-        /* IL_0C: stloc.0 */
-        loc0 = st_02;
-        /* IL_0F: ldloc.0 */
-        st_03 = loc0;
-        /* IL_10: ret */
-        return st_03;
-    };
-    asm.x6000056_init = function ()
-    {
-        (((asm0)["System.Double"])().init)();
-        asm.x6000056 = asm.x6000056_;
-    };;
-    asm.x6000056 = function (arg0)
-    {
-        (asm.x6000056_init.apply)(this,arguments);
-        return (asm.x6000056.apply)(this,arguments);
-    };;
-    asm.x6000056_ = function Floor(arg0)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_01 = {
-            'boxed': st_00,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: call Double FloorImpl(System.Object)*/
-        st_02 = (asm0.x6000059)(st_01);
-        /* IL_0C: stloc.0 */
-        loc0 = st_02;
-        /* IL_0F: ldloc.0 */
-        st_03 = loc0;
-        /* IL_10: ret */
-        return st_03;
-    };
-    asm.x6000057_init = function ()
-    {
-        (((asm0)["System.Double"])().init)();
-        asm.x6000057 = asm.x6000057_;
-    };;
-    asm.x6000057 = function (arg0,arg1)
-    {
-        (asm.x6000057_init.apply)(this,arguments);
-        return (asm.x6000057.apply)(this,arguments);
-    };;
-    asm.x6000057_ = function Pow(arg0,arg1)
-    {
-        var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var loc0;
-        t0 = ((asm0)["System.Double"])();
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        st_00 = arg0;
-        /* IL_02: box System.Double*/
-        st_02 = {
-            'boxed': st_00,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_07: ldarg.1 */
-        st_01 = arg1;
-        /* IL_08: box System.Double*/
-        st_03 = {
-            'boxed': st_01,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        };
-        /* IL_0D: call Double PowImpl(System.Object, System.Object)*/
-        st_04 = (asm0.x600005a)(st_02,st_03);
-        /* IL_12: stloc.0 */
-        loc0 = st_04;
-        /* IL_15: ldloc.0 */
-        st_05 = loc0;
-        /* IL_16: ret */
-        return st_05;
-    };
-    asm.x6000058 = function(o) { return Math.sqrt(o.boxed); };;
-    asm.x6000059 = function(o) { return Math.floor(o.boxed); };;
-    asm.x600005a = function(a, b) { return Math.pow(a.boxed, b.boxed); };;
-    asm.x600005b = function _ctor(arg0)
+    asm.x6000058 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -2788,7 +2681,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600005c = function _ctor(arg0)
+    asm.x6000059 = function _ctor(arg0)
     {
         var st_00;
         var st_01;
@@ -2804,7 +2697,7 @@ var asm0; (function (asm)
         /* IL_0E: ret */
         return ;
     };;
-    asm.x600005d = function _ctor(arg0)
+    asm.x600005a = function _ctor(arg0)
     {
         var st_00;
         var st_01;
@@ -2820,7 +2713,7 @@ var asm0; (function (asm)
         /* IL_0E: ret */
         return ;
     };;
-    asm.x600005e = function _ctor(arg0,arg1)
+    asm.x600005b = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -2836,8 +2729,19 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };;
-    asm.x600005f = function ToString(arg0)
+    asm.x600005c_init = function ()
     {
+        (((asm0)["System.Int64"])().init)();
+        asm.x600005c = asm.x600005c_;
+    };;
+    asm.x600005c = function (arg0)
+    {
+        (asm.x600005c_init.apply)(this,arguments);
+        return (asm.x600005c.apply)(this,arguments);
+    };;
+    asm.x600005c_ = function ToString(arg0)
+    {
+        var t0;
         var st_00;
         var st_01;
         var st_02;
@@ -2858,13 +2762,29 @@ var asm0; (function (asm)
         var st_11;
         var st_12;
         var st_13;
+        var st_14;
+        var st_15;
+        var st_16;
+        var st_17;
+        var st_18;
+        var st_19;
+        var st_1A;
+        var st_1B;
+        var st_1C;
+        var st_1D;
+        var st_1E;
+        var st_1F;
+        var st_20;
+        var st_21;
+        var st_22;
         var __pos_0__;
         var loc0;
         var loc1;
         var loc2;
-        var loc3;
         var loc5;
         var loc4;
+        var loc3;
+        t0 = ((asm0)["System.Int64"])();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -2880,72 +2800,122 @@ var asm0; (function (asm)
                 /* IL_03: stloc.0 */
                 loc0 = st_01;
                 /* IL_04: ldc.i4.s 10*/
-                st_02 = 10;
+                st_02 = (10|0);
                 /* IL_06: conv.i8 */
-                st_03 = make_uint64(st_02);
+                st_03 = conv_i8(st_02);
                 /* IL_07: stloc.1 */
                 loc1 = st_03;
                 /* IL_08: ldstr */
                 st_04 = new_string("");
                 /* IL_0D: stloc.2 */
                 loc2 = st_04;
-                case 0xE:
-                /* IL_0E: nop */
+                /* IL_0E: ldloc.0 */
+                st_06 = loc0;
+                /* IL_0F: ldc.i4.0 */
+                st_05 = (0|0);
+                /* IL_10: conv.i8 */
+                st_07 = conv_i8(st_05);
+                /* IL_12: clt */
+                st_08 = (asm0.Int64_LessThan)(st_06,st_07);
+                /* IL_13: ldc.i4.0 */
+                st_09 = (0|0);
+                /* IL_15: ceq */
+                st_0A = (st_08 === st_09) ? (1) : (0);
+                /* IL_16: stloc.s 5*/
+                loc5 = st_0A;
+                /* IL_18: ldloc.s 5*/
+                st_0B = loc5;
+                /* IL_1A: brtrue.s IL_37*/
                 
-                /* IL_0F: ldloc.0 */
-                st_05 = loc0;
-                /* IL_10: ldloc.1 */
-                st_06 = loc1;
-                /* IL_11: rem */
-                st_07 = (st_05 % st_06);
-                /* IL_12: stloc.3 */
-                loc3 = st_07;
-                /* IL_13: ldloc.0 */
-                st_08 = loc0;
-                /* IL_14: call String GetLowString(System.Int64)*/
-                st_09 = st_08[0].toString();
-                /* IL_19: stloc.2 */
-                loc2 = st_09;
-                /* IL_1A: ldloc.0 */
-                st_0A = loc0;
-                /* IL_1B: ldloc.1 */
-                st_0B = loc1;
-                /* IL_1C: div */
-                st_0C = ((st_0A / st_0B) | 0);
-                /* IL_1D: stloc.0 */
-                loc0 = st_0C;
-                /* IL_1E: nop */
-                
-                /* IL_1F: ldloc.0 */
-                st_0E = loc0;
-                /* IL_20: ldc.i4.0 */
-                st_0D = 0;
-                /* IL_21: conv.i8 */
-                st_0F = make_uint64(st_0D);
-                /* IL_23: cgt */
-                st_10 = (st_0E > st_0F) ? (1) : (0);
-                /* IL_24: stloc.s 5*/
-                loc5 = st_10;
-                /* IL_26: ldloc.s 5*/
-                st_11 = loc5;
-                /* IL_28: brtrue.s IL_0E*/
-                
-                if (st_11){
-                    __pos_0__ = 0xE;
+                if (st_0B){
+                    __pos_0__ = 0x37;
                     continue;
                 }
-                /* IL_2A: ldloc.2 */
-                st_12 = loc2;
-                /* IL_2B: stloc.s 4*/
-                loc4 = st_12;
-                /* IL_2F: ldloc.s 4*/
-                st_13 = loc4;
-                /* IL_31: ret */
-                return st_13;
+                /* IL_1C: nop */
+                
+                /* IL_1D: ldstr -*/
+                st_0F = new_string("-");
+                /* IL_22: ldloc.0 */
+                st_0C = loc0;
+                /* IL_23: neg */
+                st_0D = (asm0.Int64_UnaryNegation)(st_0C);
+                /* IL_24: box System.Int64*/
+                st_0E = {
+                    'boxed': st_0D,
+                    'type': t0,
+                    'vtable': t0.prototype.vtable
+                };
+                /* IL_29: callvirt String ToString()*/
+                st_10 = (((st_0E.vtable)["asm0.x6000005"])())(st_0E);
+                /* IL_2E: call String Concat(System.String, System.String)*/
+                st_11 = (asm0.x60000a8)(st_0F,st_10);
+                /* IL_33: stloc.s 4*/
+                loc4 = st_11;
+                /* IL_35: br.s IL_5E*/
+                __pos_0__ = 0x5E;
+                continue;
+                case 0x37:
+                /* IL_37: nop */
+                
+                /* IL_38: ldloc.0 */
+                st_12 = loc0;
+                /* IL_39: ldloc.1 */
+                st_13 = loc1;
+                /* IL_3A: rem */
+                st_14 = (asm0.Int64_Modulus)(st_12,st_13);
+                /* IL_3B: stloc.3 */
+                loc3 = st_14;
+                /* IL_3C: ldloc.3 */
+                st_15 = loc3;
+                /* IL_3D: call String GetLowString(System.Int64)*/
+                st_16 = new_string(st_15[0].toString());
+                /* IL_42: ldloc.2 */
+                st_17 = loc2;
+                /* IL_43: call String Concat(System.String, System.String)*/
+                st_18 = (asm0.x60000a8)(st_16,st_17);
+                /* IL_48: stloc.2 */
+                loc2 = st_18;
+                /* IL_49: ldloc.0 */
+                st_19 = loc0;
+                /* IL_4A: ldloc.1 */
+                st_1A = loc1;
+                /* IL_4B: div */
+                st_1B = (asm0.Int64_Division)(st_19,st_1A);
+                /* IL_4C: stloc.0 */
+                loc0 = st_1B;
+                /* IL_4D: nop */
+                
+                /* IL_4E: ldloc.0 */
+                st_1D = loc0;
+                /* IL_4F: ldc.i4.0 */
+                st_1C = (0|0);
+                /* IL_50: conv.i8 */
+                st_1E = conv_i8(st_1C);
+                /* IL_52: cgt */
+                st_1F = (asm0.Int64_GreaterThan)(st_1D,st_1E);
+                /* IL_53: stloc.s 5*/
+                loc5 = st_1F;
+                /* IL_55: ldloc.s 5*/
+                st_20 = loc5;
+                /* IL_57: brtrue.s IL_37*/
+                
+                if (st_20){
+                    __pos_0__ = 0x37;
+                    continue;
+                }
+                /* IL_59: ldloc.2 */
+                st_21 = loc2;
+                /* IL_5A: stloc.s 4*/
+                loc4 = st_21;
+                case 0x5E:
+                /* IL_5E: ldloc.s 4*/
+                st_22 = loc4;
+                /* IL_60: ret */
+                return st_22;
             }
         }
-    };;
-    asm.x6000061 = 
+    };
+    asm.x600005e = 
             function XInt64_Addition(lhs, rhs) 
             {
                 var x = new Uint16Array(lhs.buffer);
@@ -2961,8 +2931,8 @@ var asm0; (function (asm)
 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-    asm.XInt64_Addition = asm.x6000061;
-    asm.x6000062 = 
+    asm.XInt64_Addition = asm.x600005e;
+    asm.x600005f = 
             function XInt64_Subtraction(lhs, rhs) 
             {
                 if (lhs[0] >= rhs[0] && rhs[1] == 0)
@@ -2988,36 +2958,36 @@ var asm0; (function (asm)
                 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-    asm.XInt64_Subtraction = asm.x6000062;
-    asm.x6000063 = 
+    asm.XInt64_Subtraction = asm.x600005f;
+    asm.x6000060 = 
             function XInt64_BitwiseOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] | rhs[0], lhs[1] | rhs[1]]);
             }
             ;;
-    asm.XInt64_BitwiseOr = asm.x6000063;
-    asm.x6000064 = 
+    asm.XInt64_BitwiseOr = asm.x6000060;
+    asm.x6000061 = 
             function XInt64_BitwiseAnd(lhs, rhs) 
             {
                 return new Uint32Array([lhs[0] & rhs[0], lhs[1] & rhs[1]]);
             }
             ;;
-    asm.XInt64_BitwiseAnd = asm.x6000064;
-    asm.x6000065 = 
+    asm.XInt64_BitwiseAnd = asm.x6000061;
+    asm.x6000062 = 
             function XInt64_ExclusiveOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] ^ rhs[0], lhs[1] ^ rhs[1]]);
             }
             ;;
-    asm.XInt64_ExclusiveOr = asm.x6000065;
-    asm.x6000066 = 
+    asm.XInt64_ExclusiveOr = asm.x6000062;
+    asm.x6000063 = 
             function XInt64_OnesComplement(a)
             {
                 return new Uint32Array([~a[0], ~a[1]]);
             }
             ;;
-    asm.XInt64_OnesComplement = asm.x6000066;
-    asm.x6000067 = 
+    asm.XInt64_OnesComplement = asm.x6000063;
+    asm.x6000064 = 
             function XInt64_LeftShift(a, n)
             {
                 n = n & 0x3f;
@@ -3039,22 +3009,22 @@ var asm0; (function (asm)
                 return new Uint32Array([ba, bb]);
             }
             ;;
-    asm.XInt64_LeftShift = asm.x6000067;
-    asm.x6000068 = 
+    asm.XInt64_LeftShift = asm.x6000064;
+    asm.x6000065 = 
             function XInt64_Equality(lhs, rhs)
             {
                 return lhs[0] === rhs[0] && lhs[1] === rhs[1];
             }
             ;;
-    asm.XInt64_Equality = asm.x6000068;
-    asm.x6000069 = 
+    asm.XInt64_Equality = asm.x6000065;
+    asm.x6000066 = 
             function XInt64_Inequality(lhs, rhs)
             {
                 return lhs[0] !== rhs[0] && lhs[1] !== rhs[1];
             }
             ;;
-    asm.XInt64_Inequality = asm.x6000069;
-    asm.x600006a = function op_Decrement(arg0)
+    asm.XInt64_Inequality = asm.x6000066;
+    asm.x6000067 = function op_Decrement(arg0)
     {
         var st_00;
         var st_01;
@@ -3066,11 +3036,11 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_01 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_00 = 1;
+        st_00 = (1|0);
         /* IL_03: conv.i8 */
-        st_02 = make_uint64(st_00);
+        st_02 = conv_i8(st_00);
         /* IL_04: sub */
-        st_03 = (st_01 - st_02);
+        st_03 = ((st_01 - st_02) | 0);
         /* IL_05: stloc.0 */
         loc0 = st_03;
         /* IL_08: ldloc.0 */
@@ -3078,8 +3048,8 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return st_04;
     };;
-    asm.XInt64_Decrement = asm.x600006a;
-    asm.x600006b = function op_Increment(arg0)
+    asm.XInt64_Decrement = asm.x6000067;
+    asm.x6000068 = function op_Increment(arg0)
     {
         var st_00;
         var st_01;
@@ -3091,11 +3061,11 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_01 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_00 = 1;
+        st_00 = (1|0);
         /* IL_03: conv.i8 */
-        st_02 = make_uint64(st_00);
+        st_02 = conv_i8(st_00);
         /* IL_04: add */
-        st_03 = (st_01 + st_02);
+        st_03 = (asm0.XInt64_Addition)(st_01,st_02);
         /* IL_05: stloc.0 */
         loc0 = st_03;
         /* IL_08: ldloc.0 */
@@ -3103,8 +3073,8 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return st_04;
     };;
-    asm.XInt64_Increment = asm.x600006b;
-    asm.x600006c = 
+    asm.XInt64_Increment = asm.x6000068;
+    asm.x6000069 = 
             function Int64_RightShift(lhs, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
@@ -3126,46 +3096,109 @@ var asm0; (function (asm)
                 }
                 return result2;
             };;
-    asm.Int64_RightShift = asm.x600006c;
-    asm.x6000077 = function _ctor(arg0)
-    {
-        var st_00;
-        /* IL_00: ldarg.0 */
-        st_00 = arg0;
-        /* IL_01: call Void .ctor()*/
-        (asm0.x600000c)(st_00);
-        /* IL_06: ret */
-        return ;
-    };;
-    asm.x6000078 = function _ctor(arg0,arg1)
-    {
-        var st_00;
-        /* IL_00: ldarg.0 */
-        st_00 = arg0;
-        /* IL_01: call Void .ctor()*/
-        (asm0.x600000c)(st_00);
-        /* IL_06: nop */
-        /* IL_07: nop */
-        /* IL_08: nop */
-        /* IL_09: ret */
-        return ;
-    };;
-    asm.x6000079 = function InitializeArray(arg0,arg1)
-    {
-        /* IL_00: nop */
-        /* IL_01: ret */
-        return ;
-    };;
+    asm.Int64_RightShift = asm.x6000069;
+    asm.x600006a = 
+            function Int64_Division(n, d) {
+                if (d[0] === 0 && d[1] === 0)
+                    throw new Error("System.DivideByZeroException");
+
+                if (asm0.Int64_isNegative(d))
+                    return asm0.Int64_Division(
+                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
+
+                else if (asm0.Int64_isNegative(n))
+                    return asm0.Int64_UnaryNegation(asm0.Int64_Division(asm0.Int64_UnaryNegation(n), d));
+                else
+                    return asm0.UInt64_Division(n, d);
+            };;
+    asm.Int64_Division = asm.x600006a;
+    asm.x600006b = 
+            function Int64_Modulus(n, d) {
+                if (d[0] === 0 && d[1] === 0)
+                    throw new Error("System.DivideByZeroException");
+
+                if (asm0.Int64_isNegative(d))
+                    return asm0.Int64_Modulus(
+                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
+
+                else if (asm0.Int64_isNegative(n))
+                    return asm0.Int64_UnaryNegation(asm0.Int64_Modulus(asm0.Int64_UnaryNegation(n), d));
+                else
+                    return asm0.UInt64_Modulus(n, d);
+            };;
+    asm.Int64_Modulus = asm.x600006b;
+    asm.x600006c = 
+            function Int64_GreaterThan (a, b) {
+                var an = asm0.Int64_isNegative(a);
+                var bn = asm0.Int64_isNegative(b);
+
+                if (an === bn)
+                    return asm0.UInt64_GreaterThan(a, b);
+                else
+                    return bn ? 1 : 0;
+            };;
+    asm.Int64_GreaterThan = asm.x600006c;
+    asm.x600006d = 
+            function Int64_LessThan (a, b) {
+                var an = asm0.Int64_isNegative(a);
+                var bn = asm0.Int64_isNegative(b);
+
+                if (an === bn)
+                    return asm0.UInt64_LessThan(a, b);
+                else
+                    return an ? 1 : 0;
+            };;
+    asm.Int64_LessThan = asm.x600006d;
+    asm.x600006e = 
+            function Int64_UnaryNegation (a) {
+                var complement = asm0.XInt64_Subtraction(new Uint32Array([0xffffffff, 0xffffffff]), a);
+                return asm0.XInt64_Addition(complement, conv_u8(1));
+            };;
+    asm.Int64_UnaryNegation = asm.x600006e;
+    asm.x600006f = 
+            function isNegative(n) {
+                return asm0.UInt64_GreaterThan(n, [0xffffffff, 0x7fffffff]);
+            };;
+    asm.Int64_isNegative = asm.x600006f;
     asm.x600007a = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
         /* IL_01: call Void .ctor()*/
+        (asm0.x600000c)(st_00);
         /* IL_06: ret */
         return ;
     };;
-    asm.x600007b = function _ctor(arg0)
+    asm.x600007b = function _ctor(arg0,arg1)
+    {
+        var st_00;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: call Void .ctor()*/
+        (asm0.x600000c)(st_00);
+        /* IL_06: nop */
+        /* IL_07: nop */
+        /* IL_08: nop */
+        /* IL_09: ret */
+        return ;
+    };;
+    asm.x600007c = function InitializeArray(arg0,arg1)
+    {
+        /* IL_00: nop */
+        /* IL_01: ret */
+        return ;
+    };;
+    asm.x600007d = function _ctor(arg0)
+    {
+        var st_00;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: call Void .ctor()*/
+        /* IL_06: ret */
+        return ;
+    };;
+    asm.x600007e = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3177,30 +3210,30 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return ;
     };;
-    asm.x600007c_init = function ()
+    asm.x600007f_init = function ()
     {
         (((asm0)["System.EventArgs"])().init)();
-        asm.x600007c = asm.x600007c_;
+        asm.x600007f = asm.x600007f_;
     };;
-    asm.x600007c = function ()
+    asm.x600007f = function ()
     {
-        (asm.x600007c_init.apply)(this,arguments);
-        return (asm.x600007c.apply)(this,arguments);
+        (asm.x600007f_init.apply)(this,arguments);
+        return (asm.x600007f.apply)(this,arguments);
     };;
-    asm.x600007c_ = function _cctor()
+    asm.x600007f_ = function _cctor()
     {
         var t0;
         var st_00;
         t0 = ((asm0)["System.EventArgs"])();
         /* IL_00: newobj Void .ctor()*/
         st_00 = new t0();
-        (asm0.x600007b)(st_00);
+        (asm0.x600007e)(st_00);
         /* IL_05: stsfld EventArgs Empty*/
         (t0)["Empty"] = st_00;
         /* IL_0A: ret */
         return ;
     };
-    asm.x600007e = function Invoke()
+    asm.x6000081 = function Invoke()
     {
         
                                 var m = arguments[0]._methodPtr;
@@ -3211,11 +3244,11 @@ var asm0; (function (asm)
                                     arguments = Array.prototype.slice.call(arguments, 1);
                                 return m.apply(null, arguments);
     };;
-    asm.x600007d = function ctor()
+    asm.x6000080 = function ctor()
     {
         arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];;
     };;
-    asm.x600007f = function get_Length(arg0)
+    asm.x6000082 = function get_Length(arg0)
     {
         var st_00;
         var st_01;
@@ -3225,7 +3258,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-        st_01 = (asm0.x6000080)(st_00);
+        st_01 = (asm0.x6000083)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3233,9 +3266,9 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000080 = function(o) { return o.jsarr.length; };;
-    asm.x6000081 = function(o, i) { return box(o.jsarr[i], o.type); };;
-    asm.x6000082 = function GetValue(arg0,arg1)
+    asm.x6000083 = function(o) { return o.jsarr.length; };;
+    asm.x6000084 = function(o, i) { return box(o.jsarr[i], o.type); };;
+    asm.x6000085 = function GetValue(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -3248,7 +3281,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Object GetValueImpl(System.Object, System.Int32)*/
-        st_02 = (asm0.x6000081)(st_00,st_01);
+        st_02 = (asm0.x6000084)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -3256,7 +3289,7 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x6000083 = function GetEnumerator(arg0)
+    asm.x6000086 = function GetEnumerator(arg0)
     {
         var st_00;
         var st_01;
@@ -3266,7 +3299,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: callvirt IEnumerator GetEnumeratorImpl()*/
-        st_01 = (((st_00.vtable)["asm0.x6000084"])())(st_00);
+        st_01 = (((st_00.vtable)["asm0.x6000087"])())(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3274,7 +3307,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000085 = function _ctor(arg0)
+    asm.x6000088 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3283,17 +3316,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000087_init = function ()
+    asm.x600008a_init = function ()
     {
         (((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]).init)();
-        asm.x6000087 = asm.x6000087_;
+        asm.x600008a = asm.x600008a_;
     };;
-    asm.x6000087 = function (arg0)
+    asm.x600008a = function (arg0)
     {
-        (asm.x6000087_init.apply)(this,arguments);
-        return (asm.x6000087.apply)(this,arguments);
+        (asm.x600008a_init.apply)(this,arguments);
+        return (asm.x600008a.apply)(this,arguments);
     };;
-    asm.x6000087_ = function GetEnumerator(arg0)
+    asm.x600008a_ = function GetEnumerator(arg0)
     {
         var t0;
         var t1;
@@ -3308,7 +3341,7 @@ var asm0; (function (asm)
         st_00 = arg0;
         /* IL_02: newobj Void .ctor(System.Array`1[T])*/
         st_01 = new t1();
-        (asm0.x600008a)(st_01,st_00);
+        (asm0.x600008d)(st_01,st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3316,7 +3349,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };
-    asm.x6000088 = function GetEnumeratorImpl(arg0)
+    asm.x600008b = function GetEnumeratorImpl(arg0)
     {
         var st_00;
         var st_01;
@@ -3326,7 +3359,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call IEnumerator`1 GetEnumerator()*/
-        st_01 = (asm0.x6000087)(st_00);
+        st_01 = (asm0.x600008a)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -3334,17 +3367,17 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000089 = function _ctor(arg0)
+    asm.x600008c = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
         st_00 = arg0;
         /* IL_01: call Void .ctor()*/
-        (asm0.x6000085)(st_00);
+        (asm0.x6000088)(st_00);
         /* IL_06: ret */
         return ;
     };;
-    asm.x600008b = function get_Current(arg0)
+    asm.x600008e = function get_Current(arg0)
     {
         var st_00;
         var st_01;
@@ -3371,7 +3404,7 @@ var asm0; (function (asm)
         /* IL_16: ret */
         return st_05;
     };;
-    asm.x600008c = function MoveNext(arg0)
+    asm.x600008f = function MoveNext(arg0)
     {
         var st_00;
         var st_01;
@@ -3394,9 +3427,9 @@ var asm0; (function (asm)
         /* IL_03: ldfld Int32 index*/
         st_02 = st_01.index;
         /* IL_08: ldc.i4.1 */
-        st_03 = 1;
+        st_03 = (1|0);
         /* IL_09: add */
-        st_05 = (st_02 + st_03);
+        st_05 = ((st_02 + st_03) | 0);
         /* IL_0A: stfld Int32 index*/
         st_04.index = st_05;
         /* IL_0F: ldarg.0 */
@@ -3416,7 +3449,7 @@ var asm0; (function (asm)
         /* IL_21: ret */
         return st_0B;
     };;
-    asm.x600008d = function System_Collections_IEnumerator_get_Current(arg0)
+    asm.x6000090 = function System_Collections_IEnumerator_get_Current(arg0)
     {
         var t0;
         var st_00;
@@ -3429,7 +3462,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call T get_Current()*/
-        st_01 = (asm0.x600008b)(st_00);
+        st_01 = (asm0.x600008e)(st_00);
         /* IL_07: box T*/
         st_02 = box(st_01,t0);
         /* IL_0C: stloc.0 */
@@ -3439,7 +3472,7 @@ var asm0; (function (asm)
         /* IL_10: ret */
         return st_03;
     };;
-    asm.x600008e = function Reset(arg0)
+    asm.x6000091 = function Reset(arg0)
     {
         var st_00;
         var st_01;
@@ -3447,19 +3480,19 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldc.i4.m1 */
-        st_01 = -1;
+        st_01 = (-1|0);
         /* IL_03: stfld Int32 index*/
         st_00.index = st_01;
         /* IL_08: ret */
         return ;
     };;
-    asm.x600008f = function Dispose(arg0)
+    asm.x6000092 = function Dispose(arg0)
     {
         /* IL_00: nop */
         /* IL_01: ret */
         return ;
     };;
-    asm.x600008a = function _ctor(arg0,arg1)
+    asm.x600008d = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -3483,7 +3516,7 @@ var asm0; (function (asm)
         /* IL_0F: ldarg.0 */
         st_03 = arg0;
         /* IL_10: ldc.i4.m1 */
-        st_04 = -1;
+        st_04 = (-1|0);
         /* IL_11: stfld Int32 index*/
         st_03.index = st_04;
         /* IL_16: ldarg.0 */
@@ -3491,14 +3524,14 @@ var asm0; (function (asm)
         /* IL_17: ldarg.1 */
         st_05 = arg1;
         /* IL_18: callvirt Int32 get_Length()*/
-        st_07 = (asm0.x600007f)(st_05);
+        st_07 = (asm0.x6000082)(st_05);
         /* IL_1D: stfld Int32 length*/
         st_06.length = st_07;
         /* IL_22: nop */
         /* IL_23: ret */
         return ;
     };;
-    asm.x6000090 = function _ctor(arg0)
+    asm.x6000093 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3508,7 +3541,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000091 = function _ctor(arg0,arg1)
+    asm.x6000094 = function _ctor(arg0,arg1)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -3521,7 +3554,7 @@ var asm0; (function (asm)
         /* IL_09: ret */
         return ;
     };;
-    asm.x6000093 = function get_HasValue(arg0)
+    asm.x6000096 = function get_HasValue(arg0)
     {
         var st_00;
         var st_01;
@@ -3539,17 +3572,17 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000094_init = function ()
+    asm.x6000097_init = function ()
     {
         (((asm0)["System.InvalidOperationException"])().init)();
-        asm.x6000094 = asm.x6000094_;
+        asm.x6000097 = asm.x6000097_;
     };;
-    asm.x6000094 = function (arg0)
+    asm.x6000097 = function (arg0)
     {
-        (asm.x6000094_init.apply)(this,arguments);
-        return (asm.x6000094.apply)(this,arguments);
+        (asm.x6000097_init.apply)(this,arguments);
+        return (asm.x6000097.apply)(this,arguments);
     };;
-    asm.x6000094_ = function get_Value(arg0)
+    asm.x6000097_ = function get_Value(arg0)
     {
         var t0;
         var st_00;
@@ -3590,7 +3623,7 @@ var asm0; (function (asm)
                 st_03 = new_string("Nullable object must have a value.");
                 /* IL_10: newobj Void .ctor(System.String)*/
                 st_04 = new t0();
-                (asm0.x600005e)(st_04,st_03);
+                (asm0.x600005b)(st_04,st_03);
                 /* IL_15: throw */
                 throw st_04;
                 case 0x16:
@@ -3607,17 +3640,17 @@ var asm0; (function (asm)
             }
         }
     };
-    asm.x6000095_init = function ()
+    asm.x6000098_init = function ()
     {
         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]).init)();
-        asm.x6000095 = asm.x6000095_;
+        asm.x6000098 = asm.x6000098_;
     };;
-    asm.x6000095 = function (arg0,arg1)
+    asm.x6000098 = function (arg0,arg1)
     {
-        (asm.x6000095_init.apply)(this,arguments);
-        return (asm.x6000095.apply)(this,arguments);
+        (asm.x6000098_init.apply)(this,arguments);
+        return (asm.x6000098.apply)(this,arguments);
     };;
-    asm.x6000095_ = function Equals(arg0,arg1)
+    asm.x6000098_ = function Equals(arg0,arg1)
     {
         var t0;
         var t1;
@@ -3662,7 +3695,7 @@ var asm0; (function (asm)
                 /* IL_04: ceq */
                 st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_07: ceq */
                 st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
@@ -3680,7 +3713,7 @@ var asm0; (function (asm)
                 /* IL_0D: ldfld Boolean has_value*/
                 st_07 = (st_06.r)().has_value;
                 /* IL_12: ldc.i4.0 */
-                st_08 = 0;
+                st_08 = (0|0);
                 /* IL_14: ceq */
                 st_09 = (st_07 === st_08) ? (1) : (0);
                 /* IL_15: stloc.0 */
@@ -3708,7 +3741,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_25: ldc.i4.0 */
-                st_0F = 0;
+                st_0F = (0|0);
                 /* IL_26: stloc.0 */
                 loc0 = st_0F;
                 /* IL_27: br.s IL_38*/
@@ -3722,7 +3755,7 @@ var asm0; (function (asm)
                 /* IL_2B: unbox.any System.Nullable`1[T]*/
                 st_12 = unbox_any(st_10,t1);
                 /* IL_30: call Boolean Equals(System.Nullable`1[T])*/
-                st_13 = (asm0.x6000096)(st_11,clone_value(st_12));
+                st_13 = (asm0.x6000099)(st_11,clone_value(st_12));
                 /* IL_35: stloc.0 */
                 loc0 = st_13;
                 case 0x38:
@@ -3733,7 +3766,7 @@ var asm0; (function (asm)
             }
         }
     };
-    asm.x6000096 = function Equals(arg0,arg1)
+    asm.x6000099 = function Equals(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -3796,7 +3829,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_14: ldc.i4.0 */
-                st_06 = 0;
+                st_06 = (0|0);
                 /* IL_15: stloc.0 */
                 loc0 = st_06;
                 /* IL_16: br.s IL_46*/
@@ -3818,7 +3851,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_22: ldc.i4.1 */
-                st_0A = 1;
+                st_0A = (1|0);
                 /* IL_23: stloc.0 */
                 loc0 = st_0A;
                 /* IL_24: br.s IL_46*/
@@ -3866,7 +3899,7 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x6000097 = function GetHashCode(arg0)
+    asm.x600009a = function GetHashCode(arg0)
     {
         var st_00;
         var st_01;
@@ -3902,7 +3935,7 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_0B: ldc.i4.0 */
-                st_03 = 0;
+                st_03 = (0|0);
                 /* IL_0C: stloc.0 */
                 loc0 = st_03;
                 /* IL_0D: br.s IL_23*/
@@ -3935,7 +3968,7 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x6000098 = function GetValueOrDefault(arg0)
+    asm.x600009b = function GetValueOrDefault(arg0)
     {
         var st_00;
         var st_01;
@@ -3953,7 +3986,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x6000099 = function GetValueOrDefault(arg0,arg1)
+    asm.x600009c = function GetValueOrDefault(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4002,17 +4035,17 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x600009a_init = function ()
+    asm.x600009d_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x600009a = asm.x600009a_;
+        asm.x600009d = asm.x600009d_;
     };;
-    asm.x600009a = function (arg0)
+    asm.x600009d = function (arg0)
     {
-        (asm.x600009a_init.apply)(this,arguments);
-        return (asm.x600009a.apply)(this,arguments);
+        (asm.x600009d_init.apply)(this,arguments);
+        return (asm.x600009d.apply)(this,arguments);
     };;
-    asm.x600009a_ = function ToString(arg0)
+    asm.x600009d_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4042,7 +4075,7 @@ var asm0; (function (asm)
                 /* IL_02: ldfld Boolean has_value*/
                 st_01 = (st_00.r)().has_value;
                 /* IL_07: ldc.i4.0 */
-                st_02 = 0;
+                st_02 = (0|0);
                 /* IL_09: ceq */
                 st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: stloc.1 */
@@ -4089,23 +4122,23 @@ var asm0; (function (asm)
             }
         }
     };
-    asm.x600009b_init = function (T)
+    asm.x600009e_init = function (T)
     {
         return function ()
         {
             (((asm0)["System.Nullable`1"])(T).init)();
-            asm.x600009b = asm.x600009b_;
+            asm.x600009e = asm.x600009e_;
         };
     };;
-    asm.x600009b = function (T)
+    asm.x600009e = function (T)
     {
         return function (arg0)
         {
-            ((asm.x600009b_init)(T).apply)(this,arguments);
-            return ((asm.x600009b)(T).apply)(this,arguments);
+            ((asm.x600009e_init)(T).apply)(this,arguments);
+            return ((asm.x600009e)(T).apply)(this,arguments);
         };
     };;
-    asm.x600009b_ = function (T)
+    asm.x600009e_ = function (T)
     {
         return function op_Implicit(arg0)
         {
@@ -4122,7 +4155,7 @@ var asm0; (function (asm)
             st_00 = arg0;
             /* IL_02: newobj Void .ctor(T)*/
             st_01 = new t1();
-            (asm0.x6000092)({
+            (asm0.x6000095)({
                 'w': function ()
                 {
                     st_01 = (arguments)[0];
@@ -4140,7 +4173,7 @@ var asm0; (function (asm)
             return st_02;
         };
     };
-    asm.x600009c = function (T)
+    asm.x600009f = function (T)
     {
         return function op_Explicit(arg0)
         {
@@ -4161,7 +4194,7 @@ var asm0; (function (asm)
                 }
             };
             /* IL_03: call T get_Value()*/
-            st_01 = (asm0.x6000094)(st_00);
+            st_01 = (asm0.x6000097)(st_00);
             /* IL_08: stloc.0 */
             loc0 = st_01;
             /* IL_0B: ldloc.0 */
@@ -4170,7 +4203,7 @@ var asm0; (function (asm)
             return st_02;
         };
     };;
-    asm.x600009d = function (T)
+    asm.x60000a0 = function (T)
     {
         return function Box(arg0)
         {
@@ -4252,23 +4285,23 @@ var asm0; (function (asm)
             }
         };
     };;
-    asm.x600009e_init = function (T)
+    asm.x60000a1_init = function (T)
     {
         return function ()
         {
             (((asm0)["System.Nullable`1"])(T).init)();
-            asm.x600009e = asm.x600009e_;
+            asm.x60000a1 = asm.x60000a1_;
         };
     };;
-    asm.x600009e = function (T)
+    asm.x60000a1 = function (T)
     {
         return function (arg0)
         {
-            ((asm.x600009e_init)(T).apply)(this,arguments);
-            return ((asm.x600009e)(T).apply)(this,arguments);
+            ((asm.x60000a1_init)(T).apply)(this,arguments);
+            return ((asm.x60000a1)(T).apply)(this,arguments);
         };
     };;
-    asm.x600009e_ = function (T)
+    asm.x60000a1_ = function (T)
     {
         return function Unbox(arg0)
         {
@@ -4308,7 +4341,7 @@ var asm0; (function (asm)
                     /* IL_04: ceq */
                     st_02 = (st_00 === st_01) ? (1) : (0);
                     /* IL_05: ldc.i4.0 */
-                    st_03 = 0;
+                    st_03 = (0|0);
                     /* IL_07: ceq */
                     st_04 = (st_02 === st_03) ? (1) : (0);
                     /* IL_08: stloc.1 */
@@ -4348,7 +4381,7 @@ var asm0; (function (asm)
                     st_09 = unbox_any(st_08,t0);
                     /* IL_1E: newobj Void .ctor(T)*/
                     st_0A = new t1();
-                    (asm0.x6000092)({
+                    (asm0.x6000095)({
                         'w': function ()
                         {
                             st_0A = (arguments)[0];
@@ -4369,7 +4402,7 @@ var asm0; (function (asm)
             }
         };
     };
-    asm.x6000092 = function _ctor(arg0,arg1)
+    asm.x6000095 = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4379,7 +4412,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_01 = 1;
+        st_01 = (1|0);
         /* IL_03: stfld Boolean has_value*/
         (st_00.r)().has_value = st_01;
         /* IL_08: ldarg.0 */
@@ -4391,7 +4424,7 @@ var asm0; (function (asm)
         /* IL_0F: ret */
         return ;
     };;
-    asm.x600009f = function _ctor(arg0)
+    asm.x60000a2 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4401,11 +4434,11 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x60000a0 = function(o) { return o.jsstr.length; };;
-    asm.x60000a1 = function(a, b) { return a.jsstr === b.jsstr; };;
-    asm.x60000a2 = function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); };;
-    asm.x60000a3 = function (s, i) { return s.jsstr.charCodeAt(i); };;
-    asm.x60000a4 = function get_Chars(arg0,arg1)
+    asm.x60000a3 = function(o) { return o.jsstr.length; };;
+    asm.x60000a4 = function(a, b) { return a.jsstr === b.jsstr; };;
+    asm.x60000a5 = function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); };;
+    asm.x60000a6 = function (s, i) { return s.jsstr.charCodeAt(i); };;
+    asm.x60000a7 = function get_Chars(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4418,7 +4451,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Char GetChar(System.String, System.Int32)*/
-        st_02 = (asm0.x60000a3)(st_00,st_01);
+        st_02 = (asm0.x60000a6)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -4426,17 +4459,17 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x60000a5_init = function ()
+    asm.x60000a8_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000a5 = asm.x60000a5_;
+        asm.x60000a8 = asm.x60000a8_;
     };;
-    asm.x60000a5 = function (arg0,arg1)
+    asm.x60000a8 = function (arg0,arg1)
     {
-        (asm.x60000a5_init.apply)(this,arguments);
-        return (asm.x60000a5.apply)(this,arguments);
+        (asm.x60000a8_init.apply)(this,arguments);
+        return (asm.x60000a8.apply)(this,arguments);
     };;
-    asm.x60000a5_ = function Concat(arg0,arg1)
+    asm.x60000a8_ = function Concat(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4455,7 +4488,7 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldc.i4.2 */
-        st_00 = 2;
+        st_00 = (2|0);
         /* IL_02: newarr System.String*/
         st_01 = new_array(t0,st_00);
         /* IL_07: stloc.1 */
@@ -4463,7 +4496,7 @@ var asm0; (function (asm)
         /* IL_08: ldloc.1 */
         st_02 = loc1;
         /* IL_09: ldc.i4.0 */
-        st_03 = 0;
+        st_03 = (0|0);
         /* IL_0A: ldarg.0 */
         st_04 = arg0;
         /* IL_0B: stelem.ref */
@@ -4471,7 +4504,7 @@ var asm0; (function (asm)
         /* IL_0C: ldloc.1 */
         st_05 = loc1;
         /* IL_0D: ldc.i4.1 */
-        st_06 = 1;
+        st_06 = (1|0);
         /* IL_0E: ldarg.1 */
         st_07 = arg1;
         /* IL_0F: stelem.ref */
@@ -4479,7 +4512,7 @@ var asm0; (function (asm)
         /* IL_10: ldloc.1 */
         st_08 = loc1;
         /* IL_11: call String ConcatImpl(System.String[])*/
-        st_09 = (asm0.x60000a2)(st_08);
+        st_09 = (asm0.x60000a5)(st_08);
         /* IL_16: stloc.0 */
         loc0 = st_09;
         /* IL_19: ldloc.0 */
@@ -4487,17 +4520,17 @@ var asm0; (function (asm)
         /* IL_1A: ret */
         return st_0A;
     };
-    asm.x60000a6_init = function ()
+    asm.x60000a9_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000a6 = asm.x60000a6_;
+        asm.x60000a9 = asm.x60000a9_;
     };;
-    asm.x60000a6 = function (arg0,arg1)
+    asm.x60000a9 = function (arg0,arg1)
     {
-        (asm.x60000a6_init.apply)(this,arguments);
-        return (asm.x60000a6.apply)(this,arguments);
+        (asm.x60000a9_init.apply)(this,arguments);
+        return (asm.x60000a9.apply)(this,arguments);
     };;
-    asm.x60000a6_ = function Concat(arg0,arg1)
+    asm.x60000a9_ = function Concat(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4518,7 +4551,7 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldc.i4.2 */
-        st_00 = 2;
+        st_00 = (2|0);
         /* IL_02: newarr System.String*/
         st_01 = new_array(t0,st_00);
         /* IL_07: stloc.1 */
@@ -4526,7 +4559,7 @@ var asm0; (function (asm)
         /* IL_08: ldloc.1 */
         st_03 = loc1;
         /* IL_09: ldc.i4.0 */
-        st_04 = 0;
+        st_04 = (0|0);
         /* IL_0A: ldarg.0 */
         st_02 = arg0;
         /* IL_0B: callvirt String ToString()*/
@@ -4536,7 +4569,7 @@ var asm0; (function (asm)
         /* IL_11: ldloc.1 */
         st_07 = loc1;
         /* IL_12: ldc.i4.1 */
-        st_08 = 1;
+        st_08 = (1|0);
         /* IL_13: ldarg.1 */
         st_06 = arg1;
         /* IL_14: callvirt String ToString()*/
@@ -4546,7 +4579,7 @@ var asm0; (function (asm)
         /* IL_1A: ldloc.1 */
         st_0A = loc1;
         /* IL_1B: call String ConcatImpl(System.String[])*/
-        st_0B = (asm0.x60000a2)(st_0A);
+        st_0B = (asm0.x60000a5)(st_0A);
         /* IL_20: stloc.0 */
         loc0 = st_0B;
         /* IL_23: ldloc.0 */
@@ -4554,7 +4587,7 @@ var asm0; (function (asm)
         /* IL_24: ret */
         return st_0C;
     };
-    asm.x60000a7 = function Concat(arg0)
+    asm.x60000aa = function Concat(arg0)
     {
         var st_00;
         var st_01;
@@ -4564,7 +4597,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call String ConcatImpl(System.String[])*/
-        st_01 = (asm0.x60000a2)(st_00);
+        st_01 = (asm0.x60000a5)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -4572,17 +4605,17 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000a8_init = function ()
+    asm.x60000ab_init = function ()
     {
         (((asm0)["System.Exception"])().init)();
-        asm.x60000a8 = asm.x60000a8_;
+        asm.x60000ab = asm.x60000ab_;
     };;
-    asm.x60000a8 = function (arg0)
+    asm.x60000ab = function (arg0)
     {
-        (asm.x60000a8_init.apply)(this,arguments);
-        return (asm.x60000a8.apply)(this,arguments);
+        (asm.x60000ab_init.apply)(this,arguments);
+        return (asm.x60000ab.apply)(this,arguments);
     };;
-    asm.x60000a8_ = function Concat(arg0)
+    asm.x60000ab_ = function Concat(arg0)
     {
         var t0;
         var st_00;
@@ -4597,7 +4630,7 @@ var asm0; (function (asm)
         /* IL_0B: throw */
         throw st_01;
     };
-    asm.x60000a9 = function get_Length(arg0)
+    asm.x60000ac = function get_Length(arg0)
     {
         var st_00;
         var st_01;
@@ -4607,7 +4640,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-        st_01 = (asm0.x60000a0)(st_00);
+        st_01 = (asm0.x60000a3)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -4615,7 +4648,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000aa = function ToString(arg0)
+    asm.x60000ad = function ToString(arg0)
     {
         var st_00;
         var st_01;
@@ -4630,7 +4663,7 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return st_01;
     };;
-    asm.x60000ab = function op_Inequality(arg0,arg1)
+    asm.x60000ae = function op_Inequality(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4645,9 +4678,9 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a1)(st_00,st_01);
+        st_02 = (asm0.x60000a4)(st_00,st_01);
         /* IL_08: ldc.i4.0 */
-        st_03 = 0;
+        st_03 = (0|0);
         /* IL_0A: ceq */
         st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
@@ -4657,7 +4690,7 @@ var asm0; (function (asm)
         /* IL_0F: ret */
         return st_05;
     };;
-    asm.x60000ac = function op_Equality(arg0,arg1)
+    asm.x60000af = function op_Equality(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4670,7 +4703,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a1)(st_00,st_01);
+        st_02 = (asm0.x60000a4)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -4678,7 +4711,7 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x60000ad = function Equals(arg0,arg1)
+    asm.x60000b0 = function Equals(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4691,7 +4724,7 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a1)(st_00,st_01);
+        st_02 = (asm0.x60000a4)(st_00,st_01);
         /* IL_08: stloc.0 */
         loc0 = st_02;
         /* IL_0B: ldloc.0 */
@@ -4699,17 +4732,17 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return st_03;
     };;
-    asm.x60000ae_init = function ()
+    asm.x60000b1_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000ae = asm.x60000ae_;
+        asm.x60000b1 = asm.x60000b1_;
     };;
-    asm.x60000ae = function (arg0,arg1)
+    asm.x60000b1 = function (arg0,arg1)
     {
-        (asm.x60000ae_init.apply)(this,arguments);
-        return (asm.x60000ae.apply)(this,arguments);
+        (asm.x60000b1_init.apply)(this,arguments);
+        return (asm.x60000b1.apply)(this,arguments);
     };;
-    asm.x60000ae_ = function Equals(arg0,arg1)
+    asm.x60000b1_ = function Equals(arg0,arg1)
     {
         var t0;
         var st_00;
@@ -4727,7 +4760,7 @@ var asm0; (function (asm)
         /* IL_03: castclass System.String*/
         st_02 = cast_class(st_00,t0);
         /* IL_08: call Boolean Equals(System.String)*/
-        st_03 = (asm0.x60000ad)(st_01,st_02);
+        st_03 = (asm0.x60000b0)(st_01,st_02);
         /* IL_0D: stloc.0 */
         loc0 = st_03;
         /* IL_10: ldloc.0 */
@@ -4735,7 +4768,7 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x60000af = 
+    asm.x60000b2 = 
             function (o) {
                 var str = o.jsstr;
                 var length = str.length;
@@ -4744,7 +4777,7 @@ var asm0; (function (asm)
                     h = (h << 5) - h + str.charCodeAt(i);
                 return h;
             };;
-    asm.x60000b0 = function GetHashCode(arg0)
+    asm.x60000b3 = function GetHashCode(arg0)
     {
         var st_00;
         var st_01;
@@ -4754,7 +4787,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: call Int32 GetHashCodeImpl(System.String)*/
-        st_01 = (asm0.x60000af)(st_00);
+        st_01 = (asm0.x60000b2)(st_00);
         /* IL_07: stloc.0 */
         loc0 = st_01;
         /* IL_0A: ldloc.0 */
@@ -4762,7 +4795,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000b1 = function _ctor(arg0)
+    asm.x60000b4 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4771,17 +4804,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x60000b2_init = function ()
+    asm.x60000b5_init = function ()
     {
         (((asm0)["System.String"])().init)();
-        asm.x60000b2 = asm.x60000b2_;
+        asm.x60000b5 = asm.x60000b5_;
     };;
-    asm.x60000b2 = function ()
+    asm.x60000b5 = function ()
     {
-        (asm.x60000b2_init.apply)(this,arguments);
-        return (asm.x60000b2.apply)(this,arguments);
+        (asm.x60000b5_init.apply)(this,arguments);
+        return (asm.x60000b5.apply)(this,arguments);
     };;
-    asm.x60000b2_ = function _cctor()
+    asm.x60000b5_ = function _cctor()
     {
         var t0;
         var st_00;
@@ -4793,7 +4826,7 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return ;
     };
-    asm.x60000b4 = function get_MemberName(arg0)
+    asm.x60000b7 = function get_MemberName(arg0)
     {
         var st_00;
         var st_01;
@@ -4811,7 +4844,7 @@ var asm0; (function (asm)
         /* IL_0B: ret */
         return st_02;
     };;
-    asm.x60000b3 = function _ctor(arg0,arg1)
+    asm.x60000b6 = function _ctor(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -4832,7 +4865,7 @@ var asm0; (function (asm)
         /* IL_10: ret */
         return ;
     };;
-    asm.x60000b6 = function _ctor(arg0)
+    asm.x60000b9 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */
@@ -4841,17 +4874,17 @@ var asm0; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x60000b7_init = function ()
+    asm.x60000ba_init = function ()
     {
         (((asm0)["System.UInt16"])().init)();
-        asm.x60000b7 = asm.x60000b7_;
+        asm.x60000ba = asm.x60000ba_;
     };;
-    asm.x60000b7 = function (arg0)
+    asm.x60000ba = function (arg0)
     {
-        (asm.x60000b7_init.apply)(this,arguments);
-        return (asm.x60000b7.apply)(this,arguments);
+        (asm.x60000ba_init.apply)(this,arguments);
+        return (asm.x60000ba.apply)(this,arguments);
     };;
-    asm.x60000b7_ = function ToString(arg0)
+    asm.x60000ba_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4881,17 +4914,17 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x60000b8_init = function ()
+    asm.x60000bb_init = function ()
     {
         (((asm0)["System.UInt32"])().init)();
-        asm.x60000b8 = asm.x60000b8_;
+        asm.x60000bb = asm.x60000bb_;
     };;
-    asm.x60000b8 = function (arg0)
+    asm.x60000bb = function (arg0)
     {
-        (asm.x60000b8_init.apply)(this,arguments);
-        return (asm.x60000b8.apply)(this,arguments);
+        (asm.x60000bb_init.apply)(this,arguments);
+        return (asm.x60000bb.apply)(this,arguments);
     };;
-    asm.x60000b8_ = function ToString(arg0)
+    asm.x60000bb_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -4921,7 +4954,7 @@ var asm0; (function (asm)
         /* IL_11: ret */
         return st_04;
     };
-    asm.x60000b9 = function ToString(arg0)
+    asm.x60000bc = function ToString(arg0)
     {
         var st_00;
         var st_01;
@@ -4967,9 +5000,9 @@ var asm0; (function (asm)
                 /* IL_03: stloc.0 */
                 loc0 = st_01;
                 /* IL_04: ldc.i4.s 10*/
-                st_02 = 10;
+                st_02 = (10|0);
                 /* IL_06: conv.i8 */
-                st_03 = make_uint64(st_02);
+                st_03 = conv_i8(st_02);
                 /* IL_07: stloc.1 */
                 loc1 = st_03;
                 /* IL_08: ldstr */
@@ -4994,7 +5027,7 @@ var asm0; (function (asm)
                 /* IL_19: ldloc.2 */
                 st_0A = loc2;
                 /* IL_1A: call String Concat(System.String, System.String)*/
-                st_0B = (asm0.x60000a5)(st_09,st_0A);
+                st_0B = (asm0.x60000a8)(st_09,st_0A);
                 /* IL_1F: stloc.2 */
                 loc2 = st_0B;
                 /* IL_20: ldloc.0 */
@@ -5010,9 +5043,9 @@ var asm0; (function (asm)
                 /* IL_25: ldloc.0 */
                 st_10 = loc0;
                 /* IL_26: ldc.i4.0 */
-                st_0F = 0;
+                st_0F = (0|0);
                 /* IL_27: conv.i8 */
-                st_11 = make_uint64(st_0F);
+                st_11 = conv_i8(st_0F);
                 /* IL_29: cgt.un */
                 st_12 = (asm0.UInt64_GreaterThan)(st_10,st_11);
                 /* IL_2A: stloc.s 5*/
@@ -5036,8 +5069,8 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.x60000bb = 
-            function (lhs, rhs) {
+    asm.x60000be = 
+            function UInt64_RightShift(lhs, rhs) {
                 n = n & 0x3f;
 
                 if (n > 32) {
@@ -5053,8 +5086,8 @@ var asm0; (function (asm)
 
                 return new Uint32Array([ at | br, bt ]);
             };;
-    asm.UInt64_RightShift = asm.x60000bb;
-    asm.x60000bc = 
+    asm.UInt64_RightShift = asm.x60000be;
+    asm.x60000bf = 
             function UInt64_Division(n, d) {
 
                 if (d[0] == 0 && d[1] == 0)
@@ -5079,9 +5112,9 @@ var asm0; (function (asm)
 
                 return q;    
             };;
-    asm.UInt64_Division = asm.x60000bc;
-    asm.x60000bd = 
-            function XInt64_GreaterThan(a, b) {
+    asm.UInt64_Division = asm.x60000bf;
+    asm.x60000c0 = 
+            function XInt64_Multiplication(a, b) {
                 if (a[0] == 0 && a[1] == 0)
                     return a;
 
@@ -5110,8 +5143,8 @@ var asm0; (function (asm)
 
                 return s;
             };;
-    asm.XInt64_Multiplication = asm.x60000bd;
-    asm.x60000be = 
+    asm.XInt64_Multiplication = asm.x60000c0;
+    asm.x60000c1 = 
             function UInt64_GreaterThanOrEqual (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
@@ -5120,10 +5153,10 @@ var asm0; (function (asm)
                 if (bdiff < 0)
                     return 0;
 
-                return a[0] >= b[0];
+                return a[0] >= b[0] ? 1: 0;
             };;
-    asm.UInt64_GreaterThanOrEqual = asm.x60000be;
-    asm.x60000bf = 
+    asm.UInt64_GreaterThanOrEqual = asm.x60000c1;
+    asm.x60000c2 = 
             function UInt64_LessThanOrEqual (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
@@ -5132,11 +5165,11 @@ var asm0; (function (asm)
                 if (bdiff > 0)
                     return 0;
 
-                return a[0] <= b[0];
+                return a[0] <= b[0] ? 1: 0;
             };;
-    asm.UInt64_LessThanOrEqual = asm.x60000bf;
-    asm.x60000c0 = 
-            function UInt64_GreaterThanOrEqual (a, b) {
+    asm.UInt64_LessThanOrEqual = asm.x60000c2;
+    asm.x60000c3 = 
+            function UInt64_GreaterThan (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
                     return 1;
@@ -5144,11 +5177,11 @@ var asm0; (function (asm)
                 if (bdiff < 0)
                     return 0;
 
-                return a[0] > b[0];
+                return a[0] > b[0] ? 1: 0;
             };;
-    asm.UInt64_GreaterThan = asm.x60000c0;
-    asm.x60000c1 = 
-            function UInt64_LesserThan(a, b) {
+    asm.UInt64_GreaterThan = asm.x60000c3;
+    asm.x60000c4 = 
+            function UInt64_LessThan(a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
                     return 1;
@@ -5156,10 +5189,10 @@ var asm0; (function (asm)
                 if (bdiff > 0)
                     return 0;
 
-                return a[0] < b[0];
+                return a[0] < b[0] ? 1: 0;
             };;
-    asm.UInt64_LessThan = asm.x60000c1;
-    asm.x60000c2 = 
+    asm.UInt64_LessThan = asm.x60000c4;
+    asm.x60000c5 = 
             function UInt64_Modulus (n, d) {
                 var greaterThanOrEqual = asm0.UInt64_GreaterThanOrEqual,
                     subtraction = asm0.XInt64_Subtraction,
@@ -5185,18 +5218,18 @@ var asm0; (function (asm)
 
                 return r;
             };;
-    asm.UInt64_Modulus = asm.x60000c2;
-    asm.x60000c3_init = function ()
+    asm.UInt64_Modulus = asm.x60000c5;
+    asm.x60000c6_init = function ()
     {
         (((asm0)["System.UIntPtr"])().init)();
-        asm.x60000c3 = asm.x60000c3_;
+        asm.x60000c6 = asm.x60000c6_;
     };;
-    asm.x60000c3 = function (arg0)
+    asm.x60000c6 = function (arg0)
     {
-        (asm.x60000c3_init.apply)(this,arguments);
-        return (asm.x60000c3.apply)(this,arguments);
+        (asm.x60000c6_init.apply)(this,arguments);
+        return (asm.x60000c6.apply)(this,arguments);
     };;
-    asm.x60000c3_ = function ToString(arg0)
+    asm.x60000c6_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -7332,6 +7365,8 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Int64.MaxValue = 0;
+                Int64.MinValue = 0;
                 Int64.Interfaces = [  ];
                 Int64.IsInst = function (t) { return typeof t == 'number'; };
                 Int64.IsValueType = true;
@@ -7341,7 +7376,7 @@ var asm0; (function (asm)
                 Int64.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x600005f;
+                        return asm0.x600005c;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -7608,7 +7643,7 @@ var asm0; (function (asm)
                 EventArgs.IsPrimitive = false;
                 EventArgs.IsNullable = false;
                 EventArgs.ArrayType = Array;
-                (asm0.x600007c)();
+                (asm0.x600007f)();
                 EventArgs.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
@@ -7666,9 +7701,9 @@ var asm0; (function (asm)
                 EventHandler.prototype._methodPtr = null;
                 EventHandler.prototype._target = null;
                 EventHandler.prototype.vtable = {
-                    'asm0.x600007e': function ()
+                    'asm0.x6000081': function ()
                     {
-                        return asm0.x600007e;
+                        return asm0.x6000081;
                     },
                     'asm0.x600002e': function ()
                     {
@@ -7735,13 +7770,13 @@ var asm0; (function (asm)
                 Array.prototype.type = null;
                 Array.prototype.jsarr = null;
                 Array.prototype.vtable = {
-                    'asm0.x6000083': function ()
+                    'asm0.x6000086': function ()
                     {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     },
-                    'asm0.x6000084': function ()
+                    'asm0.x6000087': function ()
                     {
-                        return asm0.x6000084;
+                        return asm0.x6000087;
                     },
                     'asm0.x6000005': function ()
                     {
@@ -7759,7 +7794,7 @@ var asm0; (function (asm)
                 (Array.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x6000049': function ()
                     {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     }
                 };
             };
@@ -7807,17 +7842,17 @@ var asm0; (function (asm)
                 Array_1.prototype.type = null;
                 Array_1.prototype.jsarr = null;
                 Array_1.prototype.vtable = {
+                    'asm0.x600008a': function ()
+                    {
+                        return asm0.x600008a;
+                    },
                     'asm0.x6000087': function ()
                     {
-                        return asm0.x6000087;
+                        return asm0.x600008b;
                     },
-                    'asm0.x6000084': function ()
+                    'asm0.x6000086': function ()
                     {
-                        return asm0.x6000088;
-                    },
-                    'asm0.x6000083': function ()
-                    {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     },
                     'asm0.x6000005': function ()
                     {
@@ -7835,13 +7870,13 @@ var asm0; (function (asm)
                 (Array_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
                     'x600004a': function ()
                     {
-                        return asm0.x6000087;
+                        return asm0.x600008a;
                     }
                 };
                 (Array_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x6000049': function ()
                     {
-                        return asm0.x6000083;
+                        return asm0.x6000086;
                     }
                 };
             };
@@ -7890,18 +7925,6 @@ var asm0; (function (asm)
                 ArrayEnumerator.prototype.length = 0;
                 ArrayEnumerator.prototype.source = null;
                 ArrayEnumerator.prototype.vtable = {
-                    'asm0.x600008b': function ()
-                    {
-                        return asm0.x600008b;
-                    },
-                    'asm0.x600008c': function ()
-                    {
-                        return asm0.x600008c;
-                    },
-                    'asm0.x600008d': function ()
-                    {
-                        return asm0.x600008d;
-                    },
                     'asm0.x600008e': function ()
                     {
                         return asm0.x600008e;
@@ -7909,6 +7932,18 @@ var asm0; (function (asm)
                     'asm0.x600008f': function ()
                     {
                         return asm0.x600008f;
+                    },
+                    'asm0.x6000090': function ()
+                    {
+                        return asm0.x6000090;
+                    },
+                    'asm0.x6000091': function ()
+                    {
+                        return asm0.x6000091;
+                    },
+                    'asm0.x6000092': function ()
+                    {
+                        return asm0.x6000092;
                     },
                     'asm0.x6000005': function ()
                     {
@@ -7926,31 +7961,31 @@ var asm0; (function (asm)
                 (ArrayEnumerator.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
                     'x6000047': function ()
                     {
-                        return asm0.x600008b;
+                        return asm0.x600008e;
                     },
                     'x6000048': function ()
                     {
-                        return asm0.x600008c;
+                        return asm0.x600008f;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {
                     'x6000044': function ()
                     {
-                        return asm0.x600008d;
+                        return asm0.x6000090;
                     },
                     'x6000045': function ()
                     {
-                        return asm0.x600008c;
+                        return asm0.x600008f;
                     },
                     'x6000046': function ()
                     {
-                        return asm0.x600008e;
+                        return asm0.x6000091;
                     }
                 };
                 (ArrayEnumerator.prototype)[((asm0)["System.IDisposable"])()] = {
                     'x6000039': function ()
                     {
-                        return asm0.x600008f;
+                        return asm0.x6000092;
                     }
                 };
             };
@@ -8176,15 +8211,15 @@ var asm0; (function (asm)
                 Nullable_1.prototype.vtable = {
                     'asm0.x6000009': function ()
                     {
-                        return asm0.x6000095;
+                        return asm0.x6000098;
                     },
                     'asm0.x6000006': function ()
                     {
-                        return asm0.x6000097;
+                        return asm0.x600009a;
                     },
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x600009a;
+                        return asm0.x600009d;
                     }
                 };
             };
@@ -8282,20 +8317,20 @@ var asm0; (function (asm)
                 $$String.IsPrimitive = false;
                 $$String.IsNullable = false;
                 $$String.ArrayType = Array;
-                (asm0.x60000b2)();
+                (asm0.x60000b5)();
                 $$String.prototype.jsstr = null;
                 $$String.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000aa;
+                        return asm0.x60000ad;
                     },
                     'asm0.x6000009': function ()
                     {
-                        return asm0.x60000ae;
+                        return asm0.x60000b1;
                     },
                     'asm0.x6000006': function ()
                     {
-                        return asm0.x60000b0;
+                        return asm0.x60000b3;
                     }
                 };
             };
@@ -8447,7 +8482,7 @@ var asm0; (function (asm)
                 UInt16.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000b7;
+                        return asm0.x60000ba;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8502,7 +8537,7 @@ var asm0; (function (asm)
                 UInt32.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000b8;
+                        return asm0.x60000bb;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8548,7 +8583,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
-                UInt64.MAX_VALUE = 0;
+                UInt64.MaxValue = 0;
                 UInt64.Interfaces = [  ];
                 UInt64.IsInst = function (t) { return typeof t == 'number'; };
                 UInt64.IsValueType = true;
@@ -8558,7 +8593,7 @@ var asm0; (function (asm)
                 UInt64.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000b9;
+                        return asm0.x60000bc;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8613,7 +8648,7 @@ var asm0; (function (asm)
                 UIntPtr.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000c3;
+                        return asm0.x60000c6;
                     },
                     'asm0.x6000006': function ()
                     {
@@ -8793,12 +8828,29 @@ var asm1; (function (asm)
         }
     }
 
-    function make_uint64(n) {
+    function conv_u8(n) {
         if (n < 0) {
             
             n = 0x100000000 + n;
         }
 
+        return make_uint64(n);
+    }
+
+    function conv_i8(n) {
+        if (n < 0) {
+            
+            n = 0x100000000 + n;
+            
+            
+            
+            return new Uint32Array([ n | 0, 0xffffffff ]);
+        }
+
+        return make_uint64(n);
+    }
+
+    function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -9439,9 +9491,9 @@ var asm1; (function (asm)
         var st_251;
         t0 = ((asm0)["System.UInt64"])();
         /* IL_00: ldc.i4.1 */
-        st_00 = 1;
+        st_00 = (1|0);
         /* IL_01: conv.i8 */
-        st_01 = make_uint64(st_00);
+        st_01 = conv_i8(st_00);
         /* IL_02: box System.UInt64*/
         st_02 = {
             'boxed': st_01,
@@ -9451,9 +9503,9 @@ var asm1; (function (asm)
         /* IL_07: call Void Log(System.Object)*/
         (asm1.x6000001)(st_02);
         /* IL_0C: ldc.i4.2 */
-        st_03 = 2;
+        st_03 = (2|0);
         /* IL_0D: conv.i8 */
-        st_04 = make_uint64(st_03);
+        st_04 = conv_i8(st_03);
         /* IL_0E: box System.UInt64*/
         st_05 = {
             'boxed': st_04,
@@ -9463,9 +9515,9 @@ var asm1; (function (asm)
         /* IL_13: call Void Log(System.Object)*/
         (asm1.x6000001)(st_05);
         /* IL_18: ldc.i4.3 */
-        st_06 = 3;
+        st_06 = (3|0);
         /* IL_19: conv.i8 */
-        st_07 = make_uint64(st_06);
+        st_07 = conv_i8(st_06);
         /* IL_1A: box System.UInt64*/
         st_08 = {
             'boxed': st_07,
@@ -9475,9 +9527,9 @@ var asm1; (function (asm)
         /* IL_1F: call Void Log(System.Object)*/
         (asm1.x6000001)(st_08);
         /* IL_24: ldc.i4.4 */
-        st_09 = 4;
+        st_09 = (4|0);
         /* IL_25: conv.i8 */
-        st_0A = make_uint64(st_09);
+        st_0A = conv_i8(st_09);
         /* IL_26: box System.UInt64*/
         st_0B = {
             'boxed': st_0A,
@@ -9487,9 +9539,9 @@ var asm1; (function (asm)
         /* IL_2B: call Void Log(System.Object)*/
         (asm1.x6000001)(st_0B);
         /* IL_30: ldc.i4.5 */
-        st_0C = 5;
+        st_0C = (5|0);
         /* IL_31: conv.i8 */
-        st_0D = make_uint64(st_0C);
+        st_0D = conv_i8(st_0C);
         /* IL_32: box System.UInt64*/
         st_0E = {
             'boxed': st_0D,
@@ -9499,9 +9551,9 @@ var asm1; (function (asm)
         /* IL_37: call Void Log(System.Object)*/
         (asm1.x6000001)(st_0E);
         /* IL_3C: ldc.i4.6 */
-        st_0F = 6;
+        st_0F = (6|0);
         /* IL_3D: conv.i8 */
-        st_10 = make_uint64(st_0F);
+        st_10 = conv_i8(st_0F);
         /* IL_3E: box System.UInt64*/
         st_11 = {
             'boxed': st_10,
@@ -9511,9 +9563,9 @@ var asm1; (function (asm)
         /* IL_43: call Void Log(System.Object)*/
         (asm1.x6000001)(st_11);
         /* IL_48: ldc.i4.7 */
-        st_12 = 7;
+        st_12 = (7|0);
         /* IL_49: conv.i8 */
-        st_13 = make_uint64(st_12);
+        st_13 = conv_i8(st_12);
         /* IL_4A: box System.UInt64*/
         st_14 = {
             'boxed': st_13,
@@ -9523,9 +9575,9 @@ var asm1; (function (asm)
         /* IL_4F: call Void Log(System.Object)*/
         (asm1.x6000001)(st_14);
         /* IL_54: ldc.i4.8 */
-        st_15 = 8;
+        st_15 = (8|0);
         /* IL_55: conv.i8 */
-        st_16 = make_uint64(st_15);
+        st_16 = conv_i8(st_15);
         /* IL_56: box System.UInt64*/
         st_17 = {
             'boxed': st_16,
@@ -9535,9 +9587,9 @@ var asm1; (function (asm)
         /* IL_5B: call Void Log(System.Object)*/
         (asm1.x6000001)(st_17);
         /* IL_60: ldc.i4.s 9*/
-        st_18 = 9;
+        st_18 = (9|0);
         /* IL_62: conv.i8 */
-        st_19 = make_uint64(st_18);
+        st_19 = conv_i8(st_18);
         /* IL_63: box System.UInt64*/
         st_1A = {
             'boxed': st_19,
@@ -9547,9 +9599,9 @@ var asm1; (function (asm)
         /* IL_68: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1A);
         /* IL_6D: ldc.i4.s 10*/
-        st_1B = 10;
+        st_1B = (10|0);
         /* IL_6F: conv.i8 */
-        st_1C = make_uint64(st_1B);
+        st_1C = conv_i8(st_1B);
         /* IL_70: box System.UInt64*/
         st_1D = {
             'boxed': st_1C,
@@ -9559,9 +9611,9 @@ var asm1; (function (asm)
         /* IL_75: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1D);
         /* IL_7A: ldc.i4.s 11*/
-        st_1E = 11;
+        st_1E = (11|0);
         /* IL_7C: conv.i8 */
-        st_1F = make_uint64(st_1E);
+        st_1F = conv_i8(st_1E);
         /* IL_7D: box System.UInt64*/
         st_20 = {
             'boxed': st_1F,
@@ -9571,9 +9623,9 @@ var asm1; (function (asm)
         /* IL_82: call Void Log(System.Object)*/
         (asm1.x6000001)(st_20);
         /* IL_87: ldc.i4.s 12*/
-        st_21 = 12;
+        st_21 = (12|0);
         /* IL_89: conv.i8 */
-        st_22 = make_uint64(st_21);
+        st_22 = conv_i8(st_21);
         /* IL_8A: box System.UInt64*/
         st_23 = {
             'boxed': st_22,
@@ -9583,9 +9635,9 @@ var asm1; (function (asm)
         /* IL_8F: call Void Log(System.Object)*/
         (asm1.x6000001)(st_23);
         /* IL_94: ldc.i4.s 13*/
-        st_24 = 13;
+        st_24 = (13|0);
         /* IL_96: conv.i8 */
-        st_25 = make_uint64(st_24);
+        st_25 = conv_i8(st_24);
         /* IL_97: box System.UInt64*/
         st_26 = {
             'boxed': st_25,
@@ -9595,9 +9647,9 @@ var asm1; (function (asm)
         /* IL_9C: call Void Log(System.Object)*/
         (asm1.x6000001)(st_26);
         /* IL_A1: ldc.i4.s 14*/
-        st_27 = 14;
+        st_27 = (14|0);
         /* IL_A3: conv.i8 */
-        st_28 = make_uint64(st_27);
+        st_28 = conv_i8(st_27);
         /* IL_A4: box System.UInt64*/
         st_29 = {
             'boxed': st_28,
@@ -9607,9 +9659,9 @@ var asm1; (function (asm)
         /* IL_A9: call Void Log(System.Object)*/
         (asm1.x6000001)(st_29);
         /* IL_AE: ldc.i4.s 15*/
-        st_2A = 15;
+        st_2A = (15|0);
         /* IL_B0: conv.i8 */
-        st_2B = make_uint64(st_2A);
+        st_2B = conv_i8(st_2A);
         /* IL_B1: box System.UInt64*/
         st_2C = {
             'boxed': st_2B,
@@ -9619,9 +9671,9 @@ var asm1; (function (asm)
         /* IL_B6: call Void Log(System.Object)*/
         (asm1.x6000001)(st_2C);
         /* IL_BB: ldc.i4.s 16*/
-        st_2D = 16;
+        st_2D = (16|0);
         /* IL_BD: conv.i8 */
-        st_2E = make_uint64(st_2D);
+        st_2E = conv_i8(st_2D);
         /* IL_BE: box System.UInt64*/
         st_2F = {
             'boxed': st_2E,
@@ -9631,9 +9683,9 @@ var asm1; (function (asm)
         /* IL_C3: call Void Log(System.Object)*/
         (asm1.x6000001)(st_2F);
         /* IL_C8: ldc.i4.s 17*/
-        st_30 = 17;
+        st_30 = (17|0);
         /* IL_CA: conv.i8 */
-        st_31 = make_uint64(st_30);
+        st_31 = conv_i8(st_30);
         /* IL_CB: box System.UInt64*/
         st_32 = {
             'boxed': st_31,
@@ -9643,9 +9695,9 @@ var asm1; (function (asm)
         /* IL_D0: call Void Log(System.Object)*/
         (asm1.x6000001)(st_32);
         /* IL_D5: ldc.i4.s 18*/
-        st_33 = 18;
+        st_33 = (18|0);
         /* IL_D7: conv.i8 */
-        st_34 = make_uint64(st_33);
+        st_34 = conv_i8(st_33);
         /* IL_D8: box System.UInt64*/
         st_35 = {
             'boxed': st_34,
@@ -9655,9 +9707,9 @@ var asm1; (function (asm)
         /* IL_DD: call Void Log(System.Object)*/
         (asm1.x6000001)(st_35);
         /* IL_E2: ldc.i4.s 19*/
-        st_36 = 19;
+        st_36 = (19|0);
         /* IL_E4: conv.i8 */
-        st_37 = make_uint64(st_36);
+        st_37 = conv_i8(st_36);
         /* IL_E5: box System.UInt64*/
         st_38 = {
             'boxed': st_37,
@@ -9667,9 +9719,9 @@ var asm1; (function (asm)
         /* IL_EA: call Void Log(System.Object)*/
         (asm1.x6000001)(st_38);
         /* IL_EF: ldc.i4.s 20*/
-        st_39 = 20;
+        st_39 = (20|0);
         /* IL_F1: conv.i8 */
-        st_3A = make_uint64(st_39);
+        st_3A = conv_i8(st_39);
         /* IL_F2: box System.UInt64*/
         st_3B = {
             'boxed': st_3A,
@@ -9679,9 +9731,9 @@ var asm1; (function (asm)
         /* IL_F7: call Void Log(System.Object)*/
         (asm1.x6000001)(st_3B);
         /* IL_FC: ldc.i4.s 21*/
-        st_3C = 21;
+        st_3C = (21|0);
         /* IL_FE: conv.i8 */
-        st_3D = make_uint64(st_3C);
+        st_3D = conv_i8(st_3C);
         /* IL_FF: box System.UInt64*/
         st_3E = {
             'boxed': st_3D,
@@ -9691,9 +9743,9 @@ var asm1; (function (asm)
         /* IL_104: call Void Log(System.Object)*/
         (asm1.x6000001)(st_3E);
         /* IL_109: ldc.i4.s 15*/
-        st_3F = 15;
+        st_3F = (15|0);
         /* IL_10B: conv.i8 */
-        st_40 = make_uint64(st_3F);
+        st_40 = conv_i8(st_3F);
         /* IL_10C: box System.UInt64*/
         st_41 = {
             'boxed': st_40,
@@ -9703,9 +9755,9 @@ var asm1; (function (asm)
         /* IL_111: call Void Log(System.Object)*/
         (asm1.x6000001)(st_41);
         /* IL_116: ldc.i4 255*/
-        st_42 = 255;
+        st_42 = (255|0);
         /* IL_11B: conv.i8 */
-        st_43 = make_uint64(st_42);
+        st_43 = conv_i8(st_42);
         /* IL_11C: box System.UInt64*/
         st_44 = {
             'boxed': st_43,
@@ -9715,9 +9767,9 @@ var asm1; (function (asm)
         /* IL_121: call Void Log(System.Object)*/
         (asm1.x6000001)(st_44);
         /* IL_126: ldc.i4 4095*/
-        st_45 = 4095;
+        st_45 = (4095|0);
         /* IL_12B: conv.i8 */
-        st_46 = make_uint64(st_45);
+        st_46 = conv_i8(st_45);
         /* IL_12C: box System.UInt64*/
         st_47 = {
             'boxed': st_46,
@@ -9727,9 +9779,9 @@ var asm1; (function (asm)
         /* IL_131: call Void Log(System.Object)*/
         (asm1.x6000001)(st_47);
         /* IL_136: ldc.i4 65535*/
-        st_48 = 65535;
+        st_48 = (65535|0);
         /* IL_13B: conv.i8 */
-        st_49 = make_uint64(st_48);
+        st_49 = conv_i8(st_48);
         /* IL_13C: box System.UInt64*/
         st_4A = {
             'boxed': st_49,
@@ -9739,9 +9791,9 @@ var asm1; (function (asm)
         /* IL_141: call Void Log(System.Object)*/
         (asm1.x6000001)(st_4A);
         /* IL_146: ldc.i4 1048575*/
-        st_4B = 1048575;
+        st_4B = (1048575|0);
         /* IL_14B: conv.i8 */
-        st_4C = make_uint64(st_4B);
+        st_4C = conv_i8(st_4B);
         /* IL_14C: box System.UInt64*/
         st_4D = {
             'boxed': st_4C,
@@ -9751,9 +9803,9 @@ var asm1; (function (asm)
         /* IL_151: call Void Log(System.Object)*/
         (asm1.x6000001)(st_4D);
         /* IL_156: ldc.i4 16777215*/
-        st_4E = 16777215;
+        st_4E = (16777215|0);
         /* IL_15B: conv.i8 */
-        st_4F = make_uint64(st_4E);
+        st_4F = conv_i8(st_4E);
         /* IL_15C: box System.UInt64*/
         st_50 = {
             'boxed': st_4F,
@@ -9763,9 +9815,9 @@ var asm1; (function (asm)
         /* IL_161: call Void Log(System.Object)*/
         (asm1.x6000001)(st_50);
         /* IL_166: ldc.i4 268435455*/
-        st_51 = 268435455;
+        st_51 = (268435455|0);
         /* IL_16B: conv.i8 */
-        st_52 = make_uint64(st_51);
+        st_52 = conv_i8(st_51);
         /* IL_16C: box System.UInt64*/
         st_53 = {
             'boxed': st_52,
@@ -9775,9 +9827,9 @@ var asm1; (function (asm)
         /* IL_171: call Void Log(System.Object)*/
         (asm1.x6000001)(st_53);
         /* IL_176: ldc.i4.m1 */
-        st_54 = -1;
+        st_54 = (-1|0);
         /* IL_177: conv.u8 */
-        st_55 = make_uint64(st_54);
+        st_55 = conv_u8(st_54);
         /* IL_178: box System.UInt64*/
         st_56 = {
             'boxed': st_55,
@@ -9847,9 +9899,9 @@ var asm1; (function (asm)
         /* IL_1EF: call Void Log(System.Object)*/
         (asm1.x6000001)(st_62);
         /* IL_1F4: ldc.i4.0 */
-        st_63 = 0;
+        st_63 = (0|0);
         /* IL_1F5: conv.i8 */
-        st_64 = make_uint64(st_63);
+        st_64 = conv_i8(st_63);
         /* IL_1F6: box System.UInt64*/
         st_65 = {
             'boxed': st_64,
@@ -9859,9 +9911,9 @@ var asm1; (function (asm)
         /* IL_1FB: call Void Log(System.Object)*/
         (asm1.x6000001)(st_65);
         /* IL_200: ldc.i4.1 */
-        st_66 = 1;
+        st_66 = (1|0);
         /* IL_201: conv.i8 */
-        st_67 = make_uint64(st_66);
+        st_67 = conv_i8(st_66);
         /* IL_202: box System.UInt64*/
         st_68 = {
             'boxed': st_67,
@@ -9871,9 +9923,9 @@ var asm1; (function (asm)
         /* IL_207: call Void Log(System.Object)*/
         (asm1.x6000001)(st_68);
         /* IL_20C: ldc.i4.s 16*/
-        st_69 = 16;
+        st_69 = (16|0);
         /* IL_20E: conv.i8 */
-        st_6A = make_uint64(st_69);
+        st_6A = conv_i8(st_69);
         /* IL_20F: box System.UInt64*/
         st_6B = {
             'boxed': st_6A,
@@ -9883,9 +9935,9 @@ var asm1; (function (asm)
         /* IL_214: call Void Log(System.Object)*/
         (asm1.x6000001)(st_6B);
         /* IL_219: ldc.i4 257*/
-        st_6C = 257;
+        st_6C = (257|0);
         /* IL_21E: conv.i8 */
-        st_6D = make_uint64(st_6C);
+        st_6D = conv_i8(st_6C);
         /* IL_21F: box System.UInt64*/
         st_6E = {
             'boxed': st_6D,
@@ -9895,9 +9947,9 @@ var asm1; (function (asm)
         /* IL_224: call Void Log(System.Object)*/
         (asm1.x6000001)(st_6E);
         /* IL_229: ldc.i4 4112*/
-        st_6F = 4112;
+        st_6F = (4112|0);
         /* IL_22E: conv.i8 */
-        st_70 = make_uint64(st_6F);
+        st_70 = conv_i8(st_6F);
         /* IL_22F: box System.UInt64*/
         st_71 = {
             'boxed': st_70,
@@ -9907,9 +9959,9 @@ var asm1; (function (asm)
         /* IL_234: call Void Log(System.Object)*/
         (asm1.x6000001)(st_71);
         /* IL_239: ldc.i4 65793*/
-        st_72 = 65793;
+        st_72 = (65793|0);
         /* IL_23E: conv.i8 */
-        st_73 = make_uint64(st_72);
+        st_73 = conv_i8(st_72);
         /* IL_23F: box System.UInt64*/
         st_74 = {
             'boxed': st_73,
@@ -9919,9 +9971,9 @@ var asm1; (function (asm)
         /* IL_244: call Void Log(System.Object)*/
         (asm1.x6000001)(st_74);
         /* IL_249: ldc.i4 1052688*/
-        st_75 = 1052688;
+        st_75 = (1052688|0);
         /* IL_24E: conv.i8 */
-        st_76 = make_uint64(st_75);
+        st_76 = conv_i8(st_75);
         /* IL_24F: box System.UInt64*/
         st_77 = {
             'boxed': st_76,
@@ -9931,9 +9983,9 @@ var asm1; (function (asm)
         /* IL_254: call Void Log(System.Object)*/
         (asm1.x6000001)(st_77);
         /* IL_259: ldc.i4 16843009*/
-        st_78 = 16843009;
+        st_78 = (16843009|0);
         /* IL_25E: conv.i8 */
-        st_79 = make_uint64(st_78);
+        st_79 = conv_i8(st_78);
         /* IL_25F: box System.UInt64*/
         st_7A = {
             'boxed': st_79,
@@ -9943,9 +9995,9 @@ var asm1; (function (asm)
         /* IL_264: call Void Log(System.Object)*/
         (asm1.x6000001)(st_7A);
         /* IL_269: ldc.i4 269488144*/
-        st_7B = 269488144;
+        st_7B = (269488144|0);
         /* IL_26E: conv.i8 */
-        st_7C = make_uint64(st_7B);
+        st_7C = conv_i8(st_7B);
         /* IL_26F: box System.UInt64*/
         st_7D = {
             'boxed': st_7C,
@@ -10005,13 +10057,13 @@ var asm1; (function (asm)
         /* IL_2D3: call Void Log(System.Object)*/
         (asm1.x6000001)(st_87);
         /* IL_2D8: ldc.i4.s 15*/
-        st_88 = 15;
+        st_88 = (15|0);
         /* IL_2DA: conv.i8 */
-        st_8A = make_uint64(st_88);
+        st_8A = conv_i8(st_88);
         /* IL_2DB: ldc.i4.1 */
-        st_89 = 1;
+        st_89 = (1|0);
         /* IL_2DC: conv.i8 */
-        st_8B = make_uint64(st_89);
+        st_8B = conv_i8(st_89);
         /* IL_2DD: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_8C = (asm1.x600000d)(st_8A,st_8B);
         /* IL_2E2: box System.UInt64*/
@@ -10023,13 +10075,13 @@ var asm1; (function (asm)
         /* IL_2E7: call Void Log(System.Object)*/
         (asm1.x6000001)(st_8D);
         /* IL_2EC: ldc.i4 255*/
-        st_8E = 255;
+        st_8E = (255|0);
         /* IL_2F1: conv.i8 */
-        st_90 = make_uint64(st_8E);
+        st_90 = conv_i8(st_8E);
         /* IL_2F2: ldc.i4.1 */
-        st_8F = 1;
+        st_8F = (1|0);
         /* IL_2F3: conv.i8 */
-        st_91 = make_uint64(st_8F);
+        st_91 = conv_i8(st_8F);
         /* IL_2F4: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_92 = (asm1.x600000d)(st_90,st_91);
         /* IL_2F9: box System.UInt64*/
@@ -10041,13 +10093,13 @@ var asm1; (function (asm)
         /* IL_2FE: call Void Log(System.Object)*/
         (asm1.x6000001)(st_93);
         /* IL_303: ldc.i4 4095*/
-        st_94 = 4095;
+        st_94 = (4095|0);
         /* IL_308: conv.i8 */
-        st_96 = make_uint64(st_94);
+        st_96 = conv_i8(st_94);
         /* IL_309: ldc.i4.1 */
-        st_95 = 1;
+        st_95 = (1|0);
         /* IL_30A: conv.i8 */
-        st_97 = make_uint64(st_95);
+        st_97 = conv_i8(st_95);
         /* IL_30B: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_98 = (asm1.x600000d)(st_96,st_97);
         /* IL_310: box System.UInt64*/
@@ -10059,13 +10111,13 @@ var asm1; (function (asm)
         /* IL_315: call Void Log(System.Object)*/
         (asm1.x6000001)(st_99);
         /* IL_31A: ldc.i4 65535*/
-        st_9A = 65535;
+        st_9A = (65535|0);
         /* IL_31F: conv.i8 */
-        st_9C = make_uint64(st_9A);
+        st_9C = conv_i8(st_9A);
         /* IL_320: ldc.i4.1 */
-        st_9B = 1;
+        st_9B = (1|0);
         /* IL_321: conv.i8 */
-        st_9D = make_uint64(st_9B);
+        st_9D = conv_i8(st_9B);
         /* IL_322: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_9E = (asm1.x600000d)(st_9C,st_9D);
         /* IL_327: box System.UInt64*/
@@ -10077,13 +10129,13 @@ var asm1; (function (asm)
         /* IL_32C: call Void Log(System.Object)*/
         (asm1.x6000001)(st_9F);
         /* IL_331: ldc.i4 1048575*/
-        st_A0 = 1048575;
+        st_A0 = (1048575|0);
         /* IL_336: conv.i8 */
-        st_A2 = make_uint64(st_A0);
+        st_A2 = conv_i8(st_A0);
         /* IL_337: ldc.i4.1 */
-        st_A1 = 1;
+        st_A1 = (1|0);
         /* IL_338: conv.i8 */
-        st_A3 = make_uint64(st_A1);
+        st_A3 = conv_i8(st_A1);
         /* IL_339: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_A4 = (asm1.x600000d)(st_A2,st_A3);
         /* IL_33E: box System.UInt64*/
@@ -10095,13 +10147,13 @@ var asm1; (function (asm)
         /* IL_343: call Void Log(System.Object)*/
         (asm1.x6000001)(st_A5);
         /* IL_348: ldc.i4 16777215*/
-        st_A6 = 16777215;
+        st_A6 = (16777215|0);
         /* IL_34D: conv.i8 */
-        st_A8 = make_uint64(st_A6);
+        st_A8 = conv_i8(st_A6);
         /* IL_34E: ldc.i4.1 */
-        st_A7 = 1;
+        st_A7 = (1|0);
         /* IL_34F: conv.i8 */
-        st_A9 = make_uint64(st_A7);
+        st_A9 = conv_i8(st_A7);
         /* IL_350: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_AA = (asm1.x600000d)(st_A8,st_A9);
         /* IL_355: box System.UInt64*/
@@ -10113,13 +10165,13 @@ var asm1; (function (asm)
         /* IL_35A: call Void Log(System.Object)*/
         (asm1.x6000001)(st_AB);
         /* IL_35F: ldc.i4 268435455*/
-        st_AC = 268435455;
+        st_AC = (268435455|0);
         /* IL_364: conv.i8 */
-        st_AE = make_uint64(st_AC);
+        st_AE = conv_i8(st_AC);
         /* IL_365: ldc.i4.1 */
-        st_AD = 1;
+        st_AD = (1|0);
         /* IL_366: conv.i8 */
-        st_AF = make_uint64(st_AD);
+        st_AF = conv_i8(st_AD);
         /* IL_367: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_B0 = (asm1.x600000d)(st_AE,st_AF);
         /* IL_36C: box System.UInt64*/
@@ -10131,13 +10183,13 @@ var asm1; (function (asm)
         /* IL_371: call Void Log(System.Object)*/
         (asm1.x6000001)(st_B1);
         /* IL_376: ldc.i4.m1 */
-        st_B2 = -1;
+        st_B2 = (-1|0);
         /* IL_377: conv.u8 */
-        st_B4 = make_uint64(st_B2);
+        st_B4 = conv_u8(st_B2);
         /* IL_378: ldc.i4.1 */
-        st_B3 = 1;
+        st_B3 = (1|0);
         /* IL_379: conv.i8 */
-        st_B5 = make_uint64(st_B3);
+        st_B5 = conv_i8(st_B3);
         /* IL_37A: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_B6 = (asm1.x600000d)(st_B4,st_B5);
         /* IL_37F: box System.UInt64*/
@@ -10151,9 +10203,9 @@ var asm1; (function (asm)
         /* IL_389: ldc.i8 68719476735*/
         st_B9 = new Uint32Array([ 0xFFFFFFFF,0xF ]);
         /* IL_392: ldc.i4.1 */
-        st_B8 = 1;
+        st_B8 = (1|0);
         /* IL_393: conv.i8 */
-        st_BA = make_uint64(st_B8);
+        st_BA = conv_i8(st_B8);
         /* IL_394: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_BB = (asm1.x600000d)(st_B9,st_BA);
         /* IL_399: box System.UInt64*/
@@ -10167,9 +10219,9 @@ var asm1; (function (asm)
         /* IL_3A3: ldc.i8 1099511627775*/
         st_BE = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
         /* IL_3AC: ldc.i4.1 */
-        st_BD = 1;
+        st_BD = (1|0);
         /* IL_3AD: conv.i8 */
-        st_BF = make_uint64(st_BD);
+        st_BF = conv_i8(st_BD);
         /* IL_3AE: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_C0 = (asm1.x600000d)(st_BE,st_BF);
         /* IL_3B3: box System.UInt64*/
@@ -10183,9 +10235,9 @@ var asm1; (function (asm)
         /* IL_3BD: ldc.i8 17592186044415*/
         st_C3 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
         /* IL_3C6: ldc.i4.1 */
-        st_C2 = 1;
+        st_C2 = (1|0);
         /* IL_3C7: conv.i8 */
-        st_C4 = make_uint64(st_C2);
+        st_C4 = conv_i8(st_C2);
         /* IL_3C8: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_C5 = (asm1.x600000d)(st_C3,st_C4);
         /* IL_3CD: box System.UInt64*/
@@ -10199,9 +10251,9 @@ var asm1; (function (asm)
         /* IL_3D7: ldc.i8 281474976710655*/
         st_C8 = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
         /* IL_3E0: ldc.i4.1 */
-        st_C7 = 1;
+        st_C7 = (1|0);
         /* IL_3E1: conv.i8 */
-        st_C9 = make_uint64(st_C7);
+        st_C9 = conv_i8(st_C7);
         /* IL_3E2: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_CA = (asm1.x600000d)(st_C8,st_C9);
         /* IL_3E7: box System.UInt64*/
@@ -10215,9 +10267,9 @@ var asm1; (function (asm)
         /* IL_3F1: ldc.i8 4503599627370495*/
         st_CD = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
         /* IL_3FA: ldc.i4.1 */
-        st_CC = 1;
+        st_CC = (1|0);
         /* IL_3FB: conv.i8 */
-        st_CE = make_uint64(st_CC);
+        st_CE = conv_i8(st_CC);
         /* IL_3FC: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_CF = (asm1.x600000d)(st_CD,st_CE);
         /* IL_401: box System.UInt64*/
@@ -10231,9 +10283,9 @@ var asm1; (function (asm)
         /* IL_40B: ldc.i8 72057594037927935*/
         st_D2 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
         /* IL_414: ldc.i4.1 */
-        st_D1 = 1;
+        st_D1 = (1|0);
         /* IL_415: conv.i8 */
-        st_D3 = make_uint64(st_D1);
+        st_D3 = conv_i8(st_D1);
         /* IL_416: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_D4 = (asm1.x600000d)(st_D2,st_D3);
         /* IL_41B: box System.UInt64*/
@@ -10245,13 +10297,13 @@ var asm1; (function (asm)
         /* IL_420: call Void Log(System.Object)*/
         (asm1.x6000001)(st_D5);
         /* IL_425: ldc.i4.s 15*/
-        st_D6 = 15;
+        st_D6 = (15|0);
         /* IL_427: conv.i8 */
-        st_D8 = make_uint64(st_D6);
+        st_D8 = conv_i8(st_D6);
         /* IL_428: ldc.i4.2 */
-        st_D7 = 2;
+        st_D7 = (2|0);
         /* IL_429: conv.i8 */
-        st_D9 = make_uint64(st_D7);
+        st_D9 = conv_i8(st_D7);
         /* IL_42A: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_DA = (asm1.x600000d)(st_D8,st_D9);
         /* IL_42F: box System.UInt64*/
@@ -10263,13 +10315,13 @@ var asm1; (function (asm)
         /* IL_434: call Void Log(System.Object)*/
         (asm1.x6000001)(st_DB);
         /* IL_439: ldc.i4 255*/
-        st_DC = 255;
+        st_DC = (255|0);
         /* IL_43E: conv.i8 */
-        st_DE = make_uint64(st_DC);
+        st_DE = conv_i8(st_DC);
         /* IL_43F: ldc.i4.2 */
-        st_DD = 2;
+        st_DD = (2|0);
         /* IL_440: conv.i8 */
-        st_DF = make_uint64(st_DD);
+        st_DF = conv_i8(st_DD);
         /* IL_441: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_E0 = (asm1.x600000d)(st_DE,st_DF);
         /* IL_446: box System.UInt64*/
@@ -10281,13 +10333,13 @@ var asm1; (function (asm)
         /* IL_44B: call Void Log(System.Object)*/
         (asm1.x6000001)(st_E1);
         /* IL_450: ldc.i4 4095*/
-        st_E2 = 4095;
+        st_E2 = (4095|0);
         /* IL_455: conv.i8 */
-        st_E4 = make_uint64(st_E2);
+        st_E4 = conv_i8(st_E2);
         /* IL_456: ldc.i4.2 */
-        st_E3 = 2;
+        st_E3 = (2|0);
         /* IL_457: conv.i8 */
-        st_E5 = make_uint64(st_E3);
+        st_E5 = conv_i8(st_E3);
         /* IL_458: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_E6 = (asm1.x600000d)(st_E4,st_E5);
         /* IL_45D: box System.UInt64*/
@@ -10299,13 +10351,13 @@ var asm1; (function (asm)
         /* IL_462: call Void Log(System.Object)*/
         (asm1.x6000001)(st_E7);
         /* IL_467: ldc.i4 65535*/
-        st_E8 = 65535;
+        st_E8 = (65535|0);
         /* IL_46C: conv.i8 */
-        st_EA = make_uint64(st_E8);
+        st_EA = conv_i8(st_E8);
         /* IL_46D: ldc.i4.2 */
-        st_E9 = 2;
+        st_E9 = (2|0);
         /* IL_46E: conv.i8 */
-        st_EB = make_uint64(st_E9);
+        st_EB = conv_i8(st_E9);
         /* IL_46F: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_EC = (asm1.x600000d)(st_EA,st_EB);
         /* IL_474: box System.UInt64*/
@@ -10317,13 +10369,13 @@ var asm1; (function (asm)
         /* IL_479: call Void Log(System.Object)*/
         (asm1.x6000001)(st_ED);
         /* IL_47E: ldc.i4 1048575*/
-        st_EE = 1048575;
+        st_EE = (1048575|0);
         /* IL_483: conv.i8 */
-        st_F0 = make_uint64(st_EE);
+        st_F0 = conv_i8(st_EE);
         /* IL_484: ldc.i4.2 */
-        st_EF = 2;
+        st_EF = (2|0);
         /* IL_485: conv.i8 */
-        st_F1 = make_uint64(st_EF);
+        st_F1 = conv_i8(st_EF);
         /* IL_486: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_F2 = (asm1.x600000d)(st_F0,st_F1);
         /* IL_48B: box System.UInt64*/
@@ -10335,13 +10387,13 @@ var asm1; (function (asm)
         /* IL_490: call Void Log(System.Object)*/
         (asm1.x6000001)(st_F3);
         /* IL_495: ldc.i4 16777215*/
-        st_F4 = 16777215;
+        st_F4 = (16777215|0);
         /* IL_49A: conv.i8 */
-        st_F6 = make_uint64(st_F4);
+        st_F6 = conv_i8(st_F4);
         /* IL_49B: ldc.i4.2 */
-        st_F5 = 2;
+        st_F5 = (2|0);
         /* IL_49C: conv.i8 */
-        st_F7 = make_uint64(st_F5);
+        st_F7 = conv_i8(st_F5);
         /* IL_49D: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_F8 = (asm1.x600000d)(st_F6,st_F7);
         /* IL_4A2: box System.UInt64*/
@@ -10353,13 +10405,13 @@ var asm1; (function (asm)
         /* IL_4A7: call Void Log(System.Object)*/
         (asm1.x6000001)(st_F9);
         /* IL_4AC: ldc.i4 268435455*/
-        st_FA = 268435455;
+        st_FA = (268435455|0);
         /* IL_4B1: conv.i8 */
-        st_FC = make_uint64(st_FA);
+        st_FC = conv_i8(st_FA);
         /* IL_4B2: ldc.i4.2 */
-        st_FB = 2;
+        st_FB = (2|0);
         /* IL_4B3: conv.i8 */
-        st_FD = make_uint64(st_FB);
+        st_FD = conv_i8(st_FB);
         /* IL_4B4: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_FE = (asm1.x600000d)(st_FC,st_FD);
         /* IL_4B9: box System.UInt64*/
@@ -10371,13 +10423,13 @@ var asm1; (function (asm)
         /* IL_4BE: call Void Log(System.Object)*/
         (asm1.x6000001)(st_FF);
         /* IL_4C3: ldc.i4.m1 */
-        st_100 = -1;
+        st_100 = (-1|0);
         /* IL_4C4: conv.u8 */
-        st_102 = make_uint64(st_100);
+        st_102 = conv_u8(st_100);
         /* IL_4C5: ldc.i4.2 */
-        st_101 = 2;
+        st_101 = (2|0);
         /* IL_4C6: conv.i8 */
-        st_103 = make_uint64(st_101);
+        st_103 = conv_i8(st_101);
         /* IL_4C7: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_104 = (asm1.x600000d)(st_102,st_103);
         /* IL_4CC: box System.UInt64*/
@@ -10391,9 +10443,9 @@ var asm1; (function (asm)
         /* IL_4D6: ldc.i8 68719476735*/
         st_107 = new Uint32Array([ 0xFFFFFFFF,0xF ]);
         /* IL_4DF: ldc.i4.2 */
-        st_106 = 2;
+        st_106 = (2|0);
         /* IL_4E0: conv.i8 */
-        st_108 = make_uint64(st_106);
+        st_108 = conv_i8(st_106);
         /* IL_4E1: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_109 = (asm1.x600000d)(st_107,st_108);
         /* IL_4E6: box System.UInt64*/
@@ -10407,9 +10459,9 @@ var asm1; (function (asm)
         /* IL_4F0: ldc.i8 1099511627775*/
         st_10C = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
         /* IL_4F9: ldc.i4.2 */
-        st_10B = 2;
+        st_10B = (2|0);
         /* IL_4FA: conv.i8 */
-        st_10D = make_uint64(st_10B);
+        st_10D = conv_i8(st_10B);
         /* IL_4FB: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_10E = (asm1.x600000d)(st_10C,st_10D);
         /* IL_500: box System.UInt64*/
@@ -10423,9 +10475,9 @@ var asm1; (function (asm)
         /* IL_50A: ldc.i8 17592186044415*/
         st_111 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
         /* IL_513: ldc.i4.2 */
-        st_110 = 2;
+        st_110 = (2|0);
         /* IL_514: conv.i8 */
-        st_112 = make_uint64(st_110);
+        st_112 = conv_i8(st_110);
         /* IL_515: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_113 = (asm1.x600000d)(st_111,st_112);
         /* IL_51A: box System.UInt64*/
@@ -10439,9 +10491,9 @@ var asm1; (function (asm)
         /* IL_524: ldc.i8 281474976710655*/
         st_116 = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
         /* IL_52D: ldc.i4.2 */
-        st_115 = 2;
+        st_115 = (2|0);
         /* IL_52E: conv.i8 */
-        st_117 = make_uint64(st_115);
+        st_117 = conv_i8(st_115);
         /* IL_52F: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_118 = (asm1.x600000d)(st_116,st_117);
         /* IL_534: box System.UInt64*/
@@ -10455,9 +10507,9 @@ var asm1; (function (asm)
         /* IL_53E: ldc.i8 4503599627370495*/
         st_11B = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
         /* IL_547: ldc.i4.2 */
-        st_11A = 2;
+        st_11A = (2|0);
         /* IL_548: conv.i8 */
-        st_11C = make_uint64(st_11A);
+        st_11C = conv_i8(st_11A);
         /* IL_549: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_11D = (asm1.x600000d)(st_11B,st_11C);
         /* IL_54E: box System.UInt64*/
@@ -10471,9 +10523,9 @@ var asm1; (function (asm)
         /* IL_558: ldc.i8 72057594037927935*/
         st_120 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
         /* IL_561: ldc.i4.2 */
-        st_11F = 2;
+        st_11F = (2|0);
         /* IL_562: conv.i8 */
-        st_121 = make_uint64(st_11F);
+        st_121 = conv_i8(st_11F);
         /* IL_563: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_122 = (asm1.x600000d)(st_120,st_121);
         /* IL_568: box System.UInt64*/
@@ -10485,13 +10537,13 @@ var asm1; (function (asm)
         /* IL_56D: call Void Log(System.Object)*/
         (asm1.x6000001)(st_123);
         /* IL_572: ldc.i4.s 15*/
-        st_124 = 15;
+        st_124 = (15|0);
         /* IL_574: conv.i8 */
-        st_126 = make_uint64(st_124);
+        st_126 = conv_i8(st_124);
         /* IL_575: ldc.i4.0 */
-        st_125 = 0;
+        st_125 = (0|0);
         /* IL_576: conv.i8 */
-        st_127 = make_uint64(st_125);
+        st_127 = conv_i8(st_125);
         /* IL_577: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_128 = (asm1.x600000d)(st_126,st_127);
         /* IL_57C: box System.UInt64*/
@@ -10503,13 +10555,13 @@ var asm1; (function (asm)
         /* IL_581: call Void Log(System.Object)*/
         (asm1.x6000001)(st_129);
         /* IL_586: ldc.i4 255*/
-        st_12A = 255;
+        st_12A = (255|0);
         /* IL_58B: conv.i8 */
-        st_12C = make_uint64(st_12A);
+        st_12C = conv_i8(st_12A);
         /* IL_58C: ldc.i4.1 */
-        st_12B = 1;
+        st_12B = (1|0);
         /* IL_58D: conv.i8 */
-        st_12D = make_uint64(st_12B);
+        st_12D = conv_i8(st_12B);
         /* IL_58E: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_12E = (asm1.x600000d)(st_12C,st_12D);
         /* IL_593: box System.UInt64*/
@@ -10521,13 +10573,13 @@ var asm1; (function (asm)
         /* IL_598: call Void Log(System.Object)*/
         (asm1.x6000001)(st_12F);
         /* IL_59D: ldc.i4 4095*/
-        st_130 = 4095;
+        st_130 = (4095|0);
         /* IL_5A2: conv.i8 */
-        st_132 = make_uint64(st_130);
+        st_132 = conv_i8(st_130);
         /* IL_5A3: ldc.i4.s 16*/
-        st_131 = 16;
+        st_131 = (16|0);
         /* IL_5A5: conv.i8 */
-        st_133 = make_uint64(st_131);
+        st_133 = conv_i8(st_131);
         /* IL_5A6: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_134 = (asm1.x600000d)(st_132,st_133);
         /* IL_5AB: box System.UInt64*/
@@ -10539,13 +10591,13 @@ var asm1; (function (asm)
         /* IL_5B0: call Void Log(System.Object)*/
         (asm1.x6000001)(st_135);
         /* IL_5B5: ldc.i4 65535*/
-        st_136 = 65535;
+        st_136 = (65535|0);
         /* IL_5BA: conv.i8 */
-        st_138 = make_uint64(st_136);
+        st_138 = conv_i8(st_136);
         /* IL_5BB: ldc.i4 257*/
-        st_137 = 257;
+        st_137 = (257|0);
         /* IL_5C0: conv.i8 */
-        st_139 = make_uint64(st_137);
+        st_139 = conv_i8(st_137);
         /* IL_5C1: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_13A = (asm1.x600000d)(st_138,st_139);
         /* IL_5C6: box System.UInt64*/
@@ -10557,13 +10609,13 @@ var asm1; (function (asm)
         /* IL_5CB: call Void Log(System.Object)*/
         (asm1.x6000001)(st_13B);
         /* IL_5D0: ldc.i4 1048575*/
-        st_13C = 1048575;
+        st_13C = (1048575|0);
         /* IL_5D5: conv.i8 */
-        st_13E = make_uint64(st_13C);
+        st_13E = conv_i8(st_13C);
         /* IL_5D6: ldc.i4 4112*/
-        st_13D = 4112;
+        st_13D = (4112|0);
         /* IL_5DB: conv.i8 */
-        st_13F = make_uint64(st_13D);
+        st_13F = conv_i8(st_13D);
         /* IL_5DC: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_140 = (asm1.x600000d)(st_13E,st_13F);
         /* IL_5E1: box System.UInt64*/
@@ -10575,13 +10627,13 @@ var asm1; (function (asm)
         /* IL_5E6: call Void Log(System.Object)*/
         (asm1.x6000001)(st_141);
         /* IL_5EB: ldc.i4 16777215*/
-        st_142 = 16777215;
+        st_142 = (16777215|0);
         /* IL_5F0: conv.i8 */
-        st_144 = make_uint64(st_142);
+        st_144 = conv_i8(st_142);
         /* IL_5F1: ldc.i4 65793*/
-        st_143 = 65793;
+        st_143 = (65793|0);
         /* IL_5F6: conv.i8 */
-        st_145 = make_uint64(st_143);
+        st_145 = conv_i8(st_143);
         /* IL_5F7: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_146 = (asm1.x600000d)(st_144,st_145);
         /* IL_5FC: box System.UInt64*/
@@ -10593,13 +10645,13 @@ var asm1; (function (asm)
         /* IL_601: call Void Log(System.Object)*/
         (asm1.x6000001)(st_147);
         /* IL_606: ldc.i4 268435455*/
-        st_148 = 268435455;
+        st_148 = (268435455|0);
         /* IL_60B: conv.i8 */
-        st_14A = make_uint64(st_148);
+        st_14A = conv_i8(st_148);
         /* IL_60C: ldc.i4 1052688*/
-        st_149 = 1052688;
+        st_149 = (1052688|0);
         /* IL_611: conv.i8 */
-        st_14B = make_uint64(st_149);
+        st_14B = conv_i8(st_149);
         /* IL_612: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_14C = (asm1.x600000d)(st_14A,st_14B);
         /* IL_617: box System.UInt64*/
@@ -10611,13 +10663,13 @@ var asm1; (function (asm)
         /* IL_61C: call Void Log(System.Object)*/
         (asm1.x6000001)(st_14D);
         /* IL_621: ldc.i4.m1 */
-        st_14E = -1;
+        st_14E = (-1|0);
         /* IL_622: conv.u8 */
-        st_150 = make_uint64(st_14E);
+        st_150 = conv_u8(st_14E);
         /* IL_623: ldc.i4 16843009*/
-        st_14F = 16843009;
+        st_14F = (16843009|0);
         /* IL_628: conv.i8 */
-        st_151 = make_uint64(st_14F);
+        st_151 = conv_i8(st_14F);
         /* IL_629: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_152 = (asm1.x600000d)(st_150,st_151);
         /* IL_62E: box System.UInt64*/
@@ -10631,9 +10683,9 @@ var asm1; (function (asm)
         /* IL_638: ldc.i8 68719476735*/
         st_155 = new Uint32Array([ 0xFFFFFFFF,0xF ]);
         /* IL_641: ldc.i4 269488144*/
-        st_154 = 269488144;
+        st_154 = (269488144|0);
         /* IL_646: conv.i8 */
-        st_156 = make_uint64(st_154);
+        st_156 = conv_i8(st_154);
         /* IL_647: call UInt64 Add(System.UInt64, System.UInt64)*/
         st_157 = (asm1.x600000d)(st_155,st_156);
         /* IL_64C: box System.UInt64*/
@@ -10715,13 +10767,13 @@ var asm1; (function (asm)
         /* IL_6F6: call Void Log(System.Object)*/
         (asm1.x6000001)(st_16C);
         /* IL_6FB: ldc.i4.s 15*/
-        st_16D = 15;
+        st_16D = (15|0);
         /* IL_6FD: conv.i8 */
-        st_16F = make_uint64(st_16D);
+        st_16F = conv_i8(st_16D);
         /* IL_6FE: ldc.i4.1 */
-        st_16E = 1;
+        st_16E = (1|0);
         /* IL_6FF: conv.i8 */
-        st_170 = make_uint64(st_16E);
+        st_170 = conv_i8(st_16E);
         /* IL_700: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_171 = (asm1.x600000e)(st_16F,st_170);
         /* IL_705: box System.UInt64*/
@@ -10733,13 +10785,13 @@ var asm1; (function (asm)
         /* IL_70A: call Void Log(System.Object)*/
         (asm1.x6000001)(st_172);
         /* IL_70F: ldc.i4 255*/
-        st_173 = 255;
+        st_173 = (255|0);
         /* IL_714: conv.i8 */
-        st_175 = make_uint64(st_173);
+        st_175 = conv_i8(st_173);
         /* IL_715: ldc.i4.1 */
-        st_174 = 1;
+        st_174 = (1|0);
         /* IL_716: conv.i8 */
-        st_176 = make_uint64(st_174);
+        st_176 = conv_i8(st_174);
         /* IL_717: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_177 = (asm1.x600000e)(st_175,st_176);
         /* IL_71C: box System.UInt64*/
@@ -10751,13 +10803,13 @@ var asm1; (function (asm)
         /* IL_721: call Void Log(System.Object)*/
         (asm1.x6000001)(st_178);
         /* IL_726: ldc.i4 4095*/
-        st_179 = 4095;
+        st_179 = (4095|0);
         /* IL_72B: conv.i8 */
-        st_17B = make_uint64(st_179);
+        st_17B = conv_i8(st_179);
         /* IL_72C: ldc.i4.1 */
-        st_17A = 1;
+        st_17A = (1|0);
         /* IL_72D: conv.i8 */
-        st_17C = make_uint64(st_17A);
+        st_17C = conv_i8(st_17A);
         /* IL_72E: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_17D = (asm1.x600000e)(st_17B,st_17C);
         /* IL_733: box System.UInt64*/
@@ -10769,13 +10821,13 @@ var asm1; (function (asm)
         /* IL_738: call Void Log(System.Object)*/
         (asm1.x6000001)(st_17E);
         /* IL_73D: ldc.i4 65535*/
-        st_17F = 65535;
+        st_17F = (65535|0);
         /* IL_742: conv.i8 */
-        st_181 = make_uint64(st_17F);
+        st_181 = conv_i8(st_17F);
         /* IL_743: ldc.i4.1 */
-        st_180 = 1;
+        st_180 = (1|0);
         /* IL_744: conv.i8 */
-        st_182 = make_uint64(st_180);
+        st_182 = conv_i8(st_180);
         /* IL_745: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_183 = (asm1.x600000e)(st_181,st_182);
         /* IL_74A: box System.UInt64*/
@@ -10787,13 +10839,13 @@ var asm1; (function (asm)
         /* IL_74F: call Void Log(System.Object)*/
         (asm1.x6000001)(st_184);
         /* IL_754: ldc.i4 1048575*/
-        st_185 = 1048575;
+        st_185 = (1048575|0);
         /* IL_759: conv.i8 */
-        st_187 = make_uint64(st_185);
+        st_187 = conv_i8(st_185);
         /* IL_75A: ldc.i4.1 */
-        st_186 = 1;
+        st_186 = (1|0);
         /* IL_75B: conv.i8 */
-        st_188 = make_uint64(st_186);
+        st_188 = conv_i8(st_186);
         /* IL_75C: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_189 = (asm1.x600000e)(st_187,st_188);
         /* IL_761: box System.UInt64*/
@@ -10805,13 +10857,13 @@ var asm1; (function (asm)
         /* IL_766: call Void Log(System.Object)*/
         (asm1.x6000001)(st_18A);
         /* IL_76B: ldc.i4 16777215*/
-        st_18B = 16777215;
+        st_18B = (16777215|0);
         /* IL_770: conv.i8 */
-        st_18D = make_uint64(st_18B);
+        st_18D = conv_i8(st_18B);
         /* IL_771: ldc.i4.1 */
-        st_18C = 1;
+        st_18C = (1|0);
         /* IL_772: conv.i8 */
-        st_18E = make_uint64(st_18C);
+        st_18E = conv_i8(st_18C);
         /* IL_773: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_18F = (asm1.x600000e)(st_18D,st_18E);
         /* IL_778: box System.UInt64*/
@@ -10823,13 +10875,13 @@ var asm1; (function (asm)
         /* IL_77D: call Void Log(System.Object)*/
         (asm1.x6000001)(st_190);
         /* IL_782: ldc.i4 268435455*/
-        st_191 = 268435455;
+        st_191 = (268435455|0);
         /* IL_787: conv.i8 */
-        st_193 = make_uint64(st_191);
+        st_193 = conv_i8(st_191);
         /* IL_788: ldc.i4.1 */
-        st_192 = 1;
+        st_192 = (1|0);
         /* IL_789: conv.i8 */
-        st_194 = make_uint64(st_192);
+        st_194 = conv_i8(st_192);
         /* IL_78A: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_195 = (asm1.x600000e)(st_193,st_194);
         /* IL_78F: box System.UInt64*/
@@ -10841,13 +10893,13 @@ var asm1; (function (asm)
         /* IL_794: call Void Log(System.Object)*/
         (asm1.x6000001)(st_196);
         /* IL_799: ldc.i4.m1 */
-        st_197 = -1;
+        st_197 = (-1|0);
         /* IL_79A: conv.u8 */
-        st_199 = make_uint64(st_197);
+        st_199 = conv_u8(st_197);
         /* IL_79B: ldc.i4.1 */
-        st_198 = 1;
+        st_198 = (1|0);
         /* IL_79C: conv.i8 */
-        st_19A = make_uint64(st_198);
+        st_19A = conv_i8(st_198);
         /* IL_79D: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_19B = (asm1.x600000e)(st_199,st_19A);
         /* IL_7A2: box System.UInt64*/
@@ -10861,9 +10913,9 @@ var asm1; (function (asm)
         /* IL_7AC: ldc.i8 68719476735*/
         st_19E = new Uint32Array([ 0xFFFFFFFF,0xF ]);
         /* IL_7B5: ldc.i4.1 */
-        st_19D = 1;
+        st_19D = (1|0);
         /* IL_7B6: conv.i8 */
-        st_19F = make_uint64(st_19D);
+        st_19F = conv_i8(st_19D);
         /* IL_7B7: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1A0 = (asm1.x600000e)(st_19E,st_19F);
         /* IL_7BC: box System.UInt64*/
@@ -10877,9 +10929,9 @@ var asm1; (function (asm)
         /* IL_7C6: ldc.i8 1099511627775*/
         st_1A3 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
         /* IL_7CF: ldc.i4.1 */
-        st_1A2 = 1;
+        st_1A2 = (1|0);
         /* IL_7D0: conv.i8 */
-        st_1A4 = make_uint64(st_1A2);
+        st_1A4 = conv_i8(st_1A2);
         /* IL_7D1: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1A5 = (asm1.x600000e)(st_1A3,st_1A4);
         /* IL_7D6: box System.UInt64*/
@@ -10893,9 +10945,9 @@ var asm1; (function (asm)
         /* IL_7E0: ldc.i8 17592186044415*/
         st_1A8 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
         /* IL_7E9: ldc.i4.1 */
-        st_1A7 = 1;
+        st_1A7 = (1|0);
         /* IL_7EA: conv.i8 */
-        st_1A9 = make_uint64(st_1A7);
+        st_1A9 = conv_i8(st_1A7);
         /* IL_7EB: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1AA = (asm1.x600000e)(st_1A8,st_1A9);
         /* IL_7F0: box System.UInt64*/
@@ -10909,9 +10961,9 @@ var asm1; (function (asm)
         /* IL_7FA: ldc.i8 281474976710655*/
         st_1AD = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
         /* IL_803: ldc.i4.1 */
-        st_1AC = 1;
+        st_1AC = (1|0);
         /* IL_804: conv.i8 */
-        st_1AE = make_uint64(st_1AC);
+        st_1AE = conv_i8(st_1AC);
         /* IL_805: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1AF = (asm1.x600000e)(st_1AD,st_1AE);
         /* IL_80A: box System.UInt64*/
@@ -10925,9 +10977,9 @@ var asm1; (function (asm)
         /* IL_814: ldc.i8 4503599627370495*/
         st_1B2 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
         /* IL_81D: ldc.i4.1 */
-        st_1B1 = 1;
+        st_1B1 = (1|0);
         /* IL_81E: conv.i8 */
-        st_1B3 = make_uint64(st_1B1);
+        st_1B3 = conv_i8(st_1B1);
         /* IL_81F: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1B4 = (asm1.x600000e)(st_1B2,st_1B3);
         /* IL_824: box System.UInt64*/
@@ -10941,9 +10993,9 @@ var asm1; (function (asm)
         /* IL_82E: ldc.i8 72057594037927935*/
         st_1B7 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
         /* IL_837: ldc.i4.1 */
-        st_1B6 = 1;
+        st_1B6 = (1|0);
         /* IL_838: conv.i8 */
-        st_1B8 = make_uint64(st_1B6);
+        st_1B8 = conv_i8(st_1B6);
         /* IL_839: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1B9 = (asm1.x600000e)(st_1B7,st_1B8);
         /* IL_83E: box System.UInt64*/
@@ -10955,13 +11007,13 @@ var asm1; (function (asm)
         /* IL_843: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1BA);
         /* IL_848: ldc.i4.s 15*/
-        st_1BB = 15;
+        st_1BB = (15|0);
         /* IL_84A: conv.i8 */
-        st_1BD = make_uint64(st_1BB);
+        st_1BD = conv_i8(st_1BB);
         /* IL_84B: ldc.i4.2 */
-        st_1BC = 2;
+        st_1BC = (2|0);
         /* IL_84C: conv.i8 */
-        st_1BE = make_uint64(st_1BC);
+        st_1BE = conv_i8(st_1BC);
         /* IL_84D: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1BF = (asm1.x600000e)(st_1BD,st_1BE);
         /* IL_852: box System.UInt64*/
@@ -10973,13 +11025,13 @@ var asm1; (function (asm)
         /* IL_857: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1C0);
         /* IL_85C: ldc.i4 255*/
-        st_1C1 = 255;
+        st_1C1 = (255|0);
         /* IL_861: conv.i8 */
-        st_1C3 = make_uint64(st_1C1);
+        st_1C3 = conv_i8(st_1C1);
         /* IL_862: ldc.i4.2 */
-        st_1C2 = 2;
+        st_1C2 = (2|0);
         /* IL_863: conv.i8 */
-        st_1C4 = make_uint64(st_1C2);
+        st_1C4 = conv_i8(st_1C2);
         /* IL_864: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1C5 = (asm1.x600000e)(st_1C3,st_1C4);
         /* IL_869: box System.UInt64*/
@@ -10991,13 +11043,13 @@ var asm1; (function (asm)
         /* IL_86E: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1C6);
         /* IL_873: ldc.i4 4095*/
-        st_1C7 = 4095;
+        st_1C7 = (4095|0);
         /* IL_878: conv.i8 */
-        st_1C9 = make_uint64(st_1C7);
+        st_1C9 = conv_i8(st_1C7);
         /* IL_879: ldc.i4.2 */
-        st_1C8 = 2;
+        st_1C8 = (2|0);
         /* IL_87A: conv.i8 */
-        st_1CA = make_uint64(st_1C8);
+        st_1CA = conv_i8(st_1C8);
         /* IL_87B: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1CB = (asm1.x600000e)(st_1C9,st_1CA);
         /* IL_880: box System.UInt64*/
@@ -11009,13 +11061,13 @@ var asm1; (function (asm)
         /* IL_885: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1CC);
         /* IL_88A: ldc.i4 65535*/
-        st_1CD = 65535;
+        st_1CD = (65535|0);
         /* IL_88F: conv.i8 */
-        st_1CF = make_uint64(st_1CD);
+        st_1CF = conv_i8(st_1CD);
         /* IL_890: ldc.i4.2 */
-        st_1CE = 2;
+        st_1CE = (2|0);
         /* IL_891: conv.i8 */
-        st_1D0 = make_uint64(st_1CE);
+        st_1D0 = conv_i8(st_1CE);
         /* IL_892: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1D1 = (asm1.x600000e)(st_1CF,st_1D0);
         /* IL_897: box System.UInt64*/
@@ -11027,13 +11079,13 @@ var asm1; (function (asm)
         /* IL_89C: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1D2);
         /* IL_8A1: ldc.i4 1048575*/
-        st_1D3 = 1048575;
+        st_1D3 = (1048575|0);
         /* IL_8A6: conv.i8 */
-        st_1D5 = make_uint64(st_1D3);
+        st_1D5 = conv_i8(st_1D3);
         /* IL_8A7: ldc.i4.2 */
-        st_1D4 = 2;
+        st_1D4 = (2|0);
         /* IL_8A8: conv.i8 */
-        st_1D6 = make_uint64(st_1D4);
+        st_1D6 = conv_i8(st_1D4);
         /* IL_8A9: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1D7 = (asm1.x600000e)(st_1D5,st_1D6);
         /* IL_8AE: box System.UInt64*/
@@ -11045,13 +11097,13 @@ var asm1; (function (asm)
         /* IL_8B3: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1D8);
         /* IL_8B8: ldc.i4 16777215*/
-        st_1D9 = 16777215;
+        st_1D9 = (16777215|0);
         /* IL_8BD: conv.i8 */
-        st_1DB = make_uint64(st_1D9);
+        st_1DB = conv_i8(st_1D9);
         /* IL_8BE: ldc.i4.2 */
-        st_1DA = 2;
+        st_1DA = (2|0);
         /* IL_8BF: conv.i8 */
-        st_1DC = make_uint64(st_1DA);
+        st_1DC = conv_i8(st_1DA);
         /* IL_8C0: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1DD = (asm1.x600000e)(st_1DB,st_1DC);
         /* IL_8C5: box System.UInt64*/
@@ -11063,13 +11115,13 @@ var asm1; (function (asm)
         /* IL_8CA: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1DE);
         /* IL_8CF: ldc.i4 268435455*/
-        st_1DF = 268435455;
+        st_1DF = (268435455|0);
         /* IL_8D4: conv.i8 */
-        st_1E1 = make_uint64(st_1DF);
+        st_1E1 = conv_i8(st_1DF);
         /* IL_8D5: ldc.i4.2 */
-        st_1E0 = 2;
+        st_1E0 = (2|0);
         /* IL_8D6: conv.i8 */
-        st_1E2 = make_uint64(st_1E0);
+        st_1E2 = conv_i8(st_1E0);
         /* IL_8D7: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1E3 = (asm1.x600000e)(st_1E1,st_1E2);
         /* IL_8DC: box System.UInt64*/
@@ -11081,13 +11133,13 @@ var asm1; (function (asm)
         /* IL_8E1: call Void Log(System.Object)*/
         (asm1.x6000001)(st_1E4);
         /* IL_8E6: ldc.i4.m1 */
-        st_1E5 = -1;
+        st_1E5 = (-1|0);
         /* IL_8E7: conv.u8 */
-        st_1E7 = make_uint64(st_1E5);
+        st_1E7 = conv_u8(st_1E5);
         /* IL_8E8: ldc.i4.2 */
-        st_1E6 = 2;
+        st_1E6 = (2|0);
         /* IL_8E9: conv.i8 */
-        st_1E8 = make_uint64(st_1E6);
+        st_1E8 = conv_i8(st_1E6);
         /* IL_8EA: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1E9 = (asm1.x600000e)(st_1E7,st_1E8);
         /* IL_8EF: box System.UInt64*/
@@ -11101,9 +11153,9 @@ var asm1; (function (asm)
         /* IL_8F9: ldc.i8 68719476735*/
         st_1EC = new Uint32Array([ 0xFFFFFFFF,0xF ]);
         /* IL_902: ldc.i4.2 */
-        st_1EB = 2;
+        st_1EB = (2|0);
         /* IL_903: conv.i8 */
-        st_1ED = make_uint64(st_1EB);
+        st_1ED = conv_i8(st_1EB);
         /* IL_904: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1EE = (asm1.x600000e)(st_1EC,st_1ED);
         /* IL_909: box System.UInt64*/
@@ -11117,9 +11169,9 @@ var asm1; (function (asm)
         /* IL_913: ldc.i8 1099511627775*/
         st_1F1 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
         /* IL_91C: ldc.i4.2 */
-        st_1F0 = 2;
+        st_1F0 = (2|0);
         /* IL_91D: conv.i8 */
-        st_1F2 = make_uint64(st_1F0);
+        st_1F2 = conv_i8(st_1F0);
         /* IL_91E: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1F3 = (asm1.x600000e)(st_1F1,st_1F2);
         /* IL_923: box System.UInt64*/
@@ -11133,9 +11185,9 @@ var asm1; (function (asm)
         /* IL_92D: ldc.i8 17592186044415*/
         st_1F6 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
         /* IL_936: ldc.i4.2 */
-        st_1F5 = 2;
+        st_1F5 = (2|0);
         /* IL_937: conv.i8 */
-        st_1F7 = make_uint64(st_1F5);
+        st_1F7 = conv_i8(st_1F5);
         /* IL_938: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1F8 = (asm1.x600000e)(st_1F6,st_1F7);
         /* IL_93D: box System.UInt64*/
@@ -11149,9 +11201,9 @@ var asm1; (function (asm)
         /* IL_947: ldc.i8 281474976710655*/
         st_1FB = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
         /* IL_950: ldc.i4.2 */
-        st_1FA = 2;
+        st_1FA = (2|0);
         /* IL_951: conv.i8 */
-        st_1FC = make_uint64(st_1FA);
+        st_1FC = conv_i8(st_1FA);
         /* IL_952: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_1FD = (asm1.x600000e)(st_1FB,st_1FC);
         /* IL_957: box System.UInt64*/
@@ -11165,9 +11217,9 @@ var asm1; (function (asm)
         /* IL_961: ldc.i8 4503599627370495*/
         st_200 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
         /* IL_96A: ldc.i4.2 */
-        st_1FF = 2;
+        st_1FF = (2|0);
         /* IL_96B: conv.i8 */
-        st_201 = make_uint64(st_1FF);
+        st_201 = conv_i8(st_1FF);
         /* IL_96C: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_202 = (asm1.x600000e)(st_200,st_201);
         /* IL_971: box System.UInt64*/
@@ -11181,9 +11233,9 @@ var asm1; (function (asm)
         /* IL_97B: ldc.i8 72057594037927935*/
         st_205 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
         /* IL_984: ldc.i4.2 */
-        st_204 = 2;
+        st_204 = (2|0);
         /* IL_985: conv.i8 */
-        st_206 = make_uint64(st_204);
+        st_206 = conv_i8(st_204);
         /* IL_986: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_207 = (asm1.x600000e)(st_205,st_206);
         /* IL_98B: box System.UInt64*/
@@ -11195,13 +11247,13 @@ var asm1; (function (asm)
         /* IL_990: call Void Log(System.Object)*/
         (asm1.x6000001)(st_208);
         /* IL_995: ldc.i4.s 15*/
-        st_209 = 15;
+        st_209 = (15|0);
         /* IL_997: conv.i8 */
-        st_20B = make_uint64(st_209);
+        st_20B = conv_i8(st_209);
         /* IL_998: ldc.i4.0 */
-        st_20A = 0;
+        st_20A = (0|0);
         /* IL_999: conv.i8 */
-        st_20C = make_uint64(st_20A);
+        st_20C = conv_i8(st_20A);
         /* IL_99A: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_20D = (asm1.x600000e)(st_20B,st_20C);
         /* IL_99F: box System.UInt64*/
@@ -11213,13 +11265,13 @@ var asm1; (function (asm)
         /* IL_9A4: call Void Log(System.Object)*/
         (asm1.x6000001)(st_20E);
         /* IL_9A9: ldc.i4 255*/
-        st_20F = 255;
+        st_20F = (255|0);
         /* IL_9AE: conv.i8 */
-        st_211 = make_uint64(st_20F);
+        st_211 = conv_i8(st_20F);
         /* IL_9AF: ldc.i4.1 */
-        st_210 = 1;
+        st_210 = (1|0);
         /* IL_9B0: conv.i8 */
-        st_212 = make_uint64(st_210);
+        st_212 = conv_i8(st_210);
         /* IL_9B1: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_213 = (asm1.x600000e)(st_211,st_212);
         /* IL_9B6: box System.UInt64*/
@@ -11231,13 +11283,13 @@ var asm1; (function (asm)
         /* IL_9BB: call Void Log(System.Object)*/
         (asm1.x6000001)(st_214);
         /* IL_9C0: ldc.i4 4095*/
-        st_215 = 4095;
+        st_215 = (4095|0);
         /* IL_9C5: conv.i8 */
-        st_217 = make_uint64(st_215);
+        st_217 = conv_i8(st_215);
         /* IL_9C6: ldc.i4.s 16*/
-        st_216 = 16;
+        st_216 = (16|0);
         /* IL_9C8: conv.i8 */
-        st_218 = make_uint64(st_216);
+        st_218 = conv_i8(st_216);
         /* IL_9C9: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_219 = (asm1.x600000e)(st_217,st_218);
         /* IL_9CE: box System.UInt64*/
@@ -11249,13 +11301,13 @@ var asm1; (function (asm)
         /* IL_9D3: call Void Log(System.Object)*/
         (asm1.x6000001)(st_21A);
         /* IL_9D8: ldc.i4 65535*/
-        st_21B = 65535;
+        st_21B = (65535|0);
         /* IL_9DD: conv.i8 */
-        st_21D = make_uint64(st_21B);
+        st_21D = conv_i8(st_21B);
         /* IL_9DE: ldc.i4 257*/
-        st_21C = 257;
+        st_21C = (257|0);
         /* IL_9E3: conv.i8 */
-        st_21E = make_uint64(st_21C);
+        st_21E = conv_i8(st_21C);
         /* IL_9E4: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_21F = (asm1.x600000e)(st_21D,st_21E);
         /* IL_9E9: box System.UInt64*/
@@ -11267,13 +11319,13 @@ var asm1; (function (asm)
         /* IL_9EE: call Void Log(System.Object)*/
         (asm1.x6000001)(st_220);
         /* IL_9F3: ldc.i4 1048575*/
-        st_221 = 1048575;
+        st_221 = (1048575|0);
         /* IL_9F8: conv.i8 */
-        st_223 = make_uint64(st_221);
+        st_223 = conv_i8(st_221);
         /* IL_9F9: ldc.i4 4112*/
-        st_222 = 4112;
+        st_222 = (4112|0);
         /* IL_9FE: conv.i8 */
-        st_224 = make_uint64(st_222);
+        st_224 = conv_i8(st_222);
         /* IL_9FF: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_225 = (asm1.x600000e)(st_223,st_224);
         /* IL_A04: box System.UInt64*/
@@ -11285,13 +11337,13 @@ var asm1; (function (asm)
         /* IL_A09: call Void Log(System.Object)*/
         (asm1.x6000001)(st_226);
         /* IL_A0E: ldc.i4 16777215*/
-        st_227 = 16777215;
+        st_227 = (16777215|0);
         /* IL_A13: conv.i8 */
-        st_229 = make_uint64(st_227);
+        st_229 = conv_i8(st_227);
         /* IL_A14: ldc.i4 65793*/
-        st_228 = 65793;
+        st_228 = (65793|0);
         /* IL_A19: conv.i8 */
-        st_22A = make_uint64(st_228);
+        st_22A = conv_i8(st_228);
         /* IL_A1A: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_22B = (asm1.x600000e)(st_229,st_22A);
         /* IL_A1F: box System.UInt64*/
@@ -11303,13 +11355,13 @@ var asm1; (function (asm)
         /* IL_A24: call Void Log(System.Object)*/
         (asm1.x6000001)(st_22C);
         /* IL_A29: ldc.i4 268435455*/
-        st_22D = 268435455;
+        st_22D = (268435455|0);
         /* IL_A2E: conv.i8 */
-        st_22F = make_uint64(st_22D);
+        st_22F = conv_i8(st_22D);
         /* IL_A2F: ldc.i4 1052688*/
-        st_22E = 1052688;
+        st_22E = (1052688|0);
         /* IL_A34: conv.i8 */
-        st_230 = make_uint64(st_22E);
+        st_230 = conv_i8(st_22E);
         /* IL_A35: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_231 = (asm1.x600000e)(st_22F,st_230);
         /* IL_A3A: box System.UInt64*/
@@ -11321,13 +11373,13 @@ var asm1; (function (asm)
         /* IL_A3F: call Void Log(System.Object)*/
         (asm1.x6000001)(st_232);
         /* IL_A44: ldc.i4.m1 */
-        st_233 = -1;
+        st_233 = (-1|0);
         /* IL_A45: conv.u8 */
-        st_235 = make_uint64(st_233);
+        st_235 = conv_u8(st_233);
         /* IL_A46: ldc.i4 16843009*/
-        st_234 = 16843009;
+        st_234 = (16843009|0);
         /* IL_A4B: conv.i8 */
-        st_236 = make_uint64(st_234);
+        st_236 = conv_i8(st_234);
         /* IL_A4C: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_237 = (asm1.x600000e)(st_235,st_236);
         /* IL_A51: box System.UInt64*/
@@ -11341,9 +11393,9 @@ var asm1; (function (asm)
         /* IL_A5B: ldc.i8 68719476735*/
         st_23A = new Uint32Array([ 0xFFFFFFFF,0xF ]);
         /* IL_A64: ldc.i4 269488144*/
-        st_239 = 269488144;
+        st_239 = (269488144|0);
         /* IL_A69: conv.i8 */
-        st_23B = make_uint64(st_239);
+        st_23B = conv_i8(st_239);
         /* IL_A6A: call UInt64 Sub(System.UInt64, System.UInt64)*/
         st_23C = (asm1.x600000e)(st_23A,st_23B);
         /* IL_A6F: box System.UInt64*/

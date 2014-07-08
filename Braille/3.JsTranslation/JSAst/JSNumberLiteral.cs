@@ -6,6 +6,13 @@ using System.Text;
 
 namespace Braille.JSAst
 {
+    enum TypeHint
+    {
+        None,
+        Integer,
+        Float
+    }
+
     class JSNumberLiteral: JSExpression
     {
         public bool IsHex { get; set; }
@@ -14,12 +21,25 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return IsHex ? "0x"+((ulong)Value).ToString("X") : Value.ToString(CultureInfo.InvariantCulture);
+            if (IsHex)
+                return "0x"+((ulong)Value).ToString("X");
+
+            var value = Value.ToString(CultureInfo.InvariantCulture);
+
+            if (TypeHint == TypeHint.Integer)
+                return "(" + value + "|0)";
+
+            if (TypeHint == TypeHint.Float)
+                return "(+" + value + ")";
+
+            return value;
         }
 
         public override IEnumerable<JSExpression> GetChildren()
         {
             yield break;
         }
+
+        public TypeHint TypeHint { get; set; }
     }
 }
