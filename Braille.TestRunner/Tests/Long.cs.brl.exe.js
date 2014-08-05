@@ -5058,7 +5058,7 @@ var asm0; (function (asm)
         }
     };;
     asm.x60000be = 
-            function UInt64_RightShift(lhs, rhs) {
+            function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
                 if (n > 32) {
@@ -5121,12 +5121,12 @@ var asm0; (function (asm)
 
                 var l = new Uint32Array([1, 0]);
 
-                while (!asm0.XUint64_Equality(a, l)) {
-                    a = asm0.XInt64_RightShift(a, 1);
+                while (!asm0.XInt64_Equality(a, l)) {
+                    a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
                     if (a[0] & 1 == 1)
-                        s = asm0.Xint64_Addition(b, s);
+                        s = asm0.XInt64_Addition(b, s);
                 }
 
                 return s;
@@ -9808,6 +9808,470 @@ var asm1; (function (asm)
         var st_38A;
         var st_38B;
         var st_38C;
+        var st_38D;
+        var st_38E;
+        var st_38F;
+        var st_390;
+        var st_391;
+        var st_392;
+        var st_393;
+        var st_394;
+        var st_395;
+        var st_396;
+        var st_397;
+        var st_398;
+        var st_399;
+        var st_39A;
+        var st_39B;
+        var st_39C;
+        var st_39D;
+        var st_39E;
+        var st_39F;
+        var st_3A0;
+        var st_3A1;
+        var st_3A2;
+        var st_3A3;
+        var st_3A4;
+        var st_3A5;
+        var st_3A6;
+        var st_3A7;
+        var st_3A8;
+        var st_3A9;
+        var st_3AA;
+        var st_3AB;
+        var st_3AC;
+        var st_3AD;
+        var st_3AE;
+        var st_3AF;
+        var st_3B0;
+        var st_3B1;
+        var st_3B2;
+        var st_3B3;
+        var st_3B4;
+        var st_3B5;
+        var st_3B6;
+        var st_3B7;
+        var st_3B8;
+        var st_3B9;
+        var st_3BA;
+        var st_3BB;
+        var st_3BC;
+        var st_3BD;
+        var st_3BE;
+        var st_3BF;
+        var st_3C0;
+        var st_3C1;
+        var st_3C2;
+        var st_3C3;
+        var st_3C4;
+        var st_3C5;
+        var st_3C6;
+        var st_3C7;
+        var st_3C8;
+        var st_3C9;
+        var st_3CA;
+        var st_3CB;
+        var st_3CC;
+        var st_3CD;
+        var st_3CE;
+        var st_3CF;
+        var st_3D0;
+        var st_3D1;
+        var st_3D2;
+        var st_3D3;
+        var st_3D4;
+        var st_3D5;
+        var st_3D6;
+        var st_3D7;
+        var st_3D8;
+        var st_3D9;
+        var st_3DA;
+        var st_3DB;
+        var st_3DC;
+        var st_3DD;
+        var st_3DE;
+        var st_3DF;
+        var st_3E0;
+        var st_3E1;
+        var st_3E2;
+        var st_3E3;
+        var st_3E4;
+        var st_3E5;
+        var st_3E6;
+        var st_3E7;
+        var st_3E8;
+        var st_3E9;
+        var st_3EA;
+        var st_3EB;
+        var st_3EC;
+        var st_3ED;
+        var st_3EE;
+        var st_3EF;
+        var st_3F0;
+        var st_3F1;
+        var st_3F2;
+        var st_3F3;
+        var st_3F4;
+        var st_3F5;
+        var st_3F6;
+        var st_3F7;
+        var st_3F8;
+        var st_3F9;
+        var st_3FA;
+        var st_3FB;
+        var st_3FC;
+        var st_3FD;
+        var st_3FE;
+        var st_3FF;
+        var st_400;
+        var st_401;
+        var st_402;
+        var st_403;
+        var st_404;
+        var st_405;
+        var st_406;
+        var st_407;
+        var st_408;
+        var st_409;
+        var st_40A;
+        var st_40B;
+        var st_40C;
+        var st_40D;
+        var st_40E;
+        var st_40F;
+        var st_410;
+        var st_411;
+        var st_412;
+        var st_413;
+        var st_414;
+        var st_415;
+        var st_416;
+        var st_417;
+        var st_418;
+        var st_419;
+        var st_41A;
+        var st_41B;
+        var st_41C;
+        var st_41D;
+        var st_41E;
+        var st_41F;
+        var st_420;
+        var st_421;
+        var st_422;
+        var st_423;
+        var st_424;
+        var st_425;
+        var st_426;
+        var st_427;
+        var st_428;
+        var st_429;
+        var st_42A;
+        var st_42B;
+        var st_42C;
+        var st_42D;
+        var st_42E;
+        var st_42F;
+        var st_430;
+        var st_431;
+        var st_432;
+        var st_433;
+        var st_434;
+        var st_435;
+        var st_436;
+        var st_437;
+        var st_438;
+        var st_439;
+        var st_43A;
+        var st_43B;
+        var st_43C;
+        var st_43D;
+        var st_43E;
+        var st_43F;
+        var st_440;
+        var st_441;
+        var st_442;
+        var st_443;
+        var st_444;
+        var st_445;
+        var st_446;
+        var st_447;
+        var st_448;
+        var st_449;
+        var st_44A;
+        var st_44B;
+        var st_44C;
+        var st_44D;
+        var st_44E;
+        var st_44F;
+        var st_450;
+        var st_451;
+        var st_452;
+        var st_453;
+        var st_454;
+        var st_455;
+        var st_456;
+        var st_457;
+        var st_458;
+        var st_459;
+        var st_45A;
+        var st_45B;
+        var st_45C;
+        var st_45D;
+        var st_45E;
+        var st_45F;
+        var st_460;
+        var st_461;
+        var st_462;
+        var st_463;
+        var st_464;
+        var st_465;
+        var st_466;
+        var st_467;
+        var st_468;
+        var st_469;
+        var st_46A;
+        var st_46B;
+        var st_46C;
+        var st_46D;
+        var st_46E;
+        var st_46F;
+        var st_470;
+        var st_471;
+        var st_472;
+        var st_473;
+        var st_474;
+        var st_475;
+        var st_476;
+        var st_477;
+        var st_478;
+        var st_479;
+        var st_47A;
+        var st_47B;
+        var st_47C;
+        var st_47D;
+        var st_47E;
+        var st_47F;
+        var st_480;
+        var st_481;
+        var st_482;
+        var st_483;
+        var st_484;
+        var st_485;
+        var st_486;
+        var st_487;
+        var st_488;
+        var st_489;
+        var st_48A;
+        var st_48B;
+        var st_48C;
+        var st_48D;
+        var st_48E;
+        var st_48F;
+        var st_490;
+        var st_491;
+        var st_492;
+        var st_493;
+        var st_494;
+        var st_495;
+        var st_496;
+        var st_497;
+        var st_498;
+        var st_499;
+        var st_49A;
+        var st_49B;
+        var st_49C;
+        var st_49D;
+        var st_49E;
+        var st_49F;
+        var st_4A0;
+        var st_4A1;
+        var st_4A2;
+        var st_4A3;
+        var st_4A4;
+        var st_4A5;
+        var st_4A6;
+        var st_4A7;
+        var st_4A8;
+        var st_4A9;
+        var st_4AA;
+        var st_4AB;
+        var st_4AC;
+        var st_4AD;
+        var st_4AE;
+        var st_4AF;
+        var st_4B0;
+        var st_4B1;
+        var st_4B2;
+        var st_4B3;
+        var st_4B4;
+        var st_4B5;
+        var st_4B6;
+        var st_4B7;
+        var st_4B8;
+        var st_4B9;
+        var st_4BA;
+        var st_4BB;
+        var st_4BC;
+        var st_4BD;
+        var st_4BE;
+        var st_4BF;
+        var st_4C0;
+        var st_4C1;
+        var st_4C2;
+        var st_4C3;
+        var st_4C4;
+        var st_4C5;
+        var st_4C6;
+        var st_4C7;
+        var st_4C8;
+        var st_4C9;
+        var st_4CA;
+        var st_4CB;
+        var st_4CC;
+        var st_4CD;
+        var st_4CE;
+        var st_4CF;
+        var st_4D0;
+        var st_4D1;
+        var st_4D2;
+        var st_4D3;
+        var st_4D4;
+        var st_4D5;
+        var st_4D6;
+        var st_4D7;
+        var st_4D8;
+        var st_4D9;
+        var st_4DA;
+        var st_4DB;
+        var st_4DC;
+        var st_4DD;
+        var st_4DE;
+        var st_4DF;
+        var st_4E0;
+        var st_4E1;
+        var st_4E2;
+        var st_4E3;
+        var st_4E4;
+        var st_4E5;
+        var st_4E6;
+        var st_4E7;
+        var st_4E8;
+        var st_4E9;
+        var st_4EA;
+        var st_4EB;
+        var st_4EC;
+        var st_4ED;
+        var st_4EE;
+        var st_4EF;
+        var st_4F0;
+        var st_4F1;
+        var st_4F2;
+        var st_4F3;
+        var st_4F4;
+        var st_4F5;
+        var st_4F6;
+        var st_4F7;
+        var st_4F8;
+        var st_4F9;
+        var st_4FA;
+        var st_4FB;
+        var st_4FC;
+        var st_4FD;
+        var st_4FE;
+        var st_4FF;
+        var st_500;
+        var st_501;
+        var st_502;
+        var st_503;
+        var st_504;
+        var st_505;
+        var st_506;
+        var st_507;
+        var st_508;
+        var st_509;
+        var st_50A;
+        var st_50B;
+        var st_50C;
+        var st_50D;
+        var st_50E;
+        var st_50F;
+        var st_510;
+        var st_511;
+        var st_512;
+        var st_513;
+        var st_514;
+        var st_515;
+        var st_516;
+        var st_517;
+        var st_518;
+        var st_519;
+        var st_51A;
+        var st_51B;
+        var st_51C;
+        var st_51D;
+        var st_51E;
+        var st_51F;
+        var st_520;
+        var st_521;
+        var st_522;
+        var st_523;
+        var st_524;
+        var st_525;
+        var st_526;
+        var st_527;
+        var st_528;
+        var st_529;
+        var st_52A;
+        var st_52B;
+        var st_52C;
+        var st_52D;
+        var st_52E;
+        var st_52F;
+        var st_530;
+        var st_531;
+        var st_532;
+        var st_533;
+        var st_534;
+        var st_535;
+        var st_536;
+        var st_537;
+        var st_538;
+        var st_539;
+        var st_53A;
+        var st_53B;
+        var st_53C;
+        var st_53D;
+        var st_53E;
+        var st_53F;
+        var st_540;
+        var st_541;
+        var st_542;
+        var st_543;
+        var st_544;
+        var st_545;
+        var st_546;
+        var st_547;
+        var st_548;
+        var st_549;
+        var st_54A;
+        var st_54B;
+        var st_54C;
+        var st_54D;
+        var st_54E;
+        var st_54F;
+        var st_550;
+        var st_551;
+        var st_552;
+        var st_553;
+        var st_554;
+        var st_555;
+        var st_556;
+        var st_557;
+        var st_558;
+        var st_559;
+        var st_55A;
+        var st_55B;
+        var st_55C;
         t0 = ((asm0)["System.Int64"])();
         /* IL_00: ldstr 1 - 21 ToString*/
         st_00 = new_string("1 - 21 ToString");
@@ -12787,7 +13251,1451 @@ var asm1; (function (asm)
         };
         /* IL_1155: call Void Log(System.Object)*/
         (asm1.x6000001)(st_38C);
-        /* IL_115A: ret */
+        /* IL_115A: ldstr Mul 1*/
+        st_38D = new_string("Mul 1");
+        /* IL_115F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_38D);
+        /* IL_1164: ldc.i4.s 15*/
+        st_38E = (15|0);
+        /* IL_1166: conv.i8 */
+        st_390 = conv_i8(st_38E);
+        /* IL_1167: ldc.i4.1 */
+        st_38F = (1|0);
+        /* IL_1168: conv.i8 */
+        st_391 = conv_i8(st_38F);
+        /* IL_1169: call Int64 Mul(System.Int64, System.Int64)*/
+        st_392 = (asm1.x600000f)(st_390,st_391);
+        /* IL_116E: box System.Int64*/
+        st_393 = {
+            'boxed': st_392,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1173: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_393);
+        /* IL_1178: ldc.i4 255*/
+        st_394 = (255|0);
+        /* IL_117D: conv.i8 */
+        st_396 = conv_i8(st_394);
+        /* IL_117E: ldc.i4.1 */
+        st_395 = (1|0);
+        /* IL_117F: conv.i8 */
+        st_397 = conv_i8(st_395);
+        /* IL_1180: call Int64 Mul(System.Int64, System.Int64)*/
+        st_398 = (asm1.x600000f)(st_396,st_397);
+        /* IL_1185: box System.Int64*/
+        st_399 = {
+            'boxed': st_398,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_118A: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_399);
+        /* IL_118F: ldc.i4 4095*/
+        st_39A = (4095|0);
+        /* IL_1194: conv.i8 */
+        st_39C = conv_i8(st_39A);
+        /* IL_1195: ldc.i4.1 */
+        st_39B = (1|0);
+        /* IL_1196: conv.i8 */
+        st_39D = conv_i8(st_39B);
+        /* IL_1197: call Int64 Mul(System.Int64, System.Int64)*/
+        st_39E = (asm1.x600000f)(st_39C,st_39D);
+        /* IL_119C: box System.Int64*/
+        st_39F = {
+            'boxed': st_39E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_11A1: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_39F);
+        /* IL_11A6: ldc.i4 65535*/
+        st_3A0 = (65535|0);
+        /* IL_11AB: conv.i8 */
+        st_3A2 = conv_i8(st_3A0);
+        /* IL_11AC: ldc.i4.1 */
+        st_3A1 = (1|0);
+        /* IL_11AD: conv.i8 */
+        st_3A3 = conv_i8(st_3A1);
+        /* IL_11AE: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3A4 = (asm1.x600000f)(st_3A2,st_3A3);
+        /* IL_11B3: box System.Int64*/
+        st_3A5 = {
+            'boxed': st_3A4,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_11B8: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3A5);
+        /* IL_11BD: ldc.i4 1048575*/
+        st_3A6 = (1048575|0);
+        /* IL_11C2: conv.i8 */
+        st_3A8 = conv_i8(st_3A6);
+        /* IL_11C3: ldc.i4.1 */
+        st_3A7 = (1|0);
+        /* IL_11C4: conv.i8 */
+        st_3A9 = conv_i8(st_3A7);
+        /* IL_11C5: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3AA = (asm1.x600000f)(st_3A8,st_3A9);
+        /* IL_11CA: box System.Int64*/
+        st_3AB = {
+            'boxed': st_3AA,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_11CF: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3AB);
+        /* IL_11D4: ldc.i4 16777215*/
+        st_3AC = (16777215|0);
+        /* IL_11D9: conv.i8 */
+        st_3AE = conv_i8(st_3AC);
+        /* IL_11DA: ldc.i4.1 */
+        st_3AD = (1|0);
+        /* IL_11DB: conv.i8 */
+        st_3AF = conv_i8(st_3AD);
+        /* IL_11DC: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3B0 = (asm1.x600000f)(st_3AE,st_3AF);
+        /* IL_11E1: box System.Int64*/
+        st_3B1 = {
+            'boxed': st_3B0,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_11E6: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3B1);
+        /* IL_11EB: ldc.i4 268435455*/
+        st_3B2 = (268435455|0);
+        /* IL_11F0: conv.i8 */
+        st_3B4 = conv_i8(st_3B2);
+        /* IL_11F1: ldc.i4.1 */
+        st_3B3 = (1|0);
+        /* IL_11F2: conv.i8 */
+        st_3B5 = conv_i8(st_3B3);
+        /* IL_11F3: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3B6 = (asm1.x600000f)(st_3B4,st_3B5);
+        /* IL_11F8: box System.Int64*/
+        st_3B7 = {
+            'boxed': st_3B6,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_11FD: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3B7);
+        /* IL_1202: ldc.i4.m1 */
+        st_3B8 = (-1|0);
+        /* IL_1203: conv.u8 */
+        st_3BA = conv_u8(st_3B8);
+        /* IL_1204: ldc.i4.1 */
+        st_3B9 = (1|0);
+        /* IL_1205: conv.i8 */
+        st_3BB = conv_i8(st_3B9);
+        /* IL_1206: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3BC = (asm1.x600000f)(st_3BA,st_3BB);
+        /* IL_120B: box System.Int64*/
+        st_3BD = {
+            'boxed': st_3BC,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1210: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3BD);
+        /* IL_1215: ldc.i8 68719476735*/
+        st_3BF = new Uint32Array([ 0xFFFFFFFF,0xF ]);
+        /* IL_121E: ldc.i4.1 */
+        st_3BE = (1|0);
+        /* IL_121F: conv.i8 */
+        st_3C0 = conv_i8(st_3BE);
+        /* IL_1220: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3C1 = (asm1.x600000f)(st_3BF,st_3C0);
+        /* IL_1225: box System.Int64*/
+        st_3C2 = {
+            'boxed': st_3C1,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_122A: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3C2);
+        /* IL_122F: ldc.i8 1099511627775*/
+        st_3C4 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
+        /* IL_1238: ldc.i4.1 */
+        st_3C3 = (1|0);
+        /* IL_1239: conv.i8 */
+        st_3C5 = conv_i8(st_3C3);
+        /* IL_123A: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3C6 = (asm1.x600000f)(st_3C4,st_3C5);
+        /* IL_123F: box System.Int64*/
+        st_3C7 = {
+            'boxed': st_3C6,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1244: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3C7);
+        /* IL_1249: ldc.i8 17592186044415*/
+        st_3C9 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_1252: ldc.i4.1 */
+        st_3C8 = (1|0);
+        /* IL_1253: conv.i8 */
+        st_3CA = conv_i8(st_3C8);
+        /* IL_1254: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3CB = (asm1.x600000f)(st_3C9,st_3CA);
+        /* IL_1259: box System.Int64*/
+        st_3CC = {
+            'boxed': st_3CB,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_125E: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3CC);
+        /* IL_1263: ldc.i8 281474976710655*/
+        st_3CE = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
+        /* IL_126C: ldc.i4.1 */
+        st_3CD = (1|0);
+        /* IL_126D: conv.i8 */
+        st_3CF = conv_i8(st_3CD);
+        /* IL_126E: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3D0 = (asm1.x600000f)(st_3CE,st_3CF);
+        /* IL_1273: box System.Int64*/
+        st_3D1 = {
+            'boxed': st_3D0,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1278: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3D1);
+        /* IL_127D: ldc.i8 4503599627370495*/
+        st_3D3 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
+        /* IL_1286: ldc.i4.1 */
+        st_3D2 = (1|0);
+        /* IL_1287: conv.i8 */
+        st_3D4 = conv_i8(st_3D2);
+        /* IL_1288: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3D5 = (asm1.x600000f)(st_3D3,st_3D4);
+        /* IL_128D: box System.Int64*/
+        st_3D6 = {
+            'boxed': st_3D5,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1292: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3D6);
+        /* IL_1297: ldc.i8 72057594037927935*/
+        st_3D8 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_12A0: ldc.i4.1 */
+        st_3D7 = (1|0);
+        /* IL_12A1: conv.i8 */
+        st_3D9 = conv_i8(st_3D7);
+        /* IL_12A2: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3DA = (asm1.x600000f)(st_3D8,st_3D9);
+        /* IL_12A7: box System.Int64*/
+        st_3DB = {
+            'boxed': st_3DA,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_12AC: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3DB);
+        /* IL_12B1: ldstr Mul -1*/
+        st_3DC = new_string("Mul -1");
+        /* IL_12B6: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3DC);
+        /* IL_12BB: ldc.i4.s 15*/
+        st_3DD = (15|0);
+        /* IL_12BD: conv.i8 */
+        st_3DF = conv_i8(st_3DD);
+        /* IL_12BE: ldc.i4.m1 */
+        st_3DE = (-1|0);
+        /* IL_12BF: conv.i8 */
+        st_3E0 = conv_i8(st_3DE);
+        /* IL_12C0: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3E1 = (asm1.x600000f)(st_3DF,st_3E0);
+        /* IL_12C5: box System.Int64*/
+        st_3E2 = {
+            'boxed': st_3E1,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_12CA: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3E2);
+        /* IL_12CF: ldc.i4 255*/
+        st_3E3 = (255|0);
+        /* IL_12D4: conv.i8 */
+        st_3E5 = conv_i8(st_3E3);
+        /* IL_12D5: ldc.i4.m1 */
+        st_3E4 = (-1|0);
+        /* IL_12D6: conv.i8 */
+        st_3E6 = conv_i8(st_3E4);
+        /* IL_12D7: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3E7 = (asm1.x600000f)(st_3E5,st_3E6);
+        /* IL_12DC: box System.Int64*/
+        st_3E8 = {
+            'boxed': st_3E7,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_12E1: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3E8);
+        /* IL_12E6: ldc.i4 4095*/
+        st_3E9 = (4095|0);
+        /* IL_12EB: conv.i8 */
+        st_3EB = conv_i8(st_3E9);
+        /* IL_12EC: ldc.i4.m1 */
+        st_3EA = (-1|0);
+        /* IL_12ED: conv.i8 */
+        st_3EC = conv_i8(st_3EA);
+        /* IL_12EE: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3ED = (asm1.x600000f)(st_3EB,st_3EC);
+        /* IL_12F3: box System.Int64*/
+        st_3EE = {
+            'boxed': st_3ED,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_12F8: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3EE);
+        /* IL_12FD: ldc.i4 65535*/
+        st_3EF = (65535|0);
+        /* IL_1302: conv.i8 */
+        st_3F1 = conv_i8(st_3EF);
+        /* IL_1303: ldc.i4.m1 */
+        st_3F0 = (-1|0);
+        /* IL_1304: conv.i8 */
+        st_3F2 = conv_i8(st_3F0);
+        /* IL_1305: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3F3 = (asm1.x600000f)(st_3F1,st_3F2);
+        /* IL_130A: box System.Int64*/
+        st_3F4 = {
+            'boxed': st_3F3,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_130F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3F4);
+        /* IL_1314: ldc.i4 1048575*/
+        st_3F5 = (1048575|0);
+        /* IL_1319: conv.i8 */
+        st_3F7 = conv_i8(st_3F5);
+        /* IL_131A: ldc.i4.m1 */
+        st_3F6 = (-1|0);
+        /* IL_131B: conv.i8 */
+        st_3F8 = conv_i8(st_3F6);
+        /* IL_131C: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3F9 = (asm1.x600000f)(st_3F7,st_3F8);
+        /* IL_1321: box System.Int64*/
+        st_3FA = {
+            'boxed': st_3F9,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1326: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3FA);
+        /* IL_132B: ldc.i4 16777215*/
+        st_3FB = (16777215|0);
+        /* IL_1330: conv.i8 */
+        st_3FD = conv_i8(st_3FB);
+        /* IL_1331: ldc.i4.m1 */
+        st_3FC = (-1|0);
+        /* IL_1332: conv.i8 */
+        st_3FE = conv_i8(st_3FC);
+        /* IL_1333: call Int64 Mul(System.Int64, System.Int64)*/
+        st_3FF = (asm1.x600000f)(st_3FD,st_3FE);
+        /* IL_1338: box System.Int64*/
+        st_400 = {
+            'boxed': st_3FF,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_133D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_400);
+        /* IL_1342: ldc.i4 268435455*/
+        st_401 = (268435455|0);
+        /* IL_1347: conv.i8 */
+        st_403 = conv_i8(st_401);
+        /* IL_1348: ldc.i4.m1 */
+        st_402 = (-1|0);
+        /* IL_1349: conv.i8 */
+        st_404 = conv_i8(st_402);
+        /* IL_134A: call Int64 Mul(System.Int64, System.Int64)*/
+        st_405 = (asm1.x600000f)(st_403,st_404);
+        /* IL_134F: box System.Int64*/
+        st_406 = {
+            'boxed': st_405,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1354: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_406);
+        /* IL_1359: ldc.i4.m1 */
+        st_407 = (-1|0);
+        /* IL_135A: conv.u8 */
+        st_409 = conv_u8(st_407);
+        /* IL_135B: ldc.i4.m1 */
+        st_408 = (-1|0);
+        /* IL_135C: conv.i8 */
+        st_40A = conv_i8(st_408);
+        /* IL_135D: call Int64 Mul(System.Int64, System.Int64)*/
+        st_40B = (asm1.x600000f)(st_409,st_40A);
+        /* IL_1362: box System.Int64*/
+        st_40C = {
+            'boxed': st_40B,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1367: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_40C);
+        /* IL_136C: ldc.i8 68719476735*/
+        st_40E = new Uint32Array([ 0xFFFFFFFF,0xF ]);
+        /* IL_1375: ldc.i4.m1 */
+        st_40D = (-1|0);
+        /* IL_1376: conv.i8 */
+        st_40F = conv_i8(st_40D);
+        /* IL_1377: call Int64 Mul(System.Int64, System.Int64)*/
+        st_410 = (asm1.x600000f)(st_40E,st_40F);
+        /* IL_137C: box System.Int64*/
+        st_411 = {
+            'boxed': st_410,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1381: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_411);
+        /* IL_1386: ldc.i8 1099511627775*/
+        st_413 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
+        /* IL_138F: ldc.i4.m1 */
+        st_412 = (-1|0);
+        /* IL_1390: conv.i8 */
+        st_414 = conv_i8(st_412);
+        /* IL_1391: call Int64 Mul(System.Int64, System.Int64)*/
+        st_415 = (asm1.x600000f)(st_413,st_414);
+        /* IL_1396: box System.Int64*/
+        st_416 = {
+            'boxed': st_415,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_139B: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_416);
+        /* IL_13A0: ldc.i8 17592186044415*/
+        st_418 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_13A9: ldc.i4.m1 */
+        st_417 = (-1|0);
+        /* IL_13AA: conv.i8 */
+        st_419 = conv_i8(st_417);
+        /* IL_13AB: call Int64 Mul(System.Int64, System.Int64)*/
+        st_41A = (asm1.x600000f)(st_418,st_419);
+        /* IL_13B0: box System.Int64*/
+        st_41B = {
+            'boxed': st_41A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_13B5: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_41B);
+        /* IL_13BA: ldc.i8 281474976710655*/
+        st_41D = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
+        /* IL_13C3: ldc.i4.m1 */
+        st_41C = (-1|0);
+        /* IL_13C4: conv.i8 */
+        st_41E = conv_i8(st_41C);
+        /* IL_13C5: call Int64 Mul(System.Int64, System.Int64)*/
+        st_41F = (asm1.x600000f)(st_41D,st_41E);
+        /* IL_13CA: box System.Int64*/
+        st_420 = {
+            'boxed': st_41F,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_13CF: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_420);
+        /* IL_13D4: ldc.i8 4503599627370495*/
+        st_422 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
+        /* IL_13DD: ldc.i4.m1 */
+        st_421 = (-1|0);
+        /* IL_13DE: conv.i8 */
+        st_423 = conv_i8(st_421);
+        /* IL_13DF: call Int64 Mul(System.Int64, System.Int64)*/
+        st_424 = (asm1.x600000f)(st_422,st_423);
+        /* IL_13E4: box System.Int64*/
+        st_425 = {
+            'boxed': st_424,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_13E9: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_425);
+        /* IL_13EE: ldc.i8 72057594037927935*/
+        st_427 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_13F7: ldc.i4.m1 */
+        st_426 = (-1|0);
+        /* IL_13F8: conv.i8 */
+        st_428 = conv_i8(st_426);
+        /* IL_13F9: call Int64 Mul(System.Int64, System.Int64)*/
+        st_429 = (asm1.x600000f)(st_427,st_428);
+        /* IL_13FE: box System.Int64*/
+        st_42A = {
+            'boxed': st_429,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1403: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_42A);
+        /* IL_1408: ldstr Mul 2*/
+        st_42B = new_string("Mul 2");
+        /* IL_140D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_42B);
+        /* IL_1412: ldc.i4.s 15*/
+        st_42C = (15|0);
+        /* IL_1414: conv.i8 */
+        st_42E = conv_i8(st_42C);
+        /* IL_1415: ldc.i4.2 */
+        st_42D = (2|0);
+        /* IL_1416: conv.i8 */
+        st_42F = conv_i8(st_42D);
+        /* IL_1417: call Int64 Mul(System.Int64, System.Int64)*/
+        st_430 = (asm1.x600000f)(st_42E,st_42F);
+        /* IL_141C: box System.Int64*/
+        st_431 = {
+            'boxed': st_430,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1421: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_431);
+        /* IL_1426: ldc.i4 255*/
+        st_432 = (255|0);
+        /* IL_142B: conv.i8 */
+        st_434 = conv_i8(st_432);
+        /* IL_142C: ldc.i4.2 */
+        st_433 = (2|0);
+        /* IL_142D: conv.i8 */
+        st_435 = conv_i8(st_433);
+        /* IL_142E: call Int64 Mul(System.Int64, System.Int64)*/
+        st_436 = (asm1.x600000f)(st_434,st_435);
+        /* IL_1433: box System.Int64*/
+        st_437 = {
+            'boxed': st_436,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1438: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_437);
+        /* IL_143D: ldc.i4 4095*/
+        st_438 = (4095|0);
+        /* IL_1442: conv.i8 */
+        st_43A = conv_i8(st_438);
+        /* IL_1443: ldc.i4.2 */
+        st_439 = (2|0);
+        /* IL_1444: conv.i8 */
+        st_43B = conv_i8(st_439);
+        /* IL_1445: call Int64 Mul(System.Int64, System.Int64)*/
+        st_43C = (asm1.x600000f)(st_43A,st_43B);
+        /* IL_144A: box System.Int64*/
+        st_43D = {
+            'boxed': st_43C,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_144F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_43D);
+        /* IL_1454: ldc.i4 65535*/
+        st_43E = (65535|0);
+        /* IL_1459: conv.i8 */
+        st_440 = conv_i8(st_43E);
+        /* IL_145A: ldc.i4.2 */
+        st_43F = (2|0);
+        /* IL_145B: conv.i8 */
+        st_441 = conv_i8(st_43F);
+        /* IL_145C: call Int64 Mul(System.Int64, System.Int64)*/
+        st_442 = (asm1.x600000f)(st_440,st_441);
+        /* IL_1461: box System.Int64*/
+        st_443 = {
+            'boxed': st_442,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1466: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_443);
+        /* IL_146B: ldc.i4 1048575*/
+        st_444 = (1048575|0);
+        /* IL_1470: conv.i8 */
+        st_446 = conv_i8(st_444);
+        /* IL_1471: ldc.i4.2 */
+        st_445 = (2|0);
+        /* IL_1472: conv.i8 */
+        st_447 = conv_i8(st_445);
+        /* IL_1473: call Int64 Mul(System.Int64, System.Int64)*/
+        st_448 = (asm1.x600000f)(st_446,st_447);
+        /* IL_1478: box System.Int64*/
+        st_449 = {
+            'boxed': st_448,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_147D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_449);
+        /* IL_1482: ldc.i4 16777215*/
+        st_44A = (16777215|0);
+        /* IL_1487: conv.i8 */
+        st_44C = conv_i8(st_44A);
+        /* IL_1488: ldc.i4.2 */
+        st_44B = (2|0);
+        /* IL_1489: conv.i8 */
+        st_44D = conv_i8(st_44B);
+        /* IL_148A: call Int64 Mul(System.Int64, System.Int64)*/
+        st_44E = (asm1.x600000f)(st_44C,st_44D);
+        /* IL_148F: box System.Int64*/
+        st_44F = {
+            'boxed': st_44E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1494: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_44F);
+        /* IL_1499: ldc.i4 268435455*/
+        st_450 = (268435455|0);
+        /* IL_149E: conv.i8 */
+        st_452 = conv_i8(st_450);
+        /* IL_149F: ldc.i4.2 */
+        st_451 = (2|0);
+        /* IL_14A0: conv.i8 */
+        st_453 = conv_i8(st_451);
+        /* IL_14A1: call Int64 Mul(System.Int64, System.Int64)*/
+        st_454 = (asm1.x600000f)(st_452,st_453);
+        /* IL_14A6: box System.Int64*/
+        st_455 = {
+            'boxed': st_454,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_14AB: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_455);
+        /* IL_14B0: ldc.i4.m1 */
+        st_456 = (-1|0);
+        /* IL_14B1: conv.u8 */
+        st_458 = conv_u8(st_456);
+        /* IL_14B2: ldc.i4.2 */
+        st_457 = (2|0);
+        /* IL_14B3: conv.i8 */
+        st_459 = conv_i8(st_457);
+        /* IL_14B4: call Int64 Mul(System.Int64, System.Int64)*/
+        st_45A = (asm1.x600000f)(st_458,st_459);
+        /* IL_14B9: box System.Int64*/
+        st_45B = {
+            'boxed': st_45A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_14BE: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_45B);
+        /* IL_14C3: ldc.i8 68719476735*/
+        st_45D = new Uint32Array([ 0xFFFFFFFF,0xF ]);
+        /* IL_14CC: ldc.i4.2 */
+        st_45C = (2|0);
+        /* IL_14CD: conv.i8 */
+        st_45E = conv_i8(st_45C);
+        /* IL_14CE: call Int64 Mul(System.Int64, System.Int64)*/
+        st_45F = (asm1.x600000f)(st_45D,st_45E);
+        /* IL_14D3: box System.Int64*/
+        st_460 = {
+            'boxed': st_45F,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_14D8: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_460);
+        /* IL_14DD: ldc.i8 1099511627775*/
+        st_462 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
+        /* IL_14E6: ldc.i4.2 */
+        st_461 = (2|0);
+        /* IL_14E7: conv.i8 */
+        st_463 = conv_i8(st_461);
+        /* IL_14E8: call Int64 Mul(System.Int64, System.Int64)*/
+        st_464 = (asm1.x600000f)(st_462,st_463);
+        /* IL_14ED: box System.Int64*/
+        st_465 = {
+            'boxed': st_464,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_14F2: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_465);
+        /* IL_14F7: ldc.i8 17592186044415*/
+        st_467 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_1500: ldc.i4.2 */
+        st_466 = (2|0);
+        /* IL_1501: conv.i8 */
+        st_468 = conv_i8(st_466);
+        /* IL_1502: call Int64 Mul(System.Int64, System.Int64)*/
+        st_469 = (asm1.x600000f)(st_467,st_468);
+        /* IL_1507: box System.Int64*/
+        st_46A = {
+            'boxed': st_469,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_150C: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_46A);
+        /* IL_1511: ldc.i8 281474976710655*/
+        st_46C = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
+        /* IL_151A: ldc.i4.2 */
+        st_46B = (2|0);
+        /* IL_151B: conv.i8 */
+        st_46D = conv_i8(st_46B);
+        /* IL_151C: call Int64 Mul(System.Int64, System.Int64)*/
+        st_46E = (asm1.x600000f)(st_46C,st_46D);
+        /* IL_1521: box System.Int64*/
+        st_46F = {
+            'boxed': st_46E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1526: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_46F);
+        /* IL_152B: ldc.i8 4503599627370495*/
+        st_471 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
+        /* IL_1534: ldc.i4.2 */
+        st_470 = (2|0);
+        /* IL_1535: conv.i8 */
+        st_472 = conv_i8(st_470);
+        /* IL_1536: call Int64 Mul(System.Int64, System.Int64)*/
+        st_473 = (asm1.x600000f)(st_471,st_472);
+        /* IL_153B: box System.Int64*/
+        st_474 = {
+            'boxed': st_473,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1540: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_474);
+        /* IL_1545: ldc.i8 72057594037927935*/
+        st_476 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_154E: ldc.i4.2 */
+        st_475 = (2|0);
+        /* IL_154F: conv.i8 */
+        st_477 = conv_i8(st_475);
+        /* IL_1550: call Int64 Mul(System.Int64, System.Int64)*/
+        st_478 = (asm1.x600000f)(st_476,st_477);
+        /* IL_1555: box System.Int64*/
+        st_479 = {
+            'boxed': st_478,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_155A: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_479);
+        /* IL_155F: ldstr Mul -2*/
+        st_47A = new_string("Mul -2");
+        /* IL_1564: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_47A);
+        /* IL_1569: ldc.i4.s 15*/
+        st_47B = (15|0);
+        /* IL_156B: conv.i8 */
+        st_47D = conv_i8(st_47B);
+        /* IL_156C: ldc.i4.s 254*/
+        st_47C = (-2|0);
+        /* IL_156E: conv.i8 */
+        st_47E = conv_i8(st_47C);
+        /* IL_156F: call Int64 Mul(System.Int64, System.Int64)*/
+        st_47F = (asm1.x600000f)(st_47D,st_47E);
+        /* IL_1574: box System.Int64*/
+        st_480 = {
+            'boxed': st_47F,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1579: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_480);
+        /* IL_157E: ldc.i4 255*/
+        st_481 = (255|0);
+        /* IL_1583: conv.i8 */
+        st_483 = conv_i8(st_481);
+        /* IL_1584: ldc.i4.s 254*/
+        st_482 = (-2|0);
+        /* IL_1586: conv.i8 */
+        st_484 = conv_i8(st_482);
+        /* IL_1587: call Int64 Mul(System.Int64, System.Int64)*/
+        st_485 = (asm1.x600000f)(st_483,st_484);
+        /* IL_158C: box System.Int64*/
+        st_486 = {
+            'boxed': st_485,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1591: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_486);
+        /* IL_1596: ldc.i4 4095*/
+        st_487 = (4095|0);
+        /* IL_159B: conv.i8 */
+        st_489 = conv_i8(st_487);
+        /* IL_159C: ldc.i4.s 254*/
+        st_488 = (-2|0);
+        /* IL_159E: conv.i8 */
+        st_48A = conv_i8(st_488);
+        /* IL_159F: call Int64 Mul(System.Int64, System.Int64)*/
+        st_48B = (asm1.x600000f)(st_489,st_48A);
+        /* IL_15A4: box System.Int64*/
+        st_48C = {
+            'boxed': st_48B,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_15A9: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_48C);
+        /* IL_15AE: ldc.i4 65535*/
+        st_48D = (65535|0);
+        /* IL_15B3: conv.i8 */
+        st_48F = conv_i8(st_48D);
+        /* IL_15B4: ldc.i4.s 254*/
+        st_48E = (-2|0);
+        /* IL_15B6: conv.i8 */
+        st_490 = conv_i8(st_48E);
+        /* IL_15B7: call Int64 Mul(System.Int64, System.Int64)*/
+        st_491 = (asm1.x600000f)(st_48F,st_490);
+        /* IL_15BC: box System.Int64*/
+        st_492 = {
+            'boxed': st_491,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_15C1: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_492);
+        /* IL_15C6: ldc.i4 1048575*/
+        st_493 = (1048575|0);
+        /* IL_15CB: conv.i8 */
+        st_495 = conv_i8(st_493);
+        /* IL_15CC: ldc.i4.s 254*/
+        st_494 = (-2|0);
+        /* IL_15CE: conv.i8 */
+        st_496 = conv_i8(st_494);
+        /* IL_15CF: call Int64 Mul(System.Int64, System.Int64)*/
+        st_497 = (asm1.x600000f)(st_495,st_496);
+        /* IL_15D4: box System.Int64*/
+        st_498 = {
+            'boxed': st_497,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_15D9: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_498);
+        /* IL_15DE: ldc.i4 16777215*/
+        st_499 = (16777215|0);
+        /* IL_15E3: conv.i8 */
+        st_49B = conv_i8(st_499);
+        /* IL_15E4: ldc.i4.s 254*/
+        st_49A = (-2|0);
+        /* IL_15E6: conv.i8 */
+        st_49C = conv_i8(st_49A);
+        /* IL_15E7: call Int64 Mul(System.Int64, System.Int64)*/
+        st_49D = (asm1.x600000f)(st_49B,st_49C);
+        /* IL_15EC: box System.Int64*/
+        st_49E = {
+            'boxed': st_49D,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_15F1: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_49E);
+        /* IL_15F6: ldc.i4 268435455*/
+        st_49F = (268435455|0);
+        /* IL_15FB: conv.i8 */
+        st_4A1 = conv_i8(st_49F);
+        /* IL_15FC: ldc.i4.s 254*/
+        st_4A0 = (-2|0);
+        /* IL_15FE: conv.i8 */
+        st_4A2 = conv_i8(st_4A0);
+        /* IL_15FF: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4A3 = (asm1.x600000f)(st_4A1,st_4A2);
+        /* IL_1604: box System.Int64*/
+        st_4A4 = {
+            'boxed': st_4A3,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1609: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4A4);
+        /* IL_160E: ldc.i4.m1 */
+        st_4A5 = (-1|0);
+        /* IL_160F: conv.u8 */
+        st_4A7 = conv_u8(st_4A5);
+        /* IL_1610: ldc.i4.s 254*/
+        st_4A6 = (-2|0);
+        /* IL_1612: conv.i8 */
+        st_4A8 = conv_i8(st_4A6);
+        /* IL_1613: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4A9 = (asm1.x600000f)(st_4A7,st_4A8);
+        /* IL_1618: box System.Int64*/
+        st_4AA = {
+            'boxed': st_4A9,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_161D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4AA);
+        /* IL_1622: ldc.i8 68719476735*/
+        st_4AC = new Uint32Array([ 0xFFFFFFFF,0xF ]);
+        /* IL_162B: ldc.i4.s 254*/
+        st_4AB = (-2|0);
+        /* IL_162D: conv.i8 */
+        st_4AD = conv_i8(st_4AB);
+        /* IL_162E: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4AE = (asm1.x600000f)(st_4AC,st_4AD);
+        /* IL_1633: box System.Int64*/
+        st_4AF = {
+            'boxed': st_4AE,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1638: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4AF);
+        /* IL_163D: ldc.i8 1099511627775*/
+        st_4B1 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
+        /* IL_1646: ldc.i4.s 254*/
+        st_4B0 = (-2|0);
+        /* IL_1648: conv.i8 */
+        st_4B2 = conv_i8(st_4B0);
+        /* IL_1649: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4B3 = (asm1.x600000f)(st_4B1,st_4B2);
+        /* IL_164E: box System.Int64*/
+        st_4B4 = {
+            'boxed': st_4B3,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1653: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4B4);
+        /* IL_1658: ldc.i8 17592186044415*/
+        st_4B6 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_1661: ldc.i4.s 254*/
+        st_4B5 = (-2|0);
+        /* IL_1663: conv.i8 */
+        st_4B7 = conv_i8(st_4B5);
+        /* IL_1664: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4B8 = (asm1.x600000f)(st_4B6,st_4B7);
+        /* IL_1669: box System.Int64*/
+        st_4B9 = {
+            'boxed': st_4B8,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_166E: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4B9);
+        /* IL_1673: ldc.i8 281474976710655*/
+        st_4BB = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
+        /* IL_167C: ldc.i4.s 254*/
+        st_4BA = (-2|0);
+        /* IL_167E: conv.i8 */
+        st_4BC = conv_i8(st_4BA);
+        /* IL_167F: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4BD = (asm1.x600000f)(st_4BB,st_4BC);
+        /* IL_1684: box System.Int64*/
+        st_4BE = {
+            'boxed': st_4BD,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1689: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4BE);
+        /* IL_168E: ldc.i8 4503599627370495*/
+        st_4C0 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
+        /* IL_1697: ldc.i4.s 254*/
+        st_4BF = (-2|0);
+        /* IL_1699: conv.i8 */
+        st_4C1 = conv_i8(st_4BF);
+        /* IL_169A: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4C2 = (asm1.x600000f)(st_4C0,st_4C1);
+        /* IL_169F: box System.Int64*/
+        st_4C3 = {
+            'boxed': st_4C2,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_16A4: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4C3);
+        /* IL_16A9: ldc.i8 72057594037927935*/
+        st_4C5 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_16B2: ldc.i4.s 254*/
+        st_4C4 = (-2|0);
+        /* IL_16B4: conv.i8 */
+        st_4C6 = conv_i8(st_4C4);
+        /* IL_16B5: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4C7 = (asm1.x600000f)(st_4C5,st_4C6);
+        /* IL_16BA: box System.Int64*/
+        st_4C8 = {
+            'boxed': st_4C7,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_16BF: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4C8);
+        /* IL_16C4: ldstr Mul 0x1, 0x010, 0x0101 etc*/
+        st_4C9 = new_string("Mul 0x1, 0x010, 0x0101 etc");
+        /* IL_16C9: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4C9);
+        /* IL_16CE: ldc.i4.s 15*/
+        st_4CA = (15|0);
+        /* IL_16D0: conv.i8 */
+        st_4CC = conv_i8(st_4CA);
+        /* IL_16D1: ldc.i4.0 */
+        st_4CB = (0|0);
+        /* IL_16D2: conv.i8 */
+        st_4CD = conv_i8(st_4CB);
+        /* IL_16D3: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4CE = (asm1.x600000f)(st_4CC,st_4CD);
+        /* IL_16D8: box System.Int64*/
+        st_4CF = {
+            'boxed': st_4CE,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_16DD: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4CF);
+        /* IL_16E2: ldc.i4 255*/
+        st_4D0 = (255|0);
+        /* IL_16E7: conv.i8 */
+        st_4D2 = conv_i8(st_4D0);
+        /* IL_16E8: ldc.i4.1 */
+        st_4D1 = (1|0);
+        /* IL_16E9: conv.i8 */
+        st_4D3 = conv_i8(st_4D1);
+        /* IL_16EA: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4D4 = (asm1.x600000f)(st_4D2,st_4D3);
+        /* IL_16EF: box System.Int64*/
+        st_4D5 = {
+            'boxed': st_4D4,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_16F4: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4D5);
+        /* IL_16F9: ldc.i4 4095*/
+        st_4D6 = (4095|0);
+        /* IL_16FE: conv.i8 */
+        st_4D8 = conv_i8(st_4D6);
+        /* IL_16FF: ldc.i4.s 16*/
+        st_4D7 = (16|0);
+        /* IL_1701: conv.i8 */
+        st_4D9 = conv_i8(st_4D7);
+        /* IL_1702: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4DA = (asm1.x600000f)(st_4D8,st_4D9);
+        /* IL_1707: box System.Int64*/
+        st_4DB = {
+            'boxed': st_4DA,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_170C: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4DB);
+        /* IL_1711: ldc.i4 65535*/
+        st_4DC = (65535|0);
+        /* IL_1716: conv.i8 */
+        st_4DE = conv_i8(st_4DC);
+        /* IL_1717: ldc.i4 257*/
+        st_4DD = (257|0);
+        /* IL_171C: conv.i8 */
+        st_4DF = conv_i8(st_4DD);
+        /* IL_171D: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4E0 = (asm1.x600000f)(st_4DE,st_4DF);
+        /* IL_1722: box System.Int64*/
+        st_4E1 = {
+            'boxed': st_4E0,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1727: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4E1);
+        /* IL_172C: ldc.i4 1048575*/
+        st_4E2 = (1048575|0);
+        /* IL_1731: conv.i8 */
+        st_4E4 = conv_i8(st_4E2);
+        /* IL_1732: ldc.i4 4112*/
+        st_4E3 = (4112|0);
+        /* IL_1737: conv.i8 */
+        st_4E5 = conv_i8(st_4E3);
+        /* IL_1738: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4E6 = (asm1.x600000f)(st_4E4,st_4E5);
+        /* IL_173D: box System.Int64*/
+        st_4E7 = {
+            'boxed': st_4E6,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1742: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4E7);
+        /* IL_1747: ldc.i4 16777215*/
+        st_4E8 = (16777215|0);
+        /* IL_174C: conv.i8 */
+        st_4EA = conv_i8(st_4E8);
+        /* IL_174D: ldc.i4 65793*/
+        st_4E9 = (65793|0);
+        /* IL_1752: conv.i8 */
+        st_4EB = conv_i8(st_4E9);
+        /* IL_1753: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4EC = (asm1.x600000f)(st_4EA,st_4EB);
+        /* IL_1758: box System.Int64*/
+        st_4ED = {
+            'boxed': st_4EC,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_175D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4ED);
+        /* IL_1762: ldc.i4 268435455*/
+        st_4EE = (268435455|0);
+        /* IL_1767: conv.i8 */
+        st_4F0 = conv_i8(st_4EE);
+        /* IL_1768: ldc.i4 1052688*/
+        st_4EF = (1052688|0);
+        /* IL_176D: conv.i8 */
+        st_4F1 = conv_i8(st_4EF);
+        /* IL_176E: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4F2 = (asm1.x600000f)(st_4F0,st_4F1);
+        /* IL_1773: box System.Int64*/
+        st_4F3 = {
+            'boxed': st_4F2,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1778: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4F3);
+        /* IL_177D: ldc.i4.m1 */
+        st_4F4 = (-1|0);
+        /* IL_177E: conv.u8 */
+        st_4F6 = conv_u8(st_4F4);
+        /* IL_177F: ldc.i4 16843009*/
+        st_4F5 = (16843009|0);
+        /* IL_1784: conv.i8 */
+        st_4F7 = conv_i8(st_4F5);
+        /* IL_1785: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4F8 = (asm1.x600000f)(st_4F6,st_4F7);
+        /* IL_178A: box System.Int64*/
+        st_4F9 = {
+            'boxed': st_4F8,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_178F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4F9);
+        /* IL_1794: ldc.i8 68719476735*/
+        st_4FB = new Uint32Array([ 0xFFFFFFFF,0xF ]);
+        /* IL_179D: ldc.i4 269488144*/
+        st_4FA = (269488144|0);
+        /* IL_17A2: conv.i8 */
+        st_4FC = conv_i8(st_4FA);
+        /* IL_17A3: call Int64 Mul(System.Int64, System.Int64)*/
+        st_4FD = (asm1.x600000f)(st_4FB,st_4FC);
+        /* IL_17A8: box System.Int64*/
+        st_4FE = {
+            'boxed': st_4FD,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_17AD: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_4FE);
+        /* IL_17B2: ldc.i8 1099511627775*/
+        st_4FF = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
+        /* IL_17BB: ldc.i8 4311810305*/
+        st_500 = new Uint32Array([ 0x1010101,0x1 ]);
+        /* IL_17C4: call Int64 Mul(System.Int64, System.Int64)*/
+        st_501 = (asm1.x600000f)(st_4FF,st_500);
+        /* IL_17C9: box System.Int64*/
+        st_502 = {
+            'boxed': st_501,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_17CE: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_502);
+        /* IL_17D3: ldc.i8 17592186044415*/
+        st_503 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_17DC: ldc.i8 68988964880*/
+        st_504 = new Uint32Array([ 0x10101010,0x10 ]);
+        /* IL_17E5: call Int64 Mul(System.Int64, System.Int64)*/
+        st_505 = (asm1.x600000f)(st_503,st_504);
+        /* IL_17EA: box System.Int64*/
+        st_506 = {
+            'boxed': st_505,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_17EF: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_506);
+        /* IL_17F4: ldc.i8 281474976710655*/
+        st_507 = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
+        /* IL_17FD: ldc.i8 1103823438081*/
+        st_508 = new Uint32Array([ 0x1010101,0x101 ]);
+        /* IL_1806: call Int64 Mul(System.Int64, System.Int64)*/
+        st_509 = (asm1.x600000f)(st_507,st_508);
+        /* IL_180B: box System.Int64*/
+        st_50A = {
+            'boxed': st_509,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1810: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_50A);
+        /* IL_1815: ldc.i8 4503599627370495*/
+        st_50B = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
+        /* IL_181E: ldc.i8 17661175009296*/
+        st_50C = new Uint32Array([ 0x10101010,0x1010 ]);
+        /* IL_1827: call Int64 Mul(System.Int64, System.Int64)*/
+        st_50D = (asm1.x600000f)(st_50B,st_50C);
+        /* IL_182C: box System.Int64*/
+        st_50E = {
+            'boxed': st_50D,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1831: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_50E);
+        /* IL_1836: ldc.i8 72057594037927935*/
+        st_50F = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_183F: ldc.i8 282578800148737*/
+        st_510 = new Uint32Array([ 0x1010101,0x10101 ]);
+        /* IL_1848: call Int64 Mul(System.Int64, System.Int64)*/
+        st_511 = (asm1.x600000f)(st_50F,st_510);
+        /* IL_184D: box System.Int64*/
+        st_512 = {
+            'boxed': st_511,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1852: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_512);
+        /* IL_1857: ldstr Mul -0x1, -0x010, -0x0101 etc*/
+        st_513 = new_string("Mul -0x1, -0x010, -0x0101 etc");
+        /* IL_185C: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_513);
+        /* IL_1861: ldc.i4.s 15*/
+        st_514 = (15|0);
+        /* IL_1863: conv.i8 */
+        st_516 = conv_i8(st_514);
+        /* IL_1864: ldc.i4.0 */
+        st_515 = (0|0);
+        /* IL_1865: conv.i8 */
+        st_517 = conv_i8(st_515);
+        /* IL_1866: call Int64 Mul(System.Int64, System.Int64)*/
+        st_518 = (asm1.x600000f)(st_516,st_517);
+        /* IL_186B: box System.Int64*/
+        st_519 = {
+            'boxed': st_518,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1870: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_519);
+        /* IL_1875: ldc.i4 255*/
+        st_51A = (255|0);
+        /* IL_187A: conv.i8 */
+        st_51C = conv_i8(st_51A);
+        /* IL_187B: ldc.i4.m1 */
+        st_51B = (-1|0);
+        /* IL_187C: conv.i8 */
+        st_51D = conv_i8(st_51B);
+        /* IL_187D: call Int64 Mul(System.Int64, System.Int64)*/
+        st_51E = (asm1.x600000f)(st_51C,st_51D);
+        /* IL_1882: box System.Int64*/
+        st_51F = {
+            'boxed': st_51E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1887: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_51F);
+        /* IL_188C: ldc.i4 4095*/
+        st_520 = (4095|0);
+        /* IL_1891: conv.i8 */
+        st_522 = conv_i8(st_520);
+        /* IL_1892: ldc.i4.s 240*/
+        st_521 = (-16|0);
+        /* IL_1894: conv.i8 */
+        st_523 = conv_i8(st_521);
+        /* IL_1895: call Int64 Mul(System.Int64, System.Int64)*/
+        st_524 = (asm1.x600000f)(st_522,st_523);
+        /* IL_189A: box System.Int64*/
+        st_525 = {
+            'boxed': st_524,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_189F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_525);
+        /* IL_18A4: ldc.i4 65535*/
+        st_526 = (65535|0);
+        /* IL_18A9: conv.i8 */
+        st_528 = conv_i8(st_526);
+        /* IL_18AA: ldc.i4 -257*/
+        st_527 = (-257|0);
+        /* IL_18AF: conv.i8 */
+        st_529 = conv_i8(st_527);
+        /* IL_18B0: call Int64 Mul(System.Int64, System.Int64)*/
+        st_52A = (asm1.x600000f)(st_528,st_529);
+        /* IL_18B5: box System.Int64*/
+        st_52B = {
+            'boxed': st_52A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_18BA: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_52B);
+        /* IL_18BF: ldc.i4 1048575*/
+        st_52C = (1048575|0);
+        /* IL_18C4: conv.i8 */
+        st_52E = conv_i8(st_52C);
+        /* IL_18C5: ldc.i4 -4112*/
+        st_52D = (-4112|0);
+        /* IL_18CA: conv.i8 */
+        st_52F = conv_i8(st_52D);
+        /* IL_18CB: call Int64 Mul(System.Int64, System.Int64)*/
+        st_530 = (asm1.x600000f)(st_52E,st_52F);
+        /* IL_18D0: box System.Int64*/
+        st_531 = {
+            'boxed': st_530,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_18D5: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_531);
+        /* IL_18DA: ldc.i4 16777215*/
+        st_532 = (16777215|0);
+        /* IL_18DF: conv.i8 */
+        st_534 = conv_i8(st_532);
+        /* IL_18E0: ldc.i4 -65793*/
+        st_533 = (-65793|0);
+        /* IL_18E5: conv.i8 */
+        st_535 = conv_i8(st_533);
+        /* IL_18E6: call Int64 Mul(System.Int64, System.Int64)*/
+        st_536 = (asm1.x600000f)(st_534,st_535);
+        /* IL_18EB: box System.Int64*/
+        st_537 = {
+            'boxed': st_536,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_18F0: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_537);
+        /* IL_18F5: ldc.i4 268435455*/
+        st_538 = (268435455|0);
+        /* IL_18FA: conv.i8 */
+        st_53A = conv_i8(st_538);
+        /* IL_18FB: ldc.i4 -1052688*/
+        st_539 = (-1052688|0);
+        /* IL_1900: conv.i8 */
+        st_53B = conv_i8(st_539);
+        /* IL_1901: call Int64 Mul(System.Int64, System.Int64)*/
+        st_53C = (asm1.x600000f)(st_53A,st_53B);
+        /* IL_1906: box System.Int64*/
+        st_53D = {
+            'boxed': st_53C,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_190B: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_53D);
+        /* IL_1910: ldc.i4.m1 */
+        st_53E = (-1|0);
+        /* IL_1911: conv.u8 */
+        st_540 = conv_u8(st_53E);
+        /* IL_1912: ldc.i4 -16843009*/
+        st_53F = (-16843009|0);
+        /* IL_1917: conv.i8 */
+        st_541 = conv_i8(st_53F);
+        /* IL_1918: call Int64 Mul(System.Int64, System.Int64)*/
+        st_542 = (asm1.x600000f)(st_540,st_541);
+        /* IL_191D: box System.Int64*/
+        st_543 = {
+            'boxed': st_542,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1922: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_543);
+        /* IL_1927: ldc.i8 68719476735*/
+        st_545 = new Uint32Array([ 0xFFFFFFFF,0xF ]);
+        /* IL_1930: ldc.i4 -269488144*/
+        st_544 = (-269488144|0);
+        /* IL_1935: conv.i8 */
+        st_546 = conv_i8(st_544);
+        /* IL_1936: call Int64 Mul(System.Int64, System.Int64)*/
+        st_547 = (asm1.x600000f)(st_545,st_546);
+        /* IL_193B: box System.Int64*/
+        st_548 = {
+            'boxed': st_547,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1940: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_548);
+        /* IL_1945: ldc.i8 1099511627775*/
+        st_549 = new Uint32Array([ 0xFFFFFFFF,0xFF ]);
+        /* IL_194E: ldc.i8 -4311810305*/
+        st_54A = new Uint32Array([ 0xFEFEFEFF,0xFFFFFFFE ]);
+        /* IL_1957: call Int64 Mul(System.Int64, System.Int64)*/
+        st_54B = (asm1.x600000f)(st_549,st_54A);
+        /* IL_195C: box System.Int64*/
+        st_54C = {
+            'boxed': st_54B,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1961: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_54C);
+        /* IL_1966: ldc.i8 17592186044415*/
+        st_54D = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_196F: ldc.i8 -68988964880*/
+        st_54E = new Uint32Array([ 0xEFEFEFF0,0xFFFFFFEF ]);
+        /* IL_1978: call Int64 Mul(System.Int64, System.Int64)*/
+        st_54F = (asm1.x600000f)(st_54D,st_54E);
+        /* IL_197D: box System.Int64*/
+        st_550 = {
+            'boxed': st_54F,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1982: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_550);
+        /* IL_1987: ldc.i8 281474976710655*/
+        st_551 = new Uint32Array([ 0xFFFFFFFF,0xFFFF ]);
+        /* IL_1990: ldc.i8 -1103823438081*/
+        st_552 = new Uint32Array([ 0xFEFEFEFF,0xFFFFFEFE ]);
+        /* IL_1999: call Int64 Mul(System.Int64, System.Int64)*/
+        st_553 = (asm1.x600000f)(st_551,st_552);
+        /* IL_199E: box System.Int64*/
+        st_554 = {
+            'boxed': st_553,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_19A3: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_554);
+        /* IL_19A8: ldc.i8 4503599627370495*/
+        st_555 = new Uint32Array([ 0xFFFFFFFF,0xFFFFF ]);
+        /* IL_19B1: ldc.i8 -17661175009296*/
+        st_556 = new Uint32Array([ 0xEFEFEFF0,0xFFFFEFEF ]);
+        /* IL_19BA: call Int64 Mul(System.Int64, System.Int64)*/
+        st_557 = (asm1.x600000f)(st_555,st_556);
+        /* IL_19BF: box System.Int64*/
+        st_558 = {
+            'boxed': st_557,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_19C4: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_558);
+        /* IL_19C9: ldc.i8 72057594037927935*/
+        st_559 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_19D2: ldc.i8 -282578800148737*/
+        st_55A = new Uint32Array([ 0xFEFEFEFF,0xFFFEFEFE ]);
+        /* IL_19DB: call Int64 Mul(System.Int64, System.Int64)*/
+        st_55B = (asm1.x600000f)(st_559,st_55A);
+        /* IL_19E0: box System.Int64*/
+        st_55C = {
+            'boxed': st_55B,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_19E5: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_55C);
+        /* IL_19EA: ret */
         return ;
     };
     asm.x600000d = function Add(arg0,arg1)
@@ -12818,7 +14726,21 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x600000f = function _ctor(arg0)
+    asm.x600000f = function Mul(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: ldarg.1 */
+        st_01 = arg1;
+        /* IL_02: mul */
+        st_02 = (asm0.XInt64_Multiplication)(st_00,st_01);
+        /* IL_03: ret */
+        return st_02;
+    };;
+    asm.x6000010 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */

@@ -217,6 +217,102 @@ class Program
         TestLog.Log(Sub(0xffffffffffffL, -0x010101010101L));
         TestLog.Log(Sub(0xfffffffffffffL, -0x0101010101010L));
         TestLog.Log(Sub(0xffffffffffffffL, -0x01010101010101L));
+
+        TestLog.Log("Mul 1");
+        TestLog.Log(Mul(0xfL, 1L));
+        TestLog.Log(Mul(0xffL, 1L));
+        TestLog.Log(Mul(0xfffL, 1L));
+        TestLog.Log(Mul(0xffffL, 1L));
+        TestLog.Log(Mul(0xfffffL, 1L));
+        TestLog.Log(Mul(0xffffffL, 1L));
+        TestLog.Log(Mul(0xfffffffL, 1L));
+        TestLog.Log(Mul(0xffffffffL, 1L));
+        TestLog.Log(Mul(0xfffffffffL, 1L));
+        TestLog.Log(Mul(0xffffffffffL, 1L));
+        TestLog.Log(Mul(0xfffffffffffL, 1L));
+        TestLog.Log(Mul(0xffffffffffffL, 1L));
+        TestLog.Log(Mul(0xfffffffffffffL, 1L));
+        TestLog.Log(Mul(0xffffffffffffffL, 1L));
+
+        TestLog.Log("Mul -1");
+        TestLog.Log(Mul(0xfL, -1L));
+        TestLog.Log(Mul(0xffL, -1L));
+        TestLog.Log(Mul(0xfffL, -1L));
+        TestLog.Log(Mul(0xffffL, -1L));
+        TestLog.Log(Mul(0xfffffL, -1L));
+        TestLog.Log(Mul(0xffffffL, -1L));
+        TestLog.Log(Mul(0xfffffffL, -1L));
+        TestLog.Log(Mul(0xffffffffL, -1L));
+        TestLog.Log(Mul(0xfffffffffL, -1L));
+        TestLog.Log(Mul(0xffffffffffL, -1L));
+        TestLog.Log(Mul(0xfffffffffffL, -1L));
+        TestLog.Log(Mul(0xffffffffffffL, -1L));
+        TestLog.Log(Mul(0xfffffffffffffL, -1L));
+        TestLog.Log(Mul(0xffffffffffffffL, -1L));
+
+        TestLog.Log("Mul 2");
+        TestLog.Log(Mul(0xfL, 2L));
+        TestLog.Log(Mul(0xffL, 2L));
+        TestLog.Log(Mul(0xfffL, 2L));
+        TestLog.Log(Mul(0xffffL, 2L));
+        TestLog.Log(Mul(0xfffffL, 2L));
+        TestLog.Log(Mul(0xffffffL, 2L));
+        TestLog.Log(Mul(0xfffffffL, 2L));
+        TestLog.Log(Mul(0xffffffffL, 2L));
+        TestLog.Log(Mul(0xfffffffffL, 2L));
+        TestLog.Log(Mul(0xffffffffffL, 2L));
+        TestLog.Log(Mul(0xfffffffffffL, 2L));
+        TestLog.Log(Mul(0xffffffffffffL, 2L));
+        TestLog.Log(Mul(0xfffffffffffffL, 2L));
+        TestLog.Log(Mul(0xffffffffffffffL, 2L));
+
+        TestLog.Log("Mul -2");
+        TestLog.Log(Mul(0xfL, -2L));
+        TestLog.Log(Mul(0xffL, -2L));
+        TestLog.Log(Mul(0xfffL, -2L));
+        TestLog.Log(Mul(0xffffL, -2L));
+        TestLog.Log(Mul(0xfffffL, -2L));
+        TestLog.Log(Mul(0xffffffL, -2L));
+        TestLog.Log(Mul(0xfffffffL, -2L));
+        TestLog.Log(Mul(0xffffffffL, -2L));
+        TestLog.Log(Mul(0xfffffffffL, -2L));
+        TestLog.Log(Mul(0xffffffffffL, -2L));
+        TestLog.Log(Mul(0xfffffffffffL, -2L));
+        TestLog.Log(Mul(0xffffffffffffL, -2L));
+        TestLog.Log(Mul(0xfffffffffffffL, -2L));
+        TestLog.Log(Mul(0xffffffffffffffL, -2L));
+
+        TestLog.Log("Mul 0x1, 0x010, 0x0101 etc");
+        TestLog.Log(Mul(0xfL, 0x0L));
+        TestLog.Log(Mul(0xffL, 0x01L));
+        TestLog.Log(Mul(0xfffL, 0x010L));
+        TestLog.Log(Mul(0xffffL, 0x0101L));
+        TestLog.Log(Mul(0xfffffL, 0x01010L));
+        TestLog.Log(Mul(0xffffffL, 0x010101L));
+        TestLog.Log(Mul(0xfffffffL, 0x0101010L));
+        TestLog.Log(Mul(0xffffffffL, 0x01010101L));
+        TestLog.Log(Mul(0xfffffffffL, 0x010101010L));
+        TestLog.Log(Mul(0xffffffffffL, 0x0101010101L));
+        TestLog.Log(Mul(0xfffffffffffL, 0x01010101010L));
+        TestLog.Log(Mul(0xffffffffffffL, 0x010101010101L));
+        TestLog.Log(Mul(0xfffffffffffffL, 0x0101010101010L));
+        TestLog.Log(Mul(0xffffffffffffffL, 0x01010101010101L));
+
+        TestLog.Log("Mul -0x1, -0x010, -0x0101 etc");
+        TestLog.Log(Mul(0xfL, -0x0L));
+        TestLog.Log(Mul(0xffL, -0x01L));
+        TestLog.Log(Mul(0xfffL, -0x010L));
+        TestLog.Log(Mul(0xffffL, -0x0101L));
+        TestLog.Log(Mul(0xfffffL, -0x01010L));
+        TestLog.Log(Mul(0xffffffL, -0x010101L));
+        TestLog.Log(Mul(0xfffffffL, -0x0101010L));
+        TestLog.Log(Mul(0xffffffffL, -0x01010101L));
+        TestLog.Log(Mul(0xfffffffffL, -0x010101010L));
+        TestLog.Log(Mul(0xffffffffffL, -0x0101010101L));
+        TestLog.Log(Mul(0xfffffffffffL, -0x01010101010L));
+        TestLog.Log(Mul(0xffffffffffffL, -0x010101010101L));
+        TestLog.Log(Mul(0xfffffffffffffL, -0x0101010101010L));
+        TestLog.Log(Mul(0xffffffffffffffL, -0x01010101010101L));
     }
 
     public static long Add(long a, long b)
@@ -227,5 +323,10 @@ class Program
     public static long Sub(long a, long b)
     {
         return a - b;
+    }
+
+    public static long Mul(long a, long b)
+    {
+        return a * b;
     }
 }

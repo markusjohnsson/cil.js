@@ -27,7 +27,7 @@ namespace System
 
         [JsAssemblyStatic(Name = "UInt64_RightShift")]
         [JsImport(@"
-            function UInt64_RightShift(lhs, rhs) {
+            function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
                 if (n > 32) {
@@ -94,12 +94,12 @@ namespace System
 
                 var l = new Uint32Array([1, 0]);
 
-                while (!asm0.XUint64_Equality(a, l)) {
-                    a = asm0.XInt64_RightShift(a, 1);
+                while (!asm0.XInt64_Equality(a, l)) {
+                    a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
                     if (a[0] & 1 == 1)
-                        s = asm0.Xint64_Addition(b, s);
+                        s = asm0.XInt64_Addition(b, s);
                 }
 
                 return s;
