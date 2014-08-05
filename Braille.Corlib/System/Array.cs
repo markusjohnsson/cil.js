@@ -7,8 +7,13 @@ namespace System
 {
     public abstract class Array : IEnumerable
     {
+#pragma warning disable 649
         internal object type;
+#pragma warning restore 649
+
+#pragma warning disable 649
         internal object jsarr;
+#pragma warning restore 649
         
         public int Length { get { return GetLengthImpl(this); } }
 
@@ -75,7 +80,7 @@ namespace System
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public new IEnumerator<T> GetEnumerator()
         {
             return new ArrayEnumerator(this);
         }

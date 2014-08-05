@@ -30,6 +30,19 @@ namespace System
             return s;
         }
 
+        public override bool Equals(object other)
+        {
+            return this == (long)other;
+        }
+
+        public override int GetHashCode()
+        {
+            return GetLow(this);
+        }
+
+        [JsReplace("{0}[0]")]
+        private static extern int GetLow(long s);
+
         [JsReplace("new_string({0}[0].toString())")]
         private static extern string GetLowString(long a);    
 

@@ -6,7 +6,6 @@ namespace System.Collections.Generic
 {
     public interface IEnumerator<T> : IEnumerator, IDisposable
     {
-        T Current { get; }
-        bool MoveNext();
+        new T Current { get; }
     }
 }

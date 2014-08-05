@@ -48,6 +48,11 @@ namespace System
             throw new NotImplementedException();
         }
 
+        public override bool Equals(object o)
+        {
+            return this == o as Delegate;
+        }
+
         public static bool operator ==(Delegate a, Delegate b)
         {
             var ma = (MulticastDelegate)a;
@@ -88,6 +93,11 @@ namespace System
         public static bool operator !=(Delegate a, Delegate b)
         {
             return !(a == b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

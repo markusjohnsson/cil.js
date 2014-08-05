@@ -17,7 +17,7 @@ namespace Braille.TestRunner.Controllers
         [HttpGet]
         public TestResult GetAssemblyTest([FromUri] string assemblyTest)
         {
-            var workDir = HostingEnvironment.MapPath("~");
+            var workDir = HostingEnvironment.MapPath("/");
             var dir = Path.Combine(workDir, assemblyTest.Replace("/", "\\"));
             var runner = new Tests(workDir);
 

@@ -5,8 +5,10 @@ namespace System
 {
     public class MulticastDelegate : Delegate
     {
+#pragma warning disable 649
         // internal to avoid name mangling
         internal Delegate[] _invocationList;
+#pragma warning restore 649
 
         [JsImport(@"
             function (list) { 

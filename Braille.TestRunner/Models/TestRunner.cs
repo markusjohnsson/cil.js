@@ -32,7 +32,8 @@ namespace Braille.TestRunner.Models
         {
             var clrRefs = new List<string>();
             var brlRefs = new List<string>();
-            brlRefs.Add(@"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll");
+
+            brlRefs.Add(GetCorlibPath());
 
             string clrProgramOutputName = null;
             string brlProgramOutputName = null;
@@ -130,6 +131,11 @@ namespace Braille.TestRunner.Models
             };
         }
 
+        private string GetCorlibPath()
+        {
+            return Path.Combine(workingDir, @"..\Braille.Corlib\bin\Debug\mscorlib.dll");
+        }
+
         private string ExecuteExe(string outputName, out int exitCode)
         {
             var process = Process.Start(
@@ -208,7 +214,7 @@ namespace Braille.TestRunner.Models
             parameters.OutputAssembly = outputName;
 
             if (forBraille)
-                parameters.CoreAssemblyFileName = @"C:\Users\marku_000\Documents\GitHub\Braille\Braille.Corlib\bin\Debug\mscorlib.dll";
+                parameters.CoreAssemblyFileName = GetCorlibPath();
 
             if (refs != null)
             {
