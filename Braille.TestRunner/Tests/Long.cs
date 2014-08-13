@@ -314,7 +314,206 @@ class Program
         TestLog.Log(Mul(0xfffffffffffffL, -0x0101010101010L));
         TestLog.Log(Mul(0xffffffffffffffL, -0x01010101010101L));
 
-        TestLog.Log(0x111L.GetHashCode());
+        TestLog.Log("Div 1");
+        TestLog.Log(Div(0xfL, 1L));
+        TestLog.Log(Div(0xffL, 1L));
+        TestLog.Log(Div(0xfffL, 1L));
+        TestLog.Log(Div(0xffffL, 1L));
+        TestLog.Log(Div(0xfffffL, 1L));
+        TestLog.Log(Div(0xffffffL, 1L));
+        TestLog.Log(Div(0xfffffffL, 1L));
+        TestLog.Log(Div(0xffffffffL, 1L));
+        TestLog.Log(Div(0xfffffffffL, 1L));
+        TestLog.Log(Div(0xffffffffffL, 1L));
+        TestLog.Log(Div(0xfffffffffffL, 1L));
+        TestLog.Log(Div(0xffffffffffffL, 1L));
+        TestLog.Log(Div(0xfffffffffffffL, 1L));
+        TestLog.Log(Div(0xffffffffffffffL, 1L));
+
+        TestLog.Log("Div -1");
+        TestLog.Log(Div(0xfL, -1L));
+        TestLog.Log(Div(0xffL, -1L));
+        TestLog.Log(Div(0xfffL, -1L));
+        TestLog.Log(Div(0xffffL, -1L));
+        TestLog.Log(Div(0xfffffL, -1L));
+        TestLog.Log(Div(0xffffffL, -1L));
+        TestLog.Log(Div(0xfffffffL, -1L));
+        TestLog.Log(Div(0xffffffffL, -1L));
+        TestLog.Log(Div(0xfffffffffL, -1L));
+        TestLog.Log(Div(0xffffffffffL, -1L));
+        TestLog.Log(Div(0xfffffffffffL, -1L));
+        TestLog.Log(Div(0xffffffffffffL, -1L));
+        TestLog.Log(Div(0xfffffffffffffL, -1L));
+        TestLog.Log(Div(0xffffffffffffffL, -1L));
+
+        TestLog.Log("Div 2");
+        TestLog.Log(Div(0xfL, 2L));
+        TestLog.Log(Div(0xffL, 2L));
+        TestLog.Log(Div(0xfffL, 2L));
+        TestLog.Log(Div(0xffffL, 2L));
+        TestLog.Log(Div(0xfffffL, 2L));
+        TestLog.Log(Div(0xffffffL, 2L));
+        TestLog.Log(Div(0xfffffffL, 2L));
+        TestLog.Log(Div(0xffffffffL, 2L));
+        TestLog.Log(Div(0xfffffffffL, 2L));
+        TestLog.Log(Div(0xffffffffffL, 2L));
+        TestLog.Log(Div(0xfffffffffffL, 2L));
+        TestLog.Log(Div(0xffffffffffffL, 2L));
+        TestLog.Log(Div(0xfffffffffffffL, 2L));
+        TestLog.Log(Div(0xffffffffffffffL, 2L));
+
+        TestLog.Log("Div -2");
+        TestLog.Log(Div(0xfL, -2L));
+        TestLog.Log(Div(0xffL, -2L));
+        TestLog.Log(Div(0xfffL, -2L));
+        TestLog.Log(Div(0xffffL, -2L));
+        TestLog.Log(Div(0xfffffL, -2L));
+        TestLog.Log(Div(0xffffffL, -2L));
+        TestLog.Log(Div(0xfffffffL, -2L));
+        TestLog.Log(Div(0xffffffffL, -2L));
+        TestLog.Log(Div(0xfffffffffL, -2L));
+        TestLog.Log(Div(0xffffffffffL, -2L));
+        TestLog.Log(Div(0xfffffffffffL, -2L));
+        TestLog.Log(Div(0xffffffffffffL, -2L));
+        TestLog.Log(Div(0xfffffffffffffL, -2L));
+        TestLog.Log(Div(0xffffffffffffffL, -2L));
+
+        TestLog.Log("Div 0x1, 0x010, 0x0101 etc");
+        //TestLog.Log(Div(0xfL, 0x0L));
+        TestLog.Log(Div(0xffL, 0x01L));
+        TestLog.Log(Div(0xfffL, 0x010L));
+        TestLog.Log(Div(0xffffL, 0x0101L));
+        TestLog.Log(Div(0xfffffL, 0x01010L));
+        TestLog.Log(Div(0xffffffL, 0x010101L));
+        TestLog.Log(Div(0xfffffffL, 0x0101010L));
+        TestLog.Log(Div(0xffffffffL, 0x01010101L));
+        TestLog.Log(Div(0xfffffffffL, 0x010101010L));
+        TestLog.Log(Div(0xffffffffffL, 0x0101010101L));
+        TestLog.Log(Div(0xfffffffffffL, 0x01010101010L));
+        TestLog.Log(Div(0xffffffffffffL, 0x010101010101L));
+        TestLog.Log(Div(0xfffffffffffffL, 0x0101010101010L));
+        TestLog.Log(Div(0xffffffffffffffL, 0x01010101010101L));
+
+        TestLog.Log("Div -0x1, -0x010, -0x0101 etc");
+        //TestLog.Log(Div(0xfL, -0x0L));
+        TestLog.Log(Div(0xffL, -0x01L));
+        TestLog.Log(Div(0xfffL, -0x010L));
+        TestLog.Log(Div(0xffffL, -0x0101L));
+        TestLog.Log(Div(0xfffffL, -0x01010L));
+        TestLog.Log(Div(0xffffffL, -0x010101L));
+        TestLog.Log(Div(0xfffffffL, -0x0101010L));
+        TestLog.Log(Div(0xffffffffL, -0x01010101L));
+        TestLog.Log(Div(0xfffffffffL, -0x010101010L));
+        TestLog.Log(Div(0xffffffffffL, -0x0101010101L));
+        TestLog.Log(Div(0xfffffffffffL, -0x01010101010L));
+        TestLog.Log(Div(0xffffffffffffL, -0x010101010101L));
+        TestLog.Log(Div(0xfffffffffffffL, -0x0101010101010L));
+        TestLog.Log(Div(0xffffffffffffffL, -0x01010101010101L));
+
+
+        TestLog.Log("Mod 1");
+        TestLog.Log(Mod(0xfL, 1L));
+        TestLog.Log(Mod(0xffL, 1L));
+        TestLog.Log(Mod(0xfffL, 1L));
+        TestLog.Log(Mod(0xffffL, 1L));
+        TestLog.Log(Mod(0xfffffL, 1L));
+        TestLog.Log(Mod(0xffffffL, 1L));
+        TestLog.Log(Mod(0xfffffffL, 1L));
+        TestLog.Log(Mod(0xffffffffL, 1L));
+        TestLog.Log(Mod(0xfffffffffL, 1L));
+        TestLog.Log(Mod(0xffffffffffL, 1L));
+        TestLog.Log(Mod(0xfffffffffffL, 1L));
+        TestLog.Log(Mod(0xffffffffffffL, 1L));
+        TestLog.Log(Mod(0xfffffffffffffL, 1L));
+        TestLog.Log(Mod(0xffffffffffffffL, 1L));
+
+        TestLog.Log("Mod -1");
+        TestLog.Log(Mod(0xfL, -1L));
+        TestLog.Log(Mod(0xffL, -1L));
+        TestLog.Log(Mod(0xfffL, -1L));
+        TestLog.Log(Mod(0xffffL, -1L));
+        TestLog.Log(Mod(0xfffffL, -1L));
+        TestLog.Log(Mod(0xffffffL, -1L));
+        TestLog.Log(Mod(0xfffffffL, -1L));
+        TestLog.Log(Mod(0xffffffffL, -1L));
+        TestLog.Log(Mod(0xfffffffffL, -1L));
+        TestLog.Log(Mod(0xffffffffffL, -1L));
+        TestLog.Log(Mod(0xfffffffffffL, -1L));
+        TestLog.Log(Mod(0xffffffffffffL, -1L));
+        TestLog.Log(Mod(0xfffffffffffffL, -1L));
+        TestLog.Log(Mod(0xffffffffffffffL, -1L));
+
+        TestLog.Log("Mod 2");
+        TestLog.Log(Mod(0xfL, 2L));
+        TestLog.Log(Mod(0xffL, 2L));
+        TestLog.Log(Mod(0xfffL, 2L));
+        TestLog.Log(Mod(0xffffL, 2L));
+        TestLog.Log(Mod(0xfffffL, 2L));
+        TestLog.Log(Mod(0xffffffL, 2L));
+        TestLog.Log(Mod(0xfffffffL, 2L));
+        TestLog.Log(Mod(0xffffffffL, 2L));
+        TestLog.Log(Mod(0xfffffffffL, 2L));
+        TestLog.Log(Mod(0xffffffffffL, 2L));
+        TestLog.Log(Mod(0xfffffffffffL, 2L));
+        TestLog.Log(Mod(0xffffffffffffL, 2L));
+        TestLog.Log(Mod(0xfffffffffffffL, 2L));
+        TestLog.Log(Mod(0xffffffffffffffL, 2L));
+
+        TestLog.Log("Mod -2");
+        TestLog.Log(Mod(0xfL, -2L));
+        TestLog.Log(Mod(0xffL, -2L));
+        TestLog.Log(Mod(0xfffL, -2L));
+        TestLog.Log(Mod(0xffffL, -2L));
+        TestLog.Log(Mod(0xfffffL, -2L));
+        TestLog.Log(Mod(0xffffffL, -2L));
+        TestLog.Log(Mod(0xfffffffL, -2L));
+        TestLog.Log(Mod(0xffffffffL, -2L));
+        TestLog.Log(Mod(0xfffffffffL, -2L));
+        TestLog.Log(Mod(0xffffffffffL, -2L));
+        TestLog.Log(Mod(0xfffffffffffL, -2L));
+        TestLog.Log(Mod(0xffffffffffffL, -2L));
+        TestLog.Log(Mod(0xfffffffffffffL, -2L));
+        TestLog.Log(Mod(0xffffffffffffffL, -2L));
+
+        TestLog.Log("Mod 0x1, 0x010, 0x0101 etc");
+        //TestLog.Log(Mod(0xfL, 0x0L));
+        TestLog.Log(Mod(0xffL, 0x01L));
+        TestLog.Log(Mod(0xfffL, 0x010L));
+        TestLog.Log(Mod(0xffffL, 0x0101L));
+        TestLog.Log(Mod(0xfffffL, 0x01010L));
+        TestLog.Log(Mod(0xffffffL, 0x010101L));
+        TestLog.Log(Mod(0xfffffffL, 0x0101010L));
+        TestLog.Log(Mod(0xffffffffL, 0x01010101L));
+        TestLog.Log(Mod(0xfffffffffL, 0x010101010L));
+        TestLog.Log(Mod(0xffffffffffL, 0x0101010101L));
+        TestLog.Log(Mod(0xfffffffffffL, 0x01010101010L));
+        TestLog.Log(Mod(0xffffffffffffL, 0x010101010101L));
+        TestLog.Log(Mod(0xfffffffffffffL, 0x0101010101010L));
+        TestLog.Log(Mod(0xffffffffffffffL, 0x01010101010101L));
+
+        TestLog.Log("Mod -0x1, -0x010, -0x0101 etc");
+        //TestLog.Log(Mod(0xfL, -0x0L));
+        TestLog.Log(Mod(0xffL, -0x01L));
+        TestLog.Log(Mod(0xfffL, -0x010L));
+        TestLog.Log(Mod(0xffffL, -0x0101L));
+        TestLog.Log(Mod(0xfffffL, -0x01010L));
+        TestLog.Log(Mod(0xffffffL, -0x010101L));
+        TestLog.Log(Mod(0xfffffffL, -0x0101010L));
+        TestLog.Log(Mod(0xffffffffL, -0x01010101L));
+        TestLog.Log(Mod(0xfffffffffL, -0x010101010L));
+        TestLog.Log(Mod(0xffffffffffL, -0x0101010101L));
+        TestLog.Log(Mod(0xfffffffffffL, -0x01010101010L));
+        TestLog.Log(Mod(0xffffffffffffL, -0x010101010101L));
+        TestLog.Log(Mod(0xfffffffffffffL, -0x0101010101010L));
+        TestLog.Log(Mod(0xffffffffffffffL, -0x01010101010101L));
+        
+
+
+        TestLog.Log(Mod(0xfL, 2L));
+        TestLog.Log(Mod(0xfL, -2L));
+        TestLog.Log(Mod(-0xfL, -2L));
+        TestLog.Log(Mod(-0xfL, 2L));
+
     }
 
     public static long Add(long a, long b)
@@ -330,5 +529,15 @@ class Program
     public static long Mul(long a, long b)
     {
         return a * b;
+    }
+
+    public static long Div(long a, long b)
+    {
+        return a / b;
+    }
+
+    public static long Mod(long a, long b)
+    {
+        return a % b;
     }
 }

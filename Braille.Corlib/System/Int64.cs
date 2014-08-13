@@ -232,10 +232,10 @@ namespace System
                 if (d[0] === 0 && d[1] === 0)
                     throw new Error(""System.DivideByZeroException"");
 
-                if (asm0.Int64_isNegative(d))
+                if (asm0.Int64_isNegative(d)) {
                     return asm0.Int64_Modulus(
-                      asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
-
+                      n, asm0.Int64_UnaryNegation(d));
+                }
                 else if (asm0.Int64_isNegative(n))
                     return asm0.Int64_UnaryNegation(asm0.Int64_Modulus(asm0.Int64_UnaryNegation(n), d));
                 else

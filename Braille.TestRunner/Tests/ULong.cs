@@ -190,6 +190,104 @@ class Program
         TestLog.Log(Mul(0xffffffffffffUL, 0x010101010101UL));
         TestLog.Log(Mul(0xfffffffffffffUL, 0x0101010101010UL));
         TestLog.Log(Mul(0xffffffffffffffUL, 0x01010101010101UL));
+
+        TestLog.Log("Div 1");
+        TestLog.Log(Div(0xfUL, 1UL));
+        TestLog.Log(Div(0xffUL, 1UL));
+        TestLog.Log(Div(0xfffUL, 1UL));
+        TestLog.Log(Div(0xffffUL, 1UL));
+        TestLog.Log(Div(0xfffffUL, 1UL));
+        TestLog.Log(Div(0xffffffUL, 1UL));
+        TestLog.Log(Div(0xfffffffUL, 1UL));
+        TestLog.Log(Div(0xffffffffUL, 1UL));
+        TestLog.Log(Div(0xfffffffffUL, 1UL));
+        TestLog.Log(Div(0xffffffffffUL, 1UL));
+        TestLog.Log(Div(0xfffffffffffUL, 1UL));
+        TestLog.Log(Div(0xffffffffffffUL, 1UL));
+        TestLog.Log(Div(0xfffffffffffffUL, 1UL));
+        TestLog.Log(Div(0xffffffffffffffUL, 1UL));
+
+        TestLog.Log("Div 2");
+        TestLog.Log(Div(0xfUL, 2UL));
+        TestLog.Log(Div(0xffUL, 2UL));
+        TestLog.Log(Div(0xfffUL, 2UL));
+        TestLog.Log(Div(0xffffUL, 2UL));
+        TestLog.Log(Div(0xfffffUL, 2UL));
+        TestLog.Log(Div(0xffffffUL, 2UL));
+        TestLog.Log(Div(0xfffffffUL, 2UL));
+        TestLog.Log(Div(0xffffffffUL, 2UL));
+        TestLog.Log(Div(0xfffffffffUL, 2UL));
+        TestLog.Log(Div(0xffffffffffUL, 2UL));
+        TestLog.Log(Div(0xfffffffffffUL, 2UL));
+        TestLog.Log(Div(0xffffffffffffUL, 2UL));
+        TestLog.Log(Div(0xfffffffffffffUL, 2UL));
+        TestLog.Log(Div(0xffffffffffffffUL, 2UL));
+
+        TestLog.Log("Div 0x1, 0x010, 0x0101 etc");
+        //TestLog.Log(Div(0xfUL, 0x0UL));
+        TestLog.Log(Div(0xffUL, 0x01UL));
+        TestLog.Log(Div(0xfffUL, 0x010UL));
+        TestLog.Log(Div(0xffffUL, 0x0101UL));
+        TestLog.Log(Div(0xfffffUL, 0x01010UL));
+        TestLog.Log(Div(0xffffffUL, 0x010101UL));
+        TestLog.Log(Div(0xfffffffUL, 0x0101010UL));
+        TestLog.Log(Div(0xffffffffUL, 0x01010101UL));
+        TestLog.Log(Div(0xfffffffffUL, 0x010101010UL));
+        TestLog.Log(Div(0xffffffffffUL, 0x0101010101UL));
+        TestLog.Log(Div(0xfffffffffffUL, 0x01010101010UL));
+        TestLog.Log(Div(0xffffffffffffUL, 0x010101010101UL));
+        TestLog.Log(Div(0xfffffffffffffUL, 0x0101010101010UL));
+        TestLog.Log(Div(0xffffffffffffffUL, 0x01010101010101UL));
+
+        TestLog.Log("Mod 1");
+        TestLog.Log(Mod(0xfUL, 1UL));
+        TestLog.Log(Mod(0xffUL, 1UL));
+        TestLog.Log(Mod(0xfffUL, 1UL));
+        TestLog.Log(Mod(0xffffUL, 1UL));
+        TestLog.Log(Mod(0xfffffUL, 1UL));
+        TestLog.Log(Mod(0xffffffUL, 1UL));
+        TestLog.Log(Mod(0xfffffffUL, 1UL));
+        TestLog.Log(Mod(0xffffffffUL, 1UL));
+        TestLog.Log(Mod(0xfffffffffUL, 1UL));
+        TestLog.Log(Mod(0xffffffffffUL, 1UL));
+        TestLog.Log(Mod(0xfffffffffffUL, 1UL));
+        TestLog.Log(Mod(0xffffffffffffUL, 1UL));
+        TestLog.Log(Mod(0xfffffffffffffUL, 1UL));
+        TestLog.Log(Mod(0xffffffffffffffUL, 1UL));
+
+        TestLog.Log("Mod 2");
+        TestLog.Log(Mod(0xfUL, 2UL));
+        TestLog.Log(Mod(0xffUL, 2UL));
+        TestLog.Log(Mod(0xfffUL, 2UL));
+        TestLog.Log(Mod(0xffffUL, 2UL));
+        TestLog.Log(Mod(0xfffffUL, 2UL));
+        TestLog.Log(Mod(0xffffffUL, 2UL));
+        TestLog.Log(Mod(0xfffffffUL, 2UL));
+        TestLog.Log(Mod(0xffffffffUL, 2UL));
+        TestLog.Log(Mod(0xfffffffffUL, 2UL));
+        TestLog.Log(Mod(0xffffffffffUL, 2UL));
+        TestLog.Log(Mod(0xfffffffffffUL, 2UL));
+        TestLog.Log(Mod(0xffffffffffffUL, 2UL));
+        TestLog.Log(Mod(0xfffffffffffffUL, 2UL));
+        TestLog.Log(Mod(0xffffffffffffffUL, 2UL));
+
+        TestLog.Log("Mod 0x1, 0x010, 0x0101 etc");
+        //TestLog.Log(Mod(0xfUL, 0x0UL));
+        TestLog.Log(Mod(0xffUL, 0x01UL));
+        TestLog.Log(Mod(0xfffUL, 0x010UL));
+        TestLog.Log(Mod(0xffffUL, 0x0101UL));
+        TestLog.Log(Mod(0xfffffUL, 0x01010UL));
+        TestLog.Log(Mod(0xffffffUL, 0x010101UL));
+        TestLog.Log(Mod(0xfffffffUL, 0x0101010UL));
+        TestLog.Log(Mod(0xffffffffUL, 0x01010101UL));
+        TestLog.Log(Mod(0xfffffffffUL, 0x010101010UL));
+        TestLog.Log(Mod(0xffffffffffUL, 0x0101010101UL));
+        TestLog.Log(Mod(0xfffffffffffUL, 0x01010101010UL));
+        TestLog.Log(Mod(0xffffffffffffUL, 0x010101010101UL));
+        TestLog.Log(Mod(0xfffffffffffffUL, 0x0101010101010UL));
+        TestLog.Log(Mod(0xffffffffffffffUL, 0x01010101010101UL));
+
+        
     }
 
     public static ulong Add(ulong a, ulong b)
@@ -205,5 +303,15 @@ class Program
     public static ulong Mul(ulong a, ulong b)
     {
         return a * b;
+    }
+
+    public static ulong Div(ulong a, ulong b)
+    {
+        return a / b;
+    }
+
+    public static ulong Mod(ulong a, ulong b)
+    {
+        return a % b;
     }
 }
