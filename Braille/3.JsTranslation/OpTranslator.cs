@@ -474,13 +474,27 @@ namespace Braille.JsTranslation
                             };
                         }
 
+                        var originalThisArg = arglist[0];
+
+                        if (mi.IsVirtual &&
+                            node.Arguments.First().ResultType == context.SystemTypes.Object)
+                        {
+                            // from: II.13.3 Methods of value types
+                            //
+                            // The CLI shall convert a boxed value type into a managed pointer to the 
+                            // unboxed value type when a boxed value type is passed as the this pointer 
+                            // to a virtual method whose implementation is provided by the unboxed value type.
+
+                            arglist[0] = JSFactory.Call(JSFactory.Identifier("convert_box_to_pointer_as_needed"), arglist[0]);
+                        }
+
                         return new JSCallExpression
                         {
                             Function =
                                 mi.DeclaringType.IsInterface
-                                    ? GetInterfaceMethodAccessor(arglist.First(), thisScope, mi) :
+                                    ? GetInterfaceMethodAccessor(originalThisArg, thisScope, mi) :
                                 mi.IsVirtual
-                                    ? GetVirtualMethodAccessor(arglist.First(), (MethodInfo)mi) :
+                                    ? GetVirtualMethodAccessor(originalThisArg, (MethodInfo)mi) :
                                       GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
                         };
@@ -709,12 +723,12 @@ namespace Braille.JsTranslation
                         });
                     }
                 case "ldind":
-                    //return JSFactory.Call(JSFactory.Identifier(ProcessInternal(node.Arguments.Single()), "r"));
-                    return new JSPropertyAccessExpression
-                    {
-                        Host = ProcessInternal(node.Arguments.Single()),
-                        Property = "boxed"
-                    };
+                    return JSFactory.Call(JSFactory.Identifier(ProcessInternal(node.Arguments.Single()), "r"));
+                    //return new JSPropertyAccessExpression
+                    //{
+                    //    Host = ProcessInternal(node.Arguments.Single()),
+                    //    Property = "boxed"
+                    //};
                 case "ldftn":
                     {
                         var target = ((LoadFunctionNode)node).Target;

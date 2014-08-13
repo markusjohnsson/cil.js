@@ -313,6 +313,8 @@ class Program
         TestLog.Log(Mul(0xffffffffffffL, -0x010101010101L));
         TestLog.Log(Mul(0xfffffffffffffL, -0x0101010101010L));
         TestLog.Log(Mul(0xffffffffffffffL, -0x01010101010101L));
+
+        TestLog.Log(0x111L.GetHashCode());
     }
 
     public static long Add(long a, long b)

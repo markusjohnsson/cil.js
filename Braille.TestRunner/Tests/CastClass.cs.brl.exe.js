@@ -57,6 +57,19 @@ var asm0; (function (asm)
             return cast_class(o, type);
     }
 
+    function convert_box_to_pointer_as_needed(o) {
+        if (typeof o.boxed !== "undefined" &&
+            typeof o.type !== "undefined" &&
+            typeof o.type.IsValueType) 
+        {
+            return { 'r': function () { return o.boxed; },
+                     'w': function (v) { return o.boxed = v; } };
+        }
+        else {
+            return o;
+        }
+    }
+
     function tree_get(a, s) {
         var c = s;
         for (var i = 0; c && i < a.length; i++)
@@ -250,7 +263,7 @@ var asm0; (function (asm)
                 /* IL_19: ldarg.0 */
                 st_08 = arg0;
                 /* IL_1A: callvirt String ToString()*/
-                st_09 = (((st_08.vtable)["asm0.x6000005"])())(st_08);
+                st_09 = (((st_08.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_08));
                 /* IL_1F: ldfld Object jsstr*/
                 st_0A = st_09.jsstr;
                 /* IL_24: stloc.0 */
@@ -461,7 +474,7 @@ var asm0; (function (asm)
                 /* IL_01: ldarg.0 */
                 st_00 = arg0;
                 /* IL_02: ldind.i1 */
-                st_01 = st_00.boxed;
+                st_01 = (st_00.r)();
                 /* IL_03: brtrue.s IL_0C*/
                 
                 if (st_01){
@@ -512,7 +525,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.u1 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.Byte*/
         st_02 = {
             'boxed': st_01,
@@ -552,7 +565,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.u2 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.Char*/
         st_02 = {
             'boxed': st_01,
@@ -578,7 +591,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: callvirt String ToString()*/
-        st_01 = (((st_00.vtable)["asm0.x6000005"])())(st_00);
+        st_01 = (((st_00.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_00));
         /* IL_07: call Void WriteLineImpl(System.String)*/
         (asm0.x6000024)(st_01);
         /* IL_0C: nop */
@@ -618,7 +631,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.r8 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.Double*/
         st_02 = {
             'boxed': st_01,
@@ -2373,7 +2386,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i2 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.Int16*/
         st_02 = {
             'boxed': st_01,
@@ -2413,7 +2426,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i4 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.Int32*/
         st_02 = {
             'boxed': st_01,
@@ -2540,7 +2553,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i1 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.SByte*/
         st_02 = {
             'boxed': st_01,
@@ -2580,7 +2593,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.r4 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.Single*/
         st_02 = {
             'boxed': st_01,
@@ -2862,7 +2875,7 @@ var asm0; (function (asm)
                 /* IL_01: ldarg.0 */
                 st_00 = arg0;
                 /* IL_02: ldind.i8 */
-                st_01 = st_00.boxed;
+                st_01 = (st_00.r)();
                 /* IL_03: stloc.0 */
                 loc0 = st_01;
                 /* IL_04: ldc.i4.s 10*/
@@ -2912,7 +2925,7 @@ var asm0; (function (asm)
                     'vtable': t0.prototype.vtable
                 };
                 /* IL_29: callvirt String ToString()*/
-                st_10 = (((st_0E.vtable)["asm0.x6000005"])())(st_0E);
+                st_10 = (((st_0E.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_0E));
                 /* IL_2E: call String Concat(System.String, System.String)*/
                 st_11 = (asm0.x60000ac)(st_0F,st_10);
                 /* IL_33: stloc.s 4*/
@@ -2994,7 +3007,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_02 = st_00.boxed;
+        st_02 = (st_00.r)();
         /* IL_03: ldarg.1 */
         st_01 = arg1;
         /* IL_04: unbox.any System.Int64*/
@@ -3019,7 +3032,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: call Int32 GetLow(System.Int64)*/
         st_02 = st_01[0];
         /* IL_08: stloc.0 */
@@ -4653,7 +4666,7 @@ var asm0; (function (asm)
         /* IL_0A: ldarg.0 */
         st_02 = arg0;
         /* IL_0B: callvirt String ToString()*/
-        st_05 = (((st_02.vtable)["asm0.x6000005"])())(st_02);
+        st_05 = (((st_02.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_02));
         /* IL_10: stelem.ref */
         (st_03.jsarr)[st_04] = st_05;
         /* IL_11: ldloc.1 */
@@ -4663,7 +4676,7 @@ var asm0; (function (asm)
         /* IL_13: ldarg.1 */
         st_06 = arg1;
         /* IL_14: callvirt String ToString()*/
-        st_09 = (((st_06.vtable)["asm0.x6000005"])())(st_06);
+        st_09 = (((st_06.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_06));
         /* IL_19: stelem.ref */
         (st_07.jsarr)[st_08] = st_09;
         /* IL_1A: ldloc.1 */
@@ -4987,7 +5000,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.u2 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.UInt16*/
         st_02 = {
             'boxed': st_01,
@@ -5027,7 +5040,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.u4 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: box System.UInt32*/
         st_02 = {
             'boxed': st_01,
@@ -5085,7 +5098,7 @@ var asm0; (function (asm)
                 /* IL_01: ldarg.0 */
                 st_00 = arg0;
                 /* IL_02: ldind.i8 */
-                st_01 = st_00.boxed;
+                st_01 = (st_00.r)();
                 /* IL_03: stloc.0 */
                 loc0 = st_01;
                 /* IL_04: ldc.i4.s 10*/
@@ -5222,21 +5235,7 @@ var asm0; (function (asm)
 
                 var l = new Uint32Array([1, 0]);
 
-//                function pad(s) {
-//                  var r = "";
-//                  for (var k=0; k<(8-s.length); k++) r += "0";
-//                  r+=s;
-//                  return r;
-//                }
-
-                var i = 0;
                 while (!asm0.XInt64_Equality(a, l)) {
-//                    console.log(pad(i.toString()) + ' ' + pad(a[1].toString(16)) + '' + pad(a[0].toString(16)) +
-//                                                    ' ' + pad(b[1].toString(16)) + '' + pad(b[0].toString(16)) +
-//                                                    ' ' + pad(s[1].toString(16)) + '' + pad(s[0].toString(16)));
-//
-//                    i++;
-
                     a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
@@ -5335,7 +5334,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_02 = st_00.boxed;
+        st_02 = (st_00.r)();
         /* IL_03: ldarg.1 */
         st_01 = arg1;
         /* IL_04: unbox.any System.UInt64*/
@@ -5360,7 +5359,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_01 = st_00.boxed;
+        st_01 = (st_00.r)();
         /* IL_03: call Int32 GetLow(System.UInt64)*/
         st_02 = st_01[0];
         /* IL_08: stloc.0 */
@@ -8922,6 +8921,19 @@ var asm1; (function (asm)
             return cast_class(o.boxed, type);
         else
             return cast_class(o, type);
+    }
+
+    function convert_box_to_pointer_as_needed(o) {
+        if (typeof o.boxed !== "undefined" &&
+            typeof o.type !== "undefined" &&
+            typeof o.type.IsValueType) 
+        {
+            return { 'r': function () { return o.boxed; },
+                     'w': function (v) { return o.boxed = v; } };
+        }
+        else {
+            return o;
+        }
     }
 
     function tree_get(a, s) {

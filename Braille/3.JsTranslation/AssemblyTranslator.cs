@@ -93,6 +93,19 @@ namespace Braille.JsTranslation
             return cast_class(o, type);
     }
 
+    function convert_box_to_pointer_as_needed(o) {
+        if (typeof o.boxed !== ""undefined"" &&
+            typeof o.type !== ""undefined"" &&
+            typeof o.type.IsValueType) 
+        {
+            return { 'r': function () { return o.boxed; },
+                     'w': function (v) { return o.boxed = v; } };
+        }
+        else {
+            return o;
+        }
+    }
+
     function tree_get(a, s) {
         var c = s;
         for (var i = 0; c && i < a.length; i++)
