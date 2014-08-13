@@ -73,7 +73,7 @@ namespace System
                     return new Uint32Array([lhs[0]-rhs[0], lhs[1]]);
 
                 var x = new Uint16Array(lhs.buffer);
-                var y = new Uint16Array(rhs.buffer);                
+                var y = new Uint16Array(rhs.buffer);
 
                 var a = (x[0] - y[0]) | 0;
                 var u = 0;
@@ -132,25 +132,24 @@ namespace System
 
         [JsAssemblyStatic(Name = "XInt64_LeftShift")]
         [JsImport(@"
-            function XInt64_LeftShift(a, n)
+            function XInt64_LeftShift(lhs, n)
             {
                 n = n & 0x3f;
 
                 var maxShift = 8;
-                if (n > 8) {
+                if (n > maxShift) {
                     return asm0.XInt64_LeftShift(
-                        asm0.XInt64_LeftShift(a, maxShift), 
-                        n - maxShift);
+                           asm0.XInt64_LeftShift(lhs, maxShift), n - maxShift);
                 }
           
-                var bat = a[0] << n;
-                var ba = bat & 0xffffffff;
-                var ra = (bat >>> 24) & 0xffffffff;
-                
-                var bbt = (a[1] << n) | ra;
-                var bb = bbt & 0xffffffff;
+                var x = new Uint16Array(lhs.buffer);
 
-                return new Uint32Array([ba, bb]);
+                var a = (x[0] << n);
+                var b = (x[1] << n) | ((a >>> 16) & 0xffff);
+                var c = (x[2] << n) | ((b >>> 16) & 0xffff);
+                var d = (x[3] << n) | ((c >>> 16) & 0xffff);
+
+                return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             }
             ")]
         public extern static long operator <<(long lhs, int rhs);

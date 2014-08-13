@@ -57,7 +57,7 @@ class Program
         TestLog.Log((long)0x010101010101L);
         TestLog.Log((long)0x0101010101010L);
         TestLog.Log((long)0x01010101010101L);
-        
+
         TestLog.Log("Add 1");
         TestLog.Log(Add(0xfL, 1L));
         TestLog.Log(Add(0xffL, 1L));

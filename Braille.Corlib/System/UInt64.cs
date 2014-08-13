@@ -94,7 +94,21 @@ namespace System
 
                 var l = new Uint32Array([1, 0]);
 
+//                function pad(s) {
+//                  var r = """";
+//                  for (var k=0; k<(8-s.length); k++) r += ""0"";
+//                  r+=s;
+//                  return r;
+//                }
+
+                var i = 0;
                 while (!asm0.XInt64_Equality(a, l)) {
+//                    console.log(pad(i.toString()) + ' ' + pad(a[1].toString(16)) + '' + pad(a[0].toString(16)) +
+//                                                    ' ' + pad(b[1].toString(16)) + '' + pad(b[0].toString(16)) +
+//                                                    ' ' + pad(s[1].toString(16)) + '' + pad(s[0].toString(16)));
+//
+//                    i++;
+
                     a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
