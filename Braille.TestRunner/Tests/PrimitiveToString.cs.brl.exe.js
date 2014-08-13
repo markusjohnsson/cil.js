@@ -3053,7 +3053,7 @@ var asm0; (function (asm)
                     return new Uint32Array([lhs[0]-rhs[0], lhs[1]]);
 
                 var x = new Uint16Array(lhs.buffer);
-                var y = new Uint16Array(rhs.buffer);                
+                var y = new Uint16Array(rhs.buffer);
 
                 var a = (x[0] - y[0]) | 0;
                 var u = 0;
@@ -3102,25 +3102,24 @@ var asm0; (function (asm)
             ;;
     asm.XInt64_OnesComplement = asm.x6000067;
     asm.x6000068 = 
-            function XInt64_LeftShift(a, n)
+            function XInt64_LeftShift(lhs, n)
             {
                 n = n & 0x3f;
 
                 var maxShift = 8;
-                if (n > 8) {
+                if (n > maxShift) {
                     return asm0.XInt64_LeftShift(
-                        asm0.XInt64_LeftShift(a, maxShift), 
-                        n - maxShift);
+                           asm0.XInt64_LeftShift(lhs, maxShift), n - maxShift);
                 }
           
-                var bat = a[0] << n;
-                var ba = bat & 0xffffffff;
-                var ra = (bat >>> 24) & 0xffffffff;
-                
-                var bbt = (a[1] << n) | ra;
-                var bb = bbt & 0xffffffff;
+                var x = new Uint16Array(lhs.buffer);
 
-                return new Uint32Array([ba, bb]);
+                var a = (x[0] << n);
+                var b = (x[1] << n) | ((a >>> 16) & 0xffff);
+                var c = (x[2] << n) | ((b >>> 16) & 0xffff);
+                var d = (x[3] << n) | ((c >>> 16) & 0xffff);
+
+                return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             }
             ;;
     asm.XInt64_LeftShift = asm.x6000068;
@@ -5223,7 +5222,21 @@ var asm0; (function (asm)
 
                 var l = new Uint32Array([1, 0]);
 
+//                function pad(s) {
+//                  var r = "";
+//                  for (var k=0; k<(8-s.length); k++) r += "0";
+//                  r+=s;
+//                  return r;
+//                }
+
+                var i = 0;
                 while (!asm0.XInt64_Equality(a, l)) {
+//                    console.log(pad(i.toString()) + ' ' + pad(a[1].toString(16)) + '' + pad(a[0].toString(16)) +
+//                                                    ' ' + pad(b[1].toString(16)) + '' + pad(b[0].toString(16)) +
+//                                                    ' ' + pad(s[1].toString(16)) + '' + pad(s[0].toString(16)));
+//
+//                    i++;
+
                     a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
@@ -5309,17 +5322,65 @@ var asm0; (function (asm)
                 return r;
             };;
     asm.UInt64_Modulus = asm.x60000c9;
-    asm.x60000ca_init = function ()
+    asm.x60000ca = function Equals(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var loc0;
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        st_00 = arg0;
+        /* IL_02: ldind.i8 */
+        st_02 = st_00.boxed;
+        /* IL_03: ldarg.1 */
+        st_01 = arg1;
+        /* IL_04: unbox.any System.UInt64*/
+        st_03 = unbox_any(st_01,((asm0)["System.UInt64"])());
+        /* IL_0A: ceq */
+        st_04 = (st_02 === st_03) ? (1) : (0);
+        /* IL_0B: stloc.0 */
+        loc0 = st_04;
+        /* IL_0E: ldloc.0 */
+        st_05 = loc0;
+        /* IL_0F: ret */
+        return st_05;
+    };;
+    asm.x60000cb = function GetHashCode(arg0)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var loc0;
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        st_00 = arg0;
+        /* IL_02: ldind.i8 */
+        st_01 = st_00.boxed;
+        /* IL_03: call Int32 GetLow(System.UInt64)*/
+        st_02 = st_01[0];
+        /* IL_08: stloc.0 */
+        loc0 = st_02;
+        /* IL_0B: ldloc.0 */
+        st_03 = loc0;
+        /* IL_0C: ret */
+        return st_03;
+    };;
+    asm.x60000cd_init = function ()
     {
         (((asm0)["System.UIntPtr"])().init)();
-        asm.x60000ca = asm.x60000ca_;
+        asm.x60000cd = asm.x60000cd_;
     };;
-    asm.x60000ca = function (arg0)
+    asm.x60000cd = function (arg0)
     {
-        (asm.x60000ca_init.apply)(this,arguments);
-        return (asm.x60000ca.apply)(this,arguments);
+        (asm.x60000cd_init.apply)(this,arguments);
+        return (asm.x60000cd.apply)(this,arguments);
     };;
-    asm.x60000ca_ = function ToString(arg0)
+    asm.x60000cd_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -8677,13 +8738,13 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000c0;
                     },
-                    'asm0.x6000006': function ()
-                    {
-                        return asm0.x6000006;
-                    },
                     'asm0.x6000009': function ()
                     {
-                        return asm0.x6000009;
+                        return asm0.x60000ca;
+                    },
+                    'asm0.x6000006': function ()
+                    {
+                        return asm0.x60000cb;
                     }
                 };
             };
@@ -8730,7 +8791,7 @@ var asm0; (function (asm)
                 UIntPtr.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000ca;
+                        return asm0.x60000cd;
                     },
                     'asm0.x6000006': function ()
                     {

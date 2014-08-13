@@ -5322,17 +5322,65 @@ var asm0; (function (asm)
                 return r;
             };;
     asm.UInt64_Modulus = asm.x60000c9;
-    asm.x60000ca_init = function ()
+    asm.x60000ca = function Equals(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var loc0;
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        st_00 = arg0;
+        /* IL_02: ldind.i8 */
+        st_02 = st_00.boxed;
+        /* IL_03: ldarg.1 */
+        st_01 = arg1;
+        /* IL_04: unbox.any System.UInt64*/
+        st_03 = unbox_any(st_01,((asm0)["System.UInt64"])());
+        /* IL_0A: ceq */
+        st_04 = (st_02 === st_03) ? (1) : (0);
+        /* IL_0B: stloc.0 */
+        loc0 = st_04;
+        /* IL_0E: ldloc.0 */
+        st_05 = loc0;
+        /* IL_0F: ret */
+        return st_05;
+    };;
+    asm.x60000cb = function GetHashCode(arg0)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var loc0;
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        st_00 = arg0;
+        /* IL_02: ldind.i8 */
+        st_01 = st_00.boxed;
+        /* IL_03: call Int32 GetLow(System.UInt64)*/
+        st_02 = st_01[0];
+        /* IL_08: stloc.0 */
+        loc0 = st_02;
+        /* IL_0B: ldloc.0 */
+        st_03 = loc0;
+        /* IL_0C: ret */
+        return st_03;
+    };;
+    asm.x60000cd_init = function ()
     {
         (((asm0)["System.UIntPtr"])().init)();
-        asm.x60000ca = asm.x60000ca_;
+        asm.x60000cd = asm.x60000cd_;
     };;
-    asm.x60000ca = function (arg0)
+    asm.x60000cd = function (arg0)
     {
-        (asm.x60000ca_init.apply)(this,arguments);
-        return (asm.x60000ca.apply)(this,arguments);
+        (asm.x60000cd_init.apply)(this,arguments);
+        return (asm.x60000cd.apply)(this,arguments);
     };;
-    asm.x60000ca_ = function ToString(arg0)
+    asm.x60000cd_ = function ToString(arg0)
     {
         var t0;
         var st_00;
@@ -8690,13 +8738,13 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000c0;
                     },
-                    'asm0.x6000006': function ()
-                    {
-                        return asm0.x6000006;
-                    },
                     'asm0.x6000009': function ()
                     {
-                        return asm0.x6000009;
+                        return asm0.x60000ca;
+                    },
+                    'asm0.x6000006': function ()
+                    {
+                        return asm0.x60000cb;
                     }
                 };
             };
@@ -8743,7 +8791,7 @@ var asm0; (function (asm)
                 UIntPtr.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
-                        return asm0.x60000ca;
+                        return asm0.x60000cd;
                     },
                     'asm0.x6000006': function ()
                     {
