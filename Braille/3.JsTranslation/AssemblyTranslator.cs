@@ -203,6 +203,10 @@ namespace Braille.JsTranslation
 
         return new Uint32Array([low, high]);
     }
+
+    function to_number(n) {
+        return n[1] * 4294967296 + n[0];
+    }
 "
             };
 

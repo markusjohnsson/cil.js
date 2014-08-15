@@ -17,23 +17,30 @@ namespace Braille.JsTranslation.OpTranslators
 
         public JSExpression Translate(OpExpression node)
         {
-            var expr = ProcessInternal(node.Arguments.Single());
+            var arg = node.Arguments.Single();
+            var expr = ProcessInternal(arg);
+
+            var isInt64 = arg.ResultType == context.SystemTypes.Int64 ||
+                          arg.ResultType == context.SystemTypes.UInt64;
 
             if (node.Instruction.OpCode.Name == "conv.u8")
             {
-                return JSFactory.Call(JSFactory.Identifier("conv_u8"), expr);
+                if (isInt64)
+                    return expr;
+                else
+                    return JSFactory.Call(JSFactory.Identifier("conv_u8"), expr);
             }
 
             if (node.Instruction.OpCode.Name == "conv.i8")
             {
-                return JSFactory.Call(JSFactory.Identifier("conv_i8"), expr);
+                if (isInt64)
+                    return expr;
+                else
+                    return JSFactory.Call(JSFactory.Identifier("conv_i8"), expr);
             }
 
-            if (node.ResultType == context.SystemTypes.Int64 ||
-                node.ResultType == context.SystemTypes.UInt64)
-            {
-                throw new NotSupportedException(node.Instruction.OpCode.Name);
-            }
+            if (isInt64)
+                return JSFactory.Call(JSFactory.Identifier("to_number"), expr); 
 
             if (IsIntegerType(node.ResultType))
                 return JSFactory.Truncate(expr);

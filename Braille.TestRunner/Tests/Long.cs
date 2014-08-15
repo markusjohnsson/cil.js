@@ -506,7 +506,7 @@ class Program
         TestLog.Log(Mod(0xffffffffffffL, -0x010101010101L));
         TestLog.Log(Mod(0xfffffffffffffL, -0x0101010101010L));
         TestLog.Log(Mod(0xffffffffffffffL, -0x01010101010101L));
-        
+
         TestLog.Log(Mod(0xfL, 2L));
         TestLog.Log(Mod(0xfL, -2L));
         TestLog.Log(Mod(-0xfL, -2L));
@@ -526,6 +526,13 @@ class Program
         TestLeftShift(0x10000000000000L);
         TestLeftShift(0xffffffffffffffL);
 
+        TestLog.Log(Double(0xff));
+        TestLog.Log(Double(0xfffffffffffL));
+    }
+
+    public static double Double(long l)
+    {
+        return (double)l;
     }
 
     public static long Add(long a, long b)

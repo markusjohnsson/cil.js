@@ -167,6 +167,10 @@ var asm0; (function (asm)
 
         return new Uint32Array([low, high]);
     }
+
+    function to_number(n) {
+        return n[1] * 4294967296 + n[0];
+    }
 ;
     asm.x6000001 = function (a, b) { return Number(a === b); };;
     asm.x6000002 = function (o) { return o.constructor; };;
@@ -3201,15 +3205,15 @@ var asm0; (function (asm)
     };;
     asm.XInt64_Increment = asm.x600006c;
     asm.x600006d = 
-            function Int64_RightShift(lhs, n) {
+            function Int64_RightShift(a, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
                 if (n === 0) {
                     var result2 = a;
                 } else if (n > 32) {
-                    result2 = asm0.UInt64_RightShift(asm0.UInt64_RightShift(a, 32), n - 32);
+                    result2 = asm0.Int64_RightShift(asm0.Int64_RightShift(a, 32), n - 32);
                 } else {
-                    var unsignedShift = asm0.UInt64.op_RightShift(a, n);
+                    var unsignedShift = asm0.UInt64_RightShift(a, n);
 
                     if (asm0.Int64_isNegative(a)) {
                         var outshift = asm0.UInt64_RightShift(new Uint32Array([0xffffff, 0xffffff]), n);
@@ -5175,9 +5179,10 @@ var asm0; (function (asm)
             function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
-                if (n > 32) {
+                var maxShift = 8;
+                if (n > maxShift) {
                     return asm0.UInt64_RightShift(
-                        asm0.UInt64_RightShift(a, 32), n - 32);
+                        asm0.UInt64_RightShift(a, maxShift), n - maxShift);
                 }
 
                 var m = (1 << n) - 1;
@@ -9033,6 +9038,10 @@ var asm1; (function (asm)
 
         return new Uint32Array([low, high]);
     }
+
+    function to_number(n) {
+        return n[1] * 4294967296 + n[0];
+    }
 ;
     asm.x6000001 = braille_test_log;;
     asm.x6000002 = function _ctor(arg0)
@@ -9056,6 +9065,7 @@ var asm1; (function (asm)
     asm.x600000c_init = function ()
     {
         (((asm0)["System.UInt64"])().init)();
+        (((asm0)["System.Double"])().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function ()
@@ -9066,6 +9076,7 @@ var asm1; (function (asm)
     asm.x600000c_ = function Main()
     {
         var t0;
+        var t1;
         var st_00;
         var st_01;
         var st_02;
@@ -10341,7 +10352,33 @@ var asm1; (function (asm)
         var st_4F8;
         var st_4F9;
         var st_4FA;
+        var st_4FB;
+        var st_4FC;
+        var st_4FD;
+        var st_4FE;
+        var st_4FF;
+        var st_500;
+        var st_501;
+        var st_502;
+        var st_503;
+        var st_504;
+        var st_505;
+        var st_506;
+        var st_507;
+        var st_508;
+        var st_509;
+        var st_50A;
+        var st_50B;
+        var st_50C;
+        var st_50D;
+        var st_50E;
+        var st_50F;
+        var st_510;
+        var st_511;
+        var st_512;
+        var st_513;
         t0 = ((asm0)["System.UInt64"])();
+        t1 = ((asm0)["System.Double"])();
         /* IL_00: ldc.i4.1 */
         st_00 = (1|0);
         /* IL_01: conv.i8 */
@@ -10917,7 +10954,7 @@ var asm1; (function (asm)
         /* IL_2DC: conv.i8 */
         st_8B = conv_i8(st_89);
         /* IL_2DD: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_8C = (asm1.x600000d)(st_8A,st_8B);
+        st_8C = (asm1.x600000e)(st_8A,st_8B);
         /* IL_2E2: box System.UInt64*/
         st_8D = {
             'boxed': st_8C,
@@ -10935,7 +10972,7 @@ var asm1; (function (asm)
         /* IL_2F3: conv.i8 */
         st_91 = conv_i8(st_8F);
         /* IL_2F4: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_92 = (asm1.x600000d)(st_90,st_91);
+        st_92 = (asm1.x600000e)(st_90,st_91);
         /* IL_2F9: box System.UInt64*/
         st_93 = {
             'boxed': st_92,
@@ -10953,7 +10990,7 @@ var asm1; (function (asm)
         /* IL_30A: conv.i8 */
         st_97 = conv_i8(st_95);
         /* IL_30B: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_98 = (asm1.x600000d)(st_96,st_97);
+        st_98 = (asm1.x600000e)(st_96,st_97);
         /* IL_310: box System.UInt64*/
         st_99 = {
             'boxed': st_98,
@@ -10971,7 +11008,7 @@ var asm1; (function (asm)
         /* IL_321: conv.i8 */
         st_9D = conv_i8(st_9B);
         /* IL_322: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_9E = (asm1.x600000d)(st_9C,st_9D);
+        st_9E = (asm1.x600000e)(st_9C,st_9D);
         /* IL_327: box System.UInt64*/
         st_9F = {
             'boxed': st_9E,
@@ -10989,7 +11026,7 @@ var asm1; (function (asm)
         /* IL_338: conv.i8 */
         st_A3 = conv_i8(st_A1);
         /* IL_339: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_A4 = (asm1.x600000d)(st_A2,st_A3);
+        st_A4 = (asm1.x600000e)(st_A2,st_A3);
         /* IL_33E: box System.UInt64*/
         st_A5 = {
             'boxed': st_A4,
@@ -11007,7 +11044,7 @@ var asm1; (function (asm)
         /* IL_34F: conv.i8 */
         st_A9 = conv_i8(st_A7);
         /* IL_350: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_AA = (asm1.x600000d)(st_A8,st_A9);
+        st_AA = (asm1.x600000e)(st_A8,st_A9);
         /* IL_355: box System.UInt64*/
         st_AB = {
             'boxed': st_AA,
@@ -11025,7 +11062,7 @@ var asm1; (function (asm)
         /* IL_366: conv.i8 */
         st_AF = conv_i8(st_AD);
         /* IL_367: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_B0 = (asm1.x600000d)(st_AE,st_AF);
+        st_B0 = (asm1.x600000e)(st_AE,st_AF);
         /* IL_36C: box System.UInt64*/
         st_B1 = {
             'boxed': st_B0,
@@ -11043,7 +11080,7 @@ var asm1; (function (asm)
         /* IL_379: conv.i8 */
         st_B5 = conv_i8(st_B3);
         /* IL_37A: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_B6 = (asm1.x600000d)(st_B4,st_B5);
+        st_B6 = (asm1.x600000e)(st_B4,st_B5);
         /* IL_37F: box System.UInt64*/
         st_B7 = {
             'boxed': st_B6,
@@ -11059,7 +11096,7 @@ var asm1; (function (asm)
         /* IL_393: conv.i8 */
         st_BA = conv_i8(st_B8);
         /* IL_394: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_BB = (asm1.x600000d)(st_B9,st_BA);
+        st_BB = (asm1.x600000e)(st_B9,st_BA);
         /* IL_399: box System.UInt64*/
         st_BC = {
             'boxed': st_BB,
@@ -11075,7 +11112,7 @@ var asm1; (function (asm)
         /* IL_3AD: conv.i8 */
         st_BF = conv_i8(st_BD);
         /* IL_3AE: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_C0 = (asm1.x600000d)(st_BE,st_BF);
+        st_C0 = (asm1.x600000e)(st_BE,st_BF);
         /* IL_3B3: box System.UInt64*/
         st_C1 = {
             'boxed': st_C0,
@@ -11091,7 +11128,7 @@ var asm1; (function (asm)
         /* IL_3C7: conv.i8 */
         st_C4 = conv_i8(st_C2);
         /* IL_3C8: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_C5 = (asm1.x600000d)(st_C3,st_C4);
+        st_C5 = (asm1.x600000e)(st_C3,st_C4);
         /* IL_3CD: box System.UInt64*/
         st_C6 = {
             'boxed': st_C5,
@@ -11107,7 +11144,7 @@ var asm1; (function (asm)
         /* IL_3E1: conv.i8 */
         st_C9 = conv_i8(st_C7);
         /* IL_3E2: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_CA = (asm1.x600000d)(st_C8,st_C9);
+        st_CA = (asm1.x600000e)(st_C8,st_C9);
         /* IL_3E7: box System.UInt64*/
         st_CB = {
             'boxed': st_CA,
@@ -11123,7 +11160,7 @@ var asm1; (function (asm)
         /* IL_3FB: conv.i8 */
         st_CE = conv_i8(st_CC);
         /* IL_3FC: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_CF = (asm1.x600000d)(st_CD,st_CE);
+        st_CF = (asm1.x600000e)(st_CD,st_CE);
         /* IL_401: box System.UInt64*/
         st_D0 = {
             'boxed': st_CF,
@@ -11139,7 +11176,7 @@ var asm1; (function (asm)
         /* IL_415: conv.i8 */
         st_D3 = conv_i8(st_D1);
         /* IL_416: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_D4 = (asm1.x600000d)(st_D2,st_D3);
+        st_D4 = (asm1.x600000e)(st_D2,st_D3);
         /* IL_41B: box System.UInt64*/
         st_D5 = {
             'boxed': st_D4,
@@ -11157,7 +11194,7 @@ var asm1; (function (asm)
         /* IL_429: conv.i8 */
         st_D9 = conv_i8(st_D7);
         /* IL_42A: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_DA = (asm1.x600000d)(st_D8,st_D9);
+        st_DA = (asm1.x600000e)(st_D8,st_D9);
         /* IL_42F: box System.UInt64*/
         st_DB = {
             'boxed': st_DA,
@@ -11175,7 +11212,7 @@ var asm1; (function (asm)
         /* IL_440: conv.i8 */
         st_DF = conv_i8(st_DD);
         /* IL_441: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_E0 = (asm1.x600000d)(st_DE,st_DF);
+        st_E0 = (asm1.x600000e)(st_DE,st_DF);
         /* IL_446: box System.UInt64*/
         st_E1 = {
             'boxed': st_E0,
@@ -11193,7 +11230,7 @@ var asm1; (function (asm)
         /* IL_457: conv.i8 */
         st_E5 = conv_i8(st_E3);
         /* IL_458: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_E6 = (asm1.x600000d)(st_E4,st_E5);
+        st_E6 = (asm1.x600000e)(st_E4,st_E5);
         /* IL_45D: box System.UInt64*/
         st_E7 = {
             'boxed': st_E6,
@@ -11211,7 +11248,7 @@ var asm1; (function (asm)
         /* IL_46E: conv.i8 */
         st_EB = conv_i8(st_E9);
         /* IL_46F: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_EC = (asm1.x600000d)(st_EA,st_EB);
+        st_EC = (asm1.x600000e)(st_EA,st_EB);
         /* IL_474: box System.UInt64*/
         st_ED = {
             'boxed': st_EC,
@@ -11229,7 +11266,7 @@ var asm1; (function (asm)
         /* IL_485: conv.i8 */
         st_F1 = conv_i8(st_EF);
         /* IL_486: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_F2 = (asm1.x600000d)(st_F0,st_F1);
+        st_F2 = (asm1.x600000e)(st_F0,st_F1);
         /* IL_48B: box System.UInt64*/
         st_F3 = {
             'boxed': st_F2,
@@ -11247,7 +11284,7 @@ var asm1; (function (asm)
         /* IL_49C: conv.i8 */
         st_F7 = conv_i8(st_F5);
         /* IL_49D: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_F8 = (asm1.x600000d)(st_F6,st_F7);
+        st_F8 = (asm1.x600000e)(st_F6,st_F7);
         /* IL_4A2: box System.UInt64*/
         st_F9 = {
             'boxed': st_F8,
@@ -11265,7 +11302,7 @@ var asm1; (function (asm)
         /* IL_4B3: conv.i8 */
         st_FD = conv_i8(st_FB);
         /* IL_4B4: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_FE = (asm1.x600000d)(st_FC,st_FD);
+        st_FE = (asm1.x600000e)(st_FC,st_FD);
         /* IL_4B9: box System.UInt64*/
         st_FF = {
             'boxed': st_FE,
@@ -11283,7 +11320,7 @@ var asm1; (function (asm)
         /* IL_4C6: conv.i8 */
         st_103 = conv_i8(st_101);
         /* IL_4C7: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_104 = (asm1.x600000d)(st_102,st_103);
+        st_104 = (asm1.x600000e)(st_102,st_103);
         /* IL_4CC: box System.UInt64*/
         st_105 = {
             'boxed': st_104,
@@ -11299,7 +11336,7 @@ var asm1; (function (asm)
         /* IL_4E0: conv.i8 */
         st_108 = conv_i8(st_106);
         /* IL_4E1: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_109 = (asm1.x600000d)(st_107,st_108);
+        st_109 = (asm1.x600000e)(st_107,st_108);
         /* IL_4E6: box System.UInt64*/
         st_10A = {
             'boxed': st_109,
@@ -11315,7 +11352,7 @@ var asm1; (function (asm)
         /* IL_4FA: conv.i8 */
         st_10D = conv_i8(st_10B);
         /* IL_4FB: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_10E = (asm1.x600000d)(st_10C,st_10D);
+        st_10E = (asm1.x600000e)(st_10C,st_10D);
         /* IL_500: box System.UInt64*/
         st_10F = {
             'boxed': st_10E,
@@ -11331,7 +11368,7 @@ var asm1; (function (asm)
         /* IL_514: conv.i8 */
         st_112 = conv_i8(st_110);
         /* IL_515: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_113 = (asm1.x600000d)(st_111,st_112);
+        st_113 = (asm1.x600000e)(st_111,st_112);
         /* IL_51A: box System.UInt64*/
         st_114 = {
             'boxed': st_113,
@@ -11347,7 +11384,7 @@ var asm1; (function (asm)
         /* IL_52E: conv.i8 */
         st_117 = conv_i8(st_115);
         /* IL_52F: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_118 = (asm1.x600000d)(st_116,st_117);
+        st_118 = (asm1.x600000e)(st_116,st_117);
         /* IL_534: box System.UInt64*/
         st_119 = {
             'boxed': st_118,
@@ -11363,7 +11400,7 @@ var asm1; (function (asm)
         /* IL_548: conv.i8 */
         st_11C = conv_i8(st_11A);
         /* IL_549: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_11D = (asm1.x600000d)(st_11B,st_11C);
+        st_11D = (asm1.x600000e)(st_11B,st_11C);
         /* IL_54E: box System.UInt64*/
         st_11E = {
             'boxed': st_11D,
@@ -11379,7 +11416,7 @@ var asm1; (function (asm)
         /* IL_562: conv.i8 */
         st_121 = conv_i8(st_11F);
         /* IL_563: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_122 = (asm1.x600000d)(st_120,st_121);
+        st_122 = (asm1.x600000e)(st_120,st_121);
         /* IL_568: box System.UInt64*/
         st_123 = {
             'boxed': st_122,
@@ -11397,7 +11434,7 @@ var asm1; (function (asm)
         /* IL_576: conv.i8 */
         st_127 = conv_i8(st_125);
         /* IL_577: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_128 = (asm1.x600000d)(st_126,st_127);
+        st_128 = (asm1.x600000e)(st_126,st_127);
         /* IL_57C: box System.UInt64*/
         st_129 = {
             'boxed': st_128,
@@ -11415,7 +11452,7 @@ var asm1; (function (asm)
         /* IL_58D: conv.i8 */
         st_12D = conv_i8(st_12B);
         /* IL_58E: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_12E = (asm1.x600000d)(st_12C,st_12D);
+        st_12E = (asm1.x600000e)(st_12C,st_12D);
         /* IL_593: box System.UInt64*/
         st_12F = {
             'boxed': st_12E,
@@ -11433,7 +11470,7 @@ var asm1; (function (asm)
         /* IL_5A5: conv.i8 */
         st_133 = conv_i8(st_131);
         /* IL_5A6: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_134 = (asm1.x600000d)(st_132,st_133);
+        st_134 = (asm1.x600000e)(st_132,st_133);
         /* IL_5AB: box System.UInt64*/
         st_135 = {
             'boxed': st_134,
@@ -11451,7 +11488,7 @@ var asm1; (function (asm)
         /* IL_5C0: conv.i8 */
         st_139 = conv_i8(st_137);
         /* IL_5C1: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_13A = (asm1.x600000d)(st_138,st_139);
+        st_13A = (asm1.x600000e)(st_138,st_139);
         /* IL_5C6: box System.UInt64*/
         st_13B = {
             'boxed': st_13A,
@@ -11469,7 +11506,7 @@ var asm1; (function (asm)
         /* IL_5DB: conv.i8 */
         st_13F = conv_i8(st_13D);
         /* IL_5DC: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_140 = (asm1.x600000d)(st_13E,st_13F);
+        st_140 = (asm1.x600000e)(st_13E,st_13F);
         /* IL_5E1: box System.UInt64*/
         st_141 = {
             'boxed': st_140,
@@ -11487,7 +11524,7 @@ var asm1; (function (asm)
         /* IL_5F6: conv.i8 */
         st_145 = conv_i8(st_143);
         /* IL_5F7: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_146 = (asm1.x600000d)(st_144,st_145);
+        st_146 = (asm1.x600000e)(st_144,st_145);
         /* IL_5FC: box System.UInt64*/
         st_147 = {
             'boxed': st_146,
@@ -11505,7 +11542,7 @@ var asm1; (function (asm)
         /* IL_611: conv.i8 */
         st_14B = conv_i8(st_149);
         /* IL_612: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_14C = (asm1.x600000d)(st_14A,st_14B);
+        st_14C = (asm1.x600000e)(st_14A,st_14B);
         /* IL_617: box System.UInt64*/
         st_14D = {
             'boxed': st_14C,
@@ -11523,7 +11560,7 @@ var asm1; (function (asm)
         /* IL_628: conv.i8 */
         st_151 = conv_i8(st_14F);
         /* IL_629: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_152 = (asm1.x600000d)(st_150,st_151);
+        st_152 = (asm1.x600000e)(st_150,st_151);
         /* IL_62E: box System.UInt64*/
         st_153 = {
             'boxed': st_152,
@@ -11539,7 +11576,7 @@ var asm1; (function (asm)
         /* IL_646: conv.i8 */
         st_156 = conv_i8(st_154);
         /* IL_647: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_157 = (asm1.x600000d)(st_155,st_156);
+        st_157 = (asm1.x600000e)(st_155,st_156);
         /* IL_64C: box System.UInt64*/
         st_158 = {
             'boxed': st_157,
@@ -11553,7 +11590,7 @@ var asm1; (function (asm)
         /* IL_65F: ldc.i8 4311810305*/
         st_15A = new Uint32Array([ 0x1010101,0x1 ]);
         /* IL_668: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_15B = (asm1.x600000d)(st_159,st_15A);
+        st_15B = (asm1.x600000e)(st_159,st_15A);
         /* IL_66D: box System.UInt64*/
         st_15C = {
             'boxed': st_15B,
@@ -11567,7 +11604,7 @@ var asm1; (function (asm)
         /* IL_680: ldc.i8 68988964880*/
         st_15E = new Uint32Array([ 0x10101010,0x10 ]);
         /* IL_689: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_15F = (asm1.x600000d)(st_15D,st_15E);
+        st_15F = (asm1.x600000e)(st_15D,st_15E);
         /* IL_68E: box System.UInt64*/
         st_160 = {
             'boxed': st_15F,
@@ -11581,7 +11618,7 @@ var asm1; (function (asm)
         /* IL_6A1: ldc.i8 1103823438081*/
         st_162 = new Uint32Array([ 0x1010101,0x101 ]);
         /* IL_6AA: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_163 = (asm1.x600000d)(st_161,st_162);
+        st_163 = (asm1.x600000e)(st_161,st_162);
         /* IL_6AF: box System.UInt64*/
         st_164 = {
             'boxed': st_163,
@@ -11595,7 +11632,7 @@ var asm1; (function (asm)
         /* IL_6C2: ldc.i8 17661175009296*/
         st_166 = new Uint32Array([ 0x10101010,0x1010 ]);
         /* IL_6CB: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_167 = (asm1.x600000d)(st_165,st_166);
+        st_167 = (asm1.x600000e)(st_165,st_166);
         /* IL_6D0: box System.UInt64*/
         st_168 = {
             'boxed': st_167,
@@ -11609,7 +11646,7 @@ var asm1; (function (asm)
         /* IL_6E3: ldc.i8 282578800148737*/
         st_16A = new Uint32Array([ 0x1010101,0x10101 ]);
         /* IL_6EC: call UInt64 Add(System.UInt64, System.UInt64)*/
-        st_16B = (asm1.x600000d)(st_169,st_16A);
+        st_16B = (asm1.x600000e)(st_169,st_16A);
         /* IL_6F1: box System.UInt64*/
         st_16C = {
             'boxed': st_16B,
@@ -11627,7 +11664,7 @@ var asm1; (function (asm)
         /* IL_6FF: conv.i8 */
         st_170 = conv_i8(st_16E);
         /* IL_700: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_171 = (asm1.x600000e)(st_16F,st_170);
+        st_171 = (asm1.x600000f)(st_16F,st_170);
         /* IL_705: box System.UInt64*/
         st_172 = {
             'boxed': st_171,
@@ -11645,7 +11682,7 @@ var asm1; (function (asm)
         /* IL_716: conv.i8 */
         st_176 = conv_i8(st_174);
         /* IL_717: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_177 = (asm1.x600000e)(st_175,st_176);
+        st_177 = (asm1.x600000f)(st_175,st_176);
         /* IL_71C: box System.UInt64*/
         st_178 = {
             'boxed': st_177,
@@ -11663,7 +11700,7 @@ var asm1; (function (asm)
         /* IL_72D: conv.i8 */
         st_17C = conv_i8(st_17A);
         /* IL_72E: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_17D = (asm1.x600000e)(st_17B,st_17C);
+        st_17D = (asm1.x600000f)(st_17B,st_17C);
         /* IL_733: box System.UInt64*/
         st_17E = {
             'boxed': st_17D,
@@ -11681,7 +11718,7 @@ var asm1; (function (asm)
         /* IL_744: conv.i8 */
         st_182 = conv_i8(st_180);
         /* IL_745: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_183 = (asm1.x600000e)(st_181,st_182);
+        st_183 = (asm1.x600000f)(st_181,st_182);
         /* IL_74A: box System.UInt64*/
         st_184 = {
             'boxed': st_183,
@@ -11699,7 +11736,7 @@ var asm1; (function (asm)
         /* IL_75B: conv.i8 */
         st_188 = conv_i8(st_186);
         /* IL_75C: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_189 = (asm1.x600000e)(st_187,st_188);
+        st_189 = (asm1.x600000f)(st_187,st_188);
         /* IL_761: box System.UInt64*/
         st_18A = {
             'boxed': st_189,
@@ -11717,7 +11754,7 @@ var asm1; (function (asm)
         /* IL_772: conv.i8 */
         st_18E = conv_i8(st_18C);
         /* IL_773: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_18F = (asm1.x600000e)(st_18D,st_18E);
+        st_18F = (asm1.x600000f)(st_18D,st_18E);
         /* IL_778: box System.UInt64*/
         st_190 = {
             'boxed': st_18F,
@@ -11735,7 +11772,7 @@ var asm1; (function (asm)
         /* IL_789: conv.i8 */
         st_194 = conv_i8(st_192);
         /* IL_78A: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_195 = (asm1.x600000e)(st_193,st_194);
+        st_195 = (asm1.x600000f)(st_193,st_194);
         /* IL_78F: box System.UInt64*/
         st_196 = {
             'boxed': st_195,
@@ -11753,7 +11790,7 @@ var asm1; (function (asm)
         /* IL_79C: conv.i8 */
         st_19A = conv_i8(st_198);
         /* IL_79D: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_19B = (asm1.x600000e)(st_199,st_19A);
+        st_19B = (asm1.x600000f)(st_199,st_19A);
         /* IL_7A2: box System.UInt64*/
         st_19C = {
             'boxed': st_19B,
@@ -11769,7 +11806,7 @@ var asm1; (function (asm)
         /* IL_7B6: conv.i8 */
         st_19F = conv_i8(st_19D);
         /* IL_7B7: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1A0 = (asm1.x600000e)(st_19E,st_19F);
+        st_1A0 = (asm1.x600000f)(st_19E,st_19F);
         /* IL_7BC: box System.UInt64*/
         st_1A1 = {
             'boxed': st_1A0,
@@ -11785,7 +11822,7 @@ var asm1; (function (asm)
         /* IL_7D0: conv.i8 */
         st_1A4 = conv_i8(st_1A2);
         /* IL_7D1: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1A5 = (asm1.x600000e)(st_1A3,st_1A4);
+        st_1A5 = (asm1.x600000f)(st_1A3,st_1A4);
         /* IL_7D6: box System.UInt64*/
         st_1A6 = {
             'boxed': st_1A5,
@@ -11801,7 +11838,7 @@ var asm1; (function (asm)
         /* IL_7EA: conv.i8 */
         st_1A9 = conv_i8(st_1A7);
         /* IL_7EB: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1AA = (asm1.x600000e)(st_1A8,st_1A9);
+        st_1AA = (asm1.x600000f)(st_1A8,st_1A9);
         /* IL_7F0: box System.UInt64*/
         st_1AB = {
             'boxed': st_1AA,
@@ -11817,7 +11854,7 @@ var asm1; (function (asm)
         /* IL_804: conv.i8 */
         st_1AE = conv_i8(st_1AC);
         /* IL_805: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1AF = (asm1.x600000e)(st_1AD,st_1AE);
+        st_1AF = (asm1.x600000f)(st_1AD,st_1AE);
         /* IL_80A: box System.UInt64*/
         st_1B0 = {
             'boxed': st_1AF,
@@ -11833,7 +11870,7 @@ var asm1; (function (asm)
         /* IL_81E: conv.i8 */
         st_1B3 = conv_i8(st_1B1);
         /* IL_81F: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1B4 = (asm1.x600000e)(st_1B2,st_1B3);
+        st_1B4 = (asm1.x600000f)(st_1B2,st_1B3);
         /* IL_824: box System.UInt64*/
         st_1B5 = {
             'boxed': st_1B4,
@@ -11849,7 +11886,7 @@ var asm1; (function (asm)
         /* IL_838: conv.i8 */
         st_1B8 = conv_i8(st_1B6);
         /* IL_839: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1B9 = (asm1.x600000e)(st_1B7,st_1B8);
+        st_1B9 = (asm1.x600000f)(st_1B7,st_1B8);
         /* IL_83E: box System.UInt64*/
         st_1BA = {
             'boxed': st_1B9,
@@ -11867,7 +11904,7 @@ var asm1; (function (asm)
         /* IL_84C: conv.i8 */
         st_1BE = conv_i8(st_1BC);
         /* IL_84D: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1BF = (asm1.x600000e)(st_1BD,st_1BE);
+        st_1BF = (asm1.x600000f)(st_1BD,st_1BE);
         /* IL_852: box System.UInt64*/
         st_1C0 = {
             'boxed': st_1BF,
@@ -11885,7 +11922,7 @@ var asm1; (function (asm)
         /* IL_863: conv.i8 */
         st_1C4 = conv_i8(st_1C2);
         /* IL_864: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1C5 = (asm1.x600000e)(st_1C3,st_1C4);
+        st_1C5 = (asm1.x600000f)(st_1C3,st_1C4);
         /* IL_869: box System.UInt64*/
         st_1C6 = {
             'boxed': st_1C5,
@@ -11903,7 +11940,7 @@ var asm1; (function (asm)
         /* IL_87A: conv.i8 */
         st_1CA = conv_i8(st_1C8);
         /* IL_87B: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1CB = (asm1.x600000e)(st_1C9,st_1CA);
+        st_1CB = (asm1.x600000f)(st_1C9,st_1CA);
         /* IL_880: box System.UInt64*/
         st_1CC = {
             'boxed': st_1CB,
@@ -11921,7 +11958,7 @@ var asm1; (function (asm)
         /* IL_891: conv.i8 */
         st_1D0 = conv_i8(st_1CE);
         /* IL_892: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1D1 = (asm1.x600000e)(st_1CF,st_1D0);
+        st_1D1 = (asm1.x600000f)(st_1CF,st_1D0);
         /* IL_897: box System.UInt64*/
         st_1D2 = {
             'boxed': st_1D1,
@@ -11939,7 +11976,7 @@ var asm1; (function (asm)
         /* IL_8A8: conv.i8 */
         st_1D6 = conv_i8(st_1D4);
         /* IL_8A9: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1D7 = (asm1.x600000e)(st_1D5,st_1D6);
+        st_1D7 = (asm1.x600000f)(st_1D5,st_1D6);
         /* IL_8AE: box System.UInt64*/
         st_1D8 = {
             'boxed': st_1D7,
@@ -11957,7 +11994,7 @@ var asm1; (function (asm)
         /* IL_8BF: conv.i8 */
         st_1DC = conv_i8(st_1DA);
         /* IL_8C0: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1DD = (asm1.x600000e)(st_1DB,st_1DC);
+        st_1DD = (asm1.x600000f)(st_1DB,st_1DC);
         /* IL_8C5: box System.UInt64*/
         st_1DE = {
             'boxed': st_1DD,
@@ -11975,7 +12012,7 @@ var asm1; (function (asm)
         /* IL_8D6: conv.i8 */
         st_1E2 = conv_i8(st_1E0);
         /* IL_8D7: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1E3 = (asm1.x600000e)(st_1E1,st_1E2);
+        st_1E3 = (asm1.x600000f)(st_1E1,st_1E2);
         /* IL_8DC: box System.UInt64*/
         st_1E4 = {
             'boxed': st_1E3,
@@ -11993,7 +12030,7 @@ var asm1; (function (asm)
         /* IL_8E9: conv.i8 */
         st_1E8 = conv_i8(st_1E6);
         /* IL_8EA: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1E9 = (asm1.x600000e)(st_1E7,st_1E8);
+        st_1E9 = (asm1.x600000f)(st_1E7,st_1E8);
         /* IL_8EF: box System.UInt64*/
         st_1EA = {
             'boxed': st_1E9,
@@ -12009,7 +12046,7 @@ var asm1; (function (asm)
         /* IL_903: conv.i8 */
         st_1ED = conv_i8(st_1EB);
         /* IL_904: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1EE = (asm1.x600000e)(st_1EC,st_1ED);
+        st_1EE = (asm1.x600000f)(st_1EC,st_1ED);
         /* IL_909: box System.UInt64*/
         st_1EF = {
             'boxed': st_1EE,
@@ -12025,7 +12062,7 @@ var asm1; (function (asm)
         /* IL_91D: conv.i8 */
         st_1F2 = conv_i8(st_1F0);
         /* IL_91E: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1F3 = (asm1.x600000e)(st_1F1,st_1F2);
+        st_1F3 = (asm1.x600000f)(st_1F1,st_1F2);
         /* IL_923: box System.UInt64*/
         st_1F4 = {
             'boxed': st_1F3,
@@ -12041,7 +12078,7 @@ var asm1; (function (asm)
         /* IL_937: conv.i8 */
         st_1F7 = conv_i8(st_1F5);
         /* IL_938: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1F8 = (asm1.x600000e)(st_1F6,st_1F7);
+        st_1F8 = (asm1.x600000f)(st_1F6,st_1F7);
         /* IL_93D: box System.UInt64*/
         st_1F9 = {
             'boxed': st_1F8,
@@ -12057,7 +12094,7 @@ var asm1; (function (asm)
         /* IL_951: conv.i8 */
         st_1FC = conv_i8(st_1FA);
         /* IL_952: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_1FD = (asm1.x600000e)(st_1FB,st_1FC);
+        st_1FD = (asm1.x600000f)(st_1FB,st_1FC);
         /* IL_957: box System.UInt64*/
         st_1FE = {
             'boxed': st_1FD,
@@ -12073,7 +12110,7 @@ var asm1; (function (asm)
         /* IL_96B: conv.i8 */
         st_201 = conv_i8(st_1FF);
         /* IL_96C: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_202 = (asm1.x600000e)(st_200,st_201);
+        st_202 = (asm1.x600000f)(st_200,st_201);
         /* IL_971: box System.UInt64*/
         st_203 = {
             'boxed': st_202,
@@ -12089,7 +12126,7 @@ var asm1; (function (asm)
         /* IL_985: conv.i8 */
         st_206 = conv_i8(st_204);
         /* IL_986: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_207 = (asm1.x600000e)(st_205,st_206);
+        st_207 = (asm1.x600000f)(st_205,st_206);
         /* IL_98B: box System.UInt64*/
         st_208 = {
             'boxed': st_207,
@@ -12107,7 +12144,7 @@ var asm1; (function (asm)
         /* IL_999: conv.i8 */
         st_20C = conv_i8(st_20A);
         /* IL_99A: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_20D = (asm1.x600000e)(st_20B,st_20C);
+        st_20D = (asm1.x600000f)(st_20B,st_20C);
         /* IL_99F: box System.UInt64*/
         st_20E = {
             'boxed': st_20D,
@@ -12125,7 +12162,7 @@ var asm1; (function (asm)
         /* IL_9B0: conv.i8 */
         st_212 = conv_i8(st_210);
         /* IL_9B1: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_213 = (asm1.x600000e)(st_211,st_212);
+        st_213 = (asm1.x600000f)(st_211,st_212);
         /* IL_9B6: box System.UInt64*/
         st_214 = {
             'boxed': st_213,
@@ -12143,7 +12180,7 @@ var asm1; (function (asm)
         /* IL_9C8: conv.i8 */
         st_218 = conv_i8(st_216);
         /* IL_9C9: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_219 = (asm1.x600000e)(st_217,st_218);
+        st_219 = (asm1.x600000f)(st_217,st_218);
         /* IL_9CE: box System.UInt64*/
         st_21A = {
             'boxed': st_219,
@@ -12161,7 +12198,7 @@ var asm1; (function (asm)
         /* IL_9E3: conv.i8 */
         st_21E = conv_i8(st_21C);
         /* IL_9E4: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_21F = (asm1.x600000e)(st_21D,st_21E);
+        st_21F = (asm1.x600000f)(st_21D,st_21E);
         /* IL_9E9: box System.UInt64*/
         st_220 = {
             'boxed': st_21F,
@@ -12179,7 +12216,7 @@ var asm1; (function (asm)
         /* IL_9FE: conv.i8 */
         st_224 = conv_i8(st_222);
         /* IL_9FF: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_225 = (asm1.x600000e)(st_223,st_224);
+        st_225 = (asm1.x600000f)(st_223,st_224);
         /* IL_A04: box System.UInt64*/
         st_226 = {
             'boxed': st_225,
@@ -12197,7 +12234,7 @@ var asm1; (function (asm)
         /* IL_A19: conv.i8 */
         st_22A = conv_i8(st_228);
         /* IL_A1A: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_22B = (asm1.x600000e)(st_229,st_22A);
+        st_22B = (asm1.x600000f)(st_229,st_22A);
         /* IL_A1F: box System.UInt64*/
         st_22C = {
             'boxed': st_22B,
@@ -12215,7 +12252,7 @@ var asm1; (function (asm)
         /* IL_A34: conv.i8 */
         st_230 = conv_i8(st_22E);
         /* IL_A35: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_231 = (asm1.x600000e)(st_22F,st_230);
+        st_231 = (asm1.x600000f)(st_22F,st_230);
         /* IL_A3A: box System.UInt64*/
         st_232 = {
             'boxed': st_231,
@@ -12233,7 +12270,7 @@ var asm1; (function (asm)
         /* IL_A4B: conv.i8 */
         st_236 = conv_i8(st_234);
         /* IL_A4C: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_237 = (asm1.x600000e)(st_235,st_236);
+        st_237 = (asm1.x600000f)(st_235,st_236);
         /* IL_A51: box System.UInt64*/
         st_238 = {
             'boxed': st_237,
@@ -12249,7 +12286,7 @@ var asm1; (function (asm)
         /* IL_A69: conv.i8 */
         st_23B = conv_i8(st_239);
         /* IL_A6A: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_23C = (asm1.x600000e)(st_23A,st_23B);
+        st_23C = (asm1.x600000f)(st_23A,st_23B);
         /* IL_A6F: box System.UInt64*/
         st_23D = {
             'boxed': st_23C,
@@ -12263,7 +12300,7 @@ var asm1; (function (asm)
         /* IL_A82: ldc.i8 4311810305*/
         st_23F = new Uint32Array([ 0x1010101,0x1 ]);
         /* IL_A8B: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_240 = (asm1.x600000e)(st_23E,st_23F);
+        st_240 = (asm1.x600000f)(st_23E,st_23F);
         /* IL_A90: box System.UInt64*/
         st_241 = {
             'boxed': st_240,
@@ -12277,7 +12314,7 @@ var asm1; (function (asm)
         /* IL_AA3: ldc.i8 68988964880*/
         st_243 = new Uint32Array([ 0x10101010,0x10 ]);
         /* IL_AAC: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_244 = (asm1.x600000e)(st_242,st_243);
+        st_244 = (asm1.x600000f)(st_242,st_243);
         /* IL_AB1: box System.UInt64*/
         st_245 = {
             'boxed': st_244,
@@ -12291,7 +12328,7 @@ var asm1; (function (asm)
         /* IL_AC4: ldc.i8 1103823438081*/
         st_247 = new Uint32Array([ 0x1010101,0x101 ]);
         /* IL_ACD: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_248 = (asm1.x600000e)(st_246,st_247);
+        st_248 = (asm1.x600000f)(st_246,st_247);
         /* IL_AD2: box System.UInt64*/
         st_249 = {
             'boxed': st_248,
@@ -12305,7 +12342,7 @@ var asm1; (function (asm)
         /* IL_AE5: ldc.i8 17661175009296*/
         st_24B = new Uint32Array([ 0x10101010,0x1010 ]);
         /* IL_AEE: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_24C = (asm1.x600000e)(st_24A,st_24B);
+        st_24C = (asm1.x600000f)(st_24A,st_24B);
         /* IL_AF3: box System.UInt64*/
         st_24D = {
             'boxed': st_24C,
@@ -12319,7 +12356,7 @@ var asm1; (function (asm)
         /* IL_B06: ldc.i8 282578800148737*/
         st_24F = new Uint32Array([ 0x1010101,0x10101 ]);
         /* IL_B0F: call UInt64 Sub(System.UInt64, System.UInt64)*/
-        st_250 = (asm1.x600000e)(st_24E,st_24F);
+        st_250 = (asm1.x600000f)(st_24E,st_24F);
         /* IL_B14: box System.UInt64*/
         st_251 = {
             'boxed': st_250,
@@ -12337,7 +12374,7 @@ var asm1; (function (asm)
         /* IL_B22: conv.i8 */
         st_255 = conv_i8(st_253);
         /* IL_B23: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_256 = (asm1.x600000f)(st_254,st_255);
+        st_256 = (asm1.x6000010)(st_254,st_255);
         /* IL_B28: box System.UInt64*/
         st_257 = {
             'boxed': st_256,
@@ -12355,7 +12392,7 @@ var asm1; (function (asm)
         /* IL_B39: conv.i8 */
         st_25B = conv_i8(st_259);
         /* IL_B3A: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_25C = (asm1.x600000f)(st_25A,st_25B);
+        st_25C = (asm1.x6000010)(st_25A,st_25B);
         /* IL_B3F: box System.UInt64*/
         st_25D = {
             'boxed': st_25C,
@@ -12373,7 +12410,7 @@ var asm1; (function (asm)
         /* IL_B50: conv.i8 */
         st_261 = conv_i8(st_25F);
         /* IL_B51: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_262 = (asm1.x600000f)(st_260,st_261);
+        st_262 = (asm1.x6000010)(st_260,st_261);
         /* IL_B56: box System.UInt64*/
         st_263 = {
             'boxed': st_262,
@@ -12391,7 +12428,7 @@ var asm1; (function (asm)
         /* IL_B67: conv.i8 */
         st_267 = conv_i8(st_265);
         /* IL_B68: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_268 = (asm1.x600000f)(st_266,st_267);
+        st_268 = (asm1.x6000010)(st_266,st_267);
         /* IL_B6D: box System.UInt64*/
         st_269 = {
             'boxed': st_268,
@@ -12409,7 +12446,7 @@ var asm1; (function (asm)
         /* IL_B7E: conv.i8 */
         st_26D = conv_i8(st_26B);
         /* IL_B7F: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_26E = (asm1.x600000f)(st_26C,st_26D);
+        st_26E = (asm1.x6000010)(st_26C,st_26D);
         /* IL_B84: box System.UInt64*/
         st_26F = {
             'boxed': st_26E,
@@ -12427,7 +12464,7 @@ var asm1; (function (asm)
         /* IL_B95: conv.i8 */
         st_273 = conv_i8(st_271);
         /* IL_B96: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_274 = (asm1.x600000f)(st_272,st_273);
+        st_274 = (asm1.x6000010)(st_272,st_273);
         /* IL_B9B: box System.UInt64*/
         st_275 = {
             'boxed': st_274,
@@ -12445,7 +12482,7 @@ var asm1; (function (asm)
         /* IL_BAC: conv.i8 */
         st_279 = conv_i8(st_277);
         /* IL_BAD: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_27A = (asm1.x600000f)(st_278,st_279);
+        st_27A = (asm1.x6000010)(st_278,st_279);
         /* IL_BB2: box System.UInt64*/
         st_27B = {
             'boxed': st_27A,
@@ -12463,7 +12500,7 @@ var asm1; (function (asm)
         /* IL_BBF: conv.i8 */
         st_27F = conv_i8(st_27D);
         /* IL_BC0: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_280 = (asm1.x600000f)(st_27E,st_27F);
+        st_280 = (asm1.x6000010)(st_27E,st_27F);
         /* IL_BC5: box System.UInt64*/
         st_281 = {
             'boxed': st_280,
@@ -12479,7 +12516,7 @@ var asm1; (function (asm)
         /* IL_BD9: conv.i8 */
         st_284 = conv_i8(st_282);
         /* IL_BDA: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_285 = (asm1.x600000f)(st_283,st_284);
+        st_285 = (asm1.x6000010)(st_283,st_284);
         /* IL_BDF: box System.UInt64*/
         st_286 = {
             'boxed': st_285,
@@ -12495,7 +12532,7 @@ var asm1; (function (asm)
         /* IL_BF3: conv.i8 */
         st_289 = conv_i8(st_287);
         /* IL_BF4: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_28A = (asm1.x600000f)(st_288,st_289);
+        st_28A = (asm1.x6000010)(st_288,st_289);
         /* IL_BF9: box System.UInt64*/
         st_28B = {
             'boxed': st_28A,
@@ -12511,7 +12548,7 @@ var asm1; (function (asm)
         /* IL_C0D: conv.i8 */
         st_28E = conv_i8(st_28C);
         /* IL_C0E: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_28F = (asm1.x600000f)(st_28D,st_28E);
+        st_28F = (asm1.x6000010)(st_28D,st_28E);
         /* IL_C13: box System.UInt64*/
         st_290 = {
             'boxed': st_28F,
@@ -12527,7 +12564,7 @@ var asm1; (function (asm)
         /* IL_C27: conv.i8 */
         st_293 = conv_i8(st_291);
         /* IL_C28: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_294 = (asm1.x600000f)(st_292,st_293);
+        st_294 = (asm1.x6000010)(st_292,st_293);
         /* IL_C2D: box System.UInt64*/
         st_295 = {
             'boxed': st_294,
@@ -12543,7 +12580,7 @@ var asm1; (function (asm)
         /* IL_C41: conv.i8 */
         st_298 = conv_i8(st_296);
         /* IL_C42: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_299 = (asm1.x600000f)(st_297,st_298);
+        st_299 = (asm1.x6000010)(st_297,st_298);
         /* IL_C47: box System.UInt64*/
         st_29A = {
             'boxed': st_299,
@@ -12559,7 +12596,7 @@ var asm1; (function (asm)
         /* IL_C5B: conv.i8 */
         st_29D = conv_i8(st_29B);
         /* IL_C5C: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_29E = (asm1.x600000f)(st_29C,st_29D);
+        st_29E = (asm1.x6000010)(st_29C,st_29D);
         /* IL_C61: box System.UInt64*/
         st_29F = {
             'boxed': st_29E,
@@ -12577,7 +12614,7 @@ var asm1; (function (asm)
         /* IL_C6F: conv.i8 */
         st_2A3 = conv_i8(st_2A1);
         /* IL_C70: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2A4 = (asm1.x600000f)(st_2A2,st_2A3);
+        st_2A4 = (asm1.x6000010)(st_2A2,st_2A3);
         /* IL_C75: box System.UInt64*/
         st_2A5 = {
             'boxed': st_2A4,
@@ -12595,7 +12632,7 @@ var asm1; (function (asm)
         /* IL_C86: conv.i8 */
         st_2A9 = conv_i8(st_2A7);
         /* IL_C87: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2AA = (asm1.x600000f)(st_2A8,st_2A9);
+        st_2AA = (asm1.x6000010)(st_2A8,st_2A9);
         /* IL_C8C: box System.UInt64*/
         st_2AB = {
             'boxed': st_2AA,
@@ -12613,7 +12650,7 @@ var asm1; (function (asm)
         /* IL_C9D: conv.i8 */
         st_2AF = conv_i8(st_2AD);
         /* IL_C9E: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2B0 = (asm1.x600000f)(st_2AE,st_2AF);
+        st_2B0 = (asm1.x6000010)(st_2AE,st_2AF);
         /* IL_CA3: box System.UInt64*/
         st_2B1 = {
             'boxed': st_2B0,
@@ -12631,7 +12668,7 @@ var asm1; (function (asm)
         /* IL_CB4: conv.i8 */
         st_2B5 = conv_i8(st_2B3);
         /* IL_CB5: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2B6 = (asm1.x600000f)(st_2B4,st_2B5);
+        st_2B6 = (asm1.x6000010)(st_2B4,st_2B5);
         /* IL_CBA: box System.UInt64*/
         st_2B7 = {
             'boxed': st_2B6,
@@ -12649,7 +12686,7 @@ var asm1; (function (asm)
         /* IL_CCB: conv.i8 */
         st_2BB = conv_i8(st_2B9);
         /* IL_CCC: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2BC = (asm1.x600000f)(st_2BA,st_2BB);
+        st_2BC = (asm1.x6000010)(st_2BA,st_2BB);
         /* IL_CD1: box System.UInt64*/
         st_2BD = {
             'boxed': st_2BC,
@@ -12667,7 +12704,7 @@ var asm1; (function (asm)
         /* IL_CE2: conv.i8 */
         st_2C1 = conv_i8(st_2BF);
         /* IL_CE3: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2C2 = (asm1.x600000f)(st_2C0,st_2C1);
+        st_2C2 = (asm1.x6000010)(st_2C0,st_2C1);
         /* IL_CE8: box System.UInt64*/
         st_2C3 = {
             'boxed': st_2C2,
@@ -12685,7 +12722,7 @@ var asm1; (function (asm)
         /* IL_CF9: conv.i8 */
         st_2C7 = conv_i8(st_2C5);
         /* IL_CFA: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2C8 = (asm1.x600000f)(st_2C6,st_2C7);
+        st_2C8 = (asm1.x6000010)(st_2C6,st_2C7);
         /* IL_CFF: box System.UInt64*/
         st_2C9 = {
             'boxed': st_2C8,
@@ -12703,7 +12740,7 @@ var asm1; (function (asm)
         /* IL_D0C: conv.i8 */
         st_2CD = conv_i8(st_2CB);
         /* IL_D0D: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2CE = (asm1.x600000f)(st_2CC,st_2CD);
+        st_2CE = (asm1.x6000010)(st_2CC,st_2CD);
         /* IL_D12: box System.UInt64*/
         st_2CF = {
             'boxed': st_2CE,
@@ -12719,7 +12756,7 @@ var asm1; (function (asm)
         /* IL_D26: conv.i8 */
         st_2D2 = conv_i8(st_2D0);
         /* IL_D27: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2D3 = (asm1.x600000f)(st_2D1,st_2D2);
+        st_2D3 = (asm1.x6000010)(st_2D1,st_2D2);
         /* IL_D2C: box System.UInt64*/
         st_2D4 = {
             'boxed': st_2D3,
@@ -12735,7 +12772,7 @@ var asm1; (function (asm)
         /* IL_D40: conv.i8 */
         st_2D7 = conv_i8(st_2D5);
         /* IL_D41: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2D8 = (asm1.x600000f)(st_2D6,st_2D7);
+        st_2D8 = (asm1.x6000010)(st_2D6,st_2D7);
         /* IL_D46: box System.UInt64*/
         st_2D9 = {
             'boxed': st_2D8,
@@ -12751,7 +12788,7 @@ var asm1; (function (asm)
         /* IL_D5A: conv.i8 */
         st_2DC = conv_i8(st_2DA);
         /* IL_D5B: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2DD = (asm1.x600000f)(st_2DB,st_2DC);
+        st_2DD = (asm1.x6000010)(st_2DB,st_2DC);
         /* IL_D60: box System.UInt64*/
         st_2DE = {
             'boxed': st_2DD,
@@ -12767,7 +12804,7 @@ var asm1; (function (asm)
         /* IL_D74: conv.i8 */
         st_2E1 = conv_i8(st_2DF);
         /* IL_D75: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2E2 = (asm1.x600000f)(st_2E0,st_2E1);
+        st_2E2 = (asm1.x6000010)(st_2E0,st_2E1);
         /* IL_D7A: box System.UInt64*/
         st_2E3 = {
             'boxed': st_2E2,
@@ -12783,7 +12820,7 @@ var asm1; (function (asm)
         /* IL_D8E: conv.i8 */
         st_2E6 = conv_i8(st_2E4);
         /* IL_D8F: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2E7 = (asm1.x600000f)(st_2E5,st_2E6);
+        st_2E7 = (asm1.x6000010)(st_2E5,st_2E6);
         /* IL_D94: box System.UInt64*/
         st_2E8 = {
             'boxed': st_2E7,
@@ -12799,7 +12836,7 @@ var asm1; (function (asm)
         /* IL_DA8: conv.i8 */
         st_2EB = conv_i8(st_2E9);
         /* IL_DA9: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2EC = (asm1.x600000f)(st_2EA,st_2EB);
+        st_2EC = (asm1.x6000010)(st_2EA,st_2EB);
         /* IL_DAE: box System.UInt64*/
         st_2ED = {
             'boxed': st_2EC,
@@ -12817,7 +12854,7 @@ var asm1; (function (asm)
         /* IL_DBC: conv.i8 */
         st_2F1 = conv_i8(st_2EF);
         /* IL_DBD: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2F2 = (asm1.x600000f)(st_2F0,st_2F1);
+        st_2F2 = (asm1.x6000010)(st_2F0,st_2F1);
         /* IL_DC2: box System.UInt64*/
         st_2F3 = {
             'boxed': st_2F2,
@@ -12835,7 +12872,7 @@ var asm1; (function (asm)
         /* IL_DD3: conv.i8 */
         st_2F7 = conv_i8(st_2F5);
         /* IL_DD4: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2F8 = (asm1.x600000f)(st_2F6,st_2F7);
+        st_2F8 = (asm1.x6000010)(st_2F6,st_2F7);
         /* IL_DD9: box System.UInt64*/
         st_2F9 = {
             'boxed': st_2F8,
@@ -12853,7 +12890,7 @@ var asm1; (function (asm)
         /* IL_DEB: conv.i8 */
         st_2FD = conv_i8(st_2FB);
         /* IL_DEC: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_2FE = (asm1.x600000f)(st_2FC,st_2FD);
+        st_2FE = (asm1.x6000010)(st_2FC,st_2FD);
         /* IL_DF1: box System.UInt64*/
         st_2FF = {
             'boxed': st_2FE,
@@ -12871,7 +12908,7 @@ var asm1; (function (asm)
         /* IL_E06: conv.i8 */
         st_303 = conv_i8(st_301);
         /* IL_E07: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_304 = (asm1.x600000f)(st_302,st_303);
+        st_304 = (asm1.x6000010)(st_302,st_303);
         /* IL_E0C: box System.UInt64*/
         st_305 = {
             'boxed': st_304,
@@ -12889,7 +12926,7 @@ var asm1; (function (asm)
         /* IL_E21: conv.i8 */
         st_309 = conv_i8(st_307);
         /* IL_E22: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_30A = (asm1.x600000f)(st_308,st_309);
+        st_30A = (asm1.x6000010)(st_308,st_309);
         /* IL_E27: box System.UInt64*/
         st_30B = {
             'boxed': st_30A,
@@ -12907,7 +12944,7 @@ var asm1; (function (asm)
         /* IL_E3C: conv.i8 */
         st_30F = conv_i8(st_30D);
         /* IL_E3D: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_310 = (asm1.x600000f)(st_30E,st_30F);
+        st_310 = (asm1.x6000010)(st_30E,st_30F);
         /* IL_E42: box System.UInt64*/
         st_311 = {
             'boxed': st_310,
@@ -12925,7 +12962,7 @@ var asm1; (function (asm)
         /* IL_E57: conv.i8 */
         st_315 = conv_i8(st_313);
         /* IL_E58: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_316 = (asm1.x600000f)(st_314,st_315);
+        st_316 = (asm1.x6000010)(st_314,st_315);
         /* IL_E5D: box System.UInt64*/
         st_317 = {
             'boxed': st_316,
@@ -12943,7 +12980,7 @@ var asm1; (function (asm)
         /* IL_E6E: conv.i8 */
         st_31B = conv_i8(st_319);
         /* IL_E6F: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_31C = (asm1.x600000f)(st_31A,st_31B);
+        st_31C = (asm1.x6000010)(st_31A,st_31B);
         /* IL_E74: box System.UInt64*/
         st_31D = {
             'boxed': st_31C,
@@ -12959,7 +12996,7 @@ var asm1; (function (asm)
         /* IL_E8C: conv.i8 */
         st_320 = conv_i8(st_31E);
         /* IL_E8D: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_321 = (asm1.x600000f)(st_31F,st_320);
+        st_321 = (asm1.x6000010)(st_31F,st_320);
         /* IL_E92: box System.UInt64*/
         st_322 = {
             'boxed': st_321,
@@ -12973,7 +13010,7 @@ var asm1; (function (asm)
         /* IL_EA5: ldc.i8 4311810305*/
         st_324 = new Uint32Array([ 0x1010101,0x1 ]);
         /* IL_EAE: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_325 = (asm1.x600000f)(st_323,st_324);
+        st_325 = (asm1.x6000010)(st_323,st_324);
         /* IL_EB3: box System.UInt64*/
         st_326 = {
             'boxed': st_325,
@@ -12987,7 +13024,7 @@ var asm1; (function (asm)
         /* IL_EC6: ldc.i8 68988964880*/
         st_328 = new Uint32Array([ 0x10101010,0x10 ]);
         /* IL_ECF: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_329 = (asm1.x600000f)(st_327,st_328);
+        st_329 = (asm1.x6000010)(st_327,st_328);
         /* IL_ED4: box System.UInt64*/
         st_32A = {
             'boxed': st_329,
@@ -13001,7 +13038,7 @@ var asm1; (function (asm)
         /* IL_EE7: ldc.i8 1103823438081*/
         st_32C = new Uint32Array([ 0x1010101,0x101 ]);
         /* IL_EF0: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_32D = (asm1.x600000f)(st_32B,st_32C);
+        st_32D = (asm1.x6000010)(st_32B,st_32C);
         /* IL_EF5: box System.UInt64*/
         st_32E = {
             'boxed': st_32D,
@@ -13015,7 +13052,7 @@ var asm1; (function (asm)
         /* IL_F08: ldc.i8 17661175009296*/
         st_330 = new Uint32Array([ 0x10101010,0x1010 ]);
         /* IL_F11: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_331 = (asm1.x600000f)(st_32F,st_330);
+        st_331 = (asm1.x6000010)(st_32F,st_330);
         /* IL_F16: box System.UInt64*/
         st_332 = {
             'boxed': st_331,
@@ -13029,7 +13066,7 @@ var asm1; (function (asm)
         /* IL_F29: ldc.i8 282578800148737*/
         st_334 = new Uint32Array([ 0x1010101,0x10101 ]);
         /* IL_F32: call UInt64 Mul(System.UInt64, System.UInt64)*/
-        st_335 = (asm1.x600000f)(st_333,st_334);
+        st_335 = (asm1.x6000010)(st_333,st_334);
         /* IL_F37: box System.UInt64*/
         st_336 = {
             'boxed': st_335,
@@ -13051,7 +13088,7 @@ var asm1; (function (asm)
         /* IL_F4F: conv.i8 */
         st_33B = conv_i8(st_339);
         /* IL_F50: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_33C = (asm1.x6000010)(st_33A,st_33B);
+        st_33C = (asm1.x6000011)(st_33A,st_33B);
         /* IL_F55: box System.UInt64*/
         st_33D = {
             'boxed': st_33C,
@@ -13069,7 +13106,7 @@ var asm1; (function (asm)
         /* IL_F66: conv.i8 */
         st_341 = conv_i8(st_33F);
         /* IL_F67: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_342 = (asm1.x6000010)(st_340,st_341);
+        st_342 = (asm1.x6000011)(st_340,st_341);
         /* IL_F6C: box System.UInt64*/
         st_343 = {
             'boxed': st_342,
@@ -13087,7 +13124,7 @@ var asm1; (function (asm)
         /* IL_F7D: conv.i8 */
         st_347 = conv_i8(st_345);
         /* IL_F7E: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_348 = (asm1.x6000010)(st_346,st_347);
+        st_348 = (asm1.x6000011)(st_346,st_347);
         /* IL_F83: box System.UInt64*/
         st_349 = {
             'boxed': st_348,
@@ -13105,7 +13142,7 @@ var asm1; (function (asm)
         /* IL_F94: conv.i8 */
         st_34D = conv_i8(st_34B);
         /* IL_F95: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_34E = (asm1.x6000010)(st_34C,st_34D);
+        st_34E = (asm1.x6000011)(st_34C,st_34D);
         /* IL_F9A: box System.UInt64*/
         st_34F = {
             'boxed': st_34E,
@@ -13123,7 +13160,7 @@ var asm1; (function (asm)
         /* IL_FAB: conv.i8 */
         st_353 = conv_i8(st_351);
         /* IL_FAC: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_354 = (asm1.x6000010)(st_352,st_353);
+        st_354 = (asm1.x6000011)(st_352,st_353);
         /* IL_FB1: box System.UInt64*/
         st_355 = {
             'boxed': st_354,
@@ -13141,7 +13178,7 @@ var asm1; (function (asm)
         /* IL_FC2: conv.i8 */
         st_359 = conv_i8(st_357);
         /* IL_FC3: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_35A = (asm1.x6000010)(st_358,st_359);
+        st_35A = (asm1.x6000011)(st_358,st_359);
         /* IL_FC8: box System.UInt64*/
         st_35B = {
             'boxed': st_35A,
@@ -13159,7 +13196,7 @@ var asm1; (function (asm)
         /* IL_FD9: conv.i8 */
         st_35F = conv_i8(st_35D);
         /* IL_FDA: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_360 = (asm1.x6000010)(st_35E,st_35F);
+        st_360 = (asm1.x6000011)(st_35E,st_35F);
         /* IL_FDF: box System.UInt64*/
         st_361 = {
             'boxed': st_360,
@@ -13177,7 +13214,7 @@ var asm1; (function (asm)
         /* IL_FEC: conv.i8 */
         st_365 = conv_i8(st_363);
         /* IL_FED: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_366 = (asm1.x6000010)(st_364,st_365);
+        st_366 = (asm1.x6000011)(st_364,st_365);
         /* IL_FF2: box System.UInt64*/
         st_367 = {
             'boxed': st_366,
@@ -13193,7 +13230,7 @@ var asm1; (function (asm)
         /* IL_1006: conv.i8 */
         st_36A = conv_i8(st_368);
         /* IL_1007: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_36B = (asm1.x6000010)(st_369,st_36A);
+        st_36B = (asm1.x6000011)(st_369,st_36A);
         /* IL_100C: box System.UInt64*/
         st_36C = {
             'boxed': st_36B,
@@ -13209,7 +13246,7 @@ var asm1; (function (asm)
         /* IL_1020: conv.i8 */
         st_36F = conv_i8(st_36D);
         /* IL_1021: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_370 = (asm1.x6000010)(st_36E,st_36F);
+        st_370 = (asm1.x6000011)(st_36E,st_36F);
         /* IL_1026: box System.UInt64*/
         st_371 = {
             'boxed': st_370,
@@ -13225,7 +13262,7 @@ var asm1; (function (asm)
         /* IL_103A: conv.i8 */
         st_374 = conv_i8(st_372);
         /* IL_103B: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_375 = (asm1.x6000010)(st_373,st_374);
+        st_375 = (asm1.x6000011)(st_373,st_374);
         /* IL_1040: box System.UInt64*/
         st_376 = {
             'boxed': st_375,
@@ -13241,7 +13278,7 @@ var asm1; (function (asm)
         /* IL_1054: conv.i8 */
         st_379 = conv_i8(st_377);
         /* IL_1055: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_37A = (asm1.x6000010)(st_378,st_379);
+        st_37A = (asm1.x6000011)(st_378,st_379);
         /* IL_105A: box System.UInt64*/
         st_37B = {
             'boxed': st_37A,
@@ -13257,7 +13294,7 @@ var asm1; (function (asm)
         /* IL_106E: conv.i8 */
         st_37E = conv_i8(st_37C);
         /* IL_106F: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_37F = (asm1.x6000010)(st_37D,st_37E);
+        st_37F = (asm1.x6000011)(st_37D,st_37E);
         /* IL_1074: box System.UInt64*/
         st_380 = {
             'boxed': st_37F,
@@ -13273,7 +13310,7 @@ var asm1; (function (asm)
         /* IL_1088: conv.i8 */
         st_383 = conv_i8(st_381);
         /* IL_1089: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_384 = (asm1.x6000010)(st_382,st_383);
+        st_384 = (asm1.x6000011)(st_382,st_383);
         /* IL_108E: box System.UInt64*/
         st_385 = {
             'boxed': st_384,
@@ -13295,7 +13332,7 @@ var asm1; (function (asm)
         /* IL_10A6: conv.i8 */
         st_38A = conv_i8(st_388);
         /* IL_10A7: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_38B = (asm1.x6000010)(st_389,st_38A);
+        st_38B = (asm1.x6000011)(st_389,st_38A);
         /* IL_10AC: box System.UInt64*/
         st_38C = {
             'boxed': st_38B,
@@ -13313,7 +13350,7 @@ var asm1; (function (asm)
         /* IL_10BD: conv.i8 */
         st_390 = conv_i8(st_38E);
         /* IL_10BE: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_391 = (asm1.x6000010)(st_38F,st_390);
+        st_391 = (asm1.x6000011)(st_38F,st_390);
         /* IL_10C3: box System.UInt64*/
         st_392 = {
             'boxed': st_391,
@@ -13331,7 +13368,7 @@ var asm1; (function (asm)
         /* IL_10D4: conv.i8 */
         st_396 = conv_i8(st_394);
         /* IL_10D5: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_397 = (asm1.x6000010)(st_395,st_396);
+        st_397 = (asm1.x6000011)(st_395,st_396);
         /* IL_10DA: box System.UInt64*/
         st_398 = {
             'boxed': st_397,
@@ -13349,7 +13386,7 @@ var asm1; (function (asm)
         /* IL_10EB: conv.i8 */
         st_39C = conv_i8(st_39A);
         /* IL_10EC: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_39D = (asm1.x6000010)(st_39B,st_39C);
+        st_39D = (asm1.x6000011)(st_39B,st_39C);
         /* IL_10F1: box System.UInt64*/
         st_39E = {
             'boxed': st_39D,
@@ -13367,7 +13404,7 @@ var asm1; (function (asm)
         /* IL_1102: conv.i8 */
         st_3A2 = conv_i8(st_3A0);
         /* IL_1103: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3A3 = (asm1.x6000010)(st_3A1,st_3A2);
+        st_3A3 = (asm1.x6000011)(st_3A1,st_3A2);
         /* IL_1108: box System.UInt64*/
         st_3A4 = {
             'boxed': st_3A3,
@@ -13385,7 +13422,7 @@ var asm1; (function (asm)
         /* IL_1119: conv.i8 */
         st_3A8 = conv_i8(st_3A6);
         /* IL_111A: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3A9 = (asm1.x6000010)(st_3A7,st_3A8);
+        st_3A9 = (asm1.x6000011)(st_3A7,st_3A8);
         /* IL_111F: box System.UInt64*/
         st_3AA = {
             'boxed': st_3A9,
@@ -13403,7 +13440,7 @@ var asm1; (function (asm)
         /* IL_1130: conv.i8 */
         st_3AE = conv_i8(st_3AC);
         /* IL_1131: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3AF = (asm1.x6000010)(st_3AD,st_3AE);
+        st_3AF = (asm1.x6000011)(st_3AD,st_3AE);
         /* IL_1136: box System.UInt64*/
         st_3B0 = {
             'boxed': st_3AF,
@@ -13421,7 +13458,7 @@ var asm1; (function (asm)
         /* IL_1143: conv.i8 */
         st_3B4 = conv_i8(st_3B2);
         /* IL_1144: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3B5 = (asm1.x6000010)(st_3B3,st_3B4);
+        st_3B5 = (asm1.x6000011)(st_3B3,st_3B4);
         /* IL_1149: box System.UInt64*/
         st_3B6 = {
             'boxed': st_3B5,
@@ -13437,7 +13474,7 @@ var asm1; (function (asm)
         /* IL_115D: conv.i8 */
         st_3B9 = conv_i8(st_3B7);
         /* IL_115E: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3BA = (asm1.x6000010)(st_3B8,st_3B9);
+        st_3BA = (asm1.x6000011)(st_3B8,st_3B9);
         /* IL_1163: box System.UInt64*/
         st_3BB = {
             'boxed': st_3BA,
@@ -13453,7 +13490,7 @@ var asm1; (function (asm)
         /* IL_1177: conv.i8 */
         st_3BE = conv_i8(st_3BC);
         /* IL_1178: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3BF = (asm1.x6000010)(st_3BD,st_3BE);
+        st_3BF = (asm1.x6000011)(st_3BD,st_3BE);
         /* IL_117D: box System.UInt64*/
         st_3C0 = {
             'boxed': st_3BF,
@@ -13469,7 +13506,7 @@ var asm1; (function (asm)
         /* IL_1191: conv.i8 */
         st_3C3 = conv_i8(st_3C1);
         /* IL_1192: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3C4 = (asm1.x6000010)(st_3C2,st_3C3);
+        st_3C4 = (asm1.x6000011)(st_3C2,st_3C3);
         /* IL_1197: box System.UInt64*/
         st_3C5 = {
             'boxed': st_3C4,
@@ -13485,7 +13522,7 @@ var asm1; (function (asm)
         /* IL_11AB: conv.i8 */
         st_3C8 = conv_i8(st_3C6);
         /* IL_11AC: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3C9 = (asm1.x6000010)(st_3C7,st_3C8);
+        st_3C9 = (asm1.x6000011)(st_3C7,st_3C8);
         /* IL_11B1: box System.UInt64*/
         st_3CA = {
             'boxed': st_3C9,
@@ -13501,7 +13538,7 @@ var asm1; (function (asm)
         /* IL_11C5: conv.i8 */
         st_3CD = conv_i8(st_3CB);
         /* IL_11C6: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3CE = (asm1.x6000010)(st_3CC,st_3CD);
+        st_3CE = (asm1.x6000011)(st_3CC,st_3CD);
         /* IL_11CB: box System.UInt64*/
         st_3CF = {
             'boxed': st_3CE,
@@ -13517,7 +13554,7 @@ var asm1; (function (asm)
         /* IL_11DF: conv.i8 */
         st_3D2 = conv_i8(st_3D0);
         /* IL_11E0: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3D3 = (asm1.x6000010)(st_3D1,st_3D2);
+        st_3D3 = (asm1.x6000011)(st_3D1,st_3D2);
         /* IL_11E5: box System.UInt64*/
         st_3D4 = {
             'boxed': st_3D3,
@@ -13539,7 +13576,7 @@ var asm1; (function (asm)
         /* IL_1200: conv.i8 */
         st_3D9 = conv_i8(st_3D7);
         /* IL_1201: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3DA = (asm1.x6000010)(st_3D8,st_3D9);
+        st_3DA = (asm1.x6000011)(st_3D8,st_3D9);
         /* IL_1206: box System.UInt64*/
         st_3DB = {
             'boxed': st_3DA,
@@ -13557,7 +13594,7 @@ var asm1; (function (asm)
         /* IL_1218: conv.i8 */
         st_3DF = conv_i8(st_3DD);
         /* IL_1219: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3E0 = (asm1.x6000010)(st_3DE,st_3DF);
+        st_3E0 = (asm1.x6000011)(st_3DE,st_3DF);
         /* IL_121E: box System.UInt64*/
         st_3E1 = {
             'boxed': st_3E0,
@@ -13575,7 +13612,7 @@ var asm1; (function (asm)
         /* IL_1233: conv.i8 */
         st_3E5 = conv_i8(st_3E3);
         /* IL_1234: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3E6 = (asm1.x6000010)(st_3E4,st_3E5);
+        st_3E6 = (asm1.x6000011)(st_3E4,st_3E5);
         /* IL_1239: box System.UInt64*/
         st_3E7 = {
             'boxed': st_3E6,
@@ -13593,7 +13630,7 @@ var asm1; (function (asm)
         /* IL_124E: conv.i8 */
         st_3EB = conv_i8(st_3E9);
         /* IL_124F: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3EC = (asm1.x6000010)(st_3EA,st_3EB);
+        st_3EC = (asm1.x6000011)(st_3EA,st_3EB);
         /* IL_1254: box System.UInt64*/
         st_3ED = {
             'boxed': st_3EC,
@@ -13611,7 +13648,7 @@ var asm1; (function (asm)
         /* IL_1269: conv.i8 */
         st_3F1 = conv_i8(st_3EF);
         /* IL_126A: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3F2 = (asm1.x6000010)(st_3F0,st_3F1);
+        st_3F2 = (asm1.x6000011)(st_3F0,st_3F1);
         /* IL_126F: box System.UInt64*/
         st_3F3 = {
             'boxed': st_3F2,
@@ -13629,7 +13666,7 @@ var asm1; (function (asm)
         /* IL_1284: conv.i8 */
         st_3F7 = conv_i8(st_3F5);
         /* IL_1285: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3F8 = (asm1.x6000010)(st_3F6,st_3F7);
+        st_3F8 = (asm1.x6000011)(st_3F6,st_3F7);
         /* IL_128A: box System.UInt64*/
         st_3F9 = {
             'boxed': st_3F8,
@@ -13647,7 +13684,7 @@ var asm1; (function (asm)
         /* IL_129B: conv.i8 */
         st_3FD = conv_i8(st_3FB);
         /* IL_129C: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_3FE = (asm1.x6000010)(st_3FC,st_3FD);
+        st_3FE = (asm1.x6000011)(st_3FC,st_3FD);
         /* IL_12A1: box System.UInt64*/
         st_3FF = {
             'boxed': st_3FE,
@@ -13663,7 +13700,7 @@ var asm1; (function (asm)
         /* IL_12B9: conv.i8 */
         st_402 = conv_i8(st_400);
         /* IL_12BA: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_403 = (asm1.x6000010)(st_401,st_402);
+        st_403 = (asm1.x6000011)(st_401,st_402);
         /* IL_12BF: box System.UInt64*/
         st_404 = {
             'boxed': st_403,
@@ -13677,7 +13714,7 @@ var asm1; (function (asm)
         /* IL_12D2: ldc.i8 4311810305*/
         st_406 = new Uint32Array([ 0x1010101,0x1 ]);
         /* IL_12DB: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_407 = (asm1.x6000010)(st_405,st_406);
+        st_407 = (asm1.x6000011)(st_405,st_406);
         /* IL_12E0: box System.UInt64*/
         st_408 = {
             'boxed': st_407,
@@ -13691,7 +13728,7 @@ var asm1; (function (asm)
         /* IL_12F3: ldc.i8 68988964880*/
         st_40A = new Uint32Array([ 0x10101010,0x10 ]);
         /* IL_12FC: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_40B = (asm1.x6000010)(st_409,st_40A);
+        st_40B = (asm1.x6000011)(st_409,st_40A);
         /* IL_1301: box System.UInt64*/
         st_40C = {
             'boxed': st_40B,
@@ -13705,7 +13742,7 @@ var asm1; (function (asm)
         /* IL_1314: ldc.i8 1103823438081*/
         st_40E = new Uint32Array([ 0x1010101,0x101 ]);
         /* IL_131D: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_40F = (asm1.x6000010)(st_40D,st_40E);
+        st_40F = (asm1.x6000011)(st_40D,st_40E);
         /* IL_1322: box System.UInt64*/
         st_410 = {
             'boxed': st_40F,
@@ -13719,7 +13756,7 @@ var asm1; (function (asm)
         /* IL_1335: ldc.i8 17661175009296*/
         st_412 = new Uint32Array([ 0x10101010,0x1010 ]);
         /* IL_133E: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_413 = (asm1.x6000010)(st_411,st_412);
+        st_413 = (asm1.x6000011)(st_411,st_412);
         /* IL_1343: box System.UInt64*/
         st_414 = {
             'boxed': st_413,
@@ -13733,7 +13770,7 @@ var asm1; (function (asm)
         /* IL_1356: ldc.i8 282578800148737*/
         st_416 = new Uint32Array([ 0x1010101,0x10101 ]);
         /* IL_135F: call UInt64 Div(System.UInt64, System.UInt64)*/
-        st_417 = (asm1.x6000010)(st_415,st_416);
+        st_417 = (asm1.x6000011)(st_415,st_416);
         /* IL_1364: box System.UInt64*/
         st_418 = {
             'boxed': st_417,
@@ -13755,7 +13792,7 @@ var asm1; (function (asm)
         /* IL_137C: conv.i8 */
         st_41D = conv_i8(st_41B);
         /* IL_137D: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_41E = (asm1.x6000011)(st_41C,st_41D);
+        st_41E = (asm1.x6000012)(st_41C,st_41D);
         /* IL_1382: box System.UInt64*/
         st_41F = {
             'boxed': st_41E,
@@ -13773,7 +13810,7 @@ var asm1; (function (asm)
         /* IL_1393: conv.i8 */
         st_423 = conv_i8(st_421);
         /* IL_1394: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_424 = (asm1.x6000011)(st_422,st_423);
+        st_424 = (asm1.x6000012)(st_422,st_423);
         /* IL_1399: box System.UInt64*/
         st_425 = {
             'boxed': st_424,
@@ -13791,7 +13828,7 @@ var asm1; (function (asm)
         /* IL_13AA: conv.i8 */
         st_429 = conv_i8(st_427);
         /* IL_13AB: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_42A = (asm1.x6000011)(st_428,st_429);
+        st_42A = (asm1.x6000012)(st_428,st_429);
         /* IL_13B0: box System.UInt64*/
         st_42B = {
             'boxed': st_42A,
@@ -13809,7 +13846,7 @@ var asm1; (function (asm)
         /* IL_13C1: conv.i8 */
         st_42F = conv_i8(st_42D);
         /* IL_13C2: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_430 = (asm1.x6000011)(st_42E,st_42F);
+        st_430 = (asm1.x6000012)(st_42E,st_42F);
         /* IL_13C7: box System.UInt64*/
         st_431 = {
             'boxed': st_430,
@@ -13827,7 +13864,7 @@ var asm1; (function (asm)
         /* IL_13D8: conv.i8 */
         st_435 = conv_i8(st_433);
         /* IL_13D9: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_436 = (asm1.x6000011)(st_434,st_435);
+        st_436 = (asm1.x6000012)(st_434,st_435);
         /* IL_13DE: box System.UInt64*/
         st_437 = {
             'boxed': st_436,
@@ -13845,7 +13882,7 @@ var asm1; (function (asm)
         /* IL_13EF: conv.i8 */
         st_43B = conv_i8(st_439);
         /* IL_13F0: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_43C = (asm1.x6000011)(st_43A,st_43B);
+        st_43C = (asm1.x6000012)(st_43A,st_43B);
         /* IL_13F5: box System.UInt64*/
         st_43D = {
             'boxed': st_43C,
@@ -13863,7 +13900,7 @@ var asm1; (function (asm)
         /* IL_1406: conv.i8 */
         st_441 = conv_i8(st_43F);
         /* IL_1407: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_442 = (asm1.x6000011)(st_440,st_441);
+        st_442 = (asm1.x6000012)(st_440,st_441);
         /* IL_140C: box System.UInt64*/
         st_443 = {
             'boxed': st_442,
@@ -13881,7 +13918,7 @@ var asm1; (function (asm)
         /* IL_1419: conv.i8 */
         st_447 = conv_i8(st_445);
         /* IL_141A: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_448 = (asm1.x6000011)(st_446,st_447);
+        st_448 = (asm1.x6000012)(st_446,st_447);
         /* IL_141F: box System.UInt64*/
         st_449 = {
             'boxed': st_448,
@@ -13897,7 +13934,7 @@ var asm1; (function (asm)
         /* IL_1433: conv.i8 */
         st_44C = conv_i8(st_44A);
         /* IL_1434: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_44D = (asm1.x6000011)(st_44B,st_44C);
+        st_44D = (asm1.x6000012)(st_44B,st_44C);
         /* IL_1439: box System.UInt64*/
         st_44E = {
             'boxed': st_44D,
@@ -13913,7 +13950,7 @@ var asm1; (function (asm)
         /* IL_144D: conv.i8 */
         st_451 = conv_i8(st_44F);
         /* IL_144E: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_452 = (asm1.x6000011)(st_450,st_451);
+        st_452 = (asm1.x6000012)(st_450,st_451);
         /* IL_1453: box System.UInt64*/
         st_453 = {
             'boxed': st_452,
@@ -13929,7 +13966,7 @@ var asm1; (function (asm)
         /* IL_1467: conv.i8 */
         st_456 = conv_i8(st_454);
         /* IL_1468: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_457 = (asm1.x6000011)(st_455,st_456);
+        st_457 = (asm1.x6000012)(st_455,st_456);
         /* IL_146D: box System.UInt64*/
         st_458 = {
             'boxed': st_457,
@@ -13945,7 +13982,7 @@ var asm1; (function (asm)
         /* IL_1481: conv.i8 */
         st_45B = conv_i8(st_459);
         /* IL_1482: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_45C = (asm1.x6000011)(st_45A,st_45B);
+        st_45C = (asm1.x6000012)(st_45A,st_45B);
         /* IL_1487: box System.UInt64*/
         st_45D = {
             'boxed': st_45C,
@@ -13961,7 +13998,7 @@ var asm1; (function (asm)
         /* IL_149B: conv.i8 */
         st_460 = conv_i8(st_45E);
         /* IL_149C: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_461 = (asm1.x6000011)(st_45F,st_460);
+        st_461 = (asm1.x6000012)(st_45F,st_460);
         /* IL_14A1: box System.UInt64*/
         st_462 = {
             'boxed': st_461,
@@ -13977,7 +14014,7 @@ var asm1; (function (asm)
         /* IL_14B5: conv.i8 */
         st_465 = conv_i8(st_463);
         /* IL_14B6: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_466 = (asm1.x6000011)(st_464,st_465);
+        st_466 = (asm1.x6000012)(st_464,st_465);
         /* IL_14BB: box System.UInt64*/
         st_467 = {
             'boxed': st_466,
@@ -13999,7 +14036,7 @@ var asm1; (function (asm)
         /* IL_14D3: conv.i8 */
         st_46C = conv_i8(st_46A);
         /* IL_14D4: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_46D = (asm1.x6000011)(st_46B,st_46C);
+        st_46D = (asm1.x6000012)(st_46B,st_46C);
         /* IL_14D9: box System.UInt64*/
         st_46E = {
             'boxed': st_46D,
@@ -14017,7 +14054,7 @@ var asm1; (function (asm)
         /* IL_14EA: conv.i8 */
         st_472 = conv_i8(st_470);
         /* IL_14EB: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_473 = (asm1.x6000011)(st_471,st_472);
+        st_473 = (asm1.x6000012)(st_471,st_472);
         /* IL_14F0: box System.UInt64*/
         st_474 = {
             'boxed': st_473,
@@ -14035,7 +14072,7 @@ var asm1; (function (asm)
         /* IL_1501: conv.i8 */
         st_478 = conv_i8(st_476);
         /* IL_1502: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_479 = (asm1.x6000011)(st_477,st_478);
+        st_479 = (asm1.x6000012)(st_477,st_478);
         /* IL_1507: box System.UInt64*/
         st_47A = {
             'boxed': st_479,
@@ -14053,7 +14090,7 @@ var asm1; (function (asm)
         /* IL_1518: conv.i8 */
         st_47E = conv_i8(st_47C);
         /* IL_1519: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_47F = (asm1.x6000011)(st_47D,st_47E);
+        st_47F = (asm1.x6000012)(st_47D,st_47E);
         /* IL_151E: box System.UInt64*/
         st_480 = {
             'boxed': st_47F,
@@ -14071,7 +14108,7 @@ var asm1; (function (asm)
         /* IL_152F: conv.i8 */
         st_484 = conv_i8(st_482);
         /* IL_1530: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_485 = (asm1.x6000011)(st_483,st_484);
+        st_485 = (asm1.x6000012)(st_483,st_484);
         /* IL_1535: box System.UInt64*/
         st_486 = {
             'boxed': st_485,
@@ -14089,7 +14126,7 @@ var asm1; (function (asm)
         /* IL_1546: conv.i8 */
         st_48A = conv_i8(st_488);
         /* IL_1547: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_48B = (asm1.x6000011)(st_489,st_48A);
+        st_48B = (asm1.x6000012)(st_489,st_48A);
         /* IL_154C: box System.UInt64*/
         st_48C = {
             'boxed': st_48B,
@@ -14107,7 +14144,7 @@ var asm1; (function (asm)
         /* IL_155D: conv.i8 */
         st_490 = conv_i8(st_48E);
         /* IL_155E: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_491 = (asm1.x6000011)(st_48F,st_490);
+        st_491 = (asm1.x6000012)(st_48F,st_490);
         /* IL_1563: box System.UInt64*/
         st_492 = {
             'boxed': st_491,
@@ -14125,7 +14162,7 @@ var asm1; (function (asm)
         /* IL_1570: conv.i8 */
         st_496 = conv_i8(st_494);
         /* IL_1571: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_497 = (asm1.x6000011)(st_495,st_496);
+        st_497 = (asm1.x6000012)(st_495,st_496);
         /* IL_1576: box System.UInt64*/
         st_498 = {
             'boxed': st_497,
@@ -14141,7 +14178,7 @@ var asm1; (function (asm)
         /* IL_158A: conv.i8 */
         st_49B = conv_i8(st_499);
         /* IL_158B: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_49C = (asm1.x6000011)(st_49A,st_49B);
+        st_49C = (asm1.x6000012)(st_49A,st_49B);
         /* IL_1590: box System.UInt64*/
         st_49D = {
             'boxed': st_49C,
@@ -14157,7 +14194,7 @@ var asm1; (function (asm)
         /* IL_15A4: conv.i8 */
         st_4A0 = conv_i8(st_49E);
         /* IL_15A5: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4A1 = (asm1.x6000011)(st_49F,st_4A0);
+        st_4A1 = (asm1.x6000012)(st_49F,st_4A0);
         /* IL_15AA: box System.UInt64*/
         st_4A2 = {
             'boxed': st_4A1,
@@ -14173,7 +14210,7 @@ var asm1; (function (asm)
         /* IL_15BE: conv.i8 */
         st_4A5 = conv_i8(st_4A3);
         /* IL_15BF: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4A6 = (asm1.x6000011)(st_4A4,st_4A5);
+        st_4A6 = (asm1.x6000012)(st_4A4,st_4A5);
         /* IL_15C4: box System.UInt64*/
         st_4A7 = {
             'boxed': st_4A6,
@@ -14189,7 +14226,7 @@ var asm1; (function (asm)
         /* IL_15D8: conv.i8 */
         st_4AA = conv_i8(st_4A8);
         /* IL_15D9: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4AB = (asm1.x6000011)(st_4A9,st_4AA);
+        st_4AB = (asm1.x6000012)(st_4A9,st_4AA);
         /* IL_15DE: box System.UInt64*/
         st_4AC = {
             'boxed': st_4AB,
@@ -14205,7 +14242,7 @@ var asm1; (function (asm)
         /* IL_15F2: conv.i8 */
         st_4AF = conv_i8(st_4AD);
         /* IL_15F3: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4B0 = (asm1.x6000011)(st_4AE,st_4AF);
+        st_4B0 = (asm1.x6000012)(st_4AE,st_4AF);
         /* IL_15F8: box System.UInt64*/
         st_4B1 = {
             'boxed': st_4B0,
@@ -14221,7 +14258,7 @@ var asm1; (function (asm)
         /* IL_160C: conv.i8 */
         st_4B4 = conv_i8(st_4B2);
         /* IL_160D: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4B5 = (asm1.x6000011)(st_4B3,st_4B4);
+        st_4B5 = (asm1.x6000012)(st_4B3,st_4B4);
         /* IL_1612: box System.UInt64*/
         st_4B6 = {
             'boxed': st_4B5,
@@ -14243,7 +14280,7 @@ var asm1; (function (asm)
         /* IL_162D: conv.i8 */
         st_4BB = conv_i8(st_4B9);
         /* IL_162E: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4BC = (asm1.x6000011)(st_4BA,st_4BB);
+        st_4BC = (asm1.x6000012)(st_4BA,st_4BB);
         /* IL_1633: box System.UInt64*/
         st_4BD = {
             'boxed': st_4BC,
@@ -14261,7 +14298,7 @@ var asm1; (function (asm)
         /* IL_1645: conv.i8 */
         st_4C1 = conv_i8(st_4BF);
         /* IL_1646: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4C2 = (asm1.x6000011)(st_4C0,st_4C1);
+        st_4C2 = (asm1.x6000012)(st_4C0,st_4C1);
         /* IL_164B: box System.UInt64*/
         st_4C3 = {
             'boxed': st_4C2,
@@ -14279,7 +14316,7 @@ var asm1; (function (asm)
         /* IL_1660: conv.i8 */
         st_4C7 = conv_i8(st_4C5);
         /* IL_1661: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4C8 = (asm1.x6000011)(st_4C6,st_4C7);
+        st_4C8 = (asm1.x6000012)(st_4C6,st_4C7);
         /* IL_1666: box System.UInt64*/
         st_4C9 = {
             'boxed': st_4C8,
@@ -14297,7 +14334,7 @@ var asm1; (function (asm)
         /* IL_167B: conv.i8 */
         st_4CD = conv_i8(st_4CB);
         /* IL_167C: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4CE = (asm1.x6000011)(st_4CC,st_4CD);
+        st_4CE = (asm1.x6000012)(st_4CC,st_4CD);
         /* IL_1681: box System.UInt64*/
         st_4CF = {
             'boxed': st_4CE,
@@ -14315,7 +14352,7 @@ var asm1; (function (asm)
         /* IL_1696: conv.i8 */
         st_4D3 = conv_i8(st_4D1);
         /* IL_1697: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4D4 = (asm1.x6000011)(st_4D2,st_4D3);
+        st_4D4 = (asm1.x6000012)(st_4D2,st_4D3);
         /* IL_169C: box System.UInt64*/
         st_4D5 = {
             'boxed': st_4D4,
@@ -14333,7 +14370,7 @@ var asm1; (function (asm)
         /* IL_16B1: conv.i8 */
         st_4D9 = conv_i8(st_4D7);
         /* IL_16B2: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4DA = (asm1.x6000011)(st_4D8,st_4D9);
+        st_4DA = (asm1.x6000012)(st_4D8,st_4D9);
         /* IL_16B7: box System.UInt64*/
         st_4DB = {
             'boxed': st_4DA,
@@ -14351,7 +14388,7 @@ var asm1; (function (asm)
         /* IL_16C8: conv.i8 */
         st_4DF = conv_i8(st_4DD);
         /* IL_16C9: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4E0 = (asm1.x6000011)(st_4DE,st_4DF);
+        st_4E0 = (asm1.x6000012)(st_4DE,st_4DF);
         /* IL_16CE: box System.UInt64*/
         st_4E1 = {
             'boxed': st_4E0,
@@ -14367,7 +14404,7 @@ var asm1; (function (asm)
         /* IL_16E6: conv.i8 */
         st_4E4 = conv_i8(st_4E2);
         /* IL_16E7: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4E5 = (asm1.x6000011)(st_4E3,st_4E4);
+        st_4E5 = (asm1.x6000012)(st_4E3,st_4E4);
         /* IL_16EC: box System.UInt64*/
         st_4E6 = {
             'boxed': st_4E5,
@@ -14381,7 +14418,7 @@ var asm1; (function (asm)
         /* IL_16FF: ldc.i8 4311810305*/
         st_4E8 = new Uint32Array([ 0x1010101,0x1 ]);
         /* IL_1708: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4E9 = (asm1.x6000011)(st_4E7,st_4E8);
+        st_4E9 = (asm1.x6000012)(st_4E7,st_4E8);
         /* IL_170D: box System.UInt64*/
         st_4EA = {
             'boxed': st_4E9,
@@ -14395,7 +14432,7 @@ var asm1; (function (asm)
         /* IL_1720: ldc.i8 68988964880*/
         st_4EC = new Uint32Array([ 0x10101010,0x10 ]);
         /* IL_1729: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4ED = (asm1.x6000011)(st_4EB,st_4EC);
+        st_4ED = (asm1.x6000012)(st_4EB,st_4EC);
         /* IL_172E: box System.UInt64*/
         st_4EE = {
             'boxed': st_4ED,
@@ -14409,7 +14446,7 @@ var asm1; (function (asm)
         /* IL_1741: ldc.i8 1103823438081*/
         st_4F0 = new Uint32Array([ 0x1010101,0x101 ]);
         /* IL_174A: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4F1 = (asm1.x6000011)(st_4EF,st_4F0);
+        st_4F1 = (asm1.x6000012)(st_4EF,st_4F0);
         /* IL_174F: box System.UInt64*/
         st_4F2 = {
             'boxed': st_4F1,
@@ -14423,7 +14460,7 @@ var asm1; (function (asm)
         /* IL_1762: ldc.i8 17661175009296*/
         st_4F4 = new Uint32Array([ 0x10101010,0x1010 ]);
         /* IL_176B: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4F5 = (asm1.x6000011)(st_4F3,st_4F4);
+        st_4F5 = (asm1.x6000012)(st_4F3,st_4F4);
         /* IL_1770: box System.UInt64*/
         st_4F6 = {
             'boxed': st_4F5,
@@ -14437,7 +14474,7 @@ var asm1; (function (asm)
         /* IL_1783: ldc.i8 282578800148737*/
         st_4F8 = new Uint32Array([ 0x1010101,0x10101 ]);
         /* IL_178C: call UInt64 Mod(System.UInt64, System.UInt64)*/
-        st_4F9 = (asm1.x6000011)(st_4F7,st_4F8);
+        st_4F9 = (asm1.x6000012)(st_4F7,st_4F8);
         /* IL_1791: box System.UInt64*/
         st_4FA = {
             'boxed': st_4F9,
@@ -14446,10 +14483,110 @@ var asm1; (function (asm)
         };
         /* IL_1796: call Void Log(System.Object)*/
         (asm1.x6000001)(st_4FA);
-        /* IL_179B: ret */
+        /* IL_179B: ldc.i4.0 */
+        st_4FB = (0|0);
+        /* IL_179C: conv.i8 */
+        st_4FC = conv_i8(st_4FB);
+        /* IL_179D: call Void TestRightShift(System.UInt64)*/
+        (asm1.x6000013)(st_4FC);
+        /* IL_17A2: ldc.i4.1 */
+        st_4FD = (1|0);
+        /* IL_17A3: conv.i8 */
+        st_4FE = conv_i8(st_4FD);
+        /* IL_17A4: call Void TestRightShift(System.UInt64)*/
+        (asm1.x6000013)(st_4FE);
+        /* IL_17A9: ldc.i4 255*/
+        st_4FF = (255|0);
+        /* IL_17AE: conv.i8 */
+        st_500 = conv_i8(st_4FF);
+        /* IL_17AF: call Void TestRightShift(System.UInt64)*/
+        (asm1.x6000013)(st_500);
+        /* IL_17B4: ldc.i8 282578800148737*/
+        st_501 = new Uint32Array([ 0x1010101,0x10101 ]);
+        /* IL_17BD: call Void TestRightShift(System.UInt64)*/
+        (asm1.x6000013)(st_501);
+        /* IL_17C2: ldc.i8 4503599627370496*/
+        st_502 = new Uint32Array([ 0x0,0x100000 ]);
+        /* IL_17CB: call Void TestRightShift(System.UInt64)*/
+        (asm1.x6000013)(st_502);
+        /* IL_17D0: ldc.i8 72057594037927935*/
+        st_503 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_17D9: call Void TestRightShift(System.UInt64)*/
+        (asm1.x6000013)(st_503);
+        /* IL_17DE: ldc.i4.0 */
+        st_504 = (0|0);
+        /* IL_17DF: conv.i8 */
+        st_505 = conv_i8(st_504);
+        /* IL_17E0: call Void TestLeftShift(System.UInt64)*/
+        (asm1.x6000014)(st_505);
+        /* IL_17E5: ldc.i4.1 */
+        st_506 = (1|0);
+        /* IL_17E6: conv.i8 */
+        st_507 = conv_i8(st_506);
+        /* IL_17E7: call Void TestLeftShift(System.UInt64)*/
+        (asm1.x6000014)(st_507);
+        /* IL_17EC: ldc.i4 255*/
+        st_508 = (255|0);
+        /* IL_17F1: conv.i8 */
+        st_509 = conv_i8(st_508);
+        /* IL_17F2: call Void TestLeftShift(System.UInt64)*/
+        (asm1.x6000014)(st_509);
+        /* IL_17F7: ldc.i8 282578800148737*/
+        st_50A = new Uint32Array([ 0x1010101,0x10101 ]);
+        /* IL_1800: call Void TestLeftShift(System.UInt64)*/
+        (asm1.x6000014)(st_50A);
+        /* IL_1805: ldc.i8 4503599627370496*/
+        st_50B = new Uint32Array([ 0x0,0x100000 ]);
+        /* IL_180E: call Void TestLeftShift(System.UInt64)*/
+        (asm1.x6000014)(st_50B);
+        /* IL_1813: ldc.i8 72057594037927935*/
+        st_50C = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_181C: call Void TestLeftShift(System.UInt64)*/
+        (asm1.x6000014)(st_50C);
+        /* IL_1821: ldc.i4 255*/
+        st_50D = (255|0);
+        /* IL_1826: conv.i8 */
+        st_50E = conv_i8(st_50D);
+        /* IL_1827: call Double Double(System.UInt64)*/
+        st_50F = (asm1.x600000d)(st_50E);
+        /* IL_182C: box System.Double*/
+        st_510 = {
+            'boxed': st_50F,
+            'type': t1,
+            'vtable': t1.prototype.vtable
+        };
+        /* IL_1831: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_510);
+        /* IL_1836: ldc.i8 17592186044415*/
+        st_511 = new Uint32Array([ 0xFFFFFFFF,0xFFF ]);
+        /* IL_183F: call Double Double(System.UInt64)*/
+        st_512 = (asm1.x600000d)(st_511);
+        /* IL_1844: box System.Double*/
+        st_513 = {
+            'boxed': st_512,
+            'type': t1,
+            'vtable': t1.prototype.vtable
+        };
+        /* IL_1849: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_513);
+        /* IL_184E: ret */
         return ;
     };
-    asm.x600000d = function Add(arg0,arg1)
+    asm.x600000d = function Double(arg0)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: conv.r.un */
+        st_01 = to_number(st_00);
+        /* IL_02: conv.r8 */
+        st_02 = st_01;
+        /* IL_03: ret */
+        return st_02;
+    };;
+    asm.x600000e = function Add(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -14463,7 +14600,7 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x600000e = function Sub(arg0,arg1)
+    asm.x600000f = function Sub(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -14477,7 +14614,7 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x600000f = function Mul(arg0,arg1)
+    asm.x6000010 = function Mul(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -14491,7 +14628,7 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x6000010 = function Div(arg0,arg1)
+    asm.x6000011 = function Div(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -14505,7 +14642,7 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x6000011 = function Mod(arg0,arg1)
+    asm.x6000012 = function Mod(arg0,arg1)
     {
         var st_00;
         var st_01;
@@ -14519,7 +14656,621 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x6000012 = function _ctor(arg0)
+    asm.x6000013_init = function ()
+    {
+        (((asm0)["System.UInt64"])().init)();
+        asm.x6000013 = asm.x6000013_;
+    };;
+    asm.x6000013 = function (arg0)
+    {
+        (asm.x6000013_init.apply)(this,arguments);
+        return (asm.x6000013.apply)(this,arguments);
+    };;
+    asm.x6000013_ = function TestRightShift(arg0)
+    {
+        var t0;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var st_06;
+        var st_07;
+        var st_08;
+        var st_09;
+        var st_0A;
+        var st_0B;
+        var st_0C;
+        var st_0D;
+        var st_0E;
+        var st_0F;
+        var st_10;
+        var st_11;
+        var st_12;
+        var st_13;
+        var st_14;
+        var st_15;
+        var st_16;
+        var st_17;
+        var st_18;
+        var st_19;
+        var st_1A;
+        var st_1B;
+        var st_1C;
+        var st_1D;
+        var st_1E;
+        var st_1F;
+        var st_20;
+        var st_21;
+        var st_22;
+        var st_23;
+        var st_24;
+        var st_25;
+        var st_26;
+        var st_27;
+        var st_28;
+        var st_29;
+        var st_2A;
+        var st_2B;
+        var st_2C;
+        var st_2D;
+        var st_2E;
+        var st_2F;
+        var st_30;
+        var st_31;
+        var st_32;
+        var st_33;
+        var st_34;
+        var st_35;
+        var st_36;
+        var st_37;
+        var st_38;
+        var st_39;
+        var st_3A;
+        var st_3B;
+        t0 = ((asm0)["System.UInt64"])();
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: ldc.i4.0 */
+        st_01 = (0|0);
+        /* IL_02: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_02 = (asm1.x6000015)(st_00,st_01);
+        /* IL_07: box System.UInt64*/
+        st_03 = {
+            'boxed': st_02,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_0C: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_03);
+        /* IL_11: ldarg.0 */
+        st_04 = arg0;
+        /* IL_12: ldc.i4.1 */
+        st_05 = (1|0);
+        /* IL_13: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_06 = (asm1.x6000015)(st_04,st_05);
+        /* IL_18: box System.UInt64*/
+        st_07 = {
+            'boxed': st_06,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_07);
+        /* IL_22: ldarg.0 */
+        st_08 = arg0;
+        /* IL_23: ldc.i4.2 */
+        st_09 = (2|0);
+        /* IL_24: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_0A = (asm1.x6000015)(st_08,st_09);
+        /* IL_29: box System.UInt64*/
+        st_0B = {
+            'boxed': st_0A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_2E: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0B);
+        /* IL_33: ldarg.0 */
+        st_0C = arg0;
+        /* IL_34: ldc.i4.7 */
+        st_0D = (7|0);
+        /* IL_35: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_0E = (asm1.x6000015)(st_0C,st_0D);
+        /* IL_3A: box System.UInt64*/
+        st_0F = {
+            'boxed': st_0E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_3F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0F);
+        /* IL_44: ldarg.0 */
+        st_10 = arg0;
+        /* IL_45: ldc.i4.8 */
+        st_11 = (8|0);
+        /* IL_46: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_12 = (asm1.x6000015)(st_10,st_11);
+        /* IL_4B: box System.UInt64*/
+        st_13 = {
+            'boxed': st_12,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_50: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_13);
+        /* IL_55: ldarg.0 */
+        st_14 = arg0;
+        /* IL_56: ldc.i4.s 9*/
+        st_15 = (9|0);
+        /* IL_58: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_16 = (asm1.x6000015)(st_14,st_15);
+        /* IL_5D: box System.UInt64*/
+        st_17 = {
+            'boxed': st_16,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_62: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_17);
+        /* IL_67: ldarg.0 */
+        st_18 = arg0;
+        /* IL_68: ldc.i4.s 15*/
+        st_19 = (15|0);
+        /* IL_6A: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_1A = (asm1.x6000015)(st_18,st_19);
+        /* IL_6F: box System.UInt64*/
+        st_1B = {
+            'boxed': st_1A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_74: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1B);
+        /* IL_79: ldarg.0 */
+        st_1C = arg0;
+        /* IL_7A: ldc.i4.s 16*/
+        st_1D = (16|0);
+        /* IL_7C: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_1E = (asm1.x6000015)(st_1C,st_1D);
+        /* IL_81: box System.UInt64*/
+        st_1F = {
+            'boxed': st_1E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_86: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1F);
+        /* IL_8B: ldarg.0 */
+        st_20 = arg0;
+        /* IL_8C: ldc.i4.s 17*/
+        st_21 = (17|0);
+        /* IL_8E: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_22 = (asm1.x6000015)(st_20,st_21);
+        /* IL_93: box System.UInt64*/
+        st_23 = {
+            'boxed': st_22,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_98: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_23);
+        /* IL_9D: ldarg.0 */
+        st_24 = arg0;
+        /* IL_9E: ldc.i4.s 23*/
+        st_25 = (23|0);
+        /* IL_A0: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_26 = (asm1.x6000015)(st_24,st_25);
+        /* IL_A5: box System.UInt64*/
+        st_27 = {
+            'boxed': st_26,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_AA: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_27);
+        /* IL_AF: ldarg.0 */
+        st_28 = arg0;
+        /* IL_B0: ldc.i4.s 24*/
+        st_29 = (24|0);
+        /* IL_B2: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_2A = (asm1.x6000015)(st_28,st_29);
+        /* IL_B7: box System.UInt64*/
+        st_2B = {
+            'boxed': st_2A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_BC: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2B);
+        /* IL_C1: ldarg.0 */
+        st_2C = arg0;
+        /* IL_C2: ldc.i4.s 25*/
+        st_2D = (25|0);
+        /* IL_C4: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_2E = (asm1.x6000015)(st_2C,st_2D);
+        /* IL_C9: box System.UInt64*/
+        st_2F = {
+            'boxed': st_2E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_CE: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2F);
+        /* IL_D3: ldarg.0 */
+        st_30 = arg0;
+        /* IL_D4: ldc.i4.s 31*/
+        st_31 = (31|0);
+        /* IL_D6: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_32 = (asm1.x6000015)(st_30,st_31);
+        /* IL_DB: box System.UInt64*/
+        st_33 = {
+            'boxed': st_32,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_E0: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_33);
+        /* IL_E5: ldarg.0 */
+        st_34 = arg0;
+        /* IL_E6: ldc.i4.s 32*/
+        st_35 = (32|0);
+        /* IL_E8: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_36 = (asm1.x6000015)(st_34,st_35);
+        /* IL_ED: box System.UInt64*/
+        st_37 = {
+            'boxed': st_36,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_F2: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_37);
+        /* IL_F7: ldarg.0 */
+        st_38 = arg0;
+        /* IL_F8: ldc.i4.s 33*/
+        st_39 = (33|0);
+        /* IL_FA: call UInt64 RightShift(System.UInt64, System.Int32)*/
+        st_3A = (asm1.x6000015)(st_38,st_39);
+        /* IL_FF: box System.UInt64*/
+        st_3B = {
+            'boxed': st_3A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_104: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3B);
+        /* IL_109: ret */
+        return ;
+    };
+    asm.x6000014_init = function ()
+    {
+        (((asm0)["System.UInt64"])().init)();
+        asm.x6000014 = asm.x6000014_;
+    };;
+    asm.x6000014 = function (arg0)
+    {
+        (asm.x6000014_init.apply)(this,arguments);
+        return (asm.x6000014.apply)(this,arguments);
+    };;
+    asm.x6000014_ = function TestLeftShift(arg0)
+    {
+        var t0;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var st_06;
+        var st_07;
+        var st_08;
+        var st_09;
+        var st_0A;
+        var st_0B;
+        var st_0C;
+        var st_0D;
+        var st_0E;
+        var st_0F;
+        var st_10;
+        var st_11;
+        var st_12;
+        var st_13;
+        var st_14;
+        var st_15;
+        var st_16;
+        var st_17;
+        var st_18;
+        var st_19;
+        var st_1A;
+        var st_1B;
+        var st_1C;
+        var st_1D;
+        var st_1E;
+        var st_1F;
+        var st_20;
+        var st_21;
+        var st_22;
+        var st_23;
+        var st_24;
+        var st_25;
+        var st_26;
+        var st_27;
+        var st_28;
+        var st_29;
+        var st_2A;
+        var st_2B;
+        var st_2C;
+        var st_2D;
+        var st_2E;
+        var st_2F;
+        var st_30;
+        var st_31;
+        var st_32;
+        var st_33;
+        var st_34;
+        var st_35;
+        var st_36;
+        var st_37;
+        var st_38;
+        var st_39;
+        var st_3A;
+        var st_3B;
+        t0 = ((asm0)["System.UInt64"])();
+        /* IL_00: ldarg.0 */
+        st_00 = arg0;
+        /* IL_01: ldc.i4.0 */
+        st_01 = (0|0);
+        /* IL_02: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_02 = (asm1.x6000016)(st_00,st_01);
+        /* IL_07: box System.UInt64*/
+        st_03 = {
+            'boxed': st_02,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_0C: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_03);
+        /* IL_11: ldarg.0 */
+        st_04 = arg0;
+        /* IL_12: ldc.i4.1 */
+        st_05 = (1|0);
+        /* IL_13: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_06 = (asm1.x6000016)(st_04,st_05);
+        /* IL_18: box System.UInt64*/
+        st_07 = {
+            'boxed': st_06,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_1D: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_07);
+        /* IL_22: ldarg.0 */
+        st_08 = arg0;
+        /* IL_23: ldc.i4.2 */
+        st_09 = (2|0);
+        /* IL_24: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_0A = (asm1.x6000016)(st_08,st_09);
+        /* IL_29: box System.UInt64*/
+        st_0B = {
+            'boxed': st_0A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_2E: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0B);
+        /* IL_33: ldarg.0 */
+        st_0C = arg0;
+        /* IL_34: ldc.i4.7 */
+        st_0D = (7|0);
+        /* IL_35: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_0E = (asm1.x6000016)(st_0C,st_0D);
+        /* IL_3A: box System.UInt64*/
+        st_0F = {
+            'boxed': st_0E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_3F: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0F);
+        /* IL_44: ldarg.0 */
+        st_10 = arg0;
+        /* IL_45: ldc.i4.8 */
+        st_11 = (8|0);
+        /* IL_46: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_12 = (asm1.x6000016)(st_10,st_11);
+        /* IL_4B: box System.UInt64*/
+        st_13 = {
+            'boxed': st_12,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_50: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_13);
+        /* IL_55: ldarg.0 */
+        st_14 = arg0;
+        /* IL_56: ldc.i4.s 9*/
+        st_15 = (9|0);
+        /* IL_58: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_16 = (asm1.x6000016)(st_14,st_15);
+        /* IL_5D: box System.UInt64*/
+        st_17 = {
+            'boxed': st_16,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_62: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_17);
+        /* IL_67: ldarg.0 */
+        st_18 = arg0;
+        /* IL_68: ldc.i4.s 15*/
+        st_19 = (15|0);
+        /* IL_6A: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_1A = (asm1.x6000016)(st_18,st_19);
+        /* IL_6F: box System.UInt64*/
+        st_1B = {
+            'boxed': st_1A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_74: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1B);
+        /* IL_79: ldarg.0 */
+        st_1C = arg0;
+        /* IL_7A: ldc.i4.s 16*/
+        st_1D = (16|0);
+        /* IL_7C: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_1E = (asm1.x6000016)(st_1C,st_1D);
+        /* IL_81: box System.UInt64*/
+        st_1F = {
+            'boxed': st_1E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_86: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1F);
+        /* IL_8B: ldarg.0 */
+        st_20 = arg0;
+        /* IL_8C: ldc.i4.s 17*/
+        st_21 = (17|0);
+        /* IL_8E: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_22 = (asm1.x6000016)(st_20,st_21);
+        /* IL_93: box System.UInt64*/
+        st_23 = {
+            'boxed': st_22,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_98: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_23);
+        /* IL_9D: ldarg.0 */
+        st_24 = arg0;
+        /* IL_9E: ldc.i4.s 23*/
+        st_25 = (23|0);
+        /* IL_A0: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_26 = (asm1.x6000016)(st_24,st_25);
+        /* IL_A5: box System.UInt64*/
+        st_27 = {
+            'boxed': st_26,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_AA: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_27);
+        /* IL_AF: ldarg.0 */
+        st_28 = arg0;
+        /* IL_B0: ldc.i4.s 24*/
+        st_29 = (24|0);
+        /* IL_B2: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_2A = (asm1.x6000016)(st_28,st_29);
+        /* IL_B7: box System.UInt64*/
+        st_2B = {
+            'boxed': st_2A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_BC: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2B);
+        /* IL_C1: ldarg.0 */
+        st_2C = arg0;
+        /* IL_C2: ldc.i4.s 25*/
+        st_2D = (25|0);
+        /* IL_C4: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_2E = (asm1.x6000016)(st_2C,st_2D);
+        /* IL_C9: box System.UInt64*/
+        st_2F = {
+            'boxed': st_2E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_CE: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2F);
+        /* IL_D3: ldarg.0 */
+        st_30 = arg0;
+        /* IL_D4: ldc.i4.s 31*/
+        st_31 = (31|0);
+        /* IL_D6: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_32 = (asm1.x6000016)(st_30,st_31);
+        /* IL_DB: box System.UInt64*/
+        st_33 = {
+            'boxed': st_32,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_E0: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_33);
+        /* IL_E5: ldarg.0 */
+        st_34 = arg0;
+        /* IL_E6: ldc.i4.s 32*/
+        st_35 = (32|0);
+        /* IL_E8: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_36 = (asm1.x6000016)(st_34,st_35);
+        /* IL_ED: box System.UInt64*/
+        st_37 = {
+            'boxed': st_36,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_F2: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_37);
+        /* IL_F7: ldarg.0 */
+        st_38 = arg0;
+        /* IL_F8: ldc.i4.s 33*/
+        st_39 = (33|0);
+        /* IL_FA: call UInt64 LeftShift(System.UInt64, System.Int32)*/
+        st_3A = (asm1.x6000016)(st_38,st_39);
+        /* IL_FF: box System.UInt64*/
+        st_3B = {
+            'boxed': st_3A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_104: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3B);
+        /* IL_109: ret */
+        return ;
+    };
+    asm.x6000015 = function RightShift(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        /* IL_00: ldarg.0 */
+        st_02 = arg0;
+        /* IL_01: ldarg.1 */
+        st_00 = arg1;
+        /* IL_02: ldc.i4.s 63*/
+        st_01 = (63|0);
+        /* IL_04: and */
+        st_03 = (st_00 & st_01);
+        /* IL_05: shr.un */
+        st_04 = (asm0.UInt64_RightShift)(st_02,st_03);
+        /* IL_06: ret */
+        return st_04;
+    };;
+    asm.x6000016 = function LeftShift(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        /* IL_00: ldarg.0 */
+        st_02 = arg0;
+        /* IL_01: ldarg.1 */
+        st_00 = arg1;
+        /* IL_02: ldc.i4.s 63*/
+        st_01 = (63|0);
+        /* IL_04: and */
+        st_03 = (st_00 & st_01);
+        /* IL_05: shl */
+        st_04 = (asm0.XInt64_LeftShift)(st_02,st_03);
+        /* IL_06: ret */
+        return st_04;
+    };;
+    asm.x6000017 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */

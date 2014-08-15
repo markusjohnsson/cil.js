@@ -167,6 +167,10 @@ var asm0; (function (asm)
 
         return new Uint32Array([low, high]);
     }
+
+    function to_number(n) {
+        return n[1] * 4294967296 + n[0];
+    }
 ;
     asm.x6000001 = function (a, b) { return Number(a === b); };;
     asm.x6000002 = function (o) { return o.constructor; };;
@@ -3201,15 +3205,15 @@ var asm0; (function (asm)
     };;
     asm.XInt64_Increment = asm.x600006c;
     asm.x600006d = 
-            function Int64_RightShift(lhs, n) {
+            function Int64_RightShift(a, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
                 if (n === 0) {
                     var result2 = a;
                 } else if (n > 32) {
-                    result2 = asm0.UInt64_RightShift(asm0.UInt64_RightShift(a, 32), n - 32);
+                    result2 = asm0.Int64_RightShift(asm0.Int64_RightShift(a, 32), n - 32);
                 } else {
-                    var unsignedShift = asm0.UInt64.op_RightShift(a, n);
+                    var unsignedShift = asm0.UInt64_RightShift(a, n);
 
                     if (asm0.Int64_isNegative(a)) {
                         var outshift = asm0.UInt64_RightShift(new Uint32Array([0xffffff, 0xffffff]), n);
@@ -5175,9 +5179,10 @@ var asm0; (function (asm)
             function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
-                if (n > 32) {
+                var maxShift = 8;
+                if (n > maxShift) {
                     return asm0.UInt64_RightShift(
-                        asm0.UInt64_RightShift(a, 32), n - 32);
+                        asm0.UInt64_RightShift(a, maxShift), n - maxShift);
                 }
 
                 var m = (1 << n) - 1;
@@ -9032,6 +9037,10 @@ var asm1; (function (asm)
         var high = high & bits32;
 
         return new Uint32Array([low, high]);
+    }
+
+    function to_number(n) {
+        return n[1] * 4294967296 + n[0];
     }
 ;
     asm.x6000001 = braille_test_log;;

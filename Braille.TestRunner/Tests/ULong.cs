@@ -1,4 +1,4 @@
-﻿
+﻿    
 class Program
 {
     public static void Main()
@@ -300,7 +300,16 @@ class Program
         TestLeftShift(0x01010101010101UL);
         TestLeftShift(0x10000000000000UL);
         TestLeftShift(0xffffffffffffffUL);
+
+        TestLog.Log(Double(0xffUL));
+        TestLog.Log(Double(0xfffffffffffUL));
     }
+
+    public static double Double(ulong l)
+    {
+        return (double)l;
+    }
+
 
     public static ulong Add(ulong a, ulong b)
     {
