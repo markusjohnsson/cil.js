@@ -3201,15 +3201,15 @@ var asm0; (function (asm)
     };;
     asm.XInt64_Increment = asm.x600006c;
     asm.x600006d = 
-            function Int64_RightShift(lhs, n) {
+            function Int64_RightShift(a, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
                 if (n === 0) {
                     var result2 = a;
                 } else if (n > 32) {
-                    result2 = asm0.UInt64_RightShift(asm0.UInt64_RightShift(a, 32), n - 32);
+                    result2 = asm0.Int64_RightShift(asm0.Int64_RightShift(a, 32), n - 32);
                 } else {
-                    var unsignedShift = asm0.UInt64.op_RightShift(a, n);
+                    var unsignedShift = asm0.UInt64_RightShift(a, n);
 
                     if (asm0.Int64_isNegative(a)) {
                         var outshift = asm0.UInt64_RightShift(new Uint32Array([0xffffff, 0xffffff]), n);
@@ -5175,9 +5175,10 @@ var asm0; (function (asm)
             function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
-                if (n > 32) {
+                var maxShift = 8;
+                if (n > maxShift) {
                     return asm0.UInt64_RightShift(
-                        asm0.UInt64_RightShift(a, 32), n - 32);
+                        asm0.UInt64_RightShift(a, maxShift), n - maxShift);
                 }
 
                 var m = (1 << n) - 1;
@@ -11367,6 +11368,24 @@ var asm1; (function (asm)
         var st_8FA;
         var st_8FB;
         var st_8FC;
+        var st_8FD;
+        var st_8FE;
+        var st_8FF;
+        var st_900;
+        var st_901;
+        var st_902;
+        var st_903;
+        var st_904;
+        var st_905;
+        var st_906;
+        var st_907;
+        var st_908;
+        var st_909;
+        var st_90A;
+        var st_90B;
+        var st_90C;
+        var st_90D;
+        var st_90E;
         t0 = ((asm0)["System.Int64"])();
         /* IL_00: ldstr 1 - 21 ToString*/
         st_00 = new_string("1 - 21 ToString");
@@ -18678,7 +18697,67 @@ var asm1; (function (asm)
         };
         /* IL_2B07: call Void Log(System.Object)*/
         (asm1.x6000001)(st_8FC);
-        /* IL_2B0C: ret */
+        /* IL_2B0C: ldc.i4.0 */
+        st_8FD = (0|0);
+        /* IL_2B0D: conv.i8 */
+        st_8FE = conv_i8(st_8FD);
+        /* IL_2B0E: call Void TestRightShift(System.Int64)*/
+        (asm1.x6000012)(st_8FE);
+        /* IL_2B13: ldc.i4.1 */
+        st_8FF = (1|0);
+        /* IL_2B14: conv.i8 */
+        st_900 = conv_i8(st_8FF);
+        /* IL_2B15: call Void TestRightShift(System.Int64)*/
+        (asm1.x6000012)(st_900);
+        /* IL_2B1A: ldc.i4 255*/
+        st_901 = (255|0);
+        /* IL_2B1F: conv.i8 */
+        st_902 = conv_i8(st_901);
+        /* IL_2B20: call Void TestRightShift(System.Int64)*/
+        (asm1.x6000012)(st_902);
+        /* IL_2B25: ldc.i8 282578800148737*/
+        st_903 = new Uint32Array([ 0x1010101,0x10101 ]);
+        /* IL_2B2E: call Void TestRightShift(System.Int64)*/
+        (asm1.x6000012)(st_903);
+        /* IL_2B33: ldc.i8 4503599627370496*/
+        st_904 = new Uint32Array([ 0x0,0x100000 ]);
+        /* IL_2B3C: call Void TestRightShift(System.Int64)*/
+        (asm1.x6000012)(st_904);
+        /* IL_2B41: ldc.i8 72057594037927935*/
+        st_905 = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_2B4A: call Void TestRightShift(System.Int64)*/
+        (asm1.x6000012)(st_905);
+        /* IL_2B4F: ldc.i4.0 */
+        st_906 = (0|0);
+        /* IL_2B50: conv.i8 */
+        st_907 = conv_i8(st_906);
+        /* IL_2B51: call Void TestLeftShift(System.Int64)*/
+        (asm1.x6000013)(st_907);
+        /* IL_2B56: ldc.i4.1 */
+        st_908 = (1|0);
+        /* IL_2B57: conv.i8 */
+        st_909 = conv_i8(st_908);
+        /* IL_2B58: call Void TestLeftShift(System.Int64)*/
+        (asm1.x6000013)(st_909);
+        /* IL_2B5D: ldc.i4 255*/
+        st_90A = (255|0);
+        /* IL_2B62: conv.i8 */
+        st_90B = conv_i8(st_90A);
+        /* IL_2B63: call Void TestLeftShift(System.Int64)*/
+        (asm1.x6000013)(st_90B);
+        /* IL_2B68: ldc.i8 282578800148737*/
+        st_90C = new Uint32Array([ 0x1010101,0x10101 ]);
+        /* IL_2B71: call Void TestLeftShift(System.Int64)*/
+        (asm1.x6000013)(st_90C);
+        /* IL_2B76: ldc.i8 4503599627370496*/
+        st_90D = new Uint32Array([ 0x0,0x100000 ]);
+        /* IL_2B7F: call Void TestLeftShift(System.Int64)*/
+        (asm1.x6000013)(st_90D);
+        /* IL_2B84: ldc.i8 72057594037927935*/
+        st_90E = new Uint32Array([ 0xFFFFFFFF,0xFFFFFF ]);
+        /* IL_2B8D: call Void TestLeftShift(System.Int64)*/
+        (asm1.x6000013)(st_90E);
+        /* IL_2B92: ret */
         return ;
     };
     asm.x600000d = function Add(arg0,arg1)
@@ -18751,7 +18830,657 @@ var asm1; (function (asm)
         /* IL_03: ret */
         return st_02;
     };;
-    asm.x6000012 = function _ctor(arg0)
+    asm.x6000012_init = function ()
+    {
+        (((asm0)["System.Int64"])().init)();
+        asm.x6000012 = asm.x6000012_;
+    };;
+    asm.x6000012 = function (arg0)
+    {
+        (asm.x6000012_init.apply)(this,arguments);
+        return (asm.x6000012.apply)(this,arguments);
+    };;
+    asm.x6000012_ = function TestRightShift(arg0)
+    {
+        var t0;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var st_06;
+        var st_07;
+        var st_08;
+        var st_09;
+        var st_0A;
+        var st_0B;
+        var st_0C;
+        var st_0D;
+        var st_0E;
+        var st_0F;
+        var st_10;
+        var st_11;
+        var st_12;
+        var st_13;
+        var st_14;
+        var st_15;
+        var st_16;
+        var st_17;
+        var st_18;
+        var st_19;
+        var st_1A;
+        var st_1B;
+        var st_1C;
+        var st_1D;
+        var st_1E;
+        var st_1F;
+        var st_20;
+        var st_21;
+        var st_22;
+        var st_23;
+        var st_24;
+        var st_25;
+        var st_26;
+        var st_27;
+        var st_28;
+        var st_29;
+        var st_2A;
+        var st_2B;
+        var st_2C;
+        var st_2D;
+        var st_2E;
+        var st_2F;
+        var st_30;
+        var st_31;
+        var st_32;
+        var st_33;
+        var st_34;
+        var st_35;
+        var st_36;
+        var st_37;
+        var st_38;
+        var st_39;
+        var st_3A;
+        var st_3B;
+        var st_3C;
+        var st_3D;
+        var st_3E;
+        var st_3F;
+        t0 = ((asm0)["System.Int64"])();
+        /* IL_00: ldstr RightShift */
+        st_01 = new_string("RightShift ");
+        /* IL_05: ldarg.0 */
+        st_00 = arg0;
+        /* IL_06: box System.Int64*/
+        st_02 = {
+            'boxed': st_00,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_0B: call String Concat(System.Object, System.Object)*/
+        st_03 = (asm0.x60000ad)(st_01,st_02);
+        /* IL_10: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_03);
+        /* IL_15: ldarg.0 */
+        st_04 = arg0;
+        /* IL_16: ldc.i4.0 */
+        st_05 = (0|0);
+        /* IL_17: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_06 = (asm1.x6000014)(st_04,st_05);
+        /* IL_1C: box System.Int64*/
+        st_07 = {
+            'boxed': st_06,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_21: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_07);
+        /* IL_26: ldarg.0 */
+        st_08 = arg0;
+        /* IL_27: ldc.i4.1 */
+        st_09 = (1|0);
+        /* IL_28: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_0A = (asm1.x6000014)(st_08,st_09);
+        /* IL_2D: box System.Int64*/
+        st_0B = {
+            'boxed': st_0A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_32: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0B);
+        /* IL_37: ldarg.0 */
+        st_0C = arg0;
+        /* IL_38: ldc.i4.2 */
+        st_0D = (2|0);
+        /* IL_39: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_0E = (asm1.x6000014)(st_0C,st_0D);
+        /* IL_3E: box System.Int64*/
+        st_0F = {
+            'boxed': st_0E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_43: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0F);
+        /* IL_48: ldarg.0 */
+        st_10 = arg0;
+        /* IL_49: ldc.i4.7 */
+        st_11 = (7|0);
+        /* IL_4A: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_12 = (asm1.x6000014)(st_10,st_11);
+        /* IL_4F: box System.Int64*/
+        st_13 = {
+            'boxed': st_12,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_54: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_13);
+        /* IL_59: ldarg.0 */
+        st_14 = arg0;
+        /* IL_5A: ldc.i4.8 */
+        st_15 = (8|0);
+        /* IL_5B: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_16 = (asm1.x6000014)(st_14,st_15);
+        /* IL_60: box System.Int64*/
+        st_17 = {
+            'boxed': st_16,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_65: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_17);
+        /* IL_6A: ldarg.0 */
+        st_18 = arg0;
+        /* IL_6B: ldc.i4.s 9*/
+        st_19 = (9|0);
+        /* IL_6D: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_1A = (asm1.x6000014)(st_18,st_19);
+        /* IL_72: box System.Int64*/
+        st_1B = {
+            'boxed': st_1A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_77: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1B);
+        /* IL_7C: ldarg.0 */
+        st_1C = arg0;
+        /* IL_7D: ldc.i4.s 15*/
+        st_1D = (15|0);
+        /* IL_7F: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_1E = (asm1.x6000014)(st_1C,st_1D);
+        /* IL_84: box System.Int64*/
+        st_1F = {
+            'boxed': st_1E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_89: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1F);
+        /* IL_8E: ldarg.0 */
+        st_20 = arg0;
+        /* IL_8F: ldc.i4.s 16*/
+        st_21 = (16|0);
+        /* IL_91: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_22 = (asm1.x6000014)(st_20,st_21);
+        /* IL_96: box System.Int64*/
+        st_23 = {
+            'boxed': st_22,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_9B: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_23);
+        /* IL_A0: ldarg.0 */
+        st_24 = arg0;
+        /* IL_A1: ldc.i4.s 17*/
+        st_25 = (17|0);
+        /* IL_A3: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_26 = (asm1.x6000014)(st_24,st_25);
+        /* IL_A8: box System.Int64*/
+        st_27 = {
+            'boxed': st_26,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_AD: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_27);
+        /* IL_B2: ldarg.0 */
+        st_28 = arg0;
+        /* IL_B3: ldc.i4.s 23*/
+        st_29 = (23|0);
+        /* IL_B5: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_2A = (asm1.x6000014)(st_28,st_29);
+        /* IL_BA: box System.Int64*/
+        st_2B = {
+            'boxed': st_2A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_BF: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2B);
+        /* IL_C4: ldarg.0 */
+        st_2C = arg0;
+        /* IL_C5: ldc.i4.s 24*/
+        st_2D = (24|0);
+        /* IL_C7: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_2E = (asm1.x6000014)(st_2C,st_2D);
+        /* IL_CC: box System.Int64*/
+        st_2F = {
+            'boxed': st_2E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_D1: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2F);
+        /* IL_D6: ldarg.0 */
+        st_30 = arg0;
+        /* IL_D7: ldc.i4.s 25*/
+        st_31 = (25|0);
+        /* IL_D9: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_32 = (asm1.x6000014)(st_30,st_31);
+        /* IL_DE: box System.Int64*/
+        st_33 = {
+            'boxed': st_32,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_E3: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_33);
+        /* IL_E8: ldarg.0 */
+        st_34 = arg0;
+        /* IL_E9: ldc.i4.s 31*/
+        st_35 = (31|0);
+        /* IL_EB: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_36 = (asm1.x6000014)(st_34,st_35);
+        /* IL_F0: box System.Int64*/
+        st_37 = {
+            'boxed': st_36,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_F5: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_37);
+        /* IL_FA: ldarg.0 */
+        st_38 = arg0;
+        /* IL_FB: ldc.i4.s 32*/
+        st_39 = (32|0);
+        /* IL_FD: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_3A = (asm1.x6000014)(st_38,st_39);
+        /* IL_102: box System.Int64*/
+        st_3B = {
+            'boxed': st_3A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_107: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3B);
+        /* IL_10C: ldarg.0 */
+        st_3C = arg0;
+        /* IL_10D: ldc.i4.s 33*/
+        st_3D = (33|0);
+        /* IL_10F: call Int64 RightShift(System.Int64, System.Int32)*/
+        st_3E = (asm1.x6000014)(st_3C,st_3D);
+        /* IL_114: box System.Int64*/
+        st_3F = {
+            'boxed': st_3E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_119: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3F);
+        /* IL_11E: ret */
+        return ;
+    };
+    asm.x6000013_init = function ()
+    {
+        (((asm0)["System.Int64"])().init)();
+        asm.x6000013 = asm.x6000013_;
+    };;
+    asm.x6000013 = function (arg0)
+    {
+        (asm.x6000013_init.apply)(this,arguments);
+        return (asm.x6000013.apply)(this,arguments);
+    };;
+    asm.x6000013_ = function TestLeftShift(arg0)
+    {
+        var t0;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var st_06;
+        var st_07;
+        var st_08;
+        var st_09;
+        var st_0A;
+        var st_0B;
+        var st_0C;
+        var st_0D;
+        var st_0E;
+        var st_0F;
+        var st_10;
+        var st_11;
+        var st_12;
+        var st_13;
+        var st_14;
+        var st_15;
+        var st_16;
+        var st_17;
+        var st_18;
+        var st_19;
+        var st_1A;
+        var st_1B;
+        var st_1C;
+        var st_1D;
+        var st_1E;
+        var st_1F;
+        var st_20;
+        var st_21;
+        var st_22;
+        var st_23;
+        var st_24;
+        var st_25;
+        var st_26;
+        var st_27;
+        var st_28;
+        var st_29;
+        var st_2A;
+        var st_2B;
+        var st_2C;
+        var st_2D;
+        var st_2E;
+        var st_2F;
+        var st_30;
+        var st_31;
+        var st_32;
+        var st_33;
+        var st_34;
+        var st_35;
+        var st_36;
+        var st_37;
+        var st_38;
+        var st_39;
+        var st_3A;
+        var st_3B;
+        var st_3C;
+        var st_3D;
+        var st_3E;
+        var st_3F;
+        t0 = ((asm0)["System.Int64"])();
+        /* IL_00: ldstr LeftShift */
+        st_01 = new_string("LeftShift ");
+        /* IL_05: ldarg.0 */
+        st_00 = arg0;
+        /* IL_06: box System.Int64*/
+        st_02 = {
+            'boxed': st_00,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_0B: call String Concat(System.Object, System.Object)*/
+        st_03 = (asm0.x60000ad)(st_01,st_02);
+        /* IL_10: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_03);
+        /* IL_15: ldarg.0 */
+        st_04 = arg0;
+        /* IL_16: ldc.i4.0 */
+        st_05 = (0|0);
+        /* IL_17: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_06 = (asm1.x6000015)(st_04,st_05);
+        /* IL_1C: box System.Int64*/
+        st_07 = {
+            'boxed': st_06,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_21: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_07);
+        /* IL_26: ldarg.0 */
+        st_08 = arg0;
+        /* IL_27: ldc.i4.1 */
+        st_09 = (1|0);
+        /* IL_28: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_0A = (asm1.x6000015)(st_08,st_09);
+        /* IL_2D: box System.Int64*/
+        st_0B = {
+            'boxed': st_0A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_32: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0B);
+        /* IL_37: ldarg.0 */
+        st_0C = arg0;
+        /* IL_38: ldc.i4.2 */
+        st_0D = (2|0);
+        /* IL_39: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_0E = (asm1.x6000015)(st_0C,st_0D);
+        /* IL_3E: box System.Int64*/
+        st_0F = {
+            'boxed': st_0E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_43: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_0F);
+        /* IL_48: ldarg.0 */
+        st_10 = arg0;
+        /* IL_49: ldc.i4.7 */
+        st_11 = (7|0);
+        /* IL_4A: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_12 = (asm1.x6000015)(st_10,st_11);
+        /* IL_4F: box System.Int64*/
+        st_13 = {
+            'boxed': st_12,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_54: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_13);
+        /* IL_59: ldarg.0 */
+        st_14 = arg0;
+        /* IL_5A: ldc.i4.8 */
+        st_15 = (8|0);
+        /* IL_5B: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_16 = (asm1.x6000015)(st_14,st_15);
+        /* IL_60: box System.Int64*/
+        st_17 = {
+            'boxed': st_16,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_65: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_17);
+        /* IL_6A: ldarg.0 */
+        st_18 = arg0;
+        /* IL_6B: ldc.i4.s 9*/
+        st_19 = (9|0);
+        /* IL_6D: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_1A = (asm1.x6000015)(st_18,st_19);
+        /* IL_72: box System.Int64*/
+        st_1B = {
+            'boxed': st_1A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_77: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1B);
+        /* IL_7C: ldarg.0 */
+        st_1C = arg0;
+        /* IL_7D: ldc.i4.s 15*/
+        st_1D = (15|0);
+        /* IL_7F: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_1E = (asm1.x6000015)(st_1C,st_1D);
+        /* IL_84: box System.Int64*/
+        st_1F = {
+            'boxed': st_1E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_89: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_1F);
+        /* IL_8E: ldarg.0 */
+        st_20 = arg0;
+        /* IL_8F: ldc.i4.s 16*/
+        st_21 = (16|0);
+        /* IL_91: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_22 = (asm1.x6000015)(st_20,st_21);
+        /* IL_96: box System.Int64*/
+        st_23 = {
+            'boxed': st_22,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_9B: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_23);
+        /* IL_A0: ldarg.0 */
+        st_24 = arg0;
+        /* IL_A1: ldc.i4.s 17*/
+        st_25 = (17|0);
+        /* IL_A3: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_26 = (asm1.x6000015)(st_24,st_25);
+        /* IL_A8: box System.Int64*/
+        st_27 = {
+            'boxed': st_26,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_AD: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_27);
+        /* IL_B2: ldarg.0 */
+        st_28 = arg0;
+        /* IL_B3: ldc.i4.s 23*/
+        st_29 = (23|0);
+        /* IL_B5: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_2A = (asm1.x6000015)(st_28,st_29);
+        /* IL_BA: box System.Int64*/
+        st_2B = {
+            'boxed': st_2A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_BF: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2B);
+        /* IL_C4: ldarg.0 */
+        st_2C = arg0;
+        /* IL_C5: ldc.i4.s 24*/
+        st_2D = (24|0);
+        /* IL_C7: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_2E = (asm1.x6000015)(st_2C,st_2D);
+        /* IL_CC: box System.Int64*/
+        st_2F = {
+            'boxed': st_2E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_D1: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_2F);
+        /* IL_D6: ldarg.0 */
+        st_30 = arg0;
+        /* IL_D7: ldc.i4.s 25*/
+        st_31 = (25|0);
+        /* IL_D9: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_32 = (asm1.x6000015)(st_30,st_31);
+        /* IL_DE: box System.Int64*/
+        st_33 = {
+            'boxed': st_32,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_E3: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_33);
+        /* IL_E8: ldarg.0 */
+        st_34 = arg0;
+        /* IL_E9: ldc.i4.s 31*/
+        st_35 = (31|0);
+        /* IL_EB: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_36 = (asm1.x6000015)(st_34,st_35);
+        /* IL_F0: box System.Int64*/
+        st_37 = {
+            'boxed': st_36,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_F5: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_37);
+        /* IL_FA: ldarg.0 */
+        st_38 = arg0;
+        /* IL_FB: ldc.i4.s 32*/
+        st_39 = (32|0);
+        /* IL_FD: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_3A = (asm1.x6000015)(st_38,st_39);
+        /* IL_102: box System.Int64*/
+        st_3B = {
+            'boxed': st_3A,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_107: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3B);
+        /* IL_10C: ldarg.0 */
+        st_3C = arg0;
+        /* IL_10D: ldc.i4.s 33*/
+        st_3D = (33|0);
+        /* IL_10F: call Int64 LeftShift(System.Int64, System.Int32)*/
+        st_3E = (asm1.x6000015)(st_3C,st_3D);
+        /* IL_114: box System.Int64*/
+        st_3F = {
+            'boxed': st_3E,
+            'type': t0,
+            'vtable': t0.prototype.vtable
+        };
+        /* IL_119: call Void Log(System.Object)*/
+        (asm1.x6000001)(st_3F);
+        /* IL_11E: ret */
+        return ;
+    };
+    asm.x6000014 = function RightShift(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        /* IL_00: ldarg.0 */
+        st_02 = arg0;
+        /* IL_01: ldarg.1 */
+        st_00 = arg1;
+        /* IL_02: ldc.i4.s 63*/
+        st_01 = (63|0);
+        /* IL_04: and */
+        st_03 = (st_00 & st_01);
+        /* IL_05: shr */
+        st_04 = (asm0.Int64_RightShift)(st_02,st_03);
+        /* IL_06: ret */
+        return st_04;
+    };;
+    asm.x6000015 = function LeftShift(arg0,arg1)
+    {
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        /* IL_00: ldarg.0 */
+        st_02 = arg0;
+        /* IL_01: ldarg.1 */
+        st_00 = arg1;
+        /* IL_02: ldc.i4.s 63*/
+        st_01 = (63|0);
+        /* IL_04: and */
+        st_03 = (st_00 & st_01);
+        /* IL_05: shl */
+        st_04 = (asm0.XInt64_LeftShift)(st_02,st_03);
+        /* IL_06: ret */
+        return st_04;
+    };;
+    asm.x6000016 = function _ctor(arg0)
     {
         var st_00;
         /* IL_00: ldarg.0 */

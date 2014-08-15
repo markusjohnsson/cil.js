@@ -287,7 +287,19 @@ class Program
         TestLog.Log(Mod(0xfffffffffffffUL, 0x0101010101010UL));
         TestLog.Log(Mod(0xffffffffffffffUL, 0x01010101010101UL));
 
-        
+        TestRightShift(0x0UL);
+        TestRightShift(0x1UL);
+        TestRightShift(0xffUL);
+        TestRightShift(0x01010101010101UL);
+        TestRightShift(0x10000000000000UL);
+        TestRightShift(0xffffffffffffffUL);
+
+        TestLeftShift(0x0UL);
+        TestLeftShift(0x1UL);
+        TestLeftShift(0xffUL);
+        TestLeftShift(0x01010101010101UL);
+        TestLeftShift(0x10000000000000UL);
+        TestLeftShift(0xffffffffffffffUL);
     }
 
     public static ulong Add(ulong a, ulong b)
@@ -313,5 +325,53 @@ class Program
     public static ulong Mod(ulong a, ulong b)
     {
         return a % b;
+    }
+
+    public static void TestRightShift(ulong n)
+    {
+        TestLog.Log(RightShift(n, 0));
+        TestLog.Log(RightShift(n, 1));
+        TestLog.Log(RightShift(n, 2));
+        TestLog.Log(RightShift(n, 7));
+        TestLog.Log(RightShift(n, 8));
+        TestLog.Log(RightShift(n, 9));
+        TestLog.Log(RightShift(n, 15));
+        TestLog.Log(RightShift(n, 16));
+        TestLog.Log(RightShift(n, 17));
+        TestLog.Log(RightShift(n, 23));
+        TestLog.Log(RightShift(n, 24));
+        TestLog.Log(RightShift(n, 25));
+        TestLog.Log(RightShift(n, 31));
+        TestLog.Log(RightShift(n, 32));
+        TestLog.Log(RightShift(n, 33));
+    }
+
+    public static void TestLeftShift(ulong n)
+    {
+        TestLog.Log(LeftShift(n, 0));
+        TestLog.Log(LeftShift(n, 1));
+        TestLog.Log(LeftShift(n, 2));
+        TestLog.Log(LeftShift(n, 7));
+        TestLog.Log(LeftShift(n, 8));
+        TestLog.Log(LeftShift(n, 9));
+        TestLog.Log(LeftShift(n, 15));
+        TestLog.Log(LeftShift(n, 16));
+        TestLog.Log(LeftShift(n, 17));
+        TestLog.Log(LeftShift(n, 23));
+        TestLog.Log(LeftShift(n, 24));
+        TestLog.Log(LeftShift(n, 25));
+        TestLog.Log(LeftShift(n, 31));
+        TestLog.Log(LeftShift(n, 32));
+        TestLog.Log(LeftShift(n, 33));
+    }
+
+    public static ulong RightShift(ulong a, int b)
+    {
+        return a >> b;
+    }
+
+    public static ulong LeftShift(ulong a, int b)
+    {
+        return a << b;
     }
 }

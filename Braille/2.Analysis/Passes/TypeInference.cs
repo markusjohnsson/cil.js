@@ -272,6 +272,8 @@ namespace Braille.Analysis
 
             if (a == b)
                 return a;
+            else if (op.Instruction.OpCode.Name.StartsWith("sh"))
+                return a;
             else
                 throw new NotSupportedException();
         }

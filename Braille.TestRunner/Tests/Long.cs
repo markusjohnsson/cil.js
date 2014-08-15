@@ -507,12 +507,24 @@ class Program
         TestLog.Log(Mod(0xfffffffffffffL, -0x0101010101010L));
         TestLog.Log(Mod(0xffffffffffffffL, -0x01010101010101L));
         
-
-
         TestLog.Log(Mod(0xfL, 2L));
         TestLog.Log(Mod(0xfL, -2L));
         TestLog.Log(Mod(-0xfL, -2L));
         TestLog.Log(Mod(-0xfL, 2L));
+
+        TestRightShift(0x0L);
+        TestRightShift(0x1L);
+        TestRightShift(0xffL);
+        TestRightShift(0x01010101010101L);
+        TestRightShift(0x10000000000000L);
+        TestRightShift(0xffffffffffffffL);
+
+        TestLeftShift(0x0L);
+        TestLeftShift(0x1L);
+        TestLeftShift(0xffL);
+        TestLeftShift(0x01010101010101L);
+        TestLeftShift(0x10000000000000L);
+        TestLeftShift(0xffffffffffffffL);
 
     }
 
@@ -539,5 +551,55 @@ class Program
     public static long Mod(long a, long b)
     {
         return a % b;
+    }
+
+    public static void TestRightShift(long n)
+    {
+        TestLog.Log("RightShift " + n);
+        TestLog.Log(RightShift(n, 0));
+        TestLog.Log(RightShift(n, 1));
+        TestLog.Log(RightShift(n, 2));
+        TestLog.Log(RightShift(n, 7));
+        TestLog.Log(RightShift(n, 8));
+        TestLog.Log(RightShift(n, 9));
+        TestLog.Log(RightShift(n, 15));
+        TestLog.Log(RightShift(n, 16));
+        TestLog.Log(RightShift(n, 17));
+        TestLog.Log(RightShift(n, 23));
+        TestLog.Log(RightShift(n, 24));
+        TestLog.Log(RightShift(n, 25));
+        TestLog.Log(RightShift(n, 31));
+        TestLog.Log(RightShift(n, 32));
+        TestLog.Log(RightShift(n, 33));
+    }
+
+    public static void TestLeftShift(long n)
+    {
+        TestLog.Log("LeftShift " + n);
+        TestLog.Log(LeftShift(n, 0));
+        TestLog.Log(LeftShift(n, 1));
+        TestLog.Log(LeftShift(n, 2));
+        TestLog.Log(LeftShift(n, 7));
+        TestLog.Log(LeftShift(n, 8));
+        TestLog.Log(LeftShift(n, 9));
+        TestLog.Log(LeftShift(n, 15));
+        TestLog.Log(LeftShift(n, 16));
+        TestLog.Log(LeftShift(n, 17));
+        TestLog.Log(LeftShift(n, 23));
+        TestLog.Log(LeftShift(n, 24));
+        TestLog.Log(LeftShift(n, 25));
+        TestLog.Log(LeftShift(n, 31));
+        TestLog.Log(LeftShift(n, 32));
+        TestLog.Log(LeftShift(n, 33));
+    }
+
+    public static long RightShift(long a, int b)
+    {
+        return a >> b;
+    }
+
+    public static long LeftShift(long a, int b)
+    {
+        return a << b;
     }
 }

@@ -354,6 +354,7 @@ namespace Braille.JsTranslation
                 case "or":
                 case "rem":
                 case "rem.un":
+                case "shl":
                 case "shr":
                 case "shr.un":
                 case "sub":

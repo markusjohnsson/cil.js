@@ -186,15 +186,15 @@ namespace System
 
         [JsAssemblyStatic(Name = "Int64_RightShift")]
         [JsImport(@"
-            function Int64_RightShift(lhs, n) {
+            function Int64_RightShift(a, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
                 if (n === 0) {
                     var result2 = a;
                 } else if (n > 32) {
-                    result2 = asm0.UInt64_RightShift(asm0.UInt64_RightShift(a, 32), n - 32);
+                    result2 = asm0.Int64_RightShift(asm0.Int64_RightShift(a, 32), n - 32);
                 } else {
-                    var unsignedShift = asm0.UInt64.op_RightShift(a, n);
+                    var unsignedShift = asm0.UInt64_RightShift(a, n);
 
                     if (asm0.Int64_isNegative(a)) {
                         var outshift = asm0.UInt64_RightShift(new Uint32Array([0xffffff, 0xffffff]), n);

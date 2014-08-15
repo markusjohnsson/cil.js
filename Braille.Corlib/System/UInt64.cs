@@ -30,9 +30,10 @@ namespace System
             function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
-                if (n > 32) {
+                var maxShift = 8;
+                if (n > maxShift) {
                     return asm0.UInt64_RightShift(
-                        asm0.UInt64_RightShift(a, 32), n - 32);
+                        asm0.UInt64_RightShift(a, maxShift), n - maxShift);
                 }
 
                 var m = (1 << n) - 1;
