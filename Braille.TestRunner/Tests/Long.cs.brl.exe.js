@@ -323,21 +323,8 @@ var asm0; (function (asm)
     };;
     asm.x600000b = function _ctor(arg0)
     {
-        var __pos_0__;
-        __pos_0__ = 0x0;
-        
-        while (__pos_0__ >= 0){
-            
-            switch (__pos_0__){
-                case 0x0:
-                /* IL_00: br.s IL_02*/
-                __pos_0__ = 0x2;
-                continue;
-                case 0x2:
-                /* IL_02: ret */
-                return ;
-            }
-        }
+        /* IL_02: ret */
+        return ;
     };;
     asm.x600000c = function _ctor(arg0)
     {
