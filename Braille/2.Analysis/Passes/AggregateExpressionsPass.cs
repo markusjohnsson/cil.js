@@ -92,7 +92,8 @@ namespace Braille.Analysis.Passes
                 }
                 else if
                     ((expr.Instruction.OpCode.FlowControl != IKVM.Reflection.Emit.FlowControl.Next &&
-                      expr.Instruction.OpCode.FlowControl != IKVM.Reflection.Emit.FlowControl.Call) ||
+                      expr.Instruction.OpCode.FlowControl != IKVM.Reflection.Emit.FlowControl.Call &&
+                      expr.Instruction.OpCode.FlowControl != IKVM.Reflection.Emit.FlowControl.Return) ||
                      expr.PushCount > 1)
                 {
                     start = null;

@@ -8551,11 +8551,9 @@ var asm1; (function (asm)
         /* IL_05: call Void Log(System.Object)*/
         (asm1.x6000001)(st_00);
         /* IL_0A: ldarg.0 */
-        st_01 = arg0;
         /* IL_0B: ldfld Int32 field*/
-        st_02 = st_01.Afield;
         /* IL_10: ret */
-        return st_02;
+        return arg0.Afield;
     };;
     asm.x6000012 = function _ctor(arg0)
     {
@@ -8602,11 +8600,9 @@ var asm1; (function (asm)
         /* IL_05: call Void Log(System.Object)*/
         (asm1.x6000001)(st_00);
         /* IL_0A: ldarg.0 */
-        st_01 = arg0;
         /* IL_0B: ldfld T field*/
-        st_02 = st_01.B_1field;
         /* IL_10: ret */
-        return st_02;
+        return arg0.B_1field;
     };;
     asm.x6000016 = function _ctor(arg0)
     {

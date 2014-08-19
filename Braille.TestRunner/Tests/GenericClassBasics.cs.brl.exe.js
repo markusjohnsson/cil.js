@@ -8520,11 +8520,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld T <Prop>k__BackingField*/
-        st_01 = (st_00)["A_1<Prop>k__BackingField"];
         /* IL_06: ret */
-        return st_01;
+        return (arg0)["A_1<Prop>k__BackingField"];
     };;
     asm.x600000d = function set_Prop(arg0,arg1)
     {

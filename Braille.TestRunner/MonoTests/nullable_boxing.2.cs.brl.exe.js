@@ -8697,7 +8697,11 @@ var asm1; (function (asm)
                 return st_02;
                 case 0xB:
                 /* IL_0B: ldarga.s 1*/
-                st_03 = {
+                /* IL_0D: call Int32 get_Value()*/
+                /* IL_12: ldc.i4.1 */
+                /* IL_13: add */
+                /* IL_14: ret */
+                return ((asm0.x600009b)({
                     'w': function ()
                     {
                         arg1 = (arguments)[0];
@@ -8706,15 +8710,7 @@ var asm1; (function (asm)
                     {
                         return arg1;
                     }
-                };
-                /* IL_0D: call Int32 get_Value()*/
-                st_04 = (asm0.x600009b)(st_03);
-                /* IL_12: ldc.i4.1 */
-                st_05 = (1|0);
-                /* IL_13: add */
-                st_06 = ((st_04 + st_05) | 0);
-                /* IL_14: ret */
-                return st_06;
+                }) + (1|0)) | 0;
             }
         }
     };;

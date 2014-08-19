@@ -12743,13 +12743,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: conv.r.un */
-        st_01 = to_number(st_00);
         /* IL_02: conv.r8 */
-        st_02 = st_01;
         /* IL_03: ret */
-        return st_02;
+        return to_number(arg0);
     };;
     asm.x600000e = function Add(arg0,arg1)
     {
@@ -12757,13 +12754,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: add */
-        st_02 = (asm0.XInt64_Addition)(st_00,st_01);
         /* IL_03: ret */
-        return st_02;
+        return (asm0.XInt64_Addition)(arg0,arg1);
     };;
     asm.x600000f = function Sub(arg0,arg1)
     {
@@ -12771,13 +12765,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: sub */
-        st_02 = (asm0.XInt64_Subtraction)(st_00,st_01);
         /* IL_03: ret */
-        return st_02;
+        return (asm0.XInt64_Subtraction)(arg0,arg1);
     };;
     asm.x6000010 = function Mul(arg0,arg1)
     {
@@ -12785,13 +12776,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: mul */
-        st_02 = (asm0.XInt64_Multiplication)(st_00,st_01);
         /* IL_03: ret */
-        return st_02;
+        return (asm0.XInt64_Multiplication)(arg0,arg1);
     };;
     asm.x6000011 = function Div(arg0,arg1)
     {
@@ -12799,13 +12787,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: div.un */
-        st_02 = (asm0.UInt64_Division)(st_00,st_01);
         /* IL_03: ret */
-        return st_02;
+        return (asm0.UInt64_Division)(arg0,arg1);
     };;
     asm.x6000012 = function Mod(arg0,arg1)
     {
@@ -12813,13 +12798,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: rem.un */
-        st_02 = (asm0.UInt64_Modulus)(st_00,st_01);
         /* IL_03: ret */
-        return st_02;
+        return (asm0.UInt64_Modulus)(arg0,arg1);
     };;
     asm.x6000013_init = function ()
     {
@@ -13283,17 +13265,12 @@ var asm1; (function (asm)
         var st_03;
         var st_04;
         /* IL_00: ldarg.0 */
-        st_02 = arg0;
         /* IL_01: ldarg.1 */
-        st_00 = arg1;
         /* IL_02: ldc.i4.s 63*/
-        st_01 = (63|0);
         /* IL_04: and */
-        st_03 = (st_00 & st_01);
         /* IL_05: shr.un */
-        st_04 = (asm0.UInt64_RightShift)(st_02,st_03);
         /* IL_06: ret */
-        return st_04;
+        return (asm0.UInt64_RightShift)(arg0,arg1 & (63|0));
     };;
     asm.x6000016 = function LeftShift(arg0,arg1)
     {
@@ -13303,17 +13280,12 @@ var asm1; (function (asm)
         var st_03;
         var st_04;
         /* IL_00: ldarg.0 */
-        st_02 = arg0;
         /* IL_01: ldarg.1 */
-        st_00 = arg1;
         /* IL_02: ldc.i4.s 63*/
-        st_01 = (63|0);
         /* IL_04: and */
-        st_03 = (st_00 & st_01);
         /* IL_05: shl */
-        st_04 = (asm0.XInt64_LeftShift)(st_02,st_03);
         /* IL_06: ret */
-        return st_04;
+        return (asm0.XInt64_LeftShift)(arg0,arg1 & (63|0));
     };;
     asm.x6000017 = function _ctor(arg0)
     {

@@ -8743,11 +8743,9 @@ var asm1; (function (asm)
         /* IL_14: call Void Test2(IE)*/
         (asm1.x6000019)(st_04);
         /* IL_19: ldloc.0 */
-        st_05 = loc0;
         /* IL_1A: call Int32 Test(IC)*/
-        st_06 = (asm1.x6000018)(st_05);
         /* IL_1F: ret */
-        return st_06;
+        return (asm1.x6000018)(loc0);
     };
     asm.x600001b = function _ctor(arg0)
     {

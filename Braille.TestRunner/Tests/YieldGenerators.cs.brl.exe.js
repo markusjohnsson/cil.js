@@ -8929,11 +8929,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32 <Prop>k__BackingField*/
-        st_01 = (st_00)["P<Prop>k__BackingField"];
         /* IL_06: ret */
-        return st_01;
+        return (arg0)["P<Prop>k__BackingField"];
     };;
     asm.x6000011 = function set_Prop(arg0,arg1)
     {
@@ -9164,11 +9162,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: callvirt Int32 get_Prop()*/
-        st_01 = (asm1.x6000010)(st_00);
         /* IL_06: ret */
-        return st_01;
+        return (asm1.x6000010)(arg0);
     };;
     asm.x6000014 = function _ctor(arg0)
     {
@@ -9286,11 +9282,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<TResult>.GetEnumerator()*/
-        st_01 = (asm1.x6000016)(st_00);
         /* IL_06: ret */
-        return st_01;
+        return (asm1.x6000016)(arg0);
     };;
     asm.x6000018_init = function ()
     {
@@ -9519,11 +9513,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld TResult <>2__current*/
-        st_01 = (st_00)["_Select_d__0_2<>2__current"];
         /* IL_06: ret */
-        return st_01;
+        return (arg0)["_Select_d__0_2<>2__current"];
     };;
     asm.x600001a_init = function ()
     {
@@ -9616,13 +9608,10 @@ var asm1; (function (asm)
         var st_02;
         t0 = ((arguments)[0].constructor.GenericArguments)[1];
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld TResult <>2__current*/
-        st_01 = (st_00)["_Select_d__0_2<>2__current"];
         /* IL_06: box TResult*/
-        st_02 = box(st_01,t0);
         /* IL_0B: ret */
-        return st_02;
+        return box((arg0)["_Select_d__0_2<>2__current"],t0);
     };;
     asm.x600001e_init = function ()
     {
@@ -9801,11 +9790,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<T>.GetEnumerator()*/
-        st_01 = (asm1.x600001f)(st_00);
         /* IL_06: ret */
-        return st_01;
+        return (asm1.x600001f)(arg0);
     };;
     asm.x6000021_init = function ()
     {
@@ -10046,11 +10033,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld T <>2__current*/
-        st_01 = (st_00)["_Where_d__6_1<>2__current"];
         /* IL_06: ret */
-        return st_01;
+        return (arg0)["_Where_d__6_1<>2__current"];
     };;
     asm.x6000023_init = function ()
     {
@@ -10143,13 +10128,10 @@ var asm1; (function (asm)
         var st_02;
         t0 = ((arguments)[0].constructor.GenericArguments)[0];
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld T <>2__current*/
-        st_01 = (st_00)["_Where_d__6_1<>2__current"];
         /* IL_06: box T*/
-        st_02 = box(st_01,t0);
         /* IL_0B: ret */
-        return st_02;
+        return box((arg0)["_Where_d__6_1<>2__current"],t0);
     };;
     asm.x6000027_init = function ()
     {

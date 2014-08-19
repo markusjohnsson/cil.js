@@ -8520,11 +8520,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32 <Y>k__BackingField*/
-        st_01 = (st_00)["X<Y>k__BackingField"];
         /* IL_06: ret */
-        return st_01;
+        return (arg0)["X<Y>k__BackingField"];
     };;
     asm.x600000d = function set_Y(arg0,arg1)
     {

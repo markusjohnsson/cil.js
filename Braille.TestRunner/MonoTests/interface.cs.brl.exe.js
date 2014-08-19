@@ -8542,21 +8542,14 @@ var asm1; (function (asm)
         var st_05;
         var st_06;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32 w*/
-        st_01 = st_00.ObjRectw;
         /* IL_06: conv.r8 */
-        st_04 = st_01;
         /* IL_07: ldarg.0 */
-        st_02 = arg0;
         /* IL_08: ldfld Int32 h*/
-        st_03 = st_02.ObjRecth;
         /* IL_0D: conv.r8 */
-        st_05 = st_03;
         /* IL_0E: mul */
-        st_06 = (st_04 * st_05);
         /* IL_0F: ret */
-        return st_06;
+        return arg0.ObjRectw * arg0.ObjRecth;
     };;
     asm.x600000f = function _ctor(arg0,arg1,arg2,arg3,arg4)
     {
@@ -8603,23 +8596,15 @@ var asm1; (function (asm)
         var st_06;
         var st_07;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32 r*/
-        st_02 = st_00.ObjCircler;
         /* IL_06: ldarg.0 */
-        st_01 = arg0;
         /* IL_07: ldfld Int32 r*/
-        st_03 = st_01.ObjCircler;
         /* IL_0C: mul */
-        st_04 = (st_02 * st_03);
         /* IL_0D: conv.r8 */
-        st_05 = st_04;
         /* IL_0E: ldc.r8 3.14159265359*/
-        st_06 = (+3.14159265359);
         /* IL_17: mul */
-        st_07 = (st_05 * st_06);
         /* IL_18: ret */
-        return st_07;
+        return (arg0.ObjCircler * arg0.ObjCircler) * (+3.14159265359);
     };;
     asm.x6000011 = function _ctor(arg0,arg1,arg2,arg3)
     {

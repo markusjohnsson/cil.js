@@ -8582,11 +8582,9 @@ var asm1; (function (asm)
         /* IL_1A: stelem.i4 */
         (loc0.jsarr)[(4|0)] = (8|0);
         /* IL_1B: ldloc.0 */
-        st_11 = loc0;
         /* IL_1C: newobj Void .ctor(System.Int32[])*/
-        st_12 = newobj(t1,asm1.x600000e,[ null,st_11 ]);
         /* IL_21: ret */
-        return st_12;
+        return newobj(t1,asm1.x600000e,[ null,loc0 ]);
     };
     asm.x600000d = function _ctor(arg0)
     {
@@ -8631,19 +8629,13 @@ var asm1; (function (asm)
         /* IL_0B: stfld Int32 i*/
         st_06.Iteri = st_07;
         /* IL_10: ldloc.0 */
-        st_0B = loc0;
         /* IL_11: ldarg.0 */
-        st_08 = arg0;
         /* IL_12: ldfld Int32[] nums*/
-        st_09 = st_08.Iternums;
         /* IL_17: ldlen */
-        st_0A = st_09.jsarr.length;
         /* IL_18: conv.i4 */
-        st_0C = (st_0A | 0);
         /* IL_1A: clt */
-        st_0D = ((st_0B < st_0C) ? (1) : (0));
         /* IL_1B: ret */
-        return st_0D;
+        return ((loc0 < (arg0.Iternums.jsarr.length | 0)) ? (1) : (0));
     };;
     asm.x6000010 = function get_Current(arg0)
     {
@@ -8653,17 +8645,12 @@ var asm1; (function (asm)
         var st_03;
         var st_04;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32[] nums*/
-        st_02 = st_00.Iternums;
         /* IL_06: ldarg.0 */
-        st_01 = arg0;
         /* IL_07: ldfld Int32 i*/
-        st_03 = st_01.Iteri;
         /* IL_0C: ldelem.i4 */
-        st_04 = (st_02.jsarr)[st_03];
         /* IL_0D: ret */
-        return st_04;
+        return (arg0.Iternums.jsarr)[arg0.Iteri];
     };;
     asm.x600000e = function _ctor(arg0,arg1)
     {

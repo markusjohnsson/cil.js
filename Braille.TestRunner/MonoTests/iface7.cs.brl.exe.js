@@ -8522,15 +8522,11 @@ var asm1; (function (asm)
         var st_02;
         var st_03;
         /* IL_00: ldc.i4.1 */
-        st_01 = (1|0);
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: callvirt Int32 Do()*/
-        st_02 = (((st_00.vtable)["asm1.x600000e"])())(st_00);
         /* IL_07: add */
-        st_03 = ((st_01 + st_02) | 0);
         /* IL_08: ret */
-        return st_03;
+        return ((1|0) + (((arg0.vtable)["asm1.x600000e"])())(arg0)) | 0;
     };;
     asm.x600000e = function Do(arg0)
     {

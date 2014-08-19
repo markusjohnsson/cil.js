@@ -8845,11 +8845,9 @@ var asm1; (function (asm)
                 /* IL_EA: callvirt Void Append(System.Char)*/
                 (asm1.x600000f)(loc0,(34|0));
                 /* IL_EF: ldloc.0 */
-                st_32 = loc0;
                 /* IL_F0: callvirt String ToString()*/
-                st_33 = (((st_32.vtable)["asm0.x6000005"])())(st_32);
                 /* IL_F5: ret */
-                return st_33;
+                return (((loc0.vtable)["asm0.x6000005"])())(loc0);
             }
         }
     };
@@ -8872,19 +8870,15 @@ var asm1; (function (asm)
         var st_03;
         t0 = ((asm0)["System.Int32"])();
         /* IL_00: ldstr \u*/
-        st_01 = new_string("\\u");
         /* IL_05: ldarg.0 */
-        st_00 = arg0;
         /* IL_06: box System.Int32*/
-        st_02 = {
-            'boxed': st_00,
+        /* IL_0B: call String Concat(System.Object, System.Object)*/
+        /* IL_10: ret */
+        return (asm0.x60000ad)(new_string("\\u"),{
+            'boxed': arg0,
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_0B: call String Concat(System.Object, System.Object)*/
-        st_03 = (asm0.x60000ad)(st_01,st_02);
-        /* IL_10: ret */
-        return st_03;
+        });
     };
     asm.TestLog = (function ()
     {

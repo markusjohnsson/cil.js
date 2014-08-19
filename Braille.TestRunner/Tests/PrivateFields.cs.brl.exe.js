@@ -8520,11 +8520,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32 x*/
-        st_01 = st_00.Ax;
         /* IL_06: ret */
-        return st_01;
+        return arg0.Ax;
     };;
     asm.x600000d = function set_AX(arg0,arg1)
     {
@@ -8551,11 +8549,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Int32 x*/
-        st_01 = st_00.Bx;
         /* IL_06: ret */
-        return st_01;
+        return arg0.Bx;
     };;
     asm.x6000010 = function set_BX(arg0,arg1)
     {
