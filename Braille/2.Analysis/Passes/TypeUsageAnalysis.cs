@@ -1,5 +1,6 @@
 ﻿using Braille.Analysis.Passes;
 using Braille.Ast;
+using Braille.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace Braille.Analysis
     {
         private Universe universe;
 
-        public TypeUsageAnalysis(Universe universe)
+        public TypeUsageAnalysis(Context context)
         {
-            this.universe = universe;
+            this.universe = context.ReflectionUniverse;
         }
 
         public void Run(CilMethod method)

@@ -33,11 +33,7 @@ namespace Braille.JsTranslation
         public IEnumerable<JSStatement> Process(OpExpression node)
         {
 
-            yield return JSFactory.Statement(
-                new JSLineComment
-                {
-                    Text = node.Instruction.ToString()
-                });
+            yield return GetILAsComment(node);
 
             var opc = node.Instruction.OpCode.Name;
 
@@ -252,6 +248,25 @@ namespace Braille.JsTranslation
                     break;
             }
 
+        }
+
+        private static JSStatement GetILAsComment(OpExpression node)
+        {
+            var il = GetInstructionsRecursive(node).OrderBy(i => i.Position);
+
+            return JSFactory
+                .Statement(
+                    new JSLineComment
+                    {
+                        Text = string.Join("\n", il)
+                    });
+        }
+
+        private static IEnumerable<OpInstruction> GetInstructionsRecursive(OpExpression node)
+        {
+            yield return node.Instruction;
+            foreach (var subnode in node.Arguments.OfType<OpExpression>().SelectMany(n => GetInstructionsRecursive(n)))
+                yield return subnode;
         }
 
         protected JSExpression CreateXInt64BinaryOperation(OpExpression node, string functionName)

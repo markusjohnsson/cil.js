@@ -1,4 +1,5 @@
-﻿using Braille.Ast;
+﻿using Braille.Analysis.Passes;
+using Braille.Ast;
 using Braille.Loading;
 using Braille.Loading.Model;
 using IKVM.Reflection;
@@ -10,7 +11,7 @@ using Type = IKVM.Reflection.Type;
 
 namespace Braille.Analysis
 {
-    class OpExpressionBuilder
+    class OpExpressionBuilder: IRewriter
     {
         private Universe universe;
 
@@ -23,13 +24,13 @@ namespace Braille.Analysis
 
         }
 
-        public IList<OpExpression> Build(CilMethod method)
+        public void Run(CilMethod method)
         {
             var mtdb = method.ReflectionMethod.GetMethodBody();
 
             var opInfos = CreateOpInfos(method);
 
-            return opInfos;
+            method.OpTree = opInfos;
         }
 
         private List<OpExpression> CreateOpInfos(CilMethod method)
@@ -274,6 +275,7 @@ namespace Braille.Analysis
             else
                 return 1 + i.Position + i.Size + (int)i.Data;
         }
+
 
     }
 

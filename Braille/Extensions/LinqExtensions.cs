@@ -46,5 +46,17 @@ namespace Braille
             source.RemoveRange(fromIndex, toIndex - fromIndex);
             source.InsertRange(fromIndex, replacement);
         }
+
+        public static IEnumerable<T> GetRange<T>(this List<T> source, T from, T to)
+        {
+            var fromIndex = source.IndexOf(from);
+            var toIndex = source.IndexOf(to);
+            for (var i = fromIndex; i < source.Count && i <= toIndex; i++)
+            {
+                yield return source[i];
+            }
+        }
+
+
     }
 }

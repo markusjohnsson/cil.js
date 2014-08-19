@@ -24,10 +24,6 @@ namespace Braille.Analysis
                     {
                         if (method.NeedTranslation && method.GetReplacement() == null)
                         {
-                            var opInfos = expressionBuilder.Build(method); // static analysis happens here
-
-                            method.OpTree = opInfos;
-
                             foreach (var rewriter in GetPasses(ctx))
                             {
                                 rewriter.Run(method);
@@ -40,6 +36,8 @@ namespace Braille.Analysis
 
         public IEnumerable<IAnalysisPass> GetPasses(Context ctx)
         {
+            yield return new OpExpressionBuilder(ctx);
+
             // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
             yield return new StackAnalyzer();
 
@@ -49,11 +47,14 @@ namespace Braille.Analysis
             yield return new UnreachableRemoval();
             yield return new LocalsAnalyzer();
             yield return new TypeInference(ctx);
-            yield return new TypeUsageAnalysis(ctx.ReflectionUniverse);
+            yield return new TypeUsageAnalysis(ctx);
             yield return new InsertLabelsPass();
-
+            
             yield return new CreateBlocksPass();
             yield return new AggregateBlocksPass();
+
+            yield return new AggregateExpressionsPass(ctx);
+
         }
 
     }

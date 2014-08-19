@@ -19,10 +19,18 @@ namespace Braille.Ast
 
         public List<VariableInfo> StoreLocations = new List<VariableInfo>();
 
+        private IEnumerable<Node> arguments;
         public IEnumerable<Node> Arguments
         {
+            set 
+            {
+                arguments = value;
+            }
             get
             {
+                if (arguments != null)
+                    return arguments;
+
                 if (StackBefore == null)
                     return Enumerable.Empty<VariableInfo>();
                 else
@@ -45,6 +53,7 @@ namespace Braille.Ast
             this.PushCount = pushCount;
         }
 
+        // FIXME: this is only an appropriate string representation before expression aggregation.. perhaps we should have different classes entierly before and after
         public override string ToString()
         {
             return Instruction.ToString() +

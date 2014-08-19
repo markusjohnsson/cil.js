@@ -199,11 +199,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call Int32 GetHashCode(System.Object)*/
-        st_01 = (asm0.x6000003)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x6000003)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -235,17 +233,12 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldnull */
-                st_01 = null;
                 /* IL_04: ceq */
-                st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = (0|0);
                 /* IL_07: ceq */
-                st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
-                loc1 = st_04;
+                loc1 = ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_19*/
@@ -255,23 +248,18 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_0C: ldstr */
-                st_06 = new_string("");
                 /* IL_11: ldfld Object jsstr*/
-                st_07 = st_06.jsstr;
                 /* IL_16: stloc.0 */
-                loc0 = st_07;
+                loc0 = new_string("").jsstr;
                 /* IL_17: br.s IL_27*/
                 __pos_0__ = 0x27;
                 continue;
                 case 0x19:
                 /* IL_19: ldarg.0 */
-                st_08 = arg0;
                 /* IL_1A: callvirt String ToString()*/
-                st_09 = (((st_08.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_08));
                 /* IL_1F: ldfld Object jsstr*/
-                st_0A = st_09.jsstr;
                 /* IL_24: stloc.0 */
-                loc0 = st_0A;
+                loc0 = (((arg0.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(arg0)).jsstr;
                 case 0x27:
                 /* IL_27: ldloc.0 */
                 st_0B = loc0;
@@ -290,13 +278,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Boolean ReferenceEqualsImpl(System.Object, System.Object)*/
-        st_02 = (asm0.x6000001)(st_00,st_01);
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (asm0.x6000001)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -311,13 +296,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        st_02 = (asm0.x6000008)(st_00,st_01);
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (asm0.x6000008)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -331,11 +313,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call Type GetTypeImpl(System.Object)*/
-        st_01 = (asm0.x6000002)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x6000002)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -375,11 +355,9 @@ var asm0; (function (asm)
         var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld AttributeTargets <ValidOn>k__BackingField*/
-        st_01 = (st_00)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"];
         /* IL_06: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"];
         /* IL_09: ldloc.0 */
         st_02 = loc0;
         /* IL_0A: ret */
@@ -390,11 +368,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: stfld AttributeTargets <ValidOn>k__BackingField*/
-        (st_00)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"] = st_01;
+        (arg0)["SystemAttributeUsageAttribute<ValidOn>k__BackingField"] = arg1;
         /* IL_07: ret */
         return ;
     };;
@@ -405,11 +381,9 @@ var asm0; (function (asm)
         var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld Boolean <Inherited>k__BackingField*/
-        st_01 = (st_00)["SystemAttributeUsageAttribute<Inherited>k__BackingField"];
         /* IL_06: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0)["SystemAttributeUsageAttribute<Inherited>k__BackingField"];
         /* IL_09: ldloc.0 */
         st_02 = loc0;
         /* IL_0A: ret */
@@ -420,11 +394,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: stfld Boolean <Inherited>k__BackingField*/
-        (st_00)["SystemAttributeUsageAttribute<Inherited>k__BackingField"] = st_01;
+        (arg0)["SystemAttributeUsageAttribute<Inherited>k__BackingField"] = arg1;
         /* IL_07: ret */
         return ;
     };;
@@ -440,11 +412,9 @@ var asm0; (function (asm)
         /* IL_06: nop */
         /* IL_07: nop */
         /* IL_08: ldarg.0 */
-        st_01 = arg0;
         /* IL_09: ldarg.1 */
-        st_02 = arg1;
         /* IL_0A: call Void set_ValidOn(System.AttributeTargets)*/
-        (asm0.x600000f)(st_01,clone_value(st_02));
+        (asm0.x600000f)(arg0,clone_value(arg1));
         /* IL_0F: nop */
         /* IL_10: nop */
         /* IL_11: ret */
@@ -527,19 +497,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Byte"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.u1 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.Byte*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -567,19 +533,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Char"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.u2 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.Char*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String ToStringImpl(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x6000023)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String ToStringImpl(System.Object)*/
-        st_03 = (asm0.x6000023)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -593,11 +555,9 @@ var asm0; (function (asm)
         var st_01;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: callvirt String ToString()*/
-        st_01 = (((st_00.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_00));
         /* IL_07: call Void WriteLineImpl(System.String)*/
-        (asm0.x6000024)(st_01);
+        (asm0.x6000024)((((arg0.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(arg0)));
         /* IL_0C: nop */
         /* IL_0D: ret */
         return ;
@@ -633,19 +593,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Double"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.r8 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.Double*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -745,17 +701,12 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldnull */
-                st_01 = null;
                 /* IL_04: ceq */
-                st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = (0|0);
                 /* IL_07: ceq */
-                st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
-                loc1 = st_04;
+                loc1 = ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_20*/
@@ -767,17 +718,12 @@ var asm0; (function (asm)
                 /* IL_0C: nop */
                 
                 /* IL_0D: ldarg.1 */
-                st_06 = arg1;
                 /* IL_0E: ldnull */
-                st_07 = null;
                 /* IL_10: ceq */
-                st_08 = (st_06 === st_07) ? (1) : (0);
                 /* IL_11: ldc.i4.0 */
-                st_09 = (0|0);
                 /* IL_13: ceq */
-                st_0A = (st_08 === st_09) ? (1) : (0);
                 /* IL_14: stloc.1 */
-                loc1 = st_0A;
+                loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_15: ldloc.1 */
                 st_0B = loc1;
                 /* IL_16: brtrue.s IL_1C*/
@@ -803,17 +749,12 @@ var asm0; (function (asm)
                 continue;
                 case 0x20:
                 /* IL_20: ldarg.1 */
-                st_0E = arg1;
                 /* IL_21: ldnull */
-                st_0F = null;
                 /* IL_23: ceq */
-                st_10 = (st_0E === st_0F) ? (1) : (0);
                 /* IL_24: ldc.i4.0 */
-                st_11 = (0|0);
                 /* IL_26: ceq */
-                st_12 = (st_10 === st_11) ? (1) : (0);
                 /* IL_27: stloc.1 */
-                loc1 = st_12;
+                loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_28: ldloc.1 */
                 st_13 = loc1;
                 /* IL_29: brtrue.s IL_2F*/
@@ -831,17 +772,12 @@ var asm0; (function (asm)
                 continue;
                 case 0x2F:
                 /* IL_2F: ldarg.0 */
-                st_15 = arg0;
                 /* IL_30: callvirt Type GetType()*/
-                st_17 = (asm0.x600000a)(st_15);
                 /* IL_35: ldarg.1 */
-                st_16 = arg1;
                 /* IL_36: callvirt Type GetType()*/
-                st_18 = (asm0.x600000a)(st_16);
                 /* IL_3C: ceq */
-                st_19 = (st_17 === st_18) ? (1) : (0);
                 /* IL_3D: stloc.1 */
-                loc1 = st_19;
+                loc1 = (((asm0.x600000a)(arg0) === (asm0.x600000a)(arg1)) ? (1) : (0));
                 /* IL_3E: ldloc.1 */
                 st_1A = loc1;
                 /* IL_3F: brtrue.s IL_4C*/
@@ -858,13 +794,10 @@ var asm0; (function (asm)
                 throw st_1C;
                 case 0x4C:
                 /* IL_4C: ldarg.0 */
-                st_1D = arg0;
                 /* IL_4D: ldarg.1 */
-                st_1E = arg1;
                 /* IL_4E: callvirt Delegate CombineImpl(System.Delegate)*/
-                st_1F = (((st_1D.vtable)["asm0.x600002e"])())(st_1D,st_1E);
                 /* IL_53: stloc.0 */
-                loc0 = st_1F;
+                loc0 = (((arg0.vtable)["asm0.x600002e"])())(arg0,arg1);
                 case 0x56:
                 /* IL_56: ldloc.0 */
                 st_20 = loc0;
@@ -918,17 +851,12 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.1 */
-                st_00 = arg1;
                 /* IL_02: ldnull */
-                st_01 = null;
                 /* IL_04: ceq */
-                st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = (0|0);
                 /* IL_07: ceq */
-                st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
-                loc1 = st_04;
+                loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_10*/
@@ -946,17 +874,12 @@ var asm0; (function (asm)
                 continue;
                 case 0x10:
                 /* IL_10: ldarg.0 */
-                st_07 = arg0;
                 /* IL_11: callvirt Type GetType()*/
-                st_09 = (asm0.x600000a)(st_07);
                 /* IL_16: ldarg.1 */
-                st_08 = arg1;
                 /* IL_17: callvirt Type GetType()*/
-                st_0A = (asm0.x600000a)(st_08);
                 /* IL_1D: ceq */
-                st_0B = (st_09 === st_0A) ? (1) : (0);
                 /* IL_1E: stloc.1 */
-                loc1 = st_0B;
+                loc1 = (((asm0.x600000a)(arg0) === (asm0.x600000a)(arg1)) ? (1) : (0));
                 /* IL_1F: ldloc.1 */
                 st_0C = loc1;
                 /* IL_20: brtrue.s IL_2D*/
@@ -973,13 +896,10 @@ var asm0; (function (asm)
                 throw st_0E;
                 case 0x2D:
                 /* IL_2D: ldarg.0 */
-                st_0F = arg0;
                 /* IL_2E: ldarg.1 */
-                st_10 = arg1;
                 /* IL_2F: callvirt Delegate RemoveImpl(System.Delegate)*/
-                st_11 = (((st_0F.vtable)["asm0.x600002d"])())(st_0F,st_10);
                 /* IL_34: stloc.0 */
-                loc0 = st_11;
+                loc0 = (((arg0.vtable)["asm0.x600002d"])())(arg0,arg1);
                 case 0x37:
                 /* IL_37: ldloc.0 */
                 st_12 = loc0;
@@ -1052,15 +972,11 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Delegate"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_01 = arg0;
         /* IL_02: ldarg.1 */
-        st_00 = arg1;
         /* IL_03: isinst System.Delegate*/
-        st_02 = (t0.IsInst)(st_00);
         /* IL_08: call Boolean op_Equality(System.Delegate, System.Delegate)*/
-        st_03 = (asm0.x6000030)(st_01,st_02);
         /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        loc0 = (asm0.x6000030)(arg0,(t0.IsInst)(arg1));
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -1181,29 +1097,20 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: castclass System.MulticastDelegate*/
-                st_01 = st_00;
                 /* IL_07: stloc.0 */
-                loc0 = st_01;
+                loc0 = arg0;
                 /* IL_08: ldarg.1 */
-                st_02 = arg1;
                 /* IL_09: castclass System.MulticastDelegate*/
-                st_03 = st_02;
                 /* IL_0E: stloc.1 */
-                loc1 = st_03;
+                loc1 = arg1;
                 /* IL_0F: ldloc.0 */
-                st_04 = loc0;
                 /* IL_10: ldnull */
-                st_05 = null;
                 /* IL_12: ceq */
-                st_06 = (st_04 === st_05) ? (1) : (0);
                 /* IL_13: ldc.i4.0 */
-                st_07 = (0|0);
                 /* IL_15: ceq */
-                st_08 = (st_06 === st_07) ? (1) : (0);
                 /* IL_16: stloc.s 6*/
-                loc6 = st_08;
+                loc6 = ((((loc0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_18: ldloc.s 6*/
                 st_09 = loc6;
                 /* IL_1A: brtrue.s IL_27*/
@@ -1213,29 +1120,21 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_1C: ldloc.1 */
-                st_0A = loc1;
                 /* IL_1D: ldnull */
-                st_0B = null;
                 /* IL_1F: ceq */
-                st_0C = (st_0A === st_0B) ? (1) : (0);
                 /* IL_20: stloc.s 5*/
-                loc5 = st_0C;
+                loc5 = ((loc1 === null) ? (1) : (0));
                 /* IL_22: br IL_112*/
                 __pos_0__ = 0x112;
                 continue;
                 case 0x27:
                 /* IL_27: ldloc.1 */
-                st_0D = loc1;
                 /* IL_28: ldnull */
-                st_0E = null;
                 /* IL_2A: ceq */
-                st_0F = (st_0D === st_0E) ? (1) : (0);
                 /* IL_2B: ldc.i4.0 */
-                st_10 = (0|0);
                 /* IL_2D: ceq */
-                st_11 = (st_0F === st_10) ? (1) : (0);
                 /* IL_2E: stloc.s 6*/
-                loc6 = st_11;
+                loc6 = ((((loc1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_30: ldloc.s 6*/
                 st_12 = loc6;
                 /* IL_32: brtrue.s IL_3C*/
@@ -1253,17 +1152,12 @@ var asm0; (function (asm)
                 continue;
                 case 0x3C:
                 /* IL_3C: ldloc.0 */
-                st_14 = loc0;
                 /* IL_3D: ldfld Object _methodPtr*/
-                st_16 = st_14._methodPtr;
                 /* IL_42: ldloc.1 */
-                st_15 = loc1;
                 /* IL_43: ldfld Object _methodPtr*/
-                st_17 = st_15._methodPtr;
                 /* IL_48: call Boolean ReferenceEquals(System.Object, System.Object)*/
-                st_18 = (asm0.x6000008)(st_16,st_17);
                 /* IL_4D: stloc.s 6*/
-                loc6 = st_18;
+                loc6 = (asm0.x6000008)(loc0._methodPtr,loc1._methodPtr);
                 /* IL_4F: ldloc.s 6*/
                 st_19 = loc6;
                 /* IL_51: brtrue.s IL_5B*/
@@ -1281,17 +1175,12 @@ var asm0; (function (asm)
                 continue;
                 case 0x5B:
                 /* IL_5B: ldloc.0 */
-                st_1B = loc0;
                 /* IL_5C: ldfld Object _target*/
-                st_1D = st_1B._target;
                 /* IL_61: ldloc.1 */
-                st_1C = loc1;
                 /* IL_62: ldfld Object _target*/
-                st_1E = st_1C._target;
                 /* IL_67: call Boolean ReferenceEquals(System.Object, System.Object)*/
-                st_1F = (asm0.x6000008)(st_1D,st_1E);
                 /* IL_6C: stloc.s 6*/
-                loc6 = st_1F;
+                loc6 = (asm0.x6000008)(loc0._target,loc1._target);
                 /* IL_6E: ldloc.s 6*/
                 st_20 = loc6;
                 /* IL_70: brtrue.s IL_7A*/
@@ -1325,7 +1214,7 @@ var asm0; (function (asm)
                 /* IL_88: ldnull */
                 st_26 = null;
                 /* IL_8A: ceq */
-                st_27 = (st_25 === st_26) ? (1) : (0);
+                st_27 = ((st_25 === st_26) ? (1) : (0));
                 /* IL_8B: br.s IL_8E*/
                 __pos_0__ = 0x8E;
                 continue;
@@ -1348,25 +1237,16 @@ var asm0; (function (asm)
                 /* IL_95: nop */
                 
                 /* IL_96: ldloc.0 */
-                st_29 = loc0;
                 /* IL_97: ldfld Delegate[] _invocationList*/
-                st_2A = st_29._invocationList;
                 /* IL_9C: ldlen */
-                st_2B = st_2A.jsarr.length;
                 /* IL_9D: conv.i4 */
-                st_2F = (st_2B | 0);
                 /* IL_9E: ldloc.1 */
-                st_2C = loc1;
                 /* IL_9F: ldfld Delegate[] _invocationList*/
-                st_2D = st_2C._invocationList;
                 /* IL_A4: ldlen */
-                st_2E = st_2D.jsarr.length;
                 /* IL_A5: conv.i4 */
-                st_30 = (st_2E | 0);
                 /* IL_A7: ceq */
-                st_31 = (st_2F === st_30) ? (1) : (0);
                 /* IL_A8: stloc.s 6*/
-                loc6 = st_31;
+                loc6 = (((loc0._invocationList.jsarr.length | 0) === (loc1._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_AA: ldloc.s 6*/
                 st_32 = loc6;
                 /* IL_AC: brtrue.s IL_B3*/
@@ -1394,33 +1274,22 @@ var asm0; (function (asm)
                 /* IL_B7: nop */
                 
                 /* IL_B8: ldloc.0 */
-                st_35 = loc0;
                 /* IL_B9: ldfld Delegate[] _invocationList*/
-                st_36 = st_35._invocationList;
                 /* IL_BE: ldloc.2 */
-                st_37 = loc2;
                 /* IL_BF: ldelem.ref */
-                st_38 = (st_36.jsarr)[st_37];
                 /* IL_C0: stloc.3 */
-                loc3 = st_38;
+                loc3 = (loc0._invocationList.jsarr)[loc2];
                 /* IL_C1: ldloc.1 */
-                st_39 = loc1;
                 /* IL_C2: ldfld Delegate[] _invocationList*/
-                st_3A = st_39._invocationList;
                 /* IL_C7: ldloc.2 */
-                st_3B = loc2;
                 /* IL_C8: ldelem.ref */
-                st_3C = (st_3A.jsarr)[st_3B];
                 /* IL_C9: stloc.s 4*/
-                loc4 = st_3C;
+                loc4 = (loc1._invocationList.jsarr)[loc2];
                 /* IL_CB: ldloc.3 */
-                st_3D = loc3;
                 /* IL_CC: ldloc.s 4*/
-                st_3E = loc4;
                 /* IL_CE: call Boolean op_Equality(System.Delegate, System.Delegate)*/
-                st_3F = (asm0.x6000030)(st_3D,st_3E);
                 /* IL_D3: stloc.s 6*/
-                loc6 = st_3F;
+                loc6 = (asm0.x6000030)(loc3,loc4);
                 /* IL_D5: ldloc.s 6*/
                 st_40 = loc6;
                 /* IL_D7: brtrue.s IL_DE*/
@@ -1440,28 +1309,19 @@ var asm0; (function (asm)
                 /* IL_DE: nop */
                 
                 /* IL_DF: ldloc.2 */
-                st_42 = loc2;
                 /* IL_E0: ldc.i4.1 */
-                st_43 = (1|0);
                 /* IL_E1: add */
-                st_44 = ((st_42 + st_43) | 0);
                 /* IL_E2: stloc.2 */
-                loc2 = st_44;
+                loc2 = (loc2 + (1|0)) | 0;
                 case 0xE3:
                 /* IL_E3: ldloc.2 */
-                st_48 = loc2;
                 /* IL_E4: ldloc.0 */
-                st_45 = loc0;
                 /* IL_E5: ldfld Delegate[] _invocationList*/
-                st_46 = st_45._invocationList;
                 /* IL_EA: ldlen */
-                st_47 = st_46.jsarr.length;
                 /* IL_EB: conv.i4 */
-                st_49 = (st_47 | 0);
                 /* IL_ED: clt */
-                st_4A = (st_48 < st_49) ? (1) : (0);
                 /* IL_EE: stloc.s 6*/
-                loc6 = st_4A;
+                loc6 = ((loc2 < (loc0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_F0: ldloc.s 6*/
                 st_4B = loc6;
                 /* IL_F2: brtrue.s IL_B7*/
@@ -1495,7 +1355,7 @@ var asm0; (function (asm)
                 /* IL_107: ldnull */
                 st_51 = null;
                 /* IL_109: ceq */
-                st_52 = (st_50 === st_51) ? (1) : (0);
+                st_52 = ((st_50 === st_51) ? (1) : (0));
                 /* IL_10A: br.s IL_10D*/
                 __pos_0__ = 0x10D;
                 continue;
@@ -1526,17 +1386,12 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Boolean op_Equality(System.Delegate, System.Delegate)*/
-        st_02 = (asm0.x6000030)(st_00,st_01);
         /* IL_08: ldc.i4.0 */
-        st_03 = (0|0);
         /* IL_0A: ceq */
-        st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
-        loc0 = st_04;
+        loc0 = (((asm0.x6000030)(arg0,arg1) === (0|0)) ? (1) : (0));
         /* IL_0E: ldloc.0 */
         st_05 = loc0;
         /* IL_0F: ret */
@@ -1550,11 +1405,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call Int32 GetHashCode()*/
-        st_01 = (asm0.x6000006)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x6000006)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -1670,15 +1523,11 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldfld Delegate[] _invocationList*/
-                st_01 = st_00._invocationList;
                 /* IL_07: ldnull */
-                st_02 = null;
                 /* IL_09: ceq */
-                st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: stloc.3 */
-                loc3 = st_03;
+                loc3 = ((arg0._invocationList === null) ? (1) : (0));
                 /* IL_0B: ldloc.3 */
                 st_04 = loc3;
                 /* IL_0C: brtrue.s IL_4C*/
@@ -1690,21 +1539,14 @@ var asm0; (function (asm)
                 /* IL_0E: nop */
                 
                 /* IL_0F: ldarg.0 */
-                st_05 = arg0;
                 /* IL_10: ldfld Delegate[] _invocationList*/
-                st_06 = st_05._invocationList;
                 /* IL_15: ldlen */
-                st_07 = st_06.jsarr.length;
                 /* IL_16: conv.i4 */
-                st_08 = (st_07 | 0);
                 /* IL_17: ldc.i4.1 */
-                st_09 = (1|0);
                 /* IL_18: add */
-                st_0A = ((st_08 + st_09) | 0);
                 /* IL_19: newarr System.Delegate*/
-                st_0B = new_array(t0,st_0A);
                 /* IL_1E: stloc.0 */
-                loc0 = st_0B;
+                loc0 = new_array(t0,((arg0._invocationList.jsarr.length | 0) + (1|0)) | 0);
                 /* IL_1F: ldc.i4.0 */
                 st_0C = (0|0);
                 /* IL_20: stloc.1 */
@@ -1714,42 +1556,27 @@ var asm0; (function (asm)
                 continue;
                 case 0x23:
                 /* IL_23: ldloc.0 */
-                st_10 = loc0;
                 /* IL_24: ldloc.1 */
-                st_11 = loc1;
                 /* IL_25: ldarg.0 */
-                st_0D = arg0;
                 /* IL_26: ldfld Delegate[] _invocationList*/
-                st_0E = st_0D._invocationList;
                 /* IL_2B: ldloc.1 */
-                st_0F = loc1;
                 /* IL_2C: ldelem.ref */
-                st_12 = (st_0E.jsarr)[st_0F];
                 /* IL_2D: stelem.ref */
-                (st_10.jsarr)[st_11] = st_12;
+                (loc0.jsarr)[loc1] = (arg0._invocationList.jsarr)[loc1];
                 /* IL_2E: ldloc.1 */
-                st_13 = loc1;
                 /* IL_2F: ldc.i4.1 */
-                st_14 = (1|0);
                 /* IL_30: add */
-                st_15 = ((st_13 + st_14) | 0);
                 /* IL_31: stloc.1 */
-                loc1 = st_15;
+                loc1 = (loc1 + (1|0)) | 0;
                 case 0x32:
                 /* IL_32: ldloc.1 */
-                st_19 = loc1;
                 /* IL_33: ldarg.0 */
-                st_16 = arg0;
                 /* IL_34: ldfld Delegate[] _invocationList*/
-                st_17 = st_16._invocationList;
                 /* IL_39: ldlen */
-                st_18 = st_17.jsarr.length;
                 /* IL_3A: conv.i4 */
-                st_1A = (st_18 | 0);
                 /* IL_3C: clt */
-                st_1B = (st_19 < st_1A) ? (1) : (0);
                 /* IL_3D: stloc.3 */
-                loc3 = st_1B;
+                loc3 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_3E: ldloc.3 */
                 st_1C = loc3;
                 /* IL_3F: brtrue.s IL_23*/
@@ -1759,21 +1586,14 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_41: ldloc.0 */
-                st_21 = loc0;
                 /* IL_42: ldloc.0 */
-                st_1D = loc0;
                 /* IL_43: ldlen */
-                st_1E = st_1D.jsarr.length;
                 /* IL_44: conv.i4 */
-                st_1F = (st_1E | 0);
                 /* IL_45: ldc.i4.1 */
-                st_20 = (1|0);
                 /* IL_46: sub */
-                st_22 = ((st_1F - st_20) | 0);
                 /* IL_47: ldarg.1 */
-                st_23 = arg1;
                 /* IL_48: stelem.ref */
-                (st_21.jsarr)[st_22] = st_23;
+                (loc0.jsarr)[((loc0.jsarr.length | 0) - (1|0)) | 0] = arg1;
                 /* IL_49: nop */
                 
                 /* IL_4A: br.s IL_5D*/
@@ -1783,36 +1603,26 @@ var asm0; (function (asm)
                 /* IL_4C: nop */
                 
                 /* IL_4D: ldc.i4.2 */
-                st_24 = (2|0);
                 /* IL_4E: newarr System.Delegate*/
-                st_25 = new_array(t0,st_24);
                 /* IL_53: stloc.0 */
-                loc0 = st_25;
+                loc0 = new_array(t0,(2|0));
                 /* IL_54: ldloc.0 */
-                st_26 = loc0;
                 /* IL_55: ldc.i4.0 */
-                st_27 = (0|0);
                 /* IL_56: ldarg.0 */
-                st_28 = arg0;
                 /* IL_57: stelem.ref */
-                (st_26.jsarr)[st_27] = st_28;
+                (loc0.jsarr)[(0|0)] = arg0;
                 /* IL_58: ldloc.0 */
-                st_29 = loc0;
                 /* IL_59: ldc.i4.1 */
-                st_2A = (1|0);
                 /* IL_5A: ldarg.1 */
-                st_2B = arg1;
                 /* IL_5B: stelem.ref */
-                (st_29.jsarr)[st_2A] = st_2B;
+                (loc0.jsarr)[(1|0)] = arg1;
                 /* IL_5C: nop */
                 
                 case 0x5D:
                 /* IL_5D: ldloc.0 */
-                st_2C = loc0;
                 /* IL_5E: call Delegate CreateMulticast(System.Delegate[])*/
-                st_2D = (asm0.x6000034)(st_2C);
                 /* IL_63: stloc.2 */
-                loc2 = st_2D;
+                loc2 = (asm0.x6000034)(loc0);
                 /* IL_66: ldloc.2 */
                 st_2E = loc2;
                 /* IL_67: ret */
@@ -1962,19 +1772,13 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldfld Delegate[] _invocationList*/
-                st_01 = st_00._invocationList;
                 /* IL_07: ldnull */
-                st_02 = null;
                 /* IL_09: ceq */
-                st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: ldc.i4.0 */
-                st_04 = (0|0);
                 /* IL_0C: ceq */
-                st_05 = (st_03 === st_04) ? (1) : (0);
                 /* IL_0D: stloc.s 5*/
-                loc5 = st_05;
+                loc5 = ((((arg0._invocationList === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_0F: ldloc.s 5*/
                 st_06 = loc5;
                 /* IL_11: brtrue.s IL_34*/
@@ -1986,17 +1790,12 @@ var asm0; (function (asm)
                 /* IL_13: nop */
                 
                 /* IL_14: ldarg.1 */
-                st_07 = arg1;
                 /* IL_15: ldarg.0 */
-                st_08 = arg0;
                 /* IL_16: call Boolean op_Equality(System.Delegate, System.Delegate)*/
-                st_09 = (asm0.x6000030)(st_07,st_08);
                 /* IL_1B: ldc.i4.0 */
-                st_0A = (0|0);
                 /* IL_1D: ceq */
-                st_0B = (st_09 === st_0A) ? (1) : (0);
                 /* IL_1E: stloc.s 5*/
-                loc5 = st_0B;
+                loc5 = (((asm0.x6000030)(arg1,arg0) === (0|0)) ? (1) : (0));
                 /* IL_20: ldloc.s 5*/
                 st_0C = loc5;
                 /* IL_22: brtrue.s IL_2C*/
@@ -2036,23 +1835,15 @@ var asm0; (function (asm)
                 continue;
                 case 0x3B:
                 /* IL_3B: ldarg.0 */
-                st_11 = arg0;
                 /* IL_3C: ldfld Delegate[] _invocationList*/
-                st_12 = st_11._invocationList;
                 /* IL_41: ldloc.1 */
-                st_13 = loc1;
                 /* IL_42: ldelem.ref */
-                st_14 = (st_12.jsarr)[st_13];
                 /* IL_43: ldarg.1 */
-                st_15 = arg1;
                 /* IL_44: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
-                st_16 = (asm0.x6000031)(st_14,st_15);
                 /* IL_49: ldc.i4.0 */
-                st_17 = (0|0);
                 /* IL_4B: ceq */
-                st_18 = (st_16 === st_17) ? (1) : (0);
                 /* IL_4C: stloc.s 5*/
-                loc5 = st_18;
+                loc5 = (((asm0.x6000031)((arg0._invocationList.jsarr)[loc1],arg1) === (0|0)) ? (1) : (0));
                 /* IL_4E: ldloc.s 5*/
                 st_19 = loc5;
                 /* IL_50: brtrue.s IL_56*/
@@ -2062,37 +1853,25 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_52: ldloc.0 */
-                st_1A = loc0;
                 /* IL_53: ldc.i4.1 */
-                st_1B = (1|0);
                 /* IL_54: add */
-                st_1C = ((st_1A + st_1B) | 0);
                 /* IL_55: stloc.0 */
-                loc0 = st_1C;
+                loc0 = (loc0 + (1|0)) | 0;
                 case 0x56:
                 /* IL_56: ldloc.1 */
-                st_1D = loc1;
                 /* IL_57: ldc.i4.1 */
-                st_1E = (1|0);
                 /* IL_58: add */
-                st_1F = ((st_1D + st_1E) | 0);
                 /* IL_59: stloc.1 */
-                loc1 = st_1F;
+                loc1 = (loc1 + (1|0)) | 0;
                 case 0x5A:
                 /* IL_5A: ldloc.1 */
-                st_23 = loc1;
                 /* IL_5B: ldarg.0 */
-                st_20 = arg0;
                 /* IL_5C: ldfld Delegate[] _invocationList*/
-                st_21 = st_20._invocationList;
                 /* IL_61: ldlen */
-                st_22 = st_21.jsarr.length;
                 /* IL_62: conv.i4 */
-                st_24 = (st_22 | 0);
                 /* IL_64: clt */
-                st_25 = (st_23 < st_24) ? (1) : (0);
                 /* IL_65: stloc.s 5*/
-                loc5 = st_25;
+                loc5 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_67: ldloc.s 5*/
                 st_26 = loc5;
                 /* IL_69: brtrue.s IL_3B*/
@@ -2102,17 +1881,12 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_6B: ldloc.0 */
-                st_27 = loc0;
                 /* IL_6C: ldc.i4.0 */
-                st_28 = (0|0);
                 /* IL_6E: ceq */
-                st_29 = (st_27 === st_28) ? (1) : (0);
                 /* IL_6F: ldc.i4.0 */
-                st_2A = (0|0);
                 /* IL_71: ceq */
-                st_2B = (st_29 === st_2A) ? (1) : (0);
                 /* IL_72: stloc.s 5*/
-                loc5 = st_2B;
+                loc5 = ((((loc0 === (0|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_74: ldloc.s 5*/
                 st_2C = loc5;
                 /* IL_76: brtrue.s IL_80*/
@@ -2130,17 +1904,12 @@ var asm0; (function (asm)
                 continue;
                 case 0x80:
                 /* IL_80: ldloc.0 */
-                st_2E = loc0;
                 /* IL_81: ldc.i4.1 */
-                st_2F = (1|0);
                 /* IL_83: ceq */
-                st_30 = (st_2E === st_2F) ? (1) : (0);
                 /* IL_84: ldc.i4.0 */
-                st_31 = (0|0);
                 /* IL_86: ceq */
-                st_32 = (st_30 === st_31) ? (1) : (0);
                 /* IL_87: stloc.s 5*/
-                loc5 = st_32;
+                loc5 = ((((loc0 === (1|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_89: ldloc.s 5*/
                 st_33 = loc5;
                 /* IL_8B: brtrue.s IL_C9*/
@@ -2158,23 +1927,15 @@ var asm0; (function (asm)
                 continue;
                 case 0x91:
                 /* IL_91: ldarg.0 */
-                st_35 = arg0;
                 /* IL_92: ldfld Delegate[] _invocationList*/
-                st_36 = st_35._invocationList;
                 /* IL_97: ldloc.1 */
-                st_37 = loc1;
                 /* IL_98: ldelem.ref */
-                st_38 = (st_36.jsarr)[st_37];
                 /* IL_99: ldarg.1 */
-                st_39 = arg1;
                 /* IL_9A: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
-                st_3A = (asm0.x6000031)(st_38,st_39);
                 /* IL_9F: ldc.i4.0 */
-                st_3B = (0|0);
                 /* IL_A1: ceq */
-                st_3C = (st_3A === st_3B) ? (1) : (0);
                 /* IL_A2: stloc.s 5*/
-                loc5 = st_3C;
+                loc5 = (((asm0.x6000031)((arg0._invocationList.jsarr)[loc1],arg1) === (0|0)) ? (1) : (0));
                 /* IL_A4: ldloc.s 5*/
                 st_3D = loc5;
                 /* IL_A6: brtrue.s IL_B4*/
@@ -2184,42 +1945,29 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_A8: ldarg.0 */
-                st_3E = arg0;
                 /* IL_A9: ldfld Delegate[] _invocationList*/
-                st_3F = st_3E._invocationList;
                 /* IL_AE: ldloc.1 */
-                st_40 = loc1;
                 /* IL_AF: ldelem.ref */
-                st_41 = (st_3F.jsarr)[st_40];
                 /* IL_B0: stloc.s 4*/
-                loc4 = st_41;
+                loc4 = (arg0._invocationList.jsarr)[loc1];
                 /* IL_B2: br.s IL_11B*/
                 __pos_0__ = 0x11B;
                 continue;
                 case 0xB4:
                 /* IL_B4: ldloc.1 */
-                st_42 = loc1;
                 /* IL_B5: ldc.i4.1 */
-                st_43 = (1|0);
                 /* IL_B6: add */
-                st_44 = ((st_42 + st_43) | 0);
                 /* IL_B7: stloc.1 */
-                loc1 = st_44;
+                loc1 = (loc1 + (1|0)) | 0;
                 case 0xB8:
                 /* IL_B8: ldloc.1 */
-                st_48 = loc1;
                 /* IL_B9: ldarg.0 */
-                st_45 = arg0;
                 /* IL_BA: ldfld Delegate[] _invocationList*/
-                st_46 = st_45._invocationList;
                 /* IL_BF: ldlen */
-                st_47 = st_46.jsarr.length;
                 /* IL_C0: conv.i4 */
-                st_49 = (st_47 | 0);
                 /* IL_C2: clt */
-                st_4A = (st_48 < st_49) ? (1) : (0);
                 /* IL_C3: stloc.s 5*/
-                loc5 = st_4A;
+                loc5 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_C5: ldloc.s 5*/
                 st_4B = loc5;
                 /* IL_C7: brtrue.s IL_91*/
@@ -2230,11 +1978,9 @@ var asm0; (function (asm)
                 }
                 case 0xC9:
                 /* IL_C9: ldloc.0 */
-                st_4C = loc0;
                 /* IL_CA: newarr System.Delegate*/
-                st_4D = new_array(t0,st_4C);
                 /* IL_CF: stloc.2 */
-                loc2 = st_4D;
+                loc2 = new_array(t0,loc0);
                 /* IL_D0: ldc.i4.0 */
                 st_4E = (0|0);
                 /* IL_D1: stloc.1 */
@@ -2248,23 +1994,15 @@ var asm0; (function (asm)
                 continue;
                 case 0xD6:
                 /* IL_D6: ldarg.0 */
-                st_50 = arg0;
                 /* IL_D7: ldfld Delegate[] _invocationList*/
-                st_51 = st_50._invocationList;
                 /* IL_DC: ldloc.1 */
-                st_52 = loc1;
                 /* IL_DD: ldelem.ref */
-                st_53 = (st_51.jsarr)[st_52];
                 /* IL_DE: ldarg.1 */
-                st_54 = arg1;
                 /* IL_DF: call Boolean op_Inequality(System.Delegate, System.Delegate)*/
-                st_55 = (asm0.x6000031)(st_53,st_54);
                 /* IL_E4: ldc.i4.0 */
-                st_56 = (0|0);
                 /* IL_E6: ceq */
-                st_57 = (st_55 === st_56) ? (1) : (0);
                 /* IL_E7: stloc.s 5*/
-                loc5 = st_57;
+                loc5 = (((asm0.x6000031)((arg0._invocationList.jsarr)[loc1],arg1) === (0|0)) ? (1) : (0));
                 /* IL_E9: ldloc.s 5*/
                 st_58 = loc5;
                 /* IL_EB: brtrue.s IL_FC*/
@@ -2297,28 +2035,19 @@ var asm0; (function (asm)
                 (st_60.jsarr)[st_61] = st_62;
                 case 0xFC:
                 /* IL_FC: ldloc.1 */
-                st_63 = loc1;
                 /* IL_FD: ldc.i4.1 */
-                st_64 = (1|0);
                 /* IL_FE: add */
-                st_65 = ((st_63 + st_64) | 0);
                 /* IL_FF: stloc.1 */
-                loc1 = st_65;
+                loc1 = (loc1 + (1|0)) | 0;
                 case 0x100:
                 /* IL_100: ldloc.1 */
-                st_69 = loc1;
                 /* IL_101: ldarg.0 */
-                st_66 = arg0;
                 /* IL_102: ldfld Delegate[] _invocationList*/
-                st_67 = st_66._invocationList;
                 /* IL_107: ldlen */
-                st_68 = st_67.jsarr.length;
                 /* IL_108: conv.i4 */
-                st_6A = (st_68 | 0);
                 /* IL_10A: clt */
-                st_6B = (st_69 < st_6A) ? (1) : (0);
                 /* IL_10B: stloc.s 5*/
-                loc5 = st_6B;
+                loc5 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_10D: ldloc.s 5*/
                 st_6C = loc5;
                 /* IL_10F: brtrue.s IL_D6*/
@@ -2328,11 +2057,9 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_111: ldloc.2 */
-                st_6D = loc2;
                 /* IL_112: call Delegate CreateMulticast(System.Delegate[])*/
-                st_6E = (asm0.x6000034)(st_6D);
                 /* IL_117: stloc.s 4*/
-                loc4 = st_6E;
+                loc4 = (asm0.x6000034)(loc2);
                 case 0x11B:
                 /* IL_11B: ldloc.s 4*/
                 st_6F = loc4;
@@ -2388,19 +2115,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Int16"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i2 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.Int16*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -2428,19 +2151,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Int32"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i4 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.Int32*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -2469,19 +2188,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.IntPtr"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldobj System.IntPtr*/
-        st_01 = st_00;
         /* IL_07: box System.IntPtr*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_0C: call String NumberStructToString(System.Object)*/
+        /* IL_11: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': arg0,
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_0C: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_11: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_14: ldloc.0 */
         st_04 = loc0;
         /* IL_15: ret */
@@ -2505,11 +2220,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld Object value*/
-        st_01 = (st_00.r)().value;
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0.r)().value;
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -2523,11 +2236,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld Object value*/
-        st_01 = (st_00.r)().value;
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0.r)().value;
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -2555,19 +2266,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.SByte"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i1 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.SByte*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -2595,19 +2302,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.Single"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.r4 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.Single*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -2639,11 +2342,9 @@ var asm0; (function (asm)
         var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldfld String <Message>k__BackingField*/
-        st_01 = (st_00)["SystemException<Message>k__BackingField"];
         /* IL_06: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0)["SystemException<Message>k__BackingField"];
         /* IL_09: ldloc.0 */
         st_02 = loc0;
         /* IL_0A: ret */
@@ -2654,11 +2355,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: stfld String <Message>k__BackingField*/
-        (st_00)["SystemException<Message>k__BackingField"] = st_01;
+        (arg0)["SystemException<Message>k__BackingField"] = arg1;
         /* IL_07: ret */
         return ;
     };;
@@ -2670,11 +2369,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call String get_Message()*/
-        st_01 = (asm0.x6000050)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x6000050)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -2703,11 +2400,9 @@ var asm0; (function (asm)
         /* IL_06: nop */
         /* IL_07: nop */
         /* IL_08: ldarg.0 */
-        st_01 = arg0;
         /* IL_09: ldarg.1 */
-        st_02 = arg1;
         /* IL_0A: call Void set_Message(System.String)*/
-        (asm0.x6000051)(st_01,st_02);
+        (asm0.x6000051)(arg0,arg1);
         /* IL_0F: nop */
         /* IL_10: nop */
         /* IL_11: ret */
@@ -2728,11 +2423,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldstr Operation not supported*/
-        st_01 = new_string("Operation not supported");
         /* IL_06: call Void .ctor(System.String)*/
-        (asm0.x600004f)(st_00,st_01);
+        (asm0.x600004f)(arg0,new_string("Operation not supported"));
         /* IL_0B: nop */
         /* IL_0C: nop */
         /* IL_0D: nop */
@@ -2744,11 +2437,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: call Void .ctor(System.String)*/
-        (asm0.x600004f)(st_00,st_01);
+        (asm0.x600004f)(arg0,arg1);
         /* IL_07: nop */
         /* IL_08: nop */
         /* IL_09: nop */
@@ -2769,11 +2460,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldstr Cannot cast from source type to destination type.*/
-        st_01 = new_string("Cannot cast from source type to destination type.");
         /* IL_06: call Void .ctor(System.String)*/
-        (asm0.x600004f)(st_00,st_01);
+        (asm0.x600004f)(arg0,new_string("Cannot cast from source type to destination type."));
         /* IL_0B: nop */
         /* IL_0C: nop */
         /* IL_0D: nop */
@@ -2785,11 +2474,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldstr Operation is not valid due to the current state of the object*/
-        st_01 = new_string("Operation is not valid due to the current state of the object");
         /* IL_06: call Void .ctor(System.String)*/
-        (asm0.x600004f)(st_00,st_01);
+        (asm0.x600004f)(arg0,new_string("Operation is not valid due to the current state of the object"));
         /* IL_0B: nop */
         /* IL_0C: nop */
         /* IL_0D: nop */
@@ -2801,11 +2488,9 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: call Void .ctor(System.String)*/
-        (asm0.x600004f)(st_00,st_01);
+        (asm0.x600004f)(arg0,arg1);
         /* IL_07: nop */
         /* IL_08: nop */
         /* IL_09: nop */
@@ -2877,35 +2562,25 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldind.i8 */
-                st_01 = (st_00.r)();
                 /* IL_03: stloc.0 */
-                loc0 = st_01;
+                loc0 = (arg0.r)();
                 /* IL_04: ldc.i4.s 10*/
-                st_02 = (10|0);
                 /* IL_06: conv.i8 */
-                st_03 = conv_i8(st_02);
                 /* IL_07: stloc.1 */
-                loc1 = st_03;
+                loc1 = conv_i8((10|0));
                 /* IL_08: ldstr */
                 st_04 = new_string("");
                 /* IL_0D: stloc.2 */
                 loc2 = st_04;
                 /* IL_0E: ldloc.0 */
-                st_06 = loc0;
                 /* IL_0F: ldc.i4.0 */
-                st_05 = (0|0);
                 /* IL_10: conv.i8 */
-                st_07 = conv_i8(st_05);
                 /* IL_12: clt */
-                st_08 = (asm0.Int64_LessThan)(st_06,st_07);
                 /* IL_13: ldc.i4.0 */
-                st_09 = (0|0);
                 /* IL_15: ceq */
-                st_0A = (st_08 === st_09) ? (1) : (0);
                 /* IL_16: stloc.s 5*/
-                loc5 = st_0A;
+                loc5 = (((asm0.Int64_LessThan)(loc0,conv_i8((0|0))) === (0|0)) ? (1) : (0));
                 /* IL_18: ldloc.s 5*/
                 st_0B = loc5;
                 /* IL_1A: brtrue.s IL_37*/
@@ -2917,23 +2592,21 @@ var asm0; (function (asm)
                 /* IL_1C: nop */
                 
                 /* IL_1D: ldstr -*/
-                st_0F = new_string("-");
                 /* IL_22: ldloc.0 */
-                st_0C = loc0;
                 /* IL_23: neg */
-                st_0D = (asm0.Int64_UnaryNegation)(st_0C);
                 /* IL_24: box System.Int64*/
-                st_0E = {
-                    'boxed': st_0D,
+                /* IL_29: callvirt String ToString()*/
+                /* IL_2E: call String Concat(System.String, System.String)*/
+                /* IL_33: stloc.s 4*/
+                loc4 = (asm0.x60000ac)(new_string("-"),((({
+                    'boxed': (asm0.Int64_UnaryNegation)(loc0),
                     'type': t0,
                     'vtable': t0.prototype.vtable
-                };
-                /* IL_29: callvirt String ToString()*/
-                st_10 = (((st_0E.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_0E));
-                /* IL_2E: call String Concat(System.String, System.String)*/
-                st_11 = (asm0.x60000ac)(st_0F,st_10);
-                /* IL_33: stloc.s 4*/
-                loc4 = st_11;
+                }.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed({
+                    'boxed': (asm0.Int64_UnaryNegation)(loc0),
+                    'type': t0,
+                    'vtable': t0.prototype.vtable
+                })));
                 /* IL_35: br.s IL_5E*/
                 __pos_0__ = 0x5E;
                 continue;
@@ -2941,43 +2614,29 @@ var asm0; (function (asm)
                 /* IL_37: nop */
                 
                 /* IL_38: ldloc.0 */
-                st_12 = loc0;
                 /* IL_39: ldloc.1 */
-                st_13 = loc1;
                 /* IL_3A: rem */
-                st_14 = (asm0.Int64_Modulus)(st_12,st_13);
                 /* IL_3B: stloc.3 */
-                loc3 = st_14;
+                loc3 = (asm0.Int64_Modulus)(loc0,loc1);
                 /* IL_3C: ldloc.3 */
-                st_15 = loc3;
                 /* IL_3D: call String GetLowString(System.Int64)*/
-                st_16 = new_string(st_15[0].toString());
                 /* IL_42: ldloc.2 */
-                st_17 = loc2;
                 /* IL_43: call String Concat(System.String, System.String)*/
-                st_18 = (asm0.x60000ac)(st_16,st_17);
                 /* IL_48: stloc.2 */
-                loc2 = st_18;
+                loc2 = (asm0.x60000ac)(new_string(loc3[0].toString()),loc2);
                 /* IL_49: ldloc.0 */
-                st_19 = loc0;
                 /* IL_4A: ldloc.1 */
-                st_1A = loc1;
                 /* IL_4B: div */
-                st_1B = (asm0.Int64_Division)(st_19,st_1A);
                 /* IL_4C: stloc.0 */
-                loc0 = st_1B;
+                loc0 = (asm0.Int64_Division)(loc0,loc1);
                 /* IL_4D: nop */
                 
                 /* IL_4E: ldloc.0 */
-                st_1D = loc0;
                 /* IL_4F: ldc.i4.0 */
-                st_1C = (0|0);
                 /* IL_50: conv.i8 */
-                st_1E = conv_i8(st_1C);
                 /* IL_52: cgt */
-                st_1F = (asm0.Int64_GreaterThan)(st_1D,st_1E);
                 /* IL_53: stloc.s 5*/
-                loc5 = st_1F;
+                loc5 = (asm0.Int64_GreaterThan)(loc0,conv_i8((0|0)));
                 /* IL_55: ldloc.s 5*/
                 st_20 = loc5;
                 /* IL_57: brtrue.s IL_37*/
@@ -3009,17 +2668,12 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_02 = (st_00.r)();
         /* IL_03: ldarg.1 */
-        st_01 = arg1;
         /* IL_04: unbox.any System.Int64*/
-        st_03 = unbox_any(st_01,((asm0)["System.Int64"])());
         /* IL_0A: ceq */
-        st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
-        loc0 = st_04;
+        loc0 = (((arg0.r)() === unbox_any(arg1,((asm0)["System.Int64"])())) ? (1) : (0));
         /* IL_0E: ldloc.0 */
         st_05 = loc0;
         /* IL_0F: ret */
@@ -3034,13 +2688,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_01 = (st_00.r)();
         /* IL_03: call Int32 GetLow(System.Int64)*/
-        st_02 = st_01[0];
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (arg0.r)()[0];
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -3164,15 +2815,11 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_01 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_00 = (1|0);
         /* IL_03: conv.i8 */
-        st_02 = conv_i8(st_00);
         /* IL_04: sub */
-        st_03 = (asm0.XInt64_Subtraction)(st_01,st_02);
         /* IL_05: stloc.0 */
-        loc0 = st_03;
+        loc0 = (asm0.XInt64_Subtraction)(arg0,conv_i8((1|0)));
         /* IL_08: ldloc.0 */
         st_04 = loc0;
         /* IL_09: ret */
@@ -3189,15 +2836,11 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_01 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_00 = (1|0);
         /* IL_03: conv.i8 */
-        st_02 = conv_i8(st_00);
         /* IL_04: add */
-        st_03 = (asm0.XInt64_Addition)(st_01,st_02);
         /* IL_05: stloc.0 */
-        loc0 = st_03;
+        loc0 = (asm0.XInt64_Addition)(arg0,conv_i8((1|0)));
         /* IL_08: ldloc.0 */
         st_04 = loc0;
         /* IL_09: ret */
@@ -3385,11 +3028,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-        st_01 = (asm0.x6000087)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x6000087)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -3406,13 +3047,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Object GetValueImpl(System.Object, System.Int32)*/
-        st_02 = (asm0.x6000088)(st_00,st_01);
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (asm0.x6000088)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -3426,11 +3064,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: callvirt IEnumerator GetEnumeratorImpl()*/
-        st_01 = (((st_00.vtable)["asm0.x600008b"])())(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (((arg0.vtable)["asm0.x600008b"])())(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -3467,11 +3103,9 @@ var asm0; (function (asm)
         t1 = ((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]);
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: newobj Void .ctor(System.Array`1[T])*/
-        st_01 = newobj(t1,asm0.x6000091,[ null,st_00 ]);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = newobj(t1,asm0.x6000091,[ null,arg0 ]);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -3485,11 +3119,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call IEnumerator`1 GetEnumerator()*/
-        st_01 = (asm0.x600008e)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x600008e)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -3516,17 +3148,12 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld Array`1 source*/
-        st_02 = st_00.source;
         /* IL_07: ldarg.0 */
-        st_01 = arg0;
         /* IL_08: ldfld Int32 index*/
-        st_03 = st_01.index;
         /* IL_0D: callvirt T GetTypedValue(System.Int32)*/
-        st_04 = st_02.jsarr[st_03];
         /* IL_12: stloc.0 */
-        loc0 = st_04;
+        loc0 = arg0.source.jsarr[arg0.index];
         /* IL_15: ldloc.0 */
         st_05 = loc0;
         /* IL_16: ret */
@@ -3561,17 +3188,12 @@ var asm0; (function (asm)
         /* IL_0A: stfld Int32 index*/
         st_04.index = st_05;
         /* IL_0F: ldarg.0 */
-        st_06 = arg0;
         /* IL_10: ldfld Int32 index*/
-        st_08 = st_06.index;
         /* IL_15: ldarg.0 */
-        st_07 = arg0;
         /* IL_16: ldfld Int32 length*/
-        st_09 = st_07.length;
         /* IL_1C: clt */
-        st_0A = (st_08 < st_09) ? (1) : (0);
         /* IL_1D: stloc.0 */
-        loc0 = st_0A;
+        loc0 = ((arg0.index < arg0.length) ? (1) : (0));
         /* IL_20: ldloc.0 */
         st_0B = loc0;
         /* IL_21: ret */
@@ -3588,13 +3210,10 @@ var asm0; (function (asm)
         t0 = ((arguments)[0].constructor.GenericArguments)[0];
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call T get_Current()*/
-        st_01 = (asm0.x6000092)(st_00);
         /* IL_07: box T*/
-        st_02 = box(st_01,t0);
         /* IL_0C: stloc.0 */
-        loc0 = st_02;
+        loc0 = box((asm0.x6000092)(arg0),t0);
         /* IL_0F: ldloc.0 */
         st_03 = loc0;
         /* IL_10: ret */
@@ -3606,11 +3225,9 @@ var asm0; (function (asm)
         var st_01;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldc.i4.m1 */
-        st_01 = (-1|0);
         /* IL_03: stfld Int32 index*/
-        st_00.index = st_01;
+        arg0.index = (-1|0);
         /* IL_08: ret */
         return ;
     };;
@@ -3636,25 +3253,18 @@ var asm0; (function (asm)
         /* IL_06: nop */
         /* IL_07: nop */
         /* IL_08: ldarg.0 */
-        st_01 = arg0;
         /* IL_09: ldarg.1 */
-        st_02 = arg1;
         /* IL_0A: stfld Array`1 source*/
-        st_01.source = st_02;
+        arg0.source = arg1;
         /* IL_0F: ldarg.0 */
-        st_03 = arg0;
         /* IL_10: ldc.i4.m1 */
-        st_04 = (-1|0);
         /* IL_11: stfld Int32 index*/
-        st_03.index = st_04;
+        arg0.index = (-1|0);
         /* IL_16: ldarg.0 */
-        st_06 = arg0;
         /* IL_17: ldarg.1 */
-        st_05 = arg1;
         /* IL_18: callvirt Int32 get_Length()*/
-        st_07 = (asm0.x6000086)(st_05);
         /* IL_1D: stfld Int32 length*/
-        st_06.length = st_07;
+        arg0.length = (asm0.x6000086)(arg1);
         /* IL_22: nop */
         /* IL_23: ret */
         return ;
@@ -3690,11 +3300,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld Boolean has_value*/
-        st_01 = (st_00.r)().has_value;
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0.r)().has_value;
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -3734,11 +3342,9 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldfld Boolean has_value*/
-                st_01 = (st_00.r)().has_value;
                 /* IL_07: stloc.1 */
-                loc1 = st_01;
+                loc1 = (arg0.r)().has_value;
                 /* IL_08: ldloc.1 */
                 st_02 = loc1;
                 /* IL_09: brtrue.s IL_16*/
@@ -3755,11 +3361,9 @@ var asm0; (function (asm)
                 throw st_04;
                 case 0x16:
                 /* IL_16: ldarg.0 */
-                st_05 = arg0;
                 /* IL_17: ldfld T value*/
-                st_06 = (st_05.r)().value;
                 /* IL_1C: stloc.0 */
-                loc0 = st_06;
+                loc0 = (arg0.r)().value;
                 /* IL_1F: ldloc.0 */
                 st_07 = loc0;
                 /* IL_20: ret */
@@ -3816,17 +3420,12 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.1 */
-                st_00 = arg1;
                 /* IL_02: ldnull */
-                st_01 = null;
                 /* IL_04: ceq */
-                st_02 = (st_00 === st_01) ? (1) : (0);
                 /* IL_05: ldc.i4.0 */
-                st_03 = (0|0);
                 /* IL_07: ceq */
-                st_04 = (st_02 === st_03) ? (1) : (0);
                 /* IL_08: stloc.1 */
-                loc1 = st_04;
+                loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
                 st_05 = loc1;
                 /* IL_0A: brtrue.s IL_18*/
@@ -3836,29 +3435,21 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_0C: ldarg.0 */
-                st_06 = arg0;
                 /* IL_0D: ldfld Boolean has_value*/
-                st_07 = (st_06.r)().has_value;
                 /* IL_12: ldc.i4.0 */
-                st_08 = (0|0);
                 /* IL_14: ceq */
-                st_09 = (st_07 === st_08) ? (1) : (0);
                 /* IL_15: stloc.0 */
-                loc0 = st_09;
+                loc0 = (((arg0.r)().has_value === (0|0)) ? (1) : (0));
                 /* IL_16: br.s IL_38*/
                 __pos_0__ = 0x38;
                 continue;
                 case 0x18:
                 /* IL_18: ldarg.1 */
-                st_0A = arg1;
                 /* IL_19: isinst System.Nullable`1[T]*/
-                st_0B = (t1.IsInst)(st_0A);
                 /* IL_1E: ldnull */
-                st_0C = null;
                 /* IL_20: cgt.un */
-                st_0D = (st_0B > st_0C) ? (1) : (0);
                 /* IL_21: stloc.1 */
-                loc1 = st_0D;
+                loc1 = (((t1.IsInst)(arg1) > null) ? (1) : (0));
                 /* IL_22: ldloc.1 */
                 st_0E = loc1;
                 /* IL_23: brtrue.s IL_29*/
@@ -3876,15 +3467,11 @@ var asm0; (function (asm)
                 continue;
                 case 0x29:
                 /* IL_29: ldarg.0 */
-                st_11 = arg0;
                 /* IL_2A: ldarg.1 */
-                st_10 = arg1;
                 /* IL_2B: unbox.any System.Nullable`1[T]*/
-                st_12 = unbox_any(st_10,t1);
                 /* IL_30: call Boolean Equals(System.Nullable`1[T])*/
-                st_13 = (asm0.x600009d)(st_11,clone_value(st_12));
                 /* IL_35: stloc.0 */
-                loc0 = st_13;
+                loc0 = (asm0.x600009d)(arg0,clone_value(unbox_any(arg1,t1)));
                 case 0x38:
                 /* IL_38: ldloc.0 */
                 st_14 = loc0;
@@ -3927,7 +3514,12 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarga.s 1*/
-                st_00 = {
+                /* IL_03: ldfld Boolean has_value*/
+                /* IL_08: ldarg.0 */
+                /* IL_09: ldfld Boolean has_value*/
+                /* IL_0F: ceq */
+                /* IL_10: stloc.1 */
+                loc1 = ((({
                     'w': function ()
                     {
                         arg1 = (arguments)[0];
@@ -3936,17 +3528,7 @@ var asm0; (function (asm)
                     {
                         return arg1;
                     }
-                };
-                /* IL_03: ldfld Boolean has_value*/
-                st_02 = (st_00.r)().has_value;
-                /* IL_08: ldarg.0 */
-                st_01 = arg0;
-                /* IL_09: ldfld Boolean has_value*/
-                st_03 = (st_01.r)().has_value;
-                /* IL_0F: ceq */
-                st_04 = (st_02 === st_03) ? (1) : (0);
-                /* IL_10: stloc.1 */
-                loc1 = st_04;
+                }.r)().has_value === (arg0.r)().has_value) ? (1) : (0));
                 /* IL_11: ldloc.1 */
                 st_05 = loc1;
                 /* IL_12: brtrue.s IL_18*/
@@ -3964,11 +3546,9 @@ var asm0; (function (asm)
                 continue;
                 case 0x18:
                 /* IL_18: ldarg.0 */
-                st_07 = arg0;
                 /* IL_19: ldfld Boolean has_value*/
-                st_08 = (st_07.r)().has_value;
                 /* IL_1E: stloc.1 */
-                loc1 = st_08;
+                loc1 = (arg0.r)().has_value;
                 /* IL_1F: ldloc.1 */
                 st_09 = loc1;
                 /* IL_20: brtrue.s IL_26*/
@@ -3986,18 +3566,13 @@ var asm0; (function (asm)
                 continue;
                 case 0x26:
                 /* IL_26: ldarga.s 1*/
-                st_0B = {
-                    'w': function ()
-                    {
-                        arg1 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg1;
-                    }
-                };
                 /* IL_28: ldflda T value*/
-                st_0E = {
+                /* IL_2D: ldarg.0 */
+                /* IL_2E: ldfld T value*/
+                /* IL_33: box T*/
+                /* IL_3E: callvirt Boolean Equals(System.Object)*/
+                /* IL_43: stloc.0 */
+                loc0 = ((({
                     'w': function ()
                     {
                         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
@@ -4006,18 +3581,16 @@ var asm0; (function (asm)
                     {
                         return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
                     }
-                };
-                /* IL_2D: ldarg.0 */
-                st_0C = arg0;
-                /* IL_2E: ldfld T value*/
-                st_0D = (st_0C.r)().value;
-                /* IL_33: box T*/
-                st_0F = box(st_0D,t0);
-                /* IL_3E: callvirt Boolean Equals(System.Object)*/
-                /* ignoring prefixes constrained.*/
-                st_10 = (((st_0E.vtable)["asm0.x6000009"])())(st_0E,st_0F);
-                /* IL_43: stloc.0 */
-                loc0 = st_10;
+                }.vtable)["asm0.x6000009"])())({
+                    'w': function ()
+                    {
+                        (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
+                    }
+                },box((arg0.r)().value,t0));
                 case 0x46:
                 /* IL_46: ldloc.0 */
                 st_11 = loc0;
@@ -4048,11 +3621,9 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldfld Boolean has_value*/
-                st_01 = (st_00.r)().has_value;
                 /* IL_07: stloc.1 */
-                loc1 = st_01;
+                loc1 = (arg0.r)().has_value;
                 /* IL_08: ldloc.1 */
                 st_02 = loc1;
                 /* IL_09: brtrue.s IL_0F*/
@@ -4070,9 +3641,10 @@ var asm0; (function (asm)
                 continue;
                 case 0xF:
                 /* IL_0F: ldarg.0 */
-                st_04 = arg0;
                 /* IL_10: ldflda T value*/
-                st_05 = {
+                /* IL_1B: callvirt Int32 GetHashCode()*/
+                /* IL_20: stloc.0 */
+                loc0 = ((({
                     'w': function ()
                     {
                         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
@@ -4081,12 +3653,16 @@ var asm0; (function (asm)
                     {
                         return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
                     }
-                };
-                /* IL_1B: callvirt Int32 GetHashCode()*/
-                /* ignoring prefixes constrained.*/
-                st_06 = (((st_05.vtable)["asm0.x6000006"])())(st_05);
-                /* IL_20: stloc.0 */
-                loc0 = st_06;
+                }.vtable)["asm0.x6000006"])())({
+                    'w': function ()
+                    {
+                        (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
+                    }
+                });
                 case 0x23:
                 /* IL_23: ldloc.0 */
                 st_07 = loc0;
@@ -4103,11 +3679,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld T value*/
-        st_01 = (st_00.r)().value;
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (arg0.r)().value;
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -4198,15 +3772,11 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldfld Boolean has_value*/
-                st_01 = (st_00.r)().has_value;
                 /* IL_07: ldc.i4.0 */
-                st_02 = (0|0);
                 /* IL_09: ceq */
-                st_03 = (st_01 === st_02) ? (1) : (0);
                 /* IL_0A: stloc.1 */
-                loc1 = st_03;
+                loc1 = (((arg0.r)().has_value === (0|0)) ? (1) : (0));
                 /* IL_0B: ldloc.1 */
                 st_04 = loc1;
                 /* IL_0C: brtrue.s IL_22*/
@@ -4216,9 +3786,10 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_0E: ldarg.0 */
-                st_05 = arg0;
                 /* IL_0F: ldflda T value*/
-                st_06 = {
+                /* IL_1A: callvirt String ToString()*/
+                /* IL_1F: stloc.0 */
+                loc0 = ((({
                     'w': function ()
                     {
                         (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
@@ -4227,12 +3798,16 @@ var asm0; (function (asm)
                     {
                         return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
                     }
-                };
-                /* IL_1A: callvirt String ToString()*/
-                /* ignoring prefixes constrained.*/
-                st_07 = (((st_06.vtable)["asm0.x6000005"])())(st_06);
-                /* IL_1F: stloc.0 */
-                loc0 = st_07;
+                }.vtable)["asm0.x6000005"])())({
+                    'w': function ()
+                    {
+                        (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"] = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return (((asm0)["System.Nullable`1"])((((arguments)[0].r)().constructor.GenericArguments)[0]))["value"];
+                    }
+                });
                 /* IL_20: br.s IL_2A*/
                 __pos_0__ = 0x2A;
                 continue;
@@ -4279,11 +3854,9 @@ var asm0; (function (asm)
             t1 = ((asm0)["System.Nullable`1"])(T);
             /* IL_00: nop */
             /* IL_01: ldarg.0 */
-            st_00 = arg0;
             /* IL_02: newobj Void .ctor(T)*/
-            st_01 = newobj(t1,asm0.x6000099,[ null,clone_value(st_00) ]);
             /* IL_07: stloc.0 */
-            loc0 = st_01;
+            loc0 = newobj(t1,asm0.x6000099,[ null,clone_value(arg0) ]);
             /* IL_0A: ldloc.0 */
             st_02 = loc0;
             /* IL_0B: ret */
@@ -4300,7 +3873,9 @@ var asm0; (function (asm)
             var loc0;
             /* IL_00: nop */
             /* IL_01: ldarga.s 0*/
-            st_00 = {
+            /* IL_03: call T get_Value()*/
+            /* IL_08: stloc.0 */
+            loc0 = (asm0.x600009b)({
                 'w': function ()
                 {
                     arg0 = (arguments)[0];
@@ -4309,11 +3884,7 @@ var asm0; (function (asm)
                 {
                     return arg0;
                 }
-            };
-            /* IL_03: call T get_Value()*/
-            st_01 = (asm0.x600009b)(st_00);
-            /* IL_08: stloc.0 */
-            loc0 = st_01;
+            });
             /* IL_0B: ldloc.0 */
             st_02 = loc0;
             /* IL_0C: ret */
@@ -4346,7 +3917,9 @@ var asm0; (function (asm)
                     /* IL_00: nop */
                     
                     /* IL_01: ldarga.s 0*/
-                    st_00 = {
+                    /* IL_03: ldfld Boolean has_value*/
+                    /* IL_08: stloc.1 */
+                    loc1 = ({
                         'w': function ()
                         {
                             arg0 = (arguments)[0];
@@ -4355,11 +3928,7 @@ var asm0; (function (asm)
                         {
                             return arg0;
                         }
-                    };
-                    /* IL_03: ldfld Boolean has_value*/
-                    st_01 = (st_00.r)().has_value;
-                    /* IL_08: stloc.1 */
-                    loc1 = st_01;
+                    }.r)().has_value;
                     /* IL_09: ldloc.1 */
                     st_02 = loc1;
                     /* IL_0A: brtrue.s IL_10*/
@@ -4377,7 +3946,10 @@ var asm0; (function (asm)
                     continue;
                     case 0x10:
                     /* IL_10: ldarga.s 0*/
-                    st_04 = {
+                    /* IL_12: ldfld T value*/
+                    /* IL_17: box T*/
+                    /* IL_1C: stloc.0 */
+                    loc0 = box(({
                         'w': function ()
                         {
                             arg0 = (arguments)[0];
@@ -4386,13 +3958,7 @@ var asm0; (function (asm)
                         {
                             return arg0;
                         }
-                    };
-                    /* IL_12: ldfld T value*/
-                    st_05 = (st_04.r)().value;
-                    /* IL_17: box T*/
-                    st_06 = box(st_05,t0);
-                    /* IL_1C: stloc.0 */
-                    loc0 = st_06;
+                    }.r)().value,t0);
                     case 0x1F:
                     /* IL_1F: ldloc.0 */
                     st_07 = loc0;
@@ -4452,17 +4018,12 @@ var asm0; (function (asm)
                     /* IL_00: nop */
                     
                     /* IL_01: ldarg.0 */
-                    st_00 = arg0;
                     /* IL_02: ldnull */
-                    st_01 = null;
                     /* IL_04: ceq */
-                    st_02 = (st_00 === st_01) ? (1) : (0);
                     /* IL_05: ldc.i4.0 */
-                    st_03 = (0|0);
                     /* IL_07: ceq */
-                    st_04 = (st_02 === st_03) ? (1) : (0);
                     /* IL_08: stloc.1 */
-                    loc1 = st_04;
+                    loc1 = ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                     /* IL_09: ldloc.1 */
                     st_05 = loc1;
                     /* IL_0A: brtrue.s IL_18*/
@@ -4483,7 +4044,7 @@ var asm0; (function (asm)
                         }
                     };
                     /* IL_0F: initobj System.Nullable`1[T]*/
-                    (t1.IsValueType) ? ((st_06.w)(new t1())) : (null);
+                    ((t1.IsValueType) ? ((st_06.w)(new t1())) : (null));
                     /* IL_14: ldloc.2 */
                     st_07 = loc2;
                     /* IL_15: stloc.0 */
@@ -4493,13 +4054,10 @@ var asm0; (function (asm)
                     continue;
                     case 0x18:
                     /* IL_18: ldarg.0 */
-                    st_08 = arg0;
                     /* IL_19: unbox.any T*/
-                    st_09 = unbox_any(st_08,t0);
                     /* IL_1E: newobj Void .ctor(T)*/
-                    st_0A = newobj(t1,asm0.x6000099,[ null,clone_value(st_09) ]);
                     /* IL_23: stloc.0 */
-                    loc0 = st_0A;
+                    loc0 = newobj(t1,asm0.x6000099,[ null,clone_value(unbox_any(arg0,t0)) ]);
                     case 0x26:
                     /* IL_26: ldloc.0 */
                     st_0B = loc0;
@@ -4517,17 +4075,13 @@ var asm0; (function (asm)
         var st_03;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldc.i4.1 */
-        st_01 = (1|0);
         /* IL_03: stfld Boolean has_value*/
-        (st_00.r)().has_value = st_01;
+        (arg0.r)().has_value = (1|0);
         /* IL_08: ldarg.0 */
-        st_02 = arg0;
         /* IL_09: ldarg.1 */
-        st_03 = arg1;
         /* IL_0A: stfld T value*/
-        (st_02.r)().value = st_03;
+        (arg0.r)().value = arg1;
         /* IL_0F: ret */
         return ;
     };;
@@ -4554,13 +4108,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Char GetChar(System.String, System.Int32)*/
-        st_02 = (asm0.x60000aa)(st_00,st_01);
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (asm0.x60000aa)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -4595,33 +4146,23 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldc.i4.2 */
-        st_00 = (2|0);
         /* IL_02: newarr System.String*/
-        st_01 = new_array(t0,st_00);
         /* IL_07: stloc.1 */
-        loc1 = st_01;
+        loc1 = new_array(t0,(2|0));
         /* IL_08: ldloc.1 */
-        st_02 = loc1;
         /* IL_09: ldc.i4.0 */
-        st_03 = (0|0);
         /* IL_0A: ldarg.0 */
-        st_04 = arg0;
         /* IL_0B: stelem.ref */
-        (st_02.jsarr)[st_03] = st_04;
+        (loc1.jsarr)[(0|0)] = arg0;
         /* IL_0C: ldloc.1 */
-        st_05 = loc1;
         /* IL_0D: ldc.i4.1 */
-        st_06 = (1|0);
         /* IL_0E: ldarg.1 */
-        st_07 = arg1;
         /* IL_0F: stelem.ref */
-        (st_05.jsarr)[st_06] = st_07;
+        (loc1.jsarr)[(1|0)] = arg1;
         /* IL_10: ldloc.1 */
-        st_08 = loc1;
         /* IL_11: call String ConcatImpl(System.String[])*/
-        st_09 = (asm0.x60000a9)(st_08);
         /* IL_16: stloc.0 */
-        loc0 = st_09;
+        loc0 = (asm0.x60000a9)(loc1);
         /* IL_19: ldloc.0 */
         st_0A = loc0;
         /* IL_1A: ret */
@@ -4658,37 +4199,25 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldc.i4.2 */
-        st_00 = (2|0);
         /* IL_02: newarr System.String*/
-        st_01 = new_array(t0,st_00);
         /* IL_07: stloc.1 */
-        loc1 = st_01;
+        loc1 = new_array(t0,(2|0));
         /* IL_08: ldloc.1 */
-        st_03 = loc1;
         /* IL_09: ldc.i4.0 */
-        st_04 = (0|0);
         /* IL_0A: ldarg.0 */
-        st_02 = arg0;
         /* IL_0B: callvirt String ToString()*/
-        st_05 = (((st_02.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_02));
         /* IL_10: stelem.ref */
-        (st_03.jsarr)[st_04] = st_05;
+        (loc1.jsarr)[(0|0)] = (((arg0.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(arg0));
         /* IL_11: ldloc.1 */
-        st_07 = loc1;
         /* IL_12: ldc.i4.1 */
-        st_08 = (1|0);
         /* IL_13: ldarg.1 */
-        st_06 = arg1;
         /* IL_14: callvirt String ToString()*/
-        st_09 = (((st_06.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(st_06));
         /* IL_19: stelem.ref */
-        (st_07.jsarr)[st_08] = st_09;
+        (loc1.jsarr)[(1|0)] = (((arg1.vtable)["asm0.x6000005"])())(convert_box_to_pointer_as_needed(arg1));
         /* IL_1A: ldloc.1 */
-        st_0A = loc1;
         /* IL_1B: call String ConcatImpl(System.String[])*/
-        st_0B = (asm0.x60000a9)(st_0A);
         /* IL_20: stloc.0 */
-        loc0 = st_0B;
+        loc0 = (asm0.x60000a9)(loc1);
         /* IL_23: ldloc.0 */
         st_0C = loc0;
         /* IL_24: ret */
@@ -4702,11 +4231,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call String ConcatImpl(System.String[])*/
-        st_01 = (asm0.x60000a9)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x60000a9)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -4744,11 +4271,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call Int32 GetLengthImpl(System.Object)*/
-        st_01 = (asm0.x60000a7)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x60000a7)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -4780,17 +4305,12 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a8)(st_00,st_01);
         /* IL_08: ldc.i4.0 */
-        st_03 = (0|0);
         /* IL_0A: ceq */
-        st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
-        loc0 = st_04;
+        loc0 = (((asm0.x60000a8)(arg0,arg1) === (0|0)) ? (1) : (0));
         /* IL_0E: ldloc.0 */
         st_05 = loc0;
         /* IL_0F: ret */
@@ -4805,13 +4325,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a8)(st_00,st_01);
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (asm0.x60000a8)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -4826,13 +4343,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldarg.1 */
-        st_01 = arg1;
         /* IL_03: call Boolean EqualsImpl(System.String, System.String)*/
-        st_02 = (asm0.x60000a8)(st_00,st_01);
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (asm0.x60000a8)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -4860,15 +4374,11 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_01 = arg0;
         /* IL_02: ldarg.1 */
-        st_00 = arg1;
         /* IL_03: castclass System.String*/
-        st_02 = cast_class(st_00,t0);
         /* IL_08: call Boolean Equals(System.String)*/
-        st_03 = (asm0.x60000b4)(st_01,st_02);
         /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        loc0 = (asm0.x60000b4)(arg0,cast_class(arg1,t0));
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -4891,11 +4401,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: call Int32 GetHashCodeImpl(System.String)*/
-        st_01 = (asm0.x60000b6)(st_00);
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = (asm0.x60000b6)(arg0);
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -4940,11 +4448,9 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld String member_name*/
-        st_01 = st_00.System_ReflectionDefaultMemberAttributemember_name;
         /* IL_07: stloc.0 */
-        loc0 = st_01;
+        loc0 = arg0.System_ReflectionDefaultMemberAttributemember_name;
         /* IL_0A: ldloc.0 */
         st_02 = loc0;
         /* IL_0B: ret */
@@ -4962,11 +4468,9 @@ var asm0; (function (asm)
         /* IL_06: nop */
         /* IL_07: nop */
         /* IL_08: ldarg.0 */
-        st_01 = arg0;
         /* IL_09: ldarg.1 */
-        st_02 = arg1;
         /* IL_0A: stfld String member_name*/
-        st_01.System_ReflectionDefaultMemberAttributemember_name = st_02;
+        arg0.System_ReflectionDefaultMemberAttributemember_name = arg1;
         /* IL_0F: nop */
         /* IL_10: ret */
         return ;
@@ -5002,19 +4506,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.UInt16"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.u2 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.UInt16*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -5042,19 +4542,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.UInt32"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.u4 */
-        st_01 = (st_00.r)();
         /* IL_03: box System.UInt32*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_08: call String NumberStructToString(System.Object)*/
+        /* IL_0D: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': (arg0.r)(),
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_08: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_0D: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_10: ldloc.0 */
         st_04 = loc0;
         /* IL_11: ret */
@@ -5100,17 +4596,13 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldind.i8 */
-                st_01 = (st_00.r)();
                 /* IL_03: stloc.0 */
-                loc0 = st_01;
+                loc0 = (arg0.r)();
                 /* IL_04: ldc.i4.s 10*/
-                st_02 = (10|0);
                 /* IL_06: conv.i8 */
-                st_03 = conv_i8(st_02);
                 /* IL_07: stloc.1 */
-                loc1 = st_03;
+                loc1 = conv_i8((10|0));
                 /* IL_08: ldstr */
                 st_04 = new_string("");
                 /* IL_0D: stloc.2 */
@@ -5119,43 +4611,29 @@ var asm0; (function (asm)
                 /* IL_0E: nop */
                 
                 /* IL_0F: ldloc.0 */
-                st_05 = loc0;
                 /* IL_10: ldloc.1 */
-                st_06 = loc1;
                 /* IL_11: rem.un */
-                st_07 = (asm0.UInt64_Modulus)(st_05,st_06);
                 /* IL_12: stloc.3 */
-                loc3 = st_07;
+                loc3 = (asm0.UInt64_Modulus)(loc0,loc1);
                 /* IL_13: ldloc.3 */
-                st_08 = loc3;
                 /* IL_14: call String GetLowString(System.UInt64)*/
-                st_09 = new_string(st_08[0].toString());
                 /* IL_19: ldloc.2 */
-                st_0A = loc2;
                 /* IL_1A: call String Concat(System.String, System.String)*/
-                st_0B = (asm0.x60000ac)(st_09,st_0A);
                 /* IL_1F: stloc.2 */
-                loc2 = st_0B;
+                loc2 = (asm0.x60000ac)(new_string(loc3[0].toString()),loc2);
                 /* IL_20: ldloc.0 */
-                st_0C = loc0;
                 /* IL_21: ldloc.1 */
-                st_0D = loc1;
                 /* IL_22: div.un */
-                st_0E = (asm0.UInt64_Division)(st_0C,st_0D);
                 /* IL_23: stloc.0 */
-                loc0 = st_0E;
+                loc0 = (asm0.UInt64_Division)(loc0,loc1);
                 /* IL_24: nop */
                 
                 /* IL_25: ldloc.0 */
-                st_10 = loc0;
                 /* IL_26: ldc.i4.0 */
-                st_0F = (0|0);
                 /* IL_27: conv.i8 */
-                st_11 = conv_i8(st_0F);
                 /* IL_29: cgt.un */
-                st_12 = (asm0.UInt64_GreaterThan)(st_10,st_11);
                 /* IL_2A: stloc.s 5*/
-                loc5 = st_12;
+                loc5 = (asm0.UInt64_GreaterThan)(loc0,conv_i8((0|0)));
                 /* IL_2C: ldloc.s 5*/
                 st_13 = loc5;
                 /* IL_2E: brtrue.s IL_0E*/
@@ -5337,17 +4815,12 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_02 = (st_00.r)();
         /* IL_03: ldarg.1 */
-        st_01 = arg1;
         /* IL_04: unbox.any System.UInt64*/
-        st_03 = unbox_any(st_01,((asm0)["System.UInt64"])());
         /* IL_0A: ceq */
-        st_04 = (st_02 === st_03) ? (1) : (0);
         /* IL_0B: stloc.0 */
-        loc0 = st_04;
+        loc0 = (((arg0.r)() === unbox_any(arg1,((asm0)["System.UInt64"])())) ? (1) : (0));
         /* IL_0E: ldloc.0 */
         st_05 = loc0;
         /* IL_0F: ret */
@@ -5362,13 +4835,10 @@ var asm0; (function (asm)
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldind.i8 */
-        st_01 = (st_00.r)();
         /* IL_03: call Int32 GetLow(System.UInt64)*/
-        st_02 = st_01[0];
         /* IL_08: stloc.0 */
-        loc0 = st_02;
+        loc0 = (arg0.r)()[0];
         /* IL_0B: ldloc.0 */
         st_03 = loc0;
         /* IL_0C: ret */
@@ -5396,19 +4866,15 @@ var asm0; (function (asm)
         t0 = ((asm0)["System.UIntPtr"])();
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldobj System.UIntPtr*/
-        st_01 = st_00;
         /* IL_07: box System.UIntPtr*/
-        st_02 = {
-            'boxed': st_01,
+        /* IL_0C: call String NumberStructToString(System.Object)*/
+        /* IL_11: stloc.0 */
+        loc0 = (asm0.x600003e)({
+            'boxed': arg0,
             'type': t0,
             'vtable': t0.prototype.vtable
-        };
-        /* IL_0C: call String NumberStructToString(System.Object)*/
-        st_03 = (asm0.x600003e)(st_02);
-        /* IL_11: stloc.0 */
-        loc0 = st_03;
+        });
         /* IL_14: ldloc.0 */
         st_04 = loc0;
         /* IL_15: ret */
@@ -8353,7 +7819,7 @@ var asm0; (function (asm)
                 Nullable_1.IsNullable = true;
                 Nullable_1.ArrayType = Array;
                 Nullable_1.GenericArguments = [ T ];
-                Nullable_1.prototype.value = (T.IsValueType) ? ((T.IsPrimitive) ? (0) : (new T())) : (null);
+                Nullable_1.prototype.value = ((T.IsValueType) ? (((T.IsPrimitive) ? (0) : (new T()))) : (null));
                 Nullable_1.prototype.has_value = false;
                 Nullable_1.prototype.vtable = {
                     'asm0.x6000009': function ()
@@ -9078,11 +8544,9 @@ var asm1; (function (asm)
         var st_00;
         var st_01;
         /* IL_00: ldarg.0 */
-        st_00 = arg0;
         /* IL_01: ldarg.1 */
-        st_01 = arg1;
         /* IL_02: stfld String <Prop>k__BackingField*/
-        (st_00)["A<Prop>k__BackingField"] = st_01;
+        (arg0)["A<Prop>k__BackingField"] = arg1;
         /* IL_07: ret */
         return ;
     };;
@@ -9155,9 +8619,8 @@ var asm1; (function (asm)
         /* IL_06: ldloc.2 */
         st_04 = loc2;
         /* IL_07: newobj Void .ctor()*/
-        st_01 = newobj(t1,asm1.x600000e,[ null ]);
         /* IL_0C: stloc.1 */
-        loc1 = st_01;
+        loc1 = newobj(t1,asm1.x600000e,[ null ]);
         /* IL_0D: ldloc.1 */
         st_02 = loc1;
         /* IL_0E: ldstr hello*/
@@ -9169,31 +8632,23 @@ var asm1; (function (asm)
         /* IL_19: stfld A a*/
         st_04.a = st_05;
         /* IL_1E: ldloc.2 */
-        st_06 = loc2;
         /* IL_1F: ldnull */
-        st_07 = null;
         /* IL_20: stfld A b*/
-        st_06.b = st_07;
+        loc2.b = null;
         /* IL_25: ldloc.2 */
-        st_08 = loc2;
         /* IL_27: ldftn Void <Main>b__1()*/
-        st_09 = asm1.x6000014;
         /* IL_2C: newobj Void .ctor(System.Object, System.IntPtr)*/
-        st_0A = newobj(t2,asm1.x600000f,[ null,st_08,st_09 ]);
         /* IL_31: stloc.0 */
-        loc0 = st_0A;
+        loc0 = newobj(t2,asm1.x600000f,[ null,loc2,asm1.x6000014 ]);
         /* IL_32: ldloc.0 */
         st_0B = loc0;
         /* IL_33: callvirt Void Invoke()*/
-        (st_0B._methodPtr.apply)(null,(st_0B._target) ? ([ st_0B._target ]) : ([  ]));
+        (st_0B._methodPtr.apply)(null,((st_0B._target) ? ([ st_0B._target ]) : ([  ])));
         /* IL_38: ldloc.2 */
-        st_0C = loc2;
         /* IL_39: ldfld A b*/
-        st_0D = st_0C.b;
         /* IL_3E: callvirt String get_Prop()*/
-        st_0E = (asm1.x600000c)(st_0D);
         /* IL_43: call Void Log(System.Object)*/
-        (asm1.x6000001)(st_0E);
+        (asm1.x6000001)((asm1.x600000c)(loc2.b));
         /* IL_48: ret */
         return ;
     };
@@ -9212,13 +8667,10 @@ var asm1; (function (asm)
         var st_01;
         var st_02;
         /* IL_00: ldarg.0 */
-        st_01 = arg0;
         /* IL_01: ldarg.0 */
-        st_00 = arg0;
         /* IL_02: ldfld A a*/
-        st_02 = st_00.a;
         /* IL_07: stfld A b*/
-        st_01.b = st_02;
+        arg0.b = arg0.a;
         /* IL_0C: ret */
         return ;
     };;

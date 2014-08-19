@@ -12,7 +12,7 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return String.Format("({0}) ? ({1}) : ({2})", Condition.ToString(formatting), TrueValue.ToString(formatting), FalseValue.ToString(formatting));
+            return String.Format("(({0}) ? ({1}) : ({2}))", Condition.ToString(formatting), TrueValue.ToString(formatting), FalseValue.ToString(formatting));
         }
 
         public override System.Collections.Generic.IEnumerable<JSExpression> GetChildren()

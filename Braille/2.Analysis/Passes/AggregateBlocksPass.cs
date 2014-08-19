@@ -15,8 +15,6 @@ namespace Braille.Analysis.Passes
         {
             var replacements = new List<List<Block>>();
 
-
-
             var currentAggregate = new List<Block>();
 
             foreach (var node in block.Ast)
