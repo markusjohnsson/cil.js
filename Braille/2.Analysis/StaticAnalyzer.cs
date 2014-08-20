@@ -38,10 +38,9 @@ namespace Braille.Analysis
         {
             yield return new OpExpressionBuilder(ctx);
 
-            // - Flow analysis to determine from which instruction(s) each instruction can get its arguments from
+            // - Flow analysis to determine from which instruction(s) each instruction can get its argument(s) from
             yield return new StackAnalyzer();
 
-            // Turn stack based OpInstructions into variable based OpExpressions
             yield return new StackRemovalPass();
 
             yield return new UnreachableRemoval();
@@ -54,6 +53,7 @@ namespace Braille.Analysis
             yield return new AggregateBlocksPass();
 
             yield return new AggregateExpressionsPass(ctx);
+
 
         }
 

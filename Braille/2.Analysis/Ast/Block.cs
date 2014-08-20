@@ -25,6 +25,28 @@ namespace Braille.Ast
         {
             Kind = blockType;
         }
+
+        /// <summary>
+        /// Returns the expressions of the block
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<OpExpression> GetExpressions()
+        {
+            foreach (var n in Ast)
+            {
+                var o = n as OpExpression;
+                var b = n as Block;
+
+                if (o != null)
+                    yield return o;
+
+                if (b != null)
+                {
+                    foreach (var s in b.GetExpressions())
+                        yield return s;
+                }
+            }
+        }
     }
 
     class CatchBlock : Block

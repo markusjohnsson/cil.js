@@ -178,8 +178,6 @@ var asm0; (function (asm)
     asm.x6000004 = function () { return asm0.ToJavaScriptString(this); };;
     asm.x6000005 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldstr System.Object*/
@@ -191,9 +189,6 @@ var asm0; (function (asm)
     };;
     asm.x6000006 = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -206,18 +201,7 @@ var asm0; (function (asm)
     };;
     asm.x6000007 = function ToJavaScriptString(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -267,10 +251,6 @@ var asm0; (function (asm)
     asm.ToJavaScriptString = asm.x6000007;
     asm.x6000008 = function ReferenceEquals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -284,10 +264,6 @@ var asm0; (function (asm)
     };;
     asm.x6000009 = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -301,9 +277,6 @@ var asm0; (function (asm)
     };;
     asm.x600000a = function GetType(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -321,7 +294,6 @@ var asm0; (function (asm)
     };;
     asm.x600000c = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -329,9 +301,6 @@ var asm0; (function (asm)
     };;
     asm.x600000e = function get_ValidOn(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld AttributeTargets <ValidOn>k__BackingField*/
@@ -343,8 +312,6 @@ var asm0; (function (asm)
     };;
     asm.x600000f = function set_ValidOn(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld AttributeTargets <ValidOn>k__BackingField*/
@@ -354,9 +321,6 @@ var asm0; (function (asm)
     };;
     asm.x6000010 = function get_Inherited(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Boolean <Inherited>k__BackingField*/
@@ -368,8 +332,6 @@ var asm0; (function (asm)
     };;
     asm.x6000011 = function set_Inherited(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld Boolean <Inherited>k__BackingField*/
@@ -379,9 +341,6 @@ var asm0; (function (asm)
     };;
     asm.x600000d = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -398,7 +357,6 @@ var asm0; (function (asm)
     };;
     asm.x6000012 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -409,7 +367,6 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         var st_02;
-        var st_03;
         var __pos_0__;
         var loc0;
         __pos_0__ = 0x0;
@@ -462,11 +419,6 @@ var asm0; (function (asm)
     asm.x6000021_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Byte"])();
         /* IL_00: nop */
@@ -497,11 +449,6 @@ var asm0; (function (asm)
     asm.x6000022_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Char"])();
         /* IL_00: nop */
@@ -523,8 +470,6 @@ var asm0; (function (asm)
     asm.x6000024 = (function (o) { console.log(o.jsstr); });;
     asm.x6000025 = function WriteLine(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
         /* IL_02: callvirt String ToString()*/
@@ -536,7 +481,6 @@ var asm0; (function (asm)
     };;
     asm.x6000026 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -555,11 +499,6 @@ var asm0; (function (asm)
     asm.x6000027_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Double"])();
         /* IL_00: nop */
@@ -579,7 +518,6 @@ var asm0; (function (asm)
     };
     asm.x6000028 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x6000012)(arg0);
@@ -588,8 +526,6 @@ var asm0; (function (asm)
     };;
     asm.x6000029 = function get_CurrentManagedThreadId()
     {
-        var st_00;
-        var st_01;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldc.i4.0 */
@@ -601,7 +537,6 @@ var asm0; (function (asm)
     };;
     asm.x600002a = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -621,39 +556,12 @@ var asm0; (function (asm)
     asm.x600002b_ = function Combine(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
         var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
         var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
         var st_1A;
         var st_1B;
         var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -781,25 +689,10 @@ var asm0; (function (asm)
     asm.x600002c_ = function Remove(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var st_0C;
         var st_0D;
         var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -923,11 +816,6 @@ var asm0; (function (asm)
     asm.x600002f_ = function Equals(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Delegate"])();
         /* IL_00: nop */
@@ -954,40 +842,10 @@ var asm0; (function (asm)
     asm.x6000030_ = function op_Equality(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
         var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
         var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
         var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
         var st_20;
-        var st_21;
         var st_22;
         var st_23;
         var st_24;
@@ -995,49 +853,15 @@ var asm0; (function (asm)
         var st_26;
         var st_27;
         var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
         var st_32;
-        var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
-        var st_3D;
-        var st_3E;
-        var st_3F;
         var st_40;
-        var st_41;
-        var st_42;
-        var st_43;
-        var st_44;
-        var st_45;
-        var st_46;
-        var st_47;
-        var st_48;
-        var st_49;
-        var st_4A;
         var st_4B;
-        var st_4C;
         var st_4D;
         var st_4E;
         var st_4F;
         var st_50;
         var st_51;
         var st_52;
-        var st_53;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -1328,12 +1152,6 @@ var asm0; (function (asm)
     };
     asm.x6000031 = function op_Inequality(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -1349,9 +1167,6 @@ var asm0; (function (asm)
     };;
     asm.x6000032 = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -1364,7 +1179,6 @@ var asm0; (function (asm)
     };;
     asm.x6000033 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -1409,53 +1223,8 @@ var asm0; (function (asm)
     asm.x6000035_ = function CombineImpl(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
         var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
-        var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
         var __pos_0__;
         var loc3;
         var loc0;
@@ -1589,94 +1358,14 @@ var asm0; (function (asm)
     asm.x6000036_ = function RemoveImpl(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
         var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
         var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
         var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
-        var st_32;
         var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
         var st_3D;
-        var st_3E;
-        var st_3F;
-        var st_40;
-        var st_41;
-        var st_42;
-        var st_43;
-        var st_44;
-        var st_45;
-        var st_46;
-        var st_47;
-        var st_48;
-        var st_49;
-        var st_4A;
         var st_4B;
-        var st_4C;
-        var st_4D;
-        var st_4E;
-        var st_4F;
-        var st_50;
-        var st_51;
-        var st_52;
-        var st_53;
-        var st_54;
-        var st_55;
-        var st_56;
-        var st_57;
         var st_58;
         var st_59;
         var st_5A;
@@ -1688,19 +1377,7 @@ var asm0; (function (asm)
         var st_60;
         var st_61;
         var st_62;
-        var st_63;
-        var st_64;
-        var st_65;
-        var st_66;
-        var st_67;
-        var st_68;
-        var st_69;
-        var st_6A;
-        var st_6B;
         var st_6C;
-        var st_6D;
-        var st_6E;
-        var st_6F;
         var __pos_0__;
         var loc5;
         var loc4;
@@ -2007,7 +1684,6 @@ var asm0; (function (asm)
     };
     asm.x6000037 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x6000033)(arg0);
@@ -2042,11 +1718,6 @@ var asm0; (function (asm)
     asm.x600003c_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Int16"])();
         /* IL_00: nop */
@@ -2077,11 +1748,6 @@ var asm0; (function (asm)
     asm.x600003d_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Int32"])();
         /* IL_00: nop */
@@ -2113,11 +1779,6 @@ var asm0; (function (asm)
     asm.x600003f_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.IntPtr"])();
         /* IL_00: nop */
@@ -2137,7 +1798,6 @@ var asm0; (function (asm)
     };
     asm.x6000040 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2146,9 +1806,6 @@ var asm0; (function (asm)
     };;
     asm.x6000041 = function get_Value(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2161,9 +1818,6 @@ var asm0; (function (asm)
     };;
     asm.x6000042 = function get_Value(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2187,11 +1841,6 @@ var asm0; (function (asm)
     asm.x6000043_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.SByte"])();
         /* IL_00: nop */
@@ -2222,11 +1871,6 @@ var asm0; (function (asm)
     asm.x6000044_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Single"])();
         /* IL_00: nop */
@@ -2246,7 +1890,6 @@ var asm0; (function (asm)
     };
     asm.x6000045 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2255,7 +1898,6 @@ var asm0; (function (asm)
     };;
     asm.x600004d = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2263,9 +1905,6 @@ var asm0; (function (asm)
     };;
     asm.x6000050 = function get_Message(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld String <Message>k__BackingField*/
@@ -2277,8 +1916,6 @@ var asm0; (function (asm)
     };;
     asm.x6000051 = function set_Message(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld String <Message>k__BackingField*/
@@ -2288,9 +1925,6 @@ var asm0; (function (asm)
     };;
     asm.x6000052 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2303,7 +1937,6 @@ var asm0; (function (asm)
     };;
     asm.x600004e = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -2314,9 +1947,6 @@ var asm0; (function (asm)
     };;
     asm.x600004f = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -2332,7 +1962,6 @@ var asm0; (function (asm)
     };;
     asm.x6000053 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600004e)(arg0);
@@ -2341,8 +1970,6 @@ var asm0; (function (asm)
     };;
     asm.x6000054 = function _ctor(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Operation not supported*/
         /* IL_06: call Void .ctor(System.String)*/
@@ -2355,8 +1982,6 @@ var asm0; (function (asm)
     };;
     asm.x6000055 = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: call Void .ctor(System.String)*/
@@ -2369,7 +1994,6 @@ var asm0; (function (asm)
     };;
     asm.x6000059 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2377,8 +2001,6 @@ var asm0; (function (asm)
     };;
     asm.x600005a = function _ctor(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Cannot cast from source type to destination type.*/
         /* IL_06: call Void .ctor(System.String)*/
@@ -2391,8 +2013,6 @@ var asm0; (function (asm)
     };;
     asm.x600005b = function _ctor(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Operation is not valid due to the current state of the object*/
         /* IL_06: call Void .ctor(System.String)*/
@@ -2405,8 +2025,6 @@ var asm0; (function (asm)
     };;
     asm.x600005c = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: call Void .ctor(System.String)*/
@@ -2430,41 +2048,8 @@ var asm0; (function (asm)
     asm.x600005d_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
         var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
         var st_20;
-        var st_21;
-        var st_22;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -2576,12 +2161,6 @@ var asm0; (function (asm)
     };
     asm.x600005e = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2597,10 +2176,6 @@ var asm0; (function (asm)
     };;
     asm.x600005f = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2722,11 +2297,6 @@ var asm0; (function (asm)
     asm.XInt64_Inequality = asm.x600006a;
     asm.x600006b = function op_Decrement(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2742,11 +2312,6 @@ var asm0; (function (asm)
     asm.XInt64_Decrement = asm.x600006b;
     asm.x600006c = function op_Increment(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2848,7 +2413,6 @@ var asm0; (function (asm)
     asm.Int64_isNegative = asm.x6000073;
     asm.x600007e = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2857,7 +2421,6 @@ var asm0; (function (asm)
     };;
     asm.x600007f = function _ctor(arg0,arg1)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2875,7 +2438,6 @@ var asm0; (function (asm)
     };;
     asm.x6000081 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2883,7 +2445,6 @@ var asm0; (function (asm)
     };;
     asm.x6000082 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -2905,7 +2466,6 @@ var asm0; (function (asm)
     asm.x6000083_ = function _cctor()
     {
         var t0;
-        var st_00;
         t0 = ((asm0)["System.EventArgs"])();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stsfld EventArgs Empty*/
@@ -2930,9 +2490,6 @@ var asm0; (function (asm)
     };;
     asm.x6000086 = function get_Length(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2947,10 +2504,6 @@ var asm0; (function (asm)
     asm.x6000088 = function(o, i) { return box(o.jsarr[i], o.type); };;
     asm.x6000089 = function GetValue(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2964,9 +2517,6 @@ var asm0; (function (asm)
     };;
     asm.x600008a = function GetEnumerator(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2979,7 +2529,6 @@ var asm0; (function (asm)
     };;
     asm.x600008c = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2999,9 +2548,6 @@ var asm0; (function (asm)
     {
         var t0;
         var t1;
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         t0 = ((arguments)[0].constructor.GenericArguments)[0];
         t1 = ((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]);
@@ -3016,9 +2562,6 @@ var asm0; (function (asm)
     };
     asm.x600008f = function GetEnumeratorImpl(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3031,7 +2574,6 @@ var asm0; (function (asm)
     };;
     asm.x6000090 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600008c)(arg0);
@@ -3040,12 +2582,6 @@ var asm0; (function (asm)
     };;
     asm.x6000092 = function get_Current(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3067,12 +2603,6 @@ var asm0; (function (asm)
         var st_03;
         var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3101,10 +2631,6 @@ var asm0; (function (asm)
     asm.x6000094 = function System_Collections_IEnumerator_get_Current(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         t0 = ((arguments)[0].constructor.GenericArguments)[0];
         /* IL_00: nop */
@@ -3119,8 +2645,6 @@ var asm0; (function (asm)
     };;
     asm.x6000095 = function Reset(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
         /* IL_02: ldc.i4.m1 */
@@ -3137,14 +2661,6 @@ var asm0; (function (asm)
     };;
     asm.x6000091 = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -3168,7 +2684,6 @@ var asm0; (function (asm)
     };;
     asm.x6000097 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -3177,7 +2692,6 @@ var asm0; (function (asm)
     };;
     asm.x6000098 = function _ctor(arg0,arg1)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -3189,9 +2703,6 @@ var asm0; (function (asm)
     };;
     asm.x600009a = function get_HasValue(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3215,14 +2726,9 @@ var asm0; (function (asm)
     asm.x600009b_ = function get_Value(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
         var st_02;
         var st_03;
         var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3278,27 +2784,8 @@ var asm0; (function (asm)
     {
         var t0;
         var t1;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
         var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3374,24 +2861,8 @@ var asm0; (function (asm)
     asm.x600009d = function Equals(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
         var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3489,14 +2960,7 @@ var asm0; (function (asm)
     };;
     asm.x600009e = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
         var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3559,9 +3023,6 @@ var asm0; (function (asm)
     };;
     asm.x600009f = function GetValueOrDefault(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3578,7 +3039,6 @@ var asm0; (function (asm)
         var st_01;
         var st_02;
         var st_03;
-        var st_04;
         var __pos_0__;
         var loc0;
         __pos_0__ = 0x0;
@@ -3633,16 +3093,7 @@ var asm0; (function (asm)
     asm.x60000a1_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3728,9 +3179,6 @@ var asm0; (function (asm)
         {
             var t0;
             var t1;
-            var st_00;
-            var st_01;
-            var st_02;
             var loc0;
             t0 = T;
             t1 = ((asm0)["System.Nullable`1"])(T);
@@ -3748,9 +3196,6 @@ var asm0; (function (asm)
     {
         return function op_Explicit(arg0)
         {
-            var st_00;
-            var st_01;
-            var st_02;
             var loc0;
             /* IL_00: nop */
             /* IL_01: ldarga.s 0*/
@@ -3776,14 +3221,7 @@ var asm0; (function (asm)
         return function Box(arg0)
         {
             var t0;
-            var st_00;
-            var st_01;
             var st_02;
-            var st_03;
-            var st_04;
-            var st_05;
-            var st_06;
-            var st_07;
             var __pos_0__;
             var loc1;
             var loc0;
@@ -3869,18 +3307,7 @@ var asm0; (function (asm)
             var t0;
             var t1;
             var loc2;
-            var st_00;
-            var st_01;
-            var st_02;
-            var st_03;
-            var st_04;
             var st_05;
-            var st_06;
-            var st_07;
-            var st_08;
-            var st_09;
-            var st_0A;
-            var st_0B;
             var __pos_0__;
             var loc1;
             var loc0;
@@ -3944,10 +3371,6 @@ var asm0; (function (asm)
     };
     asm.x6000099 = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
         /* IL_02: ldc.i4.1 */
@@ -3962,7 +3385,6 @@ var asm0; (function (asm)
     };;
     asm.x60000a6 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -3975,10 +3397,6 @@ var asm0; (function (asm)
     asm.x60000aa = function (s, i) { return s.jsstr.charCodeAt(i); };;
     asm.x60000ab = function get_Chars(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4003,17 +3421,6 @@ var asm0; (function (asm)
     asm.x60000ac_ = function Concat(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.String"])();
@@ -4053,19 +3460,6 @@ var asm0; (function (asm)
     asm.x60000ad_ = function Concat(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.String"])();
@@ -4096,9 +3490,6 @@ var asm0; (function (asm)
     };
     asm.x60000ae = function Concat(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4135,9 +3526,6 @@ var asm0; (function (asm)
     };
     asm.x60000b0 = function get_Length(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4150,8 +3538,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b1 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4163,12 +3549,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b2 = function op_Inequality(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4184,10 +3564,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b3 = function op_Equality(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4201,10 +3577,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b4 = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4229,11 +3601,6 @@ var asm0; (function (asm)
     asm.x60000b5_ = function Equals(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
@@ -4258,9 +3625,6 @@ var asm0; (function (asm)
             };;
     asm.x60000b7 = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4273,7 +3637,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b8 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -4292,7 +3655,6 @@ var asm0; (function (asm)
     asm.x60000b9_ = function _cctor()
     {
         var t0;
-        var st_00;
         t0 = ((asm0)["System.String"])();
         /* IL_00: ldstr */
         /* IL_05: stsfld String Empty*/
@@ -4302,9 +3664,6 @@ var asm0; (function (asm)
     };
     asm.x60000bb = function get_MemberName(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4317,9 +3676,6 @@ var asm0; (function (asm)
     };;
     asm.x60000ba = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -4335,7 +3691,6 @@ var asm0; (function (asm)
     };;
     asm.x60000bd = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -4354,11 +3709,6 @@ var asm0; (function (asm)
     asm.x60000be_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.UInt16"])();
         /* IL_00: nop */
@@ -4389,11 +3739,6 @@ var asm0; (function (asm)
     asm.x60000bf_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.UInt32"])();
         /* IL_00: nop */
@@ -4413,28 +3758,7 @@ var asm0; (function (asm)
     };
     asm.x60000c0 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
         var st_13;
-        var st_14;
-        var st_15;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -4658,12 +3982,6 @@ var asm0; (function (asm)
     asm.UInt64_Modulus = asm.x60000c9;
     asm.x60000ca = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4679,10 +3997,6 @@ var asm0; (function (asm)
     };;
     asm.x60000cb = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4707,11 +4021,6 @@ var asm0; (function (asm)
     asm.x60000cd_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.UIntPtr"])();
         /* IL_00: nop */
@@ -8361,7 +7670,6 @@ var asm1; (function (asm)
     asm.x6000001 = braille_test_log;;
     asm.x6000002 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -8369,7 +7677,6 @@ var asm1; (function (asm)
     };;
     asm.x600000b = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -8390,2332 +7697,6 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
-        var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
-        var st_32;
-        var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
-        var st_3D;
-        var st_3E;
-        var st_3F;
-        var st_40;
-        var st_41;
-        var st_42;
-        var st_43;
-        var st_44;
-        var st_45;
-        var st_46;
-        var st_47;
-        var st_48;
-        var st_49;
-        var st_4A;
-        var st_4B;
-        var st_4C;
-        var st_4D;
-        var st_4E;
-        var st_4F;
-        var st_50;
-        var st_51;
-        var st_52;
-        var st_53;
-        var st_54;
-        var st_55;
-        var st_56;
-        var st_57;
-        var st_58;
-        var st_59;
-        var st_5A;
-        var st_5B;
-        var st_5C;
-        var st_5D;
-        var st_5E;
-        var st_5F;
-        var st_60;
-        var st_61;
-        var st_62;
-        var st_63;
-        var st_64;
-        var st_65;
-        var st_66;
-        var st_67;
-        var st_68;
-        var st_69;
-        var st_6A;
-        var st_6B;
-        var st_6C;
-        var st_6D;
-        var st_6E;
-        var st_6F;
-        var st_70;
-        var st_71;
-        var st_72;
-        var st_73;
-        var st_74;
-        var st_75;
-        var st_76;
-        var st_77;
-        var st_78;
-        var st_79;
-        var st_7A;
-        var st_7B;
-        var st_7C;
-        var st_7D;
-        var st_7E;
-        var st_7F;
-        var st_80;
-        var st_81;
-        var st_82;
-        var st_83;
-        var st_84;
-        var st_85;
-        var st_86;
-        var st_87;
-        var st_88;
-        var st_89;
-        var st_8A;
-        var st_8B;
-        var st_8C;
-        var st_8D;
-        var st_8E;
-        var st_8F;
-        var st_90;
-        var st_91;
-        var st_92;
-        var st_93;
-        var st_94;
-        var st_95;
-        var st_96;
-        var st_97;
-        var st_98;
-        var st_99;
-        var st_9A;
-        var st_9B;
-        var st_9C;
-        var st_9D;
-        var st_9E;
-        var st_9F;
-        var st_A0;
-        var st_A1;
-        var st_A2;
-        var st_A3;
-        var st_A4;
-        var st_A5;
-        var st_A6;
-        var st_A7;
-        var st_A8;
-        var st_A9;
-        var st_AA;
-        var st_AB;
-        var st_AC;
-        var st_AD;
-        var st_AE;
-        var st_AF;
-        var st_B0;
-        var st_B1;
-        var st_B2;
-        var st_B3;
-        var st_B4;
-        var st_B5;
-        var st_B6;
-        var st_B7;
-        var st_B8;
-        var st_B9;
-        var st_BA;
-        var st_BB;
-        var st_BC;
-        var st_BD;
-        var st_BE;
-        var st_BF;
-        var st_C0;
-        var st_C1;
-        var st_C2;
-        var st_C3;
-        var st_C4;
-        var st_C5;
-        var st_C6;
-        var st_C7;
-        var st_C8;
-        var st_C9;
-        var st_CA;
-        var st_CB;
-        var st_CC;
-        var st_CD;
-        var st_CE;
-        var st_CF;
-        var st_D0;
-        var st_D1;
-        var st_D2;
-        var st_D3;
-        var st_D4;
-        var st_D5;
-        var st_D6;
-        var st_D7;
-        var st_D8;
-        var st_D9;
-        var st_DA;
-        var st_DB;
-        var st_DC;
-        var st_DD;
-        var st_DE;
-        var st_DF;
-        var st_E0;
-        var st_E1;
-        var st_E2;
-        var st_E3;
-        var st_E4;
-        var st_E5;
-        var st_E6;
-        var st_E7;
-        var st_E8;
-        var st_E9;
-        var st_EA;
-        var st_EB;
-        var st_EC;
-        var st_ED;
-        var st_EE;
-        var st_EF;
-        var st_F0;
-        var st_F1;
-        var st_F2;
-        var st_F3;
-        var st_F4;
-        var st_F5;
-        var st_F6;
-        var st_F7;
-        var st_F8;
-        var st_F9;
-        var st_FA;
-        var st_FB;
-        var st_FC;
-        var st_FD;
-        var st_FE;
-        var st_FF;
-        var st_100;
-        var st_101;
-        var st_102;
-        var st_103;
-        var st_104;
-        var st_105;
-        var st_106;
-        var st_107;
-        var st_108;
-        var st_109;
-        var st_10A;
-        var st_10B;
-        var st_10C;
-        var st_10D;
-        var st_10E;
-        var st_10F;
-        var st_110;
-        var st_111;
-        var st_112;
-        var st_113;
-        var st_114;
-        var st_115;
-        var st_116;
-        var st_117;
-        var st_118;
-        var st_119;
-        var st_11A;
-        var st_11B;
-        var st_11C;
-        var st_11D;
-        var st_11E;
-        var st_11F;
-        var st_120;
-        var st_121;
-        var st_122;
-        var st_123;
-        var st_124;
-        var st_125;
-        var st_126;
-        var st_127;
-        var st_128;
-        var st_129;
-        var st_12A;
-        var st_12B;
-        var st_12C;
-        var st_12D;
-        var st_12E;
-        var st_12F;
-        var st_130;
-        var st_131;
-        var st_132;
-        var st_133;
-        var st_134;
-        var st_135;
-        var st_136;
-        var st_137;
-        var st_138;
-        var st_139;
-        var st_13A;
-        var st_13B;
-        var st_13C;
-        var st_13D;
-        var st_13E;
-        var st_13F;
-        var st_140;
-        var st_141;
-        var st_142;
-        var st_143;
-        var st_144;
-        var st_145;
-        var st_146;
-        var st_147;
-        var st_148;
-        var st_149;
-        var st_14A;
-        var st_14B;
-        var st_14C;
-        var st_14D;
-        var st_14E;
-        var st_14F;
-        var st_150;
-        var st_151;
-        var st_152;
-        var st_153;
-        var st_154;
-        var st_155;
-        var st_156;
-        var st_157;
-        var st_158;
-        var st_159;
-        var st_15A;
-        var st_15B;
-        var st_15C;
-        var st_15D;
-        var st_15E;
-        var st_15F;
-        var st_160;
-        var st_161;
-        var st_162;
-        var st_163;
-        var st_164;
-        var st_165;
-        var st_166;
-        var st_167;
-        var st_168;
-        var st_169;
-        var st_16A;
-        var st_16B;
-        var st_16C;
-        var st_16D;
-        var st_16E;
-        var st_16F;
-        var st_170;
-        var st_171;
-        var st_172;
-        var st_173;
-        var st_174;
-        var st_175;
-        var st_176;
-        var st_177;
-        var st_178;
-        var st_179;
-        var st_17A;
-        var st_17B;
-        var st_17C;
-        var st_17D;
-        var st_17E;
-        var st_17F;
-        var st_180;
-        var st_181;
-        var st_182;
-        var st_183;
-        var st_184;
-        var st_185;
-        var st_186;
-        var st_187;
-        var st_188;
-        var st_189;
-        var st_18A;
-        var st_18B;
-        var st_18C;
-        var st_18D;
-        var st_18E;
-        var st_18F;
-        var st_190;
-        var st_191;
-        var st_192;
-        var st_193;
-        var st_194;
-        var st_195;
-        var st_196;
-        var st_197;
-        var st_198;
-        var st_199;
-        var st_19A;
-        var st_19B;
-        var st_19C;
-        var st_19D;
-        var st_19E;
-        var st_19F;
-        var st_1A0;
-        var st_1A1;
-        var st_1A2;
-        var st_1A3;
-        var st_1A4;
-        var st_1A5;
-        var st_1A6;
-        var st_1A7;
-        var st_1A8;
-        var st_1A9;
-        var st_1AA;
-        var st_1AB;
-        var st_1AC;
-        var st_1AD;
-        var st_1AE;
-        var st_1AF;
-        var st_1B0;
-        var st_1B1;
-        var st_1B2;
-        var st_1B3;
-        var st_1B4;
-        var st_1B5;
-        var st_1B6;
-        var st_1B7;
-        var st_1B8;
-        var st_1B9;
-        var st_1BA;
-        var st_1BB;
-        var st_1BC;
-        var st_1BD;
-        var st_1BE;
-        var st_1BF;
-        var st_1C0;
-        var st_1C1;
-        var st_1C2;
-        var st_1C3;
-        var st_1C4;
-        var st_1C5;
-        var st_1C6;
-        var st_1C7;
-        var st_1C8;
-        var st_1C9;
-        var st_1CA;
-        var st_1CB;
-        var st_1CC;
-        var st_1CD;
-        var st_1CE;
-        var st_1CF;
-        var st_1D0;
-        var st_1D1;
-        var st_1D2;
-        var st_1D3;
-        var st_1D4;
-        var st_1D5;
-        var st_1D6;
-        var st_1D7;
-        var st_1D8;
-        var st_1D9;
-        var st_1DA;
-        var st_1DB;
-        var st_1DC;
-        var st_1DD;
-        var st_1DE;
-        var st_1DF;
-        var st_1E0;
-        var st_1E1;
-        var st_1E2;
-        var st_1E3;
-        var st_1E4;
-        var st_1E5;
-        var st_1E6;
-        var st_1E7;
-        var st_1E8;
-        var st_1E9;
-        var st_1EA;
-        var st_1EB;
-        var st_1EC;
-        var st_1ED;
-        var st_1EE;
-        var st_1EF;
-        var st_1F0;
-        var st_1F1;
-        var st_1F2;
-        var st_1F3;
-        var st_1F4;
-        var st_1F5;
-        var st_1F6;
-        var st_1F7;
-        var st_1F8;
-        var st_1F9;
-        var st_1FA;
-        var st_1FB;
-        var st_1FC;
-        var st_1FD;
-        var st_1FE;
-        var st_1FF;
-        var st_200;
-        var st_201;
-        var st_202;
-        var st_203;
-        var st_204;
-        var st_205;
-        var st_206;
-        var st_207;
-        var st_208;
-        var st_209;
-        var st_20A;
-        var st_20B;
-        var st_20C;
-        var st_20D;
-        var st_20E;
-        var st_20F;
-        var st_210;
-        var st_211;
-        var st_212;
-        var st_213;
-        var st_214;
-        var st_215;
-        var st_216;
-        var st_217;
-        var st_218;
-        var st_219;
-        var st_21A;
-        var st_21B;
-        var st_21C;
-        var st_21D;
-        var st_21E;
-        var st_21F;
-        var st_220;
-        var st_221;
-        var st_222;
-        var st_223;
-        var st_224;
-        var st_225;
-        var st_226;
-        var st_227;
-        var st_228;
-        var st_229;
-        var st_22A;
-        var st_22B;
-        var st_22C;
-        var st_22D;
-        var st_22E;
-        var st_22F;
-        var st_230;
-        var st_231;
-        var st_232;
-        var st_233;
-        var st_234;
-        var st_235;
-        var st_236;
-        var st_237;
-        var st_238;
-        var st_239;
-        var st_23A;
-        var st_23B;
-        var st_23C;
-        var st_23D;
-        var st_23E;
-        var st_23F;
-        var st_240;
-        var st_241;
-        var st_242;
-        var st_243;
-        var st_244;
-        var st_245;
-        var st_246;
-        var st_247;
-        var st_248;
-        var st_249;
-        var st_24A;
-        var st_24B;
-        var st_24C;
-        var st_24D;
-        var st_24E;
-        var st_24F;
-        var st_250;
-        var st_251;
-        var st_252;
-        var st_253;
-        var st_254;
-        var st_255;
-        var st_256;
-        var st_257;
-        var st_258;
-        var st_259;
-        var st_25A;
-        var st_25B;
-        var st_25C;
-        var st_25D;
-        var st_25E;
-        var st_25F;
-        var st_260;
-        var st_261;
-        var st_262;
-        var st_263;
-        var st_264;
-        var st_265;
-        var st_266;
-        var st_267;
-        var st_268;
-        var st_269;
-        var st_26A;
-        var st_26B;
-        var st_26C;
-        var st_26D;
-        var st_26E;
-        var st_26F;
-        var st_270;
-        var st_271;
-        var st_272;
-        var st_273;
-        var st_274;
-        var st_275;
-        var st_276;
-        var st_277;
-        var st_278;
-        var st_279;
-        var st_27A;
-        var st_27B;
-        var st_27C;
-        var st_27D;
-        var st_27E;
-        var st_27F;
-        var st_280;
-        var st_281;
-        var st_282;
-        var st_283;
-        var st_284;
-        var st_285;
-        var st_286;
-        var st_287;
-        var st_288;
-        var st_289;
-        var st_28A;
-        var st_28B;
-        var st_28C;
-        var st_28D;
-        var st_28E;
-        var st_28F;
-        var st_290;
-        var st_291;
-        var st_292;
-        var st_293;
-        var st_294;
-        var st_295;
-        var st_296;
-        var st_297;
-        var st_298;
-        var st_299;
-        var st_29A;
-        var st_29B;
-        var st_29C;
-        var st_29D;
-        var st_29E;
-        var st_29F;
-        var st_2A0;
-        var st_2A1;
-        var st_2A2;
-        var st_2A3;
-        var st_2A4;
-        var st_2A5;
-        var st_2A6;
-        var st_2A7;
-        var st_2A8;
-        var st_2A9;
-        var st_2AA;
-        var st_2AB;
-        var st_2AC;
-        var st_2AD;
-        var st_2AE;
-        var st_2AF;
-        var st_2B0;
-        var st_2B1;
-        var st_2B2;
-        var st_2B3;
-        var st_2B4;
-        var st_2B5;
-        var st_2B6;
-        var st_2B7;
-        var st_2B8;
-        var st_2B9;
-        var st_2BA;
-        var st_2BB;
-        var st_2BC;
-        var st_2BD;
-        var st_2BE;
-        var st_2BF;
-        var st_2C0;
-        var st_2C1;
-        var st_2C2;
-        var st_2C3;
-        var st_2C4;
-        var st_2C5;
-        var st_2C6;
-        var st_2C7;
-        var st_2C8;
-        var st_2C9;
-        var st_2CA;
-        var st_2CB;
-        var st_2CC;
-        var st_2CD;
-        var st_2CE;
-        var st_2CF;
-        var st_2D0;
-        var st_2D1;
-        var st_2D2;
-        var st_2D3;
-        var st_2D4;
-        var st_2D5;
-        var st_2D6;
-        var st_2D7;
-        var st_2D8;
-        var st_2D9;
-        var st_2DA;
-        var st_2DB;
-        var st_2DC;
-        var st_2DD;
-        var st_2DE;
-        var st_2DF;
-        var st_2E0;
-        var st_2E1;
-        var st_2E2;
-        var st_2E3;
-        var st_2E4;
-        var st_2E5;
-        var st_2E6;
-        var st_2E7;
-        var st_2E8;
-        var st_2E9;
-        var st_2EA;
-        var st_2EB;
-        var st_2EC;
-        var st_2ED;
-        var st_2EE;
-        var st_2EF;
-        var st_2F0;
-        var st_2F1;
-        var st_2F2;
-        var st_2F3;
-        var st_2F4;
-        var st_2F5;
-        var st_2F6;
-        var st_2F7;
-        var st_2F8;
-        var st_2F9;
-        var st_2FA;
-        var st_2FB;
-        var st_2FC;
-        var st_2FD;
-        var st_2FE;
-        var st_2FF;
-        var st_300;
-        var st_301;
-        var st_302;
-        var st_303;
-        var st_304;
-        var st_305;
-        var st_306;
-        var st_307;
-        var st_308;
-        var st_309;
-        var st_30A;
-        var st_30B;
-        var st_30C;
-        var st_30D;
-        var st_30E;
-        var st_30F;
-        var st_310;
-        var st_311;
-        var st_312;
-        var st_313;
-        var st_314;
-        var st_315;
-        var st_316;
-        var st_317;
-        var st_318;
-        var st_319;
-        var st_31A;
-        var st_31B;
-        var st_31C;
-        var st_31D;
-        var st_31E;
-        var st_31F;
-        var st_320;
-        var st_321;
-        var st_322;
-        var st_323;
-        var st_324;
-        var st_325;
-        var st_326;
-        var st_327;
-        var st_328;
-        var st_329;
-        var st_32A;
-        var st_32B;
-        var st_32C;
-        var st_32D;
-        var st_32E;
-        var st_32F;
-        var st_330;
-        var st_331;
-        var st_332;
-        var st_333;
-        var st_334;
-        var st_335;
-        var st_336;
-        var st_337;
-        var st_338;
-        var st_339;
-        var st_33A;
-        var st_33B;
-        var st_33C;
-        var st_33D;
-        var st_33E;
-        var st_33F;
-        var st_340;
-        var st_341;
-        var st_342;
-        var st_343;
-        var st_344;
-        var st_345;
-        var st_346;
-        var st_347;
-        var st_348;
-        var st_349;
-        var st_34A;
-        var st_34B;
-        var st_34C;
-        var st_34D;
-        var st_34E;
-        var st_34F;
-        var st_350;
-        var st_351;
-        var st_352;
-        var st_353;
-        var st_354;
-        var st_355;
-        var st_356;
-        var st_357;
-        var st_358;
-        var st_359;
-        var st_35A;
-        var st_35B;
-        var st_35C;
-        var st_35D;
-        var st_35E;
-        var st_35F;
-        var st_360;
-        var st_361;
-        var st_362;
-        var st_363;
-        var st_364;
-        var st_365;
-        var st_366;
-        var st_367;
-        var st_368;
-        var st_369;
-        var st_36A;
-        var st_36B;
-        var st_36C;
-        var st_36D;
-        var st_36E;
-        var st_36F;
-        var st_370;
-        var st_371;
-        var st_372;
-        var st_373;
-        var st_374;
-        var st_375;
-        var st_376;
-        var st_377;
-        var st_378;
-        var st_379;
-        var st_37A;
-        var st_37B;
-        var st_37C;
-        var st_37D;
-        var st_37E;
-        var st_37F;
-        var st_380;
-        var st_381;
-        var st_382;
-        var st_383;
-        var st_384;
-        var st_385;
-        var st_386;
-        var st_387;
-        var st_388;
-        var st_389;
-        var st_38A;
-        var st_38B;
-        var st_38C;
-        var st_38D;
-        var st_38E;
-        var st_38F;
-        var st_390;
-        var st_391;
-        var st_392;
-        var st_393;
-        var st_394;
-        var st_395;
-        var st_396;
-        var st_397;
-        var st_398;
-        var st_399;
-        var st_39A;
-        var st_39B;
-        var st_39C;
-        var st_39D;
-        var st_39E;
-        var st_39F;
-        var st_3A0;
-        var st_3A1;
-        var st_3A2;
-        var st_3A3;
-        var st_3A4;
-        var st_3A5;
-        var st_3A6;
-        var st_3A7;
-        var st_3A8;
-        var st_3A9;
-        var st_3AA;
-        var st_3AB;
-        var st_3AC;
-        var st_3AD;
-        var st_3AE;
-        var st_3AF;
-        var st_3B0;
-        var st_3B1;
-        var st_3B2;
-        var st_3B3;
-        var st_3B4;
-        var st_3B5;
-        var st_3B6;
-        var st_3B7;
-        var st_3B8;
-        var st_3B9;
-        var st_3BA;
-        var st_3BB;
-        var st_3BC;
-        var st_3BD;
-        var st_3BE;
-        var st_3BF;
-        var st_3C0;
-        var st_3C1;
-        var st_3C2;
-        var st_3C3;
-        var st_3C4;
-        var st_3C5;
-        var st_3C6;
-        var st_3C7;
-        var st_3C8;
-        var st_3C9;
-        var st_3CA;
-        var st_3CB;
-        var st_3CC;
-        var st_3CD;
-        var st_3CE;
-        var st_3CF;
-        var st_3D0;
-        var st_3D1;
-        var st_3D2;
-        var st_3D3;
-        var st_3D4;
-        var st_3D5;
-        var st_3D6;
-        var st_3D7;
-        var st_3D8;
-        var st_3D9;
-        var st_3DA;
-        var st_3DB;
-        var st_3DC;
-        var st_3DD;
-        var st_3DE;
-        var st_3DF;
-        var st_3E0;
-        var st_3E1;
-        var st_3E2;
-        var st_3E3;
-        var st_3E4;
-        var st_3E5;
-        var st_3E6;
-        var st_3E7;
-        var st_3E8;
-        var st_3E9;
-        var st_3EA;
-        var st_3EB;
-        var st_3EC;
-        var st_3ED;
-        var st_3EE;
-        var st_3EF;
-        var st_3F0;
-        var st_3F1;
-        var st_3F2;
-        var st_3F3;
-        var st_3F4;
-        var st_3F5;
-        var st_3F6;
-        var st_3F7;
-        var st_3F8;
-        var st_3F9;
-        var st_3FA;
-        var st_3FB;
-        var st_3FC;
-        var st_3FD;
-        var st_3FE;
-        var st_3FF;
-        var st_400;
-        var st_401;
-        var st_402;
-        var st_403;
-        var st_404;
-        var st_405;
-        var st_406;
-        var st_407;
-        var st_408;
-        var st_409;
-        var st_40A;
-        var st_40B;
-        var st_40C;
-        var st_40D;
-        var st_40E;
-        var st_40F;
-        var st_410;
-        var st_411;
-        var st_412;
-        var st_413;
-        var st_414;
-        var st_415;
-        var st_416;
-        var st_417;
-        var st_418;
-        var st_419;
-        var st_41A;
-        var st_41B;
-        var st_41C;
-        var st_41D;
-        var st_41E;
-        var st_41F;
-        var st_420;
-        var st_421;
-        var st_422;
-        var st_423;
-        var st_424;
-        var st_425;
-        var st_426;
-        var st_427;
-        var st_428;
-        var st_429;
-        var st_42A;
-        var st_42B;
-        var st_42C;
-        var st_42D;
-        var st_42E;
-        var st_42F;
-        var st_430;
-        var st_431;
-        var st_432;
-        var st_433;
-        var st_434;
-        var st_435;
-        var st_436;
-        var st_437;
-        var st_438;
-        var st_439;
-        var st_43A;
-        var st_43B;
-        var st_43C;
-        var st_43D;
-        var st_43E;
-        var st_43F;
-        var st_440;
-        var st_441;
-        var st_442;
-        var st_443;
-        var st_444;
-        var st_445;
-        var st_446;
-        var st_447;
-        var st_448;
-        var st_449;
-        var st_44A;
-        var st_44B;
-        var st_44C;
-        var st_44D;
-        var st_44E;
-        var st_44F;
-        var st_450;
-        var st_451;
-        var st_452;
-        var st_453;
-        var st_454;
-        var st_455;
-        var st_456;
-        var st_457;
-        var st_458;
-        var st_459;
-        var st_45A;
-        var st_45B;
-        var st_45C;
-        var st_45D;
-        var st_45E;
-        var st_45F;
-        var st_460;
-        var st_461;
-        var st_462;
-        var st_463;
-        var st_464;
-        var st_465;
-        var st_466;
-        var st_467;
-        var st_468;
-        var st_469;
-        var st_46A;
-        var st_46B;
-        var st_46C;
-        var st_46D;
-        var st_46E;
-        var st_46F;
-        var st_470;
-        var st_471;
-        var st_472;
-        var st_473;
-        var st_474;
-        var st_475;
-        var st_476;
-        var st_477;
-        var st_478;
-        var st_479;
-        var st_47A;
-        var st_47B;
-        var st_47C;
-        var st_47D;
-        var st_47E;
-        var st_47F;
-        var st_480;
-        var st_481;
-        var st_482;
-        var st_483;
-        var st_484;
-        var st_485;
-        var st_486;
-        var st_487;
-        var st_488;
-        var st_489;
-        var st_48A;
-        var st_48B;
-        var st_48C;
-        var st_48D;
-        var st_48E;
-        var st_48F;
-        var st_490;
-        var st_491;
-        var st_492;
-        var st_493;
-        var st_494;
-        var st_495;
-        var st_496;
-        var st_497;
-        var st_498;
-        var st_499;
-        var st_49A;
-        var st_49B;
-        var st_49C;
-        var st_49D;
-        var st_49E;
-        var st_49F;
-        var st_4A0;
-        var st_4A1;
-        var st_4A2;
-        var st_4A3;
-        var st_4A4;
-        var st_4A5;
-        var st_4A6;
-        var st_4A7;
-        var st_4A8;
-        var st_4A9;
-        var st_4AA;
-        var st_4AB;
-        var st_4AC;
-        var st_4AD;
-        var st_4AE;
-        var st_4AF;
-        var st_4B0;
-        var st_4B1;
-        var st_4B2;
-        var st_4B3;
-        var st_4B4;
-        var st_4B5;
-        var st_4B6;
-        var st_4B7;
-        var st_4B8;
-        var st_4B9;
-        var st_4BA;
-        var st_4BB;
-        var st_4BC;
-        var st_4BD;
-        var st_4BE;
-        var st_4BF;
-        var st_4C0;
-        var st_4C1;
-        var st_4C2;
-        var st_4C3;
-        var st_4C4;
-        var st_4C5;
-        var st_4C6;
-        var st_4C7;
-        var st_4C8;
-        var st_4C9;
-        var st_4CA;
-        var st_4CB;
-        var st_4CC;
-        var st_4CD;
-        var st_4CE;
-        var st_4CF;
-        var st_4D0;
-        var st_4D1;
-        var st_4D2;
-        var st_4D3;
-        var st_4D4;
-        var st_4D5;
-        var st_4D6;
-        var st_4D7;
-        var st_4D8;
-        var st_4D9;
-        var st_4DA;
-        var st_4DB;
-        var st_4DC;
-        var st_4DD;
-        var st_4DE;
-        var st_4DF;
-        var st_4E0;
-        var st_4E1;
-        var st_4E2;
-        var st_4E3;
-        var st_4E4;
-        var st_4E5;
-        var st_4E6;
-        var st_4E7;
-        var st_4E8;
-        var st_4E9;
-        var st_4EA;
-        var st_4EB;
-        var st_4EC;
-        var st_4ED;
-        var st_4EE;
-        var st_4EF;
-        var st_4F0;
-        var st_4F1;
-        var st_4F2;
-        var st_4F3;
-        var st_4F4;
-        var st_4F5;
-        var st_4F6;
-        var st_4F7;
-        var st_4F8;
-        var st_4F9;
-        var st_4FA;
-        var st_4FB;
-        var st_4FC;
-        var st_4FD;
-        var st_4FE;
-        var st_4FF;
-        var st_500;
-        var st_501;
-        var st_502;
-        var st_503;
-        var st_504;
-        var st_505;
-        var st_506;
-        var st_507;
-        var st_508;
-        var st_509;
-        var st_50A;
-        var st_50B;
-        var st_50C;
-        var st_50D;
-        var st_50E;
-        var st_50F;
-        var st_510;
-        var st_511;
-        var st_512;
-        var st_513;
-        var st_514;
-        var st_515;
-        var st_516;
-        var st_517;
-        var st_518;
-        var st_519;
-        var st_51A;
-        var st_51B;
-        var st_51C;
-        var st_51D;
-        var st_51E;
-        var st_51F;
-        var st_520;
-        var st_521;
-        var st_522;
-        var st_523;
-        var st_524;
-        var st_525;
-        var st_526;
-        var st_527;
-        var st_528;
-        var st_529;
-        var st_52A;
-        var st_52B;
-        var st_52C;
-        var st_52D;
-        var st_52E;
-        var st_52F;
-        var st_530;
-        var st_531;
-        var st_532;
-        var st_533;
-        var st_534;
-        var st_535;
-        var st_536;
-        var st_537;
-        var st_538;
-        var st_539;
-        var st_53A;
-        var st_53B;
-        var st_53C;
-        var st_53D;
-        var st_53E;
-        var st_53F;
-        var st_540;
-        var st_541;
-        var st_542;
-        var st_543;
-        var st_544;
-        var st_545;
-        var st_546;
-        var st_547;
-        var st_548;
-        var st_549;
-        var st_54A;
-        var st_54B;
-        var st_54C;
-        var st_54D;
-        var st_54E;
-        var st_54F;
-        var st_550;
-        var st_551;
-        var st_552;
-        var st_553;
-        var st_554;
-        var st_555;
-        var st_556;
-        var st_557;
-        var st_558;
-        var st_559;
-        var st_55A;
-        var st_55B;
-        var st_55C;
-        var st_55D;
-        var st_55E;
-        var st_55F;
-        var st_560;
-        var st_561;
-        var st_562;
-        var st_563;
-        var st_564;
-        var st_565;
-        var st_566;
-        var st_567;
-        var st_568;
-        var st_569;
-        var st_56A;
-        var st_56B;
-        var st_56C;
-        var st_56D;
-        var st_56E;
-        var st_56F;
-        var st_570;
-        var st_571;
-        var st_572;
-        var st_573;
-        var st_574;
-        var st_575;
-        var st_576;
-        var st_577;
-        var st_578;
-        var st_579;
-        var st_57A;
-        var st_57B;
-        var st_57C;
-        var st_57D;
-        var st_57E;
-        var st_57F;
-        var st_580;
-        var st_581;
-        var st_582;
-        var st_583;
-        var st_584;
-        var st_585;
-        var st_586;
-        var st_587;
-        var st_588;
-        var st_589;
-        var st_58A;
-        var st_58B;
-        var st_58C;
-        var st_58D;
-        var st_58E;
-        var st_58F;
-        var st_590;
-        var st_591;
-        var st_592;
-        var st_593;
-        var st_594;
-        var st_595;
-        var st_596;
-        var st_597;
-        var st_598;
-        var st_599;
-        var st_59A;
-        var st_59B;
-        var st_59C;
-        var st_59D;
-        var st_59E;
-        var st_59F;
-        var st_5A0;
-        var st_5A1;
-        var st_5A2;
-        var st_5A3;
-        var st_5A4;
-        var st_5A5;
-        var st_5A6;
-        var st_5A7;
-        var st_5A8;
-        var st_5A9;
-        var st_5AA;
-        var st_5AB;
-        var st_5AC;
-        var st_5AD;
-        var st_5AE;
-        var st_5AF;
-        var st_5B0;
-        var st_5B1;
-        var st_5B2;
-        var st_5B3;
-        var st_5B4;
-        var st_5B5;
-        var st_5B6;
-        var st_5B7;
-        var st_5B8;
-        var st_5B9;
-        var st_5BA;
-        var st_5BB;
-        var st_5BC;
-        var st_5BD;
-        var st_5BE;
-        var st_5BF;
-        var st_5C0;
-        var st_5C1;
-        var st_5C2;
-        var st_5C3;
-        var st_5C4;
-        var st_5C5;
-        var st_5C6;
-        var st_5C7;
-        var st_5C8;
-        var st_5C9;
-        var st_5CA;
-        var st_5CB;
-        var st_5CC;
-        var st_5CD;
-        var st_5CE;
-        var st_5CF;
-        var st_5D0;
-        var st_5D1;
-        var st_5D2;
-        var st_5D3;
-        var st_5D4;
-        var st_5D5;
-        var st_5D6;
-        var st_5D7;
-        var st_5D8;
-        var st_5D9;
-        var st_5DA;
-        var st_5DB;
-        var st_5DC;
-        var st_5DD;
-        var st_5DE;
-        var st_5DF;
-        var st_5E0;
-        var st_5E1;
-        var st_5E2;
-        var st_5E3;
-        var st_5E4;
-        var st_5E5;
-        var st_5E6;
-        var st_5E7;
-        var st_5E8;
-        var st_5E9;
-        var st_5EA;
-        var st_5EB;
-        var st_5EC;
-        var st_5ED;
-        var st_5EE;
-        var st_5EF;
-        var st_5F0;
-        var st_5F1;
-        var st_5F2;
-        var st_5F3;
-        var st_5F4;
-        var st_5F5;
-        var st_5F6;
-        var st_5F7;
-        var st_5F8;
-        var st_5F9;
-        var st_5FA;
-        var st_5FB;
-        var st_5FC;
-        var st_5FD;
-        var st_5FE;
-        var st_5FF;
-        var st_600;
-        var st_601;
-        var st_602;
-        var st_603;
-        var st_604;
-        var st_605;
-        var st_606;
-        var st_607;
-        var st_608;
-        var st_609;
-        var st_60A;
-        var st_60B;
-        var st_60C;
-        var st_60D;
-        var st_60E;
-        var st_60F;
-        var st_610;
-        var st_611;
-        var st_612;
-        var st_613;
-        var st_614;
-        var st_615;
-        var st_616;
-        var st_617;
-        var st_618;
-        var st_619;
-        var st_61A;
-        var st_61B;
-        var st_61C;
-        var st_61D;
-        var st_61E;
-        var st_61F;
-        var st_620;
-        var st_621;
-        var st_622;
-        var st_623;
-        var st_624;
-        var st_625;
-        var st_626;
-        var st_627;
-        var st_628;
-        var st_629;
-        var st_62A;
-        var st_62B;
-        var st_62C;
-        var st_62D;
-        var st_62E;
-        var st_62F;
-        var st_630;
-        var st_631;
-        var st_632;
-        var st_633;
-        var st_634;
-        var st_635;
-        var st_636;
-        var st_637;
-        var st_638;
-        var st_639;
-        var st_63A;
-        var st_63B;
-        var st_63C;
-        var st_63D;
-        var st_63E;
-        var st_63F;
-        var st_640;
-        var st_641;
-        var st_642;
-        var st_643;
-        var st_644;
-        var st_645;
-        var st_646;
-        var st_647;
-        var st_648;
-        var st_649;
-        var st_64A;
-        var st_64B;
-        var st_64C;
-        var st_64D;
-        var st_64E;
-        var st_64F;
-        var st_650;
-        var st_651;
-        var st_652;
-        var st_653;
-        var st_654;
-        var st_655;
-        var st_656;
-        var st_657;
-        var st_658;
-        var st_659;
-        var st_65A;
-        var st_65B;
-        var st_65C;
-        var st_65D;
-        var st_65E;
-        var st_65F;
-        var st_660;
-        var st_661;
-        var st_662;
-        var st_663;
-        var st_664;
-        var st_665;
-        var st_666;
-        var st_667;
-        var st_668;
-        var st_669;
-        var st_66A;
-        var st_66B;
-        var st_66C;
-        var st_66D;
-        var st_66E;
-        var st_66F;
-        var st_670;
-        var st_671;
-        var st_672;
-        var st_673;
-        var st_674;
-        var st_675;
-        var st_676;
-        var st_677;
-        var st_678;
-        var st_679;
-        var st_67A;
-        var st_67B;
-        var st_67C;
-        var st_67D;
-        var st_67E;
-        var st_67F;
-        var st_680;
-        var st_681;
-        var st_682;
-        var st_683;
-        var st_684;
-        var st_685;
-        var st_686;
-        var st_687;
-        var st_688;
-        var st_689;
-        var st_68A;
-        var st_68B;
-        var st_68C;
-        var st_68D;
-        var st_68E;
-        var st_68F;
-        var st_690;
-        var st_691;
-        var st_692;
-        var st_693;
-        var st_694;
-        var st_695;
-        var st_696;
-        var st_697;
-        var st_698;
-        var st_699;
-        var st_69A;
-        var st_69B;
-        var st_69C;
-        var st_69D;
-        var st_69E;
-        var st_69F;
-        var st_6A0;
-        var st_6A1;
-        var st_6A2;
-        var st_6A3;
-        var st_6A4;
-        var st_6A5;
-        var st_6A6;
-        var st_6A7;
-        var st_6A8;
-        var st_6A9;
-        var st_6AA;
-        var st_6AB;
-        var st_6AC;
-        var st_6AD;
-        var st_6AE;
-        var st_6AF;
-        var st_6B0;
-        var st_6B1;
-        var st_6B2;
-        var st_6B3;
-        var st_6B4;
-        var st_6B5;
-        var st_6B6;
-        var st_6B7;
-        var st_6B8;
-        var st_6B9;
-        var st_6BA;
-        var st_6BB;
-        var st_6BC;
-        var st_6BD;
-        var st_6BE;
-        var st_6BF;
-        var st_6C0;
-        var st_6C1;
-        var st_6C2;
-        var st_6C3;
-        var st_6C4;
-        var st_6C5;
-        var st_6C6;
-        var st_6C7;
-        var st_6C8;
-        var st_6C9;
-        var st_6CA;
-        var st_6CB;
-        var st_6CC;
-        var st_6CD;
-        var st_6CE;
-        var st_6CF;
-        var st_6D0;
-        var st_6D1;
-        var st_6D2;
-        var st_6D3;
-        var st_6D4;
-        var st_6D5;
-        var st_6D6;
-        var st_6D7;
-        var st_6D8;
-        var st_6D9;
-        var st_6DA;
-        var st_6DB;
-        var st_6DC;
-        var st_6DD;
-        var st_6DE;
-        var st_6DF;
-        var st_6E0;
-        var st_6E1;
-        var st_6E2;
-        var st_6E3;
-        var st_6E4;
-        var st_6E5;
-        var st_6E6;
-        var st_6E7;
-        var st_6E8;
-        var st_6E9;
-        var st_6EA;
-        var st_6EB;
-        var st_6EC;
-        var st_6ED;
-        var st_6EE;
-        var st_6EF;
-        var st_6F0;
-        var st_6F1;
-        var st_6F2;
-        var st_6F3;
-        var st_6F4;
-        var st_6F5;
-        var st_6F6;
-        var st_6F7;
-        var st_6F8;
-        var st_6F9;
-        var st_6FA;
-        var st_6FB;
-        var st_6FC;
-        var st_6FD;
-        var st_6FE;
-        var st_6FF;
-        var st_700;
-        var st_701;
-        var st_702;
-        var st_703;
-        var st_704;
-        var st_705;
-        var st_706;
-        var st_707;
-        var st_708;
-        var st_709;
-        var st_70A;
-        var st_70B;
-        var st_70C;
-        var st_70D;
-        var st_70E;
-        var st_70F;
-        var st_710;
-        var st_711;
-        var st_712;
-        var st_713;
-        var st_714;
-        var st_715;
-        var st_716;
-        var st_717;
-        var st_718;
-        var st_719;
-        var st_71A;
-        var st_71B;
-        var st_71C;
-        var st_71D;
-        var st_71E;
-        var st_71F;
-        var st_720;
-        var st_721;
-        var st_722;
-        var st_723;
-        var st_724;
-        var st_725;
-        var st_726;
-        var st_727;
-        var st_728;
-        var st_729;
-        var st_72A;
-        var st_72B;
-        var st_72C;
-        var st_72D;
-        var st_72E;
-        var st_72F;
-        var st_730;
-        var st_731;
-        var st_732;
-        var st_733;
-        var st_734;
-        var st_735;
-        var st_736;
-        var st_737;
-        var st_738;
-        var st_739;
-        var st_73A;
-        var st_73B;
-        var st_73C;
-        var st_73D;
-        var st_73E;
-        var st_73F;
-        var st_740;
-        var st_741;
-        var st_742;
-        var st_743;
-        var st_744;
-        var st_745;
-        var st_746;
-        var st_747;
-        var st_748;
-        var st_749;
-        var st_74A;
-        var st_74B;
-        var st_74C;
-        var st_74D;
-        var st_74E;
-        var st_74F;
-        var st_750;
-        var st_751;
-        var st_752;
-        var st_753;
-        var st_754;
-        var st_755;
-        var st_756;
-        var st_757;
-        var st_758;
-        var st_759;
-        var st_75A;
-        var st_75B;
-        var st_75C;
-        var st_75D;
-        var st_75E;
-        var st_75F;
-        var st_760;
-        var st_761;
-        var st_762;
-        var st_763;
-        var st_764;
-        var st_765;
-        var st_766;
-        var st_767;
-        var st_768;
-        var st_769;
-        var st_76A;
-        var st_76B;
-        var st_76C;
-        var st_76D;
-        var st_76E;
-        var st_76F;
-        var st_770;
-        var st_771;
-        var st_772;
-        var st_773;
-        var st_774;
-        var st_775;
-        var st_776;
-        var st_777;
-        var st_778;
-        var st_779;
-        var st_77A;
-        var st_77B;
-        var st_77C;
-        var st_77D;
-        var st_77E;
-        var st_77F;
-        var st_780;
-        var st_781;
-        var st_782;
-        var st_783;
-        var st_784;
-        var st_785;
-        var st_786;
-        var st_787;
-        var st_788;
-        var st_789;
-        var st_78A;
-        var st_78B;
-        var st_78C;
-        var st_78D;
-        var st_78E;
-        var st_78F;
-        var st_790;
-        var st_791;
-        var st_792;
-        var st_793;
-        var st_794;
-        var st_795;
-        var st_796;
-        var st_797;
-        var st_798;
-        var st_799;
-        var st_79A;
-        var st_79B;
-        var st_79C;
-        var st_79D;
-        var st_79E;
-        var st_79F;
-        var st_7A0;
-        var st_7A1;
-        var st_7A2;
-        var st_7A3;
-        var st_7A4;
-        var st_7A5;
-        var st_7A6;
-        var st_7A7;
-        var st_7A8;
-        var st_7A9;
-        var st_7AA;
-        var st_7AB;
-        var st_7AC;
-        var st_7AD;
-        var st_7AE;
-        var st_7AF;
-        var st_7B0;
-        var st_7B1;
-        var st_7B2;
-        var st_7B3;
-        var st_7B4;
-        var st_7B5;
-        var st_7B6;
-        var st_7B7;
-        var st_7B8;
-        var st_7B9;
-        var st_7BA;
-        var st_7BB;
-        var st_7BC;
-        var st_7BD;
-        var st_7BE;
-        var st_7BF;
-        var st_7C0;
-        var st_7C1;
-        var st_7C2;
-        var st_7C3;
-        var st_7C4;
-        var st_7C5;
-        var st_7C6;
-        var st_7C7;
-        var st_7C8;
-        var st_7C9;
-        var st_7CA;
-        var st_7CB;
-        var st_7CC;
-        var st_7CD;
-        var st_7CE;
-        var st_7CF;
-        var st_7D0;
-        var st_7D1;
-        var st_7D2;
-        var st_7D3;
-        var st_7D4;
-        var st_7D5;
-        var st_7D6;
-        var st_7D7;
-        var st_7D8;
-        var st_7D9;
-        var st_7DA;
-        var st_7DB;
-        var st_7DC;
-        var st_7DD;
-        var st_7DE;
-        var st_7DF;
-        var st_7E0;
-        var st_7E1;
-        var st_7E2;
-        var st_7E3;
-        var st_7E4;
-        var st_7E5;
-        var st_7E6;
-        var st_7E7;
-        var st_7E8;
-        var st_7E9;
-        var st_7EA;
-        var st_7EB;
-        var st_7EC;
-        var st_7ED;
-        var st_7EE;
-        var st_7EF;
-        var st_7F0;
-        var st_7F1;
-        var st_7F2;
-        var st_7F3;
-        var st_7F4;
-        var st_7F5;
-        var st_7F6;
-        var st_7F7;
-        var st_7F8;
-        var st_7F9;
-        var st_7FA;
-        var st_7FB;
-        var st_7FC;
-        var st_7FD;
-        var st_7FE;
-        var st_7FF;
-        var st_800;
-        var st_801;
-        var st_802;
-        var st_803;
-        var st_804;
-        var st_805;
-        var st_806;
-        var st_807;
-        var st_808;
-        var st_809;
-        var st_80A;
-        var st_80B;
-        var st_80C;
-        var st_80D;
-        var st_80E;
-        var st_80F;
-        var st_810;
-        var st_811;
-        var st_812;
-        var st_813;
-        var st_814;
-        var st_815;
-        var st_816;
-        var st_817;
-        var st_818;
-        var st_819;
-        var st_81A;
-        var st_81B;
-        var st_81C;
-        var st_81D;
-        var st_81E;
-        var st_81F;
-        var st_820;
-        var st_821;
-        var st_822;
-        var st_823;
-        var st_824;
-        var st_825;
-        var st_826;
-        var st_827;
-        var st_828;
-        var st_829;
-        var st_82A;
-        var st_82B;
-        var st_82C;
-        var st_82D;
-        var st_82E;
-        var st_82F;
-        var st_830;
-        var st_831;
-        var st_832;
-        var st_833;
-        var st_834;
-        var st_835;
-        var st_836;
-        var st_837;
-        var st_838;
-        var st_839;
-        var st_83A;
-        var st_83B;
-        var st_83C;
-        var st_83D;
-        var st_83E;
-        var st_83F;
-        var st_840;
-        var st_841;
-        var st_842;
-        var st_843;
-        var st_844;
-        var st_845;
-        var st_846;
-        var st_847;
-        var st_848;
-        var st_849;
-        var st_84A;
-        var st_84B;
-        var st_84C;
-        var st_84D;
-        var st_84E;
-        var st_84F;
-        var st_850;
-        var st_851;
-        var st_852;
-        var st_853;
-        var st_854;
-        var st_855;
-        var st_856;
-        var st_857;
-        var st_858;
-        var st_859;
-        var st_85A;
-        var st_85B;
-        var st_85C;
-        var st_85D;
-        var st_85E;
-        var st_85F;
-        var st_860;
-        var st_861;
-        var st_862;
-        var st_863;
-        var st_864;
-        var st_865;
-        var st_866;
-        var st_867;
-        var st_868;
-        var st_869;
-        var st_86A;
-        var st_86B;
-        var st_86C;
-        var st_86D;
-        var st_86E;
-        var st_86F;
-        var st_870;
-        var st_871;
-        var st_872;
-        var st_873;
-        var st_874;
-        var st_875;
-        var st_876;
-        var st_877;
-        var st_878;
-        var st_879;
-        var st_87A;
-        var st_87B;
-        var st_87C;
-        var st_87D;
-        var st_87E;
-        var st_87F;
-        var st_880;
-        var st_881;
-        var st_882;
-        var st_883;
-        var st_884;
-        var st_885;
-        var st_886;
-        var st_887;
-        var st_888;
-        var st_889;
-        var st_88A;
-        var st_88B;
-        var st_88C;
-        var st_88D;
-        var st_88E;
-        var st_88F;
-        var st_890;
-        var st_891;
-        var st_892;
-        var st_893;
-        var st_894;
-        var st_895;
-        var st_896;
-        var st_897;
-        var st_898;
-        var st_899;
-        var st_89A;
-        var st_89B;
-        var st_89C;
-        var st_89D;
-        var st_89E;
-        var st_89F;
-        var st_8A0;
-        var st_8A1;
-        var st_8A2;
-        var st_8A3;
-        var st_8A4;
-        var st_8A5;
-        var st_8A6;
-        var st_8A7;
-        var st_8A8;
-        var st_8A9;
-        var st_8AA;
-        var st_8AB;
-        var st_8AC;
-        var st_8AD;
-        var st_8AE;
-        var st_8AF;
-        var st_8B0;
-        var st_8B1;
-        var st_8B2;
-        var st_8B3;
-        var st_8B4;
-        var st_8B5;
-        var st_8B6;
-        var st_8B7;
-        var st_8B8;
-        var st_8B9;
-        var st_8BA;
-        var st_8BB;
-        var st_8BC;
-        var st_8BD;
-        var st_8BE;
-        var st_8BF;
-        var st_8C0;
-        var st_8C1;
-        var st_8C2;
-        var st_8C3;
-        var st_8C4;
-        var st_8C5;
-        var st_8C6;
-        var st_8C7;
-        var st_8C8;
-        var st_8C9;
-        var st_8CA;
-        var st_8CB;
-        var st_8CC;
-        var st_8CD;
-        var st_8CE;
-        var st_8CF;
-        var st_8D0;
-        var st_8D1;
-        var st_8D2;
-        var st_8D3;
-        var st_8D4;
-        var st_8D5;
-        var st_8D6;
-        var st_8D7;
-        var st_8D8;
-        var st_8D9;
-        var st_8DA;
-        var st_8DB;
-        var st_8DC;
-        var st_8DD;
-        var st_8DE;
-        var st_8DF;
-        var st_8E0;
-        var st_8E1;
-        var st_8E2;
-        var st_8E3;
-        var st_8E4;
-        var st_8E5;
-        var st_8E6;
-        var st_8E7;
-        var st_8E8;
-        var st_8E9;
-        var st_8EA;
-        var st_8EB;
-        var st_8EC;
-        var st_8ED;
-        var st_8EE;
-        var st_8EF;
-        var st_8F0;
-        var st_8F1;
-        var st_8F2;
-        var st_8F3;
-        var st_8F4;
-        var st_8F5;
-        var st_8F6;
-        var st_8F7;
-        var st_8F8;
-        var st_8F9;
-        var st_8FA;
-        var st_8FB;
-        var st_8FC;
-        var st_8FD;
-        var st_8FE;
-        var st_8FF;
-        var st_900;
-        var st_901;
-        var st_902;
-        var st_903;
-        var st_904;
-        var st_905;
-        var st_906;
-        var st_907;
-        var st_908;
-        var st_909;
-        var st_90A;
-        var st_90B;
-        var st_90C;
-        var st_90D;
-        var st_90E;
-        var st_90F;
-        var st_910;
-        var st_911;
-        var st_912;
-        var st_913;
-        var st_914;
-        var st_915;
         t0 = ((asm0)["System.Int64"])();
         t1 = ((asm0)["System.Double"])();
         /* IL_00: ldstr 1 - 21 ToString*/
@@ -15793,8 +12774,6 @@ var asm1; (function (asm)
     };
     asm.x600000d = function Double(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: conv.r8 */
         /* IL_02: ret */
@@ -15802,9 +12781,6 @@ var asm1; (function (asm)
     };;
     asm.x600000e = function Add(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: add */
@@ -15813,9 +12789,6 @@ var asm1; (function (asm)
     };;
     asm.x600000f = function Sub(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: sub */
@@ -15824,9 +12797,6 @@ var asm1; (function (asm)
     };;
     asm.x6000010 = function Mul(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: mul */
@@ -15835,9 +12805,6 @@ var asm1; (function (asm)
     };;
     asm.x6000011 = function Div(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: div */
@@ -15846,9 +12813,6 @@ var asm1; (function (asm)
     };;
     asm.x6000012 = function Mod(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: rem */
@@ -15868,70 +12832,6 @@ var asm1; (function (asm)
     asm.x6000013_ = function TestRightShift(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
-        var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
-        var st_32;
-        var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
-        var st_3D;
-        var st_3E;
-        var st_3F;
         t0 = ((asm0)["System.Int64"])();
         /* IL_00: ldstr RightShift */
         /* IL_05: ldarg.0 */
@@ -16109,70 +13009,6 @@ var asm1; (function (asm)
     asm.x6000014_ = function TestLeftShift(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
-        var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
-        var st_32;
-        var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
-        var st_3D;
-        var st_3E;
-        var st_3F;
         t0 = ((asm0)["System.Int64"])();
         /* IL_00: ldstr LeftShift */
         /* IL_05: ldarg.0 */
@@ -16339,11 +13175,6 @@ var asm1; (function (asm)
     };
     asm.x6000015 = function RightShift(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: ldc.i4.s 63*/
@@ -16354,11 +13185,6 @@ var asm1; (function (asm)
     };;
     asm.x6000016 = function LeftShift(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: ldc.i4.s 63*/
@@ -16369,7 +13195,6 @@ var asm1; (function (asm)
     };;
     asm.x6000017 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

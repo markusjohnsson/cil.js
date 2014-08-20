@@ -244,11 +244,29 @@ namespace Braille.JsTranslation
                 }
             }
 
+            //functionBlock.AddRange(
+            //    method
+            //        .OpTree
+            //        .SelectMany(op => op.StackBefore.Where(d => d.Variable != null).Select(d => d.Variable.Name))
+            //        .Distinct()
+            //        .Select(
+            //            n => new JSExpressionStatement
+            //            {
+            //                Expression = new JSVariableDelcaration
+            //                {
+            //                    Name = n
+            //                }
+            //            }));
+
             functionBlock.AddRange(
                 method
-                    .OpTree
-                    .SelectMany(op => op.StackBefore.Where(d => d.Variable != null).Select(d => d.Variable.Name))
+                    .Block
+                    .GetExpressions()
+                    .Where(o => o.StoreLocations != null)
+                    .SelectMany(o => o.StoreLocations)
+                    .Select(l => l.Name)
                     .Distinct()
+                    .OrderBy(n => n)
                     .Select(
                         n => new JSExpressionStatement
                         {

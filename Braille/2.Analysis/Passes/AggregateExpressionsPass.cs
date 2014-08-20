@@ -78,17 +78,17 @@ namespace Braille.Analysis.Passes
                 result = stack.Reverse().EndWith(last).ToArray();
 
             // check result and bail if not correct..
-            var resultNodes = result
-                .Cast<OpExpression>()
-                .SelectMany(node => node.PrefixTraversal())
-                .Cast<OpInstruction>()
-                .ToList();
+            //var resultNodes = result
+            //    .Cast<OpExpression>()
+            //    .SelectMany(node => node.PrefixTraversal())
+            //    .Cast<OpInstruction>()
+            //    .ToList();
 
-            if (original.Select(o => o.Instruction).Any(originalNode => resultNodes.Contains(originalNode) == false))
-            {
-                Debug.WriteLine("Bailing expression aggregation");
-                result = original.Cast<Node>().ToArray();
-            }
+            //if (original.Select(o => o.Instruction).Any(originalNode => resultNodes.Contains(originalNode) == false))
+            //{
+            //    Debug.WriteLine("Bailing expression aggregation");
+            //    result = original.Cast<Node>().ToArray();
+            //}
 
             return result;
         }

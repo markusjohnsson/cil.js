@@ -178,8 +178,6 @@ var asm0; (function (asm)
     asm.x6000004 = function () { return asm0.ToJavaScriptString(this); };;
     asm.x6000005 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldstr System.Object*/
@@ -191,9 +189,6 @@ var asm0; (function (asm)
     };;
     asm.x6000006 = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -206,18 +201,7 @@ var asm0; (function (asm)
     };;
     asm.x6000007 = function ToJavaScriptString(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -267,10 +251,6 @@ var asm0; (function (asm)
     asm.ToJavaScriptString = asm.x6000007;
     asm.x6000008 = function ReferenceEquals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -284,10 +264,6 @@ var asm0; (function (asm)
     };;
     asm.x6000009 = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -301,9 +277,6 @@ var asm0; (function (asm)
     };;
     asm.x600000a = function GetType(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -321,7 +294,6 @@ var asm0; (function (asm)
     };;
     asm.x600000c = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -329,9 +301,6 @@ var asm0; (function (asm)
     };;
     asm.x600000e = function get_ValidOn(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld AttributeTargets <ValidOn>k__BackingField*/
@@ -343,8 +312,6 @@ var asm0; (function (asm)
     };;
     asm.x600000f = function set_ValidOn(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld AttributeTargets <ValidOn>k__BackingField*/
@@ -354,9 +321,6 @@ var asm0; (function (asm)
     };;
     asm.x6000010 = function get_Inherited(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Boolean <Inherited>k__BackingField*/
@@ -368,8 +332,6 @@ var asm0; (function (asm)
     };;
     asm.x6000011 = function set_Inherited(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld Boolean <Inherited>k__BackingField*/
@@ -379,9 +341,6 @@ var asm0; (function (asm)
     };;
     asm.x600000d = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -398,7 +357,6 @@ var asm0; (function (asm)
     };;
     asm.x6000012 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -409,7 +367,6 @@ var asm0; (function (asm)
         var st_00;
         var st_01;
         var st_02;
-        var st_03;
         var __pos_0__;
         var loc0;
         __pos_0__ = 0x0;
@@ -462,11 +419,6 @@ var asm0; (function (asm)
     asm.x6000021_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Byte"])();
         /* IL_00: nop */
@@ -497,11 +449,6 @@ var asm0; (function (asm)
     asm.x6000022_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Char"])();
         /* IL_00: nop */
@@ -523,8 +470,6 @@ var asm0; (function (asm)
     asm.x6000024 = (function (o) { console.log(o.jsstr); });;
     asm.x6000025 = function WriteLine(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
         /* IL_02: callvirt String ToString()*/
@@ -536,7 +481,6 @@ var asm0; (function (asm)
     };;
     asm.x6000026 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -555,11 +499,6 @@ var asm0; (function (asm)
     asm.x6000027_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Double"])();
         /* IL_00: nop */
@@ -579,7 +518,6 @@ var asm0; (function (asm)
     };
     asm.x6000028 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x6000012)(arg0);
@@ -588,8 +526,6 @@ var asm0; (function (asm)
     };;
     asm.x6000029 = function get_CurrentManagedThreadId()
     {
-        var st_00;
-        var st_01;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldc.i4.0 */
@@ -601,7 +537,6 @@ var asm0; (function (asm)
     };;
     asm.x600002a = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -621,39 +556,12 @@ var asm0; (function (asm)
     asm.x600002b_ = function Combine(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
         var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
         var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
         var st_1A;
         var st_1B;
         var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -781,25 +689,10 @@ var asm0; (function (asm)
     asm.x600002c_ = function Remove(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var st_0C;
         var st_0D;
         var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -923,11 +816,6 @@ var asm0; (function (asm)
     asm.x600002f_ = function Equals(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Delegate"])();
         /* IL_00: nop */
@@ -954,40 +842,10 @@ var asm0; (function (asm)
     asm.x6000030_ = function op_Equality(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
         var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
         var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
         var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
         var st_20;
-        var st_21;
         var st_22;
         var st_23;
         var st_24;
@@ -995,49 +853,15 @@ var asm0; (function (asm)
         var st_26;
         var st_27;
         var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
         var st_32;
-        var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
-        var st_3D;
-        var st_3E;
-        var st_3F;
         var st_40;
-        var st_41;
-        var st_42;
-        var st_43;
-        var st_44;
-        var st_45;
-        var st_46;
-        var st_47;
-        var st_48;
-        var st_49;
-        var st_4A;
         var st_4B;
-        var st_4C;
         var st_4D;
         var st_4E;
         var st_4F;
         var st_50;
         var st_51;
         var st_52;
-        var st_53;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -1328,12 +1152,6 @@ var asm0; (function (asm)
     };
     asm.x6000031 = function op_Inequality(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -1349,9 +1167,6 @@ var asm0; (function (asm)
     };;
     asm.x6000032 = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -1364,7 +1179,6 @@ var asm0; (function (asm)
     };;
     asm.x6000033 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -1409,53 +1223,8 @@ var asm0; (function (asm)
     asm.x6000035_ = function CombineImpl(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
         var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
-        var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
         var __pos_0__;
         var loc3;
         var loc0;
@@ -1589,94 +1358,14 @@ var asm0; (function (asm)
     asm.x6000036_ = function RemoveImpl(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
         var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
         var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
         var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_31;
-        var st_32;
         var st_33;
-        var st_34;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
         var st_3D;
-        var st_3E;
-        var st_3F;
-        var st_40;
-        var st_41;
-        var st_42;
-        var st_43;
-        var st_44;
-        var st_45;
-        var st_46;
-        var st_47;
-        var st_48;
-        var st_49;
-        var st_4A;
         var st_4B;
-        var st_4C;
-        var st_4D;
-        var st_4E;
-        var st_4F;
-        var st_50;
-        var st_51;
-        var st_52;
-        var st_53;
-        var st_54;
-        var st_55;
-        var st_56;
-        var st_57;
         var st_58;
         var st_59;
         var st_5A;
@@ -1688,19 +1377,7 @@ var asm0; (function (asm)
         var st_60;
         var st_61;
         var st_62;
-        var st_63;
-        var st_64;
-        var st_65;
-        var st_66;
-        var st_67;
-        var st_68;
-        var st_69;
-        var st_6A;
-        var st_6B;
         var st_6C;
-        var st_6D;
-        var st_6E;
-        var st_6F;
         var __pos_0__;
         var loc5;
         var loc4;
@@ -2007,7 +1684,6 @@ var asm0; (function (asm)
     };
     asm.x6000037 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x6000033)(arg0);
@@ -2042,11 +1718,6 @@ var asm0; (function (asm)
     asm.x600003c_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Int16"])();
         /* IL_00: nop */
@@ -2077,11 +1748,6 @@ var asm0; (function (asm)
     asm.x600003d_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Int32"])();
         /* IL_00: nop */
@@ -2113,11 +1779,6 @@ var asm0; (function (asm)
     asm.x600003f_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.IntPtr"])();
         /* IL_00: nop */
@@ -2137,7 +1798,6 @@ var asm0; (function (asm)
     };
     asm.x6000040 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2146,9 +1806,6 @@ var asm0; (function (asm)
     };;
     asm.x6000041 = function get_Value(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2161,9 +1818,6 @@ var asm0; (function (asm)
     };;
     asm.x6000042 = function get_Value(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2187,11 +1841,6 @@ var asm0; (function (asm)
     asm.x6000043_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.SByte"])();
         /* IL_00: nop */
@@ -2222,11 +1871,6 @@ var asm0; (function (asm)
     asm.x6000044_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.Single"])();
         /* IL_00: nop */
@@ -2246,7 +1890,6 @@ var asm0; (function (asm)
     };
     asm.x6000045 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2255,7 +1898,6 @@ var asm0; (function (asm)
     };;
     asm.x600004d = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2263,9 +1905,6 @@ var asm0; (function (asm)
     };;
     asm.x6000050 = function get_Message(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld String <Message>k__BackingField*/
@@ -2277,8 +1916,6 @@ var asm0; (function (asm)
     };;
     asm.x6000051 = function set_Message(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld String <Message>k__BackingField*/
@@ -2288,9 +1925,6 @@ var asm0; (function (asm)
     };;
     asm.x6000052 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2303,7 +1937,6 @@ var asm0; (function (asm)
     };;
     asm.x600004e = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -2314,9 +1947,6 @@ var asm0; (function (asm)
     };;
     asm.x600004f = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -2332,7 +1962,6 @@ var asm0; (function (asm)
     };;
     asm.x6000053 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600004e)(arg0);
@@ -2341,8 +1970,6 @@ var asm0; (function (asm)
     };;
     asm.x6000054 = function _ctor(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Operation not supported*/
         /* IL_06: call Void .ctor(System.String)*/
@@ -2355,8 +1982,6 @@ var asm0; (function (asm)
     };;
     asm.x6000055 = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: call Void .ctor(System.String)*/
@@ -2369,7 +1994,6 @@ var asm0; (function (asm)
     };;
     asm.x6000059 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2377,8 +2001,6 @@ var asm0; (function (asm)
     };;
     asm.x600005a = function _ctor(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Cannot cast from source type to destination type.*/
         /* IL_06: call Void .ctor(System.String)*/
@@ -2391,8 +2013,6 @@ var asm0; (function (asm)
     };;
     asm.x600005b = function _ctor(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Operation is not valid due to the current state of the object*/
         /* IL_06: call Void .ctor(System.String)*/
@@ -2405,8 +2025,6 @@ var asm0; (function (asm)
     };;
     asm.x600005c = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: call Void .ctor(System.String)*/
@@ -2430,41 +2048,8 @@ var asm0; (function (asm)
     asm.x600005d_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
         var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
         var st_20;
-        var st_21;
-        var st_22;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -2576,12 +2161,6 @@ var asm0; (function (asm)
     };
     asm.x600005e = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2597,10 +2176,6 @@ var asm0; (function (asm)
     };;
     asm.x600005f = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2722,11 +2297,6 @@ var asm0; (function (asm)
     asm.XInt64_Inequality = asm.x600006a;
     asm.x600006b = function op_Decrement(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2742,11 +2312,6 @@ var asm0; (function (asm)
     asm.XInt64_Decrement = asm.x600006b;
     asm.x600006c = function op_Increment(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2848,7 +2413,6 @@ var asm0; (function (asm)
     asm.Int64_isNegative = asm.x6000073;
     asm.x600007e = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2857,7 +2421,6 @@ var asm0; (function (asm)
     };;
     asm.x600007f = function _ctor(arg0,arg1)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -2875,7 +2438,6 @@ var asm0; (function (asm)
     };;
     asm.x6000081 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2883,7 +2445,6 @@ var asm0; (function (asm)
     };;
     asm.x6000082 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -2905,7 +2466,6 @@ var asm0; (function (asm)
     asm.x6000083_ = function _cctor()
     {
         var t0;
-        var st_00;
         t0 = ((asm0)["System.EventArgs"])();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stsfld EventArgs Empty*/
@@ -2930,9 +2490,6 @@ var asm0; (function (asm)
     };;
     asm.x6000086 = function get_Length(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2947,10 +2504,6 @@ var asm0; (function (asm)
     asm.x6000088 = function(o, i) { return box(o.jsarr[i], o.type); };;
     asm.x6000089 = function GetValue(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2964,9 +2517,6 @@ var asm0; (function (asm)
     };;
     asm.x600008a = function GetEnumerator(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -2979,7 +2529,6 @@ var asm0; (function (asm)
     };;
     asm.x600008c = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -2999,9 +2548,6 @@ var asm0; (function (asm)
     {
         var t0;
         var t1;
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         t0 = ((arguments)[0].constructor.GenericArguments)[0];
         t1 = ((asm0)["System.Array`1+ArrayEnumerator"])(((arguments)[0].constructor.GenericArguments)[0]);
@@ -3016,9 +2562,6 @@ var asm0; (function (asm)
     };
     asm.x600008f = function GetEnumeratorImpl(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3031,7 +2574,6 @@ var asm0; (function (asm)
     };;
     asm.x6000090 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600008c)(arg0);
@@ -3040,12 +2582,6 @@ var asm0; (function (asm)
     };;
     asm.x6000092 = function get_Current(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3067,12 +2603,6 @@ var asm0; (function (asm)
         var st_03;
         var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3101,10 +2631,6 @@ var asm0; (function (asm)
     asm.x6000094 = function System_Collections_IEnumerator_get_Current(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         t0 = ((arguments)[0].constructor.GenericArguments)[0];
         /* IL_00: nop */
@@ -3119,8 +2645,6 @@ var asm0; (function (asm)
     };;
     asm.x6000095 = function Reset(arg0)
     {
-        var st_00;
-        var st_01;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
         /* IL_02: ldc.i4.m1 */
@@ -3137,14 +2661,6 @@ var asm0; (function (asm)
     };;
     asm.x6000091 = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: nop */
@@ -3168,7 +2684,6 @@ var asm0; (function (asm)
     };;
     asm.x6000097 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -3177,7 +2692,6 @@ var asm0; (function (asm)
     };;
     asm.x6000098 = function _ctor(arg0,arg1)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -3189,9 +2703,6 @@ var asm0; (function (asm)
     };;
     asm.x600009a = function get_HasValue(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3215,14 +2726,9 @@ var asm0; (function (asm)
     asm.x600009b_ = function get_Value(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
         var st_02;
         var st_03;
         var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3278,27 +2784,8 @@ var asm0; (function (asm)
     {
         var t0;
         var t1;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
         var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_13;
-        var st_14;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3374,24 +2861,8 @@ var asm0; (function (asm)
     asm.x600009d = function Equals(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
         var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3489,14 +2960,7 @@ var asm0; (function (asm)
     };;
     asm.x600009e = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
         var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3559,9 +3023,6 @@ var asm0; (function (asm)
     };;
     asm.x600009f = function GetValueOrDefault(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -3578,7 +3039,6 @@ var asm0; (function (asm)
         var st_01;
         var st_02;
         var st_03;
-        var st_04;
         var __pos_0__;
         var loc0;
         __pos_0__ = 0x0;
@@ -3633,16 +3093,7 @@ var asm0; (function (asm)
     asm.x60000a1_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3728,9 +3179,6 @@ var asm0; (function (asm)
         {
             var t0;
             var t1;
-            var st_00;
-            var st_01;
-            var st_02;
             var loc0;
             t0 = T;
             t1 = ((asm0)["System.Nullable`1"])(T);
@@ -3748,9 +3196,6 @@ var asm0; (function (asm)
     {
         return function op_Explicit(arg0)
         {
-            var st_00;
-            var st_01;
-            var st_02;
             var loc0;
             /* IL_00: nop */
             /* IL_01: ldarga.s 0*/
@@ -3776,14 +3221,7 @@ var asm0; (function (asm)
         return function Box(arg0)
         {
             var t0;
-            var st_00;
-            var st_01;
             var st_02;
-            var st_03;
-            var st_04;
-            var st_05;
-            var st_06;
-            var st_07;
             var __pos_0__;
             var loc1;
             var loc0;
@@ -3869,18 +3307,7 @@ var asm0; (function (asm)
             var t0;
             var t1;
             var loc2;
-            var st_00;
-            var st_01;
-            var st_02;
-            var st_03;
-            var st_04;
             var st_05;
-            var st_06;
-            var st_07;
-            var st_08;
-            var st_09;
-            var st_0A;
-            var st_0B;
             var __pos_0__;
             var loc1;
             var loc0;
@@ -3944,10 +3371,6 @@ var asm0; (function (asm)
     };
     asm.x6000099 = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
         /* IL_02: ldc.i4.1 */
@@ -3962,7 +3385,6 @@ var asm0; (function (asm)
     };;
     asm.x60000a6 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -3975,10 +3397,6 @@ var asm0; (function (asm)
     asm.x60000aa = function (s, i) { return s.jsstr.charCodeAt(i); };;
     asm.x60000ab = function get_Chars(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4003,17 +3421,6 @@ var asm0; (function (asm)
     asm.x60000ac_ = function Concat(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.String"])();
@@ -4053,19 +3460,6 @@ var asm0; (function (asm)
     asm.x60000ad_ = function Concat(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
         var loc1;
         var loc0;
         t0 = ((asm0)["System.String"])();
@@ -4096,9 +3490,6 @@ var asm0; (function (asm)
     };
     asm.x60000ae = function Concat(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4135,9 +3526,6 @@ var asm0; (function (asm)
     };
     asm.x60000b0 = function get_Length(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4150,8 +3538,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b1 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4163,12 +3549,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b2 = function op_Inequality(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4184,10 +3564,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b3 = function op_Equality(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4201,10 +3577,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b4 = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4229,11 +3601,6 @@ var asm0; (function (asm)
     asm.x60000b5_ = function Equals(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.String"])();
         /* IL_00: nop */
@@ -4258,9 +3625,6 @@ var asm0; (function (asm)
             };;
     asm.x60000b7 = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4273,7 +3637,6 @@ var asm0; (function (asm)
     };;
     asm.x60000b8 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -4292,7 +3655,6 @@ var asm0; (function (asm)
     asm.x60000b9_ = function _cctor()
     {
         var t0;
-        var st_00;
         t0 = ((asm0)["System.String"])();
         /* IL_00: ldstr */
         /* IL_05: stsfld String Empty*/
@@ -4302,9 +3664,6 @@ var asm0; (function (asm)
     };
     asm.x60000bb = function get_MemberName(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4317,9 +3676,6 @@ var asm0; (function (asm)
     };;
     asm.x60000ba = function _ctor(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm0.x600000c)(arg0);
@@ -4335,7 +3691,6 @@ var asm0; (function (asm)
     };;
     asm.x60000bd = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -4354,11 +3709,6 @@ var asm0; (function (asm)
     asm.x60000be_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.UInt16"])();
         /* IL_00: nop */
@@ -4389,11 +3739,6 @@ var asm0; (function (asm)
     asm.x60000bf_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.UInt32"])();
         /* IL_00: nop */
@@ -4413,28 +3758,7 @@ var asm0; (function (asm)
     };
     asm.x60000c0 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0B;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_0F;
-        var st_10;
-        var st_11;
-        var st_12;
         var st_13;
-        var st_14;
-        var st_15;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -4658,12 +3982,6 @@ var asm0; (function (asm)
     asm.UInt64_Modulus = asm.x60000c9;
     asm.x60000ca = function Equals(arg0,arg1)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4679,10 +3997,6 @@ var asm0; (function (asm)
     };;
     asm.x60000cb = function GetHashCode(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         var loc0;
         /* IL_00: nop */
         /* IL_01: ldarg.0 */
@@ -4707,11 +4021,6 @@ var asm0; (function (asm)
     asm.x60000cd_ = function ToString(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
         var loc0;
         t0 = ((asm0)["System.UIntPtr"])();
         /* IL_00: nop */
@@ -8361,7 +7670,6 @@ var asm1; (function (asm)
     asm.x6000001 = braille_test_log;;
     asm.x6000002 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -8369,7 +7677,6 @@ var asm1; (function (asm)
     };;
     asm.x600000b = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -8382,7 +7689,6 @@ var asm1; (function (asm)
     };;
     asm.x600000d = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -8390,7 +7696,6 @@ var asm1; (function (asm)
     };;
     asm.x600000e = function Append(arg0,arg1)
     {
-        var st_00;
         /* IL_00: ldarg.1 */
         /* IL_01: call Void Log(System.Object)*/
         (asm1.x6000001)(arg1);
@@ -8410,8 +7715,6 @@ var asm1; (function (asm)
     asm.x600000f_ = function Append(arg0,arg1)
     {
         var t0;
-        var st_00;
-        var st_01;
         t0 = ((asm0)["System.Char"])();
         /* IL_00: ldarg.1 */
         /* IL_01: box System.Char*/
@@ -8426,7 +7729,6 @@ var asm1; (function (asm)
     };
     asm.x6000010 = function _ctor(arg0)
     {
-        var st_00;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -8445,13 +7747,6 @@ var asm1; (function (asm)
     asm.x6000011_ = function Convert(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
         var st_07;
         var st_08;
         var st_09;
@@ -8466,37 +7761,9 @@ var asm1; (function (asm)
         var st_12;
         var st_13;
         var st_14;
-        var st_15;
-        var st_16;
-        var st_17;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1B;
-        var st_1C;
-        var st_1D;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_21;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_25;
-        var st_26;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
         var st_2D;
         var st_2E;
         var st_2F;
-        var st_30;
-        var st_31;
-        var st_32;
-        var st_33;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -8719,10 +7986,6 @@ var asm1; (function (asm)
     asm.x6000012_ = function EscapeChar(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
         t0 = ((asm0)["System.Int32"])();
         /* IL_00: ldstr \u*/
         /* IL_05: ldarg.0 */
