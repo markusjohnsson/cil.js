@@ -252,7 +252,7 @@ namespace Braille.JsTranslation
 
         private static JSStatement GetILAsComment(OpExpression node)
         {
-            var il = GetInstructionsRecursive(node).OrderBy(i => i.Position);
+            var il = node.PrefixTraversal().OrderBy(i => i.Position);
 
             return JSFactory
                 .Statement(
@@ -260,13 +260,6 @@ namespace Braille.JsTranslation
                     {
                         Text = string.Join("\n", il)
                     });
-        }
-
-        private static IEnumerable<OpInstruction> GetInstructionsRecursive(OpExpression node)
-        {
-            yield return node.Instruction;
-            foreach (var subnode in node.Arguments.OfType<OpExpression>().SelectMany(n => GetInstructionsRecursive(n)))
-                yield return subnode;
         }
 
         protected JSExpression CreateXInt64BinaryOperation(OpExpression node, string functionName)
@@ -915,8 +908,13 @@ namespace Braille.JsTranslation
                     }
                 case "nop":
                     return new JSEmptyExpression();
-                case "pop": // todo: remove in stack removal pass
-                    return new JSEmptyExpression();
+
+                case "pop":
+                    if (node.Arguments.OfType<OpExpression>().Any())
+                        return ProcessInternal(node.Arguments.Single());
+                    else
+                        return new JSEmptyExpression();
+
                 case "ret":
                     return new JSReturnExpression
                     {

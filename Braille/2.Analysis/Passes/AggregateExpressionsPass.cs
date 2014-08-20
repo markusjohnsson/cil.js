@@ -52,11 +52,13 @@ namespace Braille.Analysis.Passes
 
         private static Node[] AggregateExpression(Block block, span span)
         {
+            var original = block.Ast.GetRange(span.from, span.to).Cast<OpExpression>().ToList();
+
             var stack = new Stack<Node>();
 
             Node last = null;
 
-            foreach (var op in block.Ast.GetRange(span.from, span.to).Cast<OpExpression>())
+            foreach (var op in original)
             {
                 var popCount = op.GetRealPopCount();
                 if (popCount > 0)
@@ -69,11 +71,26 @@ namespace Braille.Analysis.Passes
                 last = op;
             }
 
+            Node[] result;
             if (stack.Any() && stack.Peek() == last)
-
-                return stack.Reverse().ToArray();
+                result = stack.Reverse().ToArray();
             else
-                return stack.Reverse().EndWith(last).ToArray();
+                result = stack.Reverse().EndWith(last).ToArray();
+
+            // check result and bail if not correct..
+            var resultNodes = result
+                .Cast<OpExpression>()
+                .SelectMany(node => node.PrefixTraversal())
+                .Cast<OpInstruction>()
+                .ToList();
+
+            if (original.Select(o => o.Instruction).Any(originalNode => resultNodes.Contains(originalNode) == false))
+            {
+                Debug.WriteLine("Bailing expression aggregation");
+                result = original.Cast<Node>().ToArray();
+            }
+
+            return result;
         }
 
         private static IEnumerable<span> GetExpressionSpans(Block block)
@@ -100,7 +117,7 @@ namespace Braille.Analysis.Passes
                 }
                 else if (expr.PushCount == 0)
                 {
-                    if (start != null && prev != null && start != prev)
+                    if (start != null && prev != null && start != expr)
                         yield return new span { from = start, to = expr };
 
                     start = null;

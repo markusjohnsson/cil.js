@@ -14,7 +14,7 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return "(" + Operator + Operand.ToString(formatting) + ")";
+            return "(" + Operator + "(" + Operand.ToString(formatting) + "))";
         }
 
 

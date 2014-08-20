@@ -70,5 +70,12 @@ namespace Braille.Ast
         public bool IsHandlerStart { get; set; }
 
 
+        public IEnumerable<OpInstruction> PrefixTraversal()
+        {
+            yield return Instruction;
+            foreach (var subnode in Arguments.OfType<OpExpression>().SelectMany(n => n.PrefixTraversal()))
+                yield return subnode;
+        }
+
     }
 }
