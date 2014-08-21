@@ -812,13 +812,7 @@ var asm0; (function (asm)
     asm.x6000030_ = function op_Equality(arg0,arg1)
     {
         var t0;
-        var st_24;
-        var st_25;
-        var st_26;
         var st_27;
-        var st_4F;
-        var st_50;
-        var st_51;
         var st_52;
         var __pos_0__;
         var loc0;
@@ -940,13 +934,10 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_82: ldloc.1 */
-                st_24 = loc1;
                 /* IL_83: ldfld Delegate[] _invocationList*/
-                st_25 = st_24._invocationList;
                 /* IL_88: ldnull */
-                st_26 = null;
                 /* IL_8A: ceq */
-                st_27 = ((st_25 === st_26) ? (1) : (0));
+                st_27 = ((loc1._invocationList === null) ? (1) : (0));
                 /* IL_8B: br.s IL_8E*/
                 __pos_0__ = 0x8E;
                 continue;
@@ -1071,13 +1062,10 @@ var asm0; (function (asm)
                     continue;
                 }
                 /* IL_101: ldloc.1 */
-                st_4F = loc1;
                 /* IL_102: ldfld Delegate[] _invocationList*/
-                st_50 = st_4F._invocationList;
                 /* IL_107: ldnull */
-                st_51 = null;
                 /* IL_109: ceq */
-                st_52 = ((st_50 === st_51) ? (1) : (0));
+                st_52 = ((loc1._invocationList === null) ? (1) : (0));
                 /* IL_10A: br.s IL_10D*/
                 __pos_0__ = 0x10D;
                 continue;
