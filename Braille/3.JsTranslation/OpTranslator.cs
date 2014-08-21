@@ -32,8 +32,10 @@ namespace Braille.JsTranslation
 
         public IEnumerable<JSStatement> Process(OpExpression node)
         {
-
-            yield return GetILAsComment(node);
+            if (context.Settings.OutputILComments)
+            {
+                yield return GetILAsComment(node);
+            }
 
             var opc = node.Instruction.OpCode.Name;
 
@@ -42,7 +44,7 @@ namespace Braille.JsTranslation
                 yield return JSFactory.Statement(
                     new JSLineComment
                     {
-                        Text = "ignoring prefixes " + string.Join(",", node.Prefixes.Select(o => o.OpCode.Name))
+                        Text = "warning: ignoring prefixes " + string.Join(",", node.Prefixes.Select(o => o.OpCode.Name))
                     });
             }
 

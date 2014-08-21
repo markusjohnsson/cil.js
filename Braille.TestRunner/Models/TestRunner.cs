@@ -188,11 +188,17 @@ namespace Braille.TestRunner.Models
         {
             try
             {
-                var compiler = new Compiler();
+                var settings = new CompileSettings();
+
                 foreach (var r in refs)
-                    compiler.AddAssembly(r);
-                compiler.AddAssembly(outputName);
-                compiler.OutputFileName = outputName + ".js";
+                    settings.AddAssembly(r);
+                settings.AddAssembly(outputName);
+                settings.OutputFileName = outputName + ".js";
+
+                settings.OutputILComments = true;
+
+                var compiler = new Compiler(settings); 
+                
                 var result = compiler.Compile();
                 return result.EntryPointAssembly;
             }

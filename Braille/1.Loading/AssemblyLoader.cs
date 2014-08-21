@@ -8,22 +8,22 @@ namespace Braille.Loading
 {
     class AssemblyLoader
     {
-        private List<string> paths = new List<string>();
-
-        public void AddAssembly(string path)
+        private CompileSettings settings;
+        public AssemblyLoader(CompileSettings settings)
         {
-            paths.Add(path);
+            this.settings = settings;
         }
 
         public Context Load()
         {
             var universe = new Universe();
-            
-            var asms = paths
+
+            var asms = settings
+                .assemblies
                 .Select((p, i) => Process(universe, p, i))
                 .ToList();
 
-            return new Context(universe, asms);
+            return new Context(universe, asms, settings);
         }
 
         private CilAssembly Process(Universe universe, string assembly, int index)

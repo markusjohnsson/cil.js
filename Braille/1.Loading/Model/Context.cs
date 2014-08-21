@@ -14,6 +14,8 @@ namespace Braille.Loading.Model
 
         public SystemTypes SystemTypes { get; private set; }
 
+        public CompileSettings Settings { get; private set; }
+
         struct MethodId
         {
             public int assembly; public int metadataToken;
@@ -25,11 +27,12 @@ namespace Braille.Loading.Model
         }
         private Dictionary<MethodId, CilMethod> methodLookup;
         
-        public Context(Universe universe, List<CilAssembly> asms)
+        public Context(Universe universe, List<CilAssembly> asms, CompileSettings settings)
         {
             ReflectionUniverse = universe;
             Assemblies = asms;
             SystemTypes = new SystemTypes(universe);
+            Settings = settings;
         }
 
         public CilMethod LookupMethod(MethodBase mb)
@@ -55,5 +58,6 @@ namespace Braille.Loading.Model
         {
             ReflectionUniverse.Dispose();
         }
+
     }
 }

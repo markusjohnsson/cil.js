@@ -17,9 +17,9 @@ namespace Braille
         public string EntryPointAssembly { get; set; }
     }
 
-    public class Compiler
+    public class CompileSettings
     {
-        private List<string> assemblies = new List<string>();
+        internal List<string> assemblies = new List<string>();
 
         public void AddAssembly(string assemblyPath)
         {
@@ -32,18 +32,31 @@ namespace Braille
             set;
         }
 
+        public bool OutputILComments
+        {
+            get;
+            set;
+        }
+    }
+
+    public class Compiler
+    {
+        private CompileSettings settings;
+        
+        public Compiler(CompileSettings settings)
+        {
+            this.settings = settings;
+        }
+        
         public CompileResult Compile()
         {
-            var loader = new AssemblyLoader();
-
-            foreach (var asm in assemblies)
-                loader.AddAssembly(asm);
+            var loader = new AssemblyLoader(settings);
 
             using (var ctx = loader.Load())
             {
                 var asms = ctx.Assemblies;
 
-                File.Delete(OutputFileName);
+                File.Delete(settings.OutputFileName);
 
                 var staticAnalyzer = new StaticAnalyzer();
                 staticAnalyzer.Analyze(ctx);
@@ -53,14 +66,14 @@ namespace Braille
                 foreach (var asm in asms)
                 {
                     var asmExpression = translator.Translate(asms, asm);
-                    File.AppendAllText(OutputFileName,
+                    File.AppendAllText(settings.OutputFileName,
                         "var " + asm.Identifier + "; (" +
                             asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));" + Environment.NewLine);
                 }
 
                 return new CompileResult
                 {
-                    OutputFileName = OutputFileName,
+                    OutputFileName = settings.OutputFileName,
                     EntryPointAssembly = ctx.Assemblies.Where(a => a.EntryPoint != null).Select(a => a.Identifier).FirstOrDefault()
                 };
             }
