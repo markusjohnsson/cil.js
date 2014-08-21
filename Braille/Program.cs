@@ -22,6 +22,10 @@ namespace Braille
                     {
                         settings.OutputILComments = true;
                     }
+                    else if (args[i] == "--output-html-runner")
+                    {
+                        settings.OutputHtmlRunner = true;
+                    }
                     else
                     {
                         Console.WriteLine("Unknown option '" + args[i] + "'");

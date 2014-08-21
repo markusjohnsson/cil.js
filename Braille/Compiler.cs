@@ -37,6 +37,12 @@ namespace Braille
             get;
             set;
         }
+
+        public bool OutputHtmlRunner
+        {
+            get;
+            set;
+        }
     }
 
     public class Compiler
@@ -47,7 +53,7 @@ namespace Braille
         {
             this.settings = settings;
         }
-        
+
         public CompileResult Compile()
         {
             var loader = new AssemblyLoader(settings);
@@ -71,10 +77,43 @@ namespace Braille
                             asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));" + Environment.NewLine);
                 }
 
+                var entrypointAssembly = ctx
+                    .Assemblies
+                    .Where(a => a.EntryPoint != null)
+                    .FirstOrDefault();
+
+                if (settings.OutputHtmlRunner)
+                {
+                    if (entrypointAssembly == null)
+                    {
+                        Console.WriteLine("No entry point found for HTML runner");
+                    }
+                    else
+                    {
+                        File.Delete(settings.OutputFileName + ".html");
+
+                        File.AppendAllText(
+                            settings.OutputFileName + ".html",
+                            @"
+<html>
+    <head>
+        <title>" + entrypointAssembly.Name + @"</title>
+        <script src=""" + settings.OutputFileName + @"""></script>
+        <script>
+            " + entrypointAssembly.Identifier + @".entryPoint();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
+".Trim());
+                    }
+                }
+
                 return new CompileResult
                 {
                     OutputFileName = settings.OutputFileName,
-                    EntryPointAssembly = ctx.Assemblies.Where(a => a.EntryPoint != null).Select(a => a.Identifier).FirstOrDefault()
+                    EntryPointAssembly = entrypointAssembly == null ? null : entrypointAssembly.Identifier
                 };
             }
         }
