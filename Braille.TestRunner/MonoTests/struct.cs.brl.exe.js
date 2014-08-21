@@ -201,7 +201,6 @@ var asm0; (function (asm)
     };;
     asm.x6000007 = function ToJavaScriptString(arg0)
     {
-        var st_05;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -221,10 +220,9 @@ var asm0; (function (asm)
                 /* IL_08: stloc.1 */
                 loc1 = ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
-                st_05 = loc1;
                 /* IL_0A: brtrue.s IL_19*/
                 
-                if (st_05){
+                if (loc1){
                     __pos_0__ = 0x19;
                     continue;
                 }
@@ -364,8 +362,6 @@ var asm0; (function (asm)
     };;
     asm.x6000013 = function ToString(arg0)
     {
-        var st_00;
-        var st_01;
         var st_02;
         var __pos_0__;
         var loc0;
@@ -378,12 +374,10 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldind.i1 */
-                st_01 = (st_00.r)();
                 /* IL_03: brtrue.s IL_0C*/
                 
-                if (st_01){
+                if ((arg0.r)()){
                     __pos_0__ = 0xC;
                     continue;
                 }
@@ -556,12 +550,6 @@ var asm0; (function (asm)
     asm.x600002b_ = function Combine(arg0,arg1)
     {
         var t0;
-        var st_05;
-        var st_0B;
-        var st_13;
-        var st_1A;
-        var st_1B;
-        var st_1C;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -582,10 +570,9 @@ var asm0; (function (asm)
                 /* IL_08: stloc.1 */
                 loc1 = ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
-                st_05 = loc1;
                 /* IL_0A: brtrue.s IL_20*/
                 
-                if (st_05){
+                if (loc1){
                     __pos_0__ = 0x20;
                     continue;
                 }
@@ -599,10 +586,9 @@ var asm0; (function (asm)
                 /* IL_14: stloc.1 */
                 loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_15: ldloc.1 */
-                st_0B = loc1;
                 /* IL_16: brtrue.s IL_1C*/
                 
-                if (st_0B){
+                if (loc1){
                     __pos_0__ = 0x1C;
                     continue;
                 }
@@ -628,10 +614,9 @@ var asm0; (function (asm)
                 /* IL_27: stloc.1 */
                 loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_28: ldloc.1 */
-                st_13 = loc1;
                 /* IL_29: brtrue.s IL_2F*/
                 
-                if (st_13){
+                if (loc1){
                     __pos_0__ = 0x2F;
                     continue;
                 }
@@ -650,19 +635,16 @@ var asm0; (function (asm)
                 /* IL_3D: stloc.1 */
                 loc1 = (((asm0.x600000a)(arg0) === (asm0.x600000a)(arg1)) ? (1) : (0));
                 /* IL_3E: ldloc.1 */
-                st_1A = loc1;
                 /* IL_3F: brtrue.s IL_4C*/
                 
-                if (st_1A){
+                if (loc1){
                     __pos_0__ = 0x4C;
                     continue;
                 }
                 /* IL_41: ldstr Incompatible delegate types*/
-                st_1B = new_string("Incompatible delegate types");
                 /* IL_46: newobj Void .ctor(System.String)*/
-                st_1C = newobj(t0,asm0.x600004f,[ null,st_1B ]);
                 /* IL_4B: throw */
-                throw st_1C;
+                throw newobj(t0,asm0.x600004f,[ null,new_string("Incompatible delegate types") ]);
                 case 0x4C:
                 /* IL_4C: ldarg.0 */
                 /* IL_4D: ldarg.1 */
@@ -689,10 +671,6 @@ var asm0; (function (asm)
     asm.x600002c_ = function Remove(arg0,arg1)
     {
         var t0;
-        var st_05;
-        var st_0C;
-        var st_0D;
-        var st_0E;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -713,10 +691,9 @@ var asm0; (function (asm)
                 /* IL_08: stloc.1 */
                 loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
-                st_05 = loc1;
                 /* IL_0A: brtrue.s IL_10*/
                 
-                if (st_05){
+                if (loc1){
                     __pos_0__ = 0x10;
                     continue;
                 }
@@ -735,19 +712,16 @@ var asm0; (function (asm)
                 /* IL_1E: stloc.1 */
                 loc1 = (((asm0.x600000a)(arg0) === (asm0.x600000a)(arg1)) ? (1) : (0));
                 /* IL_1F: ldloc.1 */
-                st_0C = loc1;
                 /* IL_20: brtrue.s IL_2D*/
                 
-                if (st_0C){
+                if (loc1){
                     __pos_0__ = 0x2D;
                     continue;
                 }
                 /* IL_22: ldstr Incompatible delegate types*/
-                st_0D = new_string("Incompatible delegate types");
                 /* IL_27: newobj Void .ctor(System.String)*/
-                st_0E = newobj(t0,asm0.x600004f,[ null,st_0D ]);
                 /* IL_2C: throw */
-                throw st_0E;
+                throw newobj(t0,asm0.x600004f,[ null,new_string("Incompatible delegate types") ]);
                 case 0x2D:
                 /* IL_2D: ldarg.0 */
                 /* IL_2E: ldarg.1 */
@@ -774,13 +748,11 @@ var asm0; (function (asm)
     asm.x600002d_ = function RemoveImpl(arg0,arg1)
     {
         var t0;
-        var st_00;
         t0 = ((asm0)["System.NotImplementedException"])();
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
-        st_00 = newobj(t0,asm0.x6000053,[ null ]);
         /* IL_06: throw */
-        throw st_00;
+        throw newobj(t0,asm0.x6000053,[ null ]);
     };
     asm.x600002e_init = function ()
     {
@@ -795,13 +767,11 @@ var asm0; (function (asm)
     asm.x600002e_ = function CombineImpl(arg0,arg1)
     {
         var t0;
-        var st_00;
         t0 = ((asm0)["System.NotImplementedException"])();
         /* IL_00: nop */
         /* IL_01: newobj Void .ctor()*/
-        st_00 = newobj(t0,asm0.x6000053,[ null ]);
         /* IL_06: throw */
-        throw st_00;
+        throw newobj(t0,asm0.x6000053,[ null ]);
     };
     asm.x600002f_init = function ()
     {
@@ -842,22 +812,10 @@ var asm0; (function (asm)
     asm.x6000030_ = function op_Equality(arg0,arg1)
     {
         var t0;
-        var st_09;
-        var st_12;
-        var st_19;
-        var st_20;
-        var st_22;
-        var st_23;
         var st_24;
         var st_25;
         var st_26;
         var st_27;
-        var st_28;
-        var st_32;
-        var st_40;
-        var st_4B;
-        var st_4D;
-        var st_4E;
         var st_4F;
         var st_50;
         var st_51;
@@ -895,10 +853,9 @@ var asm0; (function (asm)
                 /* IL_16: stloc.s 6*/
                 loc6 = ((((loc0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_18: ldloc.s 6*/
-                st_09 = loc6;
                 /* IL_1A: brtrue.s IL_27*/
                 
-                if (st_09){
+                if (loc6){
                     __pos_0__ = 0x27;
                     continue;
                 }
@@ -919,10 +876,9 @@ var asm0; (function (asm)
                 /* IL_2E: stloc.s 6*/
                 loc6 = ((((loc1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_30: ldloc.s 6*/
-                st_12 = loc6;
                 /* IL_32: brtrue.s IL_3C*/
                 
-                if (st_12){
+                if (loc6){
                     __pos_0__ = 0x3C;
                     continue;
                 }
@@ -941,10 +897,9 @@ var asm0; (function (asm)
                 /* IL_4D: stloc.s 6*/
                 loc6 = (asm0.x6000008)(loc0._methodPtr,loc1._methodPtr);
                 /* IL_4F: ldloc.s 6*/
-                st_19 = loc6;
                 /* IL_51: brtrue.s IL_5B*/
                 
-                if (st_19){
+                if (loc6){
                     __pos_0__ = 0x5B;
                     continue;
                 }
@@ -963,10 +918,9 @@ var asm0; (function (asm)
                 /* IL_6C: stloc.s 6*/
                 loc6 = (asm0.x6000008)(loc0._target,loc1._target);
                 /* IL_6E: ldloc.s 6*/
-                st_20 = loc6;
                 /* IL_70: brtrue.s IL_7A*/
                 
-                if (st_20){
+                if (loc6){
                     __pos_0__ = 0x7A;
                     continue;
                 }
@@ -978,12 +932,10 @@ var asm0; (function (asm)
                 continue;
                 case 0x7A:
                 /* IL_7A: ldloc.0 */
-                st_22 = loc0;
                 /* IL_7B: ldfld Delegate[] _invocationList*/
-                st_23 = st_22._invocationList;
                 /* IL_80: brfalse.s IL_8D*/
                 
-                if ((!(st_23))){
+                if ((!(loc0._invocationList))){
                     __pos_0__ = 0x8D;
                     continue;
                 }
@@ -1007,10 +959,9 @@ var asm0; (function (asm)
                 /* IL_8F: stloc.s 6*/
                 loc6 = st_27;
                 /* IL_91: ldloc.s 6*/
-                st_28 = loc6;
                 /* IL_93: brtrue.s IL_F9*/
                 
-                if (st_28){
+                if (loc6){
                     __pos_0__ = 0xF9;
                     continue;
                 }
@@ -1028,10 +979,9 @@ var asm0; (function (asm)
                 /* IL_A8: stloc.s 6*/
                 loc6 = (((loc0._invocationList.jsarr.length | 0) === (loc1._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_AA: ldloc.s 6*/
-                st_32 = loc6;
                 /* IL_AC: brtrue.s IL_B3*/
                 
-                if (st_32){
+                if (loc6){
                     __pos_0__ = 0xB3;
                     continue;
                 }
@@ -1069,10 +1019,9 @@ var asm0; (function (asm)
                 /* IL_D3: stloc.s 6*/
                 loc6 = (asm0.x6000030)(loc3,loc4);
                 /* IL_D5: ldloc.s 6*/
-                st_40 = loc6;
                 /* IL_D7: brtrue.s IL_DE*/
                 
-                if (st_40){
+                if (loc6){
                     __pos_0__ = 0xDE;
                     continue;
                 }
@@ -1100,10 +1049,9 @@ var asm0; (function (asm)
                 /* IL_EE: stloc.s 6*/
                 loc6 = ((loc2 < (loc0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_F0: ldloc.s 6*/
-                st_4B = loc6;
                 /* IL_F2: brtrue.s IL_B7*/
                 
-                if (st_4B){
+                if (loc6){
                     __pos_0__ = 0xB7;
                     continue;
                 }
@@ -1115,12 +1063,10 @@ var asm0; (function (asm)
                 continue;
                 case 0xF9:
                 /* IL_F9: ldloc.0 */
-                st_4D = loc0;
                 /* IL_FA: ldfld Delegate[] _invocationList*/
-                st_4E = st_4D._invocationList;
                 /* IL_FF: brtrue.s IL_10C*/
                 
-                if (st_4E){
+                if (loc0._invocationList){
                     __pos_0__ = 0x10C;
                     continue;
                 }
@@ -1223,8 +1169,6 @@ var asm0; (function (asm)
     asm.x6000035_ = function CombineImpl(arg0,arg1)
     {
         var t0;
-        var st_04;
-        var st_1C;
         var __pos_0__;
         var loc3;
         var loc0;
@@ -1246,10 +1190,9 @@ var asm0; (function (asm)
                 /* IL_0A: stloc.3 */
                 loc3 = ((arg0._invocationList === null) ? (1) : (0));
                 /* IL_0B: ldloc.3 */
-                st_04 = loc3;
                 /* IL_0C: brtrue.s IL_4C*/
                 
-                if (st_04){
+                if (loc3){
                     __pos_0__ = 0x4C;
                     continue;
                 }
@@ -1294,10 +1237,9 @@ var asm0; (function (asm)
                 /* IL_3D: stloc.3 */
                 loc3 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_3E: ldloc.3 */
-                st_1C = loc3;
                 /* IL_3F: brtrue.s IL_23*/
                 
-                if (st_1C){
+                if (loc3){
                     __pos_0__ = 0x23;
                     continue;
                 }
@@ -1358,15 +1300,6 @@ var asm0; (function (asm)
     asm.x6000036_ = function RemoveImpl(arg0,arg1)
     {
         var t0;
-        var st_06;
-        var st_0C;
-        var st_19;
-        var st_26;
-        var st_2C;
-        var st_33;
-        var st_3D;
-        var st_4B;
-        var st_58;
         var st_59;
         var st_5A;
         var st_5B;
@@ -1377,7 +1310,6 @@ var asm0; (function (asm)
         var st_60;
         var st_61;
         var st_62;
-        var st_6C;
         var __pos_0__;
         var loc5;
         var loc4;
@@ -1403,10 +1335,9 @@ var asm0; (function (asm)
                 /* IL_0D: stloc.s 5*/
                 loc5 = ((((arg0._invocationList === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_0F: ldloc.s 5*/
-                st_06 = loc5;
                 /* IL_11: brtrue.s IL_34*/
                 
-                if (st_06){
+                if (loc5){
                     __pos_0__ = 0x34;
                     continue;
                 }
@@ -1420,10 +1351,9 @@ var asm0; (function (asm)
                 /* IL_1E: stloc.s 5*/
                 loc5 = (((asm0.x6000030)(arg1,arg0) === (0|0)) ? (1) : (0));
                 /* IL_20: ldloc.s 5*/
-                st_0C = loc5;
                 /* IL_22: brtrue.s IL_2C*/
                 
-                if (st_0C){
+                if (loc5){
                     __pos_0__ = 0x2C;
                     continue;
                 }
@@ -1464,10 +1394,9 @@ var asm0; (function (asm)
                 /* IL_4C: stloc.s 5*/
                 loc5 = (((asm0.x6000031)((arg0._invocationList.jsarr)[loc1],arg1) === (0|0)) ? (1) : (0));
                 /* IL_4E: ldloc.s 5*/
-                st_19 = loc5;
                 /* IL_50: brtrue.s IL_56*/
                 
-                if (st_19){
+                if (loc5){
                     __pos_0__ = 0x56;
                     continue;
                 }
@@ -1492,10 +1421,9 @@ var asm0; (function (asm)
                 /* IL_65: stloc.s 5*/
                 loc5 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_67: ldloc.s 5*/
-                st_26 = loc5;
                 /* IL_69: brtrue.s IL_3B*/
                 
-                if (st_26){
+                if (loc5){
                     __pos_0__ = 0x3B;
                     continue;
                 }
@@ -1507,10 +1435,9 @@ var asm0; (function (asm)
                 /* IL_72: stloc.s 5*/
                 loc5 = ((((loc0 === (0|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_74: ldloc.s 5*/
-                st_2C = loc5;
                 /* IL_76: brtrue.s IL_80*/
                 
-                if (st_2C){
+                if (loc5){
                     __pos_0__ = 0x80;
                     continue;
                 }
@@ -1529,10 +1456,9 @@ var asm0; (function (asm)
                 /* IL_87: stloc.s 5*/
                 loc5 = ((((loc0 === (1|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_89: ldloc.s 5*/
-                st_33 = loc5;
                 /* IL_8B: brtrue.s IL_C9*/
                 
-                if (st_33){
+                if (loc5){
                     __pos_0__ = 0xC9;
                     continue;
                 }
@@ -1554,10 +1480,9 @@ var asm0; (function (asm)
                 /* IL_A2: stloc.s 5*/
                 loc5 = (((asm0.x6000031)((arg0._invocationList.jsarr)[loc1],arg1) === (0|0)) ? (1) : (0));
                 /* IL_A4: ldloc.s 5*/
-                st_3D = loc5;
                 /* IL_A6: brtrue.s IL_B4*/
                 
-                if (st_3D){
+                if (loc5){
                     __pos_0__ = 0xB4;
                     continue;
                 }
@@ -1586,10 +1511,9 @@ var asm0; (function (asm)
                 /* IL_C3: stloc.s 5*/
                 loc5 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_C5: ldloc.s 5*/
-                st_4B = loc5;
                 /* IL_C7: brtrue.s IL_91*/
                 
-                if (st_4B){
+                if (loc5){
                     __pos_0__ = 0x91;
                     continue;
                 }
@@ -1619,10 +1543,9 @@ var asm0; (function (asm)
                 /* IL_E7: stloc.s 5*/
                 loc5 = (((asm0.x6000031)((arg0._invocationList.jsarr)[loc1],arg1) === (0|0)) ? (1) : (0));
                 /* IL_E9: ldloc.s 5*/
-                st_58 = loc5;
                 /* IL_EB: brtrue.s IL_FC*/
                 
-                if (st_58){
+                if (loc5){
                     __pos_0__ = 0xFC;
                     continue;
                 }
@@ -1664,10 +1587,9 @@ var asm0; (function (asm)
                 /* IL_10B: stloc.s 5*/
                 loc5 = ((loc1 < (arg0._invocationList.jsarr.length | 0)) ? (1) : (0));
                 /* IL_10D: ldloc.s 5*/
-                st_6C = loc5;
                 /* IL_10F: brtrue.s IL_D6*/
                 
-                if (st_6C){
+                if (loc5){
                     __pos_0__ = 0xD6;
                     continue;
                 }
@@ -2048,8 +1970,6 @@ var asm0; (function (asm)
     asm.x600005d_ = function ToString(arg0)
     {
         var t0;
-        var st_0B;
-        var st_20;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -2086,10 +2006,9 @@ var asm0; (function (asm)
                 /* IL_16: stloc.s 5*/
                 loc5 = (((asm0.Int64_LessThan)(loc0,conv_i8((0|0))) === (0|0)) ? (1) : (0));
                 /* IL_18: ldloc.s 5*/
-                st_0B = loc5;
                 /* IL_1A: brtrue.s IL_37*/
                 
-                if (st_0B){
+                if (loc5){
                     __pos_0__ = 0x37;
                     continue;
                 }
@@ -2142,10 +2061,9 @@ var asm0; (function (asm)
                 /* IL_53: stloc.s 5*/
                 loc5 = (asm0.Int64_GreaterThan)(loc0,conv_i8((0|0)));
                 /* IL_55: ldloc.s 5*/
-                st_20 = loc5;
                 /* IL_57: brtrue.s IL_37*/
                 
-                if (st_20){
+                if (loc5){
                     __pos_0__ = 0x37;
                     continue;
                 }
@@ -2726,9 +2644,6 @@ var asm0; (function (asm)
     asm.x600009b_ = function get_Value(arg0)
     {
         var t0;
-        var st_02;
-        var st_03;
-        var st_04;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -2746,19 +2661,16 @@ var asm0; (function (asm)
                 /* IL_07: stloc.1 */
                 loc1 = (arg0.r)().has_value;
                 /* IL_08: ldloc.1 */
-                st_02 = loc1;
                 /* IL_09: brtrue.s IL_16*/
                 
-                if (st_02){
+                if (loc1){
                     __pos_0__ = 0x16;
                     continue;
                 }
                 /* IL_0B: ldstr Nullable object must have a value.*/
-                st_03 = new_string("Nullable object must have a value.");
                 /* IL_10: newobj Void .ctor(System.String)*/
-                st_04 = newobj(t0,asm0.x600005c,[ null,st_03 ]);
                 /* IL_15: throw */
-                throw st_04;
+                throw newobj(t0,asm0.x600005c,[ null,new_string("Nullable object must have a value.") ]);
                 case 0x16:
                 /* IL_16: ldarg.0 */
                 /* IL_17: ldfld T value*/
@@ -2784,8 +2696,6 @@ var asm0; (function (asm)
     {
         var t0;
         var t1;
-        var st_05;
-        var st_0E;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -2807,10 +2717,9 @@ var asm0; (function (asm)
                 /* IL_08: stloc.1 */
                 loc1 = ((((arg1 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_09: ldloc.1 */
-                st_05 = loc1;
                 /* IL_0A: brtrue.s IL_18*/
                 
-                if (st_05){
+                if (loc1){
                     __pos_0__ = 0x18;
                     continue;
                 }
@@ -2831,10 +2740,9 @@ var asm0; (function (asm)
                 /* IL_21: stloc.1 */
                 loc1 = (((t1.IsInst)(arg1) > null) ? (1) : (0));
                 /* IL_22: ldloc.1 */
-                st_0E = loc1;
                 /* IL_23: brtrue.s IL_29*/
                 
-                if (st_0E){
+                if (loc1){
                     __pos_0__ = 0x29;
                     continue;
                 }
@@ -2861,8 +2769,6 @@ var asm0; (function (asm)
     asm.x600009d = function Equals(arg0,arg1)
     {
         var t0;
-        var st_05;
-        var st_09;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -2892,10 +2798,9 @@ var asm0; (function (asm)
                     }
                 }.r)().has_value === (arg0.r)().has_value) ? (1) : (0));
                 /* IL_11: ldloc.1 */
-                st_05 = loc1;
                 /* IL_12: brtrue.s IL_18*/
                 
-                if (st_05){
+                if (loc1){
                     __pos_0__ = 0x18;
                     continue;
                 }
@@ -2911,10 +2816,9 @@ var asm0; (function (asm)
                 /* IL_1E: stloc.1 */
                 loc1 = (arg0.r)().has_value;
                 /* IL_1F: ldloc.1 */
-                st_09 = loc1;
                 /* IL_20: brtrue.s IL_26*/
                 
-                if (st_09){
+                if (loc1){
                     __pos_0__ = 0x26;
                     continue;
                 }
@@ -2960,7 +2864,6 @@ var asm0; (function (asm)
     };;
     asm.x600009e = function GetHashCode(arg0)
     {
-        var st_02;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -2977,10 +2880,9 @@ var asm0; (function (asm)
                 /* IL_07: stloc.1 */
                 loc1 = (arg0.r)().has_value;
                 /* IL_08: ldloc.1 */
-                st_02 = loc1;
                 /* IL_09: brtrue.s IL_0F*/
                 
-                if (st_02){
+                if (loc1){
                     __pos_0__ = 0xF;
                     continue;
                 }
@@ -3035,8 +2937,6 @@ var asm0; (function (asm)
     };;
     asm.x60000a0 = function GetValueOrDefault(arg0,arg1)
     {
-        var st_00;
-        var st_01;
         var st_02;
         var st_03;
         var __pos_0__;
@@ -3050,12 +2950,10 @@ var asm0; (function (asm)
                 /* IL_00: nop */
                 
                 /* IL_01: ldarg.0 */
-                st_00 = arg0;
                 /* IL_02: ldfld Boolean has_value*/
-                st_01 = (st_00.r)().has_value;
                 /* IL_07: brtrue.s IL_0C*/
                 
-                if (st_01){
+                if ((arg0.r)().has_value){
                     __pos_0__ = 0xC;
                     continue;
                 }
@@ -3093,7 +2991,6 @@ var asm0; (function (asm)
     asm.x60000a1_ = function ToString(arg0)
     {
         var t0;
-        var st_04;
         var __pos_0__;
         var loc1;
         var loc0;
@@ -3113,10 +3010,9 @@ var asm0; (function (asm)
                 /* IL_0A: stloc.1 */
                 loc1 = (((arg0.r)().has_value === (0|0)) ? (1) : (0));
                 /* IL_0B: ldloc.1 */
-                st_04 = loc1;
                 /* IL_0C: brtrue.s IL_22*/
                 
-                if (st_04){
+                if (loc1){
                     __pos_0__ = 0x22;
                     continue;
                 }
@@ -3221,7 +3117,6 @@ var asm0; (function (asm)
         return function Box(arg0)
         {
             var t0;
-            var st_02;
             var __pos_0__;
             var loc1;
             var loc0;
@@ -3248,10 +3143,9 @@ var asm0; (function (asm)
                         }
                     }.r)().has_value;
                     /* IL_09: ldloc.1 */
-                    st_02 = loc1;
                     /* IL_0A: brtrue.s IL_10*/
                     
-                    if (st_02){
+                    if (loc1){
                         __pos_0__ = 0x10;
                         continue;
                     }
@@ -3307,7 +3201,6 @@ var asm0; (function (asm)
             var t0;
             var t1;
             var loc2;
-            var st_05;
             var __pos_0__;
             var loc1;
             var loc0;
@@ -3330,10 +3223,9 @@ var asm0; (function (asm)
                     /* IL_08: stloc.1 */
                     loc1 = ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
                     /* IL_09: ldloc.1 */
-                    st_05 = loc1;
                     /* IL_0A: brtrue.s IL_18*/
                     
-                    if (st_05){
+                    if (loc1){
                         __pos_0__ = 0x18;
                         continue;
                     }
@@ -3513,16 +3405,12 @@ var asm0; (function (asm)
     asm.x60000af_ = function Concat(arg0)
     {
         var t0;
-        var st_00;
-        var st_01;
         t0 = ((asm0)["System.Exception"])();
         /* IL_00: nop */
         /* IL_01: ldstr Not implemented*/
-        st_00 = new_string("Not implemented");
         /* IL_06: newobj Void .ctor(System.String)*/
-        st_01 = newobj(t0,asm0.x600004f,[ null,st_00 ]);
         /* IL_0B: throw */
-        throw st_01;
+        throw newobj(t0,asm0.x600004f,[ null,new_string("Not implemented") ]);
     };
     asm.x60000b0 = function get_Length(arg0)
     {
@@ -3758,7 +3646,6 @@ var asm0; (function (asm)
     };
     asm.x60000c0 = function ToString(arg0)
     {
-        var st_13;
         var __pos_0__;
         var loc0;
         var loc1;
@@ -3813,10 +3700,9 @@ var asm0; (function (asm)
                 /* IL_2A: stloc.s 5*/
                 loc5 = (asm0.UInt64_GreaterThan)(loc0,conv_i8((0|0)));
                 /* IL_2C: ldloc.s 5*/
-                st_13 = loc5;
                 /* IL_2E: brtrue.s IL_0E*/
                 
-                if (st_13){
+                if (loc5){
                     __pos_0__ = 0xE;
                     continue;
                 }
@@ -7719,16 +7605,6 @@ var asm1; (function (asm)
     };;
     asm.x600000e = function struct_param(arg0)
     {
-        var st_00;
-        var st_01;
-        var st_02;
-        var st_03;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_07;
-        var st_08;
-        var st_09;
         var __pos_0__;
         __pos_0__ = 0x0;
         
@@ -7737,71 +7613,66 @@ var asm1; (function (asm)
             switch (__pos_0__){
                 case 0x0:
                 /* IL_00: ldarga.s 0*/
-                st_00 = {
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                };
                 /* IL_02: ldfld Int32 x*/
-                st_02 = (st_00.r)().x;
                 /* IL_07: ldarga.s 0*/
-                st_01 = {
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                };
                 /* IL_09: ldfld Int32 y*/
-                st_03 = (st_01.r)().y;
                 /* IL_0E: bne.un.s IL_29*/
                 
-                if (st_02 != st_03){
+                if (({
+                    'w': function ()
+                    {
+                        arg0 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return arg0;
+                    }
+                }.r)().x != ({
+                    'w': function ()
+                    {
+                        arg0 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return arg0;
+                    }
+                }.r)().y){
                     __pos_0__ = 0x29;
                     continue;
                 }
                 /* IL_10: ldarga.s 0*/
-                st_04 = {
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                };
                 /* IL_12: ldfld Int32 y*/
-                st_06 = (st_04.r)().y;
                 /* IL_17: ldarga.s 0*/
-                st_05 = {
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                };
                 /* IL_19: ldfld Int32 z*/
-                st_07 = (st_05.r)().z;
                 /* IL_1E: bne.un.s IL_29*/
                 
-                if (st_06 != st_07){
+                if (({
+                    'w': function ()
+                    {
+                        arg0 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return arg0;
+                    }
+                }.r)().y != ({
+                    'w': function ()
+                    {
+                        arg0 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return arg0;
+                    }
+                }.r)().z){
                     __pos_0__ = 0x29;
                     continue;
                 }
                 /* IL_20: ldarga.s 0*/
-                st_08 = {
+                /* IL_22: ldfld Int32 z*/
+                /* IL_27: brfalse.s IL_2B*/
+                
+                if ((!(({
                     'w': function ()
                     {
                         arg0 = (arguments)[0];
@@ -7810,12 +7681,7 @@ var asm1; (function (asm)
                     {
                         return arg0;
                     }
-                };
-                /* IL_22: ldfld Int32 z*/
-                st_09 = (st_08.r)().z;
-                /* IL_27: brfalse.s IL_2B*/
-                
-                if ((!(st_09))){
+                }.r)().z))){
                     __pos_0__ = 0x2B;
                     continue;
                 }
@@ -7889,52 +7755,6 @@ var asm1; (function (asm)
     asm.x600000f = function Main()
     {
         var loc0;
-        var st_04;
-        var st_05;
-        var st_06;
-        var st_08;
-        var st_09;
-        var st_0A;
-        var st_0C;
-        var st_0D;
-        var st_0E;
-        var st_10;
-        var st_11;
-        var st_12;
-        var st_14;
-        var st_15;
-        var st_16;
-        var st_18;
-        var st_19;
-        var st_1A;
-        var st_1E;
-        var st_1F;
-        var st_20;
-        var st_22;
-        var st_23;
-        var st_24;
-        var st_27;
-        var st_28;
-        var st_29;
-        var st_2A;
-        var st_2B;
-        var st_2C;
-        var st_2D;
-        var st_2E;
-        var st_2F;
-        var st_30;
-        var st_32;
-        var st_33;
-        var st_35;
-        var st_36;
-        var st_37;
-        var st_38;
-        var st_39;
-        var st_3A;
-        var st_3B;
-        var st_3C;
-        var st_3D;
-        var st_3E;
         var __pos_0__;
         var loc1;
         var loc2;
@@ -7963,7 +7783,11 @@ var asm1; (function (asm)
                 /* IL_0C: stloc.1 */
                 loc1 = loc0;
                 /* IL_0D: ldloca.s 1*/
-                st_04 = {
+                /* IL_0F: ldfld Int32 x*/
+                /* IL_14: ldc.i4.s 10*/
+                /* IL_16: beq.s IL_1A*/
+                
+                if (({
                     'w': function ()
                     {
                         loc1 = (arguments)[0];
@@ -7972,14 +7796,7 @@ var asm1; (function (asm)
                     {
                         return loc1;
                     }
-                };
-                /* IL_0F: ldfld Int32 x*/
-                st_05 = (st_04.r)().x;
-                /* IL_14: ldc.i4.s 10*/
-                st_06 = (10|0);
-                /* IL_16: beq.s IL_1A*/
-                
-                if (st_05 === st_06){
+                }.r)().x === (10|0)){
                     __pos_0__ = 0x1A;
                     continue;
                 }
@@ -7988,7 +7805,11 @@ var asm1; (function (asm)
                 return (1|0);
                 case 0x1A:
                 /* IL_1A: ldloca.s 1*/
-                st_08 = {
+                /* IL_1C: ldfld Int32 y*/
+                /* IL_21: ldc.i4.s 20*/
+                /* IL_23: beq.s IL_27*/
+                
+                if (({
                     'w': function ()
                     {
                         loc1 = (arguments)[0];
@@ -7997,14 +7818,7 @@ var asm1; (function (asm)
                     {
                         return loc1;
                     }
-                };
-                /* IL_1C: ldfld Int32 y*/
-                st_09 = (st_08.r)().y;
-                /* IL_21: ldc.i4.s 20*/
-                st_0A = (20|0);
-                /* IL_23: beq.s IL_27*/
-                
-                if (st_09 === st_0A){
+                }.r)().y === (20|0)){
                     __pos_0__ = 0x27;
                     continue;
                 }
@@ -8013,7 +7827,11 @@ var asm1; (function (asm)
                 return (2|0);
                 case 0x27:
                 /* IL_27: ldloca.s 1*/
-                st_0C = {
+                /* IL_29: ldfld Int32 z*/
+                /* IL_2E: ldc.i4.5 */
+                /* IL_2F: beq.s IL_33*/
+                
+                if (({
                     'w': function ()
                     {
                         loc1 = (arguments)[0];
@@ -8022,14 +7840,7 @@ var asm1; (function (asm)
                     {
                         return loc1;
                     }
-                };
-                /* IL_29: ldfld Int32 z*/
-                st_0D = (st_0C.r)().z;
-                /* IL_2E: ldc.i4.5 */
-                st_0E = (5|0);
-                /* IL_2F: beq.s IL_33*/
-                
-                if (st_0D === st_0E){
+                }.r)().z === (5|0)){
                     __pos_0__ = 0x33;
                     continue;
                 }
@@ -8038,7 +7849,11 @@ var asm1; (function (asm)
                 return (3|0);
                 case 0x33:
                 /* IL_33: ldloca.s 0*/
-                st_10 = {
+                /* IL_35: ldfld Int32 x*/
+                /* IL_3A: ldc.i4.s 10*/
+                /* IL_3C: beq.s IL_40*/
+                
+                if (({
                     'w': function ()
                     {
                         loc0 = (arguments)[0];
@@ -8047,14 +7862,7 @@ var asm1; (function (asm)
                     {
                         return loc0;
                     }
-                };
-                /* IL_35: ldfld Int32 x*/
-                st_11 = (st_10.r)().x;
-                /* IL_3A: ldc.i4.s 10*/
-                st_12 = (10|0);
-                /* IL_3C: beq.s IL_40*/
-                
-                if (st_11 === st_12){
+                }.r)().x === (10|0)){
                     __pos_0__ = 0x40;
                     continue;
                 }
@@ -8063,7 +7871,11 @@ var asm1; (function (asm)
                 return (4|0);
                 case 0x40:
                 /* IL_40: ldloca.s 0*/
-                st_14 = {
+                /* IL_42: ldfld Int32 y*/
+                /* IL_47: ldc.i4.s 20*/
+                /* IL_49: beq.s IL_4D*/
+                
+                if (({
                     'w': function ()
                     {
                         loc0 = (arguments)[0];
@@ -8072,14 +7884,7 @@ var asm1; (function (asm)
                     {
                         return loc0;
                     }
-                };
-                /* IL_42: ldfld Int32 y*/
-                st_15 = (st_14.r)().y;
-                /* IL_47: ldc.i4.s 20*/
-                st_16 = (20|0);
-                /* IL_49: beq.s IL_4D*/
-                
-                if (st_15 === st_16){
+                }.r)().y === (20|0)){
                     __pos_0__ = 0x4D;
                     continue;
                 }
@@ -8088,7 +7893,11 @@ var asm1; (function (asm)
                 return (5|0);
                 case 0x4D:
                 /* IL_4D: ldloca.s 0*/
-                st_18 = {
+                /* IL_4F: ldfld Int32 z*/
+                /* IL_54: ldc.i4.5 */
+                /* IL_55: beq.s IL_59*/
+                
+                if (({
                     'w': function ()
                     {
                         loc0 = (arguments)[0];
@@ -8097,14 +7906,7 @@ var asm1; (function (asm)
                     {
                         return loc0;
                     }
-                };
-                /* IL_4F: ldfld Int32 z*/
-                st_19 = (st_18.r)().z;
-                /* IL_54: ldc.i4.5 */
-                st_1A = (5|0);
-                /* IL_55: beq.s IL_59*/
-                
-                if (st_19 === st_1A){
+                }.r)().z === (5|0)){
                     __pos_0__ = 0x59;
                     continue;
                 }
@@ -8126,7 +7928,11 @@ var asm1; (function (asm)
                     }
                 }.r)().z = (7|0);
                 /* IL_61: ldloca.s 0*/
-                st_1E = {
+                /* IL_63: ldfld Int32 z*/
+                /* IL_68: ldc.i4.7 */
+                /* IL_69: beq.s IL_6D*/
+                
+                if (({
                     'w': function ()
                     {
                         loc0 = (arguments)[0];
@@ -8135,14 +7941,7 @@ var asm1; (function (asm)
                     {
                         return loc0;
                     }
-                };
-                /* IL_63: ldfld Int32 z*/
-                st_1F = (st_1E.r)().z;
-                /* IL_68: ldc.i4.7 */
-                st_20 = (7|0);
-                /* IL_69: beq.s IL_6D*/
-                
-                if (st_1F === st_20){
+                }.r)().z === (7|0)){
                     __pos_0__ = 0x6D;
                     continue;
                 }
@@ -8151,7 +7950,11 @@ var asm1; (function (asm)
                 return (7|0);
                 case 0x6D:
                 /* IL_6D: ldloca.s 1*/
-                st_22 = {
+                /* IL_6F: ldfld Int32 x*/
+                /* IL_74: ldc.i4.s 10*/
+                /* IL_76: beq.s IL_7A*/
+                
+                if (({
                     'w': function ()
                     {
                         loc1 = (arguments)[0];
@@ -8160,14 +7963,7 @@ var asm1; (function (asm)
                     {
                         return loc1;
                     }
-                };
-                /* IL_6F: ldfld Int32 x*/
-                st_23 = (st_22.r)().x;
-                /* IL_74: ldc.i4.s 10*/
-                st_24 = (10|0);
-                /* IL_76: beq.s IL_7A*/
-                
-                if (st_23 === st_24){
+                }.r)().x === (10|0)){
                     __pos_0__ = 0x7A;
                     continue;
                 }
@@ -8179,71 +7975,66 @@ var asm1; (function (asm)
                 /* IL_7F: stloc.2 */
                 loc2 = (asm1.x600000d)();
                 /* IL_80: ldloca.s 2*/
-                st_27 = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_82: ldfld Int32 x*/
-                st_29 = (st_27.r)().x;
                 /* IL_87: ldloca.s 2*/
-                st_28 = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_89: ldfld Int32 y*/
-                st_2A = (st_28.r)().y;
                 /* IL_8E: bne.un.s IL_A9*/
                 
-                if (st_29 != st_2A){
+                if (({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().x != ({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().y){
                     __pos_0__ = 0xA9;
                     continue;
                 }
                 /* IL_90: ldloca.s 2*/
-                st_2B = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_92: ldfld Int32 y*/
-                st_2D = (st_2B.r)().y;
                 /* IL_97: ldloca.s 2*/
-                st_2C = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_99: ldfld Int32 z*/
-                st_2E = (st_2C.r)().z;
                 /* IL_9E: bne.un.s IL_A9*/
                 
-                if (st_2D != st_2E){
+                if (({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().y != ({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().z){
                     __pos_0__ = 0xA9;
                     continue;
                 }
                 /* IL_A0: ldloca.s 2*/
-                st_2F = {
+                /* IL_A2: ldfld Int32 z*/
+                /* IL_A7: brfalse.s IL_AC*/
+                
+                if ((!(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -8252,12 +8043,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                };
-                /* IL_A2: ldfld Int32 z*/
-                st_30 = (st_2F.r)().z;
-                /* IL_A7: brfalse.s IL_AC*/
-                
-                if ((!(st_30))){
+                }.r)().z))){
                     __pos_0__ = 0xAC;
                     continue;
                 }
@@ -8267,12 +8053,10 @@ var asm1; (function (asm)
                 return (9|0);
                 case 0xAC:
                 /* IL_AC: ldloc.2 */
-                st_32 = loc2;
                 /* IL_AD: call Int32 struct_param(Point)*/
-                st_33 = (asm1.x600000e)(clone_value(st_32));
                 /* IL_B2: brfalse.s IL_B7*/
                 
-                if ((!(st_33))){
+                if ((!((asm1.x600000e)(clone_value(loc2))))){
                     __pos_0__ = 0xB7;
                     continue;
                 }
@@ -8281,71 +8065,66 @@ var asm1; (function (asm)
                 return (10|0);
                 case 0xB7:
                 /* IL_B7: ldloca.s 2*/
-                st_35 = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_B9: ldfld Int32 x*/
-                st_37 = (st_35.r)().x;
                 /* IL_BE: ldloca.s 2*/
-                st_36 = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_C0: ldfld Int32 y*/
-                st_38 = (st_36.r)().y;
                 /* IL_C5: bne.un.s IL_E0*/
                 
-                if (st_37 != st_38){
+                if (({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().x != ({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().y){
                     __pos_0__ = 0xE0;
                     continue;
                 }
                 /* IL_C7: ldloca.s 2*/
-                st_39 = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_C9: ldfld Int32 y*/
-                st_3B = (st_39.r)().y;
                 /* IL_CE: ldloca.s 2*/
-                st_3A = {
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                };
                 /* IL_D0: ldfld Int32 z*/
-                st_3C = (st_3A.r)().z;
                 /* IL_D5: bne.un.s IL_E0*/
                 
-                if (st_3B != st_3C){
+                if (({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().y != ({
+                    'w': function ()
+                    {
+                        loc2 = (arguments)[0];
+                    },
+                    'r': function ()
+                    {
+                        return loc2;
+                    }
+                }.r)().z){
                     __pos_0__ = 0xE0;
                     continue;
                 }
                 /* IL_D7: ldloca.s 2*/
-                st_3D = {
+                /* IL_D9: ldfld Int32 z*/
+                /* IL_DE: brfalse.s IL_E3*/
+                
+                if ((!(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -8354,12 +8133,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                };
-                /* IL_D9: ldfld Int32 z*/
-                st_3E = (st_3D.r)().z;
-                /* IL_DE: brfalse.s IL_E3*/
-                
-                if ((!(st_3E))){
+                }.r)().z))){
                     __pos_0__ = 0xE3;
                     continue;
                 }

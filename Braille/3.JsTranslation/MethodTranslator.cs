@@ -244,20 +244,6 @@ namespace Braille.JsTranslation
                 }
             }
 
-            //functionBlock.AddRange(
-            //    method
-            //        .OpTree
-            //        .SelectMany(op => op.StackBefore.Where(d => d.Variable != null).Select(d => d.Variable.Name))
-            //        .Distinct()
-            //        .Select(
-            //            n => new JSExpressionStatement
-            //            {
-            //                Expression = new JSVariableDelcaration
-            //                {
-            //                    Name = n
-            //                }
-            //            }));
-
             functionBlock.AddRange(
                 method
                     .Block
@@ -278,7 +264,13 @@ namespace Braille.JsTranslation
 
             var blockTranslator = new BlockTranslator(context, asm, type, method, thisScope);
 
-            functionBlock.AddRange(blockTranslator.Transform(method.Block).Where(s => !(s is JSExpressionStatement) || !(((JSExpressionStatement)s).Expression is JSBreakExpression)));
+            functionBlock.AddRange(
+                blockTranslator
+                    .Transform(method.Block)
+                    .Where(
+                        // TODO: This looks funny.. check this.
+                        s => !(s is JSExpressionStatement) || 
+                             !(((JSExpressionStatement)s).Expression is JSBreakExpression)));
 
             var ps = GetParameterCount(method);
 
