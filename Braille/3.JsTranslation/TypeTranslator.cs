@@ -223,6 +223,7 @@ namespace Braille.JsTranslation
                 .ToStatement();
 
             var staticProperties = GetStaticFieldInitializers(type)
+                .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }))

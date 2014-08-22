@@ -22,6 +22,9 @@ namespace System
         [IndexerName("Chars")]
         public char this[int i] { get { return GetChar(this, i); } }
 
+        [JsReplace("new_string({0})")]
+        internal extern static string FromJsString(object other);
+
         public static readonly string Empty = "";
 
         public static string Concat(string a, string b)

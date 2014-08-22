@@ -117,5 +117,10 @@ namespace Braille.JSAst
         {
             return new JSCallExpression { Function = function, Arguments = args.ToList() };
         }
+
+        public static JSExpression String(string p)
+        {
+            return new JSStringLiteral { Value = p };
+        }
     }
 }

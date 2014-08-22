@@ -10,11 +10,11 @@ namespace System
         [JsImport("function (a, b) { return Number(a === b); }")]
         private extern static bool ReferenceEqualsImpl(object a, object b);
 
-        [JsImport("function (o) { return o.constructor; }")]
-        private static extern Type GetTypeImpl(object p);
-
         [JsImport("function (o) { return o.hash || (o.hash = asm0.next_hash++); }")]
         private static extern int GetHashCode(object o);
+
+        [JsReplace("{0}")]
+        internal static extern T UnsafeCast<T>(object p);
 
         [JsPrototypeAccessible]
         [JsImport("function () { return asm0.ToJavaScriptString(this); }")]
@@ -30,13 +30,20 @@ namespace System
             return GetHashCode(this);
         }
 
+        // TODO: get rid of this method, better to have a conversion on String objects. This makes little to no sense.
         [JsAssemblyStatic]
         internal static object ToJavaScriptString(Object o)
         {
             if (o == null)
-                return "".jsstr;
+                return "".jsstr; 
             else
-                return o.ToString().jsstr;
+            {
+                var str = o.ToString();
+                if (str == null)
+                    return null;
+                else
+                    return str.jsstr;
+            }
         }
 
         public static bool ReferenceEquals(object a, object b)
@@ -51,7 +58,7 @@ namespace System
 
         public Type GetType()
         {
-            return GetTypeImpl(this);
+            return RuntimeType.GetType(this);
         }
     }
 }

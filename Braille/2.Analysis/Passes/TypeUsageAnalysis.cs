@@ -69,6 +69,11 @@ namespace Braille.Analysis
                         yield return mi.DeclaringType;
 
                     break;
+                case "ldtoken":
+                    var type = op.Instruction.Data as Type;
+                    if (type != null)
+                        yield return type;
+                    yield break;
                 case "ldsfld":
                 case "newobj":
                 case "stsfld":
