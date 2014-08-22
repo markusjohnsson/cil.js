@@ -33,6 +33,7 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="System.Reflection\MemberInfo.cs" />
     <Compile Include="System\AttributeUsageAttribute.cs" />
     <Compile Include="System\Boolean.cs" />
     <Compile Include="Braille.Runtime\ManagedPointer.cs" />
