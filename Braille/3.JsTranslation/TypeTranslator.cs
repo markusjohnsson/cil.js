@@ -223,6 +223,8 @@ namespace Braille.JsTranslation
                 .ToStatement();
 
             var staticProperties = GetStaticFieldInitializers(type)
+                //.EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type)))
+                //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
@@ -279,6 +281,59 @@ namespace Braille.JsTranslation
                         iface.Value)
                     .ToStatement();
             }
+        }
+
+        //private JSExpression GetMethods(CilType type)
+        //{
+        //    return JSFactory
+        //        .Array(
+        //            type
+        //                .Methods
+        //                .Select(
+        //                    m => JSFactory
+        //                        .Array(
+        //                            JSFactory.Literal(m.MetadataToken),
+        //                            JSFactory.Literal(m.ReflectionMethod.Name),
+        //                            GetTypeIdentifier(((MethodInfo)m.ReflectionMethod).ReturnType, m.ReflectionMethod, type.ReflectionType),
+        //                            JSFactory
+        //                                .Array(m
+        //                                    .ReflectionMethod
+        //                                    .GetParameters()
+        //                                    .Select(p => p.m))));
+        //}
+
+        private JSExpression GetAttributes(CilType type)
+        {
+            return JSFactory
+                .Array(
+                    type
+                        .ReflectionType
+                        .CustomAttributes
+                        .Select(
+                            attribute => JSFactory
+                                .Array(
+                                    GetTypeIdentifier(attribute.AttributeType),
+                                    GetMethodAccessor(attribute.Constructor),
+                                    JSFactory
+                                        .Array(
+                                            attribute
+                                                .ConstructorArguments
+                                                .Select(
+                                                    arg => JSFactory
+                                                        .Array(GetTypeIdentifier(arg.ArgumentType), JSFactory.Literal(arg.Value)))
+                                                .ToArray()),
+                                    new JSObjectLiteral
+                                    {
+                                        Properties = attribute
+                                            .NamedArguments
+                                            .ToDictionary(
+                                                n => n.MemberName,
+                                                n => JSFactory
+                                                    .Array(
+                                                        GetTypeIdentifier(n.TypedValue.ArgumentType),
+                                                        JSFactory.Literal(n.TypedValue.Value)))
+                                    }))
+                        .ToArray());
         }
 
         private JSExpression GetArrayType(CilType type)

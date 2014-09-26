@@ -100,7 +100,12 @@ namespace Braille.JSAst
 
         public static JSExpression Number(int p)
         {
-            return new JSNumberLiteral { Value = p };
+            return new JSNumberLiteral { Value = p, TypeHint = TypeHint.Integer };
+        }
+
+        public static JSExpression Number(double p)
+        {
+            return new JSNumberLiteral { Value = p, TypeHint = TypeHint.Float };
         }
 
         public static JSExpression Hex(int p)
@@ -121,6 +126,39 @@ namespace Braille.JSAst
         public static JSExpression String(string p)
         {
             return new JSStringLiteral { Value = p };
+        }
+
+        public static JSExpression Object(object o)
+        {
+            return new JSObjectLiteral 
+            {
+                Properties = o
+                    .GetType()
+                    .GetProperties()
+                    .Select(p => new { key = p.Name, val = p.GetValue(o, null) })
+                    .Where(p => p.val is JSExpression)
+                    .ToDictionary(k => k.key, v => (JSExpression)v.val)
+            };
+        }
+
+        public static JSExpression Literal(object p)
+        {
+            if (p is string)
+                return String((string)p);
+
+            if (p is int)
+                return Number((int)p);
+
+            if (p is double)
+                return Number((double)p);
+
+            if (p == null)
+                return new JSNullLiteral();
+
+            if (p is bool)
+                return new JSBoolLiteral { Value = (bool)p };
+
+            throw new NotSupportedException("literal is not supported");
         }
     }
 }

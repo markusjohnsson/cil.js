@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;FULL_AOT_RUNTIME BRAILLE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -33,7 +33,13 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="System.Reflection\Assembly.cs" />
+    <Compile Include="System.Reflection\ICustomAttributeProvider.cs" />
     <Compile Include="System.Reflection\MemberInfo.cs" />
+    <Compile Include="System.Runtime.CompilerServices\MethodCodeType.cs" />
+    <Compile Include="System.Runtime.CompilerServices\MethodImplAttribute.cs" />
+    <Compile Include="System.Runtime.CompilerServices\MethodImplOptions.cs" />
+    <Compile Include="System\ArgumentException.cs" />
     <Compile Include="System\AttributeUsageAttribute.cs" />
     <Compile Include="System\Boolean.cs" />
     <Compile Include="Braille.Runtime\ManagedPointer.cs" />
@@ -59,6 +65,7 @@
     <Compile Include="System\IntPtr.cs" />
     <Compile Include="System\ParamArrayAttribute.cs" />
     <Compile Include="System\RuntimeFieldHandle.cs" />
+    <Compile Include="System\RuntimeType.cs" />
     <Compile Include="System\RuntimeTypeHandle.cs" />
     <Compile Include="System\SByte.cs" />
     <Compile Include="System\Single.cs" />
