@@ -6022,6 +6022,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                $$Object.CustomAttributes = [  ];
                 $$Object.FullName = "System.Object";
                 $$Object.Interfaces = [  ];
                 $$Object.IsInst = function (t) { return t instanceof $$Object ? t : null; };
@@ -6079,6 +6080,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Assembly.CustomAttributes = [  ];
                 Assembly.FullName = "System.Reflection.Assembly";
                 Assembly.Interfaces = [  ];
                 Assembly.IsInst = function (t) { return t instanceof Assembly ? t : null; };
@@ -6133,6 +6135,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ICustomAttributeProvider.CustomAttributes = [ [ ((asm0)["System.ComVisibleAttribute"])(),asm0.x60000b7,[ [ ((asm0)["System.Boolean"])(),true ] ],{
+                    
+                } ] ];
                 ICustomAttributeProvider.FullName = "System.Reflection.ICustomAttributeProvider";
                 ICustomAttributeProvider.Interfaces = [  ];
                 ICustomAttributeProvider.IsInst = function (t) { return t.constructor.Interfaces.indexOf(ICustomAttributeProvider) != -1 ? t : null; };
@@ -6189,6 +6194,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                MemberInfo.CustomAttributes = [  ];
                 MemberInfo.FullName = "System.Reflection.MemberInfo";
                 MemberInfo.Interfaces = [ ((asm0)["System.Reflection.ICustomAttributeProvider"])() ];
                 MemberInfo.IsInst = function (t) { return t instanceof MemberInfo ? t : null; };
@@ -6269,6 +6275,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ValueType.CustomAttributes = [  ];
                 ValueType.FullName = "System.ValueType";
                 ValueType.Interfaces = [  ];
                 ValueType.IsInst = function (t) { return t instanceof ValueType ? t : null; };
@@ -6323,6 +6330,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Enum.CustomAttributes = [  ];
                 Enum.FullName = "System.Enum";
                 Enum.Interfaces = [  ];
                 Enum.IsInst = function (t) { return t instanceof Enum ? t : null; };
@@ -6383,6 +6391,9 @@ var asm0; (function (asm)
                 MethodCodeType.Native = new (((asm0)["System.Runtime.CompilerServices.MethodCodeType"])())();
                 MethodCodeType.OPTIL = new (((asm0)["System.Runtime.CompilerServices.MethodCodeType"])())();
                 MethodCodeType.Runtime = new (((asm0)["System.Runtime.CompilerServices.MethodCodeType"])())();
+                MethodCodeType.CustomAttributes = [ [ ((asm0)["System.ComVisibleAttribute"])(),asm0.x60000b7,[ [ ((asm0)["System.Boolean"])(),true ] ],{
+                    
+                } ] ];
                 MethodCodeType.FullName = "System.Runtime.CompilerServices.MethodCodeType";
                 MethodCodeType.Interfaces = [  ];
                 MethodCodeType.IsInst = function (t) { return t instanceof MethodCodeType ? t : null; };
@@ -6438,6 +6449,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Attribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(32767|0) ] ],{
+                    
+                } ] ];
                 Attribute.FullName = "System.Attribute";
                 Attribute.Interfaces = [  ];
                 Attribute.IsInst = function (t) { return t instanceof Attribute ? t : null; };
@@ -6492,6 +6506,11 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                MethodImplAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(96|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),false ]
+                } ],[ ((asm0)["System.ComVisibleAttribute"])(),asm0.x60000b7,[ [ ((asm0)["System.Boolean"])(),true ] ],{
+                    
+                } ] ];
                 MethodImplAttribute.FullName = "System.Runtime.CompilerServices.MethodImplAttribute";
                 MethodImplAttribute.Interfaces = [  ];
                 MethodImplAttribute.IsInst = function (t) { return t instanceof MethodImplAttribute ? t : null; };
@@ -6555,6 +6574,11 @@ var asm0; (function (asm)
                 MethodImplOptions.NoInlining = new (((asm0)["System.Runtime.CompilerServices.MethodImplOptions"])())();
                 MethodImplOptions.PreserveSig = new (((asm0)["System.Runtime.CompilerServices.MethodImplOptions"])())();
                 MethodImplOptions.NoOptimization = new (((asm0)["System.Runtime.CompilerServices.MethodImplOptions"])())();
+                MethodImplOptions.CustomAttributes = [ [ ((asm0)["System.FlagsAttribute"])(),asm0.x600003d,[  ],{
+                    
+                } ],[ ((asm0)["System.ComVisibleAttribute"])(),asm0.x60000b7,[ [ ((asm0)["System.Boolean"])(),true ] ],{
+                    
+                } ] ];
                 MethodImplOptions.FullName = "System.Runtime.CompilerServices.MethodImplOptions";
                 MethodImplOptions.Interfaces = [  ];
                 MethodImplOptions.IsInst = function (t) { return t instanceof MethodImplOptions ? t : null; };
@@ -6610,6 +6634,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Exception.CustomAttributes = [  ];
                 Exception.FullName = "System.Exception";
                 Exception.Interfaces = [  ];
                 Exception.IsInst = function (t) { return t instanceof Exception ? t : null; };
@@ -6665,6 +6690,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ArgumentException.CustomAttributes = [  ];
                 ArgumentException.FullName = "System.ArgumentException";
                 ArgumentException.Interfaces = [  ];
                 ArgumentException.IsInst = function (t) { return t instanceof ArgumentException ? t : null; };
@@ -6719,6 +6745,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ArgumentNullException.CustomAttributes = [  ];
                 ArgumentNullException.FullName = "System.ArgumentNullException";
                 ArgumentNullException.Interfaces = [  ];
                 ArgumentNullException.IsInst = function (t) { return t instanceof ArgumentNullException ? t : null; };
@@ -6773,6 +6800,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                AttributeUsageAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(4|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),true ]
+                } ] ];
                 AttributeUsageAttribute.FullName = "System.AttributeUsageAttribute";
                 AttributeUsageAttribute.Interfaces = [  ];
                 AttributeUsageAttribute.IsInst = function (t) { return t instanceof AttributeUsageAttribute ? t : null; };
@@ -6829,6 +6859,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                $$Boolean.CustomAttributes = [  ];
                 $$Boolean.FullName = "System.Boolean";
                 $$Boolean.Interfaces = [  ];
                 $$Boolean.IsInst = function (t) { return typeof t == 'number'; };
@@ -6885,6 +6916,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Byte.CustomAttributes = [  ];
                 Byte.FullName = "System.Byte";
                 Byte.Interfaces = [  ];
                 Byte.IsInst = function (t) { return typeof t == 'number'; };
@@ -6943,6 +6975,7 @@ var asm0; (function (asm)
                 initialized = true;
                 Char.MinValue = 0;
                 Char.MaxValue = 0;
+                Char.CustomAttributes = [  ];
                 Char.FullName = "System.Char";
                 Char.Interfaces = [  ];
                 Char.IsInst = function (t) { return typeof t == 'number'; };
@@ -6999,6 +7032,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Console.CustomAttributes = [  ];
                 Console.FullName = "System.Console";
                 Console.Interfaces = [  ];
                 Console.IsInst = function (t) { return t instanceof Console ? t : null; };
@@ -7059,6 +7093,7 @@ var asm0; (function (asm)
                 Double.NaN = 0;
                 Double.NegativeInfinity = 0;
                 Double.PositiveInfinity = 0;
+                Double.CustomAttributes = [  ];
                 Double.FullName = "System.Double";
                 Double.Interfaces = [  ];
                 Double.IsInst = function (t) { return typeof t == 'number'; };
@@ -7115,6 +7150,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Environment.CustomAttributes = [  ];
                 Environment.FullName = "System.Environment";
                 Environment.Interfaces = [  ];
                 Environment.IsInst = function (t) { return t instanceof Environment ? t : null; };
@@ -7169,6 +7205,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                FlagsAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(16|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),false ]
+                } ] ];
                 FlagsAttribute.FullName = "System.FlagsAttribute";
                 FlagsAttribute.Interfaces = [  ];
                 FlagsAttribute.IsInst = function (t) { return t instanceof FlagsAttribute ? t : null; };
@@ -7223,6 +7262,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Delegate.CustomAttributes = [  ];
                 Delegate.FullName = "System.Delegate";
                 Delegate.Interfaces = [  ];
                 Delegate.IsInst = function (t) { return t instanceof Delegate ? t : null; };
@@ -7287,6 +7327,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                MulticastDelegate.CustomAttributes = [  ];
                 MulticastDelegate.FullName = "System.MulticastDelegate";
                 MulticastDelegate.Interfaces = [  ];
                 MulticastDelegate.IsInst = function (t) { return t instanceof MulticastDelegate ? t : null; };
@@ -7354,6 +7395,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Func_2.CustomAttributes = [  ];
                 Func_2.FullName = "System.Func`2";
                 Func_2.Interfaces = [  ];
                 Func_2.IsInst = function (t) { return t instanceof Func_2 ? t : null; };
@@ -7426,6 +7468,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ICloneable.CustomAttributes = [  ];
                 ICloneable.FullName = "System.ICloneable";
                 ICloneable.Interfaces = [  ];
                 ICloneable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(ICloneable) != -1 ? t : null; };
@@ -7474,6 +7517,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IDisposable.CustomAttributes = [  ];
                 IDisposable.FullName = "System.IDisposable";
                 IDisposable.Interfaces = [  ];
                 IDisposable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IDisposable) != -1 ? t : null; };
@@ -7522,6 +7566,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Int16.CustomAttributes = [  ];
                 Int16.FullName = "System.Int16";
                 Int16.Interfaces = [  ];
                 Int16.IsInst = function (t) { return typeof t == 'number'; };
@@ -7578,6 +7623,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Int32.CustomAttributes = [  ];
                 Int32.FullName = "System.Int32";
                 Int32.Interfaces = [  ];
                 Int32.IsInst = function (t) { return typeof t == 'number'; };
@@ -7634,6 +7680,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                InternalFormatting.CustomAttributes = [  ];
                 InternalFormatting.FullName = "System.InternalFormatting";
                 InternalFormatting.Interfaces = [  ];
                 InternalFormatting.IsInst = function (t) { return t instanceof InternalFormatting ? t : null; };
@@ -7688,6 +7735,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IntPtr.CustomAttributes = [  ];
                 IntPtr.FullName = "System.IntPtr";
                 IntPtr.Interfaces = [  ];
                 IntPtr.IsInst = function (t) { return typeof t == 'number'; };
@@ -7744,6 +7792,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ParamArrayAttribute.CustomAttributes = [  ];
                 ParamArrayAttribute.FullName = "System.ParamArrayAttribute";
                 ParamArrayAttribute.Interfaces = [  ];
                 ParamArrayAttribute.IsInst = function (t) { return t instanceof ParamArrayAttribute ? t : null; };
@@ -7798,6 +7847,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                RuntimeFieldHandle.CustomAttributes = [  ];
                 RuntimeFieldHandle.FullName = "System.RuntimeFieldHandle";
                 RuntimeFieldHandle.Interfaces = [  ];
                 RuntimeFieldHandle.IsInst = function (t) { return t instanceof RuntimeFieldHandle ? t : null; };
@@ -7855,6 +7905,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Type.CustomAttributes = [  ];
                 Type.FullName = "System.Type";
                 Type.Interfaces = [ ((asm0)["System.Reflection.ICustomAttributeProvider"])() ];
                 Type.IsInst = function (t) { return t instanceof Type ? t : null; };
@@ -7943,6 +7994,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                RuntimeType.CustomAttributes = [  ];
                 RuntimeType.FullName = "System.RuntimeType";
                 RuntimeType.Interfaces = [ ((asm0)["System.Reflection.ICustomAttributeProvider"])() ];
                 RuntimeType.IsInst = function (t) { return t instanceof RuntimeType ? t : null; };
@@ -8032,6 +8084,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                constructor.CustomAttributes = [  ];
                 constructor.FullName = "System.RuntimeType+constructor";
                 constructor.Interfaces = [  ];
                 constructor.IsInst = function (t) { return t instanceof constructor ? t : null; };
@@ -8090,6 +8143,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                RuntimeTypeHandle.CustomAttributes = [  ];
                 RuntimeTypeHandle.FullName = "System.RuntimeTypeHandle";
                 RuntimeTypeHandle.Interfaces = [  ];
                 RuntimeTypeHandle.IsInst = function (t) { return t instanceof RuntimeTypeHandle ? t : null; };
@@ -8147,6 +8201,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                SByte.CustomAttributes = [  ];
                 SByte.FullName = "System.SByte";
                 SByte.Interfaces = [  ];
                 SByte.IsInst = function (t) { return typeof t == 'number'; };
@@ -8203,6 +8258,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Single.CustomAttributes = [  ];
                 Single.FullName = "System.Single";
                 Single.Interfaces = [  ];
                 Single.IsInst = function (t) { return typeof t == 'number'; };
@@ -8259,6 +8315,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                OutAttribute.CustomAttributes = [  ];
                 OutAttribute.FullName = "System.Runtime.InteropServices.OutAttribute";
                 OutAttribute.Interfaces = [  ];
                 OutAttribute.IsInst = function (t) { return t instanceof OutAttribute ? t : null; };
@@ -8313,6 +8370,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IEnumerator.CustomAttributes = [  ];
                 IEnumerator.FullName = "System.Collections.IEnumerator";
                 IEnumerator.Interfaces = [ ((asm0)["System.IDisposable"])() ];
                 IEnumerator.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerator) != -1 ? t : null; };
@@ -8371,6 +8429,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IEnumerator_1.CustomAttributes = [  ];
                 IEnumerator_1.FullName = "System.Collections.Generic.IEnumerator`1";
                 IEnumerator_1.Interfaces = [ ((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
                 IEnumerator_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerator_1) != -1 ? t : null; };
@@ -8420,6 +8479,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IEnumerable.CustomAttributes = [  ];
                 IEnumerable.FullName = "System.Collections.IEnumerable";
                 IEnumerable.Interfaces = [  ];
                 IEnumerable.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerable) != -1 ? t : null; };
@@ -8470,6 +8530,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IEnumerable_1.CustomAttributes = [  ];
                 IEnumerable_1.FullName = "System.Collections.Generic.IEnumerable`1";
                 IEnumerable_1.Interfaces = [ ((asm0)["System.Collections.IEnumerable"])() ];
                 IEnumerable_1.IsInst = function (t) { return t.constructor.Interfaces.indexOf(IEnumerable_1) != -1 ? t : null; };
@@ -8519,6 +8580,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Debugger.CustomAttributes = [  ];
                 Debugger.FullName = "System.Diagnostics.Debugger";
                 Debugger.Interfaces = [  ];
                 Debugger.IsInst = function (t) { return t instanceof Debugger ? t : null; };
@@ -8573,6 +8635,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                NotImplementedException.CustomAttributes = [  ];
                 NotImplementedException.FullName = "System.NotImplementedException";
                 NotImplementedException.Interfaces = [  ];
                 NotImplementedException.IsInst = function (t) { return t instanceof NotImplementedException ? t : null; };
@@ -8627,6 +8690,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                NotSupportedException.CustomAttributes = [  ];
                 NotSupportedException.FullName = "System.NotSupportedException";
                 NotSupportedException.Interfaces = [  ];
                 NotSupportedException.IsInst = function (t) { return t instanceof NotSupportedException ? t : null; };
@@ -8682,6 +8746,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 Math.PI = 0;
+                Math.CustomAttributes = [  ];
                 Math.FullName = "System.Math";
                 Math.Interfaces = [  ];
                 Math.IsInst = function (t) { return t instanceof Math ? t : null; };
@@ -8736,6 +8801,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                InvalidCastException.CustomAttributes = [  ];
                 InvalidCastException.FullName = "System.InvalidCastException";
                 InvalidCastException.Interfaces = [  ];
                 InvalidCastException.IsInst = function (t) { return t instanceof InvalidCastException ? t : null; };
@@ -8790,6 +8856,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                InvalidOperationException.CustomAttributes = [  ];
                 InvalidOperationException.FullName = "System.InvalidOperationException";
                 InvalidOperationException.Interfaces = [  ];
                 InvalidOperationException.IsInst = function (t) { return t instanceof InvalidOperationException ? t : null; };
@@ -8846,6 +8913,7 @@ var asm0; (function (asm)
                 initialized = true;
                 Int64.MaxValue = 0;
                 Int64.MinValue = 0;
+                Int64.CustomAttributes = [  ];
                 Int64.FullName = "System.Int64";
                 Int64.Interfaces = [  ];
                 Int64.IsInst = function (t) { return typeof t == 'number'; };
@@ -8902,6 +8970,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                $$Number.CustomAttributes = [ [ ((asm0)["Braille.Runtime.TranslatorServices.JsNoCopyAttribute"])(),asm0.x6000034,[  ],{
+                    
+                } ] ];
                 $$Number.FullName = "Braille.JavaScript.Number";
                 $$Number.Interfaces = [  ];
                 $$Number.IsInst = function (t) { return t instanceof $$Number ? t : null; };
@@ -8958,6 +9029,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ExtensionAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(64|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),true ]
+                } ] ];
                 ExtensionAttribute.FullName = "System.Runtime.CompilerServices.ExtensionAttribute";
                 ExtensionAttribute.Interfaces = [  ];
                 ExtensionAttribute.IsInst = function (t) { return t instanceof ExtensionAttribute ? t : null; };
@@ -9012,6 +9086,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                IndexerNameAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(128|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),true ]
+                } ] ];
                 IndexerNameAttribute.FullName = "System.Runtime.CompilerServices.IndexerNameAttribute";
                 IndexerNameAttribute.Interfaces = [  ];
                 IndexerNameAttribute.IsInst = function (t) { return t instanceof IndexerNameAttribute ? t : null; };
@@ -9066,6 +9143,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                RuntimeHelpers.CustomAttributes = [  ];
                 RuntimeHelpers.FullName = "System.Runtime.CompilerServices.RuntimeHelpers";
                 RuntimeHelpers.Interfaces = [  ];
                 RuntimeHelpers.IsInst = function (t) { return t instanceof RuntimeHelpers ? t : null; };
@@ -9121,6 +9199,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 EventArgs.Empty = null;
+                EventArgs.CustomAttributes = [  ];
                 EventArgs.FullName = "System.EventArgs";
                 EventArgs.Interfaces = [  ];
                 EventArgs.IsInst = function (t) { return t instanceof EventArgs ? t : null; };
@@ -9176,6 +9255,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                EventHandler.CustomAttributes = [  ];
                 EventHandler.FullName = "System.EventHandler";
                 EventHandler.Interfaces = [  ];
                 EventHandler.IsInst = function (t) { return t instanceof EventHandler ? t : null; };
@@ -9247,6 +9327,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Array.CustomAttributes = [  ];
                 Array.FullName = "System.Array";
                 Array.Interfaces = [ ((asm0)["System.Collections.IEnumerable"])() ];
                 Array.IsInst = function (t) { return t instanceof Array ? t : null; };
@@ -9319,6 +9400,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Array_1.CustomAttributes = [  ];
                 Array_1.FullName = "System.Array`1";
                 Array_1.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerable`1"])(T),((asm0)["System.Collections.IEnumerable"])() ];
                 Array_1.IsInst = function (t) { return t instanceof asm0['System.Array']() && t.type.prototype instanceof T ? t : null; };
@@ -9402,6 +9484,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ArrayEnumerator.CustomAttributes = [  ];
                 ArrayEnumerator.FullName = "System.Array`1+ArrayEnumerator";
                 ArrayEnumerator.Interfaces = [ ((asm0)["System.Collections.Generic.IEnumerator`1"])(T),((asm0)["System.Collections.IEnumerator"])(),((asm0)["System.IDisposable"])() ];
                 ArrayEnumerator.IsInst = function (t) { return t instanceof ArrayEnumerator ? t : null; };
@@ -9506,6 +9589,11 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                DebuggerStepThroughAttribute.CustomAttributes = [ [ ((asm0)["System.ComVisibleAttribute"])(),asm0.x60000b7,[ [ ((asm0)["System.Boolean"])(),true ] ],{
+                    
+                } ],[ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(108|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),false ]
+                } ] ];
                 DebuggerStepThroughAttribute.FullName = "System.Diagnostics.DebuggerStepThroughAttribute";
                 DebuggerStepThroughAttribute.Interfaces = [  ];
                 DebuggerStepThroughAttribute.IsInst = function (t) { return t instanceof DebuggerStepThroughAttribute ? t : null; };
@@ -9576,6 +9664,9 @@ var asm0; (function (asm)
                 AttributeTargets.ReturnValue = new (((asm0)["System.AttributeTargets"])())();
                 AttributeTargets.GenericParameter = new (((asm0)["System.AttributeTargets"])())();
                 AttributeTargets.All = new (((asm0)["System.AttributeTargets"])())();
+                AttributeTargets.CustomAttributes = [ [ ((asm0)["System.FlagsAttribute"])(),asm0.x600003d,[  ],{
+                    
+                } ] ];
                 AttributeTargets.FullName = "System.AttributeTargets";
                 AttributeTargets.Interfaces = [  ];
                 AttributeTargets.IsInst = function (t) { return t instanceof AttributeTargets ? t : null; };
@@ -9631,6 +9722,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                ComVisibleAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(1044|0) ] ],{
+                    
+                } ] ];
                 ComVisibleAttribute.FullName = "System.ComVisibleAttribute";
                 ComVisibleAttribute.Interfaces = [  ];
                 ComVisibleAttribute.IsInst = function (t) { return t instanceof ComVisibleAttribute ? t : null; };
@@ -9687,6 +9781,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Nullable_1.CustomAttributes = [ [ ((asm0)["System.Diagnostics.DebuggerStepThroughAttribute"])(),asm0.x60000b6,[  ],{
+                    
+                } ] ];
                 Nullable_1.FullName = "System.Nullable`1";
                 Nullable_1.Interfaces = [  ];
                 Nullable_1.IsInst = function (t) { return t instanceof Nullable_1 ? t : null; };
@@ -9746,6 +9843,11 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                SerializableAttribute.CustomAttributes = [ [ ((asm0)["System.ComVisibleAttribute"])(),asm0.x60000b7,[ [ ((asm0)["System.Boolean"])(),true ] ],{
+                    
+                } ],[ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(4124|0) ] ],{
+                    'Inherited': [ ((asm0)["System.Boolean"])(),false ]
+                } ] ];
                 SerializableAttribute.FullName = "System.SerializableAttribute";
                 SerializableAttribute.Interfaces = [  ];
                 SerializableAttribute.IsInst = function (t) { return t instanceof SerializableAttribute ? t : null; };
@@ -9801,6 +9903,9 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 $$String.Empty = null;
+                $$String.CustomAttributes = [ [ ((asm0)["System.Reflection.DefaultMemberAttribute"])(),asm0.x60000da,[ [ ((asm0)["System.String"])(),"Chars" ] ],{
+                    
+                } ] ];
                 $$String.FullName = "System.String";
                 $$String.Interfaces = [  ];
                 $$String.IsInst = function (t) { return t instanceof $$String ? t : null; };
@@ -9857,6 +9962,9 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                DefaultMemberAttribute.CustomAttributes = [ [ ((asm0)["System.AttributeUsageAttribute"])(),asm0.x6000022,[ [ ((asm0)["System.AttributeTargets"])(),(1036|0) ] ],{
+                    
+                } ] ];
                 DefaultMemberAttribute.FullName = "System.Reflection.DefaultMemberAttribute";
                 DefaultMemberAttribute.Interfaces = [  ];
                 DefaultMemberAttribute.IsInst = function (t) { return t instanceof DefaultMemberAttribute ? t : null; };
@@ -9912,6 +10020,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                UInt16.CustomAttributes = [  ];
                 UInt16.FullName = "System.UInt16";
                 UInt16.Interfaces = [  ];
                 UInt16.IsInst = function (t) { return typeof t == 'number'; };
@@ -9968,6 +10077,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                UInt32.CustomAttributes = [  ];
                 UInt32.FullName = "System.UInt32";
                 UInt32.Interfaces = [  ];
                 UInt32.IsInst = function (t) { return typeof t == 'number'; };
@@ -10025,6 +10135,7 @@ var asm0; (function (asm)
                 }
                 initialized = true;
                 UInt64.MaxValue = 0;
+                UInt64.CustomAttributes = [  ];
                 UInt64.FullName = "System.UInt64";
                 UInt64.Interfaces = [  ];
                 UInt64.IsInst = function (t) { return typeof t == 'number'; };
@@ -10081,6 +10192,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                UIntPtr.CustomAttributes = [  ];
                 UIntPtr.FullName = "System.UIntPtr";
                 UIntPtr.Interfaces = [  ];
                 UIntPtr.IsInst = function (t) { return typeof t == 'number'; };
@@ -10137,6 +10249,7 @@ var asm0; (function (asm)
                     return;
                 }
                 initialized = true;
+                Void.CustomAttributes = [  ];
                 Void.FullName = "System.Void";
                 Void.Interfaces = [  ];
                 Void.IsInst = function (t) { return t instanceof Void ? t : null; };
@@ -10694,6 +10807,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
+                TestLog.CustomAttributes = [  ];
                 TestLog.FullName = "TestLog";
                 TestLog.Interfaces = [  ];
                 TestLog.IsInst = function (t) { return t instanceof TestLog ? t : null; };
@@ -10748,6 +10862,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
+                TestHelper.CustomAttributes = [  ];
                 TestHelper.FullName = "TestHelper";
                 TestHelper.Interfaces = [  ];
                 TestHelper.IsInst = function (t) { return t instanceof TestHelper ? t : null; };
@@ -10804,6 +10919,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
+                FuncX_2.CustomAttributes = [  ];
                 FuncX_2.FullName = "FuncX`2";
                 FuncX_2.Interfaces = [  ];
                 FuncX_2.IsInst = function (t) { return t instanceof FuncX_2 ? t : null; };
@@ -10878,6 +10994,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
+                FuncX_1.CustomAttributes = [  ];
                 FuncX_1.FullName = "FuncX`1";
                 FuncX_1.Interfaces = [  ];
                 FuncX_1.IsInst = function (t) { return t instanceof FuncX_1 ? t : null; };
@@ -10951,6 +11068,7 @@ var asm1; (function (asm)
                 }
                 initialized = true;
                 (Program)["CS$<>9__CachedAnonymousMethodDelegate1"] = null;
+                Program.CustomAttributes = [  ];
                 Program.FullName = "Program";
                 Program.Interfaces = [  ];
                 Program.IsInst = function (t) { return t instanceof Program ? t : null; };

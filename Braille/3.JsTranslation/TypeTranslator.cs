@@ -223,7 +223,7 @@ namespace Braille.JsTranslation
                 .ToStatement();
 
             var staticProperties = GetStaticFieldInitializers(type)
-                //.EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type)))
+                .EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type)))
                 //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
@@ -319,8 +319,9 @@ namespace Braille.JsTranslation
                                             attribute
                                                 .ConstructorArguments
                                                 .Select(
-                                                    arg => JSFactory
-                                                        .Array(GetTypeIdentifier(arg.ArgumentType), JSFactory.Literal(arg.Value)))
+                                                    arg => arg.ArgumentType == context.SystemTypes.String ?
+                                                        (JSExpression)JSFactory.Call(JSFactory.Identifier("new_string"), JSFactory.String((string)arg.Value)) :
+                                                        JSFactory.Literal(arg.Value))
                                                 .ToArray()),
                                     new JSObjectLiteral
                                     {

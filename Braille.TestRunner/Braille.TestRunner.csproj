@@ -116,6 +116,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Tests\CastClass.cs" />
+    <None Include="Tests\CustomClassAttributes.cs" />
     <None Include="Tests\Reflection.cs" />
     <None Include="Tests\Long.cs" />
     <None Include="Tests\ULong.cs" />
