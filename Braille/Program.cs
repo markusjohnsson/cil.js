@@ -26,6 +26,10 @@ namespace Braille
                     {
                         settings.OutputHtmlRunner = true;
                     }
+                    else if (args[i] == "--keep-flat-expressions") 
+                    {
+                        settings.KeepFlatExpressions = true;
+                    }
                     else
                     {
                         Console.WriteLine("Unknown option '" + args[i] + "'");

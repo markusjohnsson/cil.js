@@ -1,54 +1,16 @@
-using Braille.Loading;
+using Braille.Analysis;
 using Braille.JsTranslation;
-using System.Collections.Generic;
+using Braille.Loading;
+using System;
 using System.IO;
 using System.Linq;
-using Braille.Ast;
-using Braille.Analysis;
-using Braille.JSAst;
-using System;
 
 namespace Braille
 {
-    public class CompileResult
-    {
-        public string OutputFileName { get; set; }
-
-        public string EntryPointAssembly { get; set; }
-    }
-
-    public class CompileSettings
-    {
-        internal List<string> assemblies = new List<string>();
-
-        public void AddAssembly(string assemblyPath)
-        {
-            assemblies.Add(assemblyPath);
-        }
-
-        public string OutputFileName
-        {
-            get;
-            set;
-        }
-
-        public bool OutputILComments
-        {
-            get;
-            set;
-        }
-
-        public bool OutputHtmlRunner
-        {
-            get;
-            set;
-        }
-    }
-
     public class Compiler
     {
         private CompileSettings settings;
-        
+
         public Compiler(CompileSettings settings)
         {
             this.settings = settings;

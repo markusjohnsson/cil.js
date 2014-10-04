@@ -52,7 +52,8 @@ namespace Braille.Analysis
             yield return new CreateBlocksPass();
             yield return new AggregateBlocksPass();
 
-            //yield return new AggregateExpressionsPass(ctx);
+            if (ctx.Settings.KeepFlatExpressions == false)
+                yield return new AggregateExpressionsPass(ctx);
 
 
         }

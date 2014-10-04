@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="Knockout.js"></script>
+        <script type="text/javascript" src="KnockoutScatterPlot.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                asm1.entryPoint();
+            }
+        </script>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                padding: 0; margin: 0; 
+            }
+            * { color: #333; font-size: 10pt; box-sizing:border-box; }
+        </style>
+    </head>
+    <body>
+        
+        <div style="width: 100%; height: 100%; ">
+
+            <div style="width: 80%; height: 80%; margin-top: 2em; margin-left: auto; margin-right: auto; background-color: green; position: relative;">
+                <div
+                    style="width: 100%; height: 100%; position: absolute;">
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        version="1.1"
+                        style="width: 100%; height: 100%;">
+                        <rect
+                            x="0"
+                            width="0.00001px" height="100%" stroke-width="1px" stroke="black" fill="black" />
+                        <rect
+                            y="100%"
+                            width="100%" height="0.00001px" stroke-width="1px" stroke="black" fill="black" />
+                        <rect
+                            stroke-width="1"
+                            width="100%" height="100%" stroke="black" fill="#eee" />
+                    </svg>
+                </div>
+
+                <div 
+                    data-bind="foreach: Items"
+                    style="width: 100%; height: 100%; position: absolute;">
+                    <div 
+                        style="width: 100%; height: 100%; position: absolute;">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            version="1.1"
+                            style="width: 100%; height: 100%;">
+
+                            <circle 
+                                data-bind="attr: { cx: X + '%', cy: Y + '%', fill: Color }" r="5" stroke="#333"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

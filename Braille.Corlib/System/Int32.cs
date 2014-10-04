@@ -9,5 +9,18 @@ namespace System
         {
             return InternalFormatting.NumberStructToString(this);
         }
+
+        [JsReplace("new_string({0}.toString(16))")]
+        private static extern string toHex(int n);
+
+        public string ToString(string p)
+        {
+            int n = this;
+
+            if (p == "X")
+                return toHex(n);
+
+            throw new NotSupportedException();
+        }
     }
 }

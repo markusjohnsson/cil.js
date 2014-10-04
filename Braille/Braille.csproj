@@ -78,6 +78,8 @@
     <Compile Include="3.JsTranslation\OpTranslators\ComparisonTranslator.cs" />
     <Compile Include="3.JsTranslation\OpTranslators\ConversionTranslator.cs" />
     <Compile Include="3.JsTranslation\TypeTranslator.cs" />
+    <Compile Include="CompileResult.cs" />
+    <Compile Include="CompileSettings.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="3.JsTranslation\BlockBuilder.cs" />

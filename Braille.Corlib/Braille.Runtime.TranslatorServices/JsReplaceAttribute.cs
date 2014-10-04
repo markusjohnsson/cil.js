@@ -5,7 +5,7 @@ namespace Braille.Runtime.TranslatorServices
 {
     [JsIgnore]
     [AttributeUsage(AttributeTargets.Method)]
-    internal class JsReplaceAttribute : Attribute
+    public class JsReplaceAttribute : Attribute
     {
         public JsReplaceAttribute(string replacement)
         {
