@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C34FD57-3FD2-4A59-8559-38B0A878138F}</ProjectGuid>
+    <ProjectGuid>{5A842DE0-B6B9-4D75-AA55-939360E86BE1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raytracer</RootNamespace>
-    <AssemblyName>Raytracer</AssemblyName>
+    <RootNamespace>KnockoutScatterPlot</RootNamespace>
+    <AssemblyName>KnockoutScatterPlot</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,17 +31,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Knockout.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="RayTracer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Braille.Corlib\Braille.Corlib.csproj">
+    <ProjectReference Include="..\..\Braille.Corlib\Braille.Corlib.csproj">
       <Project>{87dddbcc-5f8d-462d-b879-19f8fd13d18b}</Project>
       <Name>Braille.Corlib</Name>
     </ProjectReference>
@@ -49,12 +49,15 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Raytracer.html">
+    <Content Include="Driver.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Knockout.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
