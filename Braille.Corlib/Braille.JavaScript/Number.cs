@@ -32,7 +32,7 @@ namespace Braille.JavaScript
         public extern static Number operator &(Number a, Number b);
 
         [JsReplace("{0}")]
-        public extern static explicit operator Number(double d);
+        public extern static implicit operator Number(double d);
 
         [JsReplace("{0}|0")]
         public extern static explicit operator int(Number d);
