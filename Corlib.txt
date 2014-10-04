@@ -1,0 +1,15 @@
+
+Braille does not use the mscorlib shipped with .NET or mono. 
+
+== Baseline corlib ==
+In this repository, there is a project called Braille.Corlib.csproj. 
+It is the baseline mscorlib implementation for Braille. 
+It contains the parts that is needed to test all aspects of the braille transpiler.
+
+You can build an application from just the baseline corlib, all tests under Braille.Tests are applications built this way.
+
+== Mono based corlib ==
+However, there is also a experimental Braille corlib based on the mono corlib sources in a fork tracking the official mono repository.
+It can be found here: http://github.com/markusjohnsson/mono.git in the branch braille
+
+

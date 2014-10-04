@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{50F62FB2-8
 	ProjectSection(SolutionItems) = preProject
 		Docs\Arrays.txt = Docs\Arrays.txt
 		Docs\Boxing.txt = Docs\Boxing.txt
+		Corlib.txt = Corlib.txt
 		Docs\Primitives.txt = Docs\Primitives.txt
 	EndProjectSection
 EndProject
