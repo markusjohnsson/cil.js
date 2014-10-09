@@ -32,6 +32,21 @@ namespace System
             return ConcatImpl(a, b);
         }
 
+        public static string Concat(object a, object b, object c)
+        {
+            return ConcatImpl(a.ToString(), b.ToString(), c.ToString());
+        }
+
+        public static string Concat(string a, string b, string c)
+        {
+            return ConcatImpl(a, b, c);
+        }
+
+        public static string Concat(string a, string b, string c, string d)
+        {
+            return ConcatImpl(a, b, c, d);
+        }
+
         public static string Concat(object a, object b)
         {
             return ConcatImpl(a.ToString(), b.ToString());

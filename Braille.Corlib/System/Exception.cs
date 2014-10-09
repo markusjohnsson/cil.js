@@ -14,11 +14,21 @@ namespace System
             Message = message;
         }
 
-        public string Message { get; set; }
+        public Exception(string message, Exception innerException)
+        {
+            Message = message;
+            InnerException = innerException;
+        }
+
+        public int HResult { get; protected set; }
+
+        public virtual string Message { get; set; }
 
         public override string ToString()
         {
             return Message;
         }
+
+        public Exception InnerException { get; set; }
     }
 }

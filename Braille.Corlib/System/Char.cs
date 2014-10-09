@@ -15,5 +15,8 @@ namespace System
 
         [JsImport("function(o) { return new_string(String.fromCharCode(o.boxed)); }")]
         private extern static string ToStringImpl(object o);
+
+        [JsImport("function(o) { return \"0123456789\".indexOf(String.fromCharCode(o.boxed)) != -1; }")]
+        public extern static bool IsDigit(char p);
     }
 }

@@ -4,8 +4,6 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System.Diagnostics
 {
-    using Braille.Runtime.TranslatorServices;
-
     public class Debugger
     {
         [JsReplace("debugger")]

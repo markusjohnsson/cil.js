@@ -33,13 +33,15 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Braille.Runtime\Locale.cs" />
+    <Compile Include="Properties\Properties.cs" />
     <Compile Include="System.Reflection\Assembly.cs" />
     <Compile Include="System.Reflection\ICustomAttributeProvider.cs" />
     <Compile Include="System.Reflection\MemberInfo.cs" />
+    <Compile Include="System.Runtime.CompilerServices\InternalsVisibleToAttribute.cs" />
     <Compile Include="System.Runtime.CompilerServices\MethodCodeType.cs" />
     <Compile Include="System.Runtime.CompilerServices\MethodImplAttribute.cs" />
     <Compile Include="System.Runtime.CompilerServices\MethodImplOptions.cs" />
-    <Compile Include="System\ArgumentException.cs" />
     <Compile Include="System\AttributeUsageAttribute.cs" />
     <Compile Include="System\Boolean.cs" />
     <Compile Include="Braille.Runtime\ManagedPointer.cs" />
@@ -94,7 +96,7 @@
     <Compile Include="System.Diagnostics\DebuggerStepThroughAttribute.cs" />
     <Compile Include="System\Attribute.cs" />
     <Compile Include="System\AttributeTargets.cs" />
-    <Compile Include="System\ComVisibleAttribute.cs" />
+    <Compile Include="System.Runtime.InteropServices\ComVisibleAttribute.cs" />
     <Compile Include="System\Nullable.cs" />
     <Compile Include="System\SerializableAttribute.cs" />
     <Compile Include="System\String.cs" />
@@ -109,9 +111,7 @@
     <Compile Include="System\ValueType.cs" />
     <Compile Include="System\Void.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
