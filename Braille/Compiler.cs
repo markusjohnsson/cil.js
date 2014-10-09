@@ -36,7 +36,8 @@ namespace Braille
                     var asmExpression = translator.Translate(asms, asm);
                     File.AppendAllText(settings.OutputFileName,
                         "var " + asm.Identifier + "; (" +
-                            asmExpression.ToString() + ")(" + asm.Identifier + " || (" + asm.Identifier + " = {}));" + Environment.NewLine);
+                            asmExpression.ToString() + ")(" + asm.Identifier + " || (" + 
+                            asm.Identifier + " = {}));" + Environment.NewLine);
                 }
 
                 var entrypointAssembly = ctx

@@ -51,8 +51,8 @@ namespace Braille.JsTranslation
         //             escaped_simple_name.prototype = new asm0['basetype']();
         //
         //             return escaped_simple_name;
-        //         })();
-        //     }
+        //         }
+        //     })();
 
         public JSExpression Translate(CilType type)
         {
