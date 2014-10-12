@@ -14,6 +14,23 @@ namespace System
             return RuntimeType.GetRuntimeTypeFromHandle(handle);
         }
 
+        public virtual bool IsSubclassOf(Type c)
+        {
+            if (c == null || c == this)
+                return false;
+
+            for (Type type = BaseType; type != null; type = type.BaseType)
+                if (type == c)
+                    return true;
+
+            return false;
+        }
+
+        public bool IsEnum
+        {
+            get { return IsSubclassOf(typeof(Enum)); }
+        }
+
         /// <summary>
         ///   The assembly where the type is defined.
         /// </summary>
@@ -22,12 +39,23 @@ namespace System
             get;
         }
 
+        public abstract Type BaseType { get; }
+
         public abstract string AssemblyQualifiedName { get; }
 
         public abstract bool IsGenericType { get; }
 
+        public abstract bool IsInterface { get; }
+
         public abstract bool IsGenericTypeDefinition { get; }
 
         public abstract Type[] GetGenericArguments();
+
+        public abstract Type[] GetInterfaces();
+
+        public abstract Type MakeGenericType(params Type[] args);
+
+        public abstract bool IsAssignableFrom(Type type);
+
     }
 }

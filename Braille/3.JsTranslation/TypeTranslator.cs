@@ -221,17 +221,18 @@ namespace Braille.JsTranslation
                     new JSIdentifier { Name = "initialized" },
                     new JSBoolLiteral { Value = true })
                 .ToStatement();
-
+            
             var staticProperties = GetStaticFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type)))
                 //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
+                .EndWith(new KeyValuePair<string, JSExpression>("BaseType", GetBaseType(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Assembly", JSFactory.Identifier("asm")))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsPrimitive", new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive }))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsGenericType", new JSBoolLiteral { Value = type.ReflectionType.IsGenericType }))
+                .EndWith(new KeyValuePair<string, JSExpression>("IsInterface", new JSBoolLiteral { Value = type.ReflectionType.IsInterface }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsGenericTypeDefinition", new JSBoolLiteral { Value = type.ReflectionType.IsGenericTypeDefinition }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }))
                 .EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)));
@@ -388,9 +389,20 @@ namespace Braille.JsTranslation
             }
         }
 
+        private JSExpression GetBaseType(CilType type)
+        {
+            return
+                type.ReflectionType.BaseType == null ?
+                JSFactory.Null() :
+                GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType);    
+        }
+
         private JSExpression GetInterfaces(CilType type)
         {
-            return new JSArrayLiteral { Values = type.ReflectionType.GetInterfaces().Select(t => GetTypeIdentifier(t, typeScope: type.ReflectionType)) };
+            return new JSArrayLiteral
+            {
+                Values = type.ReflectionType.GetInterfaces().Select(t => GetTypeIdentifier(t, typeScope: type.ReflectionType))
+            };
         }
 
         private JSExpression GetIsInst(CilType type)

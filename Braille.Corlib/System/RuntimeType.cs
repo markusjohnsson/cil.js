@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using Braille.Runtime.TranslatorServices;
 using Braille.JavaScript;
 using System.Reflection;
+using Braille.Runtime.InteropServices;
 
 namespace System
 {
@@ -14,13 +15,15 @@ namespace System
         internal class constructor
         {
             internal object FullName;
+            internal constructor BaseType;
             internal Assembly.jsAsm Assembly;
             internal object CustomAttributes;
             internal Type TypeInstance;
             internal int Hash;
-            internal Braille.JavaScript.Boolean IsGenericType;
             internal Braille.JavaScript.Boolean IsGenericTypeDefinition;
+            internal Braille.JavaScript.Boolean IsInterface;
             internal object GenericArguments;
+            internal object Interfaces;
         }
 
         internal constructor ctor;
@@ -59,7 +62,7 @@ namespace System
             {
                 var s = string.FromJsString(ctor.FullName);
 
-                if (IsGenericType)
+                if (IsGenericType && !IsGenericTypeDefinition)
                 {
                     s += "[";
 
@@ -76,7 +79,7 @@ namespace System
 
         public override string AssemblyQualifiedName
         {
-            get 
+            get
             {
                 return FullName + ", " + Assembly.FullName;
             }
@@ -133,14 +136,44 @@ namespace System
             throw new NotImplementedException();
         }
 
+        public override bool IsInterface
+        {
+            get { return (bool)ctor.IsInterface; }
+        }
+
         public override bool IsGenericType
         {
-            get { return (bool)ctor.IsGenericType; }
+            get { return (bool)ctor.IsGenericTypeDefinition; }
         }
 
         public override bool IsGenericTypeDefinition
         {
-            get { return (bool)ctor.IsGenericTypeDefinition; }
+            get
+            {
+                if ((bool)ctor.IsGenericTypeDefinition == false)
+                    return false;
+
+                if (Marshal.ArrayLookup(ctor.GenericArguments, 0) == Marshal.Null)
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        public override Type MakeGenericType(params Type[] args)
+        {
+            if (!IsGenericTypeDefinition)
+                throw new InvalidOperationException();
+
+            var type_args = new constructor[args.Length];
+
+            for (var i = 0; i < args.Length; i++)
+                type_args[i] = ((RuntimeType)args[i]).ctor;
+
+            var open_type = Marshal.ObjectLookup(ctor.Assembly, FullName);
+            var closed_type = Marshal.Apply(open_type, null, type_args);
+
+            return GetInstance(UnsafeCast<constructor>(closed_type));
         }
 
         public override Type[] GetGenericArguments()
@@ -152,6 +185,55 @@ namespace System
                 result[i] = GetInstance(gargs[i]);
 
             return result;
+        }
+
+        public override Type BaseType
+        {
+            get
+            {
+                if (ctor.BaseType == Marshal.Null)
+                    return null;
+                else
+                    return GetInstance(ctor.BaseType);
+            }
+        }
+
+        public override Type[] GetInterfaces()
+        {
+            var ifaces = Array.FromJsArray<constructor>(ctor.Interfaces);
+            var result = new Type[ifaces.Length];
+
+            for (var i = 0; i < ifaces.Length; i++)
+                result[i] = GetInstance(ifaces[i]);
+
+            return result;
+        }
+
+        public override bool IsAssignableFrom(Type type)
+        {
+            // indicates that a object reference of type 'type' can be asigned to a field of type 'this'
+
+            if (type == null)
+                return false;
+
+            if (Equals(type))
+                return true;
+
+            if (type.IsSubclassOf(this))
+                return true;
+
+            if (type.IsInterface && Equals(typeof(object)))
+                return true;
+
+            if (IsInterface)
+            {
+                var ifaces = type.GetInterfaces();
+                for (var i = 0; i < ifaces.Length; i++)
+                    if (IsAssignableFrom(ifaces[i]))
+                        return true;
+            }
+
+            return false;
         }
     }
 }
