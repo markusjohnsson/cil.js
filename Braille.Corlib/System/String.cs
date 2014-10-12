@@ -19,6 +19,14 @@ namespace System
         [JsImport("function (s, i) { return s.jsstr.charCodeAt(i); }")]
         private extern static char GetChar(string s, int i);
 
+        [JsImport(@"function replaceAll(s, find, replace) {
+                        function escapeRegExp(s2) {
+                            return s2.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, ""\\$1"");
+                        }
+                      return new_string(s.jsstr.replace(new RegExp(escapeRegExp(find.jsstr), 'g'), replace.jsstr));
+                    }")]
+        private extern static string ReplaceImpl(string s, string find, string replace);
+
         [IndexerName("Chars")]
         public char this[int i] { get { return GetChar(this, i); } }
 
@@ -60,6 +68,11 @@ namespace System
         public static string Concat(params object[] args)
         {
             throw new Exception("Not implemented");
+        }
+
+        public string Replace(string oldValue, string newValue)
+        {
+            return ReplaceImpl(this, oldValue, newValue);
         }
 
         public int Length

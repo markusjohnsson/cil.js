@@ -14,12 +14,16 @@ namespace System
         internal class constructor
         {
             internal object FullName;
+            internal Assembly.jsAsm Assembly;
             internal object CustomAttributes;
             internal Type TypeInstance;
             internal int Hash;
+            internal Braille.JavaScript.Boolean IsGenericType;
+            internal Braille.JavaScript.Boolean IsGenericTypeDefinition;
+            internal object GenericArguments;
         }
 
-        constructor ctor;
+        internal constructor ctor;
 
         private RuntimeType(constructor ctor)
         {
@@ -44,9 +48,38 @@ namespace System
             return GetInstance(UnsafeCast<constructor>(handle.value));
         }
 
+        public override Assembly Assembly
+        {
+            get { return Assembly.GetInstance(ctor.Assembly); }
+        }
+
         public override string FullName
         {
-            get { return string.FromJsString(ctor.FullName); }
+            get
+            {
+                var s = string.FromJsString(ctor.FullName);
+
+                if (IsGenericType)
+                {
+                    s += "[";
+
+                    var ga = GetGenericArguments();
+                    for (var i = 0; i < ga.Length; i++)
+                        s += "[" + ga[i].AssemblyQualifiedName + "]";
+
+                    s += "]";
+                }
+
+                return s;
+            }
+        }
+
+        public override string AssemblyQualifiedName
+        {
+            get 
+            {
+                return FullName + ", " + Assembly.FullName;
+            }
         }
 
         public override bool Equals(object other)
@@ -95,14 +128,30 @@ namespace System
             throw new NotImplementedException();
         }
 
-        public override Assembly Assembly
-        {
-            get { throw new NotImplementedException(); }
-        }
-
         public override bool IsDefined(Type attributeType, bool inherit)
         {
             throw new NotImplementedException();
+        }
+
+        public override bool IsGenericType
+        {
+            get { return (bool)ctor.IsGenericType; }
+        }
+
+        public override bool IsGenericTypeDefinition
+        {
+            get { return (bool)ctor.IsGenericTypeDefinition; }
+        }
+
+        public override Type[] GetGenericArguments()
+        {
+            var gargs = Array.FromJsArray<constructor>(ctor.GenericArguments);
+            var result = new Type[gargs.Length];
+
+            for (var i = 0; i < gargs.Length; i++)
+                result[i] = GetInstance(gargs[i]);
+
+            return result;
         }
     }
 }

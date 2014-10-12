@@ -226,10 +226,13 @@ namespace Braille.JsTranslation
                 .EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type)))
                 //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
+                .EndWith(new KeyValuePair<string, JSExpression>("Assembly", JSFactory.Identifier("asm")))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsPrimitive", new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive }))
+                .EndWith(new KeyValuePair<string, JSExpression>("IsGenericType", new JSBoolLiteral { Value = type.ReflectionType.IsGenericType }))
+                .EndWith(new KeyValuePair<string, JSExpression>("IsGenericTypeDefinition", new JSBoolLiteral { Value = type.ReflectionType.IsGenericTypeDefinition }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }))
                 .EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)));
 
@@ -309,6 +312,8 @@ namespace Braille.JsTranslation
                     type
                         .ReflectionType
                         .CustomAttributes
+                        .Where(
+                            attribute => false == IsIgnoredType(attribute.AttributeType))
                         .Select(
                             attribute => JSFactory
                                 .Array(

@@ -34,6 +34,9 @@ namespace Braille.JsTranslation
 
         protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
+            if (IsIgnoredType(type))
+                throw new InvalidOperationException("type is marked as ignored and cannot be referenced");
+
             if (type.IsArray)
             {
                 var genericArray = context.ReflectionUniverse.GetType("System.Array`1");
@@ -45,12 +48,6 @@ namespace Braille.JsTranslation
             }
             else if (type.IsGenericParameter)
             {
-                if (type.DeclaringType == null &&
-                    type.DeclaringMethod == null)
-                {
-                    throw new InvalidOperationException();
-                }
-
                 if (type.DeclaringMethod != null ||
 
                     // For static methods on generic classes, the type arguments are passed to 
@@ -62,17 +59,22 @@ namespace Braille.JsTranslation
                 {
                     return new JSIdentifier { Name = type.Name };
                 }
-                else
+                else if (thisScope == null)
                 {
                     return
-                        // TODO: this is for when T is used inside the type initializer - this method should be overridden in TypeTranslator instead of having this case here
-                        (typeScope == type.DeclaringType && thisScope == null) ?
-                        JSFactory.Identifier(type.Name) :
-                        new JSArrayLookupExpression
-                        {
-                            Array = JSFactory.Identifier(thisScope, "constructor", "GenericArguments"),
-                            Indexer = new JSNumberLiteral { Value = typeScope.GetGenericArguments().IndexOf(type) }
-                        };
+                        (IsInScope(type.DeclaringType, typeScope)) ? 
+                            JSFactory.Identifier(type.Name) :
+
+                            // to my awareness, this only happens when you do "typeof(C<>)", ie not specifying any args
+                            JSFactory.Null(); 
+                }
+                else
+                {
+                    return new JSArrayLookupExpression
+                    {
+                        Array = JSFactory.Identifier(thisScope, "constructor", "GenericArguments"),
+                        Indexer = new JSNumberLiteral { Value = typeScope.GetGenericArguments().IndexOf(type) }
+                    };
                 }
             }
             else if (type.IsGenericType)
@@ -95,6 +97,19 @@ namespace Braille.JsTranslation
                     Function = JSFactory.Identifier(GetAssemblyIdentifier(type), type.FullName)
                 };
             }
+        }
+
+        protected bool IsIgnoredType(Type type)
+        {
+            return type.GetCustomAttributesData().Any(a => a.AttributeType.Name == "JsIgnoreAttribute");
+        }
+
+        private static bool IsInScope(Type type, Type typeScope)
+        {
+            if (typeScope == null)
+                return false;
+
+            return typeScope == type || IsInScope(type, typeScope.DeclaringType);
         }
 
         private static string ConstructFullName(Type type)

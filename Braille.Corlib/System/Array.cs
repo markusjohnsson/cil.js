@@ -5,6 +5,8 @@ using System.Collections;
 
 namespace System
 {
+    public delegate bool Predicate<T>(T obj);
+
     public abstract class Array : IEnumerable
     {
 #pragma warning disable 649
@@ -23,6 +25,17 @@ namespace System
         [JsImport("function(o, i) { return box(o.jsarr[i], o.type); }")]
         private extern static object GetValueImpl(object s, int i);
 
+        [JsImport(@"
+            function (T) {
+                return function FromJsArray(arr) {
+                    var r = new (asm0['System.Array`1'](T))();
+                    r.type = T;
+                    r.jsarr = arr;
+                    return r;
+                };
+            }")]
+        internal extern static T[] FromJsArray<T>(object array);
+
         public object GetValue(int index)
         {
             return GetValueImpl(this, index);
@@ -34,6 +47,69 @@ namespace System
         }
 
         protected abstract IEnumerator GetEnumeratorImpl();
+
+        public static void Clear<T>(T[] array, int index, int length)
+        {
+            var d = default(T);
+            for (var i = index; i < array.Length; i++)
+                array[i] = d;
+        }
+
+        public static int IndexOf<T>(T[] array, T value, int startIndex, int count)
+        {
+            if (array == null)
+                throw new /*ArgumentNull*/ Exception("array");
+
+            // re-ordered to avoid possible integer overflow
+            if (count < 0 || startIndex < 0 || startIndex - 1 > - count)
+                throw new /*ArgumentOutOfRange*/ Exception();
+
+            int max = startIndex + count;
+            for (int i = startIndex; i < max; i++)
+            {
+                if (Object.Equals(GetValueImpl(array, i), value))
+                    return i;
+            }
+
+            return -1;
+        }
+
+        public static void Copy<T>(T[] source, int startIndex, T[] target, int targetStartIndex, int length)
+        {
+            for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
+            {
+                target[t] = source[s];
+            }
+        }
+
+        internal static int GetIndex<T>(T[] source, int startIndex, int length, Predicate<T> match)
+        {
+            var max = startIndex + length;
+            for (var i = startIndex; i < max; i++)
+            {
+                if (match(source[i]))
+                    return i;
+            }
+
+            return -1;
+        }
+
+        internal static int GetLastIndex<T>(T[] array, int startIndex, int count, Predicate<T> match)
+        {
+            // unlike FindLastIndex, takes regular params for search range
+            for (int i = startIndex + count; i != startIndex; )
+            {
+                if (match(array[--i]))
+                    return i;
+            }
+
+            return -1;
+        }
+
+        internal static T UnsafeLoad<T>(T[] array, int i)
+        {
+            return array[i];
+        }
     }
 
     internal class Array<T> : Array, IEnumerable<T>

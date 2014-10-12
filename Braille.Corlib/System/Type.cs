@@ -21,5 +21,13 @@ namespace System
         {
             get;
         }
+
+        public abstract string AssemblyQualifiedName { get; }
+
+        public abstract bool IsGenericType { get; }
+
+        public abstract bool IsGenericTypeDefinition { get; }
+
+        public abstract Type[] GetGenericArguments();
     }
 }

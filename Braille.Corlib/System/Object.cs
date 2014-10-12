@@ -60,5 +60,16 @@ namespace System
         {
             return RuntimeType.GetType(this);
         }
+
+        public static bool Equals(object a, object b) 
+        {
+            if (ReferenceEquals(a, b))
+                return true;
+
+            if (ReferenceEquals(a, null))
+                return false;
+
+            return a.Equals(b);
+        }
     }
 }

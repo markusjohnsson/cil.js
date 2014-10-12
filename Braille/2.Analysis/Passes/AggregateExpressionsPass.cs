@@ -38,7 +38,7 @@ namespace Braille.Analysis.Passes
 
             foreach (var span in spans)
             {
-                Debug.WriteLine("span: IL_{0:X} - IL_{1:X}", span.from.Instruction.Position, span.to.Instruction.Position);
+                // Debug.WriteLine("span: IL_{0:X} - IL_{1:X}", span.from.Instruction.Position, span.to.Instruction.Position);
 
                 block.Ast.ReplaceRange(
                     from: span.from, 

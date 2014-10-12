@@ -30,6 +30,11 @@ namespace Braille.JsTranslation
 
         private IEnumerable<JSExpression> GetBody(List<CilAssembly> world, CilAssembly asm)
         {
+            yield return JSFactory
+                .Assignment(
+                    JSFactory.Identifier("asm", "FullName"), 
+                    JSFactory.Literal(asm.ReflectionAssembly.FullName));
+
             yield return new JSIdentifier
             {
                 // Helper functions to manage a multi-key dictionary.
@@ -124,9 +129,9 @@ namespace Braille.JsTranslation
         }
     }
 
-    function new_string(str) {
+    function new_string(jsstr) {
         var r = new (asm0['System.String']())();
-        r.jsstr = str;
+        r.jsstr = jsstr;
         return r;
     }
 

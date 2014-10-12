@@ -51,6 +51,9 @@ namespace Braille.JSAst
 
         public static JSExpression Identifier(JSExpression ifier, params string[] ns)
         {
+            if (ifier == null)
+                throw new ArgumentNullException("ifier");
+
             if (ns.Length == 0)
                 return ifier;
 
@@ -159,6 +162,11 @@ namespace Braille.JSAst
                 return new JSBoolLiteral { Value = (bool)p };
 
             throw new NotSupportedException("literal is not supported");
+        }
+
+        public static JSExpression Null()
+        {
+            return new JSNullLiteral();
         }
     }
 }
