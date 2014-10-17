@@ -361,6 +361,7 @@ namespace Braille.JsTranslation
                 case "div.un":
                 case "mul":
                 case "neg":
+                case "not":
                 case "or":
                 case "rem":
                 case "rem.un":
@@ -922,6 +923,20 @@ namespace Braille.JsTranslation
                     {
                         Expression = ProcessInternal(node.Arguments.SingleOrDefault())
                     };
+                case "starg":
+                    {
+                        var id = "";
+                        if (node.Instruction.Data != null)
+                            id = node.Instruction.Data.ToString();
+
+                        var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id;
+                        var result = new JSIdentifier
+                        {
+                            Name = "arg" + idx //"__args__[" + idx + "]"
+                        } as JSExpression;
+
+                        return JSFactory.Assignment(result, ProcessInternal(node.Arguments.SingleOrDefault()));
+                    }
                 case "stelem":
                     return JSFactory
                         .Assignment(

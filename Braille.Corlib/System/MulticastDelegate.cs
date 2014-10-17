@@ -38,6 +38,18 @@ namespace System
             ")]
         internal static extern Delegate CreateMulticast(Delegate [] a);
 
+        [JsReplace(@"(
+            function () {{ 
+                var args = arguments.splice().shift(thisObj); 
+                return {0}.apply(null, args); 
+            }})")]
+        private static extern object GetJsFunction(object method, object thisObj);
+
+        internal object GetJsFunction() 
+        {
+            return GetJsFunction(_methodPtr, _target);
+        }
+
         protected override Delegate CombineImpl(Delegate b)
         {
             Delegate[] newList;

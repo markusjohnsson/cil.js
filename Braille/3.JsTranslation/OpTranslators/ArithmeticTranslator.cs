@@ -122,6 +122,21 @@ namespace Braille.JsTranslation.OpTranslators
                             Operand = ProcessInternal(node.Arguments.Single())
                         };
                     }
+                case "not":
+                    if (node.ResultType == context.SystemTypes.Int64)
+                    {
+                        return JSFactory.Call(
+                            JSFactory.Identifier("asm0", "XInt64_OnesComplement"),
+                            ProcessInternal(node.Arguments.First()));
+                    }
+                    else
+                    {
+                        return new JSUnaryExpression
+                        {
+                            Operator = "~",
+                            Operand = ProcessInternal(node.Arguments.Single())
+                        };
+                    }
                 case "or":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {

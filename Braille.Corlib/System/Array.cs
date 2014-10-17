@@ -1,7 +1,15 @@
-using System.Runtime.CompilerServices;
+
+
+
+// Contains some modified code from Mono's implementation of System.Array, licensed under MIT
+//
+// (C) 2001-2003 Ximian, Inc.  http://www.ximian.com
+// Copyright (C) 2004-2011 Novell, Inc (http://www.novell.com)
+// Copyright (C) 2011 Xamarin Inc (http://www.xamarin.com)
+
 using Braille.Runtime.TranslatorServices;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace System
 {
@@ -106,9 +114,163 @@ namespace System
             return -1;
         }
 
-        internal static T UnsafeLoad<T>(T[] array, int i)
+        internal static int LastIndexOf<T>(T[] array, T item, int startIndex, int count)
         {
-            return array[i];
+            return GetLastIndex(array, startIndex, count, t => Object.Equals(t, item));
+        }
+
+        [JsReplace("({0}.jsarr.sort({1}))")]
+        internal extern static void Sort<T>(T[] array, object comparison);
+
+        [JsReplace("({0}.jsarr.sort())")]
+        internal extern static void Sort<T>(T[] array, int start, int size);
+
+        internal static void SortImpl<T>(T[] array, int size, Comparison<T> comparison)
+        {
+            int originalLength = array.Length;
+
+            if (size < originalLength) 
+            {
+                Splice(array, array.Length - size);
+            }
+
+            Sort(array, comparison.GetJsFunction());
+        }
+
+        internal static void Sort<T>(T[] source, int start, int count, IComparer<T> comparer)
+        {
+            if (start != 0)
+                throw new NotImplementedException();
+
+            SortImpl(source, count, (a, b) => comparer.Compare(a, b));
+        }
+
+        [JsImport(
+            @"
+            function (a, b) {
+                a.jsarr = a.jsarr.concat(b);
+            }
+            ")]
+        private static extern void Combine(object managed_array, object js_array);
+
+        [JsImport(
+            @"
+            function (array, howMany) {
+                array.jsarr.splice(0, howMany);
+            }
+            ")]
+        private static extern void Splice<T>(T[] array, int howMany);
+
+        [JsReplace("({0}.jsarr.reverse())")]
+        internal extern static void Reverse<T>(T[] array, int start, int count);
+
+        // Used by mono's corlib
+        [JsReplace("({0}[{1}] = {2})")]
+        internal extern static T UnsafeStore<T>(T[] array, int i, T value);
+
+        // Used by mono's corlib
+        [JsReplace("({0}[{1}])")]
+        internal extern static T UnsafeLoad<T>(T[] array, int i);
+
+        // Used by mono's corlib
+        [JsReplace("({0})")]
+        internal extern static T2 UnsafeMov<T1, T2>(T1 x);
+
+        internal static void Copy<T>(T[] source, T[] destination, int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                destination[i] = source[i];
+            }
+        }
+
+        internal int GetLowerBound(int p)
+        {
+            return 0;
+        }
+
+        internal int Rank
+        {
+            get { return 1; }
+        }
+
+        internal static void Resize<T>(ref T[] array, int newSize)
+        {
+            if (newSize < 0)
+                throw new Exception("Argument out of range"); //ArgumentOutOfRangeException("newSize");
+
+            if (array == null)
+            {
+                array = new T[newSize];
+                return;
+            }
+
+            var arr = array;
+            int length = arr.Length;
+            if (length == newSize)
+                return;
+
+            T[] a = new T[newSize];
+            int tocopy = Math.Min(newSize, length);
+
+            for (int i = 0; i < tocopy; ++i)
+                UnsafeStore(a, i, UnsafeLoad(arr, i));
+            
+            array = a;
+        }
+
+        [JsReplace("asm1['System.Collections.Generic.Comparer']({0}.ctor)._default")]
+        private extern static IComparer GetComparer(Type t);
+
+        public static int BinarySearch<T>(T[] items, int index, int length, T item)
+        {
+            return BinarySearch(items, index, length, item, null);
+        }
+        
+        public static int BinarySearch<T>(T[] array, int index, int length, T value, IComparer<T> comparer)
+        {
+            if (array == null)
+                throw new Exception("array");
+
+            if (index < 0)
+                throw new Exception("index is less than the lower bound of array.");
+
+            if (length < 0)
+                throw new Exception("Value has to be >= 0.");
+
+            // re-ordered to avoid possible integer overflow
+            if (index > array.Length - length)
+                throw new Exception("index and length do not specify a valid range in array.");
+
+            if (comparer == null)
+                comparer = UnsafeCast<IComparer<T>>(GetComparer(typeof(T)));
+
+            int iMin = index;
+            int iMax = index + length - 1;
+            int iCmp = 0;
+            try
+            {
+                while (iMin <= iMax)
+                {
+                    // Be careful with overflows
+                    int iMid = iMin + ((iMax - iMin) / 2);
+                    iCmp = comparer.Compare(array[iMid], value);
+
+                    if (iCmp == 0)
+                        return iMid;
+
+                    if (iCmp > 0)
+                        iMax = iMid - 1;
+                    else
+                        iMin = iMid + 1; // compensate for the rounding down
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Comparer threw an exception.");
+            }
+
+            return ~iMin; 
         }
     }
 

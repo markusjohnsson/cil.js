@@ -46,8 +46,29 @@ namespace Braille.Analysis.Passes
                     replacement: AggregateExpression(block, span));
             }
 
-            foreach (var subblock in block.Ast.OfType<Block>())
+            foreach (var subblock in GetBlocks(block.Ast))
                 ProcessBlock(subblock);
+        }
+
+        private static IEnumerable<Block> GetBlocks(List<Node> list)
+        {
+            foreach (var item in list)
+            {
+                if (item is Block)
+                    yield return item as Block;
+
+                var pr = item as ProtectedRegion;
+                if (pr != null)
+                {
+                    yield return pr.TryBlock;
+                    foreach (var b in pr.CatchBlocks)
+                        yield return b;
+                    if (pr.FaultBlock != null)
+                        yield return pr.FaultBlock;
+                    if (pr.FinallyBlock != null)
+                        yield return pr.FinallyBlock;
+                }
+            }
         }
 
         private static Node[] AggregateExpression(Block block, span span)

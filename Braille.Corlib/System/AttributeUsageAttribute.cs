@@ -14,5 +14,7 @@ namespace System
         public AttributeTargets ValidOn { get; private set; }
 
         public bool Inherited { get; set; }
+
+        public bool AllowMultiple { get; set; }
     }
 }

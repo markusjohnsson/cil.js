@@ -14,6 +14,17 @@ class Program
 {
     public static void Main()
     {
+
+        TestLog.Log(typeof(A).Name);
+        TestLog.Log(typeof(int).Name);
+        TestLog.Log(typeof(string).Name);
+        TestLog.Log(typeof(bool).Name);
+
+        TestLog.Log(typeof(A).FullName);
+        TestLog.Log(typeof(int).FullName);
+        TestLog.Log(typeof(string).FullName);
+        TestLog.Log(typeof(bool).FullName);
+
         TestLog.Log(typeof(A).FullName);
         TestLog.Log(new A().GetType().FullName);
         TestLog.Log(new A().GetType().Equals(typeof(A)));

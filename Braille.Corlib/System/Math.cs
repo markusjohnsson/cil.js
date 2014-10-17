@@ -22,5 +22,10 @@ namespace System
         [JsReplace("Math.max({0}, {1})")]
         public extern static double Max(double a, double b);
 
+        [JsReplace("Math.min({0}, {1})")]
+        public extern static int Min(int a, int b);
+
+        [JsReplace("Math.min({0}, {1})")]
+        public extern static double Min(double a, double b);
     }
 }

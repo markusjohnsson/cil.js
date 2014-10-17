@@ -22,6 +22,7 @@ namespace System
             internal int Hash;
             internal Braille.JavaScript.Boolean IsGenericTypeDefinition;
             internal Braille.JavaScript.Boolean IsInterface;
+            internal Braille.JavaScript.Boolean IsValueType;
             internal object GenericArguments;
             internal object Interfaces;
         }
@@ -234,6 +235,30 @@ namespace System
             }
 
             return false;
+        }
+
+        [JsImport(@"
+            function (s) {
+                var idx = s.jsstr.lastIndexOf('.');
+                return new_string(s.jsstr.substring(idx + 1));
+            }
+            ")]
+        private static extern string GetName(string fullname);
+
+        public override string Name
+        {
+            get
+            {
+                return GetName(FullName);
+            }
+        }
+
+        public override bool IsValueType
+        {
+            get
+            {
+                return (bool)ctor.IsValueType;
+            }
         }
     }
 }

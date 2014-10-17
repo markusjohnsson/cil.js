@@ -31,13 +31,7 @@ namespace System
             get { return IsSubclassOf(typeof(Enum)); }
         }
 
-        /// <summary>
-        ///   The assembly where the type is defined.
-        /// </summary>
-        public abstract Assembly Assembly
-        {
-            get;
-        }
+        public abstract Assembly Assembly { get; }
 
         public abstract Type BaseType { get; }
 
@@ -57,5 +51,8 @@ namespace System
 
         public abstract bool IsAssignableFrom(Type type);
 
+        public abstract string Name { get; }
+
+        public abstract bool IsValueType { get; }
     }
 }

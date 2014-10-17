@@ -160,7 +160,7 @@ namespace Braille.Loading
                     {
                         data = resolver.ResolveMember(token);
                     }
-                    catch (ArgumentException)
+                    catch// (ArgumentException)
                     {
                         data = resolver.ResolveType(token);
                     }
