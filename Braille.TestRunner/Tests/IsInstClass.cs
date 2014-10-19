@@ -10,12 +10,13 @@ class Program
 {
     public static void Main()
     {
-        object a = new A();
-        object b = new B();
-        object c = "hello";
+        Isa(new A());
+        Isa(new B());
+        Isa("hello");
+    }
 
-        TestLog.Log(a is A ? "true" : "false");
-        TestLog.Log(b is A ? "true" : "false");
-        TestLog.Log(c is A ? "true" : "false");
+    public static void Isa(object o)
+    {
+        TestLog.Log(o is A ? "true" : "false");
     }
 }

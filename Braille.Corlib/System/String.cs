@@ -65,10 +65,12 @@ namespace System
             return ConcatImpl(args);
         }
 
-        public static string Concat(params object[] args)
-        {
-            throw new Exception("Not implemented");
-        }
+        [JsImport(@"
+            function Concat(args) {
+                return new_string(args.jsarr.map(function(s) { return s.jsstr; }).join(''));
+            }
+            ")]
+        public extern static string Concat(params object[] args);
 
         public string Replace(string oldValue, string newValue)
         {
@@ -123,5 +125,18 @@ namespace System
         {
             return GetHashCodeImpl(this);
         }
+
+        [JsImport(@"
+            function (a, b) {
+                if (a.jsstr < b.jsstr)
+                    return -1;
+
+                if (a.jsstr > b.jsstr)
+                    return 1;
+
+                return 0;
+            }
+            ")]
+        public extern static int Compare(string s1, string s2);
     }
 }

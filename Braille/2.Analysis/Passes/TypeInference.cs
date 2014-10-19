@@ -330,6 +330,10 @@ namespace Braille.Analysis
             {
                 type = newType;
             }
+            else if (newType == types.Boolean && (type == types.Int32 || type == types.Int64))
+            {
+                //type = type;
+            }
             else
             {
                 throw new InvalidOperationException("Cannot determine type");

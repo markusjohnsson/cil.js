@@ -115,6 +115,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <None Include="Tests\IsSubclassOf.cs" />
+    <None Include="Tests\MethodInitializerBug.cs" />
     <None Include="Tests\Activator.cs" />
     <None Include="Tests\CastClass.cs" />
     <None Include="Tests\CustomClassAttributes.cs" />
@@ -123,7 +125,7 @@
     <None Include="Tests\ULong.cs" />
     <None Include="Tests\Char.cs" />
     <None Include="Tests\HashCode.cs" />
-    <None Include="FailingTests\ArrayInitializer.cs" />
+    <None Include="Tests\ArrayInitializer.cs" />
     <None Include="Tests\Exceptions.cs" />
     <None Include="Tests\IntegerArithmetic.cs" />
     <None Include="Tests\IntegerConversion.cs" />
@@ -226,7 +228,9 @@
     </Content>
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="FailingTests\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>

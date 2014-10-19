@@ -21,10 +21,12 @@ namespace Braille.Loading.Model
         public readonly Type Double;
         public readonly Type Object;
         public readonly Type Boolean;
+        public readonly Type Char;
+
         public readonly Type Null;
         public readonly Type String;
-        public readonly Type Char;
         public readonly Type ManagedPointer;
+        public readonly Type Type;
 
         public SystemTypes(Universe universe)
         {
@@ -47,6 +49,7 @@ namespace Braille.Loading.Model
             Object = universe.GetType("System.Object");
             String = universe.GetType("System.String");
             ManagedPointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
+            Type = universe.GetType("System.Type");
         }
     }
 }

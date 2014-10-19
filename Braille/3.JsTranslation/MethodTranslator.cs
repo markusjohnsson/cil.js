@@ -43,12 +43,19 @@ namespace Braille.JsTranslation
                     .ToStatement());
             }
 
-            functionBlock.Add(
-                JSFactory
-                    .Assignment(
-                        JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod)),
-                        JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_"))
-                    .ToStatement());
+            if (method.DeclaringType.ReflectionType.IsGenericTypeDefinition && method.ReflectionMethod.IsConstructor)
+            {
+                // We need to always call the initializer for constructors of generic types, since we have no type
+            }
+            else
+            {
+                functionBlock.Add(
+                    JSFactory
+                        .Assignment(
+                            JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod)),
+                            JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_"))
+                        .ToStatement());
+            }
 
             var f = new JSFunctionDelcaration
             {
@@ -96,7 +103,7 @@ namespace Braille.JsTranslation
 
                 }.ToStatement());
 
-            JSExpression openMethodImplementation = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod));
+            JSExpression openMethodImplementation = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_");
             JSExpression closedMethodImplementation;
 
             if (HasGenericParameters(method))

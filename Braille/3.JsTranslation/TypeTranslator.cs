@@ -191,17 +191,27 @@ namespace Braille.JsTranslation
                             .ToList()
                     });
 
+            var shouldHaveBasePrototype = 
+                type.ReflectionType.BaseType != null &&
+                type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
+                type.ReflectionType.BaseType.FullName != "System.ValueType";
+
             yield return JSFactory
                 .Assignment(
                     JSFactory.Identifier(n, "prototype"),
-                    (type.ReflectionType.BaseType != null &&
-                     type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
-                     type.ReflectionType.BaseType.FullName != "System.ValueType") ?
+                    shouldHaveBasePrototype ?
                         new JSNewExpression
                         {
                             Constructor = GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType)
                         } :
                         new JSObjectLiteral() as JSExpression);
+
+            if (type.ReflectionType.IsValueType) 
+            {
+                yield return JSFactory.Call(
+                    JSFactory.Identifier(
+                        GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType), "init"));
+            }
         }
 
         public IEnumerable<JSStatement> GetInitialization(string n, CilType type)
@@ -255,7 +265,7 @@ namespace Braille.JsTranslation
             {
                 yield return new JSCallExpression
                 {
-                    Function = GetMethodAccessor(cctors[0])
+                    Function = GetMethodAccessor(cctors[0], typeScope: type.ReflectionType)
                 }
                 .ToStatement();
             }
@@ -325,8 +335,11 @@ namespace Braille.JsTranslation
                                             attribute
                                                 .ConstructorArguments
                                                 .Select(
-                                                    arg => arg.ArgumentType == context.SystemTypes.String ?
-                                                        (JSExpression)JSFactory.Call(JSFactory.Identifier("new_string"), JSFactory.String((string)arg.Value)) :
+                                                    arg => 
+                                                        arg.ArgumentType == context.SystemTypes.String ?
+                                                            (JSExpression)JSFactory.Call(JSFactory.Identifier("new_string"), JSFactory.String((string)arg.Value)) :
+                                                        arg.ArgumentType == context.SystemTypes.Type ?
+                                                            GetTypeIdentifier((IKVM.Reflection.Type)arg.Value, typeScope: type.ReflectionType) :
                                                         JSFactory.Literal(arg.Value))
                                                 .ToArray()),
                                     new JSObjectLiteral
@@ -417,7 +430,7 @@ namespace Braille.JsTranslation
             }
             else if (type.ReflectionType.FullName == "System.Array`1")
             {
-                return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && t.type.prototype instanceof T ? t : null; }");
+                return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && t.etype.prototype instanceof T ? t : null; }");
             }
             else
             {

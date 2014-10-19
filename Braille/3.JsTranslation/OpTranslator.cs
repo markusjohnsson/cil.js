@@ -724,14 +724,15 @@ namespace Braille.JsTranslation
                     }
                 case "ldflda":
                     {
-                        var field = (FieldInfo)node.Instruction.Data;
-                        return WrapInReaderWriter(new JSArrayLookupExpression
+                        var fieldInfo = (FieldInfo)node.Instruction.Data;
+                        var argument = node.Arguments.Single();
+                        var argExpression = ProcessInternal(argument);
+
+                        var source = DereferenceIfNeeded(argument, argExpression);
+                        return WrapInReaderWriter(new JSPropertyAccessExpression
                         {
-                            Array = GetTypeAccessor(field.DeclaringType, thisScope),
-                            Indexer = new JSStringLiteral
-                            {
-                                Value = (string)field.Name
-                            }
+                            Host = source,
+                            Property = GetTranslatedFieldName(type, fieldInfo)
                         });
                     }
                 case "ldind":

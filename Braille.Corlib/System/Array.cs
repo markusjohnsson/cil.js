@@ -30,14 +30,14 @@ namespace System
         [JsImport("function(o) { return o.jsarr.length; }")]
         private extern static int GetLengthImpl(object s);
 
-        [JsImport("function(o, i) { return box(o.jsarr[i], o.type); }")]
+        [JsImport("function(o, i) { return box(o.jsarr[i], o.etype); }")]
         private extern static object GetValueImpl(object s, int i);
 
         [JsImport(@"
             function (T) {
                 return function FromJsArray(arr) {
                     var r = new (asm0['System.Array`1'](T))();
-                    r.type = T;
+                    r.etype = T;
                     r.jsarr = arr;
                     return r;
                 };
@@ -165,11 +165,11 @@ namespace System
         internal extern static void Reverse<T>(T[] array, int start, int count);
 
         // Used by mono's corlib
-        [JsReplace("({0}[{1}] = {2})")]
+        [JsReplace("({0}.jsarr[{1}] = {2})")]
         internal extern static T UnsafeStore<T>(T[] array, int i, T value);
 
         // Used by mono's corlib
-        [JsReplace("({0}[{1}])")]
+        [JsReplace("({0}.jsarr[{1}])")]
         internal extern static T UnsafeLoad<T>(T[] array, int i);
 
         // Used by mono's corlib

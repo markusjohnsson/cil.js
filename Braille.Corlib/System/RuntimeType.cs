@@ -23,6 +23,7 @@ namespace System
             internal Braille.JavaScript.Boolean IsGenericTypeDefinition;
             internal Braille.JavaScript.Boolean IsInterface;
             internal Braille.JavaScript.Boolean IsValueType;
+            internal Braille.JavaScript.Boolean IsPrimitive;
             internal object GenericArguments;
             internal object Interfaces;
         }
@@ -61,6 +62,11 @@ namespace System
         {
             get
             {
+                if (IsSubclassOf(typeof(Array)))
+                {
+                    return GetElementType().FullName + "[]";
+                }
+
                 var s = string.FromJsString(ctor.FullName);
 
                 if (IsGenericType && !IsGenericTypeDefinition)
@@ -259,6 +265,22 @@ namespace System
             {
                 return (bool)ctor.IsValueType;
             }
+        }
+
+        public override bool IsPrimitive
+        {
+            get
+            {
+                return (bool)ctor.IsPrimitive;
+            }
+        }
+
+        public override Type GetElementType()
+        {
+            if (! IsSubclassOf(typeof(Array)))
+                throw new Exception("Invalid operation");
+
+            return GetGenericArguments()[0];
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace System
 {
-    public abstract class Type: MemberInfo
+    public abstract class Type : MemberInfo
     {
         public abstract string FullName { get; }
 
@@ -54,5 +54,9 @@ namespace System
         public abstract string Name { get; }
 
         public abstract bool IsValueType { get; }
+
+        public abstract bool IsPrimitive { get; }
+
+        public abstract Type GetElementType();
     }
 }
