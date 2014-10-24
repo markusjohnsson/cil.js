@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Braille.JavaScript\Boolean.cs" />
+    <Compile Include="Braille.JavaScript\String.cs" />
     <Compile Include="Braille.Runtime.InteropServices\Marshal.cs" />
     <Compile Include="Braille.Runtime\Locale.cs" />
     <Compile Include="Properties\Properties.cs" />

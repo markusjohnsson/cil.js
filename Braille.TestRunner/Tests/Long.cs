@@ -330,6 +330,22 @@ class Program
         TestLog.Log(Div(0xfffffffffffffL, 1L));
         TestLog.Log(Div(0xffffffffffffffL, 1L));
 
+        TestLog.Log("Div long.MinValue");
+        TestLog.Log(Div(long.MinValue, 0xfL));
+        TestLog.Log(Div(long.MinValue, 0xffL));
+        TestLog.Log(Div(long.MinValue, 0xfffL));
+        TestLog.Log(Div(long.MinValue, 0xffffL));
+        TestLog.Log(Div(long.MinValue, 0xfffffL));
+        TestLog.Log(Div(long.MinValue, 0xffffffL));
+        TestLog.Log(Div(long.MinValue, 0xfffffffL));
+        TestLog.Log(Div(long.MinValue, 0xffffffffL));
+        TestLog.Log(Div(long.MinValue, 0xfffffffffL));
+        TestLog.Log(Div(long.MinValue, 0xffffffffffL));
+        TestLog.Log(Div(long.MinValue, 0xfffffffffffL));
+        TestLog.Log(Div(long.MinValue, 0xffffffffffffL));
+        TestLog.Log(Div(long.MinValue, 0xfffffffffffffL));
+        TestLog.Log(Div(long.MinValue, 0xffffffffffffffL));
+
         TestLog.Log("Div -1");
         TestLog.Log(Div(0xfL, -1L));
         TestLog.Log(Div(0xffL, -1L));

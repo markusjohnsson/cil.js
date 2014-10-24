@@ -65,12 +65,16 @@ namespace System
             return ConcatImpl(args);
         }
 
-        [JsImport(@"
-            function Concat(args) {
-                return new_string(args.jsarr.map(function(s) { return s.jsstr; }).join(''));
+        public static string Concat(params object[] args)
+        {
+            var strings = new string[args.Length];
+            for (int i = 0; i < args.Length; i++)
+            {
+                strings[i] = args[i].ToString();
             }
-            ")]
-        public extern static string Concat(params object[] args);
+
+            return Concat(strings);
+        }
 
         public string Replace(string oldValue, string newValue)
         {

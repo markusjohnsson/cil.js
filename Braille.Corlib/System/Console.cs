@@ -10,7 +10,10 @@ namespace System
 
         public static void WriteLine(object s)
         {
-            WriteLineImpl(s.ToString());
+            if (s == null)
+                WriteLineImpl(string.Empty);
+            else
+                WriteLineImpl(s.ToString());
         }
     }
 }

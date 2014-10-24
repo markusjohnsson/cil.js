@@ -14,7 +14,7 @@ namespace Braille.TestRunner.Models
     public class Tests
     {
         private string workingDir;
-        
+
         public Tests(string workingDir)
         {
             this.workingDir = workingDir;
@@ -155,31 +155,39 @@ namespace Braille.TestRunner.Models
         {
             string jsOutput = null;
             exitCode = -1;
-            try
+            using (var jsEngine = new MsieJsEngine(engineMode: JsEngineMode.Auto,
+                useEcmaScript5Polyfill: false, useJson2Library: false))
             {
-                using (var jsEngine = new MsieJsEngine(engineMode: JsEngineMode.Auto,
-                    useEcmaScript5Polyfill: false, useJson2Library: false))
+                object exitCodeObj = null;
+                try
                 {
                     jsEngine.Execute(@"var braille_testlib_output = """";");
                     jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
                     jsEngine.ExecuteFile(exeFilePath + ".js");
-                    object exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
+                    exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
+                }
+                catch (JsEngineLoadException e)
+                {
+                    errors.Add("During loading of JavaScript engine an error occurred.\n" + JsErrorHelpers.Format(e));
+                }
+                catch (JsRuntimeException e)
+                {
+                    errors.Add("During execution of JavaScript code an error occurred.\n" + JsErrorHelpers.Format(e));
+                }
 
-                    if (exitCodeObj == MsieJavaScriptEngine.Undefined.Value)
-                        exitCode = 0;
-                    else
-                        exitCode = (int)(double)exitCodeObj;
+                if (exitCodeObj == null || exitCodeObj == MsieJavaScriptEngine.Undefined.Value)
+                    exitCode = 0;
+                else
+                    exitCode = (int)(double)exitCodeObj;
 
+                try
+                {
                     jsOutput = (string)jsEngine.Evaluate("braille_testlib_output");
                 }
-            }
-            catch (JsEngineLoadException e)
-            {
-                errors.Add("During loading of JavaScript engine an error occurred.\n" + JsErrorHelpers.Format(e));
-            }
-            catch (JsRuntimeException e)
-            {
-                errors.Add("During execution of JavaScript code an error occurred.\n" + JsErrorHelpers.Format(e));
+                catch
+                {
+                    errors.Add("Exception while evaluating script output");
+                }
             }
             return jsOutput;
         }
@@ -197,8 +205,8 @@ namespace Braille.TestRunner.Models
 
                 settings.OutputILComments = true;
 
-                var compiler = new Compiler(settings); 
-                
+                var compiler = new Compiler(settings);
+
                 var result = compiler.Compile();
                 return result.EntryPointAssembly;
             }

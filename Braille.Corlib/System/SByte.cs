@@ -5,9 +5,12 @@ namespace System
 {
     public struct SByte
     {
+        public const sbyte MinValue = -128;
+        public const sbyte MaxValue = 127;
+
         public override string ToString()
         {
-            return InternalFormatting.NumberStructToString(this);
+            return InternalFormatting.SignedPrimitiveToString(this);
         }
     }
 }

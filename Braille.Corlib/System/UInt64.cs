@@ -5,6 +5,9 @@ namespace System
 {
     public struct UInt64
     {
+        public const ulong MinValue = 0;
+        public const ulong MaxValue = 0xffffffffffffffff;
+
         public override string ToString()
         {
             var a = this;
@@ -191,8 +194,6 @@ namespace System
                 return r;
             }")]
         public extern static ulong operator %(ulong a, ulong b);
-
-        public const ulong MaxValue = 0xffffffffffffffff;
 
         public override bool Equals(object other)
         {

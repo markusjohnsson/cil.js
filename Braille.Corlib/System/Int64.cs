@@ -1,6 +1,8 @@
 using System.Runtime.CompilerServices;
 using Braille.Runtime.TranslatorServices;
 
+using JsString = Braille.JavaScript.String;
+
 namespace System
 {
     public struct Int64
@@ -13,21 +15,23 @@ namespace System
             var a = this;
             var ten = 10L;
 
-            var s = "";
+            var s = JsString.Emtpy;
+            var n = JsString.Emtpy;
 
             if (a < 0)
             {
-                return "-" + ((object)(-a)).ToString();
+                n = JsString.FromCharCode('-');
             }
 
             do
             {
                 var r = a % ten;
+                if (r < 0) r = -r;
                 s = GetLowString(r) + s;
                 a = a / ten;
-            } while (a > 0);
+            } while (a != 0);
 
-            return s;
+            return (string)(n + s);
         }
 
         public override bool Equals(object other)
@@ -43,8 +47,8 @@ namespace System
         [JsReplace("{0}[0]")]
         private static extern int GetLow(long s);
 
-        [JsReplace("new_string({0}[0].toString())")]
-        private static extern string GetLowString(long a);    
+        [JsReplace("{0}[0].toString()")]
+        private static extern JsString GetLowString(long a);    
 
         [JsAssemblyStatic(Name = "XInt64_Addition")]
         [JsImport(@"
@@ -158,7 +162,7 @@ namespace System
         [JsImport(@"
             function XInt64_Equality(lhs, rhs)
             {
-                return lhs[0] === rhs[0] && lhs[1] === rhs[1];
+                return (lhs[0] === rhs[0] && lhs[1] === rhs[1]) ? 1 : 0;
             }
             ")]
         public extern static long operator ==(long lhs, long rhs);
@@ -167,7 +171,7 @@ namespace System
         [JsImport(@"
             function XInt64_Inequality(lhs, rhs)
             {
-                return lhs[0] !== rhs[0] && lhs[1] !== rhs[1];
+                return (lhs[0] !== rhs[0] && lhs[1] !== rhs[1]) ? 1 : 0;
             }
             ")]
         public extern static long operator !=(long lhs, long rhs);
@@ -219,8 +223,17 @@ namespace System
                     return asm0.Int64_Division(
                       asm0.Int64_UnaryNegation(n), asm0.Int64_UnaryNegation(d));
 
-                else if (asm0.Int64_isNegative(n))
-                    return asm0.Int64_UnaryNegation(asm0.Int64_Division(asm0.Int64_UnaryNegation(n), d));
+                else if (asm0.Int64_isNegative(n)) {
+                    if (asm0.XInt64_Equality(asm0.Int64_UnaryNegation(n), n)) { " + /* fix for long.MinValue overflow */ @"
+                        n = asm0.XInt64_Addition(n, d);
+                        return asm0.XInt64_Subtraction(
+                            asm0.Int64_UnaryNegation(asm0.Int64_Division(asm0.Int64_UnaryNegation(n), d)),
+                            new Uint32Array([1, 0]));
+                    }
+                    else {
+                        return asm0.Int64_UnaryNegation(asm0.Int64_Division(asm0.Int64_UnaryNegation(n), d));
+                    }
+                }
                 else
                     return asm0.UInt64_Division(n, d);
             }")]
@@ -236,8 +249,12 @@ namespace System
                     return asm0.Int64_Modulus(
                       n, asm0.Int64_UnaryNegation(d));
                 }
-                else if (asm0.Int64_isNegative(n))
+                else if (asm0.Int64_isNegative(n)) {
+                    if (asm0.XInt64_Equality(asm0.Int64_UnaryNegation(n), n)) { " + /* fix for long.MinValue overflow */ @"
+                        n = asm0.XInt64_Addition(n, d);
+                    }
                     return asm0.Int64_UnaryNegation(asm0.Int64_Modulus(asm0.Int64_UnaryNegation(n), d));
+                }
                 else
                     return asm0.UInt64_Modulus(n, d);
             }")]
@@ -273,7 +290,7 @@ namespace System
         [JsImport(@"
             function Int64_UnaryNegation (a) {
                 var complement = asm0.XInt64_Subtraction(new Uint32Array([0xffffffff, 0xffffffff]), a);
-                return asm0.XInt64_Addition(complement, conv_u8(1));
+                return asm0.XInt64_Addition(complement, new Uint32Array([1, 0]));
             }")]
         public extern static long operator -(long a);
 
@@ -282,10 +299,10 @@ namespace System
             function isNegative(n) {
                 return asm0.UInt64_GreaterThan(n, [0xffffffff, 0x7fffffff]);
             }")]
-        internal static bool isNegative(long n)
-        {
-            return ((ulong)n) > ((ulong)MaxValue);
-        }
+        internal extern static bool isNegative(long n);
+        //{
+        //    return ((ulong)n) > ((ulong)MaxValue);
+        //}
 
     }
 }

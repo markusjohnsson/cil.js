@@ -14,7 +14,7 @@ namespace System
 
         public override string ToString()
         {
-            return InternalFormatting.NumberStructToString(this);
+            return InternalFormatting.SignedPrimitiveToString(this);
         }
     }
 }

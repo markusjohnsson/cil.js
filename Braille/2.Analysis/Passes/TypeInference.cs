@@ -170,7 +170,38 @@ namespace Braille.Analysis
                         return types.Single;
                     }
                 case "ldelem":
-                    return (Type)op.Instruction.Data;
+                    switch (opc)
+	                {
+                        case "ldelem":
+                            return (Type)op.Instruction.Data;
+                        case "ldelem.ref":
+                            return op.Arguments.First().ResultType.GetElementType();
+                            //throw new NotImplementedException(); // array element type
+                        case "ldelem.i1":
+                            return types.Sbyte;
+                        case "ldelem.i2":
+                            return types.Int16;
+                        case "ldelem.i4":
+                            return types.Int32;
+                        case "ldelem.i8":
+                            return types.Int64;
+                        case "ldelem.u1":
+                            return types.Byte;
+                        case "ldelem.u2":
+                            return types.UInt16;
+                        case "ldelem.u4":
+                            return types.UInt32;
+                        case "ldelem.u8":
+                            return types.UInt64;
+                        case "ldelem.r4":
+                            return types.Single;
+                        case "ldelem.r8":
+                            return types.Double;
+                        case "ldelem.i":
+                            return types.Int32;
+                        default:
+                            throw new NotSupportedException();
+	                }
                 case "ldelema":
                     {
                         var type = (Type)op.Instruction.Data;
