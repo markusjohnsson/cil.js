@@ -82,8 +82,18 @@ namespace System
             return -1;
         }
 
+        [JsImport(@"
+            function (classname) { 
+                var t = asm1[classname]();
+                return new t(); 
+            }")]
+        private extern static Exception GetException(string classname);
+
         public static void Copy<T>(T[] source, int startIndex, T[] target, int targetStartIndex, int length)
         {
+            if (startIndex < 0)
+                throw GetException("System.ArgumentOutOfRangeException");
+
             for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
             {
                 target[t] = source[s];
@@ -274,7 +284,7 @@ namespace System
         }
     }
 
-    internal class Array<T> : Array, IEnumerable<T>
+    internal class Array<T> : Array, IEnumerable<T>, ICollection<T>
     {
         [JsReplace("{0}.jsarr[{1}]")]
         private extern T GetTypedValue(int index);
@@ -326,6 +336,41 @@ namespace System
         protected override IEnumerator GetEnumeratorImpl()
         {
             return GetEnumerator();
+        }
+
+        int ICollection<T>.Count
+        {
+            get { return Length; }
+        }
+
+        bool ICollection<T>.IsReadOnly
+        {
+            get { return true; }
+        }
+
+        void ICollection<T>.Add(T item)
+        {
+            throw new NotSupportedException();
+        }
+
+        void ICollection<T>.Clear()
+        {
+            throw new NotSupportedException();
+        }
+
+        bool ICollection<T>.Contains(T item)
+        {
+            return IndexOf((T[])(Array)this, item, 0, Length) != -1;
+        }
+
+        void ICollection<T>.CopyTo(T[] array, int arrayIndex)
+        {
+            Copy((T[])(Array)this, array, arrayIndex);
+        }
+
+        bool ICollection<T>.Remove(T item)
+        {
+            throw new NotSupportedException();
         }
     }
 }

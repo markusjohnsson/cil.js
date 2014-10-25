@@ -38,5 +38,20 @@ namespace System
 
             return 0;
         }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is int))
+                return false;
+
+            var a = this;
+            var b = (int)other;
+            return a == b;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)this;
+        }
     }
 }

@@ -12,5 +12,20 @@ namespace System
         {
             return InternalFormatting.UnsignedPrimitiveToString(this, 16);
         }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is ushort))
+                return false;
+
+            var a = this;
+            var b = (ushort)other;
+            return a == b;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)this;
+        }
     }
 }

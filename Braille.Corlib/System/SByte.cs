@@ -12,5 +12,20 @@ namespace System
         {
             return InternalFormatting.SignedPrimitiveToString(this);
         }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is sbyte))
+                return false;
+
+            var a = this;
+            var b = (sbyte)other;
+            return a == b;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)this;
+        }
     }
 }

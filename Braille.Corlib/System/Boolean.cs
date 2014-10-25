@@ -9,5 +9,15 @@ namespace System
         {
             return this ? "True" : "False";
         }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is bool))
+                return false;
+
+            var a = this;
+            var b = (bool)other;
+            return a == b;
+        }
     }
 }

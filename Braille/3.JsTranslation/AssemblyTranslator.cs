@@ -91,7 +91,7 @@ namespace Braille.JsTranslation
             }
             return result;
         }
-    
+
         if (type.IsValueType)
             return cast_class(o.boxed, type);
         else
@@ -166,12 +166,20 @@ namespace Braille.JsTranslation
     }
 
     function cast_class(obj, type) {
-        if (type.IsInst(obj) || (!type.IsValueType && obj === null))
+        if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
             return obj;
-        else {
-            var t = asm0['System.InvalidCastException']();
-            throw new t();
         }
+        else if (type.IsPrimitive) {
+            if (typeof obj == 'number') {
+                return obj;
+            }
+            else if (typeof obj.length == 'number' && obj.length == 2) {
+                return obj; " /* this is for (u)int64 */ + @"
+            }
+        }
+        
+        var t = asm0['System.InvalidCastException']();
+        throw new t();
     }
 
     function conv_u8(n) {

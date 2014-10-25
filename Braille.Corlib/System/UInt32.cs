@@ -12,5 +12,20 @@ namespace System
         {
             return InternalFormatting.UnsignedPrimitiveToString(this, 32);
         }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is uint))
+                return false;
+
+            var a = this;
+            var b = (uint)other;
+            return a == b;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)this;
+        }
     }
 }

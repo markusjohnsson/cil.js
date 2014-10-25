@@ -38,6 +38,7 @@
     <Compile Include="Braille.Runtime.InteropServices\Marshal.cs" />
     <Compile Include="Braille.Runtime\Locale.cs" />
     <Compile Include="Properties\Properties.cs" />
+    <Compile Include="System.Collections.Generic\ICollection.cs" />
     <Compile Include="System.Collections.Generic\IComparer.cs" />
     <Compile Include="System.Collections\IComparer.cs" />
     <Compile Include="System.Reflection\Assembly.cs" />

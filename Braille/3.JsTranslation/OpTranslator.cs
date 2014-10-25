@@ -521,7 +521,7 @@ namespace Braille.JsTranslation
 
                         return JSFactory.Call(JSFactory.RawExpression("cast_class"), expr, GetTypeAccessor(targetType, thisScope));
                     }
-                
+
                 case "ceq":
                 case "cgt":
                 case "clt":
@@ -529,7 +529,7 @@ namespace Braille.JsTranslation
 
                 case "conv":
                     return new ConversionTranslator(context, assembly, type, method).Translate(node);
-                
+
                 case "dup":
                     return ProcessInternal(node.Arguments.Single());
                 case "initobj":
@@ -540,18 +540,23 @@ namespace Braille.JsTranslation
                         return new JSConditionalExpression
                         {
                             Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
-                            TrueValue = new JSCallExpression
+                            TrueValue = new JSConditionalExpression
                             {
-                                Function = new JSPropertyAccessExpression
+                                Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
+                                TrueValue = JSFactory.Literal(0),
+                                FalseValue = new JSCallExpression
                                 {
-                                    Host = ProcessInternal(node.Arguments.Single()),
-                                    Property = "w"
-                                },
-                                Arguments = 
-                                {
-                                    new JSNewExpression 
+                                    Function = new JSPropertyAccessExpression
                                     {
-                                        Constructor = typeExpr
+                                        Host = ProcessInternal(node.Arguments.Single()),
+                                        Property = "w"
+                                    },
+                                    Arguments = 
+                                    {
+                                        new JSNewExpression 
+                                        {
+                                            Constructor = typeExpr
+                                        }
                                     }
                                 }
                             },
@@ -566,7 +571,6 @@ namespace Braille.JsTranslation
                             Function = new JSPropertyAccessExpression { Host = GetTypeAccessor(targetType, thisScope), Property = "IsInst" },
                             Arguments = new List<JSExpression> { ProcessInternal(node.Arguments.Single()) }
                         };
-
                     }
                 case "ldarg":
                     {
@@ -737,11 +741,11 @@ namespace Braille.JsTranslation
                     }
                 case "ldind":
                     return JSFactory.Call(JSFactory.Identifier(ProcessInternal(node.Arguments.Single()), "r"));
-                    //return new JSPropertyAccessExpression
-                    //{
-                    //    Host = ProcessInternal(node.Arguments.Single()),
-                    //    Property = "boxed"
-                    //};
+                //return new JSPropertyAccessExpression
+                //{
+                //    Host = ProcessInternal(node.Arguments.Single()),
+                //    Property = "boxed"
+                //};
                 case "ldftn":
                     {
                         var target = ((LoadFunctionNode)node).Target;
@@ -901,7 +905,7 @@ namespace Braille.JsTranslation
                     {
                         var ctor = (ConstructorInfo)node.Instruction.Data;
                         var argList = ProcessList(node.Arguments).StartWith(new JSNullLiteral()); // leave room for "this"
-                        
+
                         var newobj = JSFactory.Call(
                             JSFactory.Identifier("newobj"),
                             GetTypeAccessor(ctor.DeclaringType, thisScope),

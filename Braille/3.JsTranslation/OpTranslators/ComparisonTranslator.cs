@@ -44,8 +44,10 @@ namespace Braille.JsTranslation.OpTranslators
                         };
                     }
                 case "cgt":
-                    if (opc == "cgt.un" && node.Arguments.First().ResultType.IsClass)
+                    if (opc == "cgt.un" && ((OpExpression)node.Arguments.Last()).Instruction.OpCode.Name == "ldnull")
                     {
+                        // we should consider using Number(0) instead of 'null' 
+
                         return new JSConditionalExpression
                         {
                             Condition = new JSBinaryExpression

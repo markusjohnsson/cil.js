@@ -9,5 +9,20 @@ namespace System
         {
             return InternalFormatting.SignedPrimitiveToString(this);
         }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is short))
+                return false;
+
+            var a = this;
+            var b = (short)other;
+            return a == b;
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)this;
+        }
     }
 }

@@ -426,11 +426,11 @@ namespace Braille.JsTranslation
             }
             else if (type.ReflectionType.IsPrimitive)
             {
-                return JSFactory.RawExpression("function (t) { return typeof t == 'number'; }");
+                return JSFactory.RawExpression("function (t) { return t.type == " + GetSimpleName(type) + " ? t : null; }");
             }
             else if (type.ReflectionType.FullName == "System.Array`1")
             {
-                return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && t.etype.prototype instanceof T ? t : null; }");
+                return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && (t.etype == T || t.etype.prototype instanceof T) ? t : null; }");
             }
             else
             {
