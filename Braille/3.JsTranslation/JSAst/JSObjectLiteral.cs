@@ -16,6 +16,9 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
+            if (Properties.IsEmpty())
+                return "{}";
+
             var sb = new StringBuilder();
             sb.Append("{");
 

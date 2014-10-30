@@ -116,6 +116,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Tests\PrimitiveEquals.cs" />
+    <None Include="Tests\ReflectionMethods.cs" />
     <None Include="Tests\IsSubclassOf.cs" />
     <None Include="Tests\MethodInitializerBug.cs" />
     <None Include="Tests\Activator.cs" />

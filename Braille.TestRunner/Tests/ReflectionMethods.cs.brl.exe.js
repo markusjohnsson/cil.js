@@ -195,19 +195,7 @@ var asm0; (function (asm)
         /* IL_0A: ret */
         return loc0;
     };;
-    asm.x6000006 = function GetHashCode(arg0)
-    {
-        var loc0;
-        /* IL_00: nop */
-        /* IL_01: ldarg.0 */
-        /* IL_02: call Int32 GetHashCode(System.Object)*/
-        /* IL_07: stloc.0 */
-        loc0 = (asm0.x6000002)(arg0);
-        /* IL_0A: ldloc.0 */
-        /* IL_0B: ret */
-        return loc0;
-    };;
-    asm.x6000007 = function ToJavaScriptString(arg0)
+    asm.x6000006 = function ToJavaScriptString(arg0)
     {
         var __pos_0__;
         var loc2;
@@ -281,8 +269,8 @@ var asm0; (function (asm)
             }
         }
     };;
-    asm.ToJavaScriptString = asm.x6000007;
-    asm.x6000008 = function ReferenceEquals(arg0,arg1)
+    asm.ToJavaScriptString = asm.x6000006;
+    asm.x6000007 = function ReferenceEquals(arg0,arg1)
     {
         var loc0;
         /* IL_00: nop */
@@ -295,7 +283,7 @@ var asm0; (function (asm)
         /* IL_0C: ret */
         return loc0;
     };;
-    asm.x6000009 = function Equals(arg0,arg1)
+    asm.x6000008 = function Equals(arg0,arg1)
     {
         var loc0;
         /* IL_00: nop */
@@ -303,9 +291,21 @@ var asm0; (function (asm)
         /* IL_02: ldarg.1 */
         /* IL_03: call Boolean ReferenceEquals(System.Object, System.Object)*/
         /* IL_08: stloc.0 */
-        loc0 = (asm0.x6000008)(arg0,arg1);
+        loc0 = (asm0.x6000007)(arg0,arg1);
         /* IL_0B: ldloc.0 */
         /* IL_0C: ret */
+        return loc0;
+    };;
+    asm.x6000009 = function GetHashCode(arg0)
+    {
+        var loc0;
+        /* IL_00: nop */
+        /* IL_01: ldarg.0 */
+        /* IL_02: call Int32 GetHashCode(System.Object)*/
+        /* IL_07: stloc.0 */
+        loc0 = (asm0.x6000002)(arg0);
+        /* IL_0A: ldloc.0 */
+        /* IL_0B: ret */
         return loc0;
     };;
     asm.x600000a = function GetType(arg0)
@@ -339,7 +339,7 @@ var asm0; (function (asm)
                 /* IL_08: ldc.i4.0 */
                 /* IL_0A: ceq */
                 /* IL_0B: stloc.1 */
-                loc1 = (((asm0.x6000008)(arg0,arg1) === (0|0)) ? (1) : (0));
+                loc1 = (((asm0.x6000007)(arg0,arg1) === (0|0)) ? (1) : (0));
                 /* IL_0C: ldloc.1 */
                 /* IL_0D: brtrue.s IL_13*/
                 
@@ -360,7 +360,7 @@ var asm0; (function (asm)
                 /* IL_1A: ldc.i4.0 */
                 /* IL_1C: ceq */
                 /* IL_1D: stloc.1 */
-                loc1 = (((asm0.x6000008)(arg0,null) === (0|0)) ? (1) : (0));
+                loc1 = (((asm0.x6000007)(arg0,null) === (0|0)) ? (1) : (0));
                 /* IL_1E: ldloc.1 */
                 /* IL_1F: brtrue.s IL_25*/
                 
@@ -379,7 +379,7 @@ var asm0; (function (asm)
                 /* IL_26: ldarg.1 */
                 /* IL_27: callvirt Boolean Equals(System.Object)*/
                 /* IL_2C: stloc.0 */
-                loc0 = (((arg0.vtable)["asm0.x6000009"])())(convert_box_to_pointer_as_needed(arg0),arg1);
+                loc0 = (((arg0.vtable)["asm0.x6000008"])())(convert_box_to_pointer_as_needed(arg0),arg1);
                 case 0x2F:
                 /* IL_2F: ldloc.0 */
                 /* IL_30: ret */
@@ -1638,7 +1638,7 @@ var asm0; (function (asm)
                 /* IL_43: ldfld Object _methodPtr*/
                 /* IL_48: call Boolean ReferenceEquals(System.Object, System.Object)*/
                 /* IL_4D: stloc.s 6*/
-                loc6 = (asm0.x6000008)(loc0._methodPtr,loc1._methodPtr);
+                loc6 = (asm0.x6000007)(loc0._methodPtr,loc1._methodPtr);
                 /* IL_4F: ldloc.s 6*/
                 /* IL_51: brtrue.s IL_5B*/
                 
@@ -1659,7 +1659,7 @@ var asm0; (function (asm)
                 /* IL_62: ldfld Object _target*/
                 /* IL_67: call Boolean ReferenceEquals(System.Object, System.Object)*/
                 /* IL_6C: stloc.s 6*/
-                loc6 = (asm0.x6000008)(loc0._target,loc1._target);
+                loc6 = (asm0.x6000007)(loc0._target,loc1._target);
                 /* IL_6E: ldloc.s 6*/
                 /* IL_70: brtrue.s IL_7A*/
                 
@@ -1855,7 +1855,7 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         /* IL_02: call Int32 GetHashCode()*/
         /* IL_07: stloc.0 */
-        loc0 = (asm0.x6000006)(arg0);
+        loc0 = (asm0.x6000009)(arg0);
         /* IL_0A: ldloc.0 */
         /* IL_0B: ret */
         return loc0;
@@ -3608,7 +3608,7 @@ var asm0; (function (asm)
                 /* IL_20: ldarg.0 */
                 /* IL_21: call Int32 GetHashCode()*/
                 /* IL_26: stfld Int32 Hash*/
-                arg0.ctor.Hash = (asm0.x6000006)(arg0);
+                arg0.ctor.Hash = (asm0.x6000009)(arg0);
                 case 0x2B:
                 /* IL_2B: ldarg.0 */
                 /* IL_2C: ldfld constructor ctor*/
@@ -4171,7 +4171,7 @@ var asm0; (function (asm)
                 /* IL_1A: ldc.i4.0 */
                 /* IL_1C: ceq */
                 /* IL_1D: stloc.3 */
-                loc3 = (((((arg0.vtable)["asm0.x6000009"])())(arg0,arg1) === (0|0)) ? (1) : (0));
+                loc3 = (((((arg0.vtable)["asm0.x6000008"])())(arg0,arg1) === (0|0)) ? (1) : (0));
                 /* IL_1E: ldloc.3 */
                 /* IL_1F: brtrue.s IL_25*/
                 
@@ -4221,7 +4221,7 @@ var asm0; (function (asm)
                 /* IL_4A: callvirt Boolean Equals(System.Object)*/
                 /* IL_4F: ldc.i4.0 */
                 /* IL_51: ceq */
-                st_1C = (((((arg0.vtable)["asm0.x6000009"])())(arg0,(asm0.x60000a0)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0))) === (0|0)) ? (1) : (0));
+                st_1C = (((((arg0.vtable)["asm0.x6000008"])())(arg0,(asm0.x60000a0)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0))) === (0|0)) ? (1) : (0));
                 /* IL_52: br.s IL_55*/
                 __pos_0__ = 0x55;
                 continue;
@@ -7374,7 +7374,7 @@ var asm0; (function (asm)
                             }
                         }.r)().value;
                     }
-                }.vtable)["asm0.x6000009"])())({
+                }.vtable)["asm0.x6000008"])())({
                     'w': function ()
                     {
                         ({
@@ -7453,7 +7453,7 @@ var asm0; (function (asm)
                     {
                         return (arg0.r)().value;
                     }
-                }.vtable)["asm0.x6000006"])())({
+                }.vtable)["asm0.x6000009"])())({
                     'w': function ()
                     {
                         (arg0.r)().value = (arguments)[0];
@@ -9158,12 +9158,12 @@ var asm0; (function (asm)
                         "ToString"
                     ],
                     [
-                        "x6000006",
-                        "GetHashCode"
+                        "x6000008",
+                        "Equals"
                     ],
                     [
                         "x6000009",
-                        "Equals"
+                        "GetHashCode"
                     ],
                     [
                         "x600000a",
@@ -9186,9 +9186,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -9406,9 +9406,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -9478,9 +9478,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -9538,9 +9538,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -9601,9 +9601,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -9661,9 +9661,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -9721,9 +9721,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10023,9 +10023,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10085,9 +10085,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10253,9 +10253,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10363,9 +10363,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10445,9 +10445,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10534,9 +10534,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10594,9 +10594,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10659,9 +10659,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10741,9 +10741,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10814,9 +10814,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10875,9 +10875,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -10973,9 +10973,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -11042,13 +11042,13 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000054;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000055;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000009;
                     }
                 };
             };
@@ -11118,11 +11118,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000063;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000064;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000065;
                     }
@@ -11186,9 +11186,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000066;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -11262,11 +11262,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x600006c;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600006d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000070;
                     },
@@ -11333,11 +11333,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000076;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600006d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000070;
                     },
@@ -11420,11 +11420,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000076;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600006d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000070;
                     },
@@ -11484,9 +11484,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -11555,9 +11555,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x600007d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -11616,9 +11616,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -11690,9 +11690,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -11776,11 +11776,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000076;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600006d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000070;
                     },
@@ -11967,11 +11967,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000085;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000086;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000087;
                     }
@@ -12051,11 +12051,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000088;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600008c;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x600008d;
                     }
@@ -12112,9 +12112,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12177,9 +12177,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000090;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12274,9 +12274,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12342,9 +12342,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12410,9 +12410,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12470,9 +12470,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12536,9 +12536,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12748,9 +12748,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -12918,11 +12918,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000b9;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x60000ba;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x60000bb;
                     },
@@ -13077,9 +13077,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13143,9 +13143,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13219,11 +13219,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000cf;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x60000d0;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x60000d1;
                     }
@@ -13285,9 +13285,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000d2;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13346,9 +13346,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13548,9 +13548,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13616,9 +13616,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13684,9 +13684,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13745,9 +13745,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13813,9 +13813,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13881,9 +13881,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000098;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -13956,11 +13956,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000e8;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x60000e9;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x60000ea;
                     }
@@ -14017,9 +14017,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14092,9 +14092,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14166,9 +14166,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14226,9 +14226,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14288,9 +14288,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14364,11 +14364,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000076;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600006d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000070;
                     },
@@ -14451,11 +14451,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000076;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x600006d;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000070;
                     },
@@ -14540,9 +14540,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14664,9 +14664,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14817,9 +14817,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14917,9 +14917,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -14999,9 +14999,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15099,11 +15099,11 @@ var asm0; (function (asm)
                 Nullable_1.prototype.value = ((T.IsValueType) ? (((T.IsPrimitive) ? (0) : (new T()))) : (null));
                 Nullable_1.prototype.has_value = false;
                 Nullable_1.prototype.vtable = {
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000149;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x600014b;
                     },
@@ -15178,9 +15178,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15278,11 +15278,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000164;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000168;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x600016a;
                     }
@@ -15352,9 +15352,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15427,11 +15427,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000171;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000172;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000173;
                     }
@@ -15503,11 +15503,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000174;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000175;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000176;
                     }
@@ -15579,11 +15579,11 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000177;
                     },
-                    'asm0.x6000009': function ()
+                    'asm0.x6000008': function ()
                     {
                         return asm0.x6000181;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000009': function ()
                     {
                         return asm0.x6000182;
                     }
@@ -15645,9 +15645,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000184;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15706,9 +15706,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15796,9 +15796,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15895,9 +15895,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15968,9 +15968,9 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -15985,7 +15985,7 @@ var asm0; (function (asm)
 })(asm0 || (asm0 = {}));
 var asm1; (function (asm)
 {
-    asm.FullName = "CSStringConverter.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
+    asm.FullName = "ReflectionMethods.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     
     asm.next_hash = 1;
 
@@ -16181,299 +16181,109 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000c = function Main()
+    asm.x600000c = function X(arg0)
     {
         /* IL_00: ret */
         return ;
     };;
-    asm.x600000d = function _ctor(arg0)
+    asm.x600000d = function Y(arg0)
+    {
+        /* IL_00: ret */
+        return ;
+    };;
+    asm.x600000e = function Z(arg0)
+    {
+        /* IL_00: ret */
+        return ;
+    };;
+    asm.x600000f = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000e = function Append(arg0,arg1)
+    asm.x6000010_init = function ()
     {
-        /* IL_00: ldarg.1 */
-        /* IL_01: call Void Log(System.Object)*/
-        (asm1.x6000001)(arg1);
-        /* IL_06: ret */
-        return ;
+        ((asm1.A)().init)();
+        asm.x6000010 = asm.x6000010_;
     };;
-    asm.x600000f_init = function ()
+    asm.x6000010 = function ()
     {
-        (((asm0)["System.Char"])().init)();
-        asm.x600000f = asm.x600000f_;
+        (asm.x6000010_init.apply)(this,arguments);
+        return (asm.x6000010_.apply)(this,arguments);
     };;
-    asm.x600000f = function (arg0,arg1)
-    {
-        (asm.x600000f_init.apply)(this,arguments);
-        return (asm.x600000f_.apply)(this,arguments);
-    };;
-    asm.x600000f_ = function Append(arg0,arg1)
-    {
-        var t0;
-        t0 = ((asm0)["System.Char"])();
-        /* IL_00: ldarg.1 */
-        /* IL_01: box System.Char*/
-        /* IL_06: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': arg1,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        });
-        /* IL_0B: ret */
-        return ;
-    };
-    asm.x6000010 = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
-    asm.x6000011_init = function ()
-    {
-        ((asm1.S)().init)();
-        asm.x6000011 = asm.x6000011_;
-    };;
-    asm.x6000011 = function (arg0)
-    {
-        (asm.x6000011_init.apply)(this,arguments);
-        return (asm.x6000011_.apply)(this,arguments);
-    };;
-    asm.x6000011_ = function Convert(arg0)
+    asm.x6000010_ = function Main()
     {
         var t0;
         var __pos_0__;
         var loc0;
         var loc1;
+        var loc3;
+        var loc4;
         var loc2;
-        var __switch_value__;
-        var __jmp__;
-        t0 = (asm1.S)();
+        t0 = (asm1.A)();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
             
             switch (__pos_0__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.0 */
-                loc0 = newobj(t0,asm1.x6000010,[
-                    null
-                ]);
-                /* IL_06: ldloc.0 */
-                /* IL_07: ldc.i4.s 34*/
-                /* IL_09: callvirt Void Append(System.Char)*/
-                (asm1.x600000f)(loc0,(34|0));
-                /* IL_0E: ldc.i4.0 */
-                /* IL_0F: stloc.1 */
-                loc1 = (0|0);
-                /* IL_10: br IL_DB*/
-                __pos_0__ = 0xDB;
+                /* IL_00: ldtoken A*/
+                /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
+                /* IL_0A: stloc.0 */
+                loc0 = (asm0.x60000a0)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0));
+                /* IL_0B: ldloc.0 */
+                /* IL_0C: callvirt MethodInfo[] GetMethods()*/
+                /* IL_11: stloc.1 */
+                loc1 = (((loc0.vtable)["asm0.x60000b0"])())(loc0);
+                /* IL_12: ldloc.1 */
+                /* IL_13: stloc.3 */
+                loc3 = loc1;
+                /* IL_14: ldc.i4.0 */
+                /* IL_15: stloc.s 4*/
+                loc4 = (0|0);
+                /* IL_17: br.s IL_2F*/
+                __pos_0__ = 0x2F;
                 continue;
-                case 0x15:
-                /* IL_15: ldarg.0 */
-                /* IL_16: ldloc.1 */
-                /* IL_17: callvirt Char get_Chars(System.Int32)*/
-                /* IL_1C: stloc.2 */
-                loc2 = (asm0.x6000159)(arg0,loc1);
-                /* IL_1D: ldloc.2 */
-                /* IL_1E: ldc.i4.s 13*/
-                /* IL_20: bgt.s IL_48*/
+                case 0x19:
+                /* IL_19: ldloc.3 */
+                /* IL_1A: ldloc.s 4*/
+                /* IL_1C: ldelem.ref */
+                /* IL_1D: stloc.2 */
+                loc2 = (loc3.jsarr)[loc4];
+                /* IL_1E: ldloc.2 */
+                /* IL_1F: callvirt String get_Name()*/
+                /* IL_24: call Void Log(System.Object)*/
+                (asm1.x6000001)((((loc2.vtable)["asm0.x6000038"])())(loc2));
+                /* IL_29: ldloc.s 4*/
+                /* IL_2B: ldc.i4.1 */
+                /* IL_2C: add */
+                /* IL_2D: stloc.s 4*/
+                loc4 = (loc4 + (1|0)) | (0|0);
+                case 0x2F:
+                /* IL_2F: ldloc.s 4*/
+                /* IL_31: ldloc.3 */
+                /* IL_32: ldlen */
+                /* IL_33: conv.i4 */
+                /* IL_34: blt.s IL_19*/
                 
-                if (loc2 > (13|0)){
-                    __pos_0__ = 0x48;
+                if (loc4 < (loc3.jsarr.length | (0|0))){
+                    __pos_0__ = 0x19;
                     continue;
                 }
-                /* IL_22: ldloc.2 */
-                /* IL_23: ldc.i4.0 */
-                /* IL_24: beq.s IL_89*/
-                
-                if (loc2 === (0|0)){
-                    __pos_0__ = 0x89;
-                    continue;
-                }
-                /* IL_26: ldloc.2 */
-                /* IL_27: ldc.i4.s 9*/
-                /* IL_29: sub */
-                /* IL_2A: switch System.Int32[]*/
-                __switch_value__ = (loc2 - (9|0)) | (0|0);
-                
-                if (__switch_value__ >= 0x5){
-                    __pos_0__ = 0x43;
-                    continue;
-                }
-                __jmp__ = [
-                    0x53,
-                    0x60,
-                    0x87,
-                    0x87,
-                    0x6D
-                ];
-                __pos_0__ = (0x43 + (__jmp__)[__switch_value__]);
-                continue;
-                case 0x43:
-                /* IL_43: br IL_CA*/
-                __pos_0__ = 0xCA;
-                continue;
-                case 0x48:
-                /* IL_48: ldloc.2 */
-                /* IL_49: ldc.i4.s 34*/
-                /* IL_4B: beq.s IL_BD*/
-                
-                if (loc2 === (34|0)){
-                    __pos_0__ = 0xBD;
-                    continue;
-                }
-                /* IL_4D: ldloc.2 */
-                /* IL_4E: ldc.i4.s 92*/
-                /* IL_50: beq.s IL_68*/
-                
-                if (loc2 === (92|0)){
-                    __pos_0__ = 0x68;
-                    continue;
-                }
-                /* IL_52: ldloc.2 */
-                /* IL_53: ldc.i4 8232*/
-                /* IL_58: sub */
-                /* IL_59: switch System.Int32[]*/
-                __switch_value__ = (loc2 - (8232|0)) | (0|0);
-                
-                if (__switch_value__ >= 0x2){
-                    __pos_0__ = 0x66;
-                    continue;
-                }
-                __jmp__ = [
-                    0xF,
-                    0xF
-                ];
-                __pos_0__ = (0x66 + (__jmp__)[__switch_value__]);
-                continue;
-                case 0x66:
-                /* IL_66: br.s IL_CA*/
-                __pos_0__ = 0xCA;
-                continue;
-                case 0x68:
-                /* IL_68: ldloc.0 */
-                /* IL_69: ldstr \\*/
-                /* IL_6E: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,new_string("\\\\"));
-                /* IL_73: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0x75:
-                /* IL_75: ldloc.0 */
-                /* IL_76: ldarg.0 */
-                /* IL_77: ldloc.1 */
-                /* IL_78: callvirt Char get_Chars(System.Int32)*/
-                /* IL_7D: call String EscapeChar(System.Char)*/
-                /* IL_82: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,(asm1.x6000012)((asm0.x6000159)(arg0,loc1)));
-                /* IL_87: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0x89:
-                /* IL_89: ldloc.0 */
-                /* IL_8A: ldstr \0*/
-                /* IL_8F: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,new_string("\\0"));
-                /* IL_94: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0x96:
-                /* IL_96: ldloc.0 */
-                /* IL_97: ldstr \t*/
-                /* IL_9C: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,new_string("\\t"));
-                /* IL_A1: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0xA3:
-                /* IL_A3: ldloc.0 */
-                /* IL_A4: ldstr \n*/
-                /* IL_A9: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,new_string("\\n"));
-                /* IL_AE: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0xB0:
-                /* IL_B0: ldloc.0 */
-                /* IL_B1: ldstr \r*/
-                /* IL_B6: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,new_string("\\r"));
-                /* IL_BB: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0xBD:
-                /* IL_BD: ldloc.0 */
-                /* IL_BE: ldstr \"*/
-                /* IL_C3: callvirt Void Append(System.String)*/
-                (asm1.x600000e)(loc0,new_string("\\\""));
-                /* IL_C8: br.s IL_D7*/
-                __pos_0__ = 0xD7;
-                continue;
-                case 0xCA:
-                /* IL_CA: ldloc.0 */
-                /* IL_CB: ldarg.0 */
-                /* IL_CC: ldloc.1 */
-                /* IL_CD: callvirt Char get_Chars(System.Int32)*/
-                /* IL_D2: callvirt Void Append(System.Char)*/
-                (asm1.x600000f)(loc0,(asm0.x6000159)(arg0,loc1));
-                case 0xD7:
-                /* IL_D7: ldloc.1 */
-                /* IL_D8: ldc.i4.1 */
-                /* IL_D9: add */
-                /* IL_DA: stloc.1 */
-                loc1 = (loc1 + (1|0)) | (0|0);
-                case 0xDB:
-                /* IL_DB: ldloc.1 */
-                /* IL_DC: ldarg.0 */
-                /* IL_DD: callvirt Int32 get_Length()*/
-                /* IL_E2: blt IL_15*/
-                
-                if (loc1 < (asm0.x6000163)(arg0)){
-                    __pos_0__ = 0x15;
-                    continue;
-                }
-                /* IL_E7: ldloc.0 */
-                /* IL_E8: ldc.i4.s 34*/
-                /* IL_EA: callvirt Void Append(System.Char)*/
-                (asm1.x600000f)(loc0,(34|0));
-                /* IL_EF: ldloc.0 */
-                /* IL_F0: callvirt String ToString()*/
-                /* IL_F5: ret */
-                return (((loc0.vtable)["asm0.x6000005"])())(loc0);
+                /* IL_36: ret */
+                return ;
             }
         }
     };
-    asm.x6000012_init = function ()
+    asm.x6000011 = function _ctor(arg0)
     {
-        (((asm0)["System.Int32"])().init)();
-        asm.x6000012 = asm.x6000012_;
+        /* IL_00: ldarg.0 */
+        /* IL_01: call Void .ctor()*/
+        /* IL_06: ret */
+        return ;
     };;
-    asm.x6000012 = function (arg0)
-    {
-        (asm.x6000012_init.apply)(this,arguments);
-        return (asm.x6000012_.apply)(this,arguments);
-    };;
-    asm.x6000012_ = function EscapeChar(arg0)
-    {
-        var t0;
-        t0 = ((asm0)["System.Int32"])();
-        /* IL_00: ldstr \u*/
-        /* IL_05: ldarg.0 */
-        /* IL_06: box System.Int32*/
-        /* IL_0B: call String Concat(System.Object, System.Object)*/
-        /* IL_10: ret */
-        return (asm0.x600015f)(new_string("\\u"),{
-            'boxed': arg0,
-            'type': t0,
-            'vtable': t0.prototype.vtable
-        });
-    };
     asm.TestLog = (function ()
     {
         var ct;
@@ -16520,9 +16330,9 @@ var asm1; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -16580,9 +16390,9 @@ var asm1; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -16591,6 +16401,79 @@ var asm1; (function (asm)
                 };
             };
             TestHelper.prototype = new (((asm0)["System.Object"])())();
+            return c;
+        };
+    })();
+    asm.A = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function A()
+            {
+                (A.init)();
+                this.constructor = A;
+            };
+            c = A;
+            ct = c;
+            A.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                A.CustomAttributes = [];
+                A.Methods = [
+                    [
+                        "x600000c",
+                        "X"
+                    ],
+                    [
+                        "x600000d",
+                        "Y"
+                    ],
+                    [
+                        "x600000e",
+                        "Z"
+                    ]
+                ];
+                A.BaseType = ((asm0)["System.Object"])();
+                A.FullName = "A";
+                A.Assembly = asm;
+                A.Interfaces = [];
+                A.IsInst = function (t) { return t instanceof A ? t : null; };
+                A.IsValueType = false;
+                A.IsPrimitive = false;
+                A.IsInterface = false;
+                A.IsGenericTypeDefinition = false;
+                A.IsNullable = false;
+                A.ArrayType = Array;
+                A.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            A.prototype = new (((asm0)["System.Object"])())();
             return c;
         };
     })();
@@ -16640,9 +16523,9 @@ var asm1; (function (asm)
                     {
                         return asm0.x6000005;
                     },
-                    'asm0.x6000006': function ()
+                    'asm0.x6000008': function ()
                     {
-                        return asm0.x6000006;
+                        return asm0.x6000008;
                     },
                     'asm0.x6000009': function ()
                     {
@@ -16654,134 +16537,5 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    asm.S = (function ()
-    {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function S()
-            {
-                (S.init)();
-                this.constructor = S;
-            };
-            c = S;
-            ct = c;
-            S.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                S.CustomAttributes = [];
-                S.Methods = [
-                    [
-                        "x600000e",
-                        "Append"
-                    ],
-                    [
-                        "x600000f",
-                        "Append"
-                    ]
-                ];
-                S.BaseType = ((asm0)["System.Object"])();
-                S.FullName = "S";
-                S.Assembly = asm;
-                S.Interfaces = [];
-                S.IsInst = function (t) { return t instanceof S ? t : null; };
-                S.IsValueType = false;
-                S.IsPrimitive = false;
-                S.IsInterface = false;
-                S.IsGenericTypeDefinition = false;
-                S.IsNullable = false;
-                S.ArrayType = Array;
-                S.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000006': function ()
-                    {
-                        return asm0.x6000006;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-            };
-            S.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.CSStringConverter = (function ()
-    {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function CSStringConverter()
-            {
-                (CSStringConverter.init)();
-                this.constructor = CSStringConverter;
-            };
-            c = CSStringConverter;
-            ct = c;
-            CSStringConverter.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                CSStringConverter.CustomAttributes = [];
-                CSStringConverter.Methods = [];
-                CSStringConverter.BaseType = ((asm0)["System.Object"])();
-                CSStringConverter.FullName = "CSStringConverter";
-                CSStringConverter.Assembly = asm;
-                CSStringConverter.Interfaces = [];
-                CSStringConverter.IsInst = function (t) { return t instanceof CSStringConverter ? t : null; };
-                CSStringConverter.IsValueType = false;
-                CSStringConverter.IsPrimitive = false;
-                CSStringConverter.IsInterface = false;
-                CSStringConverter.IsGenericTypeDefinition = false;
-                CSStringConverter.IsNullable = false;
-                CSStringConverter.ArrayType = Array;
-                CSStringConverter.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000006': function ()
-                    {
-                        return asm0.x6000006;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-            };
-            CSStringConverter.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.entryPoint = asm.x600000c;
+    asm.entryPoint = asm.x6000010;
 })(asm1 || (asm1 = {}));

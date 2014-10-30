@@ -94,6 +94,9 @@ namespace System
             if (startIndex < 0)
                 throw GetException("System.ArgumentOutOfRangeException");
 
+            if (targetStartIndex < 0)
+                throw GetException("System.ArgumentOutOfRangeException");
+
             for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
             {
                 target[t] = source[s];

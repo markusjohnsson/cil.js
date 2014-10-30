@@ -191,7 +191,7 @@ namespace Braille.JsTranslation
                             .ToList()
                     });
 
-            var shouldHaveBasePrototype = 
+            var shouldHaveBasePrototype =
                 type.ReflectionType.BaseType != null &&
                 type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
                 type.ReflectionType.BaseType.FullName != "System.ValueType";
@@ -206,7 +206,7 @@ namespace Braille.JsTranslation
                         } :
                         new JSObjectLiteral() as JSExpression);
 
-            if (type.ReflectionType.IsValueType) 
+            if (type.ReflectionType.IsValueType)
             {
                 yield return JSFactory.Call(
                     JSFactory.Identifier(
@@ -231,10 +231,10 @@ namespace Braille.JsTranslation
                     new JSIdentifier { Name = "initialized" },
                     new JSBoolLiteral { Value = true })
                 .ToStatement();
-            
+
             var staticProperties = GetStaticFieldInitializers(type)
-                .EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
+                .EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type.ReflectionType, type.ReflectionType)))
+                .EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("BaseType", GetBaseType(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Assembly", JSFactory.Identifier("asm")))
@@ -297,63 +297,89 @@ namespace Braille.JsTranslation
             }
         }
 
-        //private JSExpression GetMethods(CilType type)
-        //{
-        //    return JSFactory
-        //        .Array(
-        //            type
-        //                .Methods
-        //                .Select(
-        //                    m => JSFactory
-        //                        .Array(
-        //                            JSFactory.Literal(m.MetadataToken),
-        //                            JSFactory.Literal(m.ReflectionMethod.Name),
-        //                            GetTypeIdentifier(((MethodInfo)m.ReflectionMethod).ReturnType, m.ReflectionMethod, type.ReflectionType),
-        //                            JSFactory
-        //                                .Array(m
-        //                                    .ReflectionMethod
-        //                                    .GetParameters()
-        //                                    .Select(p => p.m))));
-        //}
+        private JSExpression GetMethods(CilType type)
+        {
+            var ms = type.ReflectionType.GetMethods(
+                BindingFlags.DeclaredOnly |
+                BindingFlags.Public | //BindingFlags.NonPublic |
+                BindingFlags.Instance // | BindingFlags.Static
+                );
 
-        private JSExpression GetAttributes(CilType type)
+            return JSFactory.Array(
+                ms.Select(m => GetMethodInfo(type, m))
+                  .ToArray()
+            );
+        }
+
+        private JSExpression GetMethodInfo(CilType type, MethodInfo m)
+        {
+            var parts = new List<JSExpression> 
+            { 
+                JSFactory.Literal(GetMethodIdentifier(m)),
+                JSFactory.Literal(m.Name)
+            };
+
+            if (m.CustomAttributes.Any())
+            {
+                GetAttributes(type.ReflectionType, m);
+            }
+
+            return JSFactory.Array(parts.ToArray());
+        }
+
+        private JSExpression GetAttributes(IKVM.Reflection.Type type, MemberInfo member)
         {
             return JSFactory
                 .Array(
-                    type
-                        .ReflectionType
+                    member
                         .CustomAttributes
                         .Where(
                             attribute => false == IsIgnoredType(attribute.AttributeType))
                         .Select(
-                            attribute => JSFactory
-                                .Array(
-                                    GetTypeIdentifier(attribute.AttributeType),
-                                    GetMethodAccessor(attribute.Constructor),
-                                    JSFactory
-                                        .Array(
-                                            attribute
-                                                .ConstructorArguments
-                                                .Select(
-                                                    arg => 
-                                                        arg.ArgumentType == context.SystemTypes.String ?
-                                                            (JSExpression)JSFactory.Call(JSFactory.Identifier("new_string"), JSFactory.String((string)arg.Value)) :
-                                                        arg.ArgumentType == context.SystemTypes.Type ?
-                                                            GetTypeIdentifier((IKVM.Reflection.Type)arg.Value, typeScope: type.ReflectionType) :
-                                                        JSFactory.Literal(arg.Value))
-                                                .ToArray()),
-                                    new JSObjectLiteral
-                                    {
-                                        Properties = attribute
-                                            .NamedArguments
-                                            .ToDictionary(
-                                                n => n.MemberName,
-                                                n => JSFactory
-                                                    .Array(
-                                                        GetTypeIdentifier(n.TypedValue.ArgumentType),
-                                                        JSFactory.Literal(n.TypedValue.Value)))
-                                    }))
+                            attribute => GetAttribute(type, attribute))
                         .ToArray());
+        }
+
+        private JSExpression GetAttribute(IKVM.Reflection.Type type, CustomAttributeData attribute)
+        {
+            var parts = new List<JSExpression> {
+                GetTypeIdentifier(attribute.AttributeType),
+                GetMethodAccessor(attribute.Constructor)
+            };
+
+            if (attribute.ConstructorArguments.Any() || attribute.NamedArguments.Any())
+            {
+                parts.Add(JSFactory
+                    .Array(
+                        attribute
+                            .ConstructorArguments
+                            .Select(
+                                arg =>
+                                    arg.ArgumentType == context.SystemTypes.String ?
+                                        (JSExpression)JSFactory.Call(JSFactory.Identifier("new_string"), JSFactory.String((string)arg.Value)) :
+                                    arg.ArgumentType == context.SystemTypes.Type ?
+                                        GetTypeIdentifier((IKVM.Reflection.Type)arg.Value, typeScope: type) :
+                                    JSFactory.Literal(arg.Value))
+                            .ToArray()));
+            }
+
+            if (attribute.NamedArguments.Any())
+            {
+                parts.Add(
+                    new JSObjectLiteral
+                    {
+                        Properties = attribute
+                            .NamedArguments
+                            .ToDictionary(
+                                n => n.MemberName,
+                                n => JSFactory
+                                    .Array(
+                                        GetTypeIdentifier(n.TypedValue.ArgumentType),
+                                        JSFactory.Literal(n.TypedValue.Value)))
+                    });
+            }
+
+            return JSFactory.Array(parts.ToArray());
         }
 
         private JSExpression GetArrayType(CilType type)
@@ -407,7 +433,7 @@ namespace Braille.JsTranslation
             return
                 type.ReflectionType.BaseType == null ?
                 JSFactory.Null() :
-                GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType);    
+                GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType);
         }
 
         private JSExpression GetInterfaces(CilType type)

@@ -1,6 +1,6 @@
 ﻿using Braille.Runtime.TranslatorServices;
 
-namespace System.Braille.JavaScript
+namespace Braille.JavaScript
 {
     [JsNoCopy]
     public struct Boolean

@@ -33,6 +33,7 @@
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Braille.JavaScript\Array.cs" />
     <Compile Include="Braille.JavaScript\Boolean.cs" />
     <Compile Include="Braille.JavaScript\String.cs" />
     <Compile Include="Braille.Runtime.InteropServices\Marshal.cs" />
@@ -44,6 +45,7 @@
     <Compile Include="System.Reflection\Assembly.cs" />
     <Compile Include="System.Reflection\ICustomAttributeProvider.cs" />
     <Compile Include="System.Reflection\MemberInfo.cs" />
+    <Compile Include="System.Reflection\MethodInfo.cs" />
     <Compile Include="System.Runtime.CompilerServices\InternalsVisibleToAttribute.cs" />
     <Compile Include="System.Runtime.CompilerServices\MethodCodeType.cs" />
     <Compile Include="System.Runtime.CompilerServices\MethodImplAttribute.cs" />

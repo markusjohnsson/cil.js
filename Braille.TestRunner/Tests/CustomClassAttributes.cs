@@ -13,6 +13,8 @@ class A2 : Attribute {
 [A2("xyz")]
 class C { }
 
+class D { }
+
 public class Program
 {
     public static void Main(string[] args)
@@ -28,5 +30,7 @@ public class Program
         var a1 = typeof(C).GetCustomAttributes(true);
         TestLog.Log(((A2)a1[0]).P);
 
+        var a2 = typeof(D).GetCustomAttributes(true);
+        TestLog.Log(a2.Length);
     }
 }

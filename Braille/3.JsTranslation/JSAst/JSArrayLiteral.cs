@@ -11,7 +11,28 @@ namespace Braille.JSAst
 
         public override string ToString(Formatting formatting)
         {
-            return string.Format("[ {0} ]", Values == null ? "" : string.Join(",", Values.Select(v => v.ToString(formatting))));
+            if (Values == null || Values.IsEmpty())
+                return "[]";
+
+
+            var sb = new StringBuilder();
+            sb.Append("[");
+
+            formatting.IncreaseIndentation();
+
+            {
+                sb.Append(formatting.NewLine);
+                sb.Append(formatting.Indentation);
+                sb.Append(string.Join("," + formatting.NewLine + formatting.Indentation,
+                    GetChildren().Select(p => p.ToString(formatting))));
+
+                sb.Append(formatting.NewLine);
+            }
+
+            formatting.DecreaseIndentation();
+
+            sb.Append(formatting.Indentation + "]");
+            return sb.ToString();
         }
 
         public override IEnumerable<JSExpression> GetChildren()

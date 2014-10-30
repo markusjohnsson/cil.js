@@ -25,11 +25,6 @@ namespace System
             return "System.Object";
         }
 
-        public virtual int GetHashCode()
-        {
-            return GetHashCode(this);
-        }
-
         // TODO: get rid of this method, better to have a conversion on String objects. This makes little to no sense.
         [JsAssemblyStatic]
         internal static object ToJavaScriptString(Object o)
@@ -54,6 +49,11 @@ namespace System
         public virtual bool Equals(object other)
         {
             return ReferenceEquals(this, other);
+        }
+
+        public virtual int GetHashCode()
+        {
+            return GetHashCode(this);
         }
 
         public Type GetType()

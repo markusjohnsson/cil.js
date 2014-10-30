@@ -51,12 +51,12 @@ namespace System
 
         public abstract bool IsAssignableFrom(Type type);
 
-        public abstract string Name { get; }
-
         public abstract bool IsValueType { get; }
 
         public abstract bool IsPrimitive { get; }
 
         public abstract Type GetElementType();
+
+        public abstract MethodInfo[] GetMethods();
     }
 }
