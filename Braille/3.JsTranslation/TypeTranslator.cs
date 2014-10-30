@@ -315,6 +315,7 @@ namespace Braille.JsTranslation
         {
             var parts = new List<JSExpression> 
             { 
+                GetAssemblyIdentifier(type.ReflectionType),
                 JSFactory.Literal(GetMethodIdentifier(m)),
                 JSFactory.Literal(m.Name)
             };

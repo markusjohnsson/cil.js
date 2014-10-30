@@ -116,7 +116,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
     <None Include="Tests\CustomMethodAttributes.cs" />
-    <Compile Include="Tests\PrimitiveEquals.cs" />
+    <None Include="Tests\MethodInfoInvoke.cs" />
+    <None Include="Tests\PrimitiveEquals.cs" />
     <None Include="Tests\ReflectionMethods.cs" />
     <None Include="Tests\IsSubclassOf.cs" />
     <None Include="Tests\MethodInitializerBug.cs" />
