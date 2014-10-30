@@ -12,7 +12,7 @@ namespace System.Reflection
         public abstract bool IsDefined(Type attributeType, bool inherit);
 
         [JsImport(@"
-            function (ca, inherit) {
+            function (ca) {
                 var r = new_array(asm0['System.Object'], ca.length);
                 for (var i=0; i<ca.length; i++) {
                     var attr_type = ca[i][0];
@@ -31,7 +31,7 @@ namespace System.Reflection
                 return r;
             }
             ")]
-        protected static extern object[] GetCustomAttributesImpl(object ca, bool inherit);
+        protected static extern object[] GetCustomAttributesImpl(object ca);
 
         public abstract string Name
         {

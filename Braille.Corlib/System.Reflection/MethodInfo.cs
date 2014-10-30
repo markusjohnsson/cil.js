@@ -15,7 +15,7 @@ namespace System.Reflection
 
         public override object[] GetCustomAttributes(bool inherit)
         {
-            throw new NotImplementedException();
+            return GetCustomAttributesImpl(mtd[2]);
         }
 
         public override object[] GetCustomAttributes(Type attributeType, bool inherit)

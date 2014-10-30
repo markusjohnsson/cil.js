@@ -15981,7 +15981,7 @@ var asm0; (function (asm)
 })(asm0 || (asm0 = {}));
 var asm1; (function (asm)
 {
-    asm.FullName = "StringExtractor.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
+    asm.FullName = "CustomMethodAttributes.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     
     asm.next_hash = 1;
 
@@ -16177,12 +16177,109 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000c = function Main()
+    asm.x600000c = function _ctor(arg0)
+    {
+        /* IL_00: ldarg.0 */
+        /* IL_01: call Void .ctor()*/
+        (asm0.x6000040)(arg0);
+        /* IL_06: ret */
+        return ;
+    };;
+    asm.x600000d = function _ctor(arg0)
+    {
+        /* IL_00: ldarg.0 */
+        /* IL_01: call Void .ctor()*/
+        (asm0.x6000040)(arg0);
+        /* IL_06: ret */
+        return ;
+    };;
+    asm.x600000e = function M(arg0)
     {
         /* IL_00: ret */
         return ;
     };;
-    asm.x600000d = function _ctor(arg0)
+    asm.x600000f = function N(arg0)
+    {
+        /* IL_00: ret */
+        return ;
+    };;
+    asm.x6000010 = function _ctor(arg0)
+    {
+        /* IL_00: ldarg.0 */
+        /* IL_01: call Void .ctor()*/
+        /* IL_06: ret */
+        return ;
+    };;
+    asm.x6000011_init = function ()
+    {
+        ((asm1.C)().init)();
+        (((asm0)["System.Int32"])().init)();
+        asm.x6000011 = asm.x6000011_;
+    };;
+    asm.x6000011 = function ()
+    {
+        (asm.x6000011_init.apply)(this,arguments);
+        return (asm.x6000011_.apply)(this,arguments);
+    };;
+    asm.x6000011_ = function Main()
+    {
+        var t0;
+        var t1;
+        var loc0;
+        var loc1;
+        var loc2;
+        t0 = (asm1.C)();
+        t1 = ((asm0)["System.Int32"])();
+        /* IL_00: ldtoken C*/
+        /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
+        /* IL_0A: callvirt MethodInfo[] GetMethods()*/
+        /* IL_0F: stloc.0 */
+        loc0 = ((((asm0.x60000a0)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000b0"])())((asm0.x60000a0)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0)));
+        /* IL_10: ldloc.0 */
+        /* IL_11: ldc.i4.0 */
+        /* IL_12: ldelem.ref */
+        /* IL_13: ldc.i4.1 */
+        /* IL_14: callvirt Object[] GetCustomAttributes(System.Boolean)*/
+        /* IL_19: stloc.1 */
+        loc1 = ((((loc0.jsarr)[(0|0)].vtable)["asm0.x6000034"])())((loc0.jsarr)[(0|0)],(1|0));
+        /* IL_1A: ldloc.0 */
+        /* IL_1B: ldc.i4.1 */
+        /* IL_1C: ldelem.ref */
+        /* IL_1D: ldc.i4.1 */
+        /* IL_1E: callvirt Object[] GetCustomAttributes(System.Boolean)*/
+        /* IL_23: stloc.2 */
+        loc2 = ((((loc0.jsarr)[(1|0)].vtable)["asm0.x6000034"])())((loc0.jsarr)[(1|0)],(1|0));
+        /* IL_24: ldloc.1 */
+        /* IL_25: ldlen */
+        /* IL_26: conv.i4 */
+        /* IL_27: box System.Int32*/
+        /* IL_2C: call Void Log(System.Object)*/
+        (asm1.x6000001)({
+            'boxed': loc1.jsarr.length | (0|0),
+            'type': t1,
+            'vtable': t1.prototype.vtable
+        });
+        /* IL_31: ldloc.1 */
+        /* IL_32: ldc.i4.0 */
+        /* IL_33: ldelem.ref */
+        /* IL_34: callvirt Type GetType()*/
+        /* IL_39: callvirt String get_Name()*/
+        /* IL_3E: call Void Log(System.Object)*/
+        (asm1.x6000001)(((((asm0.x600000a)((loc1.jsarr)[(0|0)]).vtable)["asm0.x6000038"])())((asm0.x600000a)((loc1.jsarr)[(0|0)])));
+        /* IL_43: ldloc.2 */
+        /* IL_44: ldlen */
+        /* IL_45: conv.i4 */
+        /* IL_46: box System.Int32*/
+        /* IL_4B: call Void Log(System.Object)*/
+        (asm1.x6000001)({
+            'boxed': loc2.jsarr.length | (0|0),
+            'type': t1,
+            'vtable': t1.prototype.vtable
+        });
+        /* IL_50: ret */
+        return ;
+    };
+    asm.x6000012 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -16309,6 +16406,211 @@ var asm1; (function (asm)
             return c;
         };
     })();
+    asm.A = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function A()
+            {
+                (A.init)();
+                this.constructor = A;
+            };
+            c = A;
+            ct = c;
+            A.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                A.CustomAttributes = [];
+                A.Methods = [];
+                A.BaseType = ((asm0)["System.Attribute"])();
+                A.FullName = "A";
+                A.Assembly = asm;
+                A.Interfaces = [];
+                A.IsInst = function (t) { return t instanceof A ? t : null; };
+                A.IsValueType = false;
+                A.IsPrimitive = false;
+                A.IsInterface = false;
+                A.IsGenericTypeDefinition = false;
+                A.IsNullable = false;
+                A.ArrayType = Array;
+                A.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            A.prototype = new (((asm0)["System.Attribute"])())();
+            return c;
+        };
+    })();
+    asm.B = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function B()
+            {
+                (B.init)();
+                this.constructor = B;
+            };
+            c = B;
+            ct = c;
+            B.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                B.CustomAttributes = [];
+                B.Methods = [];
+                B.BaseType = ((asm0)["System.Attribute"])();
+                B.FullName = "B";
+                B.Assembly = asm;
+                B.Interfaces = [];
+                B.IsInst = function (t) { return t instanceof B ? t : null; };
+                B.IsValueType = false;
+                B.IsPrimitive = false;
+                B.IsInterface = false;
+                B.IsGenericTypeDefinition = false;
+                B.IsNullable = false;
+                B.ArrayType = Array;
+                B.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            B.prototype = new (((asm0)["System.Attribute"])())();
+            return c;
+        };
+    })();
+    asm.C = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function C()
+            {
+                (C.init)();
+                this.constructor = C;
+            };
+            c = C;
+            ct = c;
+            C.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                C.CustomAttributes = [];
+                C.Methods = [
+                    [
+                        "x600000e",
+                        "M",
+                        [
+                            [
+                                (asm1.A)(),
+                                asm1.x600000c
+                            ]
+                        ]
+                    ],
+                    [
+                        "x600000f",
+                        "N",
+                        [
+                            [
+                                (asm1.A)(),
+                                asm1.x600000c
+                            ],
+                            [
+                                (asm1.B)(),
+                                asm1.x600000d
+                            ]
+                        ]
+                    ]
+                ];
+                C.BaseType = ((asm0)["System.Object"])();
+                C.FullName = "C";
+                C.Assembly = asm;
+                C.Interfaces = [];
+                C.IsInst = function (t) { return t instanceof C ? t : null; };
+                C.IsValueType = false;
+                C.IsPrimitive = false;
+                C.IsInterface = false;
+                C.IsGenericTypeDefinition = false;
+                C.IsNullable = false;
+                C.ArrayType = Array;
+                C.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            C.prototype = new (((asm0)["System.Object"])())();
+            return c;
+        };
+    })();
     asm.Program = (function ()
     {
         var ct;
@@ -16369,5 +16671,5 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    asm.entryPoint = asm.x600000c;
+    asm.entryPoint = asm.x6000011;
 })(asm1 || (asm1 = {}));

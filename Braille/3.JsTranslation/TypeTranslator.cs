@@ -321,7 +321,7 @@ namespace Braille.JsTranslation
 
             if (m.CustomAttributes.Any())
             {
-                GetAttributes(type.ReflectionType, m);
+                parts.Add(GetAttributes(type.ReflectionType, m));
             }
 
             return JSFactory.Array(parts.ToArray());

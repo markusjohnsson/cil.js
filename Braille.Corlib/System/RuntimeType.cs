@@ -109,7 +109,7 @@ namespace System
 
         public override object[] GetCustomAttributes(bool inherit)
         {
-            return GetCustomAttributesImpl(this.ctor.CustomAttributes, inherit);
+            return GetCustomAttributesImpl(this.ctor.CustomAttributes);
         }
 
         public override object[] GetCustomAttributes(Type attributeType, bool inherit)

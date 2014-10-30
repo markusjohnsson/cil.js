@@ -602,7 +602,7 @@ var asm0; (function (asm)
         return ;
     };;
     asm.x6000037 = 
-            function (ca, inherit) {
+            function (ca) {
                 var r = new_array(asm0['System.Object'], ca.length);
                 for (var i=0; i<ca.length; i++) {
                     var attr_type = ca[i][0];
@@ -661,27 +661,21 @@ var asm0; (function (asm)
         /* IL_13: ret */
         return loc1;
     };
-    asm.x600003c_init = function ()
+    asm.x600003c = function GetCustomAttributes(arg0,arg1)
     {
-        (((asm0)["System.NotImplementedException"])().init)();
-        asm.x600003c = asm.x600003c_;
-    };;
-    asm.x600003c = function (arg0,arg1)
-    {
-        (asm.x600003c_init.apply)(this,arguments);
-        return (asm.x600003c_.apply)(this,arguments);
-    };;
-    asm.x600003c_ = function GetCustomAttributes(arg0,arg1)
-    {
-        var t0;
-        t0 = ((asm0)["System.NotImplementedException"])();
+        var loc0;
         /* IL_00: nop */
-        /* IL_01: newobj Void .ctor()*/
-        /* IL_06: throw */
-        throw newobj(t0,asm0.x60000da,[
-            null
-        ]);
-    };
+        /* IL_01: ldarg.0 */
+        /* IL_02: ldfld Array mtd*/
+        /* IL_07: ldc.i4.2 */
+        /* IL_08: callvirt Object get_Item(System.Int32)*/
+        /* IL_0D: call Object[] GetCustomAttributesImpl(System.Object)*/
+        /* IL_12: stloc.0 */
+        loc0 = (asm0.x6000037)(arg0.System_ReflectionMethodInfomtd[(2|0)]);
+        /* IL_15: ldloc.0 */
+        /* IL_16: ret */
+        return loc0;
+    };;
     asm.x600003d_init = function ()
     {
         (((asm0)["System.NotImplementedException"])().init)();
@@ -3628,12 +3622,11 @@ var asm0; (function (asm)
         /* IL_01: ldarg.0 */
         /* IL_02: ldfld constructor ctor*/
         /* IL_07: ldfld Array CustomAttributes*/
-        /* IL_0C: ldarg.1 */
-        /* IL_0D: call Object[] GetCustomAttributesImpl(System.Object, System.Boolean)*/
-        /* IL_12: stloc.0 */
-        loc0 = (asm0.x6000037)(arg0.ctor.CustomAttributes,arg1);
-        /* IL_15: ldloc.0 */
-        /* IL_16: ret */
+        /* IL_0C: call Object[] GetCustomAttributesImpl(System.Object)*/
+        /* IL_11: stloc.0 */
+        loc0 = (asm0.x6000037)(arg0.ctor.CustomAttributes);
+        /* IL_14: ldloc.0 */
+        /* IL_15: ret */
         return loc0;
     };;
     asm.x60000bd_init = function ()
@@ -9364,15 +9357,18 @@ var asm0; (function (asm)
                 Array.Methods = [
                     [
                         "x6000011",
-                        "get_Length"
+                        "get_Length",
+                        []
                     ],
                     [
                         "x6000012",
-                        "get_Item"
+                        "get_Item",
+                        []
                     ],
                     [
                         "x6000013",
-                        "set_Item"
+                        "set_Item",
+                        []
                     ],
                     [
                         "x6000014",
