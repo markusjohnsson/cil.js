@@ -13,9 +13,11 @@ namespace Braille.Analysis
     class TypeUsageAnalysis: IAnalysisPass
     {
         private Universe universe;
+        private Context context;
 
         public TypeUsageAnalysis(Context context)
         {
+            this.context = context;
             this.universe = context.ReflectionUniverse;
         }
 
@@ -32,6 +34,11 @@ namespace Braille.Analysis
 
         private IEnumerable<Type> ExpandGenericTypes(Type t)
         {
+            if (t.IsGenericTypeDefinition)
+            {
+                yield return context.SystemTypes.UnboundGenericParameter;
+            }
+
             if (t.IsGenericType)
             {
                 foreach (var genericArgument in t.GetGenericArguments())

@@ -66,8 +66,7 @@ namespace Braille.JsTranslation
                             JSFactory.Identifier(type.Name) :
 
                             // to my awareness, this only happens when you do "typeof(C<>)", ie not specifying any args
-                            // GetTypeIdentifier(context.SystemTypes.UnboundGenericParameter);
-                            JSFactory.Call(JSFactory.Identifier("asm0", "GetUnboundGenericParameter"));
+                            GetTypeIdentifier(context.SystemTypes.UnboundGenericParameter);
                 }
                 else
                 {

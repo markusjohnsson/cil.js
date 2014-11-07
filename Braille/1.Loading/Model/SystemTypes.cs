@@ -51,7 +51,7 @@ namespace Braille.Loading.Model
             Object = universe.GetType("System.Object");
             String = universe.GetType("System.String");
             ManagedPointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
-            UnboundGenericParameter = universe.GetType("Braille.UnboundGenericParameter");
+            UnboundGenericParameter = universe.GetType("Braille.Runtime.UnboundGenericParameter");
             Type = universe.GetType("System.Type");
         }
     }

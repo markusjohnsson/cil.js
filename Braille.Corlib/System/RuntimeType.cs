@@ -141,7 +141,10 @@ namespace System
                 if ((bool)ctor.IsGenericTypeDefinition == false)
                     return false;
 
-                if (Marshal.ArrayLookup(ctor.GenericArguments, 0) == UnboundGenericParameter.Instance)
+                var l = Marshal.ArrayLookup(ctor.GenericArguments, 0);
+                var g = UnsafeCast<constructor>(l);
+
+                if (string.FromJsString(g.FullName) == "Braille.Runtime.UnboundGenericParameter")
                     return true;
                 else
                     return false;
@@ -179,7 +182,7 @@ namespace System
         {
             get
             {
-                if (ctor.BaseType == Marshal.Null)
+                if (! UnsafeCast<bool>(ctor.BaseType))
                     return null;
                 else
                     return GetInstance(ctor.BaseType);
@@ -199,7 +202,7 @@ namespace System
 
         public override bool IsAssignableFrom(Type type)
         {
-            // indicates that a object reference of type 'type' can be asigned to a field of type 'this'
+            // indicates that a object reference of type 'type' can be assigned to a field of type 'this'
 
             if (type == null)
                 return false;
@@ -236,7 +239,14 @@ namespace System
         {
             get
             {
-                return GetName(FullName);
+                if (IsSubclassOf(typeof(Array)))
+                {
+                    return GetElementType().Name + "[]";
+                }
+
+                var s = string.FromJsString(ctor.FullName);
+
+                return GetName(s);
             }
         }
 

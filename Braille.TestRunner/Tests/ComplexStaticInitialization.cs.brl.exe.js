@@ -16581,7 +16581,7 @@ var asm0; (function (asm)
 })(asm0 || (asm0 = {}));
 var asm1; (function (asm)
 {
-    asm.FullName = "IsSubclassOf.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
+    asm.FullName = "ComplexStaticInitialization.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     
     asm.next_hash = 1;
 
@@ -16797,7 +16797,117 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000d = function _ctor(arg0)
+    asm.x600000d_init = function (T)
+    {
+        return function ()
+        {
+            (((asm1)["I`1"])(T).init)();
+            (((asm1)["B`1"])(T).init)();
+            (((asm0)["Braille.Runtime.UnboundGenericParameter"])().init)();
+            (((asm1)["C`1"])(((asm0)["Braille.Runtime.UnboundGenericParameter"])()).init)();
+            (((asm0)["System.Type"])().init)();
+            (((asm1)["A`1"])(T).init)();
+        };
+    };;
+    asm.x600000d = function (T)
+    {
+        return function ()
+        {
+            ((asm.x600000d_init)(T).apply)(this,arguments);
+            return ((asm.x600000d_)(T).apply)(this,arguments);
+        };
+    };;
+    asm.x600000d_ = function (T)
+    {
+        return function _cctor()
+        {
+            var t0;
+            var t1;
+            var t2;
+            var t3;
+            var t4;
+            var t5;
+            var t6;
+            var t7;
+            var st_08;
+            var st_09;
+            var st_0A;
+            var st_0B;
+            var st_0C;
+            var st_0D;
+            var st_0E;
+            var st_0F;
+            var st_10;
+            var __pos_0__;
+            var loc0;
+            t0 = T;
+            t1 = ((asm1)["I`1"])(T);
+            t2 = ((asm1)["B`1"])(T);
+            t3 = ((asm0)["Braille.Runtime.UnboundGenericParameter"])();
+            t4 = ((asm0)["Braille.Runtime.UnboundGenericParameter"])();
+            t5 = ((asm1)["C`1"])(((asm0)["Braille.Runtime.UnboundGenericParameter"])());
+            t6 = ((asm0)["System.Type"])();
+            t7 = ((asm1)["A`1"])(T);
+            __pos_0__ = 0x0;
+            
+            while (__pos_0__ >= 0){
+                
+                switch (__pos_0__){
+                    case 0x0:
+                    /* IL_00: ldtoken I`1[T]*/
+                    /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
+                    /* IL_0A: ldtoken T*/
+                    /* IL_0F: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
+                    /* IL_14: callvirt Boolean IsAssignableFrom(System.Type)*/
+                    /* IL_19: brtrue.s IL_22*/
+                    
+                    if (((((asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000b1"])())((asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t1)),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0)))){
+                        __pos_0__ = 0x22;
+                        continue;
+                    }
+                    /* IL_1B: newobj Void .ctor()*/
+                    st_10 = newobj(t2,asm1.x600000e,[
+                        null
+                    ]);
+                    /* IL_20: br.s IL_50*/
+                    __pos_0__ = 0x50;
+                    continue;
+                    case 0x22:
+                    /* IL_22: ldtoken C`1[T]*/
+                    /* IL_27: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
+                    st_0C = (asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t5));
+                    /* IL_2C: ldc.i4.1 */
+                    /* IL_2D: newarr System.Type*/
+                    /* IL_32: stloc.0 */
+                    loc0 = new_array(t6,(1|0));
+                    /* IL_33: ldloc.0 */
+                    st_09 = loc0;
+                    /* IL_34: ldc.i4.0 */
+                    st_0A = (0|0);
+                    /* IL_35: ldtoken T*/
+                    st_08 = new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0);
+                    /* IL_3A: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
+                    st_0B = (asm0.x60000a5)(st_08);
+                    /* IL_3F: stelem.ref */
+                    (st_09.jsarr)[st_0A] = st_0B;
+                    /* IL_40: ldloc.0 */
+                    st_0D = loc0;
+                    /* IL_41: callvirt Type MakeGenericType(System.Type[])*/
+                    st_0E = (((st_0C.vtable)["asm0.x60000b0"])())(st_0C,st_0D);
+                    /* IL_46: call Object CreateInstance(System.Type)*/
+                    st_0F = (asm0.x600004e)(st_0E);
+                    /* IL_4B: castclass A`1[T]*/
+                    st_10 = cast_class(st_0F,t7);
+                    case 0x50:
+                    /* IL_50: stsfld A`1 Instance*/
+                    (t7)["Instance"] = st_10;
+                    /* IL_55: ret */
+                    return ;
+                }
+            }
+        };
+    };
+    asm.x600000e = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -16805,320 +16915,65 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000e = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
     asm.x600000f = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
-        (asm1.x600000d)(arg0);
+        (asm1.x600000c)(arg0);
         /* IL_06: ret */
         return ;
     };;
-    asm.x6000010_init = function ()
+    asm.x6000010 = function _ctor(arg0)
     {
-        (((asm0)["System.Int32"])().init)();
-        asm.x6000010 = asm.x6000010_;
-    };;
-    asm.x6000010 = function ()
-    {
-        (asm.x6000010_init.apply)(this,arguments);
-        return (asm.x6000010_.apply)(this,arguments);
-    };;
-    asm.x6000010_ = function Main()
-    {
-        var t0;
-        t0 = ((asm0)["System.Int32"])();
-        /* IL_00: ldc.i4.0 */
-        /* IL_01: newarr System.Int32*/
-        /* IL_06: call Void Test(System.Object)*/
-        (asm1.x6000011)(new_array(t0,(0|0)));
-        /* IL_0B: ret */
+        /* IL_00: ldarg.0 */
+        /* IL_01: call Void .ctor()*/
+        /* IL_06: ret */
         return ;
-    };
-    asm.x6000011_init = function ()
+    };;
+    asm.x6000011 = function _ctor(arg0)
     {
-        (((asm0)["System.Int32"])().init)();
-        (((asm0)["System.Boolean"])().init)();
-        (((asm0)["System.Object"])().init)();
-        (((asm0)["System.ValueType"])().init)();
-        ((asm1.A)().init)();
-        ((asm1.B)().init)();
-        ((asm1.C)().init)();
+        /* IL_00: ldarg.0 */
+        /* IL_01: call Void .ctor()*/
+        /* IL_06: ret */
+        return ;
+    };;
+    asm.x6000012_init = function ()
+    {
+        ((asm1.E)().init)();
+        (((asm1)["A`1"])((asm1.E)()).init)();
         ((asm1.D)().init)();
-        ((asm1.I)().init)();
-        (((asm0)["System.Array"])().init)();
-        (((asm0)["System.Array`1"])(((asm0)["System.Int32"])()).init)();
-        (((asm0)["System.Array`1"])(((asm0)["System.Object"])()).init)();
-        (((asm0)["System.Array`1"])(((asm0)["System.ValueType"])()).init)();
-        (((asm0)["System.Array`1"])((asm1.A)()).init)();
-        (((asm0)["System.Array`1"])((asm1.B)()).init)();
-        (((asm0)["System.Array`1"])((asm1.C)()).init)();
-        (((asm0)["System.Array`1"])((asm1.D)()).init)();
-        (((asm0)["System.Array`1"])((asm1.I)()).init)();
-        asm.x6000011 = asm.x6000011_;
+        (((asm1)["A`1"])((asm1.D)()).init)();
+        asm.x6000012 = asm.x6000012_;
     };;
-    asm.x6000011 = function (arg0)
+    asm.x6000012 = function ()
     {
-        (asm.x6000011_init.apply)(this,arguments);
-        return (asm.x6000011_.apply)(this,arguments);
+        (asm.x6000012_init.apply)(this,arguments);
+        return (asm.x6000012_.apply)(this,arguments);
     };;
-    asm.x6000011_ = function Test(arg0)
+    asm.x6000012_ = function Main()
     {
         var t0;
         var t1;
         var t2;
         var t3;
-        var t4;
-        var t5;
-        var t6;
-        var t7;
-        var t8;
-        var t9;
-        var t10;
-        var t11;
-        var t12;
-        var t13;
-        var t14;
-        var t15;
-        var t16;
-        var t17;
-        t0 = ((asm0)["System.Int32"])();
-        t1 = ((asm0)["System.Boolean"])();
-        t2 = ((asm0)["System.Object"])();
-        t3 = ((asm0)["System.ValueType"])();
-        t4 = (asm1.A)();
-        t5 = (asm1.B)();
-        t6 = (asm1.C)();
-        t7 = (asm1.D)();
-        t8 = (asm1.I)();
-        t9 = ((asm0)["System.Array"])();
-        t10 = ((asm0)["System.Array`1"])(((asm0)["System.Int32"])());
-        t11 = ((asm0)["System.Array`1"])(((asm0)["System.Object"])());
-        t12 = ((asm0)["System.Array`1"])(((asm0)["System.ValueType"])());
-        t13 = ((asm0)["System.Array`1"])((asm1.A)());
-        t14 = ((asm0)["System.Array`1"])((asm1.B)());
-        t15 = ((asm0)["System.Array`1"])((asm1.C)());
-        t16 = ((asm0)["System.Array`1"])((asm1.D)());
-        t17 = ((asm0)["System.Array`1"])((asm1.I)());
-        /* IL_00: ldarg.0 */
-        /* IL_01: callvirt Type GetType()*/
-        /* IL_06: callvirt String get_Name()*/
-        /* IL_0B: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x600000a)(arg0).vtable)["asm0.x6000039"])())((asm0.x600000a)(arg0)));
-        /* IL_10: ldarg.0 */
-        /* IL_11: callvirt Type GetType()*/
-        /* IL_16: ldtoken System.Int32*/
-        /* IL_1B: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_20: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_25: box System.Boolean*/
-        /* IL_2A: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_2F: ldarg.0 */
-        /* IL_30: callvirt Type GetType()*/
-        /* IL_35: ldtoken System.Object*/
-        /* IL_3A: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_3F: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_44: box System.Boolean*/
-        /* IL_49: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t2))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_4E: ldarg.0 */
-        /* IL_4F: callvirt Type GetType()*/
-        /* IL_54: ldtoken System.ValueType*/
-        /* IL_59: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_5E: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_63: box System.Boolean*/
-        /* IL_68: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t3))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_6D: ldarg.0 */
-        /* IL_6E: callvirt Type GetType()*/
-        /* IL_73: ldtoken A*/
-        /* IL_78: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_7D: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_82: box System.Boolean*/
-        /* IL_87: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t4))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_8C: ldarg.0 */
-        /* IL_8D: callvirt Type GetType()*/
-        /* IL_92: ldtoken B*/
-        /* IL_97: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_9C: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_A1: box System.Boolean*/
-        /* IL_A6: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t5))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_AB: ldarg.0 */
-        /* IL_AC: callvirt Type GetType()*/
-        /* IL_B1: ldtoken C*/
-        /* IL_B6: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_BB: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_C0: box System.Boolean*/
-        /* IL_C5: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t6))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_CA: ldarg.0 */
-        /* IL_CB: callvirt Type GetType()*/
-        /* IL_D0: ldtoken D*/
-        /* IL_D5: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_DA: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_DF: box System.Boolean*/
-        /* IL_E4: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t7))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_E9: ldarg.0 */
-        /* IL_EA: callvirt Type GetType()*/
-        /* IL_EF: ldtoken I*/
-        /* IL_F4: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_F9: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_FE: box System.Boolean*/
-        /* IL_103: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t8))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_108: ldarg.0 */
-        /* IL_109: callvirt Type GetType()*/
-        /* IL_10E: ldtoken System.Array*/
-        /* IL_113: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_118: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_11D: box System.Boolean*/
-        /* IL_122: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t9))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_127: ldarg.0 */
-        /* IL_128: callvirt Type GetType()*/
-        /* IL_12D: ldtoken System.Int32[]*/
-        /* IL_132: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_137: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_13C: box System.Boolean*/
-        /* IL_141: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t10))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_146: ldarg.0 */
-        /* IL_147: callvirt Type GetType()*/
-        /* IL_14C: ldtoken System.Object[]*/
-        /* IL_151: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_156: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_15B: box System.Boolean*/
-        /* IL_160: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t11))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_165: ldarg.0 */
-        /* IL_166: callvirt Type GetType()*/
-        /* IL_16B: ldtoken System.ValueType[]*/
-        /* IL_170: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_175: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_17A: box System.Boolean*/
-        /* IL_17F: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t12))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_184: ldarg.0 */
-        /* IL_185: callvirt Type GetType()*/
-        /* IL_18A: ldtoken A[]*/
-        /* IL_18F: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_194: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_199: box System.Boolean*/
-        /* IL_19E: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t13))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_1A3: ldarg.0 */
-        /* IL_1A4: callvirt Type GetType()*/
-        /* IL_1A9: ldtoken B[]*/
-        /* IL_1AE: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_1B3: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_1B8: box System.Boolean*/
-        /* IL_1BD: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t14))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_1C2: ldarg.0 */
-        /* IL_1C3: callvirt Type GetType()*/
-        /* IL_1C8: ldtoken C[]*/
-        /* IL_1CD: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_1D2: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_1D7: box System.Boolean*/
-        /* IL_1DC: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t15))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_1E1: ldarg.0 */
-        /* IL_1E2: callvirt Type GetType()*/
-        /* IL_1E7: ldtoken D[]*/
-        /* IL_1EC: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_1F1: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_1F6: box System.Boolean*/
-        /* IL_1FB: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t16))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_200: ldarg.0 */
-        /* IL_201: callvirt Type GetType()*/
-        /* IL_206: ldtoken I[]*/
-        /* IL_20B: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_210: callvirt Boolean IsSubclassOf(System.Type)*/
-        /* IL_215: box System.Boolean*/
-        /* IL_21A: call Void Log(System.Object)*/
-        (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)(arg0).vtable)["asm0.x60000a6"])())((asm0.x600000a)(arg0),(asm0.x60000a5)(new_handle(((asm0)["System.RuntimeTypeHandle"])(),t17))),
-            'type': t1,
-            'vtable': t1.prototype.vtable
-        });
-        /* IL_21F: ret */
+        t0 = (asm1.E)();
+        t1 = ((asm1)["A`1"])((asm1.E)());
+        t2 = (asm1.D)();
+        t3 = ((asm1)["A`1"])((asm1.D)());
+        /* IL_00: ldsfld IKVM.Reflection.GenericFieldInstance*/
+        /* IL_05: callvirt Type GetType()*/
+        /* IL_0A: callvirt String get_Name()*/
+        /* IL_0F: call Void Log(System.Object)*/
+        (asm1.x6000001)(((((asm0.x600000a)(t1.Instance).vtable)["asm0.x6000039"])())((asm0.x600000a)(t1.Instance)));
+        /* IL_14: ldsfld IKVM.Reflection.GenericFieldInstance*/
+        /* IL_19: callvirt Type GetType()*/
+        /* IL_1E: callvirt String get_Name()*/
+        /* IL_23: call Void Log(System.Object)*/
+        (asm1.x6000001)(((((asm0.x600000a)(t3.Instance).vtable)["asm0.x6000039"])())((asm0.x600000a)(t3.Instance)));
+        /* IL_28: ret */
         return ;
     };
-    asm.x6000012 = function _ctor(arg0)
+    asm.x6000013 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -17245,218 +17100,111 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    asm.A = (function ()
+    (asm)["I`1"] = (function ()
     {
         var ct;
-        ct = null;
-        return function ()
+        ct = {};
+        return function (T)
         {
             var c;
             var initialized;
-            c = ct;
+            c = tree_get([
+                T
+            ],ct);
             
             if (c){
                 return c;
             }
             initialized = false;;
-            function A()
+            function I_1()
             {
-                (A.init)();
-                this.constructor = A;
+                (I_1.init)();
+                this.constructor = I_1;
             };
-            c = A;
-            ct = c;
-            A.init = function ()
+            c = I_1;
+            tree_set([
+                T
+            ],ct,c);
+            I_1.init = function ()
             {
                 
                 if (initialized){
                     return;
                 }
                 initialized = true;
-                A.CustomAttributes = [];
-                A.Methods = [];
-                A.BaseType = ((asm0)["System.Object"])();
-                A.FullName = "A";
-                A.Assembly = asm;
-                A.Interfaces = [];
-                A.IsInst = function (t) { return t instanceof A ? t : null; };
-                A.IsValueType = false;
-                A.IsPrimitive = false;
-                A.IsInterface = false;
-                A.IsGenericTypeDefinition = false;
-                A.IsNullable = false;
-                A.ArrayType = Array;
-                A.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-            };
-            A.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.I = (function ()
-    {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function I()
-            {
-                (I.init)();
-                this.constructor = I;
-            };
-            c = I;
-            ct = c;
-            I.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                I.CustomAttributes = [];
-                I.Methods = [];
-                I.BaseType = null;
-                I.FullName = "I";
-                I.Assembly = asm;
-                I.Interfaces = [];
-                I.IsInst = function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(I) != -1 ? t : null; } catch (e) { return false; } };
-                I.IsValueType = false;
-                I.IsPrimitive = false;
-                I.IsInterface = true;
-                I.IsGenericTypeDefinition = false;
-                I.IsNullable = false;
-                I.ArrayType = Array;
-                I.prototype.vtable = {};
-            };
-            I.prototype = {};
-            return c;
-        };
-    })();
-    asm.B = (function ()
-    {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function B()
-            {
-                (B.init)();
-                this.constructor = B;
-            };
-            c = B;
-            ct = c;
-            B.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                B.CustomAttributes = [];
-                B.Methods = [];
-                B.BaseType = (asm1.A)();
-                B.FullName = "B";
-                B.Assembly = asm;
-                B.Interfaces = [
-                    (asm1.I)()
+                I_1.CustomAttributes = [];
+                I_1.Methods = [];
+                I_1.BaseType = null;
+                I_1.FullName = "I`1";
+                I_1.Assembly = asm;
+                I_1.Interfaces = [];
+                I_1.IsInst = function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(I_1) != -1 ? t : null; } catch (e) { return false; } };
+                I_1.IsValueType = false;
+                I_1.IsPrimitive = false;
+                I_1.IsInterface = true;
+                I_1.IsGenericTypeDefinition = true;
+                I_1.IsNullable = false;
+                I_1.ArrayType = Array;
+                I_1.GenericArguments = [
+                    T
                 ];
-                B.IsInst = function (t) { return t instanceof B ? t : null; };
-                B.IsValueType = false;
-                B.IsPrimitive = false;
-                B.IsInterface = false;
-                B.IsGenericTypeDefinition = false;
-                B.IsNullable = false;
-                B.ArrayType = Array;
-                B.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                (B.prototype)[(asm1.I)()] = {};
+                I_1.prototype.vtable = {};
             };
-            B.prototype = new ((asm1.A)())();
+            I_1.prototype = {};
             return c;
         };
     })();
-    asm.C = (function ()
+    (asm)["A`1"] = (function ()
     {
         var ct;
-        ct = null;
-        return function ()
+        ct = {};
+        return function (T)
         {
             var c;
             var initialized;
-            c = ct;
+            c = tree_get([
+                T
+            ],ct);
             
             if (c){
                 return c;
             }
             initialized = false;;
-            function C()
+            function A_1()
             {
-                (C.init)();
-                this.constructor = C;
+                (A_1.init)();
+                this.constructor = A_1;
             };
-            c = C;
-            ct = c;
-            C.init = function ()
+            c = A_1;
+            tree_set([
+                T
+            ],ct,c);
+            A_1.init = function ()
             {
                 
                 if (initialized){
                     return;
                 }
                 initialized = true;
-                C.CustomAttributes = [];
-                C.Methods = [];
-                C.BaseType = ((asm0)["System.Object"])();
-                C.FullName = "C";
-                C.Assembly = asm;
-                C.Interfaces = [];
-                C.IsInst = function (t) { return t instanceof C ? t : null; };
-                C.IsValueType = false;
-                C.IsPrimitive = false;
-                C.IsInterface = false;
-                C.IsGenericTypeDefinition = false;
-                C.IsNullable = false;
-                C.ArrayType = Array;
-                C.prototype.vtable = {
+                A_1.Instance = null;
+                A_1.CustomAttributes = [];
+                A_1.Methods = [];
+                A_1.BaseType = ((asm0)["System.Object"])();
+                A_1.FullName = "A`1";
+                A_1.Assembly = asm;
+                A_1.Interfaces = [];
+                A_1.IsInst = function (t) { return t instanceof A_1 ? t : null; };
+                A_1.IsValueType = false;
+                A_1.IsPrimitive = false;
+                A_1.IsInterface = false;
+                A_1.IsGenericTypeDefinition = true;
+                A_1.IsNullable = false;
+                A_1.ArrayType = Array;
+                A_1.GenericArguments = [
+                    T
+                ];
+                ((asm1.x600000d)(T))();
+                A_1.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
                         return asm0.x6000005;
@@ -17471,7 +17219,141 @@ var asm1; (function (asm)
                     }
                 };
             };
-            C.prototype = new (((asm0)["System.Object"])())();
+            A_1.prototype = new (((asm0)["System.Object"])())();
+            return c;
+        };
+    })();
+    (asm)["B`1"] = (function ()
+    {
+        var ct;
+        ct = {};
+        return function (T)
+        {
+            var c;
+            var initialized;
+            c = tree_get([
+                T
+            ],ct);
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function B_1()
+            {
+                (B_1.init)();
+                this.constructor = B_1;
+            };
+            c = B_1;
+            tree_set([
+                T
+            ],ct,c);
+            B_1.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                B_1.CustomAttributes = [];
+                B_1.Methods = [];
+                B_1.BaseType = ((asm1)["A`1"])(T);
+                B_1.FullName = "B`1";
+                B_1.Assembly = asm;
+                B_1.Interfaces = [];
+                B_1.IsInst = function (t) { return t instanceof B_1 ? t : null; };
+                B_1.IsValueType = false;
+                B_1.IsPrimitive = false;
+                B_1.IsInterface = false;
+                B_1.IsGenericTypeDefinition = true;
+                B_1.IsNullable = false;
+                B_1.ArrayType = Array;
+                B_1.GenericArguments = [
+                    T
+                ];
+                B_1.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            B_1.prototype = new (((asm1)["A`1"])(T))();
+            return c;
+        };
+    })();
+    (asm)["C`1"] = (function ()
+    {
+        var ct;
+        ct = {};
+        return function (T)
+        {
+            var c;
+            var initialized;
+            c = tree_get([
+                T
+            ],ct);
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function C_1()
+            {
+                (C_1.init)();
+                this.constructor = C_1;
+            };
+            c = C_1;
+            tree_set([
+                T
+            ],ct,c);
+            C_1.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                C_1.CustomAttributes = [];
+                C_1.Methods = [];
+                C_1.BaseType = ((asm1)["A`1"])(T);
+                C_1.FullName = "C`1";
+                C_1.Assembly = asm;
+                C_1.Interfaces = [];
+                C_1.IsInst = function (t) { return t instanceof C_1 ? t : null; };
+                C_1.IsValueType = false;
+                C_1.IsPrimitive = false;
+                C_1.IsInterface = false;
+                C_1.IsGenericTypeDefinition = true;
+                C_1.IsNullable = false;
+                C_1.ArrayType = Array;
+                C_1.GenericArguments = [
+                    T
+                ];
+                C_1.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            C_1.prototype = new (((asm1)["A`1"])(T))();
             return c;
         };
     })();
@@ -17505,11 +17387,11 @@ var asm1; (function (asm)
                 initialized = true;
                 D.CustomAttributes = [];
                 D.Methods = [];
-                D.BaseType = (asm1.B)();
+                D.BaseType = ((asm0)["System.Object"])();
                 D.FullName = "D";
                 D.Assembly = asm;
                 D.Interfaces = [
-                    (asm1.I)()
+                    ((asm1)["I`1"])((asm1.D)())
                 ];
                 D.IsInst = function (t) { return t instanceof D ? t : null; };
                 D.IsValueType = false;
@@ -17532,9 +17414,69 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (D.prototype)[(asm1.I)()] = {};
+                (D.prototype)[((asm1)["I`1"])((asm1.D)())] = {};
             };
-            D.prototype = new ((asm1.B)())();
+            D.prototype = new (((asm0)["System.Object"])())();
+            return c;
+        };
+    })();
+    asm.E = (function ()
+    {
+        var ct;
+        ct = null;
+        return function ()
+        {
+            var c;
+            var initialized;
+            c = ct;
+            
+            if (c){
+                return c;
+            }
+            initialized = false;;
+            function E()
+            {
+                (E.init)();
+                this.constructor = E;
+            };
+            c = E;
+            ct = c;
+            E.init = function ()
+            {
+                
+                if (initialized){
+                    return;
+                }
+                initialized = true;
+                E.CustomAttributes = [];
+                E.Methods = [];
+                E.BaseType = ((asm0)["System.Object"])();
+                E.FullName = "E";
+                E.Assembly = asm;
+                E.Interfaces = [];
+                E.IsInst = function (t) { return t instanceof E ? t : null; };
+                E.IsValueType = false;
+                E.IsPrimitive = false;
+                E.IsInterface = false;
+                E.IsGenericTypeDefinition = false;
+                E.IsNullable = false;
+                E.ArrayType = Array;
+                E.prototype.vtable = {
+                    'asm0.x6000005': function ()
+                    {
+                        return asm0.x6000005;
+                    },
+                    'asm0.x6000008': function ()
+                    {
+                        return asm0.x6000008;
+                    },
+                    'asm0.x6000009': function ()
+                    {
+                        return asm0.x6000009;
+                    }
+                };
+            };
+            E.prototype = new (((asm0)["System.Object"])())();
             return c;
         };
     })();
@@ -17598,5 +17540,5 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    asm.entryPoint = asm.x6000010;
+    asm.entryPoint = asm.x6000012;
 })(asm1 || (asm1 = {}));
