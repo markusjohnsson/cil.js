@@ -36,7 +36,8 @@ namespace System
             this.ctor = ctor;
         }
 
-        private static Type GetInstance(constructor ctor)
+        [JsAssemblyStatic(Name = "GetReflectionType")]
+        internal static Type GetInstance(constructor ctor)
         {
             if (!UnsafeCast<bool>(ctor.TypeInstance))
                 ctor.TypeInstance = new RuntimeType(ctor);

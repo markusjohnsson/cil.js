@@ -69,7 +69,7 @@ namespace System
                 throw new /*ArgumentNull*/ Exception("array");
 
             // re-ordered to avoid possible integer overflow
-            if (count < 0 || startIndex < 0 || startIndex - 1 > - count)
+            if (count < 0 || startIndex < 0 || startIndex - 1 > (array.Length-1) - count)
                 throw new /*ArgumentOutOfRange*/ Exception();
 
             int max = startIndex + count;
@@ -132,11 +132,14 @@ namespace System
             return GetLastIndex(array, startIndex, count, t => Object.Equals(t, item));
         }
 
-        [JsReplace("({0}.jsarr.sort({1}))")]
+        [JsReplace("(Array.prototype.sort({0}.jsarr, {1}))")]
         internal extern static void Sort<T>(T[] array, object comparison);
 
-        [JsReplace("({0}.jsarr.sort())")]
-        internal extern static void Sort<T>(T[] array, int start, int size);
+        internal static void Sort<T>(T[] array, int start, int size)
+        {
+            Comparison<T> cmp = (a, b) => ((IComparable<T>)a).CompareTo(b);
+            SortImpl(array, size, cmp);
+        }
 
         internal static void SortImpl<T>(T[] array, int size, Comparison<T> comparison)
         {
@@ -147,7 +150,7 @@ namespace System
                 Splice(array, array.Length - size);
             }
 
-            Sort(array, comparison.GetJsFunction());
+            Sort(array, Delegate.GetJsFunction(comparison));
         }
 
         internal static void Sort<T>(T[] source, int start, int count, IComparer<T> comparer)
@@ -174,7 +177,7 @@ namespace System
             ")]
         private static extern void Splice<T>(T[] array, int howMany);
 
-        [JsReplace("({0}.jsarr.reverse())")]
+        [JsReplace("(Array.prototype.reverse.apply({0}.jsarr))")]
         internal extern static void Reverse<T>(T[] array, int start, int count);
 
         // Used by mono's corlib
@@ -232,7 +235,7 @@ namespace System
             array = a;
         }
 
-        [JsReplace("asm1['System.Collections.Generic.Comparer']({0}.ctor)._default")]
+        [JsReplace("asm1.GetDefaultComparer({0}.ctor)()")]
         private extern static IComparer GetComparer(Type t);
 
         public static int BinarySearch<T>(T[] items, int index, int length, T item)

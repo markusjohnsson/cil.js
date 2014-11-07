@@ -70,6 +70,7 @@
     <Compile Include="System\FlagsAttribute.cs" />
     <Compile Include="System\Func.cs" />
     <Compile Include="System\ICloneable.cs" />
+    <Compile Include="System\IComparable.cs" />
     <Compile Include="System\IDisposable.cs" />
     <Compile Include="System\Int16.cs" />
     <Compile Include="System\Int32.cs" />

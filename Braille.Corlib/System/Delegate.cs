@@ -99,5 +99,18 @@ namespace System
         {
             return base.GetHashCode();
         }
+
+        [JsReplace(@"(
+            function () {{ 
+                var args = arguments.splice().shift(thisObj); 
+                return {0}.apply(null, args); 
+            }})")]
+        private static extern object GetJsFunction(object method, object thisObj);
+
+        internal static object GetJsFunction(Delegate d)
+        {
+            return GetJsFunction(d._methodPtr, d._target);
+        }
+
     }
 }

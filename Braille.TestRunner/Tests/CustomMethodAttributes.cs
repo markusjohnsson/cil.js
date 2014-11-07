@@ -3,15 +3,26 @@ using System;
 using System.Reflection;
 
 class A : Attribute { }
-class B : Attribute { }
+
+class B : Attribute 
+{
+    public Type T { get; set; }
+    public B(Type t) 
+    {
+        T = t;
+    }
+}
+
+class D 
+{
+}
 
 class C
 {
     [A]
     public void M() { }
     
-    [A]
-    [B]
+    [B(typeof(D))]
     public void N() { }
 }
 
@@ -28,7 +39,6 @@ class Program
         TestLog.Log(m[0].GetType().Name);
 
         TestLog.Log(n.Length);
-        //TestLog.Log(n[0].GetType().Name);
-        //TestLog.Log(n[1].GetType().Name);
+        TestLog.Log(((B)n[0]).T.Name);
     } 
 }

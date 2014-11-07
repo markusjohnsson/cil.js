@@ -135,7 +135,7 @@ namespace Braille.JsTranslation
 
         public IEnumerable<JSExpression> GetTypeDeclaration(CilType type, JSExpression cache, JSExpression cacheKey, JSExpression cachedInstance, bool isGeneric)
         {
-            var n = GetSimpleName(type);
+            var n = GetSimpleName(type.ReflectionType);
 
             yield return new JSVariableDelcaration
             {
@@ -161,7 +161,7 @@ namespace Braille.JsTranslation
             yield return JSFactory
                 .Assignment(
                     cachedInstance,
-                    new JSIdentifier { Name = GetSimpleName(type) });
+                    new JSIdentifier { Name = GetSimpleName(type.ReflectionType) });
 
             if (isGeneric)
             {
@@ -449,11 +449,11 @@ namespace Braille.JsTranslation
         {
             if (type.IsInterface)
             {
-                return JSFactory.RawExpression("function (t) { return t.constructor.Interfaces.indexOf(" + GetSimpleName(type) + ") != -1 ? t : null; }");
+                return JSFactory.RawExpression("function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(" + GetSimpleName(type.ReflectionType) + ") != -1 ? t : null; } catch (e) { return false; } }");
             }
             else if (type.ReflectionType.IsPrimitive)
             {
-                return JSFactory.RawExpression("function (t) { return t.type == " + GetSimpleName(type) + " ? t : null; }");
+                return JSFactory.RawExpression("function (t) { try { return t.type == " + GetSimpleName(type.ReflectionType) + " ? t : null; } catch (e) { return false; } }");
             }
             else if (type.ReflectionType.FullName == "System.Array`1")
             {
@@ -461,7 +461,7 @@ namespace Braille.JsTranslation
             }
             else
             {
-                return JSFactory.RawExpression("function (t) { return t instanceof " + GetSimpleName(type) + " ? t : null; }");
+                return JSFactory.RawExpression("function (t) { return t instanceof " + GetSimpleName(type.ReflectionType) + " ? t : null; }");
             }
         }
 

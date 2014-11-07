@@ -10,7 +10,7 @@ namespace System
         [JsImport("function(o) { return o.jsstr.length; }")]
         private extern static int GetLengthImpl(object s);
 
-        [JsImport("function(a, b) { return a.jsstr === b.jsstr; }")]
+        [JsImport("function(a, b) { return a.jsstr === b.jsstr ? 1 : 0; }")]
         private extern static bool EqualsImpl(string a, string b);
 
         [JsImport("function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); }")]

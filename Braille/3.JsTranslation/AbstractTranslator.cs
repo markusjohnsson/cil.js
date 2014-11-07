@@ -62,11 +62,12 @@ namespace Braille.JsTranslation
                 else if (thisScope == null)
                 {
                     return
-                        (IsInScope(type.DeclaringType, typeScope)) ? 
+                        (IsInScope(type.DeclaringType, typeScope)) ?
                             JSFactory.Identifier(type.Name) :
 
                             // to my awareness, this only happens when you do "typeof(C<>)", ie not specifying any args
-                            JSFactory.Null(); 
+                        //JSFactory.Null(); 
+                            GetTypeIdentifier(context.SystemTypes.Object);
                 }
                 else
                 {
@@ -109,7 +110,7 @@ namespace Braille.JsTranslation
             if (typeScope == null)
                 return false;
 
-            return typeScope == type || IsInScope(type, typeScope.DeclaringType);
+            return typeScope == type || IsInScope(type, typeScope.DeclaringType) || IsInScope(type, typeScope.BaseType);
         }
 
         private static string ConstructFullName(Type type)
@@ -127,7 +128,7 @@ namespace Braille.JsTranslation
             return name;
         }
 
-        protected static string GetSimpleName(CilType type)
+        protected static string GetSimpleName(Type type)
         {
             var n = type.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace("{", "_").Replace("}", "_").Replace("-", "_").Replace("=", "_");
             if (n == "String" || n == "Number" || n == "Boolean" || n == "Object" || n == "function")
@@ -140,7 +141,7 @@ namespace Braille.JsTranslation
             if (f.IsStatic == false && f.IsPrivate && f.DeclaringType.IsValueType == false)
             {
                 var ns = (f.DeclaringType.Namespace ?? "").Replace('.', '_');
-                return ns + GetSimpleName(type) + f.Name;
+                return ns + GetSimpleName(f.DeclaringType) + f.Name;
             }
             else
             {
@@ -172,7 +173,7 @@ namespace Braille.JsTranslation
 
                 // Of course, this also extends to generic static methods on generic classes.
 
-                var classGenArgs = mi.DeclaringType.IsGenericType ? mi.DeclaringType.GetGenericArguments() : new Type[0];
+                var classGenArgs = (mi.IsStatic && mi.DeclaringType.IsGenericType) ? mi.DeclaringType.GetGenericArguments() : new Type[0];
                 var methodGenArgs = mi.IsGenericMethod ? mi.GetGenericArguments() : new Type[0];
 
                 return new JSCallExpression

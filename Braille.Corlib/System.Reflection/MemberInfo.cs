@@ -13,6 +13,7 @@ namespace System.Reflection
 
         [JsImport(@"
             function (ca) {
+                ca = ca || [];
                 var r = new_array(asm0['System.Object'], ca.length);
                 for (var i=0; i<ca.length; i++) {
                     var attr_type = ca[i][0];
@@ -22,7 +23,12 @@ namespace System.Reflection
                     var attr_ctor_args = [attr];
                     if (attr_ctor_args_data) {
                         for (var j=0; j<attr_ctor_args_data.length; j++) {
-                            attr_ctor_args.push(attr_ctor_args_data[j]);
+                            var d = attr_ctor_args_data[j];
+                            if (typeof d === 'function') {
+                                d(); // init type
+                                d = asm0.GetReflectionType(d);
+                            }
+                            attr_ctor_args.push(d);
                         }
                     }
                     attr_ctor.apply(null, attr_ctor_args);

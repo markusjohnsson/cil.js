@@ -79,6 +79,10 @@ namespace Braille.JsTranslation
     }
 
     function unbox(o, type) {
+        if (o == null) {
+            var t = asm0['System.InvalidCastException']();
+            throw new t();
+        }
         return cast_class(o.boxed, type);
     }
 
@@ -90,6 +94,11 @@ namespace Braille.JsTranslation
                 result.has_value = true;
             }
             return result;
+        }
+
+        if (o == null) {
+            var t = asm0['System.InvalidCastException']();
+            throw new t();
         }
 
         if (type.IsValueType)
@@ -170,7 +179,9 @@ namespace Braille.JsTranslation
             return obj;
         }
         else if (type.IsPrimitive) {
-            if (typeof obj == 'number') {
+            if (typeof obj === 'undefined' || obj === null) {
+            }
+            else if (typeof obj == 'number') {
                 return obj;
             }
             else if (typeof obj.length == 'number' && obj.length == 2) {

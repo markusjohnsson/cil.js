@@ -603,6 +603,7 @@ var asm0; (function (asm)
     };;
     asm.x6000037 = 
             function (ca) {
+                ca = ca || [];
                 var r = new_array(asm0['System.Object'], ca.length);
                 for (var i=0; i<ca.length; i++) {
                     var attr_type = ca[i][0];
@@ -612,7 +613,12 @@ var asm0; (function (asm)
                     var attr_ctor_args = [attr];
                     if (attr_ctor_args_data) {
                         for (var j=0; j<attr_ctor_args_data.length; j++) {
-                            attr_ctor_args.push(attr_ctor_args_data[j]);
+                            var d = attr_ctor_args_data[j];
+                            if (typeof d === 'function') {
+                                d(); // init type
+                                d = asm0.GetReflectionType(d);
+                            }
+                            attr_ctor_args.push(d);
                         }
                     }
                     attr_ctor.apply(null, attr_ctor_args);
@@ -3317,6 +3323,7 @@ var asm0; (function (asm)
             }
         }
     };
+    asm.GetReflectionType = asm.x60000b6;
     asm.x60000b7 = function GetType(arg0)
     {
         var loc0;
@@ -5537,7 +5544,7 @@ var asm0; (function (asm)
         {
             var t0;
             var t1;
-            var st_13;
+            var st_18;
             var __pos_0__;
             var loc3;
             var loc0;
@@ -5577,117 +5584,122 @@ var asm0; (function (asm)
                     case 0x17:
                     /* IL_17: ldarg.3 */
                     /* IL_18: ldc.i4.0 */
-                    /* IL_19: blt.s IL_2B*/
+                    /* IL_19: blt.s IL_30*/
                     
                     if (arg3 < (0|0)){
-                        __pos_0__ = 0x2B;
+                        __pos_0__ = 0x30;
                         continue;
                     }
                     /* IL_1B: ldarg.2 */
                     /* IL_1C: ldc.i4.0 */
-                    /* IL_1D: blt.s IL_2B*/
+                    /* IL_1D: blt.s IL_30*/
                     
                     if (arg2 < (0|0)){
-                        __pos_0__ = 0x2B;
+                        __pos_0__ = 0x30;
                         continue;
                     }
                     /* IL_1F: ldarg.2 */
                     /* IL_20: ldc.i4.1 */
                     /* IL_21: sub */
-                    /* IL_22: ldarg.3 */
-                    /* IL_23: neg */
-                    /* IL_25: cgt */
-                    /* IL_26: ldc.i4.0 */
-                    /* IL_28: ceq */
-                    st_13 = ((((((arg2 - (1|0)) | (0|0)) > (-(arg3))) ? (1) : (0)) === (0|0)) ? (1) : (0));
-                    /* IL_29: br.s IL_2C*/
-                    __pos_0__ = 0x2C;
-                    continue;
-                    case 0x2B:
+                    /* IL_22: ldarg.0 */
+                    /* IL_23: ldlen */
+                    /* IL_24: conv.i4 */
+                    /* IL_25: ldc.i4.1 */
+                    /* IL_26: sub */
+                    /* IL_27: ldarg.3 */
+                    /* IL_28: sub */
+                    /* IL_2A: cgt */
                     /* IL_2B: ldc.i4.0 */
-                    st_13 = (0|0);
-                    case 0x2C:
-                    /* IL_2C: nop */
+                    /* IL_2D: ceq */
+                    st_18 = ((((((arg2 - (1|0)) | (0|0)) > (((((arg0.jsarr.length | (0|0)) - (1|0)) | (0|0)) - arg3) | (0|0))) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                    /* IL_2E: br.s IL_31*/
+                    __pos_0__ = 0x31;
+                    continue;
+                    case 0x30:
+                    /* IL_30: ldc.i4.0 */
+                    st_18 = (0|0);
+                    case 0x31:
+                    /* IL_31: nop */
                     
-                    /* IL_2D: stloc.3 */
-                    loc3 = st_13;
-                    /* IL_2E: ldloc.3 */
-                    /* IL_2F: brtrue.s IL_37*/
+                    /* IL_32: stloc.3 */
+                    loc3 = st_18;
+                    /* IL_33: ldloc.3 */
+                    /* IL_34: brtrue.s IL_3C*/
                     
                     if (loc3){
-                        __pos_0__ = 0x37;
+                        __pos_0__ = 0x3C;
                         continue;
                     }
-                    /* IL_31: newobj Void .ctor()*/
-                    /* IL_36: throw */
+                    /* IL_36: newobj Void .ctor()*/
+                    /* IL_3B: throw */
                     throw newobj(t0,asm0.x6000093,[
                         null
                     ]);
-                    case 0x37:
-                    /* IL_37: ldarg.2 */
-                    /* IL_38: ldarg.3 */
-                    /* IL_39: add */
-                    /* IL_3A: stloc.0 */
+                    case 0x3C:
+                    /* IL_3C: ldarg.2 */
+                    /* IL_3D: ldarg.3 */
+                    /* IL_3E: add */
+                    /* IL_3F: stloc.0 */
                     loc0 = (arg2 + arg3) | (0|0);
-                    /* IL_3B: ldarg.2 */
-                    /* IL_3C: stloc.1 */
+                    /* IL_40: ldarg.2 */
+                    /* IL_41: stloc.1 */
                     loc1 = arg2;
-                    /* IL_3D: br.s IL_62*/
-                    __pos_0__ = 0x62;
+                    /* IL_42: br.s IL_67*/
+                    __pos_0__ = 0x67;
                     continue;
-                    case 0x3F:
-                    /* IL_3F: nop */
+                    case 0x44:
+                    /* IL_44: nop */
                     
-                    /* IL_40: ldarg.0 */
-                    /* IL_41: ldloc.1 */
-                    /* IL_42: call Object GetValueImpl(System.Object, System.Int32)*/
-                    /* IL_47: ldarg.1 */
-                    /* IL_48: box T*/
-                    /* IL_4D: call Boolean Equals(System.Object, System.Object)*/
-                    /* IL_52: ldc.i4.0 */
-                    /* IL_54: ceq */
-                    /* IL_55: stloc.3 */
+                    /* IL_45: ldarg.0 */
+                    /* IL_46: ldloc.1 */
+                    /* IL_47: call Object GetValueImpl(System.Object, System.Int32)*/
+                    /* IL_4C: ldarg.1 */
+                    /* IL_4D: box T*/
+                    /* IL_52: call Boolean Equals(System.Object, System.Object)*/
+                    /* IL_57: ldc.i4.0 */
+                    /* IL_59: ceq */
+                    /* IL_5A: stloc.3 */
                     loc3 = (((asm0.x600000b)((asm0.x6000117)(arg0,loc1),box(arg1,t1)) === (0|0)) ? (1) : (0));
-                    /* IL_56: ldloc.3 */
-                    /* IL_57: brtrue.s IL_5D*/
+                    /* IL_5B: ldloc.3 */
+                    /* IL_5C: brtrue.s IL_62*/
                     
                     if (loc3){
-                        __pos_0__ = 0x5D;
+                        __pos_0__ = 0x62;
                         continue;
                     }
-                    /* IL_59: ldloc.1 */
-                    /* IL_5A: stloc.2 */
-                    loc2 = loc1;
-                    /* IL_5B: br.s IL_6E*/
-                    __pos_0__ = 0x6E;
-                    continue;
-                    case 0x5D:
-                    /* IL_5D: nop */
-                    
                     /* IL_5E: ldloc.1 */
-                    /* IL_5F: ldc.i4.1 */
-                    /* IL_60: add */
-                    /* IL_61: stloc.1 */
-                    loc1 = (loc1 + (1|0)) | (0|0);
+                    /* IL_5F: stloc.2 */
+                    loc2 = loc1;
+                    /* IL_60: br.s IL_73*/
+                    __pos_0__ = 0x73;
+                    continue;
                     case 0x62:
-                    /* IL_62: ldloc.1 */
-                    /* IL_63: ldloc.0 */
-                    /* IL_65: clt */
-                    /* IL_66: stloc.3 */
+                    /* IL_62: nop */
+                    
+                    /* IL_63: ldloc.1 */
+                    /* IL_64: ldc.i4.1 */
+                    /* IL_65: add */
+                    /* IL_66: stloc.1 */
+                    loc1 = (loc1 + (1|0)) | (0|0);
+                    case 0x67:
+                    /* IL_67: ldloc.1 */
+                    /* IL_68: ldloc.0 */
+                    /* IL_6A: clt */
+                    /* IL_6B: stloc.3 */
                     loc3 = ((loc1 < loc0) ? (1) : (0));
-                    /* IL_67: ldloc.3 */
-                    /* IL_68: brtrue.s IL_3F*/
+                    /* IL_6C: ldloc.3 */
+                    /* IL_6D: brtrue.s IL_44*/
                     
                     if (loc3){
-                        __pos_0__ = 0x3F;
+                        __pos_0__ = 0x44;
                         continue;
                     }
-                    /* IL_6A: ldc.i4.m1 */
-                    /* IL_6B: stloc.2 */
+                    /* IL_6F: ldc.i4.m1 */
+                    /* IL_70: stloc.2 */
                     loc2 = (-1|0);
-                    case 0x6E:
-                    /* IL_6E: ldloc.2 */
-                    /* IL_6F: ret */
+                    case 0x73:
+                    /* IL_73: ldloc.2 */
+                    /* IL_74: ret */
                     return loc2;
                 }
             }
@@ -7865,7 +7877,7 @@ var asm0; (function (asm)
         return ;
     };;
     asm.x6000156 = function(o) { return o.jsstr.length; };;
-    asm.x6000157 = function(a, b) { return a.jsstr === b.jsstr; };;
+    asm.x6000157 = function(a, b) { return a.jsstr === b.jsstr ? 1 : 0; };;
     asm.x6000158 = function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); };;
     asm.x6000159 = function (s, i) { return s.jsstr.charCodeAt(i); };;
     asm.x600015a = function replaceAll(s, find, replace) {
@@ -16400,7 +16412,7 @@ var asm1; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=36 $$method0x600000c-1*/
         st_03 = new_handle(((asm0)["System.RuntimeFieldHandle"])(),{
-            'type': ((asm1)["<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}"])(),
+            'type': ((asm1)["<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}"])(),
             'field': "$$method0x600000c-1"
         });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -16435,7 +16447,7 @@ var asm1; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=36 $$method0x600000d-1*/
         st_03 = new_handle(((asm0)["System.RuntimeFieldHandle"])(),{
-            'type': ((asm1)["<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}"])(),
+            'type': ((asm1)["<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}"])(),
             'field': "$$method0x600000d-1"
         });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -16470,7 +16482,7 @@ var asm1; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_07: ldtoken __StaticArrayInitTypeSize=7 $$method0x600000e-1*/
         st_03 = new_handle(((asm0)["System.RuntimeFieldHandle"])(),{
-            'type': ((asm1)["<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}"])(),
+            'type': ((asm1)["<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}"])(),
             'field': "$$method0x600000e-1"
         });
         /* IL_0C: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -16746,7 +16758,7 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    (asm)["<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}"] = (function ()
+    (asm)["<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}"] = (function ()
     {
         var ct;
         ct = null;
@@ -16760,21 +16772,21 @@ var asm1; (function (asm)
                 return c;
             }
             initialized = false;;
-            function _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_()
+            function _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_()
             {
-                (_PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.init)();
-                this.constructor = _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_;
+                (_PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.init)();
+                this.constructor = _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_;
             };
-            c = _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_;
+            c = _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_;
             ct = c;
-            _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.init = function ()
+            _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.init = function ()
             {
                 
                 if (initialized){
                     return;
                 }
                 initialized = true;
-                (_PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_)["$$method0x600000c-1"] = [
+                (_PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_)["$$method0x600000c-1"] = [
                     0,
                     0,
                     0,
@@ -16812,7 +16824,7 @@ var asm1; (function (asm)
                     0,
                     128
                 ];
-                (_PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_)["$$method0x600000d-1"] = [
+                (_PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_)["$$method0x600000d-1"] = [
                     0,
                     0,
                     0,
@@ -16850,7 +16862,7 @@ var asm1; (function (asm)
                     0,
                     0
                 ];
-                (_PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_)["$$method0x600000e-1"] = [
+                (_PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_)["$$method0x600000e-1"] = [
                     0,
                     8,
                     4,
@@ -16859,20 +16871,20 @@ var asm1; (function (asm)
                     255,
                     0
                 ];
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.CustomAttributes = [];
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.Methods = [];
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.BaseType = ((asm0)["System.Object"])();
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.FullName = "<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}";
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.Assembly = asm;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.Interfaces = [];
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.IsInst = function (t) { return t instanceof _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_ ? t : null; };
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.IsValueType = false;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.IsPrimitive = false;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.IsInterface = false;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.IsGenericTypeDefinition = false;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.IsNullable = false;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.ArrayType = Array;
-                _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.prototype.vtable = {
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.CustomAttributes = [];
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.Methods = [];
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.BaseType = ((asm0)["System.Object"])();
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.FullName = "<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}";
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.Assembly = asm;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.Interfaces = [];
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.IsInst = function (t) { return t instanceof _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_ ? t : null; };
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.IsValueType = false;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.IsPrimitive = false;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.IsInterface = false;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.IsGenericTypeDefinition = false;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.IsNullable = false;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.ArrayType = Array;
+                _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
                         return asm0.x6000005;
@@ -16887,11 +16899,11 @@ var asm1; (function (asm)
                     }
                 };
             };
-            _PrivateImplementationDetails__61F35F25_4E96_402B_8EB8_5D4FAAC6D401_.prototype = new (((asm0)["System.Object"])())();
+            _PrivateImplementationDetails__49DC8FAB_F070_4C0D_B120_AFAC1E873ACC_.prototype = new (((asm0)["System.Object"])())();
             return c;
         };
     })();
-    (asm)["<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}+__StaticArrayInitTypeSize=36"] = (function ()
+    (asm)["<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}+__StaticArrayInitTypeSize=36"] = (function ()
     {
         var ct;
         ct = null;
@@ -16922,7 +16934,7 @@ var asm1; (function (asm)
                 __StaticArrayInitTypeSize_36.CustomAttributes = [];
                 __StaticArrayInitTypeSize_36.Methods = [];
                 __StaticArrayInitTypeSize_36.BaseType = ((asm0)["System.ValueType"])();
-                __StaticArrayInitTypeSize_36.FullName = "<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}+__StaticArrayInitTypeSize=36";
+                __StaticArrayInitTypeSize_36.FullName = "<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}+__StaticArrayInitTypeSize=36";
                 __StaticArrayInitTypeSize_36.Assembly = asm;
                 __StaticArrayInitTypeSize_36.Interfaces = [];
                 __StaticArrayInitTypeSize_36.IsInst = function (t) { return t instanceof __StaticArrayInitTypeSize_36 ? t : null; };
@@ -16952,7 +16964,7 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    (asm)["<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}+__StaticArrayInitTypeSize=7"] = (function ()
+    (asm)["<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}+__StaticArrayInitTypeSize=7"] = (function ()
     {
         var ct;
         ct = null;
@@ -16983,7 +16995,7 @@ var asm1; (function (asm)
                 __StaticArrayInitTypeSize_7.CustomAttributes = [];
                 __StaticArrayInitTypeSize_7.Methods = [];
                 __StaticArrayInitTypeSize_7.BaseType = ((asm0)["System.ValueType"])();
-                __StaticArrayInitTypeSize_7.FullName = "<PrivateImplementationDetails>{61F35F25-4E96-402B-8EB8-5D4FAAC6D401}+__StaticArrayInitTypeSize=7";
+                __StaticArrayInitTypeSize_7.FullName = "<PrivateImplementationDetails>{49DC8FAB-F070-4C0D-B120-AFAC1E873ACC}+__StaticArrayInitTypeSize=7";
                 __StaticArrayInitTypeSize_7.Assembly = asm;
                 __StaticArrayInitTypeSize_7.Interfaces = [];
                 __StaticArrayInitTypeSize_7.IsInst = function (t) { return t instanceof __StaticArrayInitTypeSize_7 ? t : null; };

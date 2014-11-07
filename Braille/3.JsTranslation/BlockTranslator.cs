@@ -104,7 +104,16 @@ namespace Braille.JsTranslation
             foreach (var catchBlock in catchBlocks)
             {
                 var block = CreateJsBlock(catchBlock, p);
-                block.Statements.Insert(0,
+
+                int index;
+                for (index = 0; index < block.Statements.Count; index++)
+                {
+                    var es = block.Statements[index] as JSSwitchCase;
+                    if (es == null)
+                        break;
+                }
+
+                block.Statements.Insert(index,
                     JSFactory
                         .Assignment(handledFlag, new JSBoolLiteral { Value = true })
                         .ToStatement());
@@ -117,7 +126,7 @@ namespace Braille.JsTranslation
 
                     foreach (var location in exception.StoreLocations)
                     {
-                        block.Statements.Insert(0, JSFactory.Assignment(location.Name, exceptionObject).ToStatement());
+                        block.Statements.Insert(index, JSFactory.Assignment(location.Name, exceptionObject).ToStatement());
                     }
                 }
 
@@ -135,6 +144,14 @@ namespace Braille.JsTranslation
                         }
                     },
                     Statements = block.Build().ToList()
+                });
+
+                statements.Add(new JSIfStatement
+                {
+                    Condition = new JSUnaryExpression { Operand = handledFlag, Operator = "!" },
+                    Statements = {
+                        new JSThrowExpression { Expression = exceptionObject }.ToStatement()
+                    }
                 });
             }
 
