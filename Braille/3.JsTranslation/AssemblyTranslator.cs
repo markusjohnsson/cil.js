@@ -96,13 +96,15 @@ namespace Braille.JsTranslation
             return result;
         }
 
-        if (o == null) {
-            var t = asm0['System.InvalidCastException']();
-            throw new t();
-        }
+        if (type.IsValueType) {
 
-        if (type.IsValueType)
+            if (o == null) {
+                var t = asm0['System.InvalidCastException']();
+                throw new t();
+            }
+
             return cast_class(o.boxed, type);
+        }
         else
             return cast_class(o, type);
     }

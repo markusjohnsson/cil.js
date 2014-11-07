@@ -145,15 +145,15 @@ namespace Braille.JsTranslation
                     },
                     Statements = block.Build().ToList()
                 });
+            }
 
-                statements.Add(new JSIfStatement
-                {
-                    Condition = new JSUnaryExpression { Operand = handledFlag, Operator = "!" },
-                    Statements = {
+            statements.Add(new JSIfStatement
+            {
+                Condition = new JSUnaryExpression { Operand = handledFlag, Operator = "!" },
+                Statements = {
                         new JSThrowExpression { Expression = exceptionObject }.ToStatement()
                     }
-                });
-            }
+            });
 
             if (faultBlock != null)
             {

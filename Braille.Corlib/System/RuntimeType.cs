@@ -3,6 +3,7 @@ using Braille.Runtime.TranslatorServices;
 using Braille.JavaScript;
 using System.Reflection;
 using Braille.Runtime.InteropServices;
+using Braille.Runtime;
 
 namespace System
 {
@@ -140,7 +141,7 @@ namespace System
                 if ((bool)ctor.IsGenericTypeDefinition == false)
                     return false;
 
-                if (Marshal.ArrayLookup(ctor.GenericArguments, 0) == Marshal.Null)
+                if (Marshal.ArrayLookup(ctor.GenericArguments, 0) == UnboundGenericParameter.Instance)
                     return true;
                 else
                     return false;

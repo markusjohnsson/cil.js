@@ -38,6 +38,7 @@
     <Compile Include="Braille.JavaScript\String.cs" />
     <Compile Include="Braille.Runtime.InteropServices\Marshal.cs" />
     <Compile Include="Braille.Runtime\Locale.cs" />
+    <Compile Include="Braille.Runtime\UnboundGenericParameter.cs" />
     <Compile Include="Properties\Properties.cs" />
     <Compile Include="System.Collections.Generic\ICollection.cs" />
     <Compile Include="System.Collections.Generic\IComparer.cs" />
