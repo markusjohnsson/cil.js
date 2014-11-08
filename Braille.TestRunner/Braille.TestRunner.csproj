@@ -116,6 +116,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Tests\CallGenericMethodOnGenericClass.cs" />
+    <None Include="Tests\StructInterface.cs" />
     <Content Include="Tests\ComplexStaticInitialization.cs" />
     <None Include="Tests\CustomMethodAttributes.cs" />
     <None Include="Tests\MethodInfoInvoke.cs" />

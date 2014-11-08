@@ -34,7 +34,8 @@ var asm0; (function (asm)
         return {
             'boxed': v,
             'type': type,
-            'vtable': type.prototype.vtable
+            'vtable': type.prototype.vtable,
+            'ifacemap': type.prototype.ifacemap
         };
     }
 
@@ -1214,7 +1215,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000094)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         },(8|0));
         /* IL_11: ldloc.0 */
         /* IL_12: ret */
@@ -1323,7 +1325,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x600006a)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
@@ -2529,7 +2532,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
@@ -2605,7 +2609,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
@@ -2714,7 +2719,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
@@ -2967,7 +2973,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': arg0,
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_14: ldloc.0 */
         /* IL_15: ret */
@@ -3650,7 +3657,8 @@ var asm0; (function (asm)
                 loc1 = {
                     'boxed': arg0.ctor.Hash,
                     'type': t0,
-                    'vtable': t0.prototype.vtable
+                    'vtable': t0.prototype.vtable,
+                    'ifacemap': t0.prototype.ifacemap
                 };
                 /* IL_17: ldloc.1 */
                 /* IL_18: brtrue.s IL_2B*/
@@ -4815,7 +4823,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
@@ -4924,7 +4933,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
@@ -6896,7 +6906,7 @@ var asm0; (function (asm)
                                 /* IL_A8: ldarg.3 */
                                 /* IL_A9: callvirt Int32 Compare(T, T)*/
                                 /* IL_AE: stloc.2 */
-                                loc2 = (((arg4)[t2].x600002c)())(arg4,(arg0.jsarr)[loc3],arg3);
+                                loc2 = (((arg4.ifacemap)[t2].x600002c)())(arg4,(arg0.jsarr)[loc3],arg3);
                                 /* IL_AF: ldloc.2 */
                                 /* IL_B0: ldc.i4.0 */
                                 /* IL_B2: ceq */
@@ -7047,7 +7057,7 @@ var asm0; (function (asm)
             /* IL_0B: ldarg.1 */
             /* IL_0C: callvirt Int32 CompareTo(T)*/
             /* IL_11: stloc.0 */
-            loc0 = (((cast_class(box(arg0,t0),t1))[t1].x6000088)())(cast_class(box(arg0,t0),t1),arg1);
+            loc0 = (((cast_class(box(arg0,t0),t1).ifacemap)[t1].x6000088)())(cast_class(box(arg0,t0),t1),arg1);
             /* IL_14: ldloc.0 */
             /* IL_15: ret */
             return loc0;
@@ -8637,7 +8647,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000094)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         },(16|0));
         /* IL_12: ldloc.0 */
         /* IL_13: ret */
@@ -8747,7 +8758,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000094)({
             'boxed': (arg0.r)(),
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         },(32|0));
         /* IL_12: ldloc.0 */
         /* IL_13: ret */
@@ -9106,7 +9118,8 @@ var asm0; (function (asm)
         loc0 = (asm0.x6000093)({
             'boxed': arg0,
             'type': t0,
-            'vtable': t0.prototype.vtable
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         });
         /* IL_14: ldloc.0 */
         /* IL_15: ret */
@@ -9360,7 +9373,7 @@ var asm0; (function (asm)
         /* IL_07: ldarg.2 */
         /* IL_08: callvirt Int32 Compare(T, T)*/
         /* IL_0D: stloc.0 */
-        loc0 = (((arg0.comparer)[t1].x600002c)())(arg0.comparer,arg1,arg2);
+        loc0 = (((arg0.comparer.ifacemap)[t1].x600002c)())(arg0.comparer,arg1,arg2);
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
         return loc0;
@@ -9448,6 +9461,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                $$Object.prototype.ifacemap = {};
                 $$Object.prototype.toString = asm0.x6000004;
             };
             $$Object.prototype = {};
@@ -9507,6 +9521,7 @@ var asm0; (function (asm)
                         return asm0.x600000d;
                     }
                 };
+                IEnumerable.prototype.ifacemap = {};
             };
             IEnumerable.prototype = {};
             return c;
@@ -9574,6 +9589,7 @@ var asm0; (function (asm)
                         return asm0.x600000e;
                     }
                 };
+                IEnumerable_1.prototype.ifacemap = {};
             };
             IEnumerable_1.prototype = {};
             return c;
@@ -9677,13 +9693,14 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (Array.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(((asm0)["System.Object"])())] = {
+                Array.prototype.ifacemap = {};
+                (Array.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(((asm0)["System.Object"])())] = {
                     'x600000e': function ()
                     {
                         return asm0.x6000014;
                     }
                 };
-                (Array.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
+                (Array.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x600000d': function ()
                     {
                         return asm0.x6000015;
@@ -9749,6 +9766,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                ValueType.prototype.ifacemap = {};
             };
             ValueType.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -9809,6 +9827,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                $$Boolean.prototype.ifacemap = {};
             };
             $$Boolean.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -9872,6 +9891,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                $$String.prototype.ifacemap = {};
             };
             $$String.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -9932,6 +9952,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Marshal.prototype.ifacemap = {};
             };
             Marshal.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -9992,6 +10013,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Locale.prototype.ifacemap = {};
             };
             Locale.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10052,6 +10074,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                UnboundGenericParameter.prototype.ifacemap = {};
             };
             UnboundGenericParameter.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10174,6 +10197,7 @@ var asm0; (function (asm)
                         return asm0.x600002b;
                     }
                 };
+                ICollection_1.prototype.ifacemap = {};
             };
             ICollection_1.prototype = {};
             return c;
@@ -10239,6 +10263,7 @@ var asm0; (function (asm)
                         return asm0.x600002c;
                     }
                 };
+                IComparer_1.prototype.ifacemap = {};
             };
             IComparer_1.prototype = {};
             return c;
@@ -10297,6 +10322,7 @@ var asm0; (function (asm)
                         return asm0.x600002d;
                     }
                 };
+                IComparer.prototype.ifacemap = {};
             };
             IComparer.prototype = {};
             return c;
@@ -10364,6 +10390,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Assembly.prototype.ifacemap = {};
             };
             Assembly.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10426,6 +10453,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                jsAsm.prototype.ifacemap = {};
             };
             jsAsm.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10502,6 +10530,7 @@ var asm0; (function (asm)
                         return asm0.x6000034;
                     }
                 };
+                ICustomAttributeProvider.prototype.ifacemap = {};
             };
             ICustomAttributeProvider.prototype = {};
             return c;
@@ -10601,7 +10630,8 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (MemberInfo.prototype)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                MemberInfo.prototype.ifacemap = {};
+                (MemberInfo.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
                     'x6000032': function ()
                     {
                         return asm0.x6000035;
@@ -10720,7 +10750,8 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (MethodInfo.prototype)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                MethodInfo.prototype.ifacemap = {};
+                (MethodInfo.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
                     'x6000032': function ()
                     {
                         return asm0.x600003d;
@@ -10802,6 +10833,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Attribute.prototype.ifacemap = {};
             };
             Attribute.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10894,6 +10926,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                InternalsVisibleToAttribute.prototype.ifacemap = {};
             };
             InternalsVisibleToAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -10954,6 +10987,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Enum.prototype.ifacemap = {};
             };
             Enum.prototype = {};
             return c;
@@ -11019,6 +11053,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                MethodCodeType.prototype.ifacemap = {};
             };
             MethodCodeType.prototype = new (((asm0)["System.Enum"])())();
             (((asm0)["System.Enum"])().init)();
@@ -11102,6 +11137,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                MethodImplAttribute.prototype.ifacemap = {};
             };
             MethodImplAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -11175,6 +11211,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                MethodImplOptions.prototype.ifacemap = {};
             };
             MethodImplOptions.prototype = new (((asm0)["System.Enum"])())();
             (((asm0)["System.Enum"])().init)();
@@ -11236,6 +11273,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Activator.prototype.ifacemap = {};
             };
             Activator.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -11339,6 +11377,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                AttributeUsageAttribute.prototype.ifacemap = {};
             };
             AttributeUsageAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -11410,6 +11449,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                $$Boolean.prototype.ifacemap = {};
             };
             $$Boolean.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -11489,6 +11529,7 @@ var asm0; (function (asm)
                         return asm0.x6000068;
                     }
                 };
+                Byte.prototype.ifacemap = {};
             };
             Byte.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -11558,6 +11599,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Char.prototype.ifacemap = {};
             };
             Char.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -11640,6 +11682,7 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
+                Delegate.prototype.ifacemap = {};
             };
             Delegate.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -11711,6 +11754,7 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
+                MulticastDelegate.prototype.ifacemap = {};
             };
             MulticastDelegate.prototype = new (((asm0)["System.Delegate"])())();
             return c;
@@ -11799,6 +11843,7 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
+                Comparison_1.prototype.ifacemap = {};
             };
             Comparison_1.prototype = {};
             return c;
@@ -11859,6 +11904,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Console.prototype.ifacemap = {};
             };
             Console.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -11931,6 +11977,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Double.prototype.ifacemap = {};
             };
             Double.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -11992,6 +12039,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Environment.prototype.ifacemap = {};
             };
             Environment.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -12066,6 +12114,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                FlagsAttribute.prototype.ifacemap = {};
             };
             FlagsAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -12157,6 +12206,7 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
+                Func_2.prototype.ifacemap = {};
             };
             Func_2.prototype = {};
             return c;
@@ -12215,6 +12265,7 @@ var asm0; (function (asm)
                         return asm0.x6000086;
                     }
                 };
+                ICloneable.prototype.ifacemap = {};
             };
             ICloneable.prototype = {};
             return c;
@@ -12273,6 +12324,7 @@ var asm0; (function (asm)
                         return asm0.x6000087;
                     }
                 };
+                IComparable.prototype.ifacemap = {};
             };
             IComparable.prototype = {};
             return c;
@@ -12338,6 +12390,7 @@ var asm0; (function (asm)
                         return asm0.x6000088;
                     }
                 };
+                IComparable_1.prototype.ifacemap = {};
             };
             IComparable_1.prototype = {};
             return c;
@@ -12396,6 +12449,7 @@ var asm0; (function (asm)
                         return asm0.x6000089;
                     }
                 };
+                IDisposable.prototype.ifacemap = {};
             };
             IDisposable.prototype = {};
             return c;
@@ -12472,6 +12526,7 @@ var asm0; (function (asm)
                         return asm0.x600008c;
                     }
                 };
+                Int16.prototype.ifacemap = {};
             };
             Int16.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -12561,6 +12616,7 @@ var asm0; (function (asm)
                         return asm0.x6000092;
                     }
                 };
+                Int32.prototype.ifacemap = {};
             };
             Int32.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -12622,6 +12678,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                InternalFormatting.prototype.ifacemap = {};
             };
             InternalFormatting.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -12688,6 +12745,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                IntPtr.prototype.ifacemap = {};
             };
             IntPtr.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -12791,6 +12849,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Exception.prototype.ifacemap = {};
             };
             Exception.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -12859,6 +12918,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                SystemException.prototype.ifacemap = {};
             };
             SystemException.prototype = new (((asm0)["System.Exception"])())();
             return c;
@@ -12927,6 +12987,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                NullReferenceException.prototype.ifacemap = {};
             };
             NullReferenceException.prototype = new (((asm0)["System.SystemException"])())();
             return c;
@@ -12987,6 +13048,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                ParamArrayAttribute.prototype.ifacemap = {};
             };
             ParamArrayAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -13054,6 +13116,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                RuntimeFieldHandle.prototype.ifacemap = {};
             };
             RuntimeFieldHandle.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -13283,7 +13346,8 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (Type.prototype)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                Type.prototype.ifacemap = {};
+                (Type.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
                     'x6000032': function ()
                     {
                         return asm0.x6000035;
@@ -13546,7 +13610,8 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
-                (RuntimeType.prototype)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                RuntimeType.prototype.ifacemap = {};
+                (RuntimeType.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
                     'x6000032': function ()
                     {
                         return asm0.x60000c1;
@@ -13633,6 +13698,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                constructor.prototype.ifacemap = {};
             };
             constructor.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -13700,6 +13766,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                RuntimeTypeHandle.prototype.ifacemap = {};
             };
             RuntimeTypeHandle.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -13779,6 +13846,7 @@ var asm0; (function (asm)
                         return asm0.x60000d6;
                     }
                 };
+                SByte.prototype.ifacemap = {};
             };
             SByte.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -13846,6 +13914,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Single.prototype.ifacemap = {};
             };
             Single.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -13907,6 +13976,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                OutAttribute.prototype.ifacemap = {};
             };
             OutAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -13985,6 +14055,7 @@ var asm0; (function (asm)
                         return asm0.x60000db;
                     }
                 };
+                IEnumerator.prototype.ifacemap = {};
             };
             IEnumerator.prototype = {};
             return c;
@@ -14053,6 +14124,7 @@ var asm0; (function (asm)
                         return asm0.x60000dc;
                     }
                 };
+                IEnumerator_1.prototype.ifacemap = {};
             };
             IEnumerator_1.prototype = {};
             return c;
@@ -14113,6 +14185,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Debugger.prototype.ifacemap = {};
             };
             Debugger.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -14181,6 +14254,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                NotImplementedException.prototype.ifacemap = {};
             };
             NotImplementedException.prototype = new (((asm0)["System.Exception"])())();
             return c;
@@ -14249,6 +14323,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                NotSupportedException.prototype.ifacemap = {};
             };
             NotSupportedException.prototype = new (((asm0)["System.Exception"])())();
             return c;
@@ -14310,6 +14385,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Math.prototype.ifacemap = {};
             };
             Math.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -14378,6 +14454,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                InvalidCastException.prototype.ifacemap = {};
             };
             InvalidCastException.prototype = new (((asm0)["System.Exception"])())();
             return c;
@@ -14446,6 +14523,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                InvalidOperationException.prototype.ifacemap = {};
             };
             InvalidOperationException.prototype = new (((asm0)["System.Exception"])())();
             return c;
@@ -14524,6 +14602,7 @@ var asm0; (function (asm)
                         return asm0.x60000ef;
                     }
                 };
+                Int64.prototype.ifacemap = {};
             };
             Int64.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -14585,6 +14664,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                $$Number.prototype.ifacemap = {};
             };
             $$Number.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -14660,6 +14740,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                ExtensionAttribute.prototype.ifacemap = {};
             };
             ExtensionAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -14734,6 +14815,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                IndexerNameAttribute.prototype.ifacemap = {};
             };
             IndexerNameAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -14794,6 +14876,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                RuntimeHelpers.prototype.ifacemap = {};
             };
             RuntimeHelpers.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -14856,6 +14939,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                EventArgs.prototype.ifacemap = {};
             };
             EventArgs.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -14937,6 +15021,7 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
+                EventHandler.prototype.ifacemap = {};
             };
             EventHandler.prototype = {};
             return c;
@@ -15025,6 +15110,7 @@ var asm0; (function (asm)
                         return asm0.x6000005;
                     }
                 };
+                Predicate_1.prototype.ifacemap = {};
             };
             Predicate_1.prototype = {};
             return c;
@@ -15113,7 +15199,8 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (Array.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
+                Array.prototype.ifacemap = {};
+                (Array.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x600000d': function ()
                     {
                         return asm0.x600011d;
@@ -15238,7 +15325,8 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (Array_1.prototype)[((asm0)["System.Collections.Generic.ICollection`1"])(T)] = {
+                Array_1.prototype.ifacemap = {};
+                (Array_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.ICollection`1"])(T)] = {
                     'x6000025': function ()
                     {
                         return asm0.x600013c;
@@ -15268,13 +15356,13 @@ var asm0; (function (asm)
                         return asm0.x6000142;
                     }
                 };
-                (Array_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
+                (Array_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
                     'x600000e': function ()
                     {
                         return asm0.x600013a;
                     }
                 };
-                (Array_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
+                (Array_1.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x600000d': function ()
                     {
                         return asm0.x600011d;
@@ -15395,13 +15483,14 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (ArrayEnumerator.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
+                ArrayEnumerator.prototype.ifacemap = {};
+                (ArrayEnumerator.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
                     'x60000dc': function ()
                     {
                         return asm0.x6000145;
                     }
                 };
-                (ArrayEnumerator.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {
+                (ArrayEnumerator.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
                     'x60000d9': function ()
                     {
                         return asm0.x6000147;
@@ -15415,7 +15504,7 @@ var asm0; (function (asm)
                         return asm0.x6000148;
                     }
                 };
-                (ArrayEnumerator.prototype)[((asm0)["System.IDisposable"])()] = {
+                (ArrayEnumerator.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
                     'x6000089': function ()
                     {
                         return asm0.x6000149;
@@ -15495,6 +15584,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                DebuggerStepThroughAttribute.prototype.ifacemap = {};
             };
             DebuggerStepThroughAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -15577,6 +15667,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                AttributeTargets.prototype.ifacemap = {};
             };
             AttributeTargets.prototype = new (((asm0)["System.Enum"])())();
             (((asm0)["System.Enum"])().init)();
@@ -15688,6 +15779,7 @@ var asm0; (function (asm)
                         return asm0.x6000154;
                     }
                 };
+                Nullable_1.prototype.ifacemap = {};
             };
             Nullable_1.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -15763,6 +15855,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                SerializableAttribute.prototype.ifacemap = {};
             };
             SerializableAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -15870,6 +15963,7 @@ var asm0; (function (asm)
                         return asm0.x6000170;
                     }
                 };
+                $$String.prototype.ifacemap = {};
             };
             $$String.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -15945,6 +16039,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                DefaultMemberAttribute.prototype.ifacemap = {};
             };
             DefaultMemberAttribute.prototype = new (((asm0)["System.Attribute"])())();
             return c;
@@ -16023,6 +16118,7 @@ var asm0; (function (asm)
                         return asm0.x6000179;
                     }
                 };
+                UInt16.prototype.ifacemap = {};
             };
             UInt16.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -16102,6 +16198,7 @@ var asm0; (function (asm)
                         return asm0.x600017c;
                     }
                 };
+                UInt32.prototype.ifacemap = {};
             };
             UInt32.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -16181,6 +16278,7 @@ var asm0; (function (asm)
                         return asm0.x6000188;
                     }
                 };
+                UInt64.prototype.ifacemap = {};
             };
             UInt64.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -16248,6 +16346,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                UIntPtr.prototype.ifacemap = {};
             };
             UIntPtr.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -16309,6 +16408,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Void.prototype.ifacemap = {};
             };
             Void.prototype = {};
             (((asm0)["System.ValueType"])().init)();
@@ -16399,13 +16499,14 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (_GetEnumerator_d__0.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(((asm0)["System.Object"])())] = {
+                _GetEnumerator_d__0.prototype.ifacemap = {};
+                (_GetEnumerator_d__0.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(((asm0)["System.Object"])())] = {
                     'x60000dc': function ()
                     {
                         return asm0.x600018c;
                     }
                 };
-                (_GetEnumerator_d__0.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {
+                (_GetEnumerator_d__0.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
                     'x60000d9': function ()
                     {
                         return asm0.x600018f;
@@ -16419,7 +16520,7 @@ var asm0; (function (asm)
                         return asm0.x600018d;
                     }
                 };
-                (_GetEnumerator_d__0.prototype)[((asm0)["System.IDisposable"])()] = {
+                (_GetEnumerator_d__0.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
                     'x6000089': function ()
                     {
                         return asm0.x600018e;
@@ -16499,6 +16600,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                __c__DisplayClass1_1.prototype.ifacemap = {};
             };
             __c__DisplayClass1_1.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -16573,6 +16675,7 @@ var asm0; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                __c__DisplayClass5_1.prototype.ifacemap = {};
             };
             __c__DisplayClass5_1.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -16615,7 +16718,8 @@ var asm1; (function (asm)
         return {
             'boxed': v,
             'type': type,
-            'vtable': type.prototype.vtable
+            'vtable': type.prototype.vtable,
+            'ifacemap': type.prototype.ifacemap
         };
     }
 
@@ -16931,7 +17035,7 @@ var asm1; (function (asm)
                     /* IL_00: ldarg.0 */
                     /* IL_01: callvirt IEnumerator`1 GetEnumerator()*/
                     /* IL_06: stloc.2 */
-                    loc2 = (((arg0)[t1].x600000e)())(arg0);
+                    loc2 = (((arg0.ifacemap)[t1].x600000e)())(arg0);
                     
                     try {
                         __pos_1__ = 0x0;
@@ -16947,7 +17051,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.2 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: stloc.0 */
-                                loc0 = (((loc2)[t2].x60000dc)())(loc2);
+                                loc0 = (((loc2.ifacemap)[t2].x60000dc)())(loc2);
                                 /* IL_10: ldloc.0 */
                                 /* IL_11: stloc.1 */
                                 loc1 = loc0;
@@ -16960,7 +17064,7 @@ var asm1; (function (asm)
                                 /* IL_15: callvirt Boolean MoveNext()*/
                                 /* IL_1A: brtrue.s IL_09*/
                                 
-                                if ((((loc2)[t3].x60000da)())(loc2)){
+                                if ((((loc2.ifacemap)[t3].x60000da)())(loc2)){
                                     __pos_1__ = 0x9;
                                     continue;
                                 }
@@ -16989,7 +17093,7 @@ var asm1; (function (asm)
                                 }
                                 /* IL_21: ldloc.2 */
                                 /* IL_22: callvirt Void Dispose()*/
-                                (((loc2)[t4].x6000089)())(loc2);
+                                (((loc2.ifacemap)[t4].x6000089)())(loc2);
                                 case 0x27:
                                 /* IL_27: endfinally */
                                 __pos_1__ = -1;
@@ -17068,7 +17172,7 @@ var asm1; (function (asm)
                     /* IL_00: ldarg.0 */
                     /* IL_01: callvirt IEnumerator`1 GetEnumerator()*/
                     /* IL_06: stloc.1 */
-                    loc1 = (((arg0)[t1].x600000e)())(arg0);
+                    loc1 = (((arg0.ifacemap)[t1].x600000e)())(arg0);
                     
                     try {
                         __pos_1__ = 0x0;
@@ -17084,7 +17188,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.1 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: pop */
-                                (((loc1)[t2].x60000dc)())(loc1);
+                                (((loc1.ifacemap)[t2].x60000dc)())(loc1);
                                 /* IL_10: ldc.i4.1 */
                                 /* IL_11: stloc.0 */
                                 loc0 = (1|0);
@@ -17097,7 +17201,7 @@ var asm1; (function (asm)
                                 /* IL_15: callvirt Boolean MoveNext()*/
                                 /* IL_1A: brtrue.s IL_09*/
                                 
-                                if ((((loc1)[t3].x60000da)())(loc1)){
+                                if ((((loc1.ifacemap)[t3].x60000da)())(loc1)){
                                     __pos_1__ = 0x9;
                                     continue;
                                 }
@@ -17126,7 +17230,7 @@ var asm1; (function (asm)
                                 }
                                 /* IL_21: ldloc.1 */
                                 /* IL_22: callvirt Void Dispose()*/
-                                (((loc1)[t4].x6000089)())(loc1);
+                                (((loc1.ifacemap)[t4].x6000089)())(loc1);
                                 case 0x27:
                                 /* IL_27: endfinally */
                                 __pos_1__ = -1;
@@ -17370,7 +17474,8 @@ var asm1; (function (asm)
                 st_28 = {
                     'boxed': st_27,
                     'type': t2,
-                    'vtable': t2.prototype.vtable
+                    'vtable': t2.prototype.vtable,
+                    'ifacemap': t2.prototype.ifacemap
                 };
                 /* IL_94: call Void Log(System.Object)*/
                 (asm1.x6000001)(st_28);
@@ -17558,7 +17663,7 @@ var asm1; (function (asm)
                             /* IL_24: ldfld IEnumerable`1 source*/
                             /* IL_29: callvirt IEnumerator`1 GetEnumerator()*/
                             /* IL_2E: stfld IEnumerator`1 <>7__wrap2*/
-                            (arg0)["<>7__wrap2"] = (((arg0.source)[t1].x600000e)())(arg0.source);
+                            (arg0)["<>7__wrap2"] = (((arg0.source.ifacemap)[t1].x600000e)())(arg0.source);
                             /* IL_33: ldarg.0 */
                             /* IL_34: ldc.i4.1 */
                             /* IL_35: stfld Int32 <>1__state*/
@@ -17572,7 +17677,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap2*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__1*/
-                            (arg0)["<s>5__1"] = ((((arg0)["<>7__wrap2"])[t2].x60000dc)())((arg0)["<>7__wrap2"]);
+                            (arg0)["<s>5__1"] = ((((arg0)["<>7__wrap2"].ifacemap)[t2].x60000dc)())((arg0)["<>7__wrap2"]);
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldarg.0 */
                             /* IL_4F: ldfld Func`2 selector*/
@@ -17608,7 +17713,7 @@ var asm1; (function (asm)
                             /* IL_7C: callvirt Boolean MoveNext()*/
                             /* IL_81: brtrue.s IL_3C*/
                             
-                            if (((((arg0)["<>7__wrap2"])[t3].x60000da)())((arg0)["<>7__wrap2"])){
+                            if (((((arg0)["<>7__wrap2"].ifacemap)[t3].x60000da)())((arg0)["<>7__wrap2"])){
                                 __pos_1__ = 0x3C;
                                 continue;
                             }
@@ -17780,7 +17885,7 @@ var asm1; (function (asm)
                 /* IL_0F: ldarg.0 */
                 /* IL_10: ldfld IEnumerator`1 <>7__wrap2*/
                 /* IL_15: callvirt Void Dispose()*/
-                ((((arg0)["<>7__wrap2"])[t0].x6000089)())((arg0)["<>7__wrap2"]);
+                ((((arg0)["<>7__wrap2"].ifacemap)[t0].x6000089)())((arg0)["<>7__wrap2"]);
                 case 0x1A:
                 /* IL_1A: ret */
                 return ;
@@ -17965,7 +18070,7 @@ var asm1; (function (asm)
                             /* IL_24: ldfld IEnumerable`1 source*/
                             /* IL_29: callvirt IEnumerator`1 GetEnumerator()*/
                             /* IL_2E: stfld IEnumerator`1 <>7__wrap8*/
-                            (arg0)["<>7__wrap8"] = (((arg0.source)[t1].x600000e)())(arg0.source);
+                            (arg0)["<>7__wrap8"] = (((arg0.source.ifacemap)[t1].x600000e)())(arg0.source);
                             /* IL_33: ldarg.0 */
                             /* IL_34: ldc.i4.1 */
                             /* IL_35: stfld Int32 <>1__state*/
@@ -17979,7 +18084,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap8*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__7*/
-                            (arg0)["<s>5__7"] = ((((arg0)["<>7__wrap8"])[t2].x60000dc)())((arg0)["<>7__wrap8"]);
+                            (arg0)["<s>5__7"] = ((((arg0)["<>7__wrap8"].ifacemap)[t2].x60000dc)())((arg0)["<>7__wrap8"]);
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldfld Func`2 predicate*/
                             /* IL_53: ldarg.0 */
@@ -18023,7 +18128,7 @@ var asm1; (function (asm)
                             /* IL_84: callvirt Boolean MoveNext()*/
                             /* IL_89: brtrue.s IL_3C*/
                             
-                            if (((((arg0)["<>7__wrap8"])[t3].x60000da)())((arg0)["<>7__wrap8"])){
+                            if (((((arg0)["<>7__wrap8"].ifacemap)[t3].x60000da)())((arg0)["<>7__wrap8"])){
                                 __pos_1__ = 0x3C;
                                 continue;
                             }
@@ -18195,7 +18300,7 @@ var asm1; (function (asm)
                 /* IL_0F: ldarg.0 */
                 /* IL_10: ldfld IEnumerator`1 <>7__wrap8*/
                 /* IL_15: callvirt Void Dispose()*/
-                ((((arg0)["<>7__wrap8"])[t0].x6000089)())((arg0)["<>7__wrap8"]);
+                ((((arg0)["<>7__wrap8"].ifacemap)[t0].x6000089)())((arg0)["<>7__wrap8"]);
                 case 0x1A:
                 /* IL_1A: ret */
                 return ;
@@ -18272,6 +18377,7 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                TestLog.prototype.ifacemap = {};
             };
             TestLog.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -18332,6 +18438,7 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                TestHelper.prototype.ifacemap = {};
             };
             TestHelper.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -18397,6 +18504,7 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                E.prototype.ifacemap = {};
             };
             E.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -18469,6 +18577,7 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                P.prototype.ifacemap = {};
             };
             P.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -18530,6 +18639,7 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
+                Program.prototype.ifacemap = {};
             };
             Program.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -18643,25 +18753,26 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (_Select_d__0_2.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult)] = {
+                _Select_d__0_2.prototype.ifacemap = {};
+                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult)] = {
                     'x600000e': function ()
                     {
                         return asm1.x6000016;
                     }
                 };
-                (_Select_d__0_2.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
+                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x600000d': function ()
                     {
                         return asm1.x6000017;
                     }
                 };
-                (_Select_d__0_2.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult)] = {
+                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult)] = {
                     'x60000dc': function ()
                     {
                         return asm1.x6000019;
                     }
                 };
-                (_Select_d__0_2.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {
+                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
                     'x60000d9': function ()
                     {
                         return asm1.x600001c;
@@ -18675,7 +18786,7 @@ var asm1; (function (asm)
                         return asm1.x600001a;
                     }
                 };
-                (_Select_d__0_2.prototype)[((asm0)["System.IDisposable"])()] = {
+                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
                     'x6000089': function ()
                     {
                         return asm1.x600001b;
@@ -18791,25 +18902,26 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                (_Where_d__6_1.prototype)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
+                _Where_d__6_1.prototype.ifacemap = {};
+                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
                     'x600000e': function ()
                     {
                         return asm1.x600001f;
                     }
                 };
-                (_Where_d__6_1.prototype)[((asm0)["System.Collections.IEnumerable"])()] = {
+                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
                     'x600000d': function ()
                     {
                         return asm1.x6000020;
                     }
                 };
-                (_Where_d__6_1.prototype)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
+                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
                     'x60000dc': function ()
                     {
                         return asm1.x6000022;
                     }
                 };
-                (_Where_d__6_1.prototype)[((asm0)["System.Collections.IEnumerator"])()] = {
+                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
                     'x60000d9': function ()
                     {
                         return asm1.x6000025;
@@ -18823,7 +18935,7 @@ var asm1; (function (asm)
                         return asm1.x6000023;
                     }
                 };
-                (_Where_d__6_1.prototype)[((asm0)["System.IDisposable"])()] = {
+                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
                     'x6000089': function ()
                     {
                         return asm1.x6000024;

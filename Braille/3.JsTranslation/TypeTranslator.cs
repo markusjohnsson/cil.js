@@ -272,6 +272,7 @@ namespace Braille.JsTranslation
 
             var prototypeProperties = GetFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
+                .EndWith(new KeyValuePair<string, JSExpression>("ifacemap", JSFactory.Object(new object())))
                 .Concat(GetPrototypeMethods(type));
 
             foreach (var f in prototypeProperties)
@@ -289,7 +290,7 @@ namespace Braille.JsTranslation
                     .Assignment(
                         new JSArrayLookupExpression
                         {
-                            Array = JSFactory.Identifier(n, "prototype"),
+                            Array = JSFactory.Identifier(n, "prototype", "ifacemap"),
                             Indexer = iface.Key
                         },
                         iface.Value)

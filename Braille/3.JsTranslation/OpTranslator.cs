@@ -400,7 +400,8 @@ namespace Braille.JsTranslation
                             {
                                 { "boxed", CloneValueTypeIfNeeded(value, d) },
                                 { "type",  GetTypeAccessor(d, thisScope) },
-                                { "vtable",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "vtable") }
+                                { "vtable",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "vtable") },
+                                { "ifacemap",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "ifacemap") }
                             }
                         };
 
@@ -1139,7 +1140,7 @@ namespace Braille.JsTranslation
                 {
                     Host = new JSArrayLookupExpression
                     {
-                        Array = thisArg,
+                        Array = JSFactory.Identifier(thisArg, "ifacemap"),
                         Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
                     },
                     Property = GetMethodIdentifier(mi)

@@ -74,7 +74,8 @@ namespace Braille.JsTranslation
         return {
             'boxed': v,
             'type': type,
-            'vtable': type.prototype.vtable
+            'vtable': type.prototype.vtable,
+            'ifacemap': type.prototype.ifacemap
         };
     }
 

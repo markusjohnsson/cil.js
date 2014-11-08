@@ -16684,7 +16684,7 @@ var asm0; (function (asm)
 })(asm0 || (asm0 = {}));
 var asm1; (function (asm)
 {
-    asm.FullName = "CastClass.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
+    asm.FullName = "StructInterface.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     
     asm.next_hash = 1;
 
@@ -16894,160 +16894,79 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.x600000c = function _ctor(arg0)
+    asm.x600000d = function Foo(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldstr Foo*/
+        /* IL_05: call Void Log(System.Object)*/
+        (asm1.x6000001)(new_string("Foo"));
+        /* IL_0A: ret */
         return ;
     };;
-    asm.x600000d = function _ctor(arg0)
+    asm.x600000e_init = function ()
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        (asm1.x600000c)(arg0);
-        /* IL_06: ret */
-        return ;
+        ((asm1.S)().init)();
+        asm.x600000e = asm.x600000e_;
     };;
-    asm.x600000e = function _ctor(arg0)
+    asm.x600000e = function ()
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
+        (asm.x600000e_init.apply)(this,arguments);
+        return (asm.x600000e_.apply)(this,arguments);
     };;
+    asm.x600000e_ = function Main()
+    {
+        var t0;
+        var loc0;
+        var loc1;
+        t0 = (asm1.S)();
+        loc0 = new ((asm1.S)())();
+        /* IL_00: ldloca.s 0*/
+        /* IL_03: initobj S*/
+        ((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (({
+            'w': function ()
+            {
+                loc0 = (arguments)[0];
+            },
+            'r': function ()
+            {
+                return loc0;
+            }
+        }.w)(new t0())))) : (null));
+        /* IL_08: ldloc.0 */
+        /* IL_09: box S*/
+        /* IL_0E: stloc.1 */
+        loc1 = {
+            'boxed': clone_value(loc0),
+            'type': t0,
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
+        };
+        /* IL_0F: ldloc.1 */
+        /* IL_10: call Void Run(I)*/
+        (asm1.x600000f)(loc1);
+        /* IL_15: ret */
+        return ;
+    };
     asm.x600000f_init = function ()
     {
-        ((asm1.A)().init)();
-        ((asm1.B)().init)();
-        ((asm1.C)().init)();
+        ((asm1.I)().init)();
         asm.x600000f = asm.x600000f_;
     };;
-    asm.x600000f = function ()
+    asm.x600000f = function (arg0)
     {
         (asm.x600000f_init.apply)(this,arguments);
         return (asm.x600000f_.apply)(this,arguments);
     };;
-    asm.x600000f_ = function Main()
+    asm.x600000f_ = function Run(arg0)
     {
         var t0;
-        var t1;
-        var t2;
-        t0 = (asm1.A)();
-        t1 = (asm1.B)();
-        t2 = (asm1.C)();
-        /* IL_00: call Void Test[A]()*/
-        ((asm1.x6000010)((asm1.A)()))();
-        /* IL_05: call Void Test[B]()*/
-        ((asm1.x6000010)((asm1.B)()))();
-        /* IL_0A: call Void Test[C]()*/
-        ((asm1.x6000010)((asm1.C)()))();
-        /* IL_0F: ret */
+        t0 = (asm1.I)();
+        /* IL_00: ldarg.0 */
+        /* IL_01: callvirt Void Foo()*/
+        (((arg0.ifacemap)[t0].x600000c)())(arg0);
+        /* IL_06: ret */
         return ;
     };
-    asm.x6000010_init = function (T)
-    {
-        return function ()
-        {
-            ((asm1.A)().init)();
-            ((asm1.B)().init)();
-            ((asm1.C)().init)();
-            asm.x6000010 = asm.x6000010_;
-        };
-    };;
-    asm.x6000010 = function (T)
-    {
-        return function ()
-        {
-            ((asm.x6000010_init)(T).apply)(this,arguments);
-            return ((asm.x6000010_)(T).apply)(this,arguments);
-        };
-    };;
-    asm.x6000010_ = function (T)
-    {
-        return function Test()
-        {
-            var t0;
-            var t1;
-            var t2;
-            var t3;
-            t0 = (asm1.A)();
-            t1 = T;
-            t2 = (asm1.B)();
-            t3 = (asm1.C)();
-            /* IL_00: newobj Void .ctor()*/
-            /* IL_05: call Void Cast[T](System.Object)*/
-            ((asm1.x6000011)(T))(newobj(t0,asm1.x600000c,[
-                null
-            ]));
-            /* IL_0A: newobj Void .ctor()*/
-            /* IL_0F: call Void Cast[T](System.Object)*/
-            ((asm1.x6000011)(T))(newobj(t2,asm1.x600000d,[
-                null
-            ]));
-            /* IL_14: newobj Void .ctor()*/
-            /* IL_19: call Void Cast[T](System.Object)*/
-            ((asm1.x6000011)(T))(newobj(t3,asm1.x600000e,[
-                null
-            ]));
-            /* IL_1E: ret */
-            return ;
-        };
-    };
-    asm.x6000011 = function (T)
-    {
-        return function Cast(arg0)
-        {
-            var __pos_0__;
-            var __error_handled_1__;
-            __pos_0__ = 0x0;
-            
-            while (__pos_0__ >= 0){
-                
-                switch (__pos_0__){
-                    case 0x0:
-                    
-                    try {
-                        /* IL_00: ldarg.0 */
-                        /* IL_01: unbox.any T*/
-                        /* IL_06: pop */
-                        unbox_any(arg0,T);
-                        /* IL_07: ldstr Success*/
-                        /* IL_0C: call Void Log(System.Object)*/
-                        (asm1.x6000001)(new_string("Success"));
-                        /* IL_11: leave.s IL_20*/
-                        __pos_1__ = -1;
-                        __pos_0__ = 0x20;
-                    }
-                    
-                    catch (__error__){
-                        __error_handled_1__ = false;
-                        
-                        if ((!(__error_handled_1__)) && (__error__ instanceof ((asm0)["System.Object"])())){
-                            st_03 = __error__;
-                            __error_handled_1__ = true;
-                            /* IL_13: pop */
-                            
-                            /* IL_14: ldstr Failure*/
-                            /* IL_19: call Void Log(System.Object)*/
-                            (asm1.x6000001)(new_string("Failure"));
-                            /* IL_1E: leave.s IL_20*/
-                            __pos_1__ = -1;
-                            __pos_0__ = 0x20;
-                        }
-                        
-                        if ((!(__error_handled_1__))){
-                            throw __error__;
-                        }
-                    }
-                    case 0x20:
-                    /* IL_20: ret */
-                    return ;
-                }
-            }
-        };
-    };;
-    asm.x6000012 = function _ctor(arg0)
+    asm.x6000010 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -17176,7 +17095,7 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    asm.A = (function ()
+    asm.I = (function ()
     {
         var ct;
         ct = null;
@@ -17190,54 +17109,52 @@ var asm1; (function (asm)
                 return c;
             }
             initialized = false;;
-            function A()
+            function I()
             {
-                (A.init)();
-                this.constructor = A;
+                (I.init)();
+                this.constructor = I;
             };
-            c = A;
+            c = I;
             ct = c;
-            A.init = function ()
+            I.init = function ()
             {
                 
                 if (initialized){
                     return;
                 }
                 initialized = true;
-                A.CustomAttributes = [];
-                A.Methods = [];
-                A.BaseType = ((asm0)["System.Object"])();
-                A.FullName = "A";
-                A.Assembly = asm;
-                A.Interfaces = [];
-                A.IsInst = function (t) { return t instanceof A ? t : null; };
-                A.IsValueType = false;
-                A.IsPrimitive = false;
-                A.IsInterface = false;
-                A.IsGenericTypeDefinition = false;
-                A.IsNullable = false;
-                A.ArrayType = Array;
-                A.prototype.vtable = {
-                    'asm0.x6000005': function ()
+                I.CustomAttributes = [];
+                I.Methods = [
+                    [
+                        asm1,
+                        "x600000c",
+                        "Foo"
+                    ]
+                ];
+                I.BaseType = null;
+                I.FullName = "I";
+                I.Assembly = asm;
+                I.Interfaces = [];
+                I.IsInst = function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(I) != -1 ? t : null; } catch (e) { return false; } };
+                I.IsValueType = false;
+                I.IsPrimitive = false;
+                I.IsInterface = true;
+                I.IsGenericTypeDefinition = false;
+                I.IsNullable = false;
+                I.ArrayType = Array;
+                I.prototype.vtable = {
+                    'asm1.x600000c': function ()
                     {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
+                        return asm1.x600000c;
                     }
                 };
-                A.prototype.ifacemap = {};
+                I.prototype.ifacemap = {};
             };
-            A.prototype = new (((asm0)["System.Object"])())();
+            I.prototype = {};
             return c;
         };
     })();
-    asm.B = (function ()
+    asm.S = (function ()
     {
         var ct;
         ct = null;
@@ -17251,34 +17168,46 @@ var asm1; (function (asm)
                 return c;
             }
             initialized = false;;
-            function B()
+            function S()
             {
-                (B.init)();
-                this.constructor = B;
+                (S.init)();
+                this.constructor = S;
             };
-            c = B;
+            c = S;
             ct = c;
-            B.init = function ()
+            S.init = function ()
             {
                 
                 if (initialized){
                     return;
                 }
                 initialized = true;
-                B.CustomAttributes = [];
-                B.Methods = [];
-                B.BaseType = (asm1.A)();
-                B.FullName = "B";
-                B.Assembly = asm;
-                B.Interfaces = [];
-                B.IsInst = function (t) { return t instanceof B ? t : null; };
-                B.IsValueType = false;
-                B.IsPrimitive = false;
-                B.IsInterface = false;
-                B.IsGenericTypeDefinition = false;
-                B.IsNullable = false;
-                B.ArrayType = Array;
-                B.prototype.vtable = {
+                S.CustomAttributes = [];
+                S.Methods = [
+                    [
+                        asm1,
+                        "x600000d",
+                        "Foo"
+                    ]
+                ];
+                S.BaseType = ((asm0)["System.ValueType"])();
+                S.FullName = "S";
+                S.Assembly = asm;
+                S.Interfaces = [
+                    (asm1.I)()
+                ];
+                S.IsInst = function (t) { return t instanceof S ? t : null; };
+                S.IsValueType = true;
+                S.IsPrimitive = false;
+                S.IsInterface = false;
+                S.IsGenericTypeDefinition = false;
+                S.IsNullable = false;
+                S.ArrayType = Array;
+                S.prototype.vtable = {
+                    'asm1.x600000d': function ()
+                    {
+                        return asm1.x600000d;
+                    },
                     'asm0.x6000005': function ()
                     {
                         return asm0.x6000005;
@@ -17292,70 +17221,16 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                B.prototype.ifacemap = {};
-            };
-            B.prototype = new ((asm1.A)())();
-            return c;
-        };
-    })();
-    asm.C = (function ()
-    {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function C()
-            {
-                (C.init)();
-                this.constructor = C;
-            };
-            c = C;
-            ct = c;
-            C.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                C.CustomAttributes = [];
-                C.Methods = [];
-                C.BaseType = ((asm0)["System.Object"])();
-                C.FullName = "C";
-                C.Assembly = asm;
-                C.Interfaces = [];
-                C.IsInst = function (t) { return t instanceof C ? t : null; };
-                C.IsValueType = false;
-                C.IsPrimitive = false;
-                C.IsInterface = false;
-                C.IsGenericTypeDefinition = false;
-                C.IsNullable = false;
-                C.ArrayType = Array;
-                C.prototype.vtable = {
-                    'asm0.x6000005': function ()
+                S.prototype.ifacemap = {};
+                (S.prototype.ifacemap)[(asm1.I)()] = {
+                    'x600000c': function ()
                     {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
+                        return asm1.x600000d;
                     }
                 };
-                C.prototype.ifacemap = {};
             };
-            C.prototype = new (((asm0)["System.Object"])())();
+            S.prototype = {};
+            (((asm0)["System.ValueType"])().init)();
             return c;
         };
     })();
@@ -17420,5 +17295,5 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    asm.entryPoint = asm.x600000f;
+    asm.entryPoint = asm.x600000e;
 })(asm1 || (asm1 = {}));
