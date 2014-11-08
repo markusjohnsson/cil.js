@@ -287,14 +287,23 @@ namespace Braille.JsTranslation
             foreach (var iface in GetInterfaceMaps(type))
             {
                 yield return JSFactory
-                    .Assignment(
-                        new JSArrayLookupExpression
-                        {
-                            Array = JSFactory.Identifier(n, "prototype", "ifacemap"),
-                            Indexer = iface.Key
-                        },
+                    .Call(
+                        JSFactory.Identifier("tree_set"),
+                        JSFactory.Array(iface.Key),
+                        JSFactory.Identifier(n, "prototype", "ifacemap"),
                         iface.Value)
                     .ToStatement();
+
+
+                //yield return JSFactory
+                //    .Assignment(
+                //        new JSArrayLookupExpression
+                //        {
+                //            Array = JSFactory.Identifier(n, "prototype", "ifacemap"),
+                //            Indexer = iface.Key
+                //        },
+                //        iface.Value)
+                //    .ToStatement();
             }
         }
 
@@ -466,16 +475,18 @@ namespace Braille.JsTranslation
             }
         }
 
-        private IEnumerable<KeyValuePair<JSExpression, JSExpression>> GetInterfaceMaps(CilType type)
+        private IEnumerable<KeyValuePair<JSExpression[], JSExpression>> GetInterfaceMaps(CilType type)
         {
             if (type.ReflectionType.IsInterface)
-                return Enumerable.Empty<KeyValuePair<JSExpression, JSExpression>>();
+                return Enumerable.Empty<KeyValuePair<JSExpression[], JSExpression>>();
 
             return type.ReflectionType
                 .GetInterfaces()
                 .Select(
-                    iface => new KeyValuePair<JSExpression, JSExpression>(
-                        GetTypeIdentifier(iface, typeScope: type.ReflectionType),
+                    iface => new KeyValuePair<JSExpression[], JSExpression>(
+                        new [] { GetTypeIdentifier(iface, typeScope: type.ReflectionType) }
+                            .Concat(iface.GenericTypeArguments.Select(g => GetTypeIdentifier(g, typeScope: type.ReflectionType)))
+                            .ToArray(),
                         GetInterfaceMap(type, iface)));
         }
 

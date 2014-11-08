@@ -6906,7 +6906,7 @@ var asm0; (function (asm)
                                 /* IL_A8: ldarg.3 */
                                 /* IL_A9: callvirt Int32 Compare(T, T)*/
                                 /* IL_AE: stloc.2 */
-                                loc2 = (((arg4.ifacemap)[t2].x600002c)())(arg4,(arg0.jsarr)[loc3],arg3);
+                                loc2 = ((((arg4.ifacemap)[t2])[t1].x600002c)())(arg4,(arg0.jsarr)[loc3],arg3);
                                 /* IL_AF: ldloc.2 */
                                 /* IL_B0: ldc.i4.0 */
                                 /* IL_B2: ceq */
@@ -7057,7 +7057,7 @@ var asm0; (function (asm)
             /* IL_0B: ldarg.1 */
             /* IL_0C: callvirt Int32 CompareTo(T)*/
             /* IL_11: stloc.0 */
-            loc0 = (((cast_class(box(arg0,t0),t1).ifacemap)[t1].x6000088)())(cast_class(box(arg0,t0),t1),arg1);
+            loc0 = ((((cast_class(box(arg0,t0),t1).ifacemap)[t1])[t0].x6000088)())(cast_class(box(arg0,t0),t1),arg1);
             /* IL_14: ldloc.0 */
             /* IL_15: ret */
             return loc0;
@@ -9373,7 +9373,7 @@ var asm0; (function (asm)
         /* IL_07: ldarg.2 */
         /* IL_08: callvirt Int32 Compare(T, T)*/
         /* IL_0D: stloc.0 */
-        loc0 = (((arg0.comparer.ifacemap)[t1].x600002c)())(arg0.comparer,arg1,arg2);
+        loc0 = ((((arg0.comparer.ifacemap)[t1])[t0].x600002c)())(arg0.comparer,arg1,arg2);
         /* IL_10: ldloc.0 */
         /* IL_11: ret */
         return loc0;
@@ -9694,18 +9694,23 @@ var asm0; (function (asm)
                     }
                 };
                 Array.prototype.ifacemap = {};
-                (Array.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(((asm0)["System.Object"])())] = {
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerable`1"])(((asm0)["System.Object"])()),
+                    ((asm0)["System.Object"])()
+                ],Array.prototype.ifacemap,{
                     'x600000e': function ()
                     {
                         return asm0.x6000014;
                     }
-                };
-                (Array.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerable"])()
+                ],Array.prototype.ifacemap,{
                     'x600000d': function ()
                     {
                         return asm0.x6000015;
                     }
-                };
+                });
             };
             Array.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10631,7 +10636,9 @@ var asm0; (function (asm)
                     }
                 };
                 MemberInfo.prototype.ifacemap = {};
-                (MemberInfo.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                tree_set([
+                    ((asm0)["System.Reflection.ICustomAttributeProvider"])()
+                ],MemberInfo.prototype.ifacemap,{
                     'x6000032': function ()
                     {
                         return asm0.x6000035;
@@ -10644,7 +10651,7 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000037;
                     }
-                };
+                });
             };
             MemberInfo.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -10751,7 +10758,9 @@ var asm0; (function (asm)
                     }
                 };
                 MethodInfo.prototype.ifacemap = {};
-                (MethodInfo.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                tree_set([
+                    ((asm0)["System.Reflection.ICustomAttributeProvider"])()
+                ],MethodInfo.prototype.ifacemap,{
                     'x6000032': function ()
                     {
                         return asm0.x600003d;
@@ -10764,7 +10773,7 @@ var asm0; (function (asm)
                     {
                         return asm0.x600003f;
                     }
-                };
+                });
             };
             MethodInfo.prototype = new (((asm0)["System.Reflection.MemberInfo"])())();
             return c;
@@ -13347,7 +13356,9 @@ var asm0; (function (asm)
                     }
                 };
                 Type.prototype.ifacemap = {};
-                (Type.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                tree_set([
+                    ((asm0)["System.Reflection.ICustomAttributeProvider"])()
+                ],Type.prototype.ifacemap,{
                     'x6000032': function ()
                     {
                         return asm0.x6000035;
@@ -13360,7 +13371,7 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000037;
                     }
-                };
+                });
             };
             Type.prototype = new (((asm0)["System.Reflection.MemberInfo"])())();
             return c;
@@ -13611,7 +13622,9 @@ var asm0; (function (asm)
                     }
                 };
                 RuntimeType.prototype.ifacemap = {};
-                (RuntimeType.prototype.ifacemap)[((asm0)["System.Reflection.ICustomAttributeProvider"])()] = {
+                tree_set([
+                    ((asm0)["System.Reflection.ICustomAttributeProvider"])()
+                ],RuntimeType.prototype.ifacemap,{
                     'x6000032': function ()
                     {
                         return asm0.x60000c1;
@@ -13624,7 +13637,7 @@ var asm0; (function (asm)
                     {
                         return asm0.x60000c3;
                     }
-                };
+                });
             };
             RuntimeType.prototype = new (((asm0)["System.Type"])())();
             return c;
@@ -15200,12 +15213,14 @@ var asm0; (function (asm)
                     }
                 };
                 Array.prototype.ifacemap = {};
-                (Array.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerable"])()
+                ],Array.prototype.ifacemap,{
                     'x600000d': function ()
                     {
                         return asm0.x600011d;
                     }
-                };
+                });
             };
             Array.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -15326,7 +15341,10 @@ var asm0; (function (asm)
                     }
                 };
                 Array_1.prototype.ifacemap = {};
-                (Array_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.ICollection`1"])(T)] = {
+                tree_set([
+                    ((asm0)["System.Collections.Generic.ICollection`1"])(T),
+                    T
+                ],Array_1.prototype.ifacemap,{
                     'x6000025': function ()
                     {
                         return asm0.x600013c;
@@ -15355,19 +15373,24 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000142;
                     }
-                };
-                (Array_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerable`1"])(T),
+                    T
+                ],Array_1.prototype.ifacemap,{
                     'x600000e': function ()
                     {
                         return asm0.x600013a;
                     }
-                };
-                (Array_1.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerable"])()
+                ],Array_1.prototype.ifacemap,{
                     'x600000d': function ()
                     {
                         return asm0.x600011d;
                     }
-                };
+                });
             };
             Array_1.prototype = new (((asm0)["System.Array"])())();
             return c;
@@ -15484,13 +15507,18 @@ var asm0; (function (asm)
                     }
                 };
                 ArrayEnumerator.prototype.ifacemap = {};
-                (ArrayEnumerator.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerator`1"])(T),
+                    T
+                ],ArrayEnumerator.prototype.ifacemap,{
                     'x60000dc': function ()
                     {
                         return asm0.x6000145;
                     }
-                };
-                (ArrayEnumerator.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerator"])()
+                ],ArrayEnumerator.prototype.ifacemap,{
                     'x60000d9': function ()
                     {
                         return asm0.x6000147;
@@ -15503,13 +15531,15 @@ var asm0; (function (asm)
                     {
                         return asm0.x6000148;
                     }
-                };
-                (ArrayEnumerator.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.IDisposable"])()
+                ],ArrayEnumerator.prototype.ifacemap,{
                     'x6000089': function ()
                     {
                         return asm0.x6000149;
                     }
-                };
+                });
             };
             ArrayEnumerator.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -16500,13 +16530,18 @@ var asm0; (function (asm)
                     }
                 };
                 _GetEnumerator_d__0.prototype.ifacemap = {};
-                (_GetEnumerator_d__0.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(((asm0)["System.Object"])())] = {
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerator`1"])(((asm0)["System.Object"])()),
+                    ((asm0)["System.Object"])()
+                ],_GetEnumerator_d__0.prototype.ifacemap,{
                     'x60000dc': function ()
                     {
                         return asm0.x600018c;
                     }
-                };
-                (_GetEnumerator_d__0.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerator"])()
+                ],_GetEnumerator_d__0.prototype.ifacemap,{
                     'x60000d9': function ()
                     {
                         return asm0.x600018f;
@@ -16519,13 +16554,15 @@ var asm0; (function (asm)
                     {
                         return asm0.x600018d;
                     }
-                };
-                (_GetEnumerator_d__0.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.IDisposable"])()
+                ],_GetEnumerator_d__0.prototype.ifacemap,{
                     'x6000089': function ()
                     {
                         return asm0.x600018e;
                     }
-                };
+                });
             };
             _GetEnumerator_d__0.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -17035,7 +17072,7 @@ var asm1; (function (asm)
                     /* IL_00: ldarg.0 */
                     /* IL_01: callvirt IEnumerator`1 GetEnumerator()*/
                     /* IL_06: stloc.2 */
-                    loc2 = (((arg0.ifacemap)[t1].x600000e)())(arg0);
+                    loc2 = ((((arg0.ifacemap)[t1])[t0].x600000e)())(arg0);
                     
                     try {
                         __pos_1__ = 0x0;
@@ -17051,7 +17088,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.2 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: stloc.0 */
-                                loc0 = (((loc2.ifacemap)[t2].x60000dc)())(loc2);
+                                loc0 = ((((loc2.ifacemap)[t2])[t0].x60000dc)())(loc2);
                                 /* IL_10: ldloc.0 */
                                 /* IL_11: stloc.1 */
                                 loc1 = loc0;
@@ -17172,7 +17209,7 @@ var asm1; (function (asm)
                     /* IL_00: ldarg.0 */
                     /* IL_01: callvirt IEnumerator`1 GetEnumerator()*/
                     /* IL_06: stloc.1 */
-                    loc1 = (((arg0.ifacemap)[t1].x600000e)())(arg0);
+                    loc1 = ((((arg0.ifacemap)[t1])[t0].x600000e)())(arg0);
                     
                     try {
                         __pos_1__ = 0x0;
@@ -17188,7 +17225,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.1 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: pop */
-                                (((loc1.ifacemap)[t2].x60000dc)())(loc1);
+                                ((((loc1.ifacemap)[t2])[t0].x60000dc)())(loc1);
                                 /* IL_10: ldc.i4.1 */
                                 /* IL_11: stloc.0 */
                                 loc0 = (1|0);
@@ -17663,7 +17700,7 @@ var asm1; (function (asm)
                             /* IL_24: ldfld IEnumerable`1 source*/
                             /* IL_29: callvirt IEnumerator`1 GetEnumerator()*/
                             /* IL_2E: stfld IEnumerator`1 <>7__wrap2*/
-                            (arg0)["<>7__wrap2"] = (((arg0.source.ifacemap)[t1].x600000e)())(arg0.source);
+                            (arg0)["<>7__wrap2"] = ((((arg0.source.ifacemap)[t1])[t0].x600000e)())(arg0.source);
                             /* IL_33: ldarg.0 */
                             /* IL_34: ldc.i4.1 */
                             /* IL_35: stfld Int32 <>1__state*/
@@ -17677,7 +17714,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap2*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__1*/
-                            (arg0)["<s>5__1"] = ((((arg0)["<>7__wrap2"].ifacemap)[t2].x60000dc)())((arg0)["<>7__wrap2"]);
+                            (arg0)["<s>5__1"] = (((((arg0)["<>7__wrap2"].ifacemap)[t2])[t0].x60000dc)())((arg0)["<>7__wrap2"]);
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldarg.0 */
                             /* IL_4F: ldfld Func`2 selector*/
@@ -18070,7 +18107,7 @@ var asm1; (function (asm)
                             /* IL_24: ldfld IEnumerable`1 source*/
                             /* IL_29: callvirt IEnumerator`1 GetEnumerator()*/
                             /* IL_2E: stfld IEnumerator`1 <>7__wrap8*/
-                            (arg0)["<>7__wrap8"] = (((arg0.source.ifacemap)[t1].x600000e)())(arg0.source);
+                            (arg0)["<>7__wrap8"] = ((((arg0.source.ifacemap)[t1])[t0].x600000e)())(arg0.source);
                             /* IL_33: ldarg.0 */
                             /* IL_34: ldc.i4.1 */
                             /* IL_35: stfld Int32 <>1__state*/
@@ -18084,7 +18121,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap8*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__7*/
-                            (arg0)["<s>5__7"] = ((((arg0)["<>7__wrap8"].ifacemap)[t2].x60000dc)())((arg0)["<>7__wrap8"]);
+                            (arg0)["<s>5__7"] = (((((arg0)["<>7__wrap8"].ifacemap)[t2])[t0].x60000dc)())((arg0)["<>7__wrap8"]);
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldfld Func`2 predicate*/
                             /* IL_53: ldarg.0 */
@@ -18754,25 +18791,35 @@ var asm1; (function (asm)
                     }
                 };
                 _Select_d__0_2.prototype.ifacemap = {};
-                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult)] = {
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerable`1"])(TResult),
+                    TResult
+                ],_Select_d__0_2.prototype.ifacemap,{
                     'x600000e': function ()
                     {
                         return asm1.x6000016;
                     }
-                };
-                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerable"])()
+                ],_Select_d__0_2.prototype.ifacemap,{
                     'x600000d': function ()
                     {
                         return asm1.x6000017;
                     }
-                };
-                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult)] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerator`1"])(TResult),
+                    TResult
+                ],_Select_d__0_2.prototype.ifacemap,{
                     'x60000dc': function ()
                     {
                         return asm1.x6000019;
                     }
-                };
-                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerator"])()
+                ],_Select_d__0_2.prototype.ifacemap,{
                     'x60000d9': function ()
                     {
                         return asm1.x600001c;
@@ -18785,13 +18832,15 @@ var asm1; (function (asm)
                     {
                         return asm1.x600001a;
                     }
-                };
-                (_Select_d__0_2.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.IDisposable"])()
+                ],_Select_d__0_2.prototype.ifacemap,{
                     'x6000089': function ()
                     {
                         return asm1.x600001b;
                     }
-                };
+                });
             };
             _Select_d__0_2.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -18903,25 +18952,35 @@ var asm1; (function (asm)
                     }
                 };
                 _Where_d__6_1.prototype.ifacemap = {};
-                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerable`1"])(T)] = {
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerable`1"])(T),
+                    T
+                ],_Where_d__6_1.prototype.ifacemap,{
                     'x600000e': function ()
                     {
                         return asm1.x600001f;
                     }
-                };
-                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.IEnumerable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerable"])()
+                ],_Where_d__6_1.prototype.ifacemap,{
                     'x600000d': function ()
                     {
                         return asm1.x6000020;
                     }
-                };
-                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.Generic.IEnumerator`1"])(T)] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.Generic.IEnumerator`1"])(T),
+                    T
+                ],_Where_d__6_1.prototype.ifacemap,{
                     'x60000dc': function ()
                     {
                         return asm1.x6000022;
                     }
-                };
-                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.Collections.IEnumerator"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.Collections.IEnumerator"])()
+                ],_Where_d__6_1.prototype.ifacemap,{
                     'x60000d9': function ()
                     {
                         return asm1.x6000025;
@@ -18934,13 +18993,15 @@ var asm1; (function (asm)
                     {
                         return asm1.x6000023;
                     }
-                };
-                (_Where_d__6_1.prototype.ifacemap)[((asm0)["System.IDisposable"])()] = {
+                });
+                tree_set([
+                    ((asm0)["System.IDisposable"])()
+                ],_Where_d__6_1.prototype.ifacemap,{
                     'x6000089': function ()
                     {
                         return asm1.x6000024;
                     }
-                };
+                });
             };
             _Where_d__6_1.prototype = new (((asm0)["System.Object"])())();
             return c;

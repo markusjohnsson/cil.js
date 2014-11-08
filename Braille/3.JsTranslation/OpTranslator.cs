@@ -1134,15 +1134,28 @@ namespace Braille.JsTranslation
             // We might be able to change this later and just store the reference to the actual method implementation.
             // To accomplish this, we need to call the init function when the vtable or interface map is created.
 
+            var function = new JSArrayLookupExpression
+            {
+                Array = JSFactory.Identifier(thisArg, "ifacemap"),
+                Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
+            };
+
+            if (mi.DeclaringType.IsGenericType) 
+            {
+                foreach (var i in mi.DeclaringType.GenericTypeArguments)
+                    function = new JSArrayLookupExpression 
+                    {
+                        Array = function,
+                        Indexer = GetTypeAccessor(i, thisScope: thisScope)
+                    };
+
+            }
+
             return new JSCallExpression
             {
                 Function = new JSPropertyAccessExpression
                 {
-                    Host = new JSArrayLookupExpression
-                    {
-                        Array = JSFactory.Identifier(thisArg, "ifacemap"),
-                        Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
-                    },
+                    Host = function,
                     Property = GetMethodIdentifier(mi)
                 }
             };
