@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct Int32
+    public struct Int32 : IComparable<int>, IComparable
     {
         public const int MaxValue = 0x7fffffff;
         public const int MinValue = -2147483648;
@@ -24,6 +24,11 @@ namespace System
                 return toHex(n);
 
             throw new NotSupportedException();
+        }
+
+        public int CompareTo(object p)
+        {
+            return CompareTo((int)p);
         }
 
         public int CompareTo(int p)

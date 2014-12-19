@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct UInt32
+    public struct UInt32 : IComparable<uint>, IComparable
     {
         public const uint MaxValue = 0xffffffff;
         public const uint MinValue = 0;
@@ -26,6 +26,24 @@ namespace System
         public override int GetHashCode()
         {
             return (int)this;
+        }
+
+        public int CompareTo(object p)
+        {
+            return CompareTo((uint)p);
+        }
+
+        public int CompareTo(uint p)
+        {
+            var n = this;
+
+            if (n < p)
+                return -1;
+
+            if (n > p)
+                return 1;
+
+            return 0;
         }
     }
 }

@@ -132,13 +132,67 @@ namespace System
             return GetLastIndex(array, startIndex, count, t => Object.Equals(t, item));
         }
 
-        [JsReplace("(Array.prototype.sort({0}.jsarr, {1}))")]
-        internal extern static void Sort<T>(T[] array, object comparison);
+        //[JsReplace("(Array.prototype.sort.apply({0}.jsarr, {1}))")]
+        //private extern static void Sort<T>(T[] array, object comparison);
+
+
+        [JsImport(
+            @" function (T) {
+            return function Sort(array, comparison) {
+                function swap(items, firstIndex, secondIndex){
+                    var temp = items[firstIndex];
+                    items[firstIndex] = items[secondIndex];
+                    items[secondIndex] = temp;
+                }
+
+                function partition(items, left, right) {
+
+                    var pivot   = items[Math.floor((right + left) / 2)],
+                        i       = left,
+                        j       = right;
+
+                    while (i <= j) {
+                        
+                        while (comparison(items[i], pivot) < 0)
+                            i++;
+                        while (comparison(items[j], pivot) > 0)
+                            j--;
+
+                        if (i <= j) {
+                            swap(items, i, j);
+                            i++;
+                            j--;
+                        }
+                    }
+
+                    return i;
+                }
+
+                function quickSort(items, left, right) {
+                    var index;
+
+                    if (items.length > 1) {
+                        index = partition(items, left, right);
+
+                        if (left < index - 1)
+                            quickSort(items, left, index - 1);
+
+                        if (index < right)
+                            quickSort(items, index, right);
+                    }
+
+                    return items;
+                }
+
+                quickSort(array.jsarr, 0, array.jsarr.length - 1);
+            } }
+            ")]
+        private extern static void Sort<T>(T[] array, object comparison);
 
         internal static void Sort<T>(T[] array, int start, int size)
         {
-            Comparison<T> cmp = (a, b) => ((IComparable<T>)a).CompareTo(b);
-            SortImpl(array, size, cmp);
+            var cmp = UnsafeCast<IComparer<T>>(GetComparer(typeof(T)));
+            Sort(array, 0, size, cmp);
         }
 
         internal static void SortImpl<T>(T[] array, int size, Comparison<T> comparison)
@@ -147,10 +201,12 @@ namespace System
 
             if (size < originalLength) 
             {
-                Splice(array, array.Length - size);
+                Splice(array, size, array.Length - size);
             }
 
             Sort(array, Delegate.GetJsFunction(comparison));
+
+
         }
 
         internal static void Sort<T>(T[] source, int start, int count, IComparer<T> comparer)
@@ -171,14 +227,33 @@ namespace System
 
         [JsImport(
             @"
-            function (array, howMany) {
-                array.jsarr.splice(0, howMany);
+            function (array, index, howMany) {
+                    array.jsarr.splice(index, howMany);
             }
             ")]
-        private static extern void Splice<T>(T[] array, int howMany);
+        private static extern void Splice(object array, int index, int howMany);
 
         [JsReplace("(Array.prototype.reverse.apply({0}.jsarr))")]
-        internal extern static void Reverse<T>(T[] array, int start, int count);
+        private extern static void Reverse<T>(T[] array);
+
+        internal static void Reverse<T>(T[] array, int start, int count)
+        {
+            if (start != 0 || count < array.Length)
+            {
+                var h = count / 2;
+                var e = start + count - 1;
+                for (var i = 0; i < h; i++) 
+                {
+                    var tmp = array[i];
+                    array[i] = array[e - i];
+                    array[e - i] = tmp;
+                }
+            }
+            else
+            {
+                Reverse(array);
+            }
+        }
 
         // Used by mono's corlib
         [JsReplace("({0}.jsarr[{1}] = {2})")]
@@ -283,7 +358,7 @@ namespace System
             }
             catch (Exception e)
             {
-                throw new Exception("Comparer threw an exception.");
+                throw new Exception("Comparer threw an exception.", e);
             }
 
             return ~iMin; 

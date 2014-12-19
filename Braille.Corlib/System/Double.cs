@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct Double
+    public struct Double : IComparable<double>, IComparable
     {
         public const double Epsilon = 4.9406564584124650e-324;
         public const double MaxValue = 1.7976931348623157e308;
@@ -15,6 +15,24 @@ namespace System
         public override string ToString()
         {
             return InternalFormatting.SignedPrimitiveToString(this);
+        }
+
+        public int CompareTo(object p)
+        {
+            return CompareTo((double)p);
+        }
+
+        public int CompareTo(double p)
+        {
+            var n = this;
+
+            if (n < p)
+                return -1;
+
+            if (n > p)
+                return 1;
+
+            return 0;
         }
     }
 }

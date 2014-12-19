@@ -487,27 +487,44 @@ namespace Braille.JsTranslation
                             };
                         }
 
-                        var originalThisArg = arglist[0];
+                        var thisArg = arglist[0];
+
+                        var firstArgNode = node.Arguments.First();
 
                         if (mi.IsVirtual &&
-                            node.Arguments.First().ResultType == context.SystemTypes.Object)
+                            firstArgNode.ResultType != null)
                         {
-                            // from: II.13.3 Methods of value types
-                            //
-                            // The CLI shall convert a boxed value type into a managed pointer to the 
-                            // unboxed value type when a boxed value type is passed as the this pointer 
-                            // to a virtual method whose implementation is provided by the unboxed value type.
+                            if (firstArgNode.ResultType.IsInterface ||
+                                firstArgNode.ResultType == context.SystemTypes.Object)
+                            {
+                                // from: II.13.3 Methods of value types
+                                //
+                                // The CLI shall convert a boxed value type into a managed pointer to the 
+                                // unboxed value type when a boxed value type is passed as the this pointer 
+                                // to a virtual method whose implementation is provided by the unboxed value type.
 
-                            arglist[0] = JSFactory.Call(JSFactory.Identifier("convert_box_to_pointer_as_needed"), arglist[0]);
+                                arglist[0] = JSFactory.Call(JSFactory.Identifier("convert_box_to_pointer_as_needed"), arglist[0]);
+                            }
+                            else if (
+                                firstArgNode.ResultType.IsGenericType &&
+                                firstArgNode.ResultType.GetGenericTypeDefinition() == context.SystemTypes.ManagedPointer)
+                            {
+                                arglist[0] = JSFactory.Call(JSFactory.Identifier(thisArg, "r"));
+
+                                var pointerTargetType = firstArgNode.ResultType.GetGenericArguments().First();
+                                thisArg = JSFactory.Identifier(
+                                    GetTypeAccessor(pointerTargetType, thisScope),
+                                    "prototype");
+                            }
                         }
 
                         return new JSCallExpression
                         {
                             Function =
                                 mi.DeclaringType.IsInterface
-                                    ? GetInterfaceMethodAccessor(originalThisArg, thisScope, mi) :
+                                    ? GetInterfaceMethodAccessor(thisArg, thisScope, mi) :
                                 mi.IsVirtual
-                                    ? GetVirtualMethodAccessor(originalThisArg, (MethodInfo)mi) :
+                                    ? GetVirtualMethodAccessor(thisArg, (MethodInfo)mi) :
                                       GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
                         };
@@ -752,7 +769,10 @@ namespace Braille.JsTranslation
                         var target = ((LoadFunctionNode)node).Target;
                         var methodBase = target.ReflectionMethod;
 
-                        if (target.NeedInitializer)
+                        if (target.NeedInitializer &&
+
+                            // optimization not working if initializer happens to use type's generic args..
+                            ! target.ReflectionMethod.DeclaringType.IsGenericType) 
                         {
                             return new JSCallExpression
                             {

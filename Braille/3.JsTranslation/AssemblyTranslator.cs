@@ -82,7 +82,9 @@ namespace Braille.JsTranslation
     function unbox(o, type) {
         if (o == null) {
             var t = asm0['System.InvalidCastException']();
-            throw new t();
+            var e = new t();
+            e.stack = new Error().stack;
+            throw e;
         }
         return cast_class(o.boxed, type);
     }
@@ -193,7 +195,9 @@ namespace Braille.JsTranslation
         }
         
         var t = asm0['System.InvalidCastException']();
-        throw new t();
+        var e = new t();
+        e.stack = new Error().stack;
+        throw e;
     }
 
     function conv_u8(n) {
@@ -248,7 +252,9 @@ namespace Braille.JsTranslation
 
                     if (function == null)
                         continue;
-                    
+
+                    yield return new JSLineComment { Text = (method.ReflectionMethod.IsStatic ? "static " : "") + method.ReflectionMethod.ToString() };
+
                     var accessor = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod));
 
                     var initializer = methodTranslator.GetInitializer(asm, type, method);

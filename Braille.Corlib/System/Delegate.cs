@@ -102,14 +102,18 @@ namespace System
 
         [JsReplace(@"(
             function () {{ 
-                var args = arguments.splice().shift(thisObj); 
-                return {0}.apply(null, args); 
+                var args = Array.prototype.slice.apply(arguments);
+                args.unshift({1});
+                return {0}.apply(null, args);
             }})")]
         private static extern object GetJsFunction(object method, object thisObj);
 
         internal static object GetJsFunction(Delegate d)
         {
-            return GetJsFunction(d._methodPtr, d._target);
+            if (d._target != null)
+                return GetJsFunction(d._methodPtr, d._target);
+            else
+                return d._methodPtr;
         }
 
     }
