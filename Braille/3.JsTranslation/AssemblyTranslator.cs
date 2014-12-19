@@ -125,6 +125,20 @@ namespace Braille.JsTranslation
         }
     }
 
+    function dereference_pointer_as_needed(p) {
+        if (typeof p.r === ""function"" &&
+            typeof p.w === ""function"") 
+        {
+            var v = p.r();
+            if (typeof v !== 'number' && ! v.constructor.IsValueType)
+            {
+                return v;
+            }
+        }
+
+        return p;
+    }
+
     function tree_get(a, s) {
         var c = s;
         for (var i = 0; c && i < a.length; i++)

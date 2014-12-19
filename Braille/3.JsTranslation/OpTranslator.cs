@@ -509,12 +509,16 @@ namespace Braille.JsTranslation
                                 firstArgNode.ResultType.IsGenericType &&
                                 firstArgNode.ResultType.GetGenericTypeDefinition() == context.SystemTypes.ManagedPointer)
                             {
-                                arglist[0] = JSFactory.Call(JSFactory.Identifier(thisArg, "r"));
-
                                 var pointerTargetType = firstArgNode.ResultType.GetGenericArguments().First();
+
                                 thisArg = JSFactory.Identifier(
                                     GetTypeAccessor(pointerTargetType, thisScope),
                                     "prototype");
+
+                                if (pointerTargetType.IsGenericParameter)
+                                {
+                                    arglist[0] = JSFactory.Call(JSFactory.Identifier("dereference_pointer_as_needed"), arglist[0]);
+                                }
                             }
                         }
 

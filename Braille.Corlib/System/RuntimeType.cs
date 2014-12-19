@@ -35,7 +35,11 @@ namespace System
         private RuntimeType(constructor ctor)
         {
             this.ctor = ctor;
+            init(ctor);
         }
+
+        [JsReplace("{0}.init()")]
+        extern static void init(constructor ctor);
 
         [JsAssemblyStatic(Name = "GetReflectionType")]
         internal static Type GetInstance(constructor ctor)
