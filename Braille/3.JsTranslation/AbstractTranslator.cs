@@ -70,9 +70,10 @@ namespace Braille.JsTranslation
                 }
                 else
                 {
+                    var metadataName = GetTypeMetadataName(typeScope);
                     return new JSArrayLookupExpression
                     {
-                        Array = JSFactory.Identifier(thisScope, "constructor", "GenericArguments"),
+                        Array = JSFactory.Identifier(thisScope, "constructor", "GenericArguments", metadataName),
                         Indexer = new JSNumberLiteral { Value = typeScope.GetGenericArguments().IndexOf(type) }
                     };
                 }
@@ -97,6 +98,14 @@ namespace Braille.JsTranslation
                     Function = JSFactory.Identifier(GetAssemblyIdentifier(type), type.FullName)
                 };
             }
+        }
+
+        protected string GetTypeMetadataName(Type current)
+        {
+            current = (current.IsGenericType && !current.IsGenericTypeDefinition) ? 
+                current.GetGenericTypeDefinition() : current;
+
+            return GetAssemblyIdentifier(current).Name + ".t" + current.MetadataToken.ToString("x");
         }
 
         protected bool IsIgnoredType(Type type)

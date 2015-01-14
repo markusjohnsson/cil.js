@@ -44,6 +44,8 @@ namespace Braille.JsTranslation
                     @"
     asm.next_hash = 1;
 
+    function nop() {}
+
     function clone_value(v) {
         if (v == null) return v;
         if (typeof v === 'number') return v;
@@ -63,7 +65,7 @@ namespace Braille.JsTranslation
     
         if (type.IsNullable) {
             if (v.has_value)
-                return box(v.value, type.GenericArguments[0]);
+                return box(v.value, type.GenericArguments[type.MetadataName][0]);
             else
                 return null;
         }
@@ -93,7 +95,7 @@ namespace Braille.JsTranslation
         if (type.IsNullable) {
             var result = new type();
             if (o !== null) {
-                result.value = cast_class(o.boxed, type.GenericArguments[0]);
+                result.value = cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]);
                 result.has_value = true;
             }
             return result;

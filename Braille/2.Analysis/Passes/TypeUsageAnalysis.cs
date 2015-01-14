@@ -82,8 +82,8 @@ namespace Braille.Analysis
                         yield return type;
                     yield break;
                 case "ldsfld":
-                case "newobj":
                 case "stsfld":
+                case "newobj":
                     yield return ((MemberInfo)op.Instruction.Data).DeclaringType;
                     break;
                 default:

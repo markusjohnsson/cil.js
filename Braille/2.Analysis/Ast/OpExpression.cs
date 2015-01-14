@@ -77,5 +77,7 @@ namespace Braille.Ast
                 yield return subnode;
         }
 
+
+        public List<IKVM.Reflection.Type> RequireFieldInitTypes { get; set; }
     }
 }

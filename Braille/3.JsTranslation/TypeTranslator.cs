@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Type = IKVM.Reflection.Type;
 
 namespace Braille.JsTranslation
 {
@@ -63,7 +64,7 @@ namespace Braille.JsTranslation
             var cachedInstance = JSFactory.Identifier("c");
             var cache = JSFactory.Identifier("ct");
 
-            var cacheKey = isGeneric ? GetGenericArgumentsArray(type) : null;
+            var cacheKey = isGeneric ? GetGenericArgumentsArray(type.ReflectionType, type.ReflectionType) : null;
 
             body.Add(
                 new JSVariableDelcaration
@@ -118,19 +119,25 @@ namespace Braille.JsTranslation
             };
         }
 
-        private static JSArrayLiteral GetGenericArgumentsArray(CilType type)
+        private JSArrayLiteral GetGenericArgumentsArray(Type type, Type typeScope)
         {
-            if (type.ReflectionType.IsGenericTypeDefinition == false)
-                return null;
-
             return new JSArrayLiteral
             {
                 Values = type
-                    .ReflectionType
                     .GetGenericArguments()
-                    .Select(g => new JSIdentifier { Name = g.Name } as JSExpression)
+                    .Select(t => GetTypeIdentifier(t, typeScope: typeScope))
                     .ToList()
             };
+            //if (type.IsGenericTypeDefinition == false)
+            //    return null;
+
+            //return new JSArrayLiteral
+            //{
+            //    Values = type
+            //        .GetGenericArguments()
+            //        .Select(g => new JSIdentifier { Name = g.Name } as JSExpression)
+            //        .ToList()
+            //};
         }
 
         public IEnumerable<JSExpression> GetTypeDeclaration(CilType type, JSExpression cache, JSExpression cacheKey, JSExpression cachedInstance, bool isGeneric)
@@ -245,11 +252,10 @@ namespace Braille.JsTranslation
                 .EndWith(new KeyValuePair<string, JSExpression>("IsInterface", new JSBoolLiteral { Value = type.ReflectionType.IsInterface }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsGenericTypeDefinition", new JSBoolLiteral { Value = type.ReflectionType.IsGenericTypeDefinition }))
                 .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }))
-                .EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)));
-
-            var genericArguments = GetGenericArgumentsArray(type);
-            if (genericArguments != null)
-                staticProperties = staticProperties.EndWith(new KeyValuePair<string, JSExpression>("GenericArguments", genericArguments));
+                .EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)))
+                .EndWith(new KeyValuePair<string, JSExpression>("MetadataName", JSFactory.Literal(GetTypeMetadataName(type.ReflectionType))))
+                .EndWith(new KeyValuePair<string, JSExpression>("GenericArguments", JSFactory.Object(new object())))
+                ;
 
             foreach (var p in staticProperties)
             {
@@ -260,15 +266,28 @@ namespace Braille.JsTranslation
                     .ToStatement();
             }
 
-            var cctors = type.ReflectionType.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-            if (cctors.Any())
+            for (var current = type.ReflectionType; current != null; current = current.BaseType)
             {
-                yield return new JSCallExpression
+                var genericArguments = GetGenericArgumentsArray(current, type.ReflectionType);
+                if (genericArguments != null)
                 {
-                    Function = GetMethodAccessor(cctors[0], typeScope: type.ReflectionType)
+                    yield return JSFactory
+                        .Assignment(
+                            JSFactory.Identifier(n, "GenericArguments", GetTypeMetadataName(current)),
+                            genericArguments)
+                        .ToStatement();
                 }
-                .ToStatement();
             }
+
+            //var cctors = type.ReflectionType.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            //if (cctors.Any())
+            //{
+            //    yield return new JSCallExpression
+            //    {
+            //        Function = GetMethodAccessor(cctors[0], typeScope: type.ReflectionType)
+            //    }
+            //    .ToStatement();
+            //}
 
             var prototypeProperties = GetFieldInitializers(type)
                 .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
@@ -293,17 +312,6 @@ namespace Braille.JsTranslation
                         JSFactory.Identifier(n, "prototype", "ifacemap"),
                         iface.Value)
                     .ToStatement();
-
-
-                //yield return JSFactory
-                //    .Assignment(
-                //        new JSArrayLookupExpression
-                //        {
-                //            Array = JSFactory.Identifier(n, "prototype", "ifacemap"),
-                //            Indexer = iface.Key
-                //        },
-                //        iface.Value)
-                //    .ToStatement();
             }
         }
 

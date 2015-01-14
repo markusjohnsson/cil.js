@@ -32,6 +32,21 @@ namespace Braille.JsTranslation
 
         public IEnumerable<JSStatement> Process(OpExpression node)
         {
+            var thisScope = GetThisScope(method.ReflectionMethod, type.ReflectionType);
+
+            if (node.RequireFieldInitTypes.Any())
+            {
+                var ts = node.RequireFieldInitTypes.Distinct();
+
+                foreach (var t in ts)
+                {
+                    // call static initializers
+                    var cctor = GetFieldInit(t, thisScope);
+                    if (cctor != null)
+                        yield return cctor;
+                }
+            }
+
             if (context.Settings.OutputILComments)
             {
                 yield return GetILAsComment(node);
@@ -47,8 +62,6 @@ namespace Braille.JsTranslation
                         Text = "warning: ignoring prefixes " + string.Join(",", node.Prefixes.Select(o => o.OpCode.Name))
                     });
             }
-
-            var thisScope = GetThisScope(method.ReflectionMethod, type.ReflectionType);
 
             switch (opc)
             {
@@ -250,6 +263,22 @@ namespace Braille.JsTranslation
                     break;
             }
 
+        }
+
+        private JSStatement GetFieldInit(Type t, JSExpression thisScope)
+        {
+            var cctors = t.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+            if (cctors.Any())
+            {
+                return new JSCallExpression
+                {
+                    // GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
+                    Function = GetMethodAccessor(cctors[0], this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
+                }
+                .ToStatement();
+            }
+
+            return null;
         }
 
         private static JSStatement GetILAsComment(OpExpression node)

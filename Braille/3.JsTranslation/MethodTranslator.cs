@@ -228,6 +228,27 @@ namespace Braille.JsTranslation
         {
             var functionBlock = new List<JSStatement>();
 
+            if (method.Name == ".cctor")
+            {
+                var type_id = GetTypeIdentifier(type.ReflectionType, method.ReflectionMethod);
+                var has_init = JSFactory.Identifier(type_id, "FieldHasBeenInitialized");
+
+                functionBlock.Add(
+                    new JSIfStatement
+                    {
+                        Condition = has_init,
+                        Statements = 
+                        { 
+                            new JSReturnExpression().ToStatement()
+                        }
+                    });
+
+                functionBlock.Add(
+                    JSFactory
+                        .Assignment(has_init, JSFactory.Literal(true))
+                        .ToStatement());
+            }
+
             var thisScope = GetThisScope(method.ReflectionMethod, method.ReflectionMethod.DeclaringType);
 
             if (method.ReferencedTypes != null)

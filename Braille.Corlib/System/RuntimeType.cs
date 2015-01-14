@@ -28,6 +28,7 @@ namespace System
             internal Braille.JavaScript.Boolean IsPrimitive;
             internal object GenericArguments;
             internal object Interfaces;
+            internal Braille.JavaScript.String MetadataName;
         }
 
         internal constructor ctor;
@@ -145,7 +146,7 @@ namespace System
                 if ((bool)ctor.IsGenericTypeDefinition == false)
                     return false;
 
-                var l = Marshal.ArrayLookup(ctor.GenericArguments, 0);
+                var l = Marshal.ArrayLookup(Marshal.ObjectLookup(ctor.GenericArguments, (string)ctor.MetadataName), 0);
                 var g = UnsafeCast<constructor>(l);
 
                 if (string.FromJsString(g.FullName) == "Braille.Runtime.UnboundGenericParameter")
@@ -173,7 +174,7 @@ namespace System
 
         public override Type[] GetGenericArguments()
         {
-            var gargs = Array.FromJsArray<constructor>(ctor.GenericArguments);
+            var gargs = Array.FromJsArray<constructor>(Marshal.ObjectLookup(ctor.GenericArguments, (string)ctor.MetadataName));
             var result = new Type[gargs.Length];
 
             for (var i = 0; i < gargs.Length; i++)
@@ -186,7 +187,7 @@ namespace System
         {
             get
             {
-                if (! UnsafeCast<bool>(ctor.BaseType))
+                if (!UnsafeCast<bool>(ctor.BaseType))
                     return null;
                 else
                     return GetInstance(ctor.BaseType);
@@ -272,7 +273,7 @@ namespace System
 
         public override Type GetElementType()
         {
-            if (! IsSubclassOf(typeof(Array)))
+            if (!IsSubclassOf(typeof(Array)))
                 throw new Exception("Invalid operation");
 
             return GetGenericArguments()[0];
@@ -283,7 +284,7 @@ namespace System
             var baseMethods = this.BaseType != null ?
                 this.BaseType.GetMethods() :
                 new MethodInfo[0];
-            
+
             var len = baseMethods.Length + ctor.Methods.Length;
             var currLen = ctor.Methods.Length;
             var baseLen = baseMethods.Length;

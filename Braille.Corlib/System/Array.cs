@@ -72,14 +72,17 @@ namespace System
             if (count < 0 || startIndex < 0 || startIndex - 1 > (array.Length-1) - count)
                 throw new /*ArgumentOutOfRange*/ Exception();
 
-            int max = startIndex + count;
-            for (int i = startIndex; i < max; i++)
+            var endIndex = startIndex + count;
+            var cmp = GetDefaultEqualityComparer(typeof(T));
+
+            for (int i = startIndex; i < endIndex; ++i)
             {
-                if (Object.Equals(GetValueImpl(array, i), value))
+                if (cmp.Equals(Array.UnsafeLoad(array, i), value))
                     return i;
             }
 
             return -1;
+
         }
 
         [JsImport(@"
@@ -191,8 +194,15 @@ namespace System
 
         internal static void Sort<T>(T[] array, int start, int size)
         {
-            var cmp = UnsafeCast<IComparer<T>>(GetComparer(typeof(T)));
-            Sort(array, 0, size, cmp);
+            try
+            {
+                var cmp = UnsafeCast<IComparer<T>>(GetComparer(typeof(T)));
+                Sort(array, 0, size, cmp);
+            }
+            catch (Exception e) 
+            {
+                throw new InvalidOperationException("Failed to sort the array. ", e);
+            }
         }
 
         internal static void SortImpl<T>(T[] array, int size, Comparison<T> comparison)
@@ -312,6 +322,9 @@ namespace System
 
         [JsReplace("asm1.GetDefaultComparer({0}.ctor)()")]
         private extern static IComparer GetComparer(Type t);
+
+        [JsReplace("asm1.GetDefaultEqualityComparer({0}.ctor)()")]
+        private extern static IEqualityComparer GetDefaultEqualityComparer(Type t);
 
         public static int BinarySearch<T>(T[] items, int index, int length, T item)
         {

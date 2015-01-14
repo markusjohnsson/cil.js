@@ -116,6 +116,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Tests\CallGenericMethodOnGenericClass.cs" />
+    <None Include="Tests\GenericBaseClassBug.cs" />
+    <None Include="Tests\IsInstGenericSubclass.cs" />
     <None Include="Tests\InterfaceCallvirtFromGenericClass.cs" />
     <None Include="Tests\GenericInterface2.cs" />
     <None Include="Tests\StructInterface.cs" />

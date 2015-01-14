@@ -55,7 +55,7 @@ namespace Braille.Analysis
             if (ctx.Settings.KeepFlatExpressions == false)
                 yield return new AggregateExpressionsPass(ctx);
 
-
+            yield return new StaticFieldUsageAnalysis(ctx);
         }
 
     }

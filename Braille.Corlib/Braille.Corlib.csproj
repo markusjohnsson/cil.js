@@ -43,6 +43,7 @@
     <Compile Include="System.Collections.Generic\ICollection.cs" />
     <Compile Include="System.Collections.Generic\IComparer.cs" />
     <Compile Include="System.Collections\IComparer.cs" />
+    <Compile Include="System.Collections\IEqualityComparer.cs" />
     <Compile Include="System.Reflection\Assembly.cs" />
     <Compile Include="System.Reflection\ICustomAttributeProvider.cs" />
     <Compile Include="System.Reflection\MemberInfo.cs" />
