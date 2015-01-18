@@ -59,6 +59,32 @@ namespace Braille.JsTranslation
         return result;
     }
 
+    function value_equals(a, b) {
+
+        if (typeof a !== typeof b)
+            return false;
+
+        if (a === null)
+            return b === null;
+
+        if (typeof a === 'object' && typeof a.constructor !== 'undefined' && a.constructor.IsValueType) {
+            
+            for (var p in a) {
+                var av = a[p];
+                var bv = b[p];
+                    
+                if (! value_equals(av, bv))
+                    return false;
+            }
+            
+            return true;
+        }
+        else 
+        {
+            return a === b;
+        }
+    }
+
     function box(v, type) {
         if (v === null)
             return v;
