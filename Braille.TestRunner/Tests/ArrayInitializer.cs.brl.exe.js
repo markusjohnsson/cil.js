@@ -22,10 +22,10 @@ var asm0; (function (asm)
     function value_equals(a, b) {
 
         if (typeof a !== typeof b)
-            return false;
+            return 0;
 
         if (a === null)
-            return b === null;
+            return b === null ? 1 : 0;
 
         if (typeof a === 'object' && typeof a.constructor !== 'undefined' && a.constructor.IsValueType) {
             
@@ -34,14 +34,14 @@ var asm0; (function (asm)
                 var bv = b[p];
                     
                 if (! value_equals(av, bv))
-                    return false;
+                    return 0;
             }
             
-            return true;
+            return 1;
         }
         else 
         {
-            return a === b;
+            return a === b ? 1 : 0;
         }
     }
 
@@ -18380,10 +18380,10 @@ var asm1; (function (asm)
     function value_equals(a, b) {
 
         if (typeof a !== typeof b)
-            return false;
+            return 0;
 
         if (a === null)
-            return b === null;
+            return b === null ? 1 : 0;
 
         if (typeof a === 'object' && typeof a.constructor !== 'undefined' && a.constructor.IsValueType) {
             
@@ -18392,14 +18392,14 @@ var asm1; (function (asm)
                 var bv = b[p];
                     
                 if (! value_equals(av, bv))
-                    return false;
+                    return 0;
             }
             
-            return true;
+            return 1;
         }
         else 
         {
-            return a === b;
+            return a === b ? 1 : 0;
         }
     }
 
@@ -18645,7 +18645,7 @@ var asm1; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=36 $$method0x600000c-1*/
         st_03 = new_handle(((asm0)["System.RuntimeFieldHandle"])(),{
-            'type': ((asm1)["<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}"])(),
+            'type': ((asm1)["<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}"])(),
             'field': "$$method0x600000c-1"
         });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -18681,7 +18681,7 @@ var asm1; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=36 $$method0x600000d-1*/
         st_03 = new_handle(((asm0)["System.RuntimeFieldHandle"])(),{
-            'type': ((asm1)["<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}"])(),
+            'type': ((asm1)["<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}"])(),
             'field': "$$method0x600000d-1"
         });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -18717,7 +18717,7 @@ var asm1; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_07: ldtoken __StaticArrayInitTypeSize=7 $$method0x600000e-1*/
         st_03 = new_handle(((asm0)["System.RuntimeFieldHandle"])(),{
-            'type': ((asm1)["<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}"])(),
+            'type': ((asm1)["<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}"])(),
             'field': "$$method0x600000e-1"
         });
         /* IL_0C: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -19011,7 +19011,7 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    (asm)["<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}"] = (function ()
+    (asm)["<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}"] = (function ()
     {
         var ct;
         ct = null;
@@ -19025,21 +19025,21 @@ var asm1; (function (asm)
                 return c;
             }
             initialized = false;;
-            function _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_()
+            function _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_()
             {
-                (_PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.init)();
-                this.constructor = _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_;
+                (_PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.init)();
+                this.constructor = _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_;
             };
-            c = _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_;
+            c = _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_;
             ct = c;
-            _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.init = function ()
+            _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.init = function ()
             {
                 
                 if (initialized){
                     return;
                 }
                 initialized = true;
-                (_PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_)["$$method0x600000c-1"] = [
+                (_PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_)["$$method0x600000c-1"] = [
                     0,
                     0,
                     0,
@@ -19077,7 +19077,7 @@ var asm1; (function (asm)
                     0,
                     128
                 ];
-                (_PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_)["$$method0x600000d-1"] = [
+                (_PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_)["$$method0x600000d-1"] = [
                     0,
                     0,
                     0,
@@ -19115,7 +19115,7 @@ var asm1; (function (asm)
                     0,
                     0
                 ];
-                (_PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_)["$$method0x600000e-1"] = [
+                (_PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_)["$$method0x600000e-1"] = [
                     0,
                     8,
                     4,
@@ -19124,24 +19124,24 @@ var asm1; (function (asm)
                     255,
                     0
                 ];
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.CustomAttributes = [];
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.Methods = [];
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.BaseType = ((asm0)["System.Object"])();
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.FullName = "<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}";
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.Assembly = asm;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.Interfaces = [];
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.IsInst = function (t) { return t instanceof _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_ ? t : null; };
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.IsValueType = false;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.IsPrimitive = false;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.IsInterface = false;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.IsGenericTypeDefinition = false;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.IsNullable = false;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.ArrayType = Array;
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.MetadataName = "asm1.t2000008";
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.GenericArguments = {};
-                (_PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.GenericArguments)["asm1.t2000008"] = [];
-                (_PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.GenericArguments)["asm0.t2000002"] = [];
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.prototype.vtable = {
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.CustomAttributes = [];
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.Methods = [];
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.BaseType = ((asm0)["System.Object"])();
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.FullName = "<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}";
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.Assembly = asm;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.Interfaces = [];
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.IsInst = function (t) { return t instanceof _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_ ? t : null; };
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.IsValueType = false;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.IsPrimitive = false;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.IsInterface = false;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.IsGenericTypeDefinition = false;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.IsNullable = false;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.ArrayType = Array;
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.MetadataName = "asm1.t2000008";
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.GenericArguments = {};
+                (_PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.GenericArguments)["asm1.t2000008"] = [];
+                (_PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.GenericArguments)["asm0.t2000002"] = [];
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.prototype.vtable = {
                     'asm0.x6000005': function ()
                     {
                         return asm0.x6000005;
@@ -19155,13 +19155,13 @@ var asm1; (function (asm)
                         return asm0.x6000009;
                     }
                 };
-                _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.prototype.ifacemap = {};
+                _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.prototype.ifacemap = {};
             };
-            _PrivateImplementationDetails__D9D35A40_AE13_450B_914A_988FF5C5FC3A_.prototype = new (((asm0)["System.Object"])())();
+            _PrivateImplementationDetails__BA0262AA_AAE0_4017_8572_6DC749234569_.prototype = new (((asm0)["System.Object"])())();
             return c;
         };
     })();
-    (asm)["<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}+__StaticArrayInitTypeSize=36"] = (function ()
+    (asm)["<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}+__StaticArrayInitTypeSize=36"] = (function ()
     {
         var ct;
         ct = null;
@@ -19192,7 +19192,7 @@ var asm1; (function (asm)
                 __StaticArrayInitTypeSize_36.CustomAttributes = [];
                 __StaticArrayInitTypeSize_36.Methods = [];
                 __StaticArrayInitTypeSize_36.BaseType = ((asm0)["System.ValueType"])();
-                __StaticArrayInitTypeSize_36.FullName = "<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}+__StaticArrayInitTypeSize=36";
+                __StaticArrayInitTypeSize_36.FullName = "<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}+__StaticArrayInitTypeSize=36";
                 __StaticArrayInitTypeSize_36.Assembly = asm;
                 __StaticArrayInitTypeSize_36.Interfaces = [];
                 __StaticArrayInitTypeSize_36.IsInst = function (t) { return t instanceof __StaticArrayInitTypeSize_36 ? t : null; };
@@ -19228,7 +19228,7 @@ var asm1; (function (asm)
             return c;
         };
     })();
-    (asm)["<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}+__StaticArrayInitTypeSize=7"] = (function ()
+    (asm)["<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}+__StaticArrayInitTypeSize=7"] = (function ()
     {
         var ct;
         ct = null;
@@ -19259,7 +19259,7 @@ var asm1; (function (asm)
                 __StaticArrayInitTypeSize_7.CustomAttributes = [];
                 __StaticArrayInitTypeSize_7.Methods = [];
                 __StaticArrayInitTypeSize_7.BaseType = ((asm0)["System.ValueType"])();
-                __StaticArrayInitTypeSize_7.FullName = "<PrivateImplementationDetails>{D9D35A40-AE13-450B-914A-988FF5C5FC3A}+__StaticArrayInitTypeSize=7";
+                __StaticArrayInitTypeSize_7.FullName = "<PrivateImplementationDetails>{BA0262AA-AAE0-4017-8572-6DC749234569}+__StaticArrayInitTypeSize=7";
                 __StaticArrayInitTypeSize_7.Assembly = asm;
                 __StaticArrayInitTypeSize_7.Interfaces = [];
                 __StaticArrayInitTypeSize_7.IsInst = function (t) { return t instanceof __StaticArrayInitTypeSize_7 ? t : null; };

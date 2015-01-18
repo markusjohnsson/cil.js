@@ -22,10 +22,10 @@ var asm0; (function (asm)
     function value_equals(a, b) {
 
         if (typeof a !== typeof b)
-            return false;
+            return 0;
 
         if (a === null)
-            return b === null;
+            return b === null ? 1 : 0;
 
         if (typeof a === 'object' && typeof a.constructor !== 'undefined' && a.constructor.IsValueType) {
             
@@ -34,14 +34,14 @@ var asm0; (function (asm)
                 var bv = b[p];
                     
                 if (! value_equals(av, bv))
-                    return false;
+                    return 0;
             }
             
-            return true;
+            return 1;
         }
         else 
         {
-            return a === b;
+            return a === b ? 1 : 0;
         }
     }
 
@@ -18380,10 +18380,10 @@ var asm1; (function (asm)
     function value_equals(a, b) {
 
         if (typeof a !== typeof b)
-            return false;
+            return 0;
 
         if (a === null)
-            return b === null;
+            return b === null ? 1 : 0;
 
         if (typeof a === 'object' && typeof a.constructor !== 'undefined' && a.constructor.IsValueType) {
             
@@ -18392,14 +18392,14 @@ var asm1; (function (asm)
                 var bv = b[p];
                     
                 if (! value_equals(av, bv))
-                    return false;
+                    return 0;
             }
             
-            return true;
+            return 1;
         }
         else 
         {
-            return a === b;
+            return a === b ? 1 : 0;
         }
     }
 
