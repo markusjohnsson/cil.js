@@ -94,11 +94,28 @@ namespace System
 
         public static void Copy<T>(T[] source, int startIndex, T[] target, int targetStartIndex, int length)
         {
+            if (source == null)
+                throw GetException("System.ArgumentNullException");
+
+            if (target == null)
+                throw GetException("System.ArgumentNullException");
+
             if (startIndex < 0)
                 throw GetException("System.ArgumentOutOfRangeException");
 
             if (targetStartIndex < 0)
                 throw GetException("System.ArgumentOutOfRangeException");
+
+            // re-ordered to avoid possible integer overflow
+            if (startIndex > source.Length - length)
+                throw GetException("System.ArgumentException");
+
+            if (targetStartIndex > target.Length - length)
+            {
+                //string msg = "Destination array was not long enough. Check " +
+                //    "destIndex and length, and the array's lower bounds";
+                throw GetException("System.ArgumentException");
+            }
 
             for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
             {
@@ -130,9 +147,26 @@ namespace System
             return -1;
         }
 
-        internal static int LastIndexOf<T>(T[] array, T item, int startIndex, int count)
+        internal static int LastIndexOf<T>(T[] array, T value, int startIndex, int count)
         {
-            return GetLastIndex(array, startIndex, count, t => Object.Equals(t, item));
+            //return GetLastIndex(array, startIndex, count, t => Object.Equals(t, item));
+
+            if (array == null)
+                throw GetException("System.ArgumentNullException");
+            
+            if (count < 0 || startIndex < array.GetLowerBound(0) ||
+                startIndex > array.Length-1 || startIndex - count + 1 < array.GetLowerBound(0))
+                throw GetException("System.ArgumentOutOfRangeException");
+
+            //EqualityComparer<T> equalityComparer = EqualityComparer<T>.Default;
+            var equalityComparer = GetDefaultEqualityComparer(typeof(T));
+            for (int i = startIndex; i >= startIndex - count + 1; i--)
+            {
+                if (equalityComparer.Equals(array[i], value))
+                    return i;
+            }
+
+            return -1;
         }
 
         //[JsReplace("(Array.prototype.sort.apply({0}.jsarr, {1}))")]
