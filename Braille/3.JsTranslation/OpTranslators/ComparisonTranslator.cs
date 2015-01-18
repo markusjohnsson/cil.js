@@ -22,6 +22,8 @@ namespace Braille.JsTranslation.OpTranslators
             var i = opc.IndexOf(".");
             var opc_ = i > 0 ? opc.Substring(0, i) : opc;
 
+            var isUnsigned = opc.Contains(".un");
+
             switch (opc_)
             {
                 case "ceq":
@@ -76,8 +78,8 @@ namespace Braille.JsTranslation.OpTranslators
                             {
                                 Condition = new JSBinaryExpression
                                 {
-                                    Left = ProcessInternal(node.Arguments.First()),
-                                    Right = ProcessInternal(node.Arguments.Last()),
+                                    Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First())),
+                                    Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
                                     Operator = ">"
                                 },
                                 TrueValue = new JSNumberLiteral { Value = 1 },
@@ -101,8 +103,8 @@ namespace Braille.JsTranslation.OpTranslators
                         {
                             Condition = new JSBinaryExpression
                             {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
+                                Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First())),
+                                Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
                                 Operator = "<"
                             },
                             TrueValue = new JSNumberLiteral { Value = 1 },

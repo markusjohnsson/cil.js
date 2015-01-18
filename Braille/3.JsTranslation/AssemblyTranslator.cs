@@ -85,6 +85,13 @@ namespace Braille.JsTranslation
         }
     }
 
+    function unsigned_value(a) {
+        if (a < 0)
+            return 0xffffffff + a + 1;
+        else
+            return a;
+    }
+
     function box(v, type) {
         if (v === null)
             return v;

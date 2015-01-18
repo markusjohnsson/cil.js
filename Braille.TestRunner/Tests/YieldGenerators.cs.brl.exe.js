@@ -45,6 +45,13 @@ var asm0; (function (asm)
         }
     }
 
+    function unsigned_value(a) {
+        if (a < 0)
+            return 0xffffffff + a + 1;
+        else
+            return a;
+    }
+
     function box(v, type) {
         if (v === null)
             return v;
@@ -9902,7 +9909,7 @@ var asm0; (function (asm)
                 /* IL_08: ldc.i4.0 */
                 /* IL_0A: ceq */
                 /* IL_0B: stloc.2 */
-                loc2 = ((((loc0 < arg1) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc2 = ((((unsigned_value(loc0) < unsigned_value(arg1)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_0C: ldloc.2 */
                 /* IL_0D: brtrue.s IL_13*/
                 
@@ -9923,7 +9930,7 @@ var asm0; (function (asm)
                 /* IL_17: ldc.i4.0 */
                 /* IL_19: ceq */
                 /* IL_1A: stloc.2 */
-                loc2 = ((((loc0 > arg1) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc2 = ((((unsigned_value(loc0) > unsigned_value(arg1)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_1B: ldloc.2 */
                 /* IL_1C: brtrue.s IL_22*/
                 
@@ -18403,6 +18410,13 @@ var asm1; (function (asm)
         }
     }
 
+    function unsigned_value(a) {
+        if (a < 0)
+            return 0xffffffff + a + 1;
+        else
+            return a;
+    }
+
     function box(v, type) {
         if (v === null)
             return v;
@@ -19262,7 +19276,7 @@ var asm1; (function (asm)
                 /* IL_06: ldfld Int32 <>l__initialThreadId*/
                 /* IL_0B: bne.un.s IL_22*/
                 
-                if ((asm0.x6000089)() != (arg0)["_Select_d__0_2<>l__initialThreadId"]){
+                if (unsigned_value((asm0.x6000089)()) != unsigned_value((arg0)["_Select_d__0_2<>l__initialThreadId"])){
                     __pos_0__ = 0x22;
                     continue;
                 }
@@ -19271,7 +19285,7 @@ var asm1; (function (asm)
                 /* IL_13: ldc.i4.s 254*/
                 /* IL_15: bne.un.s IL_22*/
                 
-                if ((arg0)["_Select_d__0_2<>1__state"] != (-2|0)){
+                if (unsigned_value((arg0)["_Select_d__0_2<>1__state"]) != unsigned_value((-2|0))){
                     __pos_0__ = 0x22;
                     continue;
                 }
@@ -19678,7 +19692,7 @@ var asm1; (function (asm)
                 /* IL_06: ldfld Int32 <>l__initialThreadId*/
                 /* IL_0B: bne.un.s IL_22*/
                 
-                if ((asm0.x6000089)() != (arg0)["_Where_d__6_1<>l__initialThreadId"]){
+                if (unsigned_value((asm0.x6000089)()) != unsigned_value((arg0)["_Where_d__6_1<>l__initialThreadId"])){
                     __pos_0__ = 0x22;
                     continue;
                 }
@@ -19687,7 +19701,7 @@ var asm1; (function (asm)
                 /* IL_13: ldc.i4.s 254*/
                 /* IL_15: bne.un.s IL_22*/
                 
-                if ((arg0)["_Where_d__6_1<>1__state"] != (-2|0)){
+                if (unsigned_value((arg0)["_Where_d__6_1<>1__state"]) != unsigned_value((-2|0))){
                     __pos_0__ = 0x22;
                     continue;
                 }

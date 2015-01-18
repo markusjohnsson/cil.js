@@ -45,6 +45,13 @@ var asm0; (function (asm)
         }
     }
 
+    function unsigned_value(a) {
+        if (a < 0)
+            return 0xffffffff + a + 1;
+        else
+            return a;
+    }
+
     function box(v, type) {
         if (v === null)
             return v;
@@ -9902,7 +9909,7 @@ var asm0; (function (asm)
                 /* IL_08: ldc.i4.0 */
                 /* IL_0A: ceq */
                 /* IL_0B: stloc.2 */
-                loc2 = ((((loc0 < arg1) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc2 = ((((unsigned_value(loc0) < unsigned_value(arg1)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_0C: ldloc.2 */
                 /* IL_0D: brtrue.s IL_13*/
                 
@@ -9923,7 +9930,7 @@ var asm0; (function (asm)
                 /* IL_17: ldc.i4.0 */
                 /* IL_19: ceq */
                 /* IL_1A: stloc.2 */
-                loc2 = ((((loc0 > arg1) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc2 = ((((unsigned_value(loc0) > unsigned_value(arg1)) ? (1) : (0)) === (0|0)) ? (1) : (0));
                 /* IL_1B: ldloc.2 */
                 /* IL_1C: brtrue.s IL_22*/
                 
@@ -18403,6 +18410,13 @@ var asm1; (function (asm)
         }
     }
 
+    function unsigned_value(a) {
+        if (a < 0)
+            return 0xffffffff + a + 1;
+        else
+            return a;
+    }
+
     function box(v, type) {
         if (v === null)
             return v;
@@ -18669,7 +18683,7 @@ var asm1; (function (asm)
                 /* IL_09: ldfld Int32 y*/
                 /* IL_0E: bne.un.s IL_29*/
                 
-                if (({
+                if (unsigned_value(({
                     'w': function ()
                     {
                         arg0 = (arguments)[0];
@@ -18678,7 +18692,7 @@ var asm1; (function (asm)
                     {
                         return arg0;
                     }
-                }.r)().x != ({
+                }.r)().x) != unsigned_value(({
                     'w': function ()
                     {
                         arg0 = (arguments)[0];
@@ -18687,7 +18701,7 @@ var asm1; (function (asm)
                     {
                         return arg0;
                     }
-                }.r)().y){
+                }.r)().y)){
                     __pos_0__ = 0x29;
                     continue;
                 }
@@ -18697,7 +18711,7 @@ var asm1; (function (asm)
                 /* IL_19: ldfld Int32 z*/
                 /* IL_1E: bne.un.s IL_29*/
                 
-                if (({
+                if (unsigned_value(({
                     'w': function ()
                     {
                         arg0 = (arguments)[0];
@@ -18706,7 +18720,7 @@ var asm1; (function (asm)
                     {
                         return arg0;
                     }
-                }.r)().y != ({
+                }.r)().y) != unsigned_value(({
                     'w': function ()
                     {
                         arg0 = (arguments)[0];
@@ -18715,7 +18729,7 @@ var asm1; (function (asm)
                     {
                         return arg0;
                     }
-                }.r)().z){
+                }.r)().z)){
                     __pos_0__ = 0x29;
                     continue;
                 }
@@ -19033,7 +19047,7 @@ var asm1; (function (asm)
                 /* IL_89: ldfld Int32 y*/
                 /* IL_8E: bne.un.s IL_A9*/
                 
-                if (({
+                if (unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19042,7 +19056,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().x != ({
+                }.r)().x) != unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19051,7 +19065,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().y){
+                }.r)().y)){
                     __pos_0__ = 0xA9;
                     continue;
                 }
@@ -19061,7 +19075,7 @@ var asm1; (function (asm)
                 /* IL_99: ldfld Int32 z*/
                 /* IL_9E: bne.un.s IL_A9*/
                 
-                if (({
+                if (unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19070,7 +19084,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().y != ({
+                }.r)().y) != unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19079,7 +19093,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().z){
+                }.r)().z)){
                     __pos_0__ = 0xA9;
                     continue;
                 }
@@ -19123,7 +19137,7 @@ var asm1; (function (asm)
                 /* IL_C0: ldfld Int32 y*/
                 /* IL_C5: bne.un.s IL_E0*/
                 
-                if (({
+                if (unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19132,7 +19146,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().x != ({
+                }.r)().x) != unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19141,7 +19155,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().y){
+                }.r)().y)){
                     __pos_0__ = 0xE0;
                     continue;
                 }
@@ -19151,7 +19165,7 @@ var asm1; (function (asm)
                 /* IL_D0: ldfld Int32 z*/
                 /* IL_D5: bne.un.s IL_E0*/
                 
-                if (({
+                if (unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19160,7 +19174,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().y != ({
+                }.r)().y) != unsigned_value(({
                     'w': function ()
                     {
                         loc2 = (arguments)[0];
@@ -19169,7 +19183,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.r)().z){
+                }.r)().z)){
                     __pos_0__ = 0xE0;
                     continue;
                 }

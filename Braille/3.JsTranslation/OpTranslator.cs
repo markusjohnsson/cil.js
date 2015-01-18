@@ -323,14 +323,16 @@ namespace Braille.JsTranslation
             return expression;
         }
 
-        private JSIfStatement CreateComparisonBranch(OpExpression frame, string op)
+        private JSIfStatement CreateComparisonBranch(OpExpression node, string op)
         {
+            var isUnsigned = node.Instruction.OpCode.Name.Contains(".un");
+            
             return new JSIfStatement
             {
                 Condition = new JSBinaryExpression
                 {
-                    Left = ProcessInternal(frame.Arguments.First()),
-                    Right = ProcessInternal(frame.Arguments.Last()),
+                    Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First())),
+                    Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
                     Operator = op
                 },
                 Statements = 
@@ -338,7 +340,7 @@ namespace Braille.JsTranslation
                     JSFactory
                         .Assignment(
                             "__pos__",
-                            new JSNumberLiteral { Value = GetTargetPosition(frame.Instruction), IsHex = true })
+                            new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
                         .ToStatement(),
                     new JSExpressionStatement
                     {
@@ -346,6 +348,14 @@ namespace Braille.JsTranslation
                     }       
                 }
             };
+        }
+
+        protected static JSExpression WrapInUnsigned(bool isUnsigned, JSExpression expression)
+        {
+            if (isUnsigned)
+                return JSFactory.Call(JSFactory.Identifier("unsigned_value"), expression);
+            else
+                return expression;
         }
 
         private double GetTargetPosition(OpInstruction i)

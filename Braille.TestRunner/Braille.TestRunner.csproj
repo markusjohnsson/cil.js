@@ -117,7 +117,7 @@
     <Compile Include="Controllers\PlaygroundController.cs" />
     <None Include="Tests\ValueTypeEquality.cs" />
     <None Include="Tests\CallGenericMethodOnGenericClass.cs" />
-    <Compile Include="Tests\ReferenceEquals.cs" />
+    <None Include="Tests\ReferenceEquals.cs" />
     <None Include="Tests\DefaultOnRefStructBug.cs" />
     <None Include="Tests\GenericBaseClassBug.cs" />
     <None Include="Tests\IsInstGenericSubclass.cs" />
