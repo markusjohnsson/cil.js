@@ -588,30 +588,30 @@ namespace Braille.JsTranslation
                         var typeTok = (Type)node.Instruction.Data;
                         var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
-                        return new JSConditionalExpression
+                        return new JSCallExpression
                         {
-                            Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
-                            TrueValue = new JSConditionalExpression
+                            Function = new JSPropertyAccessExpression
                             {
-                                Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
-                                TrueValue = JSFactory.Literal(0),
-                                FalseValue = new JSCallExpression
+                                Host = ProcessInternal(node.Arguments.Single()),
+                                Property = "w"
+                            },
+                            Arguments = 
+                            {
+                                new JSConditionalExpression
                                 {
-                                    Function = new JSPropertyAccessExpression
+                                    Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
+                                    TrueValue = new JSConditionalExpression
                                     {
-                                        Host = ProcessInternal(node.Arguments.Single()),
-                                        Property = "w"
-                                    },
-                                    Arguments = 
-                                    {
-                                        new JSNewExpression 
+                                        Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
+                                        TrueValue = JSFactory.Literal(0),
+                                        FalseValue = new JSNewExpression 
                                         {
                                             Constructor = typeExpr
                                         }
-                                    }
+                                    },
+                                    FalseValue = new JSNullLiteral()
                                 }
-                            },
-                            FalseValue = new JSNullLiteral()
+                            }
                         };
                     }
                 case "isinst":
