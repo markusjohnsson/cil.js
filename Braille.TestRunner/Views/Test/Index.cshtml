@@ -77,9 +77,9 @@
                     .fromArray(this.items)
                     .select(
                         function (item) {
-                            return Rx.Observable
-                                .defer(
-                                    function() {
+                            //return Rx.Observable
+                            //    .defer(
+                            //        function() {
                                         item.testRunning(true);
                                         return $
                                             .getJSONAsObservable("/api/testrunner?name=" + item.Name)
@@ -95,7 +95,7 @@
 
                                                     item.testRunning(false); 
                                                 });
-                                    });
+                                    //});
                         })
                     .concatAll()
                     .subscribe();

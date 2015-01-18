@@ -115,7 +115,10 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
-    <Compile Include="Tests\CallGenericMethodOnGenericClass.cs" />
+    <None Include="Tests\ValueTypeEquality.cs" />
+    <None Include="Tests\CallGenericMethodOnGenericClass.cs" />
+    <Compile Include="Tests\ReferenceEquals.cs" />
+    <None Include="Tests\DefaultOnRefStructBug.cs" />
     <None Include="Tests\GenericBaseClassBug.cs" />
     <None Include="Tests\IsInstGenericSubclass.cs" />
     <None Include="Tests\InterfaceCallvirtFromGenericClass.cs" />
@@ -150,7 +153,7 @@
     <None Include="Tests\Closure.cs" />
     <None Include="MonoTests\static-ctor.cs" />
     <Content Include="Tests\YieldGenerators.cs" />
-    <Content Include="Tests\ArrayIteration.cs" />
+    <None Include="Tests\ArrayIteration.cs" />
     <Content Include="Tests\Negate.cs" />
     <None Include="MonoTests\Initobj.cs" />
     <None Include="Tests\NestedClasses.cs" />
