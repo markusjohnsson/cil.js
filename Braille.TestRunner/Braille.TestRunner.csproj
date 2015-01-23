@@ -169,8 +169,6 @@
     <None Include="Tests\IsInstInterface.cs" />
     <None Include="Tests\Enums.cs" />
     <None Include="Tests\IsInstDelegate.cs" />
-    <None Include="Assemblies\Basic\A.cs" />
-    <None Include="Assemblies\Basic\Program.cs" />
     <Compile Include="Controllers\TestRunnerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

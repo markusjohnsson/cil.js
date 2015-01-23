@@ -28,18 +28,46 @@ namespace Braille.TestRunner.Models
                 yield return CompileAndRun(file);
         }
 
-        public TestResult CompileAndRun(params string[] csFiles)
+        public TestResult CompileAndRun(string csFile, bool translateCorlib = true)
         {
-            var clrRefs = new List<string>();
-            var brlRefs = new List<string>();
+            return CompileAndRun(new[] { csFile }, translateCorlib);
+        }
 
-            brlRefs.Add(GetCorlibPath());
+        class Ref
+        {
+            public string path;
+            public bool translate = true;
+        }
+
+        private object corlibGate = new object();
+
+        public TestResult CompileAndRun(string[] csFiles, bool translateCorlib = true)
+        {
+            var errors = new List<string>();
+
+            var clrRefs = new List<Ref>();
+            var brlRefs = new List<Ref>();
+
+            var corlib = GetCorlibPath();
+            var corlibOutput = Path.Combine(workingDir, "corlib.brl.js");
+
+            if (false == translateCorlib)
+            {
+                lock (corlibGate)
+                {
+                    // translate corlib only if needed and do it to a separate file
+                    if (File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
+                    {
+                        CompileJs(corlib, corlibOutput, brlRefs, errors);
+                    }
+                }
+            }
+
+            brlRefs.Add(new Ref { path = corlib, translate = translateCorlib });
 
             string clrProgramOutputName = null;
             string brlProgramOutputName = null;
             string csProgramFile = null;
-
-            var errors = new List<string>();
 
             if (csFiles.Length == 1)
             {
@@ -68,8 +96,8 @@ namespace Braille.TestRunner.Models
                         var clrOutputName = file + ".clr.dll";
                         CompileAssembly(file, brlOutputName, true, clrRefs, errors);
                         CompileAssembly(file, clrOutputName, false, clrRefs, errors);
-                        brlRefs.Add(brlOutputName);
-                        clrRefs.Add(clrOutputName);
+                        brlRefs.Add(new Ref { path = brlOutputName });
+                        clrRefs.Add(new Ref { path = clrOutputName });
                     }
                 }
             }
@@ -87,7 +115,7 @@ namespace Braille.TestRunner.Models
                 goto DONE;
             }
 
-            var entryPoint = CompileJs(brlProgramOutputName, brlRefs, errors);
+            var entryPoint = CompileJs(brlProgramOutputName, brlProgramOutputName + ".js", brlRefs, errors);
 
             if (errors.Any())
             {
@@ -99,7 +127,7 @@ namespace Braille.TestRunner.Models
             exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
 
             int jsExitCode;
-            jsOutput = ExecuteJs(brlProgramOutputName, entryPoint, out jsExitCode, errors);
+            jsOutput = ExecuteJs(brlProgramOutputName, translateCorlib ? null : corlibOutput, entryPoint, out jsExitCode, errors);
 
             if (errors.Any())
             {
@@ -151,7 +179,7 @@ namespace Braille.TestRunner.Models
             return output;
         }
 
-        private string ExecuteJs(string exeFilePath, string entryPoint, out int exitCode, List<string> errors)
+        private string ExecuteJs(string exeFilePath, string corlibPath, string entryPoint, out int exitCode, List<string> errors)
         {
             string jsOutput = null;
             exitCode = -1;
@@ -163,6 +191,10 @@ namespace Braille.TestRunner.Models
                 {
                     jsEngine.Execute(@"var braille_testlib_output = """";");
                     jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
+
+                    if (corlibPath != null)
+                        jsEngine.ExecuteFile(corlibPath);
+
                     jsEngine.ExecuteFile(exeFilePath + ".js");
                     exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
                 }
@@ -192,16 +224,18 @@ namespace Braille.TestRunner.Models
             return jsOutput;
         }
 
-        private string CompileJs(string outputName, List<string> refs, List<string> errors)
+        private string CompileJs(string mainAssemblyName, string outputName, List<Ref> refs, List<string> errors)
         {
             try
             {
                 var settings = new CompileSettings();
 
                 foreach (var r in refs)
-                    settings.AddAssembly(r, translate: false);
-                settings.AddAssembly(outputName, translate: true);
-                settings.OutputFileName = outputName + ".js";
+                    settings.AddAssembly(r.path, translate: r.translate);
+
+                settings.AddAssembly(mainAssemblyName, translate: true);
+
+                settings.OutputFileName = outputName;
 
                 settings.OutputILComments = true;
 
@@ -218,7 +252,7 @@ namespace Braille.TestRunner.Models
             return null;
         }
 
-        private void CompileAssembly(string csFile, string outputName, bool forBraille, List<string> refs, List<string> errors)
+        private void CompileAssembly(string csFile, string outputName, bool forBraille, List<Ref> refs, List<string> errors)
         {
             var codeProvider = new CSharpCodeProvider();
             var icc = codeProvider.CreateCompiler();
@@ -232,7 +266,7 @@ namespace Braille.TestRunner.Models
 
             if (refs != null)
             {
-                parameters.ReferencedAssemblies.AddRange(refs.ToArray());
+                parameters.ReferencedAssemblies.AddRange(refs.Select(r => r.path).ToArray());
             }
 
             var results = icc.CompileAssemblyFromFileBatch(parameters, new[] { Path.Combine(workingDir, "TestInclude.cs"), csFile });

@@ -11,7 +11,7 @@ namespace Braille.TestRunner.Controllers
         public TestResult Get([FromUri] string name)
         {
             var runner = new Tests(HostingEnvironment.MapPath("~"));
-            return runner.CompileAndRun(name.Replace("/", "\\"));
+            return runner.CompileAndRun(name.Replace("/", "\\"), translateCorlib: false);
         }
 
         [HttpGet]
