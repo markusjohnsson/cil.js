@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Braille
 {
@@ -14,7 +15,7 @@ namespace Braille
 
             var settings = new CompileSettings();
 
-            for (int i = 0; i < args.Length - 1; i++)
+            for (int i = 0; i < args.Length; i++)
             {
                 if (args[i].StartsWith("--"))
                 {
@@ -30,6 +31,29 @@ namespace Braille
                     {
                         settings.KeepFlatExpressions = true;
                     }
+                    else if (args[i] == "--out")
+                    {
+                        i++;
+
+                        Console.WriteLine("Output: " + args[i]);
+                        settings.OutputFileName = args[i];
+                    }
+                    else if (args[i] == "--refs")
+                    {
+                        int j = i + 1;
+                        for (; j < args.Length; j++)
+                        {
+                            if (args[j].StartsWith("--"))
+                            {
+                                break;   
+                            }
+
+                            Console.WriteLine("Adding reference assembly: " + args[j]);
+                            settings.AddAssembly(args[j], translate: false);
+                        }
+
+                        i = j - 1;
+                    }
                     else
                     {
                         Console.WriteLine("Unknown option '" + args[i] + "'");
@@ -41,12 +65,11 @@ namespace Braille
                 else
                 {
                     Console.WriteLine("Adding assembly: " + args[i]);
-                    settings.AddAssembly(args[i]);
+                    settings.AddAssembly(args[i], translate: true);
                 }
             }
 
-            Console.WriteLine("Output: " + args[args.Length - 1]);
-            settings.OutputFileName = args[args.Length - 1];
+            settings.Assemblies = settings.Assemblies.OrderBy(a => a.Translate).ToList();
 
             var compiler = new Compiler(settings);
             compiler.Compile();
@@ -54,12 +77,14 @@ namespace Braille
 
         private static void PrintUsage()
         {
-            Console.WriteLine("Usage: Braille.exe [OPTIONS] INPUT_1 [INPUT_2 INPUT_3 ...] OUTPUT");
+            Console.WriteLine("Usage: Braille.exe [OPTIONS] INPUT_1 [INPUT_2 INPUT_3 ...] [--refs REF_1 [REF_2]]");
             Console.WriteLine();
             Console.WriteLine("Options: ");
             Console.WriteLine("  --output-il-comments");
+            Console.WriteLine("  --output-html-runner");
+            Console.WriteLine("  --keep-flat-expressions");
             Console.WriteLine();
-            Console.WriteLine("Example: Braille.exe InputAssembly01.dll InputAssembly02.dll Output.js");
+            Console.WriteLine("Example: Braille.exe InputAssembly01.dll InputAssembly02.dll --out Output.js");
 
         }
     }

@@ -18,11 +18,12 @@ namespace Braille.Loading.Model
 
         struct MethodId
         {
-            public int assembly; public int metadataToken;
+            public readonly int Assembly; 
+            public readonly int MetadataToken;
             public MethodId(int asm, MethodBase mb)
             {
-                assembly = asm;
-                metadataToken = mb.MetadataToken;
+                Assembly = asm;
+                MetadataToken = mb.MetadataToken;
             }
         }
         private Dictionary<MethodId, CilMethod> methodLookup;

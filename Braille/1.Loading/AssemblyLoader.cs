@@ -9,6 +9,7 @@ namespace Braille.Loading
     class AssemblyLoader
     {
         private CompileSettings settings;
+
         public AssemblyLoader(CompileSettings settings)
         {
             this.settings = settings;
@@ -19,22 +20,25 @@ namespace Braille.Loading
             var universe = new Universe();
 
             var asms = settings
-                .assemblies
+                .Assemblies
                 .Select((p, i) => Process(universe, p, i))
                 .ToList();
 
             return new Context(universe, asms, settings);
         }
 
-        private CilAssembly Process(Universe universe, string assembly, int index)
+        private CilAssembly Process(Universe universe, AssemblySettings settings, int index)
         {
-            var asm = universe.LoadFile(assembly);
+            var asm = universe.LoadFile(settings.Path);
 
-            var result = new CilAssembly();
-            result.Name = asm.FullName;
-            result.EntryPoint = asm.EntryPoint;
-            result.ReflectionAssembly = asm;
-            result.Identifier = "asm" + index;
+            var result = new CilAssembly
+            {
+                Name = asm.FullName,
+                EntryPoint = asm.EntryPoint,
+                ReflectionAssembly = asm,
+                Identifier = "asm" + index,
+                Settings = settings
+            };
 
             var types = new List<CilType>();
             result.Types = types;

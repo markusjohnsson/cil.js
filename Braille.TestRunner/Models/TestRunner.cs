@@ -199,8 +199,8 @@ namespace Braille.TestRunner.Models
                 var settings = new CompileSettings();
 
                 foreach (var r in refs)
-                    settings.AddAssembly(r);
-                settings.AddAssembly(outputName);
+                    settings.AddAssembly(r, translate: false);
+                settings.AddAssembly(outputName, translate: true);
                 settings.OutputFileName = outputName + ".js";
 
                 settings.OutputILComments = true;

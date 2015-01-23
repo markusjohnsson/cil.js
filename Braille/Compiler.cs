@@ -4,6 +4,7 @@ using Braille.Loading;
 using System;
 using System.IO;
 using System.Linq;
+using Braille.Ast;
 
 namespace Braille
 {
@@ -24,7 +25,8 @@ namespace Braille
             {
                 var asms = ctx.Assemblies;
 
-                File.Delete(settings.OutputFileName);
+                if (settings.OutputFileName != null)
+                    File.Delete(settings.OutputFileName);
 
                 var staticAnalyzer = new StaticAnalyzer();
                 staticAnalyzer.Analyze(ctx);
@@ -33,8 +35,22 @@ namespace Braille
 
                 foreach (var asm in asms)
                 {
+                    if (! asm.Settings.Translate)
+                        continue;
+                    
                     var asmExpression = translator.Translate(asms, asm);
-                    File.AppendAllText(settings.OutputFileName,
+                    
+                    string outputFileName;
+
+                    if (settings.OutputFileName != null)
+                        outputFileName = settings.OutputFileName;
+                    else
+                    {
+                        outputFileName = asm.ReflectionAssembly.GetName().Name + ".js";
+                        File.Delete(outputFileName);
+                    }
+                    
+                    File.AppendAllText(outputFileName,
                         "var " + asm.Identifier + "; (" +
                             asmExpression.ToString() + ")(" + asm.Identifier + " || (" + 
                             asm.Identifier + " = {}));" + Environment.NewLine);
@@ -42,8 +58,7 @@ namespace Braille
 
                 var entrypointAssembly = ctx
                     .Assemblies
-                    .Where(a => a.EntryPoint != null)
-                    .FirstOrDefault();
+                    .FirstOrDefault(a => a.EntryPoint != null);
 
                 if (settings.OutputHtmlRunner)
                 {
@@ -80,5 +95,6 @@ namespace Braille
                 };
             }
         }
+
     }
 }

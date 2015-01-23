@@ -13,5 +13,7 @@ namespace Braille.Ast
 
 
         public string Identifier { get; set; }
+
+        public AssemblySettings Settings { get; set; }
     }
 }

@@ -2,13 +2,19 @@ using System.Collections.Generic;
 
 namespace Braille
 {
+    public class AssemblySettings
+    {
+        public string Path { get; set; }
+        public bool Translate { get; set; }
+    }
+
     public class CompileSettings
     {
-        internal List<string> assemblies = new List<string>();
+        public List<AssemblySettings> Assemblies = new List<AssemblySettings>();
 
-        public void AddAssembly(string assemblyPath)
+        public void AddAssembly(string assemblyPath, bool translate)
         {
-            assemblies.Add(assemblyPath);
+            Assemblies.Add(new AssemblySettings { Path = assemblyPath, Translate = translate });
         }
 
         public string OutputFileName
