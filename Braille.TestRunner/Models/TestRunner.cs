@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reactive.Concurrency;
+using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Braille.TestRunner.Models
@@ -20,12 +22,16 @@ namespace Braille.TestRunner.Models
             this.workingDir = workingDir;
         }
 
-        public IEnumerable<TestResult> RunAll()
+        public IObservable<TestResult> RunAll()
         {
-            foreach (var file in Directory.GetFiles(Path.Combine(workingDir, "Tests"), "*.cs"))
-                yield return CompileAndRun(file);
-            foreach (var file in Directory.GetFiles(Path.Combine(workingDir, "MonoTests"), "*.cs"))
-                yield return CompileAndRun(file);
+            return Enumerable
+                .Concat(
+                    Directory.GetFiles(Path.Combine(workingDir, "Tests"), "*.cs"),
+                    Directory.GetFiles(Path.Combine(workingDir, "MonoTests"), "*.cs"))
+
+                // much faster than ToObservable
+                .Select(s => Observable.Defer(() => Observable.Start(() => CompileAndRun(s, translateCorlib: false))))
+                .Merge();
         }
 
         public TestResult CompileAndRun(string csFile, bool translateCorlib = true)
@@ -39,7 +45,7 @@ namespace Braille.TestRunner.Models
             public bool translate = true;
         }
 
-        private object corlibGate = new object();
+        private static readonly object corlibGate = new object();
 
         public TestResult CompileAndRun(string[] csFiles, bool translateCorlib = true)
         {
@@ -56,7 +62,8 @@ namespace Braille.TestRunner.Models
                 lock (corlibGate)
                 {
                     // translate corlib only if needed and do it to a separate file
-                    if (File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
+                    if (!File.Exists(corlibOutput) || 
+                         File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
                     {
                         CompileJs(corlib, corlibOutput, brlRefs, errors);
                     }
