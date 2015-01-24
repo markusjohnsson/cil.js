@@ -346,7 +346,7 @@ var asm1; (function (asm)
                     {
                         return loc2;
                     }
-                }.w)(((t2.IsValueType) ? (((t2.IsPrimitive) ? ((0|0)) : (new t2()))) : (null)));
+                }.w)(new t2());
                 /* IL_2B: ldloc.2 */
                 st_0C = loc2;
                 /* IL_2C: stobj System.Nullable`1[System.Int32]*/

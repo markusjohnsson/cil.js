@@ -595,34 +595,54 @@ namespace Braille.JsTranslation
                     return ProcessInternal(node.Arguments.Single());
                 case "initobj":
                     {
-                        var typeTok = (Type)node.Instruction.Data;
+                        var typeTok = (Type)node.Instruction.Data;    
                         var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
-                        return new JSCallExpression
+                        if (false == typeTok.IsGenericParameter)
                         {
-                            Function = new JSPropertyAccessExpression
+                            return new JSCallExpression
                             {
-                                Host = ProcessInternal(node.Arguments.Single()),
-                                Property = "w"
-                            },
-                            Arguments = 
-                            {
-                                new JSConditionalExpression
+                                Function = new JSPropertyAccessExpression
                                 {
-                                    Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
-                                    TrueValue = new JSConditionalExpression
-                                    {
-                                        Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
-                                        TrueValue = JSFactory.Literal(0),
-                                        FalseValue = new JSNewExpression 
-                                        {
-                                            Constructor = typeExpr
-                                        }
-                                    },
-                                    FalseValue = new JSNullLiteral()
+                                    Host = ProcessInternal(node.Arguments.Single()),
+                                    Property = "w"
+                                },
+                                Arguments =
+                                {
+                                    typeTok.IsValueType ? 
+                                        typeTok.IsPrimitive ? JSFactory.Literal(0) : new JSNewExpression { Constructor = typeExpr } :
+                                        new JSNullLiteral()
                                 }
-                            }
-                        };
+                            };
+                        }
+                        else
+                        {
+                            return new JSCallExpression
+                            {
+                                Function = new JSPropertyAccessExpression
+                                {
+                                    Host = ProcessInternal(node.Arguments.Single()),
+                                    Property = "w"
+                                },
+                                Arguments = 
+                                {
+                                    new JSConditionalExpression
+                                    {
+                                        Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
+                                        TrueValue = new JSConditionalExpression
+                                        {
+                                            Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
+                                            TrueValue = JSFactory.Literal(0),
+                                            FalseValue = new JSNewExpression 
+                                            {
+                                                Constructor = typeExpr
+                                            }
+                                        },
+                                        FalseValue = new JSNullLiteral()
+                                    }
+                                }
+                            };
+                        }
                     }
                 case "isinst":
                     {

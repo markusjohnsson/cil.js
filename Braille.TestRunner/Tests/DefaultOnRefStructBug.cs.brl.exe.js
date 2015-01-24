@@ -343,7 +343,7 @@ var asm1; (function (asm)
                     {
                         return loc0;
                     }
-                }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+                }.w)(new t1());
                 /* IL_08: ldloca.s 0*/
                 /* IL_0A: ldc.i4.s 123*/
                 /* IL_0C: stfld IKVM.Reflection.GenericFieldInstance*/
@@ -418,7 +418,7 @@ var asm1; (function (asm)
                     {
                         return loc1;
                     }
-                }.w)(((t3.IsValueType) ? (((t3.IsPrimitive) ? ((0|0)) : (new t3()))) : (null)));
+                }.w)(new t3());
                 /* IL_42: ldloca.s 1*/
                 /* IL_44: newobj Void .ctor()*/
                 /* IL_49: stfld IKVM.Reflection.GenericFieldInstance*/

@@ -318,7 +318,7 @@ var asm1; (function (asm)
             {
                 return loc0;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_09: ldloca.s 0*/
         st_01 = {
             'w': function ()

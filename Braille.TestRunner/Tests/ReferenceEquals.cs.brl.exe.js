@@ -472,7 +472,7 @@ var asm1; (function (asm)
             {
                 return loc1;
             }
-        }.w)(((t2.IsValueType) ? (((t2.IsPrimitive) ? ((0|0)) : (new t2()))) : (null)));
+        }.w)(new t2());
         /* IL_AC: ldloc.1 */
         /* IL_AD: stsfld B b*/
         (t0)["b"] = loc1;
@@ -506,7 +506,7 @@ var asm1; (function (asm)
             {
                 return loc2;
             }
-        }.w)(((t2.IsValueType) ? (((t2.IsPrimitive) ? ((0|0)) : (new t2()))) : (null)));
+        }.w)(new t2());
         /* IL_D1: ldloc.2 */
         /* IL_D2: ldloc.2 */
         /* IL_D3: box B*/
@@ -599,7 +599,7 @@ var asm1; (function (asm)
             {
                 return loc4;
             }
-        }.w)(((t2.IsValueType) ? (((t2.IsPrimitive) ? ((0|0)) : (new t2()))) : (null)));
+        }.w)(new t2());
         /* IL_153: ldloc.s 4*/
         /* IL_155: call Void CheckEquals(B)*/
         ((asm1.x600000d)((asm1.B)()))(clone_value(loc4));

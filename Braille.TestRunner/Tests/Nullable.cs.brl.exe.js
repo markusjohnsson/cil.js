@@ -309,7 +309,7 @@ var asm1; (function (asm)
             {
                 return loc2;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_08: ldloc.2 */
         /* IL_09: call Void Print(System.Nullable`1[A])*/
         (asm1.x600000e)(clone_value(loc2));
@@ -324,7 +324,7 @@ var asm1; (function (asm)
             {
                 return loc3;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_16: ldloc.3 */
         /* IL_17: call Void Print(System.Nullable`1[A])*/
         (asm1.x600000e)(clone_value(loc3));
@@ -339,7 +339,7 @@ var asm1; (function (asm)
             {
                 return loc0;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_24: ldloca.s 0*/
         /* IL_26: ldc.i4.s 33*/
         /* IL_28: stfld Int32 X*/
@@ -371,7 +371,7 @@ var asm1; (function (asm)
             {
                 return loc4;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_40: ldloc.s 4*/
         /* IL_42: newobj Void .ctor(A)*/
         /* IL_47: call Void Print(System.Nullable`1[A])*/
@@ -393,7 +393,7 @@ var asm1; (function (asm)
             {
                 return loc5;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_5A: ldloc.s 5*/
         /* IL_5C: box System.Nullable`1[A]*/
         /* IL_61: call Void PrintObject(System.Object)*/
@@ -414,7 +414,7 @@ var asm1; (function (asm)
             {
                 return loc1;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_6E: ldloca.s 1*/
         /* IL_70: ldc.i4.s 33*/
         /* IL_72: stfld Int32 X*/
@@ -448,7 +448,7 @@ var asm1; (function (asm)
             {
                 return loc6;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_8A: ldloc.s 6*/
         /* IL_8C: box A*/
         /* IL_91: call Void PrintObject(System.Object)*/

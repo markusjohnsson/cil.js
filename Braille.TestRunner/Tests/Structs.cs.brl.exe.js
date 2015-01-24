@@ -294,7 +294,7 @@ var asm1; (function (asm)
             {
                 return loc0;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_08: ldloca.s 0*/
         /* IL_0A: ldc.i4 123456789*/
         /* IL_0F: stfld Int32 Value*/

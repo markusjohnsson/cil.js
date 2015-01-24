@@ -403,7 +403,7 @@ var asm1; (function (asm)
             {
                 return loc23;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_08: ldloc.s 23*/
         /* IL_0A: call Void TestA(A)*/
         (asm1.x600000e)(clone_value(loc23));
@@ -418,7 +418,7 @@ var asm1; (function (asm)
             {
                 return loc0;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_17: ldloca.s 0*/
         /* IL_19: ldc.i4.0 */
         /* IL_1A: stfld Int32 x*/
@@ -446,7 +446,7 @@ var asm1; (function (asm)
             {
                 return loc1;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_2D: ldloca.s 1*/
         /* IL_2F: ldc.i4.s 123*/
         /* IL_31: stfld Int32 x*/
@@ -474,7 +474,7 @@ var asm1; (function (asm)
             {
                 return loc2;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_44: ldloca.s 2*/
         /* IL_46: ldc.i4 321*/
         /* IL_4B: stfld Int32 x*/
@@ -502,7 +502,7 @@ var asm1; (function (asm)
             {
                 return loc24;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_5E: ldloc.s 24*/
         /* IL_60: call Void TestA(A)*/
         (asm1.x600000e)(clone_value(loc24));
@@ -517,7 +517,7 @@ var asm1; (function (asm)
             {
                 return loc25;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_6D: ldloc.s 25*/
         /* IL_6F: ldfld A a*/
         /* IL_74: call Void TestA(A)*/
@@ -538,7 +538,7 @@ var asm1; (function (asm)
             {
                 return loc26;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_8B: ldloc.s 26*/
         /* IL_8D: call Void TestB(B)*/
         (asm1.x600000f)(clone_value(loc26));
@@ -553,7 +553,7 @@ var asm1; (function (asm)
             {
                 return loc3;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_9A: ldloca.s 3*/
         st_1A = {
             'w': function ()
@@ -576,7 +576,7 @@ var asm1; (function (asm)
             {
                 return loc4;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_A4: ldloca.s 4*/
         st_18 = {
             'w': function ()
@@ -610,7 +610,7 @@ var asm1; (function (asm)
             {
                 return loc5;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_C2: ldloca.s 5*/
         st_21 = {
             'w': function ()
@@ -633,7 +633,7 @@ var asm1; (function (asm)
             {
                 return loc6;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_CC: ldloca.s 6*/
         st_1F = {
             'w': function ()
@@ -680,7 +680,7 @@ var asm1; (function (asm)
             {
                 return loc7;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_F3: ldloca.s 7*/
         st_2A = {
             'w': function ()
@@ -703,7 +703,7 @@ var asm1; (function (asm)
             {
                 return loc8;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_FD: ldloca.s 8*/
         st_28 = {
             'w': function ()
@@ -750,7 +750,7 @@ var asm1; (function (asm)
             {
                 return loc9;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_128: ldloca.s 9*/
         st_33 = {
             'w': function ()
@@ -773,7 +773,7 @@ var asm1; (function (asm)
             {
                 return loc10;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_132: ldloca.s 10*/
         st_31 = {
             'w': function ()
@@ -820,7 +820,7 @@ var asm1; (function (asm)
             {
                 return loc11;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_15D: ldloca.s 11*/
         st_3C = {
             'w': function ()
@@ -843,7 +843,7 @@ var asm1; (function (asm)
             {
                 return loc12;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_167: ldloca.s 12*/
         st_3A = {
             'w': function ()
@@ -892,7 +892,7 @@ var asm1; (function (asm)
             {
                 return loc13;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_192: ldloca.s 13*/
         st_45 = {
             'w': function ()
@@ -915,7 +915,7 @@ var asm1; (function (asm)
             {
                 return loc14;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_19C: ldloca.s 14*/
         st_43 = {
             'w': function ()
@@ -949,7 +949,7 @@ var asm1; (function (asm)
             {
                 return loc15;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_1BB: ldloca.s 15*/
         st_4C = {
             'w': function ()
@@ -972,7 +972,7 @@ var asm1; (function (asm)
             {
                 return loc16;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_1C5: ldloca.s 16*/
         st_4A = {
             'w': function ()
@@ -1019,7 +1019,7 @@ var asm1; (function (asm)
             {
                 return loc17;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_1EC: ldloca.s 17*/
         st_55 = {
             'w': function ()
@@ -1042,7 +1042,7 @@ var asm1; (function (asm)
             {
                 return loc18;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_1F6: ldloca.s 18*/
         st_53 = {
             'w': function ()
@@ -1089,7 +1089,7 @@ var asm1; (function (asm)
             {
                 return loc19;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_221: ldloca.s 19*/
         st_5E = {
             'w': function ()
@@ -1112,7 +1112,7 @@ var asm1; (function (asm)
             {
                 return loc20;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_22B: ldloca.s 20*/
         st_5C = {
             'w': function ()
@@ -1159,7 +1159,7 @@ var asm1; (function (asm)
             {
                 return loc21;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_256: ldloca.s 21*/
         st_67 = {
             'w': function ()
@@ -1182,7 +1182,7 @@ var asm1; (function (asm)
             {
                 return loc22;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_260: ldloca.s 22*/
         st_65 = {
             'w': function ()
@@ -1259,7 +1259,7 @@ var asm1; (function (asm)
             {
                 return loc3;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_08: ldloca.s 3*/
         /* IL_0A: ldc.i4 321*/
         /* IL_0F: stfld Int32 x*/
@@ -1287,7 +1287,7 @@ var asm1; (function (asm)
             {
                 return loc1;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_1E: ldloca.s 2*/
         /* IL_21: initobj A*/
         ({
@@ -1299,7 +1299,7 @@ var asm1; (function (asm)
             {
                 return loc2;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_26: ldarga.s 0*/
         /* IL_28: ldloc.0 */
         /* IL_29: box A*/
@@ -1505,7 +1505,7 @@ var asm1; (function (asm)
             {
                 return loc3;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_08: ldloca.s 3*/
         st_04 = {
             'w': function ()
@@ -1528,7 +1528,7 @@ var asm1; (function (asm)
             {
                 return loc4;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_12: ldloca.s 4*/
         st_02 = {
             'w': function ()
@@ -1562,7 +1562,7 @@ var asm1; (function (asm)
             {
                 return loc1;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_2C: ldloca.s 5*/
         /* IL_2F: initobj B*/
         ({
@@ -1574,7 +1574,7 @@ var asm1; (function (asm)
             {
                 return loc5;
             }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        }.w)(new t0());
         /* IL_34: ldloca.s 5*/
         st_0C = {
             'w': function ()
@@ -1597,7 +1597,7 @@ var asm1; (function (asm)
             {
                 return loc6;
             }
-        }.w)(((t1.IsValueType) ? (((t1.IsPrimitive) ? ((0|0)) : (new t1()))) : (null)));
+        }.w)(new t1());
         /* IL_3E: ldloca.s 6*/
         st_0A = {
             'w': function ()
