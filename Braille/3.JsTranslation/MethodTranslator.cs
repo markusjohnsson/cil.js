@@ -268,11 +268,11 @@ namespace Braille.JsTranslation
                 }
             }
 
-            if (method.ReflectionMethod.GetMethodBody().InitLocals)
+            if (method.MethodBody.InitLocals)
             {
                 var locIdx = 0;
 
-                foreach (var loc in method.ReflectionMethod.GetMethodBody().LocalVariables)
+                foreach (var loc in method.MethodBody.LocalVariables)
                 {
                     if (method.Locals[locIdx].NeedInit)
                     {

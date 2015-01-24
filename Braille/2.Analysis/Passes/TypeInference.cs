@@ -56,6 +56,8 @@ namespace Braille.Analysis
             var i = opc.IndexOf(".");
             var opc_ = i > 0 ? opc.Substring(0, i) : opc;
 
+            var methodBody = method.MethodBody;
+
             switch (opc_)
             {
                 case "add":
@@ -220,7 +222,7 @@ namespace Braille.Analysis
                             id = op.Instruction.Data.ToString();
                         id = opc.Substring(5).Replace(".s", ".").Replace(".", "") + id;
 
-                        return method.ReflectionMethod.GetMethodBody().LocalVariables[int.Parse(id)].LocalType;
+                        return methodBody.LocalVariables[int.Parse(id)].LocalType;
                     }
                 case "ldloca":
                     {
@@ -230,7 +232,7 @@ namespace Braille.Analysis
 
                         var idx = int.Parse(opc.Substring(5).Replace("a.", ".").Replace(".s", ".").Replace(".", "") + id);
 
-                        var type = method.ReflectionMethod.GetMethodBody().LocalVariables[idx].LocalType;
+                        var type = methodBody.LocalVariables[idx].LocalType;
                         return types.ManagedPointer.MakeGenericType(type);
                     }
                 case "ldnull":

@@ -35,8 +35,6 @@ namespace Braille.Ast
 
         public ModuleILResolver Resolver { get; set; }
 
-        public byte[] IlCode { get; set; }
-
         public MethodBase ReflectionMethod { get; set; }
 
         public Type[] ReferencedTypes { get; set; }
@@ -72,6 +70,8 @@ namespace Braille.Ast
                     .FirstOrDefault();
             }
         }
+
+        public MethodBody MethodBody { get; internal set; }
 
         public CilMethodReplacement GetReplacement()
         {

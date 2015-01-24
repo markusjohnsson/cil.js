@@ -88,19 +88,12 @@ namespace Braille.Loading
                 ReflectionMethod = method,
                 IsHideBySig = method.IsHideBySig,
                 IsVirtual = method.IsVirtual,
-                IlCode = GetIl(method),
+                MethodBody = method.GetMethodBody(),
                 MetadataToken = method.MetadataToken,
                 Resolver = new ModuleILResolver(method),
                 DeclaringType = type
             };
         }
 
-        private static byte[] GetIl(MethodBase method)
-        {
-            if (method.GetMethodBody() == null)
-                return null;
-            else
-                return method.GetMethodBody().GetILAsByteArray();
-        }
     }
 }

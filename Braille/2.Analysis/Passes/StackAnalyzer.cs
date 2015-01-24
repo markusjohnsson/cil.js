@@ -17,9 +17,7 @@ namespace Braille.Analysis
 
             infos.First().StackBefore = new List<StackUseDefinition>();
 
-            var methodBody = method
-                .ReflectionMethod
-                .GetMethodBody();
+            var methodBody = method.MethodBody;
 
             var processStack = new Stack<OpExpression>();
             

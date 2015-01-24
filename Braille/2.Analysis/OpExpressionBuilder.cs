@@ -26,8 +26,6 @@ namespace Braille.Analysis
 
         public void Run(CilMethod method)
         {
-            var mtdb = method.ReflectionMethod.GetMethodBody();
-
             var opInfos = CreateOpInfos(method);
 
             method.OpTree = opInfos;
@@ -35,7 +33,7 @@ namespace Braille.Analysis
 
         private List<OpExpression> CreateOpInfos(CilMethod method)
         {
-            var ilOps = new OpInstructionReader(method.IlCode, method.Resolver);
+            var ilOps = new OpInstructionReader(method.MethodBody.GetILAsByteArray(), method.Resolver);
             var opInfos = new List<OpExpression>();
             var prefixes = new List<OpInstruction>();
 
@@ -77,7 +75,7 @@ namespace Braille.Analysis
                 pairs.current.Prev = pairs.prev;
             }
 
-            var body = method.ReflectionMethod.GetMethodBody();
+            var body = method.MethodBody;
             var handlers = body != null ? body.ExceptionHandlingClauses : new List<ExceptionHandlingClause>();
 
             // Create targets

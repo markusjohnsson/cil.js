@@ -15,7 +15,7 @@ namespace Braille.Ast
         public List<StackUseDefinition> StackBefore;
         public int? InstructionPopCount;
         public int PushCount;
-        public int Position { get { return Prefixes.EndWith(Instruction).Min(i => i.Position); } }
+        public int Position;
 
         public List<VariableInfo> StoreLocations = new List<VariableInfo>();
 
@@ -51,6 +51,7 @@ namespace Braille.Ast
             this.Prefixes = prefixes;
             this.InstructionPopCount = popCount;
             this.PushCount = pushCount;
+            Position = Prefixes.EndWith(Instruction).Min(i => i.Position);
         }
 
         // FIXME: this is only an appropriate string representation before expression aggregation.. perhaps we should have different classes entierly before and after

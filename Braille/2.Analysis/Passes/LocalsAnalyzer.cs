@@ -26,8 +26,7 @@ namespace Braille.Analysis
             IList<OpExpression> infos = method.OpTree;
 
             method.Locals = method
-                .ReflectionMethod
-                .GetMethodBody()
+                .MethodBody
                 .LocalVariables
                 .Select(v => new LocalInfo { ReflectionObject = v })
                 .ToArray();

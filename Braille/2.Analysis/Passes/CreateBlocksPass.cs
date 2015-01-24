@@ -149,9 +149,7 @@ namespace Braille.Analysis.Passes
 
         private static List<ProtectedRegion> GetRegions(CilMethod method)
         {
-            var mtdb = method
-                .ReflectionMethod
-                .GetMethodBody();
+            var mtdb = method.MethodBody;
 
             if (mtdb == null)
                 return new List<ProtectedRegion>() { null };
