@@ -128,16 +128,6 @@ namespace Braille.JsTranslation
                     .Select(t => GetTypeIdentifier(t, typeScope: typeScope))
                     .ToList()
             };
-            //if (type.IsGenericTypeDefinition == false)
-            //    return null;
-
-            //return new JSArrayLiteral
-            //{
-            //    Values = type
-            //        .GetGenericArguments()
-            //        .Select(g => new JSIdentifier { Name = g.Name } as JSExpression)
-            //        .ToList()
-            //};
         }
 
         public IEnumerable<JSExpression> GetTypeDeclaration(CilType type, JSExpression cache, JSExpression cacheKey, JSExpression cachedInstance, bool isGeneric)
@@ -239,22 +229,37 @@ namespace Braille.JsTranslation
                     new JSBoolLiteral { Value = true })
                 .ToStatement();
 
+            yield return JSFactory
+                .Call(
+                    JSFactory.Identifier("initType"),
+
+                    JSFactory.Identifier(n),
+                    JSFactory.String(type.ReflectionType.FullName),
+                    JSFactory.Identifier("asm"),
+                    new JSBoolLiteral { Value = type.ReflectionType.IsValueType },
+                    new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive },
+                    new JSBoolLiteral { Value = type.ReflectionType.IsInterface },
+                    new JSBoolLiteral { Value = type.ReflectionType.IsGenericTypeDefinition },
+                    new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") },
+
+                    GetAttributes(type.ReflectionType, type.ReflectionType),
+                    GetMethods(type),
+                    GetBaseType(type),
+                    GetIsInst(type),
+                    GetArrayType(type),
+                    JSFactory.Literal(GetTypeMetadataName(type.ReflectionType))
+                    )
+                .ToStatement();
+
             var staticProperties = GetStaticFieldInitializers(type)
-                .EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type.ReflectionType, type.ReflectionType)))
-                .EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("BaseType", GetBaseType(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("FullName", JSFactory.String(type.ReflectionType.FullName)))
-                .EndWith(new KeyValuePair<string, JSExpression>("Assembly", JSFactory.Identifier("asm")))
+                //.EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type.ReflectionType, type.ReflectionType)))
+                //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
+                //.EndWith(new KeyValuePair<string, JSExpression>("BaseType", GetBaseType(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsValueType", new JSBoolLiteral { Value = type.ReflectionType.IsValueType }))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsPrimitive", new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive }))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsInterface", new JSBoolLiteral { Value = type.ReflectionType.IsInterface }))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsGenericTypeDefinition", new JSBoolLiteral { Value = type.ReflectionType.IsGenericTypeDefinition }))
-                .EndWith(new KeyValuePair<string, JSExpression>("IsNullable", new JSBoolLiteral { Value = type.ReflectionType.FullName.StartsWith("System.Nullable") }))
-                .EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("MetadataName", JSFactory.Literal(GetTypeMetadataName(type.ReflectionType))))
-                .EndWith(new KeyValuePair<string, JSExpression>("GenericArguments", JSFactory.Object(new object())))
+                //.EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
+                //.EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)))
+                //.EndWith(new KeyValuePair<string, JSExpression>("MetadataName", JSFactory.Literal(GetTypeMetadataName(type.ReflectionType))))
+                //.EndWith(new KeyValuePair<string, JSExpression>("GenericArguments", JSFactory.Object(new object())))
                 ;
 
             foreach (var p in staticProperties)
@@ -269,7 +274,7 @@ namespace Braille.JsTranslation
             for (var current = type.ReflectionType; current != null; current = current.BaseType)
             {
                 var genericArguments = GetGenericArgumentsArray(current, type.ReflectionType);
-                if (genericArguments != null)
+                if (genericArguments != null && genericArguments.Values.Any())
                 {
                     yield return JSFactory
                         .Assignment(
@@ -289,9 +294,19 @@ namespace Braille.JsTranslation
             //    .ToStatement();
             //}
 
+            foreach (var f in GetVtable(type))
+            {
+                yield return JSFactory.Call(
+                        JSFactory.Identifier("declare_virtual"),
+                        JSFactory.Identifier(n),
+                        JSFactory.Literal(f.Key),
+                        JSFactory.Literal(f.Value))
+                    .ToStatement();
+            } 
+
             var prototypeProperties = GetFieldInitializers(type)
-                .EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
-                .EndWith(new KeyValuePair<string, JSExpression>("ifacemap", JSFactory.Object(new object())))
+                //.EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
+                //.EndWith(new KeyValuePair<string, JSExpression>("ifacemap", JSFactory.Object(new object())))
                 .Concat(GetPrototypeMethods(type));
 
             foreach (var f in prototypeProperties)
@@ -346,7 +361,7 @@ namespace Braille.JsTranslation
             return JSFactory.Array(parts.ToArray());
         }
 
-        private JSExpression GetAttributes(IKVM.Reflection.Type type, MemberInfo member)
+        private JSExpression GetAttributes(Type type, MemberInfo member)
         {
             return JSFactory
                 .Array(
@@ -359,7 +374,7 @@ namespace Braille.JsTranslation
                         .ToArray());
         }
 
-        private JSExpression GetAttribute(IKVM.Reflection.Type type, CustomAttributeData attribute)
+        private JSExpression GetAttribute(Type type, CustomAttributeData attribute)
         {
             var parts = new List<JSExpression> {
                 GetTypeIdentifier(attribute.AttributeType),
@@ -465,21 +480,25 @@ namespace Braille.JsTranslation
 
         private JSExpression GetIsInst(CilType type)
         {
+            // TODO: this could be done at runtime, in typeInit for example. Only thing needed is to pass T for arrays
+
+            var simpleName = JSFactory.Identifier(GetSimpleName(type.ReflectionType));
+
             if (type.IsInterface)
             {
-                return JSFactory.RawExpression("function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(" + GetSimpleName(type.ReflectionType) + ") != -1 ? t : null; } catch (e) { return false; } }");
+                return JSFactory.Call(JSFactory.Identifier("is_inst_interface"), simpleName);
             }
             else if (type.ReflectionType.IsPrimitive)
             {
-                return JSFactory.RawExpression("function (t) { try { return t.type == " + GetSimpleName(type.ReflectionType) + " ? t : null; } catch (e) { return false; } }");
+                return JSFactory.Call(JSFactory.Identifier("is_inst_primitive"), simpleName);
             }
             else if (type.ReflectionType.FullName == "System.Array`1")
             {
-                return JSFactory.RawExpression("function (t) { return t instanceof asm0['System.Array']() && (t.etype == T || t.etype.prototype instanceof T) ? t : null; }");
+                return JSFactory.Call(JSFactory.Identifier("is_inst_array"), JSFactory.Identifier("T"));
             }
             else
             {
-                return JSFactory.RawExpression("function (t) { return t instanceof " + GetSimpleName(type.ReflectionType) + " ? t : null; }");
+                return JSFactory.Call(JSFactory.Identifier("is_inst_default"), simpleName);
             }
         }
 
@@ -498,18 +517,16 @@ namespace Braille.JsTranslation
                         GetInterfaceMap(type, iface)));
         }
 
-        private JSExpression GetVtable(CilType type)
+        private Dictionary<string, string> GetVtable(CilType type)
         {
-            return new JSObjectLiteral
-            {
-                Properties = type
+            return  type
                     .ReflectionType
                     .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
                         m => GetVirtualMethodIdentifier(m),
-                        m => new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m) }.ToStatement() } } as JSExpression)
-            };
+                        m => GetMethodAccessor(m).ToString()) //new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m) }.ToStatement() } } as JSExpression)
+            ;
         }
 
         private JSExpression GetInterfaceMap(CilType type, IKVM.Reflection.Type iface)

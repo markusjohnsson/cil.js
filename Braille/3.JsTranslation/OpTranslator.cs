@@ -729,30 +729,33 @@ namespace Braille.JsTranslation
                     }
                     else if (opc.StartsWith("ldc.r8"))
                     {
-                        if (opc == "ldc.r8")
-                            return new JSNumberLiteral
-                            {
-                                Value = (double)node.Instruction.Data,
-                                TypeHint = TypeHint.Float
-                            };
-                        else if (opc == "ldc.r8.s")
-                            return new JSNumberLiteral
-                            {
-                                Value = (double)(byte)node.Instruction.Data,
-                                TypeHint = TypeHint.Float
-                            };
-                        else if (opc == "ldc.r8.m1")
-                            return new JSNumberLiteral
-                            {
-                                Value = -1L,
-                                TypeHint = TypeHint.Float
-                            };
-                        else //if (opc.StartsWith("ldc.r8"))
-                            return new JSNumberLiteral
-                            {
-                                Value = double.Parse(opc.Substring("ldc.r8.".Length)),
-                                TypeHint = TypeHint.Float
-                            };
+                        switch (opc)
+                        {
+                            case "ldc.r8":
+                                return new JSNumberLiteral
+                                {
+                                    Value = (double)node.Instruction.Data,
+                                    TypeHint = TypeHint.Float
+                                };
+                            case "ldc.r8.s":
+                                return new JSNumberLiteral
+                                {
+                                    Value = (double)(byte)node.Instruction.Data,
+                                    TypeHint = TypeHint.Float
+                                };
+                            case "ldc.r8.m1":
+                                return new JSNumberLiteral
+                                {
+                                    Value = -1L,
+                                    TypeHint = TypeHint.Float
+                                };
+                            default:
+                                return new JSNumberLiteral
+                                {
+                                    Value = double.Parse(opc.Substring("ldc.r8.".Length)),
+                                    TypeHint = TypeHint.Float
+                                };
+                        }
                     }
                     else
                     {

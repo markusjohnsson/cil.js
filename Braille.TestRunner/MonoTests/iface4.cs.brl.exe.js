@@ -6,6 +6,48 @@ var asm1; (function (asm)
 
     function nop() {}
 
+    function initType(type, fullname, assembly, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName)
+    {
+        type.FullName = fullname;
+        type.Assembly = assembly;
+        type.IsValueType = isValueType;
+        type.IsPrimitive = isPrimitive;
+        type.IsInterface = isInterface;
+        type.IsGenericTypeDefinition = isGenericTypeDefinition;
+        type.IsNullable = isNullable;
+
+        type.CustomAttributes = customAttributes;
+        type.Methods = methods;
+        type.BaseType = baseType;
+        type.IsInst = isInst;
+        type.ArrayType = arrayType;
+        type.MetadataName = metadataName;
+
+        type.GenericArguments = {};
+        type.prototype.vtable = {};
+        type.prototype.ifacemap = {};
+    }
+
+    function is_inst_interface(interfaceType){
+        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) != -1 ? t : null; } catch (e) { return false; } };
+    }
+
+    function is_inst_primitive(primitiveType) {
+        return function (t) { try { return t.type == primitiveType ? t : null; } catch (e) { return false; } }
+    }
+
+    function is_inst_array(T) {
+        return function (t) { return t instanceof asm0['System.Array']() && (t.etype == T || t.etype.prototype instanceof T) ? t : null; };
+    }
+
+    function is_inst_default(type) {
+        return function (t) { return t instanceof type ? t : null; };
+    }
+
+    function declare_virtual(type, slot, target) {
+        type.prototype.vtable[slot] = new Function('return '+target+';');
+    }
+
     function clone_value(v) {
         if (v == null) return v;
         if (typeof v === 'number') return v;
@@ -211,7 +253,6 @@ var asm1; (function (asm)
 
     function conv_u8(n) {
         if (n < 0) {
-            
             n = 0x100000000 + n;
         }
 
@@ -220,11 +261,7 @@ var asm1; (function (asm)
 
     function conv_i8(n) {
         if (n < 0) {
-            
             n = 0x100000000 + n;
-            
-            
-            
             return new Uint32Array([ n | 0, 0xffffffff ]);
         }
 
@@ -598,38 +635,11 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                TestLog.CustomAttributes = [];
-                TestLog.Methods = [];
-                TestLog.BaseType = ((asm0)["System.Object"])();
-                TestLog.FullName = "TestLog";
-                TestLog.Assembly = asm;
+                initType(TestLog,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),is_inst_default(TestLog),Array,"asm1.t2000002");
                 TestLog.Interfaces = [];
-                TestLog.IsInst = function (t) { return t instanceof TestLog ? t : null; };
-                TestLog.IsValueType = false;
-                TestLog.IsPrimitive = false;
-                TestLog.IsInterface = false;
-                TestLog.IsGenericTypeDefinition = false;
-                TestLog.IsNullable = false;
-                TestLog.ArrayType = Array;
-                TestLog.MetadataName = "asm1.t2000002";
-                TestLog.GenericArguments = {};
-                (TestLog.GenericArguments)["asm1.t2000002"] = [];
-                (TestLog.GenericArguments)["asm0.t2000002"] = [];
-                TestLog.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                TestLog.prototype.ifacemap = {};
+                declare_virtual(TestLog,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(TestLog,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(TestLog,"asm0.x6000009","asm0.x6000009");
             };
             TestLog.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -663,38 +673,11 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                TestHelper.CustomAttributes = [];
-                TestHelper.Methods = [];
-                TestHelper.BaseType = ((asm0)["System.Object"])();
-                TestHelper.FullName = "TestHelper";
-                TestHelper.Assembly = asm;
+                initType(TestHelper,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),is_inst_default(TestHelper),Array,"asm1.t2000006");
                 TestHelper.Interfaces = [];
-                TestHelper.IsInst = function (t) { return t instanceof TestHelper ? t : null; };
-                TestHelper.IsValueType = false;
-                TestHelper.IsPrimitive = false;
-                TestHelper.IsInterface = false;
-                TestHelper.IsGenericTypeDefinition = false;
-                TestHelper.IsNullable = false;
-                TestHelper.ArrayType = Array;
-                TestHelper.MetadataName = "asm1.t2000006";
-                TestHelper.GenericArguments = {};
-                (TestHelper.GenericArguments)["asm1.t2000006"] = [];
-                (TestHelper.GenericArguments)["asm0.t2000002"] = [];
-                TestHelper.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                TestHelper.prototype.ifacemap = {};
+                declare_virtual(TestHelper,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(TestHelper,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(TestHelper,"asm0.x6000009","asm0.x6000009");
             };
             TestHelper.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -728,8 +711,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                IVehicle.CustomAttributes = [];
-                IVehicle.Methods = [
+                initType(IVehicle,"IVehicle",asm,false,false,true,false,false,[],[
                     [
                         asm1,
                         "x600000c",
@@ -745,36 +727,11 @@ var asm1; (function (asm)
                         "x600000e",
                         "Turn"
                     ]
-                ];
-                IVehicle.BaseType = null;
-                IVehicle.FullName = "IVehicle";
-                IVehicle.Assembly = asm;
+                ],null,is_inst_interface(IVehicle),Array,"asm1.t2000007");
                 IVehicle.Interfaces = [];
-                IVehicle.IsInst = function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(IVehicle) != -1 ? t : null; } catch (e) { return false; } };
-                IVehicle.IsValueType = false;
-                IVehicle.IsPrimitive = false;
-                IVehicle.IsInterface = true;
-                IVehicle.IsGenericTypeDefinition = false;
-                IVehicle.IsNullable = false;
-                IVehicle.ArrayType = Array;
-                IVehicle.MetadataName = "asm1.t2000007";
-                IVehicle.GenericArguments = {};
-                (IVehicle.GenericArguments)["asm1.t2000007"] = [];
-                IVehicle.prototype.vtable = {
-                    'asm1.x600000c': function ()
-                    {
-                        return asm1.x600000c;
-                    },
-                    'asm1.x600000d': function ()
-                    {
-                        return asm1.x600000d;
-                    },
-                    'asm1.x600000e': function ()
-                    {
-                        return asm1.x600000e;
-                    }
-                };
-                IVehicle.prototype.ifacemap = {};
+                declare_virtual(IVehicle,"asm1.x600000c","asm1.x600000c");
+                declare_virtual(IVehicle,"asm1.x600000d","asm1.x600000d");
+                declare_virtual(IVehicle,"asm1.x600000e","asm1.x600000e");
             };
             IVehicle.prototype = {};
             return c;
@@ -808,35 +765,15 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                IWalker.CustomAttributes = [];
-                IWalker.Methods = [
+                initType(IWalker,"IWalker",asm,false,false,true,false,false,[],[
                     [
                         asm1,
                         "x600000f",
                         "Walk"
                     ]
-                ];
-                IWalker.BaseType = null;
-                IWalker.FullName = "IWalker";
-                IWalker.Assembly = asm;
+                ],null,is_inst_interface(IWalker),Array,"asm1.t2000008");
                 IWalker.Interfaces = [];
-                IWalker.IsInst = function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(IWalker) != -1 ? t : null; } catch (e) { return false; } };
-                IWalker.IsValueType = false;
-                IWalker.IsPrimitive = false;
-                IWalker.IsInterface = true;
-                IWalker.IsGenericTypeDefinition = false;
-                IWalker.IsNullable = false;
-                IWalker.ArrayType = Array;
-                IWalker.MetadataName = "asm1.t2000008";
-                IWalker.GenericArguments = {};
-                (IWalker.GenericArguments)["asm1.t2000008"] = [];
-                IWalker.prototype.vtable = {
-                    'asm1.x600000f': function ()
-                    {
-                        return asm1.x600000f;
-                    }
-                };
-                IWalker.prototype.ifacemap = {};
+                declare_virtual(IWalker,"asm1.x600000f","asm1.x600000f");
             };
             IWalker.prototype = {};
             return c;
@@ -870,8 +807,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                Base.CustomAttributes = [];
-                Base.Methods = [
+                initType(Base,"Base",asm,false,false,false,false,false,[],[
                     [
                         asm1,
                         "x6000011",
@@ -887,55 +823,17 @@ var asm1; (function (asm)
                         "x6000013",
                         "Walk"
                     ]
-                ];
-                Base.BaseType = ((asm0)["System.Object"])();
-                Base.FullName = "Base";
-                Base.Assembly = asm;
+                ],((asm0)["System.Object"])(),is_inst_default(Base),Array,"asm1.t2000009");
                 Base.Interfaces = [
                     (asm1.IVehicle)()
                 ];
-                Base.IsInst = function (t) { return t instanceof Base ? t : null; };
-                Base.IsValueType = false;
-                Base.IsPrimitive = false;
-                Base.IsInterface = false;
-                Base.IsGenericTypeDefinition = false;
-                Base.IsNullable = false;
-                Base.ArrayType = Array;
-                Base.MetadataName = "asm1.t2000009";
-                Base.GenericArguments = {};
-                (Base.GenericArguments)["asm1.t2000009"] = [];
-                (Base.GenericArguments)["asm0.t2000002"] = [];
-                Base.prototype.vtable = {
-                    'asm1.x6000010': function ()
-                    {
-                        return asm1.x6000010;
-                    },
-                    'asm1.x6000011': function ()
-                    {
-                        return asm1.x6000011;
-                    },
-                    'asm1.x6000012': function ()
-                    {
-                        return asm1.x6000012;
-                    },
-                    'asm1.x6000013': function ()
-                    {
-                        return asm1.x6000013;
-                    },
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                Base.prototype.ifacemap = {};
+                declare_virtual(Base,"asm1.x6000010","asm1.x6000010");
+                declare_virtual(Base,"asm1.x6000011","asm1.x6000011");
+                declare_virtual(Base,"asm1.x6000012","asm1.x6000012");
+                declare_virtual(Base,"asm1.x6000013","asm1.x6000013");
+                declare_virtual(Base,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(Base,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(Base,"asm0.x6000009","asm0.x6000009");
                 tree_set([
                     (asm1.IVehicle)()
                 ],Base.prototype.ifacemap,{
@@ -985,59 +883,22 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                Derived1.CustomAttributes = [];
-                Derived1.Methods = [
+                initType(Derived1,"Derived1",asm,false,false,false,false,false,[],[
                     [
                         asm1,
                         "x6000015",
                         "Turn"
                     ]
-                ];
-                Derived1.BaseType = (asm1.Base)();
-                Derived1.FullName = "Derived1";
-                Derived1.Assembly = asm;
+                ],(asm1.Base)(),is_inst_default(Derived1),Array,"asm1.t200000a");
                 Derived1.Interfaces = [
                     (asm1.IVehicle)()
                 ];
-                Derived1.IsInst = function (t) { return t instanceof Derived1 ? t : null; };
-                Derived1.IsValueType = false;
-                Derived1.IsPrimitive = false;
-                Derived1.IsInterface = false;
-                Derived1.IsGenericTypeDefinition = false;
-                Derived1.IsNullable = false;
-                Derived1.ArrayType = Array;
-                Derived1.MetadataName = "asm1.t200000a";
-                Derived1.GenericArguments = {};
-                (Derived1.GenericArguments)["asm1.t200000a"] = [];
-                (Derived1.GenericArguments)["asm1.t2000009"] = [];
-                (Derived1.GenericArguments)["asm0.t2000002"] = [];
-                Derived1.prototype.vtable = {
-                    'asm1.x6000012': function ()
-                    {
-                        return asm1.x6000015;
-                    },
-                    'asm1.x6000011': function ()
-                    {
-                        return asm1.x6000011;
-                    },
-                    'asm1.x6000013': function ()
-                    {
-                        return asm1.x6000013;
-                    },
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                Derived1.prototype.ifacemap = {};
+                declare_virtual(Derived1,"asm1.x6000012","asm1.x6000015");
+                declare_virtual(Derived1,"asm1.x6000011","asm1.x6000011");
+                declare_virtual(Derived1,"asm1.x6000013","asm1.x6000013");
+                declare_virtual(Derived1,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(Derived1,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(Derived1,"asm0.x6000009","asm0.x6000009");
                 tree_set([
                     (asm1.IVehicle)()
                 ],Derived1.prototype.ifacemap,{
@@ -1087,8 +948,7 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                Derived2.CustomAttributes = [];
-                Derived2.Methods = [
+                initType(Derived2,"Derived2",asm,false,false,false,false,false,[],[
                     [
                         asm1,
                         "x6000017",
@@ -1099,64 +959,19 @@ var asm1; (function (asm)
                         "x600001a",
                         "Turn"
                     ]
-                ];
-                Derived2.BaseType = (asm1.Base)();
-                Derived2.FullName = "Derived2";
-                Derived2.Assembly = asm;
+                ],(asm1.Base)(),is_inst_default(Derived2),Array,"asm1.t200000b");
                 Derived2.Interfaces = [
                     (asm1.IVehicle)()
                 ];
-                Derived2.IsInst = function (t) { return t instanceof Derived2 ? t : null; };
-                Derived2.IsValueType = false;
-                Derived2.IsPrimitive = false;
-                Derived2.IsInterface = false;
-                Derived2.IsGenericTypeDefinition = false;
-                Derived2.IsNullable = false;
-                Derived2.ArrayType = Array;
-                Derived2.MetadataName = "asm1.t200000b";
-                Derived2.GenericArguments = {};
-                (Derived2.GenericArguments)["asm1.t200000b"] = [];
-                (Derived2.GenericArguments)["asm1.t2000009"] = [];
-                (Derived2.GenericArguments)["asm0.t2000002"] = [];
-                Derived2.prototype.vtable = {
-                    'asm1.x6000017': function ()
-                    {
-                        return asm1.x6000017;
-                    },
-                    'asm1.x6000018': function ()
-                    {
-                        return asm1.x6000018;
-                    },
-                    'asm1.x6000019': function ()
-                    {
-                        return asm1.x6000019;
-                    },
-                    'asm1.x6000012': function ()
-                    {
-                        return asm1.x600001a;
-                    },
-                    'asm1.x6000011': function ()
-                    {
-                        return asm1.x6000011;
-                    },
-                    'asm1.x6000013': function ()
-                    {
-                        return asm1.x6000013;
-                    },
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                Derived2.prototype.ifacemap = {};
+                declare_virtual(Derived2,"asm1.x6000017","asm1.x6000017");
+                declare_virtual(Derived2,"asm1.x6000018","asm1.x6000018");
+                declare_virtual(Derived2,"asm1.x6000019","asm1.x6000019");
+                declare_virtual(Derived2,"asm1.x6000012","asm1.x600001a");
+                declare_virtual(Derived2,"asm1.x6000011","asm1.x6000011");
+                declare_virtual(Derived2,"asm1.x6000013","asm1.x6000013");
+                declare_virtual(Derived2,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(Derived2,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(Derived2,"asm0.x6000009","asm0.x6000009");
                 tree_set([
                     (asm1.IVehicle)()
                 ],Derived2.prototype.ifacemap,{
@@ -1206,55 +1021,17 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                Derived3.CustomAttributes = [];
-                Derived3.Methods = [];
-                Derived3.BaseType = (asm1.Derived1)();
-                Derived3.FullName = "Derived3";
-                Derived3.Assembly = asm;
+                initType(Derived3,"Derived3",asm,false,false,false,false,false,[],[],(asm1.Derived1)(),is_inst_default(Derived3),Array,"asm1.t200000c");
                 Derived3.Interfaces = [
                     (asm1.IWalker)(),
                     (asm1.IVehicle)()
                 ];
-                Derived3.IsInst = function (t) { return t instanceof Derived3 ? t : null; };
-                Derived3.IsValueType = false;
-                Derived3.IsPrimitive = false;
-                Derived3.IsInterface = false;
-                Derived3.IsGenericTypeDefinition = false;
-                Derived3.IsNullable = false;
-                Derived3.ArrayType = Array;
-                Derived3.MetadataName = "asm1.t200000c";
-                Derived3.GenericArguments = {};
-                (Derived3.GenericArguments)["asm1.t200000c"] = [];
-                (Derived3.GenericArguments)["asm1.t200000a"] = [];
-                (Derived3.GenericArguments)["asm1.t2000009"] = [];
-                (Derived3.GenericArguments)["asm0.t2000002"] = [];
-                Derived3.prototype.vtable = {
-                    'asm1.x6000012': function ()
-                    {
-                        return asm1.x6000015;
-                    },
-                    'asm1.x6000011': function ()
-                    {
-                        return asm1.x6000011;
-                    },
-                    'asm1.x6000013': function ()
-                    {
-                        return asm1.x6000013;
-                    },
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                Derived3.prototype.ifacemap = {};
+                declare_virtual(Derived3,"asm1.x6000012","asm1.x6000015");
+                declare_virtual(Derived3,"asm1.x6000011","asm1.x6000011");
+                declare_virtual(Derived3,"asm1.x6000013","asm1.x6000013");
+                declare_virtual(Derived3,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(Derived3,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(Derived3,"asm0.x6000009","asm0.x6000009");
                 tree_set([
                     (asm1.IWalker)()
                 ],Derived3.prototype.ifacemap,{
@@ -1312,38 +1089,11 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                Test.CustomAttributes = [];
-                Test.Methods = [];
-                Test.BaseType = ((asm0)["System.Object"])();
-                Test.FullName = "Test";
-                Test.Assembly = asm;
+                initType(Test,"Test",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),is_inst_default(Test),Array,"asm1.t200000d");
                 Test.Interfaces = [];
-                Test.IsInst = function (t) { return t instanceof Test ? t : null; };
-                Test.IsValueType = false;
-                Test.IsPrimitive = false;
-                Test.IsInterface = false;
-                Test.IsGenericTypeDefinition = false;
-                Test.IsNullable = false;
-                Test.ArrayType = Array;
-                Test.MetadataName = "asm1.t200000d";
-                Test.GenericArguments = {};
-                (Test.GenericArguments)["asm1.t200000d"] = [];
-                (Test.GenericArguments)["asm0.t2000002"] = [];
-                Test.prototype.vtable = {
-                    'asm0.x6000005': function ()
-                    {
-                        return asm0.x6000005;
-                    },
-                    'asm0.x6000008': function ()
-                    {
-                        return asm0.x6000008;
-                    },
-                    'asm0.x6000009': function ()
-                    {
-                        return asm0.x6000009;
-                    }
-                };
-                Test.prototype.ifacemap = {};
+                declare_virtual(Test,"asm0.x6000005","asm0.x6000005");
+                declare_virtual(Test,"asm0.x6000008","asm0.x6000008");
+                declare_virtual(Test,"asm0.x6000009","asm0.x6000009");
             };
             Test.prototype = new (((asm0)["System.Object"])())();
             return c;

@@ -46,6 +46,48 @@ namespace Braille.JsTranslation
 
     function nop() {}
 
+    function initType(type, fullname, assembly, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName)
+    {
+        type.FullName = fullname;
+        type.Assembly = assembly;
+        type.IsValueType = isValueType;
+        type.IsPrimitive = isPrimitive;
+        type.IsInterface = isInterface;
+        type.IsGenericTypeDefinition = isGenericTypeDefinition;
+        type.IsNullable = isNullable;
+
+        type.CustomAttributes = customAttributes;
+        type.Methods = methods;
+        type.BaseType = baseType;
+        type.IsInst = isInst;
+        type.ArrayType = arrayType;
+        type.MetadataName = metadataName;
+
+        type.GenericArguments = {};
+        type.prototype.vtable = {};
+        type.prototype.ifacemap = {};
+    }
+
+    function is_inst_interface(interfaceType){
+        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) != -1 ? t : null; } catch (e) { return false; } };
+    }
+
+    function is_inst_primitive(primitiveType) {
+        return function (t) { try { return t.type == primitiveType ? t : null; } catch (e) { return false; } }
+    }
+
+    function is_inst_array(T) {
+        return function (t) { return t instanceof asm0['System.Array']() && (t.etype == T || t.etype.prototype instanceof T) ? t : null; };
+    }
+
+    function is_inst_default(type) {
+        return function (t) { return t instanceof type ? t : null; };
+    }
+
+    function declare_virtual(type, slot, target) {
+        type.prototype.vtable[slot] = new Function('return '+target+';');
+    }
+
     function clone_value(v) {
         if (v == null) return v;
         if (typeof v === 'number') return v;
@@ -250,8 +292,8 @@ namespace Braille.JsTranslation
     }
 
     function conv_u8(n) {
-        if (n < 0) {
-            "/* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */ + @"
+        if (n < 0) {"
+            /* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */ + @"
             n = 0x100000000 + n;
         }
 
@@ -259,12 +301,11 @@ namespace Braille.JsTranslation
     }
 
     function conv_i8(n) {
-        if (n < 0) {
-            "/* signed 32 bit int */ + @"
-            n = 0x100000000 + n;
+        if (n < 0) {"
+            /* signed 32 bit int */ + @"
+            n = 0x100000000 + n;"
             
-            "/* here, n should be positive and less than 0xffffffff, otherwise, input would not have fit in 32 bit */ + @"
-            
+            /* here, n should be positive and less than 0xffffffff, otherwise, input would not have fit in 32 bit */ + @"
             return new Uint32Array([ n | 0, 0xffffffff ]);
         }
 
