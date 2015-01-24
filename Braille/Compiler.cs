@@ -28,8 +28,15 @@ namespace Braille
                 if (settings.OutputFileName != null)
                     File.Delete(settings.OutputFileName);
 
-                var staticAnalyzer = new StaticAnalyzer();
-                staticAnalyzer.Analyze(ctx);
+                var staticAnalyzer = new StaticAnalyzer(ctx);
+                
+                foreach (var asm in asms)
+                {
+                    if (!asm.Settings.Translate)
+                        continue;
+                    
+                    staticAnalyzer.Analyze(asm);
+                }
 
                 var translator = new AssemblyTranslator(ctx);
 

@@ -10,31 +10,34 @@ namespace Braille.Analysis
 {
     class StaticAnalyzer
     {
-        public void Analyze(Context ctx)
+        private Context ctx;
+        
+        public StaticAnalyzer(Context ctx)
         {
-            var expressionBuilder = new OpExpressionBuilder(ctx);
-            foreach (var asm in ctx.Assemblies)
+            this.ctx = ctx;
+        }
+        
+        public void Analyze(CilAssembly asm)
+        {
+            foreach (var t in asm.Types)
             {
-                foreach (var t in asm.Types)
-                {
-                    if (t.IsIgnored || t.IsUserDelegate)
-                        continue;
+                if (t.IsIgnored || t.IsUserDelegate)
+                    continue;
 
-                    foreach (var method in t.Methods)
+                foreach (var method in t.Methods)
+                {
+                    if (method.NeedTranslation && method.GetReplacement() == null)
                     {
-                        if (method.NeedTranslation && method.GetReplacement() == null)
+                        foreach (var rewriter in GetPasses())
                         {
-                            foreach (var rewriter in GetPasses(ctx))
-                            {
-                                rewriter.Run(method);
-                            }
+                            rewriter.Run(method);
                         }
                     }
                 }
             }
         }
 
-        public IEnumerable<IAnalysisPass> GetPasses(Context ctx)
+        public IEnumerable<IAnalysisPass> GetPasses()
         {
             yield return new OpExpressionBuilder(ctx);
 
