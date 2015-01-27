@@ -30,7 +30,7 @@ namespace System
         [JsImport("function(o) { return o.jsarr.length; }")]
         private extern static int GetLengthImpl(object s);
 
-        [JsImport("function(o, i) { return box(o.jsarr[i], o.etype); }")]
+        [JsImport("function(o, i) { return BLR.box(o.jsarr[i], o.etype); }")]
         private extern static object GetValueImpl(object s, int i);
 
         [JsImport(@"

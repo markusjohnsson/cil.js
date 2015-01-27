@@ -19,7 +19,7 @@ namespace Braille.JavaScript
         [JsReplace("{0} + {1}")]
         public extern static String operator +(String a, String b);
 
-        [JsReplace("new_string({0})")]
+        [JsReplace("BLR.new_string({0})")]
         public extern static explicit operator string(String s);
     }
 }

@@ -65,7 +65,7 @@ namespace Braille.TestRunner.Models
                     if (!File.Exists(corlibOutput) || 
                          File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
                     {
-                        CompileJs(corlib, corlibOutput, brlRefs, errors);
+                        CompileJs(corlib, corlibOutput, brlRefs, errors, outputRuntimeJs: true);
                     }
                 }
             }
@@ -231,7 +231,7 @@ namespace Braille.TestRunner.Models
             return jsOutput;
         }
 
-        private string CompileJs(string mainAssemblyName, string outputName, List<Ref> refs, List<string> errors)
+        private string CompileJs(string mainAssemblyName, string outputName, List<Ref> refs, List<string> errors, bool outputRuntimeJs = false)
         {
             try
             {
@@ -239,6 +239,8 @@ namespace Braille.TestRunner.Models
 
                 foreach (var r in refs)
                     settings.AddAssembly(r.path, translate: r.translate);
+
+                settings.OutputRuntimeJs = outputRuntimeJs;
 
                 settings.AddAssembly(mainAssemblyName, translate: true);
 

@@ -28,7 +28,7 @@ namespace Braille.JsTranslation.OpTranslators
                 if (isInt64)
                     return expr;
                 else
-                    return JSFactory.Call(JSFactory.Identifier("conv_u8"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("BLR", "conv_u8"), expr);
             }
 
             if (node.Instruction.OpCode.Name == "conv.i8")
@@ -36,11 +36,11 @@ namespace Braille.JsTranslation.OpTranslators
                 if (isInt64)
                     return expr;
                 else
-                    return JSFactory.Call(JSFactory.Identifier("conv_i8"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("BLR", "conv_i8"), expr);
             }
 
             if (isInt64)
-                return JSFactory.Call(JSFactory.Identifier("to_number"), expr); 
+                return JSFactory.Call(JSFactory.Identifier("BLR", "to_number"), expr); 
 
             if (IsIntegerType(node.ResultType))
                 return JSFactory.Truncate(expr);

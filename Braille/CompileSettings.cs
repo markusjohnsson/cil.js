@@ -40,5 +40,11 @@ namespace Braille
             get;
             set;
         }
+
+        public bool OutputRuntimeJs
+        {
+            get;
+            set;
+        }
     }
 }

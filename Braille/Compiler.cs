@@ -1,14 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Braille.Analysis;
 using Braille.JsTranslation;
 using Braille.Loading;
-using System;
-using System.IO;
-using System.Linq;
-using Braille.Ast;
 
 namespace Braille
 {
-    public class Compiler
+    public sealed class Compiler
     {
         private CompileSettings settings;
 
@@ -25,16 +25,33 @@ namespace Braille
             {
                 var asms = ctx.Assemblies;
 
+                var outputNames = new List<string>();
+
                 if (settings.OutputFileName != null)
+                {
+                    outputNames.Add(settings.OutputFileName);
+
+                    // SINGLE FILE MODE
+
                     File.Delete(settings.OutputFileName);
 
+                    if (settings.OutputRuntimeJs)
+                    {
+                        File.AppendAllText(settings.OutputFileName, GetRuntimeJs());
+                    }
+                }
+                else if (settings.OutputRuntimeJs)
+                {
+                    WriteRuntimeJs();
+                }
+
                 var staticAnalyzer = new StaticAnalyzer(ctx);
-                
+
                 foreach (var asm in asms)
                 {
                     if (!asm.Settings.Translate)
                         continue;
-                    
+
                     staticAnalyzer.Analyze(asm);
                 }
 
@@ -42,11 +59,11 @@ namespace Braille
 
                 foreach (var asm in asms)
                 {
-                    if (! asm.Settings.Translate)
+                    if (!asm.Settings.Translate)
                         continue;
-                    
+
                     var asmExpression = translator.Translate(asms, asm);
-                    
+
                     string outputFileName;
 
                     if (settings.OutputFileName != null)
@@ -55,11 +72,13 @@ namespace Braille
                     {
                         outputFileName = asm.ReflectionAssembly.GetName().Name + ".js";
                         File.Delete(outputFileName);
+
+                        outputNames.Add(outputFileName);
                     }
-                    
+
                     File.AppendAllText(outputFileName,
                         "var " + asm.Identifier + "; (" +
-                            asmExpression.ToString() + ")(" + asm.Identifier + " || (" + 
+                            asmExpression.ToString() + ")(" + asm.Identifier + " || (" +
                             asm.Identifier + " = {}));" + Environment.NewLine);
                 }
 
@@ -83,7 +102,8 @@ namespace Braille
 <html>
     <head>
         <title>" + entrypointAssembly.Name + @"</title>
-        <script src=""" + settings.OutputFileName + @"""></script>
+        " + string.Join(@"
+        ", outputNames.Select(o => @"<script src=""" + o + @"""></script>")) + @"
         <script>
             " + entrypointAssembly.Identifier + @".entryPoint();
         </script>
@@ -103,5 +123,27 @@ namespace Braille
             }
         }
 
+        private void WriteRuntimeJs()
+        {
+            using (var resourceStream = GetRuntimeJsResource())
+            using (var fileStream = File.Create("Braille.js"))
+            {
+                resourceStream.CopyTo(fileStream);
+            }
+        }
+
+        private string GetRuntimeJs()
+        {
+            using (var resourceStream = GetRuntimeJsResource())
+            using (var reader = new StreamReader(resourceStream))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        private static Stream GetRuntimeJsResource()
+        {
+            return typeof(Compiler).Assembly.GetManifestResourceStream("Braille.Runtime.Runtime.js");
+        }
     }
 }

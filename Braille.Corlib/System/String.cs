@@ -13,7 +13,7 @@ namespace System
         [JsImport("function(a, b) { return a.jsstr === b.jsstr ? 1 : 0; }")]
         private extern static bool EqualsImpl(string a, string b);
 
-        [JsImport("function (args) { return new_string(String.prototype.concat.apply('', args.jsarr)); }")]
+        [JsImport("function (args) { return BLR.new_string(String.prototype.concat.apply('', args.jsarr)); }")]
         private extern static string ConcatImpl(params string[] args);
 
         [JsImport("function (s, i) { return s.jsstr.charCodeAt(i); }")]
@@ -23,14 +23,14 @@ namespace System
                         function escapeRegExp(s2) {
                             return s2.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, ""\\$1"");
                         }
-                      return new_string(s.jsstr.replace(new RegExp(escapeRegExp(find.jsstr), 'g'), replace.jsstr));
+                      return BLR.new_string(s.jsstr.replace(new RegExp(escapeRegExp(find.jsstr), 'g'), replace.jsstr));
                     }")]
         private extern static string ReplaceImpl(string s, string find, string replace);
 
         [IndexerName("Chars")]
         public char this[int i] { get { return GetChar(this, i); } }
 
-        [JsReplace("new_string({0})")]
+        [JsReplace("BLR.new_string({0})")]
         internal extern static string FromJsString(object other);
 
         public static readonly string Empty = "";

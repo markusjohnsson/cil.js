@@ -69,6 +69,8 @@ namespace Braille
                 }
             }
 
+            settings.OutputRuntimeJs = true;
+
             settings.Assemblies = settings.Assemblies.OrderBy(a => a.Translate).ToList();
 
             var compiler = new Compiler(settings);

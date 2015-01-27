@@ -235,7 +235,7 @@ namespace System
         [JsImport(@"
             function (s) {
                 var idx = s.jsstr.lastIndexOf('.');
-                return new_string(s.jsstr.substring(idx + 1));
+                return BLR.new_string(s.jsstr.substring(idx + 1));
             }
             ")]
         private static extern string GetName(string fullname);

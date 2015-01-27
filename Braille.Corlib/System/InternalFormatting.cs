@@ -5,7 +5,7 @@ namespace System
 {
     internal static class InternalFormatting
     {
-        [JsImport("function(o) { return new_string(o.boxed.toString()); }")]
+        [JsImport("function(o) { return BLR.new_string(o.boxed.toString()); }")]
         internal extern static string SignedPrimitiveToString(object o);
 
         [JsImport(@"
@@ -15,7 +15,7 @@ namespace System
                     var max = 0xffffffff >>> (32 - size);
                     b = max + (b + 1);
                 }
-                return new_string(b.toString());
+                return BLR.new_string(b.toString());
             }")]
         internal extern static string UnsignedPrimitiveToString(object o, int size);
     }

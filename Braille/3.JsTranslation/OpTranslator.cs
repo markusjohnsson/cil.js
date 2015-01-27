@@ -353,7 +353,7 @@ namespace Braille.JsTranslation
         protected static JSExpression WrapInUnsigned(bool isUnsigned, JSExpression expression)
         {
             if (isUnsigned)
-                return JSFactory.Call(JSFactory.Identifier("unsigned_value"), expression);
+                return JSFactory.Call(JSFactory.Identifier("BLR", "unsigned_value"), expression);
             else
                 return expression;
         }
@@ -420,7 +420,7 @@ namespace Braille.JsTranslation
                         {
                             return new JSCallExpression
                             {
-                                Function = JSFactory.Identifier("box"),
+                                Function = JSFactory.Identifier("BLR", "box"),
                                 Arguments = { value, GetTypeAccessor(d, thisScope) }
                             };
                         }
@@ -542,7 +542,7 @@ namespace Braille.JsTranslation
                                 // unboxed value type when a boxed value type is passed as the this pointer 
                                 // to a virtual method whose implementation is provided by the unboxed value type.
 
-                                arglist[0] = JSFactory.Call(JSFactory.Identifier("convert_box_to_pointer_as_needed"), arglist[0]);
+                                arglist[0] = JSFactory.Call(JSFactory.Identifier("BLR", "convert_box_to_pointer_as_needed"), arglist[0]);
                             }
                             else if (
                                 firstArgNode.ResultType.IsGenericType &&
@@ -556,7 +556,7 @@ namespace Braille.JsTranslation
 
                                 if (pointerTargetType.IsGenericParameter)
                                 {
-                                    arglist[0] = JSFactory.Call(JSFactory.Identifier("dereference_pointer_as_needed"), arglist[0]);
+                                    arglist[0] = JSFactory.Call(JSFactory.Identifier("BLR", "dereference_pointer_as_needed"), arglist[0]);
                                 }
                             }
                         }
@@ -580,7 +580,7 @@ namespace Braille.JsTranslation
                         if (targetType.FullName == "System.MulticastDelegate")
                             return expr;
 
-                        return JSFactory.Call(JSFactory.RawExpression("cast_class"), expr, GetTypeAccessor(targetType, thisScope));
+                        return JSFactory.Call(JSFactory.Identifier("BLR", "cast_class"), expr, GetTypeAccessor(targetType, thisScope));
                     }
 
                 case "ceq":
@@ -907,7 +907,7 @@ namespace Braille.JsTranslation
                 case "ldstr":
                     return new JSCallExpression
                     {
-                        Function = JSFactory.Identifier("new_string"),
+                        Function = JSFactory.Identifier("BLR", "new_string"),
                         Arguments = 
                         { 
                             new JSStringLiteral
@@ -967,7 +967,7 @@ namespace Braille.JsTranslation
 
                         return new JSCallExpression
                         {
-                            Function = JSFactory.Identifier("new_handle"),
+                            Function = JSFactory.Identifier("BLR", "new_handle"),
                             Arguments = 
                             { 
                                 handleType,
@@ -981,7 +981,7 @@ namespace Braille.JsTranslation
 
                     return new JSCallExpression
                     {
-                        Function = JSFactory.Identifier("new_array"),
+                        Function = JSFactory.Identifier("BLR", "new_array"),
                         Arguments = 
                         {
                             GetTypeAccessor(elementType, thisScope),
@@ -994,7 +994,7 @@ namespace Braille.JsTranslation
                         var argList = ProcessList(node.Arguments).StartWith(new JSNullLiteral()); // leave room for "this"
 
                         var newobj = JSFactory.Call(
-                            JSFactory.Identifier("newobj"),
+                            JSFactory.Identifier("BLR", "newobj"),
                             GetTypeAccessor(ctor.DeclaringType, thisScope),
                             GetMethodAccessor(ctor, this.method.ReflectionMethod),
                             JSFactory.Array(argList.ToArray()));
@@ -1119,7 +1119,7 @@ namespace Braille.JsTranslation
                     if (opc == "unbox.any")
                         return new JSCallExpression
                         {
-                            Function = JSFactory.Identifier("unbox_any"),
+                            Function = JSFactory.Identifier("BLR", "unbox_any"),
                             Arguments = 
                             { 
                                 prop,
@@ -1193,11 +1193,11 @@ namespace Braille.JsTranslation
         {
 
             if (type != null && type.IsValueType && !type.IsPrimitive &&
-                !type.GetCustomAttributesData().Where(d => d.AttributeType.Name == "JsNoCopyAttribute").Any())
+                type.GetCustomAttributesData().All(d => d.AttributeType.Name != "JsNoCopyAttribute"))
             {
                 return new JSCallExpression
                 {
-                    Function = JSFactory.Identifier("clone_value"),
+                    Function = JSFactory.Identifier("BLR", "clone_value"),
                     Arguments = { value }
                 };
             }

@@ -25,7 +25,7 @@ namespace System
             return s;
         }
 
-        [JsReplace("new_string({0}[0].toString())")]
+        [JsReplace("BLR.new_string({0}[0].toString())")]
         private static extern string GetLowString(ulong a);    
 
         [JsAssemblyStatic(Name = "UInt64_RightShift")]

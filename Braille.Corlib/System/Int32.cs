@@ -13,7 +13,7 @@ namespace System
             return InternalFormatting.SignedPrimitiveToString(this);
         }
 
-        [JsReplace("new_string({0}.toString(16))")]
+        [JsReplace("BLR.new_string({0}.toString(16))")]
         private static extern string toHex(int n);
 
         public string ToString(string p)

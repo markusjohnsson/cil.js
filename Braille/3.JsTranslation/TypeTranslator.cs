@@ -74,7 +74,7 @@ namespace Braille.JsTranslation
                         isGeneric ?
                             new JSCallExpression
                             {
-                                Function = new JSIdentifier { Name = "tree_get" },
+                                Function = JSFactory.Identifier("BLR", "tree_get"),
                                 Arguments = new List<JSExpression> { cacheKey, cache }
                             } :
                             cache
@@ -164,7 +164,7 @@ namespace Braille.JsTranslation
             {
                 yield return new JSCallExpression
                 {
-                    Function = JSFactory.Identifier("tree_set"),
+                    Function = JSFactory.Identifier("BLR.tree_set"),
                     Arguments = new List<JSExpression>
                     {
                         cacheKey,
@@ -231,7 +231,7 @@ namespace Braille.JsTranslation
 
             yield return JSFactory
                 .Call(
-                    JSFactory.Identifier("initType"),
+                    JSFactory.Identifier("BLR", "init_type"),
 
                     JSFactory.Identifier(n),
                     JSFactory.String(type.ReflectionType.FullName),
@@ -297,7 +297,7 @@ namespace Braille.JsTranslation
             foreach (var f in GetVtable(type))
             {
                 yield return JSFactory.Call(
-                        JSFactory.Identifier("declare_virtual"),
+                        JSFactory.Identifier("BLR", "declare_virtual"),
                         JSFactory.Identifier(n),
                         JSFactory.Literal(f.Key),
                         JSFactory.Literal(f.Value))
@@ -322,7 +322,7 @@ namespace Braille.JsTranslation
             {
                 yield return JSFactory
                     .Call(
-                        JSFactory.Identifier("tree_set"),
+                        JSFactory.Identifier("BLR", "tree_set"),
                         JSFactory.Array(iface.Key),
                         JSFactory.Identifier(n, "prototype", "ifacemap"),
                         iface.Value)
@@ -390,9 +390,9 @@ namespace Braille.JsTranslation
                             .Select(
                                 arg =>
                                     arg.ArgumentType == context.SystemTypes.String ?
-                                        (JSExpression)JSFactory.Call(JSFactory.Identifier("new_string"), JSFactory.String((string)arg.Value)) :
+                                        JSFactory.Call(JSFactory.Identifier("BLR", "new_string"), JSFactory.String((string)arg.Value)) :
                                     arg.ArgumentType == context.SystemTypes.Type ?
-                                        GetTypeIdentifier((IKVM.Reflection.Type)arg.Value, typeScope: type) :
+                                        GetTypeIdentifier((Type)arg.Value, typeScope: type) :
                                     JSFactory.Literal(arg.Value))
                             .ToArray()));
             }
@@ -486,19 +486,19 @@ namespace Braille.JsTranslation
 
             if (type.IsInterface)
             {
-                return JSFactory.Call(JSFactory.Identifier("is_inst_interface"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_interface"), simpleName);
             }
             else if (type.ReflectionType.IsPrimitive)
             {
-                return JSFactory.Call(JSFactory.Identifier("is_inst_primitive"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_primitive"), simpleName);
             }
             else if (type.ReflectionType.FullName == "System.Array`1")
             {
-                return JSFactory.Call(JSFactory.Identifier("is_inst_array"), JSFactory.Identifier("T"));
+                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_array"), JSFactory.Identifier("T"));
             }
             else
             {
-                return JSFactory.Call(JSFactory.Identifier("is_inst_default"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_default"), simpleName);
             }
         }
 

@@ -1,290 +1,7 @@
 var asm1; (function (asm)
 {
     asm.FullName = "Long.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
-    
-    asm.next_hash = 1;
-
-    function nop() {}
-
-    function initType(type, fullname, assembly, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName)
-    {
-        type.FullName = fullname;
-        type.Assembly = assembly;
-        type.IsValueType = isValueType;
-        type.IsPrimitive = isPrimitive;
-        type.IsInterface = isInterface;
-        type.IsGenericTypeDefinition = isGenericTypeDefinition;
-        type.IsNullable = isNullable;
-
-        type.CustomAttributes = customAttributes;
-        type.Methods = methods;
-        type.BaseType = baseType;
-        type.IsInst = isInst;
-        type.ArrayType = arrayType;
-        type.MetadataName = metadataName;
-
-        type.GenericArguments = {};
-        type.prototype.vtable = {};
-        type.prototype.ifacemap = {};
-    }
-
-    function is_inst_interface(interfaceType){
-        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) != -1 ? t : null; } catch (e) { return false; } };
-    }
-
-    function is_inst_primitive(primitiveType) {
-        return function (t) { try { return t.type == primitiveType ? t : null; } catch (e) { return false; } }
-    }
-
-    function is_inst_array(T) {
-        return function (t) { return t instanceof asm0['System.Array']() && (t.etype == T || t.etype.prototype instanceof T) ? t : null; };
-    }
-
-    function is_inst_default(type) {
-        return function (t) { return t instanceof type ? t : null; };
-    }
-
-    function declare_virtual(type, slot, target) {
-        type.prototype.vtable[slot] = new Function('return '+target+';');
-    }
-
-    function clone_value(v) {
-        if (v == null) return v;
-        if (typeof v === 'number') return v;
-        if (typeof v === 'function') return v;
-        if (!v.constructor.IsValueType) return v;
-        var result = new v.constructor();
-        for (var p in v) {
-            if (v.hasOwnProperty(p))
-                result[p] = clone_value(v[p]);
-        }
-        return result;
-    }
-
-    function value_equals(a, b) {
-
-        if (typeof a !== typeof b)
-            return 0;
-
-        if (a === null)
-            return b === null ? 1 : 0;
-
-        if (typeof a === 'object' && typeof a.constructor !== 'undefined' && a.constructor.IsValueType) {
-            
-            for (var p in a) {
-                var av = a[p];
-                var bv = b[p];
-                    
-                if (! value_equals(av, bv))
-                    return 0;
-            }
-            
-            return 1;
-        }
-        else 
-        {
-            return a === b ? 1 : 0;
-        }
-    }
-
-    function unsigned_value(a) {
-        if (a < 0)
-            return 0xffffffff + a + 1;
-        else
-            return a;
-    }
-
-    function box(v, type) {
-        if (v === null)
-            return v;
-    
-        if (type.IsNullable) {
-            if (v.has_value)
-                return box(v.value, type.GenericArguments[type.MetadataName][0]);
-            else
-                return null;
-        }
-
-        if (!type.IsValueType)
-            return v;
-    
-        return {
-            'boxed': v,
-            'type': type,
-            'vtable': type.prototype.vtable,
-            'ifacemap': type.prototype.ifacemap
-        };
-    }
-
-    function unbox(o, type) {
-        if (o == null) {
-            var t = asm0['System.InvalidCastException']();
-            var e = new t();
-            e.stack = new Error().stack;
-            throw e;
-        }
-        return cast_class(o.boxed, type);
-    }
-
-    function unbox_any(o, type) {
-        if (type.IsNullable) {
-            var result = new type();
-            if (o !== null) {
-                result.value = cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]);
-                result.has_value = true;
-            }
-            return result;
-        }
-
-        if (type.IsValueType) {
-
-            if (o == null) {
-                var t = asm0['System.InvalidCastException']();
-                throw new t();
-            }
-
-            return cast_class(o.boxed, type);
-        }
-        else
-            return cast_class(o, type);
-    }
-
-    function convert_box_to_pointer_as_needed(o) {
-        if (typeof o.boxed !== "undefined" &&
-            typeof o.type !== "undefined" &&
-            typeof o.type.IsValueType) 
-        {
-            return { 'r': function () { return o.boxed; },
-                     'w': function (v) { return o.boxed = v; } };
-        }
-        else {
-            return o;
-        }
-    }
-
-    function dereference_pointer_as_needed(p) {
-        if (typeof p.r === "function" &&
-            typeof p.w === "function") 
-        {
-            var v = p.r();
-            if (typeof v !== 'number' && ! v.constructor.IsValueType)
-            {
-                return v;
-            }
-        }
-
-        return p;
-    }
-
-    function tree_get(a, s) {
-        var c = s;
-        for (var i = 0; c && i < a.length; i++)
-            c = c[a[i]];
-        return c;
-    }
-
-    function tree_set(a, s, v) {
-        if (a.length == 1) {
-            s[a[0]] = v;
-        }
-        else {
-            var c = s[a[0]];
-            if (!c) s[a[0]] = c = {};
-            tree_set(a.slice(1), c, v);
-        }
-    }
-
-    function new_string(jsstr) {
-        var r = new (asm0['System.String']())();
-        r.jsstr = jsstr;
-        return r;
-    }
-
-    function new_handle(type, value) {
-        var r = new type();
-        r.value = value;
-        return r;
-    }
-
-    function new_array(type, length) {
-        var ctor = type.ArrayType || Array;
-        var r = new (asm0['System.Array`1'](type))();
-        r.etype = type;
-        r.jsarr = new ctor(length);
-        return r;
-    }
-
-    function newobj(type, ctor, args) {
-        var result = new type();
-        
-        if (type.IsValueType)
-            args[0] = { 
-                w: function(a) { result = a; }, 
-                r: function() { return result; } 
-            };
-        else
-            args[0] = result;
-        
-        ctor.apply(null, args);
-        
-        return result;
-    }
-
-    function cast_class(obj, type) {
-        if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
-            return obj;
-        }
-        else if (type.IsPrimitive) {
-            if (typeof obj === 'undefined' || obj === null) {
-            }
-            else if (typeof obj == 'number') {
-                return obj;
-            }
-            else if (typeof obj.length == 'number' && obj.length == 2) {
-                return obj; 
-            }
-        }
-        
-        var t = asm0['System.InvalidCastException']();
-        var e = new t();
-        e.stack = new Error().stack;
-        throw e;
-    }
-
-    function conv_u8(n) {
-        if (n < 0) {
-            n = 0x100000000 + n;
-        }
-
-        return make_uint64(n);
-    }
-
-    function conv_i8(n) {
-        if (n < 0) {
-            n = 0x100000000 + n;
-            return new Uint32Array([ n | 0, 0xffffffff ]);
-        }
-
-        return make_uint64(n);
-    }
-
-    function make_uint64(n) {
-        var bits32 = 0xffffffff;
-
-        var floorN = Math.floor(n);
-        var low = floorN | 0;
-        var high = (floorN / 0x100000000) | 0;
-
-        var low = low & bits32;
-        var high = high & bits32;
-
-        return new Uint32Array([low, high]);
-    }
-
-    function to_number(n) {
-        return n[1] * 4294967296 + n[0];
-    }
-;
+    asm.next_hash = (1|0);
     /* static Void Log(System.Object)*/
     asm.x6000001 = braille_test_log;;
     /* Void .ctor()*/
@@ -323,13 +40,13 @@ var asm1; (function (asm)
         t1 = ((asm0)["System.Double"])();
         /* IL_00: ldstr 1 - 21 ToString*/
         /* IL_05: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("1 - 21 ToString"));
+        (asm1.x6000001)((BLR.new_string)("1 - 21 ToString"));
         /* IL_0A: ldc.i4.1 */
         /* IL_0B: conv.i8 */
         /* IL_0C: box System.Int64*/
         /* IL_11: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((1|0)),
+            'boxed': (BLR.conv_i8)((1|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -339,7 +56,7 @@ var asm1; (function (asm)
         /* IL_18: box System.Int64*/
         /* IL_1D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((2|0)),
+            'boxed': (BLR.conv_i8)((2|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -349,7 +66,7 @@ var asm1; (function (asm)
         /* IL_24: box System.Int64*/
         /* IL_29: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((3|0)),
+            'boxed': (BLR.conv_i8)((3|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -359,7 +76,7 @@ var asm1; (function (asm)
         /* IL_30: box System.Int64*/
         /* IL_35: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((4|0)),
+            'boxed': (BLR.conv_i8)((4|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -369,7 +86,7 @@ var asm1; (function (asm)
         /* IL_3C: box System.Int64*/
         /* IL_41: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((5|0)),
+            'boxed': (BLR.conv_i8)((5|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -379,7 +96,7 @@ var asm1; (function (asm)
         /* IL_48: box System.Int64*/
         /* IL_4D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((6|0)),
+            'boxed': (BLR.conv_i8)((6|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -389,7 +106,7 @@ var asm1; (function (asm)
         /* IL_54: box System.Int64*/
         /* IL_59: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((7|0)),
+            'boxed': (BLR.conv_i8)((7|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -399,7 +116,7 @@ var asm1; (function (asm)
         /* IL_60: box System.Int64*/
         /* IL_65: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((8|0)),
+            'boxed': (BLR.conv_i8)((8|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -409,7 +126,7 @@ var asm1; (function (asm)
         /* IL_6D: box System.Int64*/
         /* IL_72: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((9|0)),
+            'boxed': (BLR.conv_i8)((9|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -419,7 +136,7 @@ var asm1; (function (asm)
         /* IL_7A: box System.Int64*/
         /* IL_7F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((10|0)),
+            'boxed': (BLR.conv_i8)((10|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -429,7 +146,7 @@ var asm1; (function (asm)
         /* IL_87: box System.Int64*/
         /* IL_8C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((11|0)),
+            'boxed': (BLR.conv_i8)((11|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -439,7 +156,7 @@ var asm1; (function (asm)
         /* IL_94: box System.Int64*/
         /* IL_99: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((12|0)),
+            'boxed': (BLR.conv_i8)((12|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -449,7 +166,7 @@ var asm1; (function (asm)
         /* IL_A1: box System.Int64*/
         /* IL_A6: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((13|0)),
+            'boxed': (BLR.conv_i8)((13|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -459,7 +176,7 @@ var asm1; (function (asm)
         /* IL_AE: box System.Int64*/
         /* IL_B3: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((14|0)),
+            'boxed': (BLR.conv_i8)((14|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -469,7 +186,7 @@ var asm1; (function (asm)
         /* IL_BB: box System.Int64*/
         /* IL_C0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((15|0)),
+            'boxed': (BLR.conv_i8)((15|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -479,7 +196,7 @@ var asm1; (function (asm)
         /* IL_C8: box System.Int64*/
         /* IL_CD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((16|0)),
+            'boxed': (BLR.conv_i8)((16|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -489,7 +206,7 @@ var asm1; (function (asm)
         /* IL_D5: box System.Int64*/
         /* IL_DA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((17|0)),
+            'boxed': (BLR.conv_i8)((17|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -499,7 +216,7 @@ var asm1; (function (asm)
         /* IL_E2: box System.Int64*/
         /* IL_E7: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((18|0)),
+            'boxed': (BLR.conv_i8)((18|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -509,7 +226,7 @@ var asm1; (function (asm)
         /* IL_EF: box System.Int64*/
         /* IL_F4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((19|0)),
+            'boxed': (BLR.conv_i8)((19|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -519,7 +236,7 @@ var asm1; (function (asm)
         /* IL_FC: box System.Int64*/
         /* IL_101: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((20|0)),
+            'boxed': (BLR.conv_i8)((20|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -529,20 +246,20 @@ var asm1; (function (asm)
         /* IL_109: box System.Int64*/
         /* IL_10E: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((21|0)),
+            'boxed': (BLR.conv_i8)((21|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_113: ldstr (long)0xf, (long)0xff ... (long)0xffffffffff*/
         /* IL_118: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("(long)0xf, (long)0xff ... (long)0xffffffffff"));
+        (asm1.x6000001)((BLR.new_string)("(long)0xf, (long)0xff ... (long)0xffffffffff"));
         /* IL_11D: ldc.i4.s 15*/
         /* IL_11F: conv.i8 */
         /* IL_120: box System.Int64*/
         /* IL_125: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((15|0)),
+            'boxed': (BLR.conv_i8)((15|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -552,7 +269,7 @@ var asm1; (function (asm)
         /* IL_130: box System.Int64*/
         /* IL_135: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((255|0)),
+            'boxed': (BLR.conv_i8)((255|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -562,7 +279,7 @@ var asm1; (function (asm)
         /* IL_140: box System.Int64*/
         /* IL_145: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((4095|0)),
+            'boxed': (BLR.conv_i8)((4095|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -572,7 +289,7 @@ var asm1; (function (asm)
         /* IL_150: box System.Int64*/
         /* IL_155: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((65535|0)),
+            'boxed': (BLR.conv_i8)((65535|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -582,7 +299,7 @@ var asm1; (function (asm)
         /* IL_160: box System.Int64*/
         /* IL_165: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((1048575|0)),
+            'boxed': (BLR.conv_i8)((1048575|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -592,7 +309,7 @@ var asm1; (function (asm)
         /* IL_170: box System.Int64*/
         /* IL_175: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((16777215|0)),
+            'boxed': (BLR.conv_i8)((16777215|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -602,7 +319,7 @@ var asm1; (function (asm)
         /* IL_180: box System.Int64*/
         /* IL_185: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((268435455|0)),
+            'boxed': (BLR.conv_i8)((268435455|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -612,7 +329,7 @@ var asm1; (function (asm)
         /* IL_18C: box System.Int64*/
         /* IL_191: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_u8((-1|0)),
+            'boxed': (BLR.conv_u8)((-1|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -691,13 +408,13 @@ var asm1; (function (asm)
         });
         /* IL_208: ldstr (long)0x01, (long)0x0101 ... (long)0x01010101010101*/
         /* IL_20D: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("(long)0x01, (long)0x0101 ... (long)0x01010101010101"));
+        (asm1.x6000001)((BLR.new_string)("(long)0x01, (long)0x0101 ... (long)0x01010101010101"));
         /* IL_212: ldc.i4.0 */
         /* IL_213: conv.i8 */
         /* IL_214: box System.Int64*/
         /* IL_219: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((0|0)),
+            'boxed': (BLR.conv_i8)((0|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -707,7 +424,7 @@ var asm1; (function (asm)
         /* IL_220: box System.Int64*/
         /* IL_225: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((1|0)),
+            'boxed': (BLR.conv_i8)((1|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -717,7 +434,7 @@ var asm1; (function (asm)
         /* IL_22D: box System.Int64*/
         /* IL_232: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((16|0)),
+            'boxed': (BLR.conv_i8)((16|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -727,7 +444,7 @@ var asm1; (function (asm)
         /* IL_23D: box System.Int64*/
         /* IL_242: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((257|0)),
+            'boxed': (BLR.conv_i8)((257|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -737,7 +454,7 @@ var asm1; (function (asm)
         /* IL_24D: box System.Int64*/
         /* IL_252: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((4112|0)),
+            'boxed': (BLR.conv_i8)((4112|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -747,7 +464,7 @@ var asm1; (function (asm)
         /* IL_25D: box System.Int64*/
         /* IL_262: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((65793|0)),
+            'boxed': (BLR.conv_i8)((65793|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -757,7 +474,7 @@ var asm1; (function (asm)
         /* IL_26D: box System.Int64*/
         /* IL_272: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((1052688|0)),
+            'boxed': (BLR.conv_i8)((1052688|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -767,7 +484,7 @@ var asm1; (function (asm)
         /* IL_27D: box System.Int64*/
         /* IL_282: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((16843009|0)),
+            'boxed': (BLR.conv_i8)((16843009|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -777,7 +494,7 @@ var asm1; (function (asm)
         /* IL_28D: box System.Int64*/
         /* IL_292: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': conv_i8((269488144|0)),
+            'boxed': (BLR.conv_i8)((269488144|0)),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -844,7 +561,7 @@ var asm1; (function (asm)
         });
         /* IL_2F6: ldstr Add 1*/
         /* IL_2FB: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Add 1"));
+        (asm1.x6000001)((BLR.new_string)("Add 1"));
         /* IL_300: ldc.i4.s 15*/
         /* IL_302: conv.i8 */
         /* IL_303: ldc.i4.1 */
@@ -853,7 +570,7 @@ var asm1; (function (asm)
         /* IL_30A: box System.Int64*/
         /* IL_30F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((15|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -866,7 +583,7 @@ var asm1; (function (asm)
         /* IL_321: box System.Int64*/
         /* IL_326: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -879,7 +596,7 @@ var asm1; (function (asm)
         /* IL_338: box System.Int64*/
         /* IL_33D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((4095|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -892,7 +609,7 @@ var asm1; (function (asm)
         /* IL_34F: box System.Int64*/
         /* IL_354: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((65535|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -905,7 +622,7 @@ var asm1; (function (asm)
         /* IL_366: box System.Int64*/
         /* IL_36B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((1048575|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -918,7 +635,7 @@ var asm1; (function (asm)
         /* IL_37D: box System.Int64*/
         /* IL_382: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((16777215|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -931,7 +648,7 @@ var asm1; (function (asm)
         /* IL_394: box System.Int64*/
         /* IL_399: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((268435455|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -944,7 +661,7 @@ var asm1; (function (asm)
         /* IL_3A7: box System.Int64*/
         /* IL_3AC: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_u8((-1|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -959,7 +676,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -974,7 +691,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -989,7 +706,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1004,7 +721,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1019,7 +736,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1034,14 +751,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_44D: ldstr Add 2*/
         /* IL_452: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Add 2"));
+        (asm1.x6000001)((BLR.new_string)("Add 2"));
         /* IL_457: ldc.i4.s 15*/
         /* IL_459: conv.i8 */
         /* IL_45A: ldc.i4.2 */
@@ -1050,7 +767,7 @@ var asm1; (function (asm)
         /* IL_461: box System.Int64*/
         /* IL_466: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1063,7 +780,7 @@ var asm1; (function (asm)
         /* IL_478: box System.Int64*/
         /* IL_47D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((255|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1076,7 +793,7 @@ var asm1; (function (asm)
         /* IL_48F: box System.Int64*/
         /* IL_494: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((4095|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1089,7 +806,7 @@ var asm1; (function (asm)
         /* IL_4A6: box System.Int64*/
         /* IL_4AB: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((65535|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1102,7 +819,7 @@ var asm1; (function (asm)
         /* IL_4BD: box System.Int64*/
         /* IL_4C2: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((1048575|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1115,7 +832,7 @@ var asm1; (function (asm)
         /* IL_4D4: box System.Int64*/
         /* IL_4D9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((16777215|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1128,7 +845,7 @@ var asm1; (function (asm)
         /* IL_4EB: box System.Int64*/
         /* IL_4F0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((268435455|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1141,7 +858,7 @@ var asm1; (function (asm)
         /* IL_4FE: box System.Int64*/
         /* IL_503: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_u8((-1|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1156,7 +873,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1171,7 +888,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1186,7 +903,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1201,7 +918,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1216,7 +933,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1231,14 +948,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_5A4: ldstr Add 0x1, 0x010, 0x0101 etc*/
         /* IL_5A9: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Add 0x1, 0x010, 0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Add 0x1, 0x010, 0x0101 etc"));
         /* IL_5AE: ldc.i4.s 15*/
         /* IL_5B0: conv.i8 */
         /* IL_5B1: ldc.i4.0 */
@@ -1247,7 +964,7 @@ var asm1; (function (asm)
         /* IL_5B8: box System.Int64*/
         /* IL_5BD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((15|0)),conv_i8((0|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((0|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1260,7 +977,7 @@ var asm1; (function (asm)
         /* IL_5CF: box System.Int64*/
         /* IL_5D4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1273,7 +990,7 @@ var asm1; (function (asm)
         /* IL_5E7: box System.Int64*/
         /* IL_5EC: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((4095|0)),conv_i8((16|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1286,7 +1003,7 @@ var asm1; (function (asm)
         /* IL_602: box System.Int64*/
         /* IL_607: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((65535|0)),conv_i8((257|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1299,7 +1016,7 @@ var asm1; (function (asm)
         /* IL_61D: box System.Int64*/
         /* IL_622: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((1048575|0)),conv_i8((4112|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1312,7 +1029,7 @@ var asm1; (function (asm)
         /* IL_638: box System.Int64*/
         /* IL_63D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((16777215|0)),conv_i8((65793|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1325,7 +1042,7 @@ var asm1; (function (asm)
         /* IL_653: box System.Int64*/
         /* IL_658: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((268435455|0)),conv_i8((1052688|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1338,7 +1055,7 @@ var asm1; (function (asm)
         /* IL_66A: box System.Int64*/
         /* IL_66F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_u8((-1|0)),conv_i8((16843009|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1353,7 +1070,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((269488144|0))),
+            ]),(BLR.conv_i8)((269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1445,7 +1162,7 @@ var asm1; (function (asm)
         });
         /* IL_737: ldstr Add -0x1, -0x010, -0x0101 etc*/
         /* IL_73C: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Add -0x1, -0x010, -0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Add -0x1, -0x010, -0x0101 etc"));
         /* IL_741: ldc.i4.s 15*/
         /* IL_743: conv.i8 */
         /* IL_744: ldc.i4.0 */
@@ -1454,7 +1171,7 @@ var asm1; (function (asm)
         /* IL_74B: box System.Int64*/
         /* IL_750: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((15|0)),conv_i8((0|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((0|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1467,7 +1184,7 @@ var asm1; (function (asm)
         /* IL_762: box System.Int64*/
         /* IL_767: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1480,7 +1197,7 @@ var asm1; (function (asm)
         /* IL_77A: box System.Int64*/
         /* IL_77F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((4095|0)),conv_i8((-16|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1493,7 +1210,7 @@ var asm1; (function (asm)
         /* IL_795: box System.Int64*/
         /* IL_79A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((65535|0)),conv_i8((-257|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1506,7 +1223,7 @@ var asm1; (function (asm)
         /* IL_7B0: box System.Int64*/
         /* IL_7B5: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((1048575|0)),conv_i8((-4112|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1519,7 +1236,7 @@ var asm1; (function (asm)
         /* IL_7CB: box System.Int64*/
         /* IL_7D0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((16777215|0)),conv_i8((-65793|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1532,7 +1249,7 @@ var asm1; (function (asm)
         /* IL_7E6: box System.Int64*/
         /* IL_7EB: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_i8((268435455|0)),conv_i8((-1052688|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1545,7 +1262,7 @@ var asm1; (function (asm)
         /* IL_7FD: box System.Int64*/
         /* IL_802: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000e)(conv_u8((-1|0)),conv_i8((-16843009|0))),
+            'boxed': (asm1.x600000e)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1560,7 +1277,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000e)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-269488144|0))),
+            ]),(BLR.conv_i8)((-269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1652,7 +1369,7 @@ var asm1; (function (asm)
         });
         /* IL_8CA: ldstr Sub 1*/
         /* IL_8CF: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Sub 1"));
+        (asm1.x6000001)((BLR.new_string)("Sub 1"));
         /* IL_8D4: ldc.i4.s 15*/
         /* IL_8D6: conv.i8 */
         /* IL_8D7: ldc.i4.1 */
@@ -1661,7 +1378,7 @@ var asm1; (function (asm)
         /* IL_8DE: box System.Int64*/
         /* IL_8E3: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((15|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1674,7 +1391,7 @@ var asm1; (function (asm)
         /* IL_8F5: box System.Int64*/
         /* IL_8FA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1687,7 +1404,7 @@ var asm1; (function (asm)
         /* IL_90C: box System.Int64*/
         /* IL_911: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((4095|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1700,7 +1417,7 @@ var asm1; (function (asm)
         /* IL_923: box System.Int64*/
         /* IL_928: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((65535|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1713,7 +1430,7 @@ var asm1; (function (asm)
         /* IL_93A: box System.Int64*/
         /* IL_93F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((1048575|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1726,7 +1443,7 @@ var asm1; (function (asm)
         /* IL_951: box System.Int64*/
         /* IL_956: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((16777215|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1739,7 +1456,7 @@ var asm1; (function (asm)
         /* IL_968: box System.Int64*/
         /* IL_96D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((268435455|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1752,7 +1469,7 @@ var asm1; (function (asm)
         /* IL_97B: box System.Int64*/
         /* IL_980: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_u8((-1|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1767,7 +1484,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1782,7 +1499,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1797,7 +1514,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1812,7 +1529,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1827,7 +1544,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1842,14 +1559,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_A21: ldstr Sub -1*/
         /* IL_A26: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Sub -1"));
+        (asm1.x6000001)((BLR.new_string)("Sub -1"));
         /* IL_A2B: ldc.i4.s 15*/
         /* IL_A2D: conv.i8 */
         /* IL_A2E: ldc.i4.m1 */
@@ -1858,7 +1575,7 @@ var asm1; (function (asm)
         /* IL_A35: box System.Int64*/
         /* IL_A3A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((15|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1871,7 +1588,7 @@ var asm1; (function (asm)
         /* IL_A4C: box System.Int64*/
         /* IL_A51: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1884,7 +1601,7 @@ var asm1; (function (asm)
         /* IL_A63: box System.Int64*/
         /* IL_A68: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((4095|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1897,7 +1614,7 @@ var asm1; (function (asm)
         /* IL_A7A: box System.Int64*/
         /* IL_A7F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((65535|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1910,7 +1627,7 @@ var asm1; (function (asm)
         /* IL_A91: box System.Int64*/
         /* IL_A96: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((1048575|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1923,7 +1640,7 @@ var asm1; (function (asm)
         /* IL_AA8: box System.Int64*/
         /* IL_AAD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((16777215|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1936,7 +1653,7 @@ var asm1; (function (asm)
         /* IL_ABF: box System.Int64*/
         /* IL_AC4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((268435455|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1949,7 +1666,7 @@ var asm1; (function (asm)
         /* IL_AD2: box System.Int64*/
         /* IL_AD7: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_u8((-1|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1964,7 +1681,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1979,7 +1696,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -1994,7 +1711,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2009,7 +1726,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2024,7 +1741,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2039,14 +1756,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_B78: ldstr Sub 2*/
         /* IL_B7D: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Sub 2"));
+        (asm1.x6000001)((BLR.new_string)("Sub 2"));
         /* IL_B82: ldc.i4.s 15*/
         /* IL_B84: conv.i8 */
         /* IL_B85: ldc.i4.2 */
@@ -2055,7 +1772,7 @@ var asm1; (function (asm)
         /* IL_B8C: box System.Int64*/
         /* IL_B91: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2068,7 +1785,7 @@ var asm1; (function (asm)
         /* IL_BA3: box System.Int64*/
         /* IL_BA8: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((255|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2081,7 +1798,7 @@ var asm1; (function (asm)
         /* IL_BBA: box System.Int64*/
         /* IL_BBF: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((4095|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2094,7 +1811,7 @@ var asm1; (function (asm)
         /* IL_BD1: box System.Int64*/
         /* IL_BD6: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((65535|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2107,7 +1824,7 @@ var asm1; (function (asm)
         /* IL_BE8: box System.Int64*/
         /* IL_BED: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((1048575|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2120,7 +1837,7 @@ var asm1; (function (asm)
         /* IL_BFF: box System.Int64*/
         /* IL_C04: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((16777215|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2133,7 +1850,7 @@ var asm1; (function (asm)
         /* IL_C16: box System.Int64*/
         /* IL_C1B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((268435455|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2146,7 +1863,7 @@ var asm1; (function (asm)
         /* IL_C29: box System.Int64*/
         /* IL_C2E: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_u8((-1|0)),conv_i8((2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2161,7 +1878,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2176,7 +1893,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2191,7 +1908,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2206,7 +1923,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2221,7 +1938,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2236,14 +1953,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_CCF: ldstr Sub -2*/
         /* IL_CD4: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Sub -2"));
+        (asm1.x6000001)((BLR.new_string)("Sub -2"));
         /* IL_CD9: ldc.i4.s 15*/
         /* IL_CDB: conv.i8 */
         /* IL_CDC: ldc.i4.s 254*/
@@ -2252,7 +1969,7 @@ var asm1; (function (asm)
         /* IL_CE4: box System.Int64*/
         /* IL_CE9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((15|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2265,7 +1982,7 @@ var asm1; (function (asm)
         /* IL_CFC: box System.Int64*/
         /* IL_D01: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((255|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2278,7 +1995,7 @@ var asm1; (function (asm)
         /* IL_D14: box System.Int64*/
         /* IL_D19: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((4095|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2291,7 +2008,7 @@ var asm1; (function (asm)
         /* IL_D2C: box System.Int64*/
         /* IL_D31: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((65535|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2304,7 +2021,7 @@ var asm1; (function (asm)
         /* IL_D44: box System.Int64*/
         /* IL_D49: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((1048575|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2317,7 +2034,7 @@ var asm1; (function (asm)
         /* IL_D5C: box System.Int64*/
         /* IL_D61: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((16777215|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2330,7 +2047,7 @@ var asm1; (function (asm)
         /* IL_D74: box System.Int64*/
         /* IL_D79: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((268435455|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2343,7 +2060,7 @@ var asm1; (function (asm)
         /* IL_D88: box System.Int64*/
         /* IL_D8D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_u8((-1|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2358,7 +2075,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2373,7 +2090,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2388,7 +2105,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2403,7 +2120,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2418,7 +2135,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2433,14 +2150,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_E34: ldstr Sub 0x1, 0x010, 0x0101 etc*/
         /* IL_E39: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Sub 0x1, 0x010, 0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Sub 0x1, 0x010, 0x0101 etc"));
         /* IL_E3E: ldc.i4.s 15*/
         /* IL_E40: conv.i8 */
         /* IL_E41: ldc.i4.0 */
@@ -2449,7 +2166,7 @@ var asm1; (function (asm)
         /* IL_E48: box System.Int64*/
         /* IL_E4D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((15|0)),conv_i8((0|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((0|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2462,7 +2179,7 @@ var asm1; (function (asm)
         /* IL_E5F: box System.Int64*/
         /* IL_E64: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2475,7 +2192,7 @@ var asm1; (function (asm)
         /* IL_E77: box System.Int64*/
         /* IL_E7C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((4095|0)),conv_i8((16|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2488,7 +2205,7 @@ var asm1; (function (asm)
         /* IL_E92: box System.Int64*/
         /* IL_E97: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((65535|0)),conv_i8((257|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2501,7 +2218,7 @@ var asm1; (function (asm)
         /* IL_EAD: box System.Int64*/
         /* IL_EB2: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((1048575|0)),conv_i8((4112|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2514,7 +2231,7 @@ var asm1; (function (asm)
         /* IL_EC8: box System.Int64*/
         /* IL_ECD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((16777215|0)),conv_i8((65793|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2527,7 +2244,7 @@ var asm1; (function (asm)
         /* IL_EE3: box System.Int64*/
         /* IL_EE8: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((268435455|0)),conv_i8((1052688|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2540,7 +2257,7 @@ var asm1; (function (asm)
         /* IL_EFA: box System.Int64*/
         /* IL_EFF: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_u8((-1|0)),conv_i8((16843009|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2555,7 +2272,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((269488144|0))),
+            ]),(BLR.conv_i8)((269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2647,7 +2364,7 @@ var asm1; (function (asm)
         });
         /* IL_FC7: ldstr Sub -0x1, -0x010, -0x0101 etc*/
         /* IL_FCC: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Sub -0x1, -0x010, -0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Sub -0x1, -0x010, -0x0101 etc"));
         /* IL_FD1: ldc.i4.s 15*/
         /* IL_FD3: conv.i8 */
         /* IL_FD4: ldc.i4.0 */
@@ -2656,7 +2373,7 @@ var asm1; (function (asm)
         /* IL_FDB: box System.Int64*/
         /* IL_FE0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((15|0)),conv_i8((0|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((0|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2669,7 +2386,7 @@ var asm1; (function (asm)
         /* IL_FF2: box System.Int64*/
         /* IL_FF7: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2682,7 +2399,7 @@ var asm1; (function (asm)
         /* IL_100A: box System.Int64*/
         /* IL_100F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((4095|0)),conv_i8((-16|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2695,7 +2412,7 @@ var asm1; (function (asm)
         /* IL_1025: box System.Int64*/
         /* IL_102A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((65535|0)),conv_i8((-257|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2708,7 +2425,7 @@ var asm1; (function (asm)
         /* IL_1040: box System.Int64*/
         /* IL_1045: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((1048575|0)),conv_i8((-4112|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2721,7 +2438,7 @@ var asm1; (function (asm)
         /* IL_105B: box System.Int64*/
         /* IL_1060: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((16777215|0)),conv_i8((-65793|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2734,7 +2451,7 @@ var asm1; (function (asm)
         /* IL_1076: box System.Int64*/
         /* IL_107B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_i8((268435455|0)),conv_i8((-1052688|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2747,7 +2464,7 @@ var asm1; (function (asm)
         /* IL_108D: box System.Int64*/
         /* IL_1092: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000f)(conv_u8((-1|0)),conv_i8((-16843009|0))),
+            'boxed': (asm1.x600000f)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2762,7 +2479,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x600000f)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-269488144|0))),
+            ]),(BLR.conv_i8)((-269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2854,7 +2571,7 @@ var asm1; (function (asm)
         });
         /* IL_115A: ldstr Mul 1*/
         /* IL_115F: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mul 1"));
+        (asm1.x6000001)((BLR.new_string)("Mul 1"));
         /* IL_1164: ldc.i4.s 15*/
         /* IL_1166: conv.i8 */
         /* IL_1167: ldc.i4.1 */
@@ -2863,7 +2580,7 @@ var asm1; (function (asm)
         /* IL_116E: box System.Int64*/
         /* IL_1173: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((15|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2876,7 +2593,7 @@ var asm1; (function (asm)
         /* IL_1185: box System.Int64*/
         /* IL_118A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2889,7 +2606,7 @@ var asm1; (function (asm)
         /* IL_119C: box System.Int64*/
         /* IL_11A1: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((4095|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2902,7 +2619,7 @@ var asm1; (function (asm)
         /* IL_11B3: box System.Int64*/
         /* IL_11B8: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((65535|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2915,7 +2632,7 @@ var asm1; (function (asm)
         /* IL_11CA: box System.Int64*/
         /* IL_11CF: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((1048575|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2928,7 +2645,7 @@ var asm1; (function (asm)
         /* IL_11E1: box System.Int64*/
         /* IL_11E6: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((16777215|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2941,7 +2658,7 @@ var asm1; (function (asm)
         /* IL_11F8: box System.Int64*/
         /* IL_11FD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((268435455|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2954,7 +2671,7 @@ var asm1; (function (asm)
         /* IL_120B: box System.Int64*/
         /* IL_1210: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_u8((-1|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2969,7 +2686,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2984,7 +2701,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -2999,7 +2716,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3014,7 +2731,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3029,7 +2746,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3044,14 +2761,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_12B1: ldstr Mul -1*/
         /* IL_12B6: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mul -1"));
+        (asm1.x6000001)((BLR.new_string)("Mul -1"));
         /* IL_12BB: ldc.i4.s 15*/
         /* IL_12BD: conv.i8 */
         /* IL_12BE: ldc.i4.m1 */
@@ -3060,7 +2777,7 @@ var asm1; (function (asm)
         /* IL_12C5: box System.Int64*/
         /* IL_12CA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((15|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3073,7 +2790,7 @@ var asm1; (function (asm)
         /* IL_12DC: box System.Int64*/
         /* IL_12E1: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3086,7 +2803,7 @@ var asm1; (function (asm)
         /* IL_12F3: box System.Int64*/
         /* IL_12F8: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((4095|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3099,7 +2816,7 @@ var asm1; (function (asm)
         /* IL_130A: box System.Int64*/
         /* IL_130F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((65535|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3112,7 +2829,7 @@ var asm1; (function (asm)
         /* IL_1321: box System.Int64*/
         /* IL_1326: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((1048575|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3125,7 +2842,7 @@ var asm1; (function (asm)
         /* IL_1338: box System.Int64*/
         /* IL_133D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((16777215|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3138,7 +2855,7 @@ var asm1; (function (asm)
         /* IL_134F: box System.Int64*/
         /* IL_1354: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((268435455|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3151,7 +2868,7 @@ var asm1; (function (asm)
         /* IL_1362: box System.Int64*/
         /* IL_1367: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_u8((-1|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3166,7 +2883,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3181,7 +2898,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3196,7 +2913,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3211,7 +2928,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3226,7 +2943,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3241,14 +2958,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_1408: ldstr Mul 2*/
         /* IL_140D: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mul 2"));
+        (asm1.x6000001)((BLR.new_string)("Mul 2"));
         /* IL_1412: ldc.i4.s 15*/
         /* IL_1414: conv.i8 */
         /* IL_1415: ldc.i4.2 */
@@ -3257,7 +2974,7 @@ var asm1; (function (asm)
         /* IL_141C: box System.Int64*/
         /* IL_1421: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3270,7 +2987,7 @@ var asm1; (function (asm)
         /* IL_1433: box System.Int64*/
         /* IL_1438: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((255|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3283,7 +3000,7 @@ var asm1; (function (asm)
         /* IL_144A: box System.Int64*/
         /* IL_144F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((4095|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3296,7 +3013,7 @@ var asm1; (function (asm)
         /* IL_1461: box System.Int64*/
         /* IL_1466: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((65535|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3309,7 +3026,7 @@ var asm1; (function (asm)
         /* IL_1478: box System.Int64*/
         /* IL_147D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((1048575|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3322,7 +3039,7 @@ var asm1; (function (asm)
         /* IL_148F: box System.Int64*/
         /* IL_1494: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((16777215|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3335,7 +3052,7 @@ var asm1; (function (asm)
         /* IL_14A6: box System.Int64*/
         /* IL_14AB: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((268435455|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3348,7 +3065,7 @@ var asm1; (function (asm)
         /* IL_14B9: box System.Int64*/
         /* IL_14BE: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_u8((-1|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3363,7 +3080,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3378,7 +3095,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3393,7 +3110,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3408,7 +3125,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3423,7 +3140,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3438,14 +3155,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_155F: ldstr Mul -2*/
         /* IL_1564: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mul -2"));
+        (asm1.x6000001)((BLR.new_string)("Mul -2"));
         /* IL_1569: ldc.i4.s 15*/
         /* IL_156B: conv.i8 */
         /* IL_156C: ldc.i4.s 254*/
@@ -3454,7 +3171,7 @@ var asm1; (function (asm)
         /* IL_1574: box System.Int64*/
         /* IL_1579: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((15|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3467,7 +3184,7 @@ var asm1; (function (asm)
         /* IL_158C: box System.Int64*/
         /* IL_1591: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((255|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3480,7 +3197,7 @@ var asm1; (function (asm)
         /* IL_15A4: box System.Int64*/
         /* IL_15A9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((4095|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3493,7 +3210,7 @@ var asm1; (function (asm)
         /* IL_15BC: box System.Int64*/
         /* IL_15C1: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((65535|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3506,7 +3223,7 @@ var asm1; (function (asm)
         /* IL_15D4: box System.Int64*/
         /* IL_15D9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((1048575|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3519,7 +3236,7 @@ var asm1; (function (asm)
         /* IL_15EC: box System.Int64*/
         /* IL_15F1: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((16777215|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3532,7 +3249,7 @@ var asm1; (function (asm)
         /* IL_1604: box System.Int64*/
         /* IL_1609: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((268435455|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3545,7 +3262,7 @@ var asm1; (function (asm)
         /* IL_1618: box System.Int64*/
         /* IL_161D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_u8((-1|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3560,7 +3277,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3575,7 +3292,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3590,7 +3307,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3605,7 +3322,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3620,7 +3337,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3635,14 +3352,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_16C4: ldstr Mul 0x1, 0x010, 0x0101 etc*/
         /* IL_16C9: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mul 0x1, 0x010, 0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Mul 0x1, 0x010, 0x0101 etc"));
         /* IL_16CE: ldc.i4.s 15*/
         /* IL_16D0: conv.i8 */
         /* IL_16D1: ldc.i4.0 */
@@ -3651,7 +3368,7 @@ var asm1; (function (asm)
         /* IL_16D8: box System.Int64*/
         /* IL_16DD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((15|0)),conv_i8((0|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((0|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3664,7 +3381,7 @@ var asm1; (function (asm)
         /* IL_16EF: box System.Int64*/
         /* IL_16F4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3677,7 +3394,7 @@ var asm1; (function (asm)
         /* IL_1707: box System.Int64*/
         /* IL_170C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((4095|0)),conv_i8((16|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3690,7 +3407,7 @@ var asm1; (function (asm)
         /* IL_1722: box System.Int64*/
         /* IL_1727: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((65535|0)),conv_i8((257|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3703,7 +3420,7 @@ var asm1; (function (asm)
         /* IL_173D: box System.Int64*/
         /* IL_1742: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((1048575|0)),conv_i8((4112|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3716,7 +3433,7 @@ var asm1; (function (asm)
         /* IL_1758: box System.Int64*/
         /* IL_175D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((16777215|0)),conv_i8((65793|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3729,7 +3446,7 @@ var asm1; (function (asm)
         /* IL_1773: box System.Int64*/
         /* IL_1778: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((268435455|0)),conv_i8((1052688|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3742,7 +3459,7 @@ var asm1; (function (asm)
         /* IL_178A: box System.Int64*/
         /* IL_178F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_u8((-1|0)),conv_i8((16843009|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3757,7 +3474,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((269488144|0))),
+            ]),(BLR.conv_i8)((269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3849,7 +3566,7 @@ var asm1; (function (asm)
         });
         /* IL_1857: ldstr Mul -0x1, -0x010, -0x0101 etc*/
         /* IL_185C: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mul -0x1, -0x010, -0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Mul -0x1, -0x010, -0x0101 etc"));
         /* IL_1861: ldc.i4.s 15*/
         /* IL_1863: conv.i8 */
         /* IL_1864: ldc.i4.0 */
@@ -3858,7 +3575,7 @@ var asm1; (function (asm)
         /* IL_186B: box System.Int64*/
         /* IL_1870: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((15|0)),conv_i8((0|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((0|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3871,7 +3588,7 @@ var asm1; (function (asm)
         /* IL_1882: box System.Int64*/
         /* IL_1887: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3884,7 +3601,7 @@ var asm1; (function (asm)
         /* IL_189A: box System.Int64*/
         /* IL_189F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((4095|0)),conv_i8((-16|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3897,7 +3614,7 @@ var asm1; (function (asm)
         /* IL_18B5: box System.Int64*/
         /* IL_18BA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((65535|0)),conv_i8((-257|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3910,7 +3627,7 @@ var asm1; (function (asm)
         /* IL_18D0: box System.Int64*/
         /* IL_18D5: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((1048575|0)),conv_i8((-4112|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3923,7 +3640,7 @@ var asm1; (function (asm)
         /* IL_18EB: box System.Int64*/
         /* IL_18F0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((16777215|0)),conv_i8((-65793|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3936,7 +3653,7 @@ var asm1; (function (asm)
         /* IL_1906: box System.Int64*/
         /* IL_190B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_i8((268435455|0)),conv_i8((-1052688|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3949,7 +3666,7 @@ var asm1; (function (asm)
         /* IL_191D: box System.Int64*/
         /* IL_1922: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)(conv_u8((-1|0)),conv_i8((-16843009|0))),
+            'boxed': (asm1.x6000010)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -3964,7 +3681,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000010)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-269488144|0))),
+            ]),(BLR.conv_i8)((-269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4056,7 +3773,7 @@ var asm1; (function (asm)
         });
         /* IL_19EA: ldstr Div 1*/
         /* IL_19EF: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div 1"));
+        (asm1.x6000001)((BLR.new_string)("Div 1"));
         /* IL_19F4: ldc.i4.s 15*/
         /* IL_19F6: conv.i8 */
         /* IL_19F7: ldc.i4.1 */
@@ -4065,7 +3782,7 @@ var asm1; (function (asm)
         /* IL_19FE: box System.Int64*/
         /* IL_1A03: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((15|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4078,7 +3795,7 @@ var asm1; (function (asm)
         /* IL_1A15: box System.Int64*/
         /* IL_1A1A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4091,7 +3808,7 @@ var asm1; (function (asm)
         /* IL_1A2C: box System.Int64*/
         /* IL_1A31: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((4095|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4104,7 +3821,7 @@ var asm1; (function (asm)
         /* IL_1A43: box System.Int64*/
         /* IL_1A48: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((65535|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4117,7 +3834,7 @@ var asm1; (function (asm)
         /* IL_1A5A: box System.Int64*/
         /* IL_1A5F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((1048575|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4130,7 +3847,7 @@ var asm1; (function (asm)
         /* IL_1A71: box System.Int64*/
         /* IL_1A76: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((16777215|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4143,7 +3860,7 @@ var asm1; (function (asm)
         /* IL_1A88: box System.Int64*/
         /* IL_1A8D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((268435455|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4156,7 +3873,7 @@ var asm1; (function (asm)
         /* IL_1A9B: box System.Int64*/
         /* IL_1AA0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_u8((-1|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4171,7 +3888,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4186,7 +3903,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4201,7 +3918,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4216,7 +3933,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4231,7 +3948,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4246,14 +3963,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_1B41: ldstr Div long.MinValue*/
         /* IL_1B46: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div long.MinValue"));
+        (asm1.x6000001)((BLR.new_string)("Div long.MinValue"));
         /* IL_1B4B: ldc.i8 -9223372036854775808*/
         /* IL_1B54: ldc.i4.s 15*/
         /* IL_1B56: conv.i8 */
@@ -4264,7 +3981,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((15|0))),
+            ]),(BLR.conv_i8)((15|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4279,7 +3996,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((255|0))),
+            ]),(BLR.conv_i8)((255|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4294,7 +4011,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((4095|0))),
+            ]),(BLR.conv_i8)((4095|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4309,7 +4026,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((65535|0))),
+            ]),(BLR.conv_i8)((65535|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4324,7 +4041,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((1048575|0))),
+            ]),(BLR.conv_i8)((1048575|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4339,7 +4056,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((16777215|0))),
+            ]),(BLR.conv_i8)((16777215|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4354,7 +4071,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_i8((268435455|0))),
+            ]),(BLR.conv_i8)((268435455|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4369,7 +4086,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0x0,
                 0x80000000
-            ]),conv_u8((-1|0))),
+            ]),(BLR.conv_u8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4478,7 +4195,7 @@ var asm1; (function (asm)
         });
         /* IL_1CFA: ldstr Div -1*/
         /* IL_1CFF: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div -1"));
+        (asm1.x6000001)((BLR.new_string)("Div -1"));
         /* IL_1D04: ldc.i4.s 15*/
         /* IL_1D06: conv.i8 */
         /* IL_1D07: ldc.i4.m1 */
@@ -4487,7 +4204,7 @@ var asm1; (function (asm)
         /* IL_1D0E: box System.Int64*/
         /* IL_1D13: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((15|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4500,7 +4217,7 @@ var asm1; (function (asm)
         /* IL_1D25: box System.Int64*/
         /* IL_1D2A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4513,7 +4230,7 @@ var asm1; (function (asm)
         /* IL_1D3C: box System.Int64*/
         /* IL_1D41: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((4095|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4526,7 +4243,7 @@ var asm1; (function (asm)
         /* IL_1D53: box System.Int64*/
         /* IL_1D58: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((65535|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4539,7 +4256,7 @@ var asm1; (function (asm)
         /* IL_1D6A: box System.Int64*/
         /* IL_1D6F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((1048575|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4552,7 +4269,7 @@ var asm1; (function (asm)
         /* IL_1D81: box System.Int64*/
         /* IL_1D86: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((16777215|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4565,7 +4282,7 @@ var asm1; (function (asm)
         /* IL_1D98: box System.Int64*/
         /* IL_1D9D: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((268435455|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4578,7 +4295,7 @@ var asm1; (function (asm)
         /* IL_1DAB: box System.Int64*/
         /* IL_1DB0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_u8((-1|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4593,7 +4310,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4608,7 +4325,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4623,7 +4340,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4638,7 +4355,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4653,7 +4370,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4668,14 +4385,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_1E51: ldstr Div 2*/
         /* IL_1E56: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div 2"));
+        (asm1.x6000001)((BLR.new_string)("Div 2"));
         /* IL_1E5B: ldc.i4.s 15*/
         /* IL_1E5D: conv.i8 */
         /* IL_1E5E: ldc.i4.2 */
@@ -4684,7 +4401,7 @@ var asm1; (function (asm)
         /* IL_1E65: box System.Int64*/
         /* IL_1E6A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4697,7 +4414,7 @@ var asm1; (function (asm)
         /* IL_1E7C: box System.Int64*/
         /* IL_1E81: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((255|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4710,7 +4427,7 @@ var asm1; (function (asm)
         /* IL_1E93: box System.Int64*/
         /* IL_1E98: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((4095|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4723,7 +4440,7 @@ var asm1; (function (asm)
         /* IL_1EAA: box System.Int64*/
         /* IL_1EAF: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((65535|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4736,7 +4453,7 @@ var asm1; (function (asm)
         /* IL_1EC1: box System.Int64*/
         /* IL_1EC6: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((1048575|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4749,7 +4466,7 @@ var asm1; (function (asm)
         /* IL_1ED8: box System.Int64*/
         /* IL_1EDD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((16777215|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4762,7 +4479,7 @@ var asm1; (function (asm)
         /* IL_1EEF: box System.Int64*/
         /* IL_1EF4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((268435455|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4775,7 +4492,7 @@ var asm1; (function (asm)
         /* IL_1F02: box System.Int64*/
         /* IL_1F07: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_u8((-1|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4790,7 +4507,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4805,7 +4522,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4820,7 +4537,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4835,7 +4552,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4850,7 +4567,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4865,14 +4582,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_1FA8: ldstr Div -2*/
         /* IL_1FAD: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div -2"));
+        (asm1.x6000001)((BLR.new_string)("Div -2"));
         /* IL_1FB2: ldc.i4.s 15*/
         /* IL_1FB4: conv.i8 */
         /* IL_1FB5: ldc.i4.s 254*/
@@ -4881,7 +4598,7 @@ var asm1; (function (asm)
         /* IL_1FBD: box System.Int64*/
         /* IL_1FC2: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((15|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4894,7 +4611,7 @@ var asm1; (function (asm)
         /* IL_1FD5: box System.Int64*/
         /* IL_1FDA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((255|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4907,7 +4624,7 @@ var asm1; (function (asm)
         /* IL_1FED: box System.Int64*/
         /* IL_1FF2: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((4095|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4920,7 +4637,7 @@ var asm1; (function (asm)
         /* IL_2005: box System.Int64*/
         /* IL_200A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((65535|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4933,7 +4650,7 @@ var asm1; (function (asm)
         /* IL_201D: box System.Int64*/
         /* IL_2022: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((1048575|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4946,7 +4663,7 @@ var asm1; (function (asm)
         /* IL_2035: box System.Int64*/
         /* IL_203A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((16777215|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4959,7 +4676,7 @@ var asm1; (function (asm)
         /* IL_204D: box System.Int64*/
         /* IL_2052: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((268435455|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4972,7 +4689,7 @@ var asm1; (function (asm)
         /* IL_2061: box System.Int64*/
         /* IL_2066: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_u8((-1|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -4987,7 +4704,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5002,7 +4719,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5017,7 +4734,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5032,7 +4749,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5047,7 +4764,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5062,14 +4779,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_210D: ldstr Div 0x1, 0x010, 0x0101 etc*/
         /* IL_2112: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div 0x1, 0x010, 0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Div 0x1, 0x010, 0x0101 etc"));
         /* IL_2117: ldc.i4 255*/
         /* IL_211C: conv.i8 */
         /* IL_211D: ldc.i4.1 */
@@ -5078,7 +4795,7 @@ var asm1; (function (asm)
         /* IL_2124: box System.Int64*/
         /* IL_2129: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5091,7 +4808,7 @@ var asm1; (function (asm)
         /* IL_213C: box System.Int64*/
         /* IL_2141: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((4095|0)),conv_i8((16|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5104,7 +4821,7 @@ var asm1; (function (asm)
         /* IL_2157: box System.Int64*/
         /* IL_215C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((65535|0)),conv_i8((257|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5117,7 +4834,7 @@ var asm1; (function (asm)
         /* IL_2172: box System.Int64*/
         /* IL_2177: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((1048575|0)),conv_i8((4112|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5130,7 +4847,7 @@ var asm1; (function (asm)
         /* IL_218D: box System.Int64*/
         /* IL_2192: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((16777215|0)),conv_i8((65793|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5143,7 +4860,7 @@ var asm1; (function (asm)
         /* IL_21A8: box System.Int64*/
         /* IL_21AD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((268435455|0)),conv_i8((1052688|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5156,7 +4873,7 @@ var asm1; (function (asm)
         /* IL_21BF: box System.Int64*/
         /* IL_21C4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_u8((-1|0)),conv_i8((16843009|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5171,7 +4888,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((269488144|0))),
+            ]),(BLR.conv_i8)((269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5263,7 +4980,7 @@ var asm1; (function (asm)
         });
         /* IL_228C: ldstr Div -0x1, -0x010, -0x0101 etc*/
         /* IL_2291: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Div -0x1, -0x010, -0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Div -0x1, -0x010, -0x0101 etc"));
         /* IL_2296: ldc.i4 255*/
         /* IL_229B: conv.i8 */
         /* IL_229C: ldc.i4.m1 */
@@ -5272,7 +4989,7 @@ var asm1; (function (asm)
         /* IL_22A3: box System.Int64*/
         /* IL_22A8: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5285,7 +5002,7 @@ var asm1; (function (asm)
         /* IL_22BB: box System.Int64*/
         /* IL_22C0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((4095|0)),conv_i8((-16|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5298,7 +5015,7 @@ var asm1; (function (asm)
         /* IL_22D6: box System.Int64*/
         /* IL_22DB: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((65535|0)),conv_i8((-257|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5311,7 +5028,7 @@ var asm1; (function (asm)
         /* IL_22F1: box System.Int64*/
         /* IL_22F6: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((1048575|0)),conv_i8((-4112|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5324,7 +5041,7 @@ var asm1; (function (asm)
         /* IL_230C: box System.Int64*/
         /* IL_2311: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((16777215|0)),conv_i8((-65793|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5337,7 +5054,7 @@ var asm1; (function (asm)
         /* IL_2327: box System.Int64*/
         /* IL_232C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_i8((268435455|0)),conv_i8((-1052688|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5350,7 +5067,7 @@ var asm1; (function (asm)
         /* IL_233E: box System.Int64*/
         /* IL_2343: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000011)(conv_u8((-1|0)),conv_i8((-16843009|0))),
+            'boxed': (asm1.x6000011)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5365,7 +5082,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000011)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-269488144|0))),
+            ]),(BLR.conv_i8)((-269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5457,7 +5174,7 @@ var asm1; (function (asm)
         });
         /* IL_240B: ldstr Mod 1*/
         /* IL_2410: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mod 1"));
+        (asm1.x6000001)((BLR.new_string)("Mod 1"));
         /* IL_2415: ldc.i4.s 15*/
         /* IL_2417: conv.i8 */
         /* IL_2418: ldc.i4.1 */
@@ -5466,7 +5183,7 @@ var asm1; (function (asm)
         /* IL_241F: box System.Int64*/
         /* IL_2424: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((15|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5479,7 +5196,7 @@ var asm1; (function (asm)
         /* IL_2436: box System.Int64*/
         /* IL_243B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5492,7 +5209,7 @@ var asm1; (function (asm)
         /* IL_244D: box System.Int64*/
         /* IL_2452: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((4095|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5505,7 +5222,7 @@ var asm1; (function (asm)
         /* IL_2464: box System.Int64*/
         /* IL_2469: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((65535|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5518,7 +5235,7 @@ var asm1; (function (asm)
         /* IL_247B: box System.Int64*/
         /* IL_2480: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((1048575|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5531,7 +5248,7 @@ var asm1; (function (asm)
         /* IL_2492: box System.Int64*/
         /* IL_2497: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((16777215|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5544,7 +5261,7 @@ var asm1; (function (asm)
         /* IL_24A9: box System.Int64*/
         /* IL_24AE: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((268435455|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5557,7 +5274,7 @@ var asm1; (function (asm)
         /* IL_24BC: box System.Int64*/
         /* IL_24C1: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_u8((-1|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5572,7 +5289,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5587,7 +5304,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5602,7 +5319,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5617,7 +5334,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5632,7 +5349,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5647,14 +5364,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((1|0))),
+            ]),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_2562: ldstr Mod -1*/
         /* IL_2567: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mod -1"));
+        (asm1.x6000001)((BLR.new_string)("Mod -1"));
         /* IL_256C: ldc.i4.s 15*/
         /* IL_256E: conv.i8 */
         /* IL_256F: ldc.i4.m1 */
@@ -5663,7 +5380,7 @@ var asm1; (function (asm)
         /* IL_2576: box System.Int64*/
         /* IL_257B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((15|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5676,7 +5393,7 @@ var asm1; (function (asm)
         /* IL_258D: box System.Int64*/
         /* IL_2592: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5689,7 +5406,7 @@ var asm1; (function (asm)
         /* IL_25A4: box System.Int64*/
         /* IL_25A9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((4095|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5702,7 +5419,7 @@ var asm1; (function (asm)
         /* IL_25BB: box System.Int64*/
         /* IL_25C0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((65535|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5715,7 +5432,7 @@ var asm1; (function (asm)
         /* IL_25D2: box System.Int64*/
         /* IL_25D7: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((1048575|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5728,7 +5445,7 @@ var asm1; (function (asm)
         /* IL_25E9: box System.Int64*/
         /* IL_25EE: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((16777215|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5741,7 +5458,7 @@ var asm1; (function (asm)
         /* IL_2600: box System.Int64*/
         /* IL_2605: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((268435455|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5754,7 +5471,7 @@ var asm1; (function (asm)
         /* IL_2613: box System.Int64*/
         /* IL_2618: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_u8((-1|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5769,7 +5486,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5784,7 +5501,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5799,7 +5516,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5814,7 +5531,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5829,7 +5546,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5844,14 +5561,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-1|0))),
+            ]),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_26B9: ldstr Mod 2*/
         /* IL_26BE: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mod 2"));
+        (asm1.x6000001)((BLR.new_string)("Mod 2"));
         /* IL_26C3: ldc.i4.s 15*/
         /* IL_26C5: conv.i8 */
         /* IL_26C6: ldc.i4.2 */
@@ -5860,7 +5577,7 @@ var asm1; (function (asm)
         /* IL_26CD: box System.Int64*/
         /* IL_26D2: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5873,7 +5590,7 @@ var asm1; (function (asm)
         /* IL_26E4: box System.Int64*/
         /* IL_26E9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((255|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5886,7 +5603,7 @@ var asm1; (function (asm)
         /* IL_26FB: box System.Int64*/
         /* IL_2700: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((4095|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5899,7 +5616,7 @@ var asm1; (function (asm)
         /* IL_2712: box System.Int64*/
         /* IL_2717: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((65535|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5912,7 +5629,7 @@ var asm1; (function (asm)
         /* IL_2729: box System.Int64*/
         /* IL_272E: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((1048575|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5925,7 +5642,7 @@ var asm1; (function (asm)
         /* IL_2740: box System.Int64*/
         /* IL_2745: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((16777215|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5938,7 +5655,7 @@ var asm1; (function (asm)
         /* IL_2757: box System.Int64*/
         /* IL_275C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((268435455|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5951,7 +5668,7 @@ var asm1; (function (asm)
         /* IL_276A: box System.Int64*/
         /* IL_276F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_u8((-1|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5966,7 +5683,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5981,7 +5698,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -5996,7 +5713,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6011,7 +5728,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6026,7 +5743,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6041,14 +5758,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((2|0))),
+            ]),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_2810: ldstr Mod -2*/
         /* IL_2815: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mod -2"));
+        (asm1.x6000001)((BLR.new_string)("Mod -2"));
         /* IL_281A: ldc.i4.s 15*/
         /* IL_281C: conv.i8 */
         /* IL_281D: ldc.i4.s 254*/
@@ -6057,7 +5774,7 @@ var asm1; (function (asm)
         /* IL_2825: box System.Int64*/
         /* IL_282A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((15|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6070,7 +5787,7 @@ var asm1; (function (asm)
         /* IL_283D: box System.Int64*/
         /* IL_2842: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((255|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6083,7 +5800,7 @@ var asm1; (function (asm)
         /* IL_2855: box System.Int64*/
         /* IL_285A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((4095|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6096,7 +5813,7 @@ var asm1; (function (asm)
         /* IL_286D: box System.Int64*/
         /* IL_2872: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((65535|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6109,7 +5826,7 @@ var asm1; (function (asm)
         /* IL_2885: box System.Int64*/
         /* IL_288A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((1048575|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6122,7 +5839,7 @@ var asm1; (function (asm)
         /* IL_289D: box System.Int64*/
         /* IL_28A2: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((16777215|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6135,7 +5852,7 @@ var asm1; (function (asm)
         /* IL_28B5: box System.Int64*/
         /* IL_28BA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((268435455|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6148,7 +5865,7 @@ var asm1; (function (asm)
         /* IL_28C9: box System.Int64*/
         /* IL_28CE: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_u8((-1|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6163,7 +5880,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6178,7 +5895,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6193,7 +5910,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6208,7 +5925,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6223,7 +5940,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6238,14 +5955,14 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xFFFFFF
-            ]),conv_i8((-2|0))),
+            ]),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         });
         /* IL_2975: ldstr Mod 0x1, 0x010, 0x0101 etc*/
         /* IL_297A: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mod 0x1, 0x010, 0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Mod 0x1, 0x010, 0x0101 etc"));
         /* IL_297F: ldc.i4 255*/
         /* IL_2984: conv.i8 */
         /* IL_2985: ldc.i4.1 */
@@ -6254,7 +5971,7 @@ var asm1; (function (asm)
         /* IL_298C: box System.Int64*/
         /* IL_2991: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((255|0)),conv_i8((1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6267,7 +5984,7 @@ var asm1; (function (asm)
         /* IL_29A4: box System.Int64*/
         /* IL_29A9: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((4095|0)),conv_i8((16|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6280,7 +5997,7 @@ var asm1; (function (asm)
         /* IL_29BF: box System.Int64*/
         /* IL_29C4: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((65535|0)),conv_i8((257|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6293,7 +6010,7 @@ var asm1; (function (asm)
         /* IL_29DA: box System.Int64*/
         /* IL_29DF: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((1048575|0)),conv_i8((4112|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6306,7 +6023,7 @@ var asm1; (function (asm)
         /* IL_29F5: box System.Int64*/
         /* IL_29FA: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((16777215|0)),conv_i8((65793|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6319,7 +6036,7 @@ var asm1; (function (asm)
         /* IL_2A10: box System.Int64*/
         /* IL_2A15: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((268435455|0)),conv_i8((1052688|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6332,7 +6049,7 @@ var asm1; (function (asm)
         /* IL_2A27: box System.Int64*/
         /* IL_2A2C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_u8((-1|0)),conv_i8((16843009|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6347,7 +6064,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((269488144|0))),
+            ]),(BLR.conv_i8)((269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6439,7 +6156,7 @@ var asm1; (function (asm)
         });
         /* IL_2AF4: ldstr Mod -0x1, -0x010, -0x0101 etc*/
         /* IL_2AF9: call Void Log(System.Object)*/
-        (asm1.x6000001)(new_string("Mod -0x1, -0x010, -0x0101 etc"));
+        (asm1.x6000001)((BLR.new_string)("Mod -0x1, -0x010, -0x0101 etc"));
         /* IL_2AFE: ldc.i4 255*/
         /* IL_2B03: conv.i8 */
         /* IL_2B04: ldc.i4.m1 */
@@ -6448,7 +6165,7 @@ var asm1; (function (asm)
         /* IL_2B0B: box System.Int64*/
         /* IL_2B10: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((255|0)),conv_i8((-1|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((255|0)),(BLR.conv_i8)((-1|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6461,7 +6178,7 @@ var asm1; (function (asm)
         /* IL_2B23: box System.Int64*/
         /* IL_2B28: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((4095|0)),conv_i8((-16|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((4095|0)),(BLR.conv_i8)((-16|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6474,7 +6191,7 @@ var asm1; (function (asm)
         /* IL_2B3E: box System.Int64*/
         /* IL_2B43: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((65535|0)),conv_i8((-257|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((65535|0)),(BLR.conv_i8)((-257|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6487,7 +6204,7 @@ var asm1; (function (asm)
         /* IL_2B59: box System.Int64*/
         /* IL_2B5E: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((1048575|0)),conv_i8((-4112|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((1048575|0)),(BLR.conv_i8)((-4112|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6500,7 +6217,7 @@ var asm1; (function (asm)
         /* IL_2B74: box System.Int64*/
         /* IL_2B79: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((16777215|0)),conv_i8((-65793|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((16777215|0)),(BLR.conv_i8)((-65793|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6513,7 +6230,7 @@ var asm1; (function (asm)
         /* IL_2B8F: box System.Int64*/
         /* IL_2B94: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((268435455|0)),conv_i8((-1052688|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((268435455|0)),(BLR.conv_i8)((-1052688|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6526,7 +6243,7 @@ var asm1; (function (asm)
         /* IL_2BA6: box System.Int64*/
         /* IL_2BAB: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_u8((-1|0)),conv_i8((-16843009|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_u8)((-1|0)),(BLR.conv_i8)((-16843009|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6541,7 +6258,7 @@ var asm1; (function (asm)
             'boxed': (asm1.x6000012)(new Uint32Array([
                 0xFFFFFFFF,
                 0xF
-            ]),conv_i8((-269488144|0))),
+            ]),(BLR.conv_i8)((-269488144|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6639,7 +6356,7 @@ var asm1; (function (asm)
         /* IL_2C7D: box System.Int64*/
         /* IL_2C82: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6652,7 +6369,7 @@ var asm1; (function (asm)
         /* IL_2C92: box System.Int64*/
         /* IL_2C97: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((15|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((15|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6665,7 +6382,7 @@ var asm1; (function (asm)
         /* IL_2CA7: box System.Int64*/
         /* IL_2CAC: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((-15|0)),conv_i8((-2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((-15|0)),(BLR.conv_i8)((-2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6678,7 +6395,7 @@ var asm1; (function (asm)
         /* IL_2CBB: box System.Int64*/
         /* IL_2CC0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000012)(conv_i8((-15|0)),conv_i8((2|0))),
+            'boxed': (asm1.x6000012)((BLR.conv_i8)((-15|0)),(BLR.conv_i8)((2|0))),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
@@ -6686,15 +6403,15 @@ var asm1; (function (asm)
         /* IL_2CC5: ldc.i4.0 */
         /* IL_2CC6: conv.i8 */
         /* IL_2CC7: call Void TestRightShift(System.Int64)*/
-        (asm1.x6000013)(conv_i8((0|0)));
+        (asm1.x6000013)((BLR.conv_i8)((0|0)));
         /* IL_2CCC: ldc.i4.1 */
         /* IL_2CCD: conv.i8 */
         /* IL_2CCE: call Void TestRightShift(System.Int64)*/
-        (asm1.x6000013)(conv_i8((1|0)));
+        (asm1.x6000013)((BLR.conv_i8)((1|0)));
         /* IL_2CD3: ldc.i4 255*/
         /* IL_2CD8: conv.i8 */
         /* IL_2CD9: call Void TestRightShift(System.Int64)*/
-        (asm1.x6000013)(conv_i8((255|0)));
+        (asm1.x6000013)((BLR.conv_i8)((255|0)));
         /* IL_2CDE: ldc.i8 282578800148737*/
         /* IL_2CE7: call Void TestRightShift(System.Int64)*/
         (asm1.x6000013)(new Uint32Array([
@@ -6716,15 +6433,15 @@ var asm1; (function (asm)
         /* IL_2D08: ldc.i4.0 */
         /* IL_2D09: conv.i8 */
         /* IL_2D0A: call Void TestLeftShift(System.Int64)*/
-        (asm1.x6000014)(conv_i8((0|0)));
+        (asm1.x6000014)((BLR.conv_i8)((0|0)));
         /* IL_2D0F: ldc.i4.1 */
         /* IL_2D10: conv.i8 */
         /* IL_2D11: call Void TestLeftShift(System.Int64)*/
-        (asm1.x6000014)(conv_i8((1|0)));
+        (asm1.x6000014)((BLR.conv_i8)((1|0)));
         /* IL_2D16: ldc.i4 255*/
         /* IL_2D1B: conv.i8 */
         /* IL_2D1C: call Void TestLeftShift(System.Int64)*/
-        (asm1.x6000014)(conv_i8((255|0)));
+        (asm1.x6000014)((BLR.conv_i8)((255|0)));
         /* IL_2D21: ldc.i8 282578800148737*/
         /* IL_2D2A: call Void TestLeftShift(System.Int64)*/
         (asm1.x6000014)(new Uint32Array([
@@ -6749,7 +6466,7 @@ var asm1; (function (asm)
         /* IL_2D56: box System.Double*/
         /* IL_2D5B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x600000d)(conv_i8((255|0))),
+            'boxed': (asm1.x600000d)((BLR.conv_i8)((255|0))),
             'type': t1,
             'vtable': t1.prototype.vtable,
             'ifacemap': t1.prototype.ifacemap
@@ -6776,7 +6493,7 @@ var asm1; (function (asm)
         /* IL_00: ldarg.0 */
         /* IL_01: conv.r8 */
         /* IL_02: ret */
-        return to_number(arg0);
+        return (BLR.to_number)(arg0);
     };;
     /* static Int64 Add(System.Int64, System.Int64)*/
     asm.x600000e = function Add(arg0,arg1)
@@ -6843,7 +6560,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        (asm1.x6000001)((asm0.x6000173)(new_string("RightShift "),{
+        (asm1.x6000001)((asm0.x6000173)((BLR.new_string)("RightShift "),{
             'boxed': arg0,
             'type': t0,
             'vtable': t0.prototype.vtable,
@@ -7037,7 +6754,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        (asm1.x6000001)((asm0.x6000173)(new_string("LeftShift "),{
+        (asm1.x6000001)((asm0.x6000173)((BLR.new_string)("LeftShift "),{
             'boxed': arg0,
             'type': t0,
             'vtable': t0.prototype.vtable,
@@ -7269,11 +6986,11 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                initType(TestLog,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),is_inst_default(TestLog),Array,"asm1.t2000002");
+                (BLR.init_type)(TestLog,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestLog),Array,"asm1.t2000002");
                 TestLog.Interfaces = [];
-                declare_virtual(TestLog,"asm0.x6000005","asm0.x6000005");
-                declare_virtual(TestLog,"asm0.x6000008","asm0.x6000008");
-                declare_virtual(TestLog,"asm0.x6000009","asm0.x6000009");
+                (BLR.declare_virtual)(TestLog,"asm0.x6000005","asm0.x6000005");
+                (BLR.declare_virtual)(TestLog,"asm0.x6000008","asm0.x6000008");
+                (BLR.declare_virtual)(TestLog,"asm0.x6000009","asm0.x6000009");
             };
             TestLog.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -7307,11 +7024,11 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                initType(TestHelper,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),is_inst_default(TestHelper),Array,"asm1.t2000006");
+                (BLR.init_type)(TestHelper,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestHelper),Array,"asm1.t2000006");
                 TestHelper.Interfaces = [];
-                declare_virtual(TestHelper,"asm0.x6000005","asm0.x6000005");
-                declare_virtual(TestHelper,"asm0.x6000008","asm0.x6000008");
-                declare_virtual(TestHelper,"asm0.x6000009","asm0.x6000009");
+                (BLR.declare_virtual)(TestHelper,"asm0.x6000005","asm0.x6000005");
+                (BLR.declare_virtual)(TestHelper,"asm0.x6000008","asm0.x6000008");
+                (BLR.declare_virtual)(TestHelper,"asm0.x6000009","asm0.x6000009");
             };
             TestHelper.prototype = new (((asm0)["System.Object"])())();
             return c;
@@ -7345,11 +7062,11 @@ var asm1; (function (asm)
                     return;
                 }
                 initialized = true;
-                initType(Program,"Program",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),is_inst_default(Program),Array,"asm1.t2000007");
+                (BLR.init_type)(Program,"Program",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(Program),Array,"asm1.t2000007");
                 Program.Interfaces = [];
-                declare_virtual(Program,"asm0.x6000005","asm0.x6000005");
-                declare_virtual(Program,"asm0.x6000008","asm0.x6000008");
-                declare_virtual(Program,"asm0.x6000009","asm0.x6000009");
+                (BLR.declare_virtual)(Program,"asm0.x6000005","asm0.x6000005");
+                (BLR.declare_virtual)(Program,"asm0.x6000008","asm0.x6000008");
+                (BLR.declare_virtual)(Program,"asm0.x6000009","asm0.x6000009");
             };
             Program.prototype = new (((asm0)["System.Object"])())();
             return c;
