@@ -46,7 +46,7 @@ namespace Braille.JsTranslation.OpTranslators
                         };
                     }
                 case "cgt":
-                    if (opc == "cgt.un" && ((OpExpression)node.Arguments.Last()).Instruction.OpCode.Name == "ldnull")
+                    if (opc == "cgt.un" && node.Arguments.Last().ResultType == context.SystemTypes.Null)
                     {
                         // we should consider using Number(0) instead of 'null' 
 
