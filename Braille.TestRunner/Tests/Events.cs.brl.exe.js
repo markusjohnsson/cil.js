@@ -77,6 +77,7 @@ var asm1; (function (asm)
     /* static Void Main()*/
     asm.x600000e_init = function ()
     {
+        (((asm0)["System.ValueType"])().init)();
         ((asm1.Program)().init)();
         (((asm0)["System.EventHandler"])().init)();
         (((asm0)["System.Object"])().init)();
@@ -94,11 +95,13 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
+        var t4;
         var __pos_0__;
-        t0 = (asm1.Program)();
-        t1 = ((asm0)["System.EventHandler"])();
-        t2 = ((asm0)["System.Object"])();
-        t3 = ((asm0)["System.EventArgs"])();
+        t0 = ((asm0)["System.ValueType"])();
+        t1 = (asm1.Program)();
+        t2 = ((asm0)["System.EventHandler"])();
+        t3 = ((asm0)["System.Object"])();
+        t4 = ((asm0)["System.EventArgs"])();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -108,7 +111,7 @@ var asm1; (function (asm)
                 /* IL_00: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_05: brtrue.s IL_18*/
                 
-                if ((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]){
+                if ((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]){
                     __pos_0__ = 0x18;
                     continue;
                 }
@@ -116,7 +119,7 @@ var asm1; (function (asm)
                 /* IL_09: ldftn Void <Main>b__0(System.Object, System.EventArgs)*/
                 /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_13: stsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
-                (t0)["CS$<>9__CachedAnonymousMethodDelegate1"] = (BLR.newobj)(t1,asm0.x6000121,[
+                (t1)["CS$<>9__CachedAnonymousMethodDelegate1"] = (BLR.newobj)(t2,asm0.x6000121,[
                     null,
                     null,
                     asm1.x6000011
@@ -124,12 +127,12 @@ var asm1; (function (asm)
                 case 0x18:
                 /* IL_18: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_1D: call Void add_MyEvent(System.EventHandler)*/
-                (asm1.x600000c)((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]);
+                (asm1.x600000c)((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]);
                 /* IL_22: ldnull */
                 /* IL_24: ldftn Void Handler(System.Object, System.EventArgs)*/
                 /* IL_29: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_2E: call Void add_MyEvent(System.EventHandler)*/
-                (asm1.x600000c)((BLR.newobj)(t1,asm0.x6000121,[
+                (asm1.x600000c)((BLR.newobj)(t2,asm0.x6000121,[
                     null,
                     null,
                     asm1.x600000f
@@ -139,19 +142,19 @@ var asm1; (function (asm)
                 /* IL_38: newobj Void .ctor()*/
                 /* IL_3D: newobj Void .ctor()*/
                 /* IL_42: callvirt Void Invoke(System.Object, System.EventArgs)*/
-                (t0.MyEvent._methodPtr.apply)(null,((t0.MyEvent._target) ? ([
-                    t0.MyEvent._target,
-                    (BLR.newobj)(t2,asm0.x600000c,[
+                (t1.MyEvent._methodPtr.apply)(null,((t1.MyEvent._target) ? ([
+                    t1.MyEvent._target,
+                    (BLR.newobj)(t3,asm0.x600000c,[
                         null
                     ]),
-                    (BLR.newobj)(t3,asm0.x600011f,[
+                    (BLR.newobj)(t4,asm0.x600011f,[
                         null
                     ])
                 ]) : ([
-                    (BLR.newobj)(t2,asm0.x600000c,[
+                    (BLR.newobj)(t3,asm0.x600000c,[
                         null
                     ]),
-                    (BLR.newobj)(t3,asm0.x600011f,[
+                    (BLR.newobj)(t4,asm0.x600011f,[
                         null
                     ])
                 ])));
@@ -159,7 +162,7 @@ var asm1; (function (asm)
                 /* IL_49: ldftn Void Handler(System.Object, System.EventArgs)*/
                 /* IL_4E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_53: call Void remove_MyEvent(System.EventHandler)*/
-                (asm1.x600000d)((BLR.newobj)(t1,asm0.x6000121,[
+                (asm1.x600000d)((BLR.newobj)(t2,asm0.x6000121,[
                     null,
                     null,
                     asm1.x600000f
@@ -169,19 +172,19 @@ var asm1; (function (asm)
                 /* IL_5D: newobj Void .ctor()*/
                 /* IL_62: newobj Void .ctor()*/
                 /* IL_67: callvirt Void Invoke(System.Object, System.EventArgs)*/
-                (t0.MyEvent._methodPtr.apply)(null,((t0.MyEvent._target) ? ([
-                    t0.MyEvent._target,
-                    (BLR.newobj)(t2,asm0.x600000c,[
+                (t1.MyEvent._methodPtr.apply)(null,((t1.MyEvent._target) ? ([
+                    t1.MyEvent._target,
+                    (BLR.newobj)(t3,asm0.x600000c,[
                         null
                     ]),
-                    (BLR.newobj)(t3,asm0.x600011f,[
+                    (BLR.newobj)(t4,asm0.x600011f,[
                         null
                     ])
                 ]) : ([
-                    (BLR.newobj)(t2,asm0.x600000c,[
+                    (BLR.newobj)(t3,asm0.x600000c,[
                         null
                     ]),
-                    (BLR.newobj)(t3,asm0.x600011f,[
+                    (BLR.newobj)(t4,asm0.x600011f,[
                         null
                     ])
                 ])));
@@ -216,121 +219,43 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.TestLog = (function ()
+    asm.TestLog = (BLR.declare_type)("TestLog",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function TestLog()
-            {
-                (TestLog.init)();
-                this.constructor = TestLog;
-            };
-            c = TestLog;
-            ct = c;
-            TestLog.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(TestLog,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestLog),Array,"asm1.t2000002");
-                TestLog.Interfaces = [];
-                (BLR.declare_virtual)(TestLog,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(TestLog,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(TestLog,"asm0.x6000009","asm0.x6000009");
-            };
-            TestLog.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.TestHelper = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000002");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function TestHelper()
-            {
-                (TestHelper.init)();
-                this.constructor = TestHelper;
-            };
-            c = TestHelper;
-            ct = c;
-            TestHelper.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(TestHelper,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestHelper),Array,"asm1.t2000006");
-                TestHelper.Interfaces = [];
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000009","asm0.x6000009");
-            };
-            TestHelper.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.Program = (function ()
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    asm.TestHelper = (BLR.declare_type)("TestHelper",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function Program()
-            {
-                (Program.init)();
-                this.constructor = Program;
-            };
-            c = Program;
-            ct = c;
-            Program.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Program,"Program",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(Program),Array,"asm1.t2000007");
-                Program.MyEvent = null;
-                (Program)["CS$<>9__CachedAnonymousMethodDelegate1"] = null;
-                Program.Interfaces = [];
-                (BLR.declare_virtual)(Program,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(Program,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(Program,"asm0.x6000009","asm0.x6000009");
-            };
-            Program.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000006");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
+    {
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    asm.Program = (BLR.declare_type)("Program",function ()
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Program",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000007");
+        this.MyEvent = null;
+        (this)["CS$<>9__CachedAnonymousMethodDelegate1"] = null;
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
+    {
+        return new (((asm0)["System.Object"])())();
+    },[]);
     asm.entryPoint = asm.x600000e;
 })(asm1 || (asm1 = {}));

@@ -111,6 +111,7 @@ var asm1; (function (asm)
     /* static Int32 Main()*/
     asm.x6000013_init = function ()
     {
+        (((asm0)["System.ValueType"])().init)();
         (((asm1)["Obj.Rect"])().init)();
         (((asm1)["Obj.Circle"])().init)();
         (((asm1)["Obj.Measurable"])().init)();
@@ -126,13 +127,15 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var t3;
         var __pos_0__;
         var loc0;
         var loc1;
         var loc2;
-        t0 = ((asm1)["Obj.Rect"])();
-        t1 = ((asm1)["Obj.Circle"])();
-        t2 = ((asm1)["Obj.Measurable"])();
+        t0 = ((asm0)["System.ValueType"])();
+        t1 = ((asm1)["Obj.Rect"])();
+        t2 = ((asm1)["Obj.Circle"])();
+        t3 = ((asm1)["Obj.Measurable"])();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -145,7 +148,7 @@ var asm1; (function (asm)
                 /* IL_04: ldc.i4.s 20*/
                 /* IL_06: newobj Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32)*/
                 /* IL_0B: stloc.0 */
-                loc0 = (BLR.newobj)(t0,asm1.x600000f,[
+                loc0 = (BLR.newobj)(t1,asm1.x600000f,[
                     null,
                     (0|0),
                     (0|0),
@@ -157,7 +160,7 @@ var asm1; (function (asm)
                 /* IL_0E: ldc.i4.s 20*/
                 /* IL_10: newobj Void .ctor(System.Int32, System.Int32, System.Int32)*/
                 /* IL_15: stloc.1 */
-                loc1 = (BLR.newobj)(t1,asm1.x6000011,[
+                loc1 = (BLR.newobj)(t2,asm1.x6000011,[
                     null,
                     (0|0),
                     (0|0),
@@ -190,7 +193,7 @@ var asm1; (function (asm)
                 /* IL_43: callvirt Double Area()*/
                 /* IL_48: add */
                 /* IL_49: stloc.2 */
-                loc2 = (asm1.x6000010)((BLR.cast_class)(loc0,t0)) + (asm1.x6000012)((BLR.cast_class)(loc1,t1));
+                loc2 = (asm1.x6000010)((BLR.cast_class)(loc0,t1)) + (asm1.x6000012)((BLR.cast_class)(loc1,t2));
                 /* IL_4A: ldloc.2 */
                 /* IL_4B: ldc.r8 1456,637061436*/
                 /* IL_54: sub */
@@ -211,7 +214,7 @@ var asm1; (function (asm)
                 /* IL_69: callvirt Double Area()*/
                 /* IL_6E: add */
                 /* IL_6F: stloc.2 */
-                loc2 = (((loc0.ifacemap)[t2].x600000c)())(loc0) + (((loc1.ifacemap)[t2].x600000c)())(loc1);
+                loc2 = (((loc0.ifacemap)[t3].x600000c)())(loc0) + (((loc1.ifacemap)[t3].x600000c)())(loc1);
                 /* IL_70: ldloc.2 */
                 /* IL_71: ldc.r8 0*/
                 /* IL_7A: beq.s IL_7E*/
@@ -238,333 +241,151 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.TestLog = (function ()
+    asm.TestLog = (BLR.declare_type)("TestLog",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function TestLog()
-            {
-                (TestLog.init)();
-                this.constructor = TestLog;
-            };
-            c = TestLog;
-            ct = c;
-            TestLog.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(TestLog,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestLog),Array,"asm1.t2000002");
-                TestLog.Interfaces = [];
-                (BLR.declare_virtual)(TestLog,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(TestLog,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(TestLog,"asm0.x6000009","asm0.x6000009");
-            };
-            TestLog.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.TestHelper = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000002");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function TestHelper()
-            {
-                (TestHelper.init)();
-                this.constructor = TestHelper;
-            };
-            c = TestHelper;
-            ct = c;
-            TestHelper.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(TestHelper,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestHelper),Array,"asm1.t2000006");
-                TestHelper.Interfaces = [];
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000009","asm0.x6000009");
-            };
-            TestHelper.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    (asm)["Obj.Measurable"] = (function ()
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    asm.TestHelper = (BLR.declare_type)("TestHelper",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function Measurable()
-            {
-                (Measurable.init)();
-                this.constructor = Measurable;
-            };
-            c = Measurable;
-            ct = c;
-            Measurable.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Measurable,"Obj.Measurable",asm,false,false,true,false,false,[],[
-                    [
-                        asm1,
-                        "x600000c",
-                        "Area"
-                    ]
-                ],null,(BLR.is_inst_interface)(Measurable),Array,"asm1.t2000007");
-                Measurable.Interfaces = [];
-                (BLR.declare_virtual)(Measurable,"asm1.x600000c","asm1.x600000c");
-            };
-            Measurable.prototype = {};
-            return c;
-        };
-    })();
-    (asm)["Obj.Obj"] = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000006");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function Obj()
-            {
-                (Obj.init)();
-                this.constructor = Obj;
-            };
-            c = Obj;
-            ct = c;
-            Obj.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Obj,"Obj.Obj",asm,false,false,false,false,false,[],[
-                    [
-                        asm1,
-                        "x600000d",
-                        "Area"
-                    ]
-                ],((asm0)["System.Object"])(),(BLR.is_inst_default)(Obj),Array,"asm1.t2000008");
-                Obj.Interfaces = [
-                    ((asm1)["Obj.Measurable"])()
-                ];
-                (BLR.declare_virtual)(Obj,"asm1.x600000d","asm1.x600000d");
-                (BLR.declare_virtual)(Obj,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(Obj,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(Obj,"asm0.x6000009","asm0.x6000009");
-                (BLR.tree_set)([
-                    ((asm1)["Obj.Measurable"])()
-                ],Obj.prototype.ifacemap,{
-                    'x600000c': function ()
-                    {
-                        return asm1.x600000d;
-                    }
-                });
-            };
-            Obj.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    (asm)["Obj.Rect"] = (function ()
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    (asm)["Obj.Measurable"] = (BLR.declare_type)("Measurable",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function Rect()
-            {
-                (Rect.init)();
-                this.constructor = Rect;
-            };
-            c = Rect;
-            ct = c;
-            Rect.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Rect,"Obj.Rect",asm,false,false,false,false,false,[],[
-                    [
-                        asm1,
-                        "x6000010",
-                        "Area"
-                    ]
-                ],((asm1)["Obj.Obj"])(),(BLR.is_inst_default)(Rect),Array,"asm1.t2000009");
-                Rect.Interfaces = [
-                    ((asm1)["Obj.Measurable"])()
-                ];
-                (BLR.declare_virtual)(Rect,"asm1.x600000d","asm1.x600000d");
-                (BLR.declare_virtual)(Rect,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(Rect,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(Rect,"asm0.x6000009","asm0.x6000009");
-                Rect.prototype.ObjRectx = 0;
-                Rect.prototype.ObjRecty = 0;
-                Rect.prototype.ObjRectw = 0;
-                Rect.prototype.ObjRecth = 0;
-                (BLR.tree_set)([
-                    ((asm1)["Obj.Measurable"])()
-                ],Rect.prototype.ifacemap,{
-                    'x600000c': function ()
-                    {
-                        return asm1.x600000d;
-                    }
-                });
-            };
-            Rect.prototype = new (((asm1)["Obj.Obj"])())();
-            return c;
-        };
-    })();
-    (asm)["Obj.Circle"] = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Obj.Measurable",asm,false,false,true,false,false,[],[
+            [
+                asm1,
+                "x600000c",
+                "Area"
+            ]
+        ],null,(BLR.is_inst_interface)(this),Array,"asm1.t2000007");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm1.x600000c","asm1.x600000c");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function Circle()
-            {
-                (Circle.init)();
-                this.constructor = Circle;
-            };
-            c = Circle;
-            ct = c;
-            Circle.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Circle,"Obj.Circle",asm,false,false,false,false,false,[],[
-                    [
-                        asm1,
-                        "x6000012",
-                        "Area"
-                    ]
-                ],((asm1)["Obj.Obj"])(),(BLR.is_inst_default)(Circle),Array,"asm1.t200000a");
-                Circle.Interfaces = [
-                    ((asm1)["Obj.Measurable"])()
-                ];
-                (BLR.declare_virtual)(Circle,"asm1.x600000d","asm1.x600000d");
-                (BLR.declare_virtual)(Circle,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(Circle,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(Circle,"asm0.x6000009","asm0.x6000009");
-                Circle.prototype.ObjCirclex = 0;
-                Circle.prototype.ObjCircley = 0;
-                Circle.prototype.ObjCircler = 0;
-                (BLR.tree_set)([
-                    ((asm1)["Obj.Measurable"])()
-                ],Circle.prototype.ifacemap,{
-                    'x600000c': function ()
-                    {
-                        return asm1.x600000d;
-                    }
-                });
-            };
-            Circle.prototype = new (((asm1)["Obj.Obj"])())();
-            return c;
-        };
-    })();
-    (asm)["Obj.Test"] = (function ()
+        return {};
+    },[]);
+    (asm)["Obj.Obj"] = (BLR.declare_type)("Obj",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Obj.Obj",asm,false,false,false,false,false,[],[
+            [
+                asm1,
+                "x600000d",
+                "Area"
+            ]
+        ],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000008");
+        this.Interfaces = [
+            ((asm1)["Obj.Measurable"])()
+        ];
+        (BLR.declare_virtual)(this,"asm1.x600000d","asm1.x600000d");
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+        (BLR.tree_set)([
+            ((asm1)["Obj.Measurable"])()
+        ],this.prototype.ifacemap,{
+            'x600000c': function ()
+            {
+                return asm1.x600000d;
             }
-            initialized = false;;
-            function Test()
+        });
+    },function ()
+    {
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    (asm)["Obj.Rect"] = (BLR.declare_type)("Rect",function ()
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Obj.Rect",asm,false,false,false,false,false,[],[
+            [
+                asm1,
+                "x6000010",
+                "Area"
+            ]
+        ],((asm1)["Obj.Obj"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000009");
+        this.Interfaces = [
+            ((asm1)["Obj.Measurable"])()
+        ];
+        (BLR.declare_virtual)(this,"asm1.x600000d","asm1.x600000d");
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+        this.prototype.ObjRectx = 0;
+        this.prototype.ObjRecty = 0;
+        this.prototype.ObjRectw = 0;
+        this.prototype.ObjRecth = 0;
+        (BLR.tree_set)([
+            ((asm1)["Obj.Measurable"])()
+        ],this.prototype.ifacemap,{
+            'x600000c': function ()
             {
-                (Test.init)();
-                this.constructor = Test;
-            };
-            c = Test;
-            ct = c;
-            Test.init = function ()
+                return asm1.x600000d;
+            }
+        });
+    },function ()
+    {
+        return new (((asm1)["Obj.Obj"])())();
+    },[]);
+    (asm)["Obj.Circle"] = (BLR.declare_type)("Circle",function ()
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Obj.Circle",asm,false,false,false,false,false,[],[
+            [
+                asm1,
+                "x6000012",
+                "Area"
+            ]
+        ],((asm1)["Obj.Obj"])(),(BLR.is_inst_default)(this),Array,"asm1.t200000a");
+        this.Interfaces = [
+            ((asm1)["Obj.Measurable"])()
+        ];
+        (BLR.declare_virtual)(this,"asm1.x600000d","asm1.x600000d");
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+        this.prototype.ObjCirclex = 0;
+        this.prototype.ObjCircley = 0;
+        this.prototype.ObjCircler = 0;
+        (BLR.tree_set)([
+            ((asm1)["Obj.Measurable"])()
+        ],this.prototype.ifacemap,{
+            'x600000c': function ()
             {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Test,"Obj.Test",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(Test),Array,"asm1.t200000b");
-                Test.Interfaces = [];
-                (BLR.declare_virtual)(Test,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(Test,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(Test,"asm0.x6000009","asm0.x6000009");
-            };
-            Test.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
+                return asm1.x600000d;
+            }
+        });
+    },function ()
+    {
+        return new (((asm1)["Obj.Obj"])())();
+    },[]);
+    (asm)["Obj.Test"] = (BLR.declare_type)("Test",function ()
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Obj.Test",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t200000b");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
+    {
+        return new (((asm0)["System.Object"])())();
+    },[]);
     asm.entryPoint = asm.x6000013;
 })(asm1 || (asm1 = {}));

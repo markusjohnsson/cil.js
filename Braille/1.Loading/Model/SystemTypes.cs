@@ -26,6 +26,7 @@ namespace Braille.Loading.Model
         public readonly Type Null;
         public readonly Type String;
         public readonly Type Type;
+        public readonly Type ValueType;
 
         public readonly Type ManagedPointer;
         public readonly Type UnboundGenericParameter;
@@ -53,6 +54,7 @@ namespace Braille.Loading.Model
             ManagedPointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
             UnboundGenericParameter = universe.GetType("Braille.Runtime.UnboundGenericParameter");
             Type = universe.GetType("System.Type");
+            ValueType = universe.GetType("System.ValueType");
         }
     }
 }

@@ -4,6 +4,27 @@ var BLR;
 (function (blr) {
     blr.nop = function() {};
 
+    blr.declare_type = function (name, init, baseType, genericArgs) {
+        var isGeneric = genericArgs && genericArgs.length > 0;
+        var ct = isGeneric ? {} : null;
+        var gA = isGeneric ? genericArgs.join(",") : "";
+        var s = "function t(" + gA + ") {\n" +
+        "    var c = " + (isGeneric ? "blr.tree_get([" + gA + "], ct)" : "ct") + ";\n" +
+        "    if (c) return c;\n" +
+        "    \n" +
+        "    eval('function '+name+'() {c.init();this.constructor = c;}');\n" +
+        "    c = eval(name);\n" +
+        "    " + (isGeneric ? "blr.tree_set([" + gA + "], ct, c);" : "ct = c;") + "\n" +
+        "    \n" +
+        "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
+        "    if (baseType)\n" +
+        "        c.prototype = baseType(" + gA + ");\n" +
+        "    return c;\n" +
+        "}";
+        eval(s);
+        return t;
+    }
+
     blr.init_type = function(type, fullname, assembly, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
         type.FullName = fullname;
         type.Assembly = assembly;

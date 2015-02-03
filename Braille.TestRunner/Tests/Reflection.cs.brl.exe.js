@@ -48,6 +48,7 @@ var asm1; (function (asm)
     /* static Void Main()*/
     asm.x600000f_init = function ()
     {
+        (((asm0)["System.ValueType"])().init)();
         ((asm1.A)().init)();
         (((asm0)["System.Int32"])().init)();
         (((asm0)["System.String"])().init)();
@@ -88,6 +89,7 @@ var asm1; (function (asm)
         var t13;
         var t14;
         var t15;
+        var t16;
         var st_6F;
         var st_70;
         var st_71;
@@ -100,74 +102,75 @@ var asm1; (function (asm)
         var st_78;
         var st_79;
         var loc0;
-        t0 = (asm1.A)();
-        t1 = ((asm0)["System.Int32"])();
-        t2 = ((asm0)["System.String"])();
-        t3 = ((asm0)["System.Boolean"])();
-        t4 = ((asm1)["X`1"])((asm1.A)());
-        t5 = ((asm0)["Braille.Runtime.UnboundGenericParameter"])();
+        t0 = ((asm0)["System.ValueType"])();
+        t1 = (asm1.A)();
+        t2 = ((asm0)["System.Int32"])();
+        t3 = ((asm0)["System.String"])();
+        t4 = ((asm0)["System.Boolean"])();
+        t5 = ((asm1)["X`1"])((asm1.A)());
         t6 = ((asm0)["Braille.Runtime.UnboundGenericParameter"])();
-        t7 = ((asm1)["X`1"])(((asm0)["Braille.Runtime.UnboundGenericParameter"])());
-        t8 = (asm1.B)();
-        t9 = ((asm1)["X`1"])((asm1.B)());
-        t10 = ((asm0)["System.Type"])();
-        t11 = ((asm0)["System.Object"])();
-        t12 = (asm1.I2)();
-        t13 = (asm1.I)();
-        t14 = ((asm1)["I3`1"])(((asm0)["System.Int32"])());
-        t15 = ((asm1)["X`1"])(((asm0)["System.Int32"])());
+        t7 = ((asm0)["Braille.Runtime.UnboundGenericParameter"])();
+        t8 = ((asm1)["X`1"])(((asm0)["Braille.Runtime.UnboundGenericParameter"])());
+        t9 = (asm1.B)();
+        t10 = ((asm1)["X`1"])((asm1.B)());
+        t11 = ((asm0)["System.Type"])();
+        t12 = ((asm0)["System.Object"])();
+        t13 = (asm1.I2)();
+        t14 = (asm1.I)();
+        t15 = ((asm1)["I3`1"])(((asm0)["System.Int32"])());
+        t16 = ((asm1)["X`1"])(((asm0)["System.Int32"])());
         /* IL_00: ldtoken A*/
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_0A: callvirt String get_Name()*/
         /* IL_0F: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))));
         /* IL_14: ldtoken System.Int32*/
         /* IL_19: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_1E: callvirt String get_Name()*/
         /* IL_23: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))));
         /* IL_28: ldtoken System.String*/
         /* IL_2D: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_32: callvirt String get_Name()*/
         /* IL_37: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3))));
         /* IL_3C: ldtoken System.Boolean*/
         /* IL_41: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_46: callvirt String get_Name()*/
         /* IL_4B: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4)).vtable)["asm0.x600003d"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4))));
         /* IL_50: ldtoken A*/
         /* IL_55: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_5A: callvirt String get_FullName()*/
         /* IL_5F: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))));
         /* IL_64: ldtoken System.Int32*/
         /* IL_69: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_6E: callvirt String get_FullName()*/
         /* IL_73: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))));
         /* IL_78: ldtoken System.String*/
         /* IL_7D: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_82: callvirt String get_FullName()*/
         /* IL_87: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3))));
         /* IL_8C: ldtoken System.Boolean*/
         /* IL_91: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_96: callvirt String get_FullName()*/
         /* IL_9B: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4))));
         /* IL_A0: ldtoken A*/
         /* IL_A5: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_AA: callvirt String get_FullName()*/
         /* IL_AF: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))));
+        (asm1.x6000001)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))));
         /* IL_B4: newobj Void .ctor()*/
         /* IL_B9: call Type GetType()*/
         /* IL_BE: callvirt String get_FullName()*/
         /* IL_C3: call Void Log(System.Object)*/
-        (asm1.x6000001)(((((asm0.x600000a)((BLR.newobj)(t0,asm1.x600000c,[
+        (asm1.x6000001)(((((asm0.x600000a)((BLR.newobj)(t1,asm1.x600000c,[
             null
-        ])).vtable)["asm0.x60000ac"])())((asm0.x600000a)((BLR.newobj)(t0,asm1.x600000c,[
+        ])).vtable)["asm0.x60000ac"])())((asm0.x600000a)((BLR.newobj)(t1,asm1.x600000c,[
             null
         ]))));
         /* IL_C8: newobj Void .ctor()*/
@@ -178,14 +181,14 @@ var asm1; (function (asm)
         /* IL_E1: box System.Boolean*/
         /* IL_E6: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.newobj)(t0,asm1.x600000c,[
+            'boxed': ((((asm0.x600000a)((BLR.newobj)(t1,asm1.x600000c,[
                 null
-            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t0,asm1.x600000c,[
+            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t1,asm1.x600000c,[
                 null
-            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_EB: newobj Void .ctor()*/
         /* IL_F0: call Type GetType()*/
@@ -195,14 +198,14 @@ var asm1; (function (asm)
         /* IL_104: box System.Boolean*/
         /* IL_109: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.newobj)(t0,asm1.x600000c,[
+            'boxed': ((((asm0.x600000a)((BLR.newobj)(t1,asm1.x600000c,[
                 null
-            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t0,asm1.x600000c,[
+            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t1,asm1.x600000c,[
                 null
-            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_10E: ldstr */
         /* IL_113: callvirt Type GetType()*/
@@ -212,10 +215,10 @@ var asm1; (function (asm)
         /* IL_127: box System.Boolean*/
         /* IL_12C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.new_string)("")).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.new_string)("")),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': ((((asm0.x600000a)((BLR.new_string)("")).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.new_string)("")),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t3))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_131: ldstr */
         /* IL_136: callvirt Type GetType()*/
@@ -225,10 +228,10 @@ var asm1; (function (asm)
         /* IL_14A: box System.Boolean*/
         /* IL_14F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.new_string)("")).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.new_string)("")),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': ((((asm0.x600000a)((BLR.new_string)("")).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.new_string)("")),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_154: ldc.i4.1 */
         /* IL_155: box System.Int32*/
@@ -241,18 +244,18 @@ var asm1; (function (asm)
         (asm1.x6000001)({
             'boxed': ((((asm0.x600000a)({
                 'boxed': (1|0),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
             }).vtable)["asm0.x6000008"])())((asm0.x600000a)({
                 'boxed': (1|0),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            }),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
+            }),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_178: ldc.i4.1 */
         /* IL_179: box System.Int32*/
@@ -265,18 +268,18 @@ var asm1; (function (asm)
         (asm1.x6000001)({
             'boxed': ((((asm0.x600000a)({
                 'boxed': (1|0),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
             }).vtable)["asm0.x6000008"])())((asm0.x600000a)({
                 'boxed': (1|0),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            }),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
+            }),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t2))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_19C: ldc.i4.1 */
         /* IL_19D: box System.Int32*/
@@ -285,14 +288,14 @@ var asm1; (function (asm)
         /* IL_1AC: call Void Log(System.Object)*/
         (asm1.x6000001)(((((asm0.x600000a)({
             'boxed': (1|0),
-            'type': t1,
-            'vtable': t1.prototype.vtable,
-            'ifacemap': t1.prototype.ifacemap
+            'type': t2,
+            'vtable': t2.prototype.vtable,
+            'ifacemap': t2.prototype.ifacemap
         }).vtable)["asm0.x60000ac"])())((asm0.x600000a)({
             'boxed': (1|0),
-            'type': t1,
-            'vtable': t1.prototype.vtable,
-            'ifacemap': t1.prototype.ifacemap
+            'type': t2,
+            'vtable': t2.prototype.vtable,
+            'ifacemap': t2.prototype.ifacemap
         })));
         /* IL_1B1: ldtoken A*/
         /* IL_1B6: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -301,7 +304,7 @@ var asm1; (function (asm)
         /* IL_1C5: ldstr .brl*/
         /* IL_1CA: callvirt String Replace(System.String, System.String)*/
         /* IL_1CF: call Void Log(System.Object)*/
-        (asm1.x6000001)((asm0.x6000176)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000b2"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),(BLR.new_string)(".clr"),(BLR.new_string)(".brl")));
+        (asm1.x6000001)((asm0.x6000176)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000b2"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),(BLR.new_string)(".clr"),(BLR.new_string)(".brl")));
         /* IL_1D4: ldtoken X`1[A]*/
         /* IL_1D9: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_1DE: callvirt String get_FullName()*/
@@ -309,7 +312,7 @@ var asm1; (function (asm)
         /* IL_1E8: ldstr .brl*/
         /* IL_1ED: callvirt String Replace(System.String, System.String)*/
         /* IL_1F2: call Void Log(System.Object)*/
-        (asm1.x6000001)((asm0.x6000176)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4))),(BLR.new_string)(".clr"),(BLR.new_string)(".brl")));
+        (asm1.x6000001)((asm0.x6000176)(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t5)).vtable)["asm0.x60000ac"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t5))),(BLR.new_string)(".clr"),(BLR.new_string)(".brl")));
         /* IL_1F7: newobj Void .ctor()*/
         /* IL_1FC: call Type GetType()*/
         /* IL_201: callvirt String get_FullName()*/
@@ -317,9 +320,9 @@ var asm1; (function (asm)
         /* IL_20B: ldstr .brl*/
         /* IL_210: callvirt String Replace(System.String, System.String)*/
         /* IL_215: call Void Log(System.Object)*/
-        (asm1.x6000001)((asm0.x6000176)(((((asm0.x600000a)((BLR.newobj)(t4,asm1.x600000e,[
+        (asm1.x6000001)((asm0.x6000176)(((((asm0.x600000a)((BLR.newobj)(t5,asm1.x600000e,[
             null
-        ])).vtable)["asm0.x60000ac"])())((asm0.x600000a)((BLR.newobj)(t4,asm1.x600000e,[
+        ])).vtable)["asm0.x60000ac"])())((asm0.x600000a)((BLR.newobj)(t5,asm1.x600000e,[
             null
         ]))),(BLR.new_string)(".clr"),(BLR.new_string)(".brl")));
         /* IL_21A: newobj Void .ctor()*/
@@ -330,14 +333,14 @@ var asm1; (function (asm)
         /* IL_233: box System.Boolean*/
         /* IL_238: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.newobj)(t4,asm1.x600000e,[
+            'boxed': ((((asm0.x600000a)((BLR.newobj)(t5,asm1.x600000e,[
                 null
-            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t4,asm1.x600000e,[
+            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t5,asm1.x600000e,[
                 null
-            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t7))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_23D: newobj Void .ctor()*/
         /* IL_242: call Type GetType()*/
@@ -347,14 +350,14 @@ var asm1; (function (asm)
         /* IL_256: box System.Boolean*/
         /* IL_25B: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.newobj)(t4,asm1.x600000e,[
+            'boxed': ((((asm0.x600000a)((BLR.newobj)(t5,asm1.x600000e,[
                 null
-            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t4,asm1.x600000e,[
+            ])).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.newobj)(t5,asm1.x600000e,[
                 null
-            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            ])),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t10))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_260: ldstr */
         /* IL_265: callvirt Type GetType()*/
@@ -364,24 +367,24 @@ var asm1; (function (asm)
         /* IL_279: box System.Boolean*/
         /* IL_27E: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((asm0.x600000a)((BLR.new_string)("")).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.new_string)("")),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t7))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': ((((asm0.x600000a)((BLR.new_string)("")).vtable)["asm0.x6000008"])())((asm0.x600000a)((BLR.new_string)("")),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_283: ldtoken X`1[T]*/
         /* IL_288: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        st_73 = (asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t7));
+        st_73 = (asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8));
         /* IL_28D: ldc.i4.1 */
         /* IL_28E: newarr System.Type*/
         /* IL_293: stloc.0 */
-        loc0 = (BLR.new_array)(t10,(1|0));
+        loc0 = (BLR.new_array)(t11,(1|0));
         /* IL_294: ldloc.0 */
         st_70 = loc0;
         /* IL_295: ldc.i4.0 */
         st_71 = (0|0);
         /* IL_296: ldtoken A*/
-        st_6F = (BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0);
+        st_6F = (BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1);
         /* IL_29B: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         st_72 = (asm0.x60000ad)(st_6F);
         /* IL_2A0: stelem.ref */
@@ -391,7 +394,7 @@ var asm1; (function (asm)
         /* IL_2A2: callvirt Type MakeGenericType(System.Type[])*/
         st_76 = (((st_73.vtable)["asm0.x60000b8"])())(st_73,st_74);
         /* IL_2A7: ldtoken X`1[A]*/
-        st_75 = (BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t4);
+        st_75 = (BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t5);
         /* IL_2AC: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         st_77 = (asm0.x60000ad)(st_75);
         /* IL_2B1: callvirt Boolean Equals(System.Object)*/
@@ -399,9 +402,9 @@ var asm1; (function (asm)
         /* IL_2B6: box System.Boolean*/
         st_79 = {
             'boxed': st_78,
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         };
         /* IL_2BB: call Void Log(System.Object)*/
         (asm1.x6000001)(st_79);
@@ -413,10 +416,10 @@ var asm1; (function (asm)
         /* IL_2D2: box System.Boolean*/
         /* IL_2D7: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': ((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t11)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t11))) === null) ? (1) : (0)),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': ((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12))) === null) ? (1) : (0)),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_2DC: ldtoken A*/
         /* IL_2E1: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -427,10 +430,10 @@ var asm1; (function (asm)
         /* IL_2FA: box System.Boolean*/
         /* IL_2FF: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))).vtable)["asm0.x6000008"])())(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t11))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))).vtable)["asm0.x6000008"])())(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_304: ldtoken A*/
         /* IL_309: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -441,10 +444,10 @@ var asm1; (function (asm)
         /* IL_322: box System.Boolean*/
         /* IL_327: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))).vtable)["asm0.x6000008"])())(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))).vtable)["asm0.x6000008"])())(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_32C: ldtoken B*/
         /* IL_331: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -455,10 +458,10 @@ var asm1; (function (asm)
         /* IL_34A: box System.Boolean*/
         /* IL_34F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))).vtable)["asm0.x6000008"])())(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (((((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))).vtable)["asm0.x6000008"])())(((((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9)).vtable)["asm0.x60000b1"])())((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_354: ldtoken B*/
         /* IL_359: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -468,10 +471,10 @@ var asm1; (function (asm)
         /* IL_36D: box System.Boolean*/
         /* IL_372: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_377: ldtoken B*/
         /* IL_37C: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -481,10 +484,10 @@ var asm1; (function (asm)
         /* IL_390: box System.Boolean*/
         /* IL_395: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_39A: ldtoken A*/
         /* IL_39F: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -494,10 +497,10 @@ var asm1; (function (asm)
         /* IL_3B3: box System.Boolean*/
         /* IL_3B8: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_3BD: ldtoken A*/
         /* IL_3C2: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -507,10 +510,10 @@ var asm1; (function (asm)
         /* IL_3D6: box System.Boolean*/
         /* IL_3DB: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_3E0: ldtoken A*/
         /* IL_3E5: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -520,10 +523,10 @@ var asm1; (function (asm)
         /* IL_3F9: box System.Boolean*/
         /* IL_3FE: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_403: ldtoken B*/
         /* IL_408: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -533,10 +536,10 @@ var asm1; (function (asm)
         /* IL_41C: box System.Boolean*/
         /* IL_421: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_426: ldtoken A*/
         /* IL_42B: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -546,10 +549,10 @@ var asm1; (function (asm)
         /* IL_43F: box System.Boolean*/
         /* IL_444: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t0)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t1)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_449: ldtoken B*/
         /* IL_44E: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -559,10 +562,10 @@ var asm1; (function (asm)
         /* IL_462: box System.Boolean*/
         /* IL_467: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_46C: ldtoken I2*/
         /* IL_471: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -572,10 +575,10 @@ var asm1; (function (asm)
         /* IL_485: box System.Boolean*/
         /* IL_48A: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_48F: ldtoken I*/
         /* IL_494: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -585,10 +588,10 @@ var asm1; (function (asm)
         /* IL_4A8: box System.Boolean*/
         /* IL_4AD: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_4B2: ldtoken I2*/
         /* IL_4B7: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -598,10 +601,10 @@ var asm1; (function (asm)
         /* IL_4CB: box System.Boolean*/
         /* IL_4D0: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_4D5: ldtoken I*/
         /* IL_4DA: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -611,10 +614,10 @@ var asm1; (function (asm)
         /* IL_4EE: box System.Boolean*/
         /* IL_4F3: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t8))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t9))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_4F8: ldtoken I3`1[System.Int32]*/
         /* IL_4FD: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -624,10 +627,10 @@ var asm1; (function (asm)
         /* IL_511: box System.Boolean*/
         /* IL_516: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t15))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t15)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t16))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_51B: ldtoken I*/
         /* IL_520: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -637,10 +640,10 @@ var asm1; (function (asm)
         /* IL_534: box System.Boolean*/
         /* IL_539: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t15))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t16))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_53E: ldtoken I2*/
         /* IL_543: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -650,10 +653,10 @@ var asm1; (function (asm)
         /* IL_557: box System.Boolean*/
         /* IL_55C: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t12)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t15))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t16))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_561: ldtoken I*/
         /* IL_566: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -663,10 +666,10 @@ var asm1; (function (asm)
         /* IL_57A: box System.Boolean*/
         /* IL_57F: call Void Log(System.Object)*/
         (asm1.x6000001)({
-            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t13)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14))),
-            'type': t3,
-            'vtable': t3.prototype.vtable,
-            'ifacemap': t3.prototype.ifacemap
+            'boxed': (asm1.x6000010)((asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t14)),(asm0.x60000ad)((BLR.new_handle)(((asm0)["System.RuntimeTypeHandle"])(),t15))),
+            'type': t4,
+            'vtable': t4.prototype.vtable,
+            'ifacemap': t4.prototype.ifacemap
         });
         /* IL_584: ret */
         return ;
@@ -688,375 +691,137 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.TestLog = (function ()
+    asm.TestLog = (BLR.declare_type)("TestLog",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function TestLog()
-            {
-                (TestLog.init)();
-                this.constructor = TestLog;
-            };
-            c = TestLog;
-            ct = c;
-            TestLog.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(TestLog,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestLog),Array,"asm1.t2000002");
-                TestLog.Interfaces = [];
-                (BLR.declare_virtual)(TestLog,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(TestLog,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(TestLog,"asm0.x6000009","asm0.x6000009");
-            };
-            TestLog.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.TestHelper = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000002");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function TestHelper()
-            {
-                (TestHelper.init)();
-                this.constructor = TestHelper;
-            };
-            c = TestHelper;
-            ct = c;
-            TestHelper.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(TestHelper,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(TestHelper),Array,"asm1.t2000006");
-                TestHelper.Interfaces = [];
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(TestHelper,"asm0.x6000009","asm0.x6000009");
-            };
-            TestHelper.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.A = (function ()
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    asm.TestHelper = (BLR.declare_type)("TestHelper",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function A()
-            {
-                (A.init)();
-                this.constructor = A;
-            };
-            c = A;
-            ct = c;
-            A.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(A,"A",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(A),Array,"asm1.t2000007");
-                A.Interfaces = [];
-                (BLR.declare_virtual)(A,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(A,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(A,"asm0.x6000009","asm0.x6000009");
-            };
-            A.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.I = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000006");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function I()
-            {
-                (I.init)();
-                this.constructor = I;
-            };
-            c = I;
-            ct = c;
-            I.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(I,"I",asm,false,false,true,false,false,[],[],null,(BLR.is_inst_interface)(I),Array,"asm1.t2000008");
-                I.Interfaces = [];
-            };
-            I.prototype = {};
-            return c;
-        };
-    })();
-    asm.I2 = (function ()
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    asm.A = (BLR.declare_type)("A",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function I2()
-            {
-                (I2.init)();
-                this.constructor = I2;
-            };
-            c = I2;
-            ct = c;
-            I2.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(I2,"I2",asm,false,false,true,false,false,[],[],null,(BLR.is_inst_interface)(I2),Array,"asm1.t2000009");
-                I2.Interfaces = [
-                    (asm1.I)()
-                ];
-            };
-            I2.prototype = {};
-            return c;
-        };
-    })();
-    asm.B = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"A",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000007");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function B()
-            {
-                (B.init)();
-                this.constructor = B;
-            };
-            c = B;
-            ct = c;
-            B.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(B,"B",asm,false,false,false,false,false,[],[],(asm1.A)(),(BLR.is_inst_default)(B),Array,"asm1.t200000a");
-                B.Interfaces = [
-                    (asm1.I2)(),
-                    (asm1.I)()
-                ];
-                (BLR.declare_virtual)(B,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(B,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(B,"asm0.x6000009","asm0.x6000009");
-                (BLR.tree_set)([
-                    (asm1.I2)()
-                ],B.prototype.ifacemap,{});
-                (BLR.tree_set)([
-                    (asm1.I)()
-                ],B.prototype.ifacemap,{});
-            };
-            B.prototype = new ((asm1.A)())();
-            return c;
-        };
-    })();
-    (asm)["I3`1"] = (function ()
+        return new (((asm0)["System.Object"])())();
+    },[]);
+    asm.I = (BLR.declare_type)("I",function ()
     {
-        var ct;
-        ct = {};
-        return function (T)
-        {
-            var c;
-            var initialized;
-            c = (BLR.tree_get)([
-                T
-            ],ct);
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function I3_1()
-            {
-                (I3_1.init)();
-                this.constructor = I3_1;
-            };
-            c = I3_1;
-            BLR.tree_set([
-                T
-            ],ct,c);
-            I3_1.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(I3_1,"I3`1",asm,false,false,true,true,false,[],[],null,(BLR.is_inst_interface)(I3_1),Array,"asm1.t200000b");
-                I3_1.Interfaces = [
-                    (asm1.I)()
-                ];
-                (I3_1.GenericArguments)["asm1.t200000b"] = [
-                    T
-                ];
-            };
-            I3_1.prototype = {};
-            return c;
-        };
-    })();
-    (asm)["X`1"] = (function ()
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"I",asm,false,false,true,false,false,[],[],null,(BLR.is_inst_interface)(this),Array,"asm1.t2000008");
+        this.Interfaces = [];
+    },function ()
     {
-        var ct;
-        ct = {};
-        return function (T)
-        {
-            var c;
-            var initialized;
-            c = (BLR.tree_get)([
-                T
-            ],ct);
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function X_1()
-            {
-                (X_1.init)();
-                this.constructor = X_1;
-            };
-            c = X_1;
-            BLR.tree_set([
-                T
-            ],ct,c);
-            X_1.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(X_1,"X`1",asm,false,false,false,true,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(X_1),Array,"asm1.t200000c");
-                X_1.Interfaces = [
-                    ((asm1)["I3`1"])(T),
-                    (asm1.I)()
-                ];
-                (X_1.GenericArguments)["asm1.t200000c"] = [
-                    T
-                ];
-                (BLR.declare_virtual)(X_1,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(X_1,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(X_1,"asm0.x6000009","asm0.x6000009");
-                (BLR.tree_set)([
-                    ((asm1)["I3`1"])(T),
-                    T
-                ],X_1.prototype.ifacemap,{});
-                (BLR.tree_set)([
-                    (asm1.I)()
-                ],X_1.prototype.ifacemap,{});
-            };
-            X_1.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
-    asm.Program = (function ()
+        return {};
+    },[]);
+    asm.I2 = (BLR.declare_type)("I2",function ()
     {
-        var ct;
-        ct = null;
-        return function ()
-        {
-            var c;
-            var initialized;
-            c = ct;
-            
-            if (c){
-                return c;
-            }
-            initialized = false;;
-            function Program()
-            {
-                (Program.init)();
-                this.constructor = Program;
-            };
-            c = Program;
-            ct = c;
-            Program.init = function ()
-            {
-                
-                if (initialized){
-                    return;
-                }
-                initialized = true;
-                (BLR.init_type)(Program,"Program",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(Program),Array,"asm1.t200000d");
-                Program.Interfaces = [];
-                (BLR.declare_virtual)(Program,"asm0.x6000005","asm0.x6000005");
-                (BLR.declare_virtual)(Program,"asm0.x6000008","asm0.x6000008");
-                (BLR.declare_virtual)(Program,"asm0.x6000009","asm0.x6000009");
-            };
-            Program.prototype = new (((asm0)["System.Object"])())();
-            return c;
-        };
-    })();
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"I2",asm,false,false,true,false,false,[],[],null,(BLR.is_inst_interface)(this),Array,"asm1.t2000009");
+        this.Interfaces = [
+            (asm1.I)()
+        ];
+    },function ()
+    {
+        return {};
+    },[]);
+    asm.B = (BLR.declare_type)("B",function ()
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"B",asm,false,false,false,false,false,[],[],(asm1.A)(),(BLR.is_inst_default)(this),Array,"asm1.t200000a");
+        this.Interfaces = [
+            (asm1.I2)(),
+            (asm1.I)()
+        ];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+        (BLR.tree_set)([
+            (asm1.I2)()
+        ],this.prototype.ifacemap,{});
+        (BLR.tree_set)([
+            (asm1.I)()
+        ],this.prototype.ifacemap,{});
+    },function ()
+    {
+        return new ((asm1.A)())();
+    },[]);
+    (asm)["I3`1"] = (BLR.declare_type)("I3_1",function (T)
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"I3`1",asm,false,false,true,true,false,[],[],null,(BLR.is_inst_interface)(this),Array,"asm1.t200000b");
+        this.Interfaces = [
+            (asm1.I)()
+        ];
+        (this.GenericArguments)["asm1.t200000b"] = [
+            T
+        ];
+    },function (T)
+    {
+        return {};
+    },[
+        "T"
+    ]);
+    (asm)["X`1"] = (BLR.declare_type)("X_1",function (T)
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"X`1",asm,false,false,false,true,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t200000c");
+        this.Interfaces = [
+            ((asm1)["I3`1"])(T),
+            (asm1.I)()
+        ];
+        (this.GenericArguments)["asm1.t200000c"] = [
+            T
+        ];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+        (BLR.tree_set)([
+            ((asm1)["I3`1"])(T),
+            T
+        ],this.prototype.ifacemap,{});
+        (BLR.tree_set)([
+            (asm1.I)()
+        ],this.prototype.ifacemap,{});
+    },function (T)
+    {
+        return new (((asm0)["System.Object"])())();
+    },[
+        "T"
+    ]);
+    asm.Program = (BLR.declare_type)("Program",function ()
+    {
+        this.init = BLR.nop;
+        (BLR.init_type)(this,"Program",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t200000d");
+        this.Interfaces = [];
+        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
+        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
+        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
+    },function ()
+    {
+        return new (((asm0)["System.Object"])())();
+    },[]);
     asm.entryPoint = asm.x600000f;
 })(asm1 || (asm1 = {}));

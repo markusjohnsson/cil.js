@@ -116,10 +116,7 @@ namespace Braille.JsTranslation
                             Host = new JSIdentifier { Name = "asm" },
                             Property = t.ReflectionType.FullName
                         },
-                        new JSCallExpression
-                        {
-                            Function = typeTranslator.Translate(t)
-                        });
+                        typeTranslator.Translate(t));
             }
 
             if (asm.EntryPoint != null)

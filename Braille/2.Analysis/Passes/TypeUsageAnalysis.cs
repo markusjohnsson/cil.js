@@ -12,13 +12,11 @@ namespace Braille.Analysis
 {
     class TypeUsageAnalysis: IAnalysisPass
     {
-        private Universe universe;
         private Context context;
 
         public TypeUsageAnalysis(Context context)
         {
             this.context = context;
-            this.universe = context.ReflectionUniverse;
         }
 
         public void Run(CilMethod method)
@@ -50,6 +48,11 @@ namespace Braille.Analysis
 
         private IEnumerable<Type> FindTypes(CilMethod method, OpExpression op)
         {
+            if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
+            {
+                yield return context.SystemTypes.ValueType;
+            }
+
             var opc = op.Instruction.OpCode.Name;
 
             var i = opc.IndexOf(".");
