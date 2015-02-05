@@ -7,6 +7,7 @@ namespace Braille.JSAst
 {
     class JSCallExpression : JSExpression
     {
+        public bool Indent { get; set; }
         public JSExpression Function { get; set; }
         public List<JSExpression> Arguments { get; set; }
 
@@ -19,17 +20,40 @@ namespace Braille.JSAst
         {
             var s = "";
 
-            if (Function is JSIdentifier)
+            var function = Function;
+
+            if (IsIdentifier(function))
                 s += Function.ToString(formatting);
             else
                 s += "(" + Function.ToString(formatting) + ")";
 
+            formatting.IncreaseIndentation();
+
+            string prefix;
+            if (Indent)
+            {
+                prefix = formatting.NewLine + formatting.Indentation;
+            }
+            else
+            {
+                prefix = "";
+            }
+                
+
             if (Arguments != null)
-                s += string.Format("({0})", string.Join(",", Arguments.Select(a => a.ToString(formatting))));
+                s += string.Format("({0}{1})", prefix, string.Join("," + prefix, Arguments.Select(a => a.ToString(formatting))));
             else
                 s += "()";
 
+            formatting.DecreaseIndentation();
+
             return s;
+        }
+
+        private static bool IsIdentifier(JSExpression function)
+        {
+            var prop = function as JSPropertyAccessExpression;
+            return function is JSIdentifier || (prop != null && IsIdentifier(prop.Host));
         }
 
         public override IEnumerable<JSExpression> GetChildren()

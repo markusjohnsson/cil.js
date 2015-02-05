@@ -9,6 +9,7 @@ namespace Braille.JSAst
     {
         public readonly static JSFunctionDelcaration Empty = new JSFunctionDelcaration();
 
+        public bool Inline { get; set; }
         public string Name { get; set; }
         public List<JSStatement> Body { get; set; }
         public List<JSFunctionParameter> Parameters { get; set; }
@@ -35,7 +36,10 @@ namespace Braille.JSAst
 
             sb.Append(")");
 
-            sb.Append(formatting.NewLine + formatting.Indentation + "{");
+            if (Inline)
+                sb.Append("{");
+            else
+                sb.Append(formatting.NewLine + formatting.Indentation + "{");
 
             formatting.IncreaseIndentation();
 
@@ -45,7 +49,7 @@ namespace Braille.JSAst
                     .Select(v => v.Name)
                     .Distinct();
 
-                var indent = formatting.NewLine + formatting.Indentation;
+                var indent = Inline ? " " : formatting.NewLine + formatting.Indentation;
 
                 if (variables.Any())
                 {
@@ -62,7 +66,10 @@ namespace Braille.JSAst
             
             formatting.DecreaseIndentation();
 
-            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+            if (Inline)
+                sb.Append("}");
+            else
+                sb.Append(formatting.NewLine + formatting.Indentation + "}");
 
             return sb.ToString();
         }

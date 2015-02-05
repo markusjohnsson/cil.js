@@ -59,89 +59,29 @@ namespace Braille.JsTranslation
 
         public JSExpression Translate(CilType type)
         {
-            return JSFactory.Call(JSFactory.Identifier("BLR", "declare_type"),
+            var call = JSFactory.Call(JSFactory.Identifier("BLR", "declare_type"),
                 GetTypeDeclarationArguments(type).ToArray());
-            //var isGeneric = type.ReflectionType.IsGenericTypeDefinition;
-
-            //var body = new List<JSStatement>();
-
-            //var cachedInstance = JSFactory.Identifier("c");
-            //var cache = JSFactory.Identifier("ct");
-
-            //var cacheKey = isGeneric ? GetGenericArgumentsArray(type.ReflectionType, type.ReflectionType) : null;
-
-            //body.Add(
-            //    new JSVariableDelcaration
-            //    {
-            //        Name = "c",
-            //        Value =
-            //            isGeneric ?
-            //                new JSCallExpression
-            //                {
-            //                    Function = JSFactory.Identifier("BLR", "tree_get"),
-            //                    Arguments = new List<JSExpression> { cacheKey, cache }
-            //                } :
-            //                cache
-            //    }.ToStatement());
-
-            //body.Add(
-            //    new JSIfStatement
-            //    {
-            //        Condition = cachedInstance,
-            //        Statements = { new JSReturnExpression { Expression = cachedInstance }.ToStatement() }
-            //    });
-
-            //body.AddRange(GetTypeDeclaration(type, cache, cacheKey, cachedInstance, isGeneric).Select(s => s.ToStatement()));
-
-            //body.Add(new JSReturnExpression { Expression = JSFactory.Identifier("c") }.ToStatement());
-
-            //return new JSFunctionDelcaration
-            //{
-            //    Body =
-            //        new List<JSStatement> 
-            //        {
-            //            new JSVariableDelcaration 
-            //            { 
-            //                Name = "ct", 
-            //                Value = isGeneric ? 
-            //                    new JSObjectLiteral() as JSExpression : 
-            //                    new JSNullLiteral() 
-            //            }.ToStatement(),
-
-            //            new JSReturnExpression 
-            //            { 
-            //                Expression = new JSFunctionDelcaration
-            //                {
-            //                    Body = body,
-            //                    Parameters = type.ReflectionType.GetGenericArguments()
-            //                        .Select(
-            //                            s => new JSFunctionParameter { Name = s.Name })
-            //                        .ToList()
-            //                }
-            //            }.ToStatement()
-            //        }
-            //};
+            call.Indent = true;
+            return call;
         }
 
+        /// <summary>
+        /// Returns the arguments for the call to declare_type
+        /// </summary>
         private IEnumerable<JSExpression> GetTypeDeclarationArguments(CilType type)
         {
-            // name
-            // init
-            // baseType
-            // genericArguments (names, for generic types only)
-
             yield return JSFactory.Literal(GetSimpleName(type.ReflectionType));
 
             var genericParameters = type
                 .ReflectionType
                 .GetGenericArguments()
-                .Select(g => new JSFunctionParameter {Name = g.Name})
+                .Select(g => new JSFunctionParameter { Name = g.Name })
                 .ToList();
 
-            yield return new JSFunctionDelcaration
+            yield return new JSArrayLiteral
             {
-                Body = GetInitialization("this", type).ToList(),
-                Parameters = genericParameters
+                Inline = true,
+                Values = type.ReflectionType.GetGenericArguments().Select(g => JSFactory.Literal(g.Name)).ToList()
             };
 
             yield return new JSFunctionDelcaration
@@ -150,9 +90,10 @@ namespace Braille.JsTranslation
                 Parameters = genericParameters
             };
 
-            yield return new JSArrayLiteral
+            yield return new JSFunctionDelcaration
             {
-                Values = type.ReflectionType.GetGenericArguments().Select(g => JSFactory.Literal(g.Name)).ToList()
+                Body = GetInitialization("this", type).ToList(),
+                Parameters = genericParameters
             };
         }
 
@@ -160,85 +101,13 @@ namespace Braille.JsTranslation
         {
             return new JSArrayLiteral
             {
+                Inline = true,
                 Values = type
                     .GetGenericArguments()
                     .Select(t => GetTypeIdentifier(t, typeScope: typeScope))
                     .ToList()
             };
         }
-
-        //public IEnumerable<JSExpression> GetTypeDeclaration(CilType type, JSExpression cache, JSExpression cacheKey, JSExpression cachedInstance, bool isGeneric)
-        //{
-        //    var n = GetSimpleName(type.ReflectionType);
-
-        //    yield return new JSVariableDelcaration
-        //    {
-        //        Name = "initialized",
-        //        Value = new JSBoolLiteral { Value = false }
-        //    }.ToStatement();
-
-        //    yield return new JSFunctionDelcaration
-        //    {
-        //        Name = n,
-        //        Body = 
-        //        {
-        //            new JSCallExpression { Function = JSFactory.Identifier(n, "init") }.ToStatement(),
-        //            JSFactory
-        //                .Assignment(
-        //                    JSFactory.Identifier("this", "constructor"),
-        //                    JSFactory.Identifier(n))
-        //                .ToStatement()
-        //        }
-
-        //    };
-
-        //    yield return JSFactory
-        //        .Assignment(
-        //            cachedInstance,
-        //            new JSIdentifier { Name = GetSimpleName(type.ReflectionType) });
-
-        //    if (isGeneric)
-        //    {
-        //        yield return new JSCallExpression
-        //        {
-        //            Function = JSFactory.Identifier("BLR.tree_set"),
-        //            Arguments = new List<JSExpression>
-        //            {
-        //                cacheKey,
-        //                cache,
-        //                cachedInstance
-        //            }
-        //        };
-        //    }
-        //    else
-        //    {
-        //        yield return JSFactory.Assignment(cache, cachedInstance);
-        //    }
-
-        //    yield return JSFactory
-        //        .Assignment(
-        //            JSFactory.Identifier(n, "init"),
-        //            new JSFunctionDelcaration
-        //            {
-        //                Body =
-        //                    GetInitialization(n, type)
-        //                    .ToList()
-        //            });
-
-        //    var basePrototype = GetPrototype(type);
-
-        //    yield return JSFactory
-        //        .Assignment(
-        //            JSFactory.Identifier(n, "prototype"),
-        //            basePrototype);
-
-        //    if (type.ReflectionType.IsValueType)
-        //    {
-        //        yield return JSFactory.Call(
-        //            JSFactory.Identifier(
-        //                GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType), "init"));
-        //    }
-        //}
 
         private JSExpression GetPrototype(CilType type)
         {
@@ -260,7 +129,7 @@ namespace Braille.JsTranslation
         {
             yield return JSFactory
                 .Assignment(
-                    JSFactory.Identifier(n, "init"), 
+                    JSFactory.Identifier(n, "init"),
                     JSFactory.Identifier("BLR", "nop"))
                 .ToStatement();
 
@@ -269,8 +138,9 @@ namespace Braille.JsTranslation
                     JSFactory.Identifier("BLR", "init_type"),
 
                     JSFactory.Identifier(n),
-                    JSFactory.String(type.ReflectionType.FullName),
                     JSFactory.Identifier("asm"),
+                    JSFactory.String(type.ReflectionType.FullName),
+
                     new JSBoolLiteral { Value = type.ReflectionType.IsValueType },
                     new JSBoolLiteral { Value = type.ReflectionType.IsPrimitive },
                     new JSBoolLiteral { Value = type.ReflectionType.IsInterface },
@@ -287,14 +157,7 @@ namespace Braille.JsTranslation
                 .ToStatement();
 
             var staticProperties = GetStaticFieldInitializers(type)
-                //.EndWith(new KeyValuePair<string, JSExpression>("CustomAttributes", GetAttributes(type.ReflectionType, type.ReflectionType)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("Methods", GetMethods(type)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("BaseType", GetBaseType(type)))
                 .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("IsInst", GetIsInst(type)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("ArrayType", GetArrayType(type)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("MetadataName", JSFactory.Literal(GetTypeMetadataName(type.ReflectionType))))
-                //.EndWith(new KeyValuePair<string, JSExpression>("GenericArguments", JSFactory.Object(new object())))
                 ;
 
             foreach (var p in staticProperties)
@@ -319,16 +182,6 @@ namespace Braille.JsTranslation
                 }
             }
 
-            //var cctors = type.ReflectionType.GetConstructors(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
-            //if (cctors.Any())
-            //{
-            //    yield return new JSCallExpression
-            //    {
-            //        Function = GetMethodAccessor(cctors[0], typeScope: type.ReflectionType)
-            //    }
-            //    .ToStatement();
-            //}
-
             foreach (var f in GetVtable(type))
             {
                 yield return JSFactory.Call(
@@ -339,9 +192,18 @@ namespace Braille.JsTranslation
                     .ToStatement();
             }
 
+            foreach (var iface in GetInterfaceMaps(type))
+            {
+                yield return JSFactory
+                    .Call(
+                        JSFactory.Identifier("BLR", "implement_interface"),
+                        JSFactory.Identifier(n),
+                        JSFactory.Array(inline: true, exprs: iface.Key),
+                        iface.Value)
+                    .ToStatement();
+            }
+
             var prototypeProperties = GetFieldInitializers(type)
-                //.EndWith(new KeyValuePair<string, JSExpression>("vtable", GetVtable(type)))
-                //.EndWith(new KeyValuePair<string, JSExpression>("ifacemap", JSFactory.Object(new object())))
                 .Concat(GetPrototypeMethods(type));
 
             foreach (var f in prototypeProperties)
@@ -353,16 +215,6 @@ namespace Braille.JsTranslation
                     .ToStatement();
             }
 
-            foreach (var iface in GetInterfaceMaps(type))
-            {
-                yield return JSFactory
-                    .Call(
-                        JSFactory.Identifier("BLR", "tree_set"),
-                        JSFactory.Array(iface.Key),
-                        JSFactory.Identifier(n, "prototype", "ifacemap"),
-                        iface.Value)
-                    .ToStatement();
-            }
         }
 
         private JSExpression GetMethods(CilType type)
@@ -374,8 +226,7 @@ namespace Braille.JsTranslation
                 );
 
             return JSFactory.Array(
-                ms.Select(m => GetMethodInfo(type, m))
-                  .ToArray()
+                ms.Select(m => GetMethodInfo(type, m)).ToArray()
             );
         }
 
@@ -393,7 +244,7 @@ namespace Braille.JsTranslation
                 parts.Add(GetAttributes(type.ReflectionType, m));
             }
 
-            return JSFactory.Array(parts.ToArray());
+            return JSFactory.Array(true, parts.ToArray());
         }
 
         private JSExpression GetAttributes(Type type, MemberInfo member)
@@ -564,7 +415,7 @@ namespace Braille.JsTranslation
             ;
         }
 
-        private JSExpression GetInterfaceMap(CilType type, IKVM.Reflection.Type iface)
+        private JSExpression GetInterfaceMap(CilType type, Type iface)
         {
             var map = type
                 .ReflectionType
@@ -580,7 +431,14 @@ namespace Braille.JsTranslation
                         (ifaceMethod, targetMethod) => new { ifaceMethod, targetMethod })
                     .ToDictionary(
                         m => GetMethodIdentifier(m.ifaceMethod),
-                        m => new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m.targetMethod) }.ToStatement() } } as JSExpression)
+                        m => new JSFunctionDelcaration
+                        {
+                            Inline = true,
+                            Body =
+                            {
+                                JSFactory.Return(GetMethodAccessor(m.targetMethod)).ToStatement()
+                            }
+                        } as JSExpression)
             };
         }
 
@@ -614,7 +472,7 @@ namespace Braille.JsTranslation
 
                 return new KeyValuePair<string, JSExpression>(
                     GetTranslatedFieldName(type, f),
-                    new JSArrayLiteral { Values = array.Select(b => new JSNumberLiteral { Value = b }) });
+                    new JSArrayLiteral { Inline = true, Values = array.Select(b => new JSNumberLiteral { Value = b }) });
             }
             else
             {

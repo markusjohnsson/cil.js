@@ -997,7 +997,7 @@ namespace Braille.JsTranslation
                             JSFactory.Identifier("BLR", "newobj"),
                             GetTypeAccessor(ctor.DeclaringType, thisScope),
                             GetMethodAccessor(ctor, this.method.ReflectionMethod),
-                            JSFactory.Array(argList.ToArray()));
+                            JSFactory.Array(true, argList.ToArray()));
 
                         return newobj;
                     }

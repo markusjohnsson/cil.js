@@ -8,6 +8,8 @@ namespace Braille.JSAst
     class JSArrayLiteral: JSExpression
     {
         public IEnumerable<JSExpression> Values { get; set; }
+        
+        public bool Inline { get; set; }
 
         public override string ToString(Formatting formatting)
         {
@@ -21,17 +23,29 @@ namespace Braille.JSAst
             formatting.IncreaseIndentation();
 
             {
-                sb.Append(formatting.NewLine);
-                sb.Append(formatting.Indentation);
-                sb.Append(string.Join("," + formatting.NewLine + formatting.Indentation,
+                if (!Inline)
+                {
+                    sb.Append(formatting.NewLine);
+                    sb.Append(formatting.Indentation);   
+                }
+
+                var separatingWhitespace = Inline ? " " : formatting.NewLine + formatting.Indentation;
+
+                sb.Append(string.Join("," + separatingWhitespace,
                     GetChildren().Select(p => p.ToString(formatting))));
 
-                sb.Append(formatting.NewLine);
+                if (!Inline)
+                {
+                    sb.Append(formatting.NewLine);   
+                }
             }
 
             formatting.DecreaseIndentation();
 
-            sb.Append(formatting.Indentation + "]");
+            if (Inline)
+                sb.Append("]");
+            else
+                sb.Append(formatting.Indentation + "]");
             return sb.ToString();
         }
 

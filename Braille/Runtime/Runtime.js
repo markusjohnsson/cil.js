@@ -4,28 +4,29 @@ var BLR;
 (function (blr) {
     blr.nop = function() {};
 
-    blr.declare_type = function (name, init, baseType, genericArgs) {
+    blr.declare_type = function (name, genericArgs, baseType, init) {
         var isGeneric = genericArgs && genericArgs.length > 0;
         var ct = isGeneric ? {} : null;
         var gA = isGeneric ? genericArgs.join(",") : "";
-        var s = "function t(" + gA + ") {\n" +
-        "    var c = " + (isGeneric ? "blr.tree_get([" + gA + "], ct)" : "ct") + ";\n" +
-        "    if (c) return c;\n" +
-        "    \n" +
-        "    eval('function '+name+'() {c.init();this.constructor = c;}');\n" +
-        "    c = eval(name);\n" +
-        "    " + (isGeneric ? "blr.tree_set([" + gA + "], ct, c);" : "ct = c;") + "\n" +
-        "    \n" +
-        "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
-        "    if (baseType)\n" +
-        "        c.prototype = baseType(" + gA + ");\n" +
-        "    return c;\n" +
-        "}";
+        var s = "" +
+            "function t(" + gA + ") {\n" +
+            "    var c = " + (isGeneric ? "blr.tree_get([" + gA + "], ct)" : "ct") + ";\n" +
+            "    if (c) return c;\n" +
+            "    \n" +
+            "    eval('function '+name+'() {c.init();this.constructor = c;}');\n" +
+            "    c = eval(name);\n" +
+            "    " + (isGeneric ? "blr.tree_set([" + gA + "], ct, c);" : "ct = c;") + "\n" +
+            "    \n" +
+            "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
+            "    if (baseType)\n" +
+            "        c.prototype = baseType(" + gA + ");\n" +
+            "    return c;\n" +
+            "}";
         eval(s);
         return t;
     }
 
-    blr.init_type = function(type, fullname, assembly, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
+    blr.init_type = function (type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
         type.FullName = fullname;
         type.Assembly = assembly;
         type.IsValueType = isValueType;
@@ -46,6 +47,14 @@ var BLR;
         type.prototype.ifacemap = {};
     }
 
+    blr.implement_interface = function(type, iface, implementation) {
+        blr.tree_set(iface, type.prototype.ifacemap, implementation);
+    }
+
+    blr.declare_virtual = function (type, slot, target) {
+        type.prototype.vtable[slot] = new Function("return " + target + ";");
+    }
+
     blr.is_inst_interface = function(interfaceType) {
         return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) != -1 ? t : null; } catch (e) { return false; } };
     }
@@ -60,10 +69,6 @@ var BLR;
 
     blr.is_inst_default = function(type) {
         return function (t) { return t instanceof type ? t : null; };
-    }
-
-    blr.declare_virtual = function(type, slot, target) {
-        type.prototype.vtable[slot] = new Function("return " + target + ";");
     }
 
     blr.clone_value = function(v) {
@@ -257,7 +262,7 @@ var BLR;
                 return obj;
             }
             else if (typeof obj.length == 'number' && obj.length == 2) {
-                return obj; " /* this is for (u)int64 */ + @"
+                return obj; /* this is for (u)int64 */
             }
         }
 
@@ -295,8 +300,8 @@ var BLR;
         var low = floorN | 0;
         var high = (floorN / 0x100000000) | 0;
 
-        var low = low & bits32;
-        var high = high & bits32;
+        low = low & bits32;
+        high = high & bits32;
 
         return new Uint32Array([low, high]);
     }

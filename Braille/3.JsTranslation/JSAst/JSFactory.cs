@@ -28,6 +28,11 @@ namespace Braille.JSAst
             return new JSArrayLiteral { Values = exprs.ToList() };
         }
 
+        public static JSExpression Array(bool inline, params JSExpression[] exprs)
+        {
+            return new JSArrayLiteral { Values = exprs.ToList(), Inline = inline };
+        }
+
         #region Identifier
 
         public static JSExpression Identifier(params string[] ns)
@@ -121,7 +126,7 @@ namespace Braille.JSAst
             return new JSNumberLiteral { Value = p, IsHex = true };
         }
 
-        public static JSExpression Call(JSExpression function, params JSExpression[] args)
+        public static JSCallExpression Call(JSExpression function, params JSExpression[] args)
         {
             return new JSCallExpression { Function = function, Arguments = args.ToList() };
         }
@@ -133,7 +138,7 @@ namespace Braille.JSAst
 
         public static JSExpression Object(object o)
         {
-            return new JSObjectLiteral 
+            return new JSObjectLiteral
             {
                 Properties = o
                     .GetType()
@@ -167,6 +172,11 @@ namespace Braille.JSAst
         public static JSExpression Null()
         {
             return new JSNullLiteral();
+        }
+
+        public static JSExpression Return(JSExpression e)
+        {
+            return new JSReturnExpression { Expression = e };
         }
     }
 }

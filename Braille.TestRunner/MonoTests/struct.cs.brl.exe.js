@@ -24,21 +24,21 @@ var asm1; (function (asm)
     asm.x600000d = function get_zerop()
     {
         var loc0;
-        loc0 = new ((asm1.Point)())();
+        loc0 = new (asm1.Point())();
         /* IL_00: ldloca.s 0*/
         /* IL_02: ldc.i4.0 */
         /* IL_03: ldc.i4.0 */
         /* IL_04: call Void .ctor(System.Int32, System.Int32)*/
-        (asm1.x600000c)({
-            'w': function ()
-            {
-                loc0 = (arguments)[0];
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        },(0|0),(0|0));
+        asm1.x600000c({
+                'w': function ()
+                {
+                    loc0 = (arguments)[0];
+                },
+                'r': function ()
+                {
+                    return loc0;
+                }
+            },(0|0),(0|0));
         /* IL_09: ldloca.s 0*/
         /* IL_0B: ldc.i4.0 */
         /* IL_0C: stfld Int32 z*/
@@ -72,25 +72,25 @@ var asm1; (function (asm)
                 /* IL_09: ldfld Int32 y*/
                 /* IL_0E: bne.un.s IL_29*/
                 
-                if ((BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                }.r)().x) != (BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                }.r)().y)){
+                if (BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            arg0 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return arg0;
+                        }
+                    }.r)().x) != BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            arg0 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return arg0;
+                        }
+                    }.r)().y)){
                     __pos_0__ = 0x29;
                     continue;
                 }
@@ -100,25 +100,25 @@ var asm1; (function (asm)
                 /* IL_19: ldfld Int32 z*/
                 /* IL_1E: bne.un.s IL_29*/
                 
-                if ((BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                }.r)().y) != (BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        arg0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                }.r)().z)){
+                if (BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            arg0 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return arg0;
+                        }
+                    }.r)().y) != BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            arg0 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return arg0;
+                        }
+                    }.r)().z)){
                     __pos_0__ = 0x29;
                     continue;
                 }
@@ -195,28 +195,28 @@ var asm1; (function (asm)
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld Int32 x*/
-        (arg0.r)().x = arg1;
+        arg0.r().x = arg1;
         /* IL_07: ldarg.0 */
         /* IL_08: ldarg.2 */
         /* IL_09: stfld Int32 y*/
-        (arg0.r)().y = arg2;
+        arg0.r().y = arg2;
         /* IL_0E: ldarg.0 */
         /* IL_0F: ldc.i4.5 */
         /* IL_10: stfld Int32 z*/
-        (arg0.r)().z = (5|0);
+        arg0.r().z = (5|0);
         /* IL_15: ret */
         return ;
     };;
     /* static Int32 Main()*/
     asm.x600000f_init = function ()
     {
-        (((asm0)["System.ValueType"])().init)();
+        ((asm0)["System.ValueType"]().init)();
         asm.x600000f = asm.x600000f_;
     };;
     asm.x600000f = function ()
     {
-        (asm.x600000f_init.apply)(this,arguments);
-        return (asm.x600000f_.apply)(this,arguments);
+        asm.x600000f_init.apply(this,arguments);
+        return asm.x600000f_.apply(this,arguments);
     };;
     asm.x600000f_ = function Main()
     {
@@ -225,8 +225,8 @@ var asm1; (function (asm)
         var __pos_0__;
         var loc1;
         var loc2;
-        t0 = ((asm0)["System.ValueType"])();
-        loc0 = new ((asm1.Point)())();
+        t0 = (asm0)["System.ValueType"]();
+        loc0 = new (asm1.Point())();
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -237,16 +237,16 @@ var asm1; (function (asm)
                 /* IL_02: ldc.i4.s 10*/
                 /* IL_04: ldc.i4.s 20*/
                 /* IL_06: call Void .ctor(System.Int32, System.Int32)*/
-                (asm1.x600000c)({
-                    'w': function ()
-                    {
-                        loc0 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc0;
-                    }
-                },(10|0),(20|0));
+                asm1.x600000c({
+                        'w': function ()
+                        {
+                            loc0 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc0;
+                        }
+                    },(10|0),(20|0));
                 /* IL_0B: ldloc.0 */
                 /* IL_0C: stloc.1 */
                 loc1 = loc0;
@@ -441,32 +441,32 @@ var asm1; (function (asm)
                 case 0x7A:
                 /* IL_7A: call Point get_zerop()*/
                 /* IL_7F: stloc.2 */
-                loc2 = (asm1.x600000d)();
+                loc2 = asm1.x600000d();
                 /* IL_80: ldloca.s 2*/
                 /* IL_82: ldfld Int32 x*/
                 /* IL_87: ldloca.s 2*/
                 /* IL_89: ldfld Int32 y*/
                 /* IL_8E: bne.un.s IL_A9*/
                 
-                if ((BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().x) != (BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().y)){
+                if (BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().x) != BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().y)){
                     __pos_0__ = 0xA9;
                     continue;
                 }
@@ -476,25 +476,25 @@ var asm1; (function (asm)
                 /* IL_99: ldfld Int32 z*/
                 /* IL_9E: bne.un.s IL_A9*/
                 
-                if ((BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().y) != (BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().z)){
+                if (BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().y) != BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().z)){
                     __pos_0__ = 0xA9;
                     continue;
                 }
@@ -524,7 +524,7 @@ var asm1; (function (asm)
                 /* IL_AD: call Int32 struct_param(Point)*/
                 /* IL_B2: brfalse.s IL_B7*/
                 
-                if ((!((asm1.x600000e)((BLR.clone_value)(loc2))))){
+                if ((!(asm1.x600000e(BLR.clone_value(loc2))))){
                     __pos_0__ = 0xB7;
                     continue;
                 }
@@ -538,25 +538,25 @@ var asm1; (function (asm)
                 /* IL_C0: ldfld Int32 y*/
                 /* IL_C5: bne.un.s IL_E0*/
                 
-                if ((BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().x) != (BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().y)){
+                if (BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().x) != BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().y)){
                     __pos_0__ = 0xE0;
                     continue;
                 }
@@ -566,25 +566,25 @@ var asm1; (function (asm)
                 /* IL_D0: ldfld Int32 z*/
                 /* IL_D5: bne.un.s IL_E0*/
                 
-                if ((BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().y) != (BLR.unsigned_value)(({
-                    'w': function ()
-                    {
-                        loc2 = (arguments)[0];
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.r)().z)){
+                if (BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().y) != BLR.unsigned_value(({
+                        'w': function ()
+                        {
+                            loc2 = (arguments)[0];
+                        },
+                        'r': function ()
+                        {
+                            return loc2;
+                        }
+                    }.r)().z)){
                     __pos_0__ = 0xE0;
                     continue;
                 }
@@ -624,56 +624,72 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    asm.TestLog = (BLR.declare_type)("TestLog",function ()
-    {
-        this.init = BLR.nop;
-        (BLR.init_type)(this,"TestLog",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000002");
-        this.Interfaces = [];
-        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
-        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
-        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
-    },function ()
-    {
-        return new (((asm0)["System.Object"])())();
-    },[]);
-    asm.TestHelper = (BLR.declare_type)("TestHelper",function ()
-    {
-        this.init = BLR.nop;
-        (BLR.init_type)(this,"TestHelper",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000006");
-        this.Interfaces = [];
-        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
-        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
-        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
-    },function ()
-    {
-        return new (((asm0)["System.Object"])())();
-    },[]);
-    asm.Point = (BLR.declare_type)("Point",function ()
-    {
-        this.init = BLR.nop;
-        (BLR.init_type)(this,"Point",asm,true,false,false,false,false,[],[],((asm0)["System.ValueType"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000007");
-        this.Interfaces = [];
-        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000016");
-        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
-        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
-        this.prototype.x = 0;
-        this.prototype.y = 0;
-        this.prototype.z = 0;
-    },function ()
-    {
-        return {};
-    },[]);
-    asm.test = (BLR.declare_type)("test",function ()
-    {
-        this.init = BLR.nop;
-        (BLR.init_type)(this,"test",asm,false,false,false,false,false,[],[],((asm0)["System.Object"])(),(BLR.is_inst_default)(this),Array,"asm1.t2000008");
-        this.Interfaces = [];
-        (BLR.declare_virtual)(this,"asm0.x6000005","asm0.x6000005");
-        (BLR.declare_virtual)(this,"asm0.x6000008","asm0.x6000008");
-        (BLR.declare_virtual)(this,"asm0.x6000009","asm0.x6000009");
-    },function ()
-    {
-        return new (((asm0)["System.Object"])())();
-    },[]);
+    asm.TestLog = BLR.declare_type(
+        "TestLog",
+        [],
+        function ()
+        {
+            return new ((asm0)["System.Object"]())();
+        },
+        function ()
+        {
+            this.init = BLR.nop;
+            BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
+            this.Interfaces = [];
+            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
+        });
+    asm.TestHelper = BLR.declare_type(
+        "TestHelper",
+        [],
+        function ()
+        {
+            return new ((asm0)["System.Object"]())();
+        },
+        function ()
+        {
+            this.init = BLR.nop;
+            BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
+            this.Interfaces = [];
+            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
+        });
+    asm.Point = BLR.declare_type(
+        "Point",
+        [],
+        function ()
+        {
+            return {};
+        },
+        function ()
+        {
+            this.init = BLR.nop;
+            BLR.init_type(this,asm,"Point",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
+            this.Interfaces = [];
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000016");
+            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
+            this.prototype.x = 0;
+            this.prototype.y = 0;
+            this.prototype.z = 0;
+        });
+    asm.test = BLR.declare_type(
+        "test",
+        [],
+        function ()
+        {
+            return new ((asm0)["System.Object"]())();
+        },
+        function ()
+        {
+            this.init = BLR.nop;
+            BLR.init_type(this,asm,"test",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
+            this.Interfaces = [];
+            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
+        });
     asm.entryPoint = asm.x600000f;
 })(asm1 || (asm1 = {}));
