@@ -45,16 +45,7 @@ var asm1; (function (asm)
         loc0 = new (asm1.S())();
         /* IL_00: ldloca.s 0*/
         /* IL_03: initobj S*/
-        ({
-            'w': function (v)
-            {
-                loc0 = v;
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        }.w)(new t1());
+        loc0 = new t1();
         /* IL_08: ldloca.s 0*/
         /* IL_0A: ldfld Int32 X*/
         /* IL_0F: box System.Int32*/

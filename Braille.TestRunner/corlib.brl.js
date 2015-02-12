@@ -6179,16 +6179,7 @@ var BLR;
                     
                     /* IL_01: ldloca.s 0*/
                     /* IL_04: initobj T*/
-                    ({
-                        'w': function (v)
-                        {
-                            loc0 = v;
-                        },
-                        'r': function ()
-                        {
-                            return loc0;
-                        }
-                    }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+                    loc0 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null));
                     /* IL_09: ldarg.1 */
                     /* IL_0A: stloc.1 */
                     loc1 = arg1;
@@ -8969,16 +8960,7 @@ var BLR;
                     }
                     /* IL_0C: ldloca.s 2*/
                     /* IL_0F: initobj System.Nullable`1[T]*/
-                    ({
-                        'w': function (v)
-                        {
-                            loc2 = v;
-                        },
-                        'r': function ()
-                        {
-                            return loc2;
-                        }
-                    }.w)(new t2());
+                    loc2 = new t2();
                     /* IL_14: ldloc.2 */
                     /* IL_15: stloc.0 */
                     loc0 = loc2;

@@ -216,16 +216,7 @@ var asm1; (function (asm)
         asm1.x6000010(BLR.newobj(t4,asm1.x600000c,[null]));
         /* IL_A4: ldloca.s 1*/
         /* IL_A7: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc1 = v;
-            },
-            'r': function ()
-            {
-                return loc1;
-            }
-        }.w)(new t3());
+        loc1 = new t3();
         /* IL_AC: ldloc.1 */
         /* IL_AD: stsfld B b*/
         (t1)["b"] = loc1;
@@ -250,16 +241,7 @@ var asm1; (function (asm)
             });
         /* IL_C9: ldloca.s 2*/
         /* IL_CC: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc2 = v;
-            },
-            'r': function ()
-            {
-                return loc2;
-            }
-        }.w)(new t3());
+        loc2 = new t3();
         /* IL_D1: ldloc.2 */
         /* IL_D2: ldloc.2 */
         /* IL_D3: box B*/
@@ -341,16 +323,7 @@ var asm1; (function (asm)
         (asm1.x600000d(asm1.B()))(BLR.clone_value(loc1));
         /* IL_14B: ldloca.s 4*/
         /* IL_14E: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc4 = v;
-            },
-            'r': function ()
-            {
-                return loc4;
-            }
-        }.w)(new t3());
+        loc4 = new t3();
         /* IL_153: ldloc.s 4*/
         /* IL_155: call Void CheckEquals(B)*/
         (asm1.x600000d(asm1.B()))(BLR.clone_value(loc4));

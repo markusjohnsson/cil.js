@@ -91,16 +91,7 @@ var asm1; (function (asm)
                 };
                 /* IL_23: ldloca.s 2*/
                 /* IL_26: initobj System.Nullable`1[System.Int32]*/
-                ({
-                    'w': function (v)
-                    {
-                        loc2 = v;
-                    },
-                    'r': function ()
-                    {
-                        return loc2;
-                    }
-                }.w)(new t3());
+                loc2 = new t3();
                 /* IL_2B: ldloc.2 */
                 st_0C = loc2;
                 /* IL_2C: stobj System.Nullable`1[System.Int32]*/

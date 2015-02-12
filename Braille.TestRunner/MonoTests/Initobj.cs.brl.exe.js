@@ -39,16 +39,7 @@ var asm1; (function (asm)
             loc0 = ((T.IsValueType) ? (((T.IsPrimitive) ? (0) : (new T()))) : (null));
             /* IL_00: ldloca.s 0*/
             /* IL_03: initobj T*/
-            ({
-                'w': function (v)
-                {
-                    loc0 = v;
-                },
-                'r': function ()
-                {
-                    return loc0;
-                }
-            }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+            loc0 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null));
             /* IL_08: ldloc.0 */
             /* IL_09: ret */
             return loc0;

@@ -57,46 +57,19 @@ var asm1; (function (asm)
         loc6 = new (asm1.A())();
         /* IL_00: ldloca.s 2*/
         /* IL_03: initobj System.Nullable`1[A]*/
-        ({
-            'w': function (v)
-            {
-                loc2 = v;
-            },
-            'r': function ()
-            {
-                return loc2;
-            }
-        }.w)(new t2());
+        loc2 = new t2();
         /* IL_08: ldloc.2 */
         /* IL_09: call Void Print(System.Nullable`1[A])*/
         asm1.x600000e(BLR.clone_value(loc2));
         /* IL_0E: ldloca.s 3*/
         /* IL_11: initobj System.Nullable`1[A]*/
-        ({
-            'w': function (v)
-            {
-                loc3 = v;
-            },
-            'r': function ()
-            {
-                return loc3;
-            }
-        }.w)(new t2());
+        loc3 = new t2();
         /* IL_16: ldloc.3 */
         /* IL_17: call Void Print(System.Nullable`1[A])*/
         asm1.x600000e(BLR.clone_value(loc3));
         /* IL_1C: ldloca.s 0*/
         /* IL_1F: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc0 = v;
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        }.w)(new t1());
+        loc0 = new t1();
         /* IL_24: ldloca.s 0*/
         /* IL_26: ldc.i4.s 33*/
         /* IL_28: stfld Int32 X*/
@@ -107,16 +80,7 @@ var asm1; (function (asm)
         asm1.x600000e(BLR.clone_value(BLR.newobj(t2,asm0.x600015b,[null, BLR.clone_value(loc0)])));
         /* IL_38: ldloca.s 4*/
         /* IL_3B: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc4 = v;
-            },
-            'r': function ()
-            {
-                return loc4;
-            }
-        }.w)(new t1());
+        loc4 = new t1();
         /* IL_40: ldloc.s 4*/
         /* IL_42: newobj Void .ctor(A)*/
         /* IL_47: call Void Print(System.Nullable`1[A])*/
@@ -126,16 +90,7 @@ var asm1; (function (asm)
         asm1.x600000d(null);
         /* IL_52: ldloca.s 5*/
         /* IL_55: initobj System.Nullable`1[A]*/
-        ({
-            'w': function (v)
-            {
-                loc5 = v;
-            },
-            'r': function ()
-            {
-                return loc5;
-            }
-        }.w)(new t2());
+        loc5 = new t2();
         /* IL_5A: ldloc.s 5*/
         /* IL_5C: box System.Nullable`1[A]*/
         /* IL_61: call Void PrintObject(System.Object)*/
@@ -147,16 +102,7 @@ var asm1; (function (asm)
             }) : (null)));
         /* IL_66: ldloca.s 1*/
         /* IL_69: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc1 = v;
-            },
-            'r': function ()
-            {
-                return loc1;
-            }
-        }.w)(new t1());
+        loc1 = new t1();
         /* IL_6E: ldloca.s 1*/
         /* IL_70: ldc.i4.s 33*/
         /* IL_72: stfld Int32 X*/
@@ -172,16 +118,7 @@ var asm1; (function (asm)
             });
         /* IL_82: ldloca.s 6*/
         /* IL_85: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc6 = v;
-            },
-            'r': function ()
-            {
-                return loc6;
-            }
-        }.w)(new t1());
+        loc6 = new t1();
         /* IL_8A: ldloc.s 6*/
         /* IL_8C: box A*/
         /* IL_91: call Void PrintObject(System.Object)*/

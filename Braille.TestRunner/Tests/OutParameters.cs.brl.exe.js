@@ -63,16 +63,7 @@ var asm1; (function (asm)
         st_03 = arg0;
         /* IL_01: ldloca.s 0*/
         /* IL_04: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc0 = v;
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        }.w)(new t0());
+        loc0 = new t0();
         /* IL_09: ldloca.s 0*/
         st_01 = {
             'w': function (v)

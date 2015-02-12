@@ -552,7 +552,7 @@ namespace Braille.JsTranslation
                             {
                                 var pointerTargetType = firstArgNode.ResultType.GetGenericArguments().First();
 
-                                thisArg = UnwrapReaderWriter(thisArg);
+                                thisArg = UnwrapReader(thisArg);
                                 alternateThisArg = JSFactory.Identifier(
                                     GetTypeAccessor(pointerTargetType, thisScope),
                                     "prototype");
@@ -601,51 +601,35 @@ namespace Braille.JsTranslation
                         var typeTok = (Type)node.Instruction.Data;
                         var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
+                        var target = ProcessInternal(node.Arguments.Single());
+                        
+                        JSExpression value;
+
                         if (false == typeTok.IsGenericParameter)
                         {
-                            return new JSCallExpression
-                            {
-                                Function = new JSPropertyAccessExpression
-                                {
-                                    Host = ProcessInternal(node.Arguments.Single()),
-                                    Property = "w"
-                                },
-                                Arguments =
-                                {
-                                    typeTok.IsValueType ? 
-                                        typeTok.IsPrimitive ? JSFactory.Literal(0) : new JSNewExpression { Constructor = typeExpr } :
-                                        new JSNullLiteral()
-                                }
-                            };
+                            value = typeTok.IsValueType ? 
+                                typeTok.IsPrimitive ? JSFactory.Literal(0) : new JSNewExpression { Constructor = typeExpr } :
+                                new JSNullLiteral();
                         }
                         else
                         {
-                            return new JSCallExpression
+                            value = new JSConditionalExpression
                             {
-                                Function = new JSPropertyAccessExpression
+                                Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
+                                TrueValue = new JSConditionalExpression
                                 {
-                                    Host = ProcessInternal(node.Arguments.Single()),
-                                    Property = "w"
-                                },
-                                Arguments = 
-                                {
-                                    new JSConditionalExpression
+                                    Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
+                                    TrueValue = JSFactory.Literal(0),
+                                    FalseValue = new JSNewExpression 
                                     {
-                                        Condition = JSFactory.Identifier(typeExpr, "IsValueType"),
-                                        TrueValue = new JSConditionalExpression
-                                        {
-                                            Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
-                                            TrueValue = JSFactory.Literal(0),
-                                            FalseValue = new JSNewExpression 
-                                            {
-                                                Constructor = typeExpr
-                                            }
-                                        },
-                                        FalseValue = new JSNullLiteral()
+                                        Constructor = typeExpr
                                     }
-                                }
+                                },
+                                FalseValue = new JSNullLiteral()
                             };
                         }
+
+                        return UnwrapAndWrite(target, value);
                     }
                 case "isinst":
                     {
@@ -828,7 +812,7 @@ namespace Braille.JsTranslation
                     }
                 case "ldind":
                     var param = ProcessInternal(node.Arguments.Single());
-                    return UnwrapReaderWriter(param);
+                    return UnwrapReader(param);
                 
                 case "ldftn":
                     {
@@ -1081,7 +1065,7 @@ namespace Braille.JsTranslation
                         var target = ProcessInternal(node.Arguments.First());
                         var fieldInfo = (FieldInfo)node.Instruction.Data;
                         var host = (fieldInfo.DeclaringType.IsValueType) ?
-                            UnwrapReaderWriter(target) :
+                            UnwrapReader(target) :
                             target;
 
                         return JSFactory
@@ -1175,7 +1159,7 @@ namespace Braille.JsTranslation
                 return argExpression;
 
             return IsManagedPointer(argument.ResultType) ?
-                UnwrapReaderWriter(argExpression) :
+                UnwrapReader(argExpression) :
                 argExpression;
         }
 
@@ -1323,13 +1307,34 @@ namespace Braille.JsTranslation
             };
         }
 
-        private JSExpression UnwrapReaderWriter(JSExpression expression)
+        private JSExpression UnwrapReader(JSExpression expression)
         {
             var wrapped = expression as ReaderWriter;
             if (wrapped != null)
                 return wrapped.WrappedExpression;
             else
                 return new JSCallExpression {Function = JSFactory.Identifier(expression, "r")};
+        }
+
+        private static JSExpression UnwrapAndWrite(JSExpression target, JSExpression value)
+        {
+            var wrapped = target as ReaderWriter;
+
+            if (wrapped != null)
+                return JSFactory.Assignment(wrapped.WrappedExpression, value);
+
+            return new JSCallExpression
+            {
+                Function = new JSPropertyAccessExpression
+                {
+                    Host = target,
+                    Property = "w"
+                },
+                Arguments =
+                {
+                    value
+                }
+            };
         }
 
         private class ReaderWriter : JSObjectLiteral

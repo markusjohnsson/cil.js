@@ -39,16 +39,7 @@ var asm1; (function (asm)
         loc0 = new (asm1.A())();
         /* IL_00: ldloca.s 0*/
         /* IL_03: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc0 = v;
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        }.w)(new t0());
+        loc0 = new t0();
         /* IL_08: ldloc.0 */
         /* IL_09: ret */
         return loc0;

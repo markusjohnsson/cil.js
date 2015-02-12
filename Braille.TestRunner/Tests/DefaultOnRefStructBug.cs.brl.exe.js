@@ -28,16 +28,7 @@ var asm1; (function (asm)
         /* IL_00: ldarg.0 */
         /* IL_01: ldflda T X*/
         /* IL_07: initobj T*/
-        ({
-            'w': function (v)
-            {
-                arg0.r().X = v;
-            },
-            'r': function ()
-            {
-                return arg0.r().X;
-            }
-        }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+        arg0.r().X = ((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null));
         /* IL_0C: ret */
         return ;
     };;
@@ -91,16 +82,7 @@ var asm1; (function (asm)
                 case 0x0:
                 /* IL_00: ldloca.s 0*/
                 /* IL_03: initobj A`1[System.Int32]*/
-                ({
-                    'w': function (v)
-                    {
-                        loc0 = v;
-                    },
-                    'r': function ()
-                    {
-                        return loc0;
-                    }
-                }.w)(new t2());
+                loc0 = new t2();
                 /* IL_08: ldloca.s 0*/
                 /* IL_0A: ldc.i4.s 123*/
                 /* IL_0C: stfld IKVM.Reflection.GenericFieldInstance*/
@@ -139,16 +121,7 @@ var asm1; (function (asm)
                     });
                 /* IL_3A: ldloca.s 1*/
                 /* IL_3D: initobj A`1[B]*/
-                ({
-                    'w': function (v)
-                    {
-                        loc1 = v;
-                    },
-                    'r': function ()
-                    {
-                        return loc1;
-                    }
-                }.w)(new t4());
+                loc1 = new t4();
                 /* IL_42: ldloca.s 1*/
                 /* IL_44: newobj Void .ctor()*/
                 /* IL_49: stfld IKVM.Reflection.GenericFieldInstance*/

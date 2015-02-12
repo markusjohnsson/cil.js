@@ -225,16 +225,7 @@ var asm1; (function (asm)
                     case 0x28:
                     /* IL_28: ldloca.s 3*/
                     /* IL_2B: initobj T*/
-                    ({
-                        'w': function (v)
-                        {
-                            loc3 = v;
-                        },
-                        'r': function ()
-                        {
-                            return loc3;
-                        }
-                    }.w)(((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null)));
+                    loc3 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null));
                     /* IL_30: ldloc.3 */
                     /* IL_31: ret */
                     return loc3;

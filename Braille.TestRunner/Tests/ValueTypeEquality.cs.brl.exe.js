@@ -151,31 +151,13 @@ var asm1; (function (asm)
         loc26 = new (asm1.B())();
         /* IL_00: ldloca.s 23*/
         /* IL_03: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc23 = v;
-            },
-            'r': function ()
-            {
-                return loc23;
-            }
-        }.w)(new t1());
+        loc23 = new t1();
         /* IL_08: ldloc.s 23*/
         /* IL_0A: call Void TestA(A)*/
         asm1.x600000e(BLR.clone_value(loc23));
         /* IL_0F: ldloca.s 0*/
         /* IL_12: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc0 = v;
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        }.w)(new t1());
+        loc0 = new t1();
         /* IL_17: ldloca.s 0*/
         /* IL_19: ldc.i4.0 */
         /* IL_1A: stfld Int32 x*/
@@ -185,16 +167,7 @@ var asm1; (function (asm)
         asm1.x600000e(BLR.clone_value(loc0));
         /* IL_25: ldloca.s 1*/
         /* IL_28: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc1 = v;
-            },
-            'r': function ()
-            {
-                return loc1;
-            }
-        }.w)(new t1());
+        loc1 = new t1();
         /* IL_2D: ldloca.s 1*/
         /* IL_2F: ldc.i4.s 123*/
         /* IL_31: stfld Int32 x*/
@@ -204,16 +177,7 @@ var asm1; (function (asm)
         asm1.x600000e(BLR.clone_value(loc1));
         /* IL_3C: ldloca.s 2*/
         /* IL_3F: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc2 = v;
-            },
-            'r': function ()
-            {
-                return loc2;
-            }
-        }.w)(new t1());
+        loc2 = new t1();
         /* IL_44: ldloca.s 2*/
         /* IL_46: ldc.i4 321*/
         /* IL_4B: stfld Int32 x*/
@@ -223,31 +187,13 @@ var asm1; (function (asm)
         asm1.x600000e(BLR.clone_value(loc2));
         /* IL_56: ldloca.s 24*/
         /* IL_59: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc24 = v;
-            },
-            'r': function ()
-            {
-                return loc24;
-            }
-        }.w)(new t1());
+        loc24 = new t1();
         /* IL_5E: ldloc.s 24*/
         /* IL_60: call Void TestA(A)*/
         asm1.x600000e(BLR.clone_value(loc24));
         /* IL_65: ldloca.s 25*/
         /* IL_68: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc25 = v;
-            },
-            'r': function ()
-            {
-                return loc25;
-            }
-        }.w)(new t2());
+        loc25 = new t2();
         /* IL_6D: ldloc.s 25*/
         /* IL_6F: ldfld A a*/
         /* IL_74: call Void TestA(A)*/
@@ -257,31 +203,13 @@ var asm1; (function (asm)
         (t4)["c1"] = BLR.newobj(t3,asm1.x600000c,[null]);
         /* IL_83: ldloca.s 26*/
         /* IL_86: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc26 = v;
-            },
-            'r': function ()
-            {
-                return loc26;
-            }
-        }.w)(new t2());
+        loc26 = new t2();
         /* IL_8B: ldloc.s 26*/
         /* IL_8D: call Void TestB(B)*/
         asm1.x600000f(BLR.clone_value(loc26));
         /* IL_92: ldloca.s 3*/
         /* IL_95: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc3 = v;
-            },
-            'r': function ()
-            {
-                return loc3;
-            }
-        }.w)(new t2());
+        loc3 = new t2();
         /* IL_9A: ldloca.s 3*/
         st_1A = {
             'w': function (v)
@@ -295,16 +223,7 @@ var asm1; (function (asm)
         };
         /* IL_9C: ldloca.s 4*/
         /* IL_9F: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc4 = v;
-            },
-            'r': function ()
-            {
-                return loc4;
-            }
-        }.w)(new t1());
+        loc4 = new t1();
         /* IL_A4: ldloca.s 4*/
         st_18 = {
             'w': function (v)
@@ -329,16 +248,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc3));
         /* IL_BA: ldloca.s 5*/
         /* IL_BD: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc5 = v;
-            },
-            'r': function ()
-            {
-                return loc5;
-            }
-        }.w)(new t2());
+        loc5 = new t2();
         /* IL_C2: ldloca.s 5*/
         st_21 = {
             'w': function (v)
@@ -352,16 +262,7 @@ var asm1; (function (asm)
         };
         /* IL_C4: ldloca.s 6*/
         /* IL_C7: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc6 = v;
-            },
-            'r': function ()
-            {
-                return loc6;
-            }
-        }.w)(new t1());
+        loc6 = new t1();
         /* IL_CC: ldloca.s 6*/
         st_1F = {
             'w': function (v)
@@ -390,16 +291,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc5));
         /* IL_EB: ldloca.s 7*/
         /* IL_EE: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc7 = v;
-            },
-            'r': function ()
-            {
-                return loc7;
-            }
-        }.w)(new t2());
+        loc7 = new t2();
         /* IL_F3: ldloca.s 7*/
         st_2A = {
             'w': function (v)
@@ -413,16 +305,7 @@ var asm1; (function (asm)
         };
         /* IL_F5: ldloca.s 8*/
         /* IL_F8: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc8 = v;
-            },
-            'r': function ()
-            {
-                return loc8;
-            }
-        }.w)(new t1());
+        loc8 = new t1();
         /* IL_FD: ldloca.s 8*/
         st_28 = {
             'w': function (v)
@@ -451,16 +334,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc7));
         /* IL_120: ldloca.s 9*/
         /* IL_123: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc9 = v;
-            },
-            'r': function ()
-            {
-                return loc9;
-            }
-        }.w)(new t2());
+        loc9 = new t2();
         /* IL_128: ldloca.s 9*/
         st_33 = {
             'w': function (v)
@@ -474,16 +348,7 @@ var asm1; (function (asm)
         };
         /* IL_12A: ldloca.s 10*/
         /* IL_12D: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc10 = v;
-            },
-            'r': function ()
-            {
-                return loc10;
-            }
-        }.w)(new t1());
+        loc10 = new t1();
         /* IL_132: ldloca.s 10*/
         st_31 = {
             'w': function (v)
@@ -512,16 +377,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc9));
         /* IL_155: ldloca.s 11*/
         /* IL_158: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc11 = v;
-            },
-            'r': function ()
-            {
-                return loc11;
-            }
-        }.w)(new t2());
+        loc11 = new t2();
         /* IL_15D: ldloca.s 11*/
         st_3C = {
             'w': function (v)
@@ -535,16 +391,7 @@ var asm1; (function (asm)
         };
         /* IL_15F: ldloca.s 12*/
         /* IL_162: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc12 = v;
-            },
-            'r': function ()
-            {
-                return loc12;
-            }
-        }.w)(new t1());
+        loc12 = new t1();
         /* IL_167: ldloca.s 12*/
         st_3A = {
             'w': function (v)
@@ -573,16 +420,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc11));
         /* IL_18A: ldloca.s 13*/
         /* IL_18D: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc13 = v;
-            },
-            'r': function ()
-            {
-                return loc13;
-            }
-        }.w)(new t2());
+        loc13 = new t2();
         /* IL_192: ldloca.s 13*/
         st_45 = {
             'w': function (v)
@@ -596,16 +434,7 @@ var asm1; (function (asm)
         };
         /* IL_194: ldloca.s 14*/
         /* IL_197: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc14 = v;
-            },
-            'r': function ()
-            {
-                return loc14;
-            }
-        }.w)(new t1());
+        loc14 = new t1();
         /* IL_19C: ldloca.s 14*/
         st_43 = {
             'w': function (v)
@@ -630,16 +459,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc13));
         /* IL_1B3: ldloca.s 15*/
         /* IL_1B6: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc15 = v;
-            },
-            'r': function ()
-            {
-                return loc15;
-            }
-        }.w)(new t2());
+        loc15 = new t2();
         /* IL_1BB: ldloca.s 15*/
         st_4C = {
             'w': function (v)
@@ -653,16 +473,7 @@ var asm1; (function (asm)
         };
         /* IL_1BD: ldloca.s 16*/
         /* IL_1C0: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc16 = v;
-            },
-            'r': function ()
-            {
-                return loc16;
-            }
-        }.w)(new t1());
+        loc16 = new t1();
         /* IL_1C5: ldloca.s 16*/
         st_4A = {
             'w': function (v)
@@ -691,16 +502,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc15));
         /* IL_1E4: ldloca.s 17*/
         /* IL_1E7: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc17 = v;
-            },
-            'r': function ()
-            {
-                return loc17;
-            }
-        }.w)(new t2());
+        loc17 = new t2();
         /* IL_1EC: ldloca.s 17*/
         st_55 = {
             'w': function (v)
@@ -714,16 +516,7 @@ var asm1; (function (asm)
         };
         /* IL_1EE: ldloca.s 18*/
         /* IL_1F1: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc18 = v;
-            },
-            'r': function ()
-            {
-                return loc18;
-            }
-        }.w)(new t1());
+        loc18 = new t1();
         /* IL_1F6: ldloca.s 18*/
         st_53 = {
             'w': function (v)
@@ -752,16 +545,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc17));
         /* IL_219: ldloca.s 19*/
         /* IL_21C: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc19 = v;
-            },
-            'r': function ()
-            {
-                return loc19;
-            }
-        }.w)(new t2());
+        loc19 = new t2();
         /* IL_221: ldloca.s 19*/
         st_5E = {
             'w': function (v)
@@ -775,16 +559,7 @@ var asm1; (function (asm)
         };
         /* IL_223: ldloca.s 20*/
         /* IL_226: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc20 = v;
-            },
-            'r': function ()
-            {
-                return loc20;
-            }
-        }.w)(new t1());
+        loc20 = new t1();
         /* IL_22B: ldloca.s 20*/
         st_5C = {
             'w': function (v)
@@ -813,16 +588,7 @@ var asm1; (function (asm)
         asm1.x600000f(BLR.clone_value(loc19));
         /* IL_24E: ldloca.s 21*/
         /* IL_251: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc21 = v;
-            },
-            'r': function ()
-            {
-                return loc21;
-            }
-        }.w)(new t2());
+        loc21 = new t2();
         /* IL_256: ldloca.s 21*/
         st_67 = {
             'w': function (v)
@@ -836,16 +602,7 @@ var asm1; (function (asm)
         };
         /* IL_258: ldloca.s 22*/
         /* IL_25B: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc22 = v;
-            },
-            'r': function ()
-            {
-                return loc22;
-            }
-        }.w)(new t1());
+        loc22 = new t1();
         /* IL_260: ldloca.s 22*/
         st_65 = {
             'w': function (v)
@@ -902,16 +659,7 @@ var asm1; (function (asm)
         loc3 = new (asm1.A())();
         /* IL_00: ldloca.s 3*/
         /* IL_03: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc3 = v;
-            },
-            'r': function ()
-            {
-                return loc3;
-            }
-        }.w)(new t0());
+        loc3 = new t0();
         /* IL_08: ldloca.s 3*/
         /* IL_0A: ldc.i4 321*/
         /* IL_0F: stfld Int32 x*/
@@ -921,28 +669,10 @@ var asm1; (function (asm)
         loc0 = loc3;
         /* IL_16: ldloca.s 1*/
         /* IL_19: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc1 = v;
-            },
-            'r': function ()
-            {
-                return loc1;
-            }
-        }.w)(new t0());
+        loc1 = new t0();
         /* IL_1E: ldloca.s 2*/
         /* IL_21: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc2 = v;
-            },
-            'r': function ()
-            {
-                return loc2;
-            }
-        }.w)(new t0());
+        loc2 = new t0();
         /* IL_26: ldarga.s 0*/
         /* IL_28: ldloc.0 */
         /* IL_29: box A*/
@@ -1139,16 +869,7 @@ var asm1; (function (asm)
         loc6 = new (asm1.A())();
         /* IL_00: ldloca.s 3*/
         /* IL_03: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc3 = v;
-            },
-            'r': function ()
-            {
-                return loc3;
-            }
-        }.w)(new t0());
+        loc3 = new t0();
         /* IL_08: ldloca.s 3*/
         st_04 = {
             'w': function (v)
@@ -1162,16 +883,7 @@ var asm1; (function (asm)
         };
         /* IL_0A: ldloca.s 4*/
         /* IL_0D: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc4 = v;
-            },
-            'r': function ()
-            {
-                return loc4;
-            }
-        }.w)(new t1());
+        loc4 = new t1();
         /* IL_12: ldloca.s 4*/
         st_02 = {
             'w': function (v)
@@ -1196,28 +908,10 @@ var asm1; (function (asm)
         loc0 = loc3;
         /* IL_24: ldloca.s 1*/
         /* IL_27: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc1 = v;
-            },
-            'r': function ()
-            {
-                return loc1;
-            }
-        }.w)(new t0());
+        loc1 = new t0();
         /* IL_2C: ldloca.s 5*/
         /* IL_2F: initobj B*/
-        ({
-            'w': function (v)
-            {
-                loc5 = v;
-            },
-            'r': function ()
-            {
-                return loc5;
-            }
-        }.w)(new t0());
+        loc5 = new t0();
         /* IL_34: ldloca.s 5*/
         st_0C = {
             'w': function (v)
@@ -1231,16 +925,7 @@ var asm1; (function (asm)
         };
         /* IL_36: ldloca.s 6*/
         /* IL_39: initobj A*/
-        ({
-            'w': function (v)
-            {
-                loc6 = v;
-            },
-            'r': function ()
-            {
-                return loc6;
-            }
-        }.w)(new t1());
+        loc6 = new t1();
         /* IL_3E: ldloca.s 6*/
         st_0A = {
             'w': function (v)
