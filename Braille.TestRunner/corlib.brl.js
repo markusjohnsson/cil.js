@@ -59,11 +59,11 @@ var BLR;
     }
 
     blr.is_inst_interface = function(interfaceType) {
-        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return false; } };
+        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return null; } };
     }
 
     blr.is_inst_primitive = function(primitiveType) {
-        return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return false; } }
+        return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return null; } }
     }
 
     blr.is_inst_array = function(T) {
