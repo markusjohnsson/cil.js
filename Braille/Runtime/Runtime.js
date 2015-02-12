@@ -42,13 +42,16 @@ var BLR;
         type.ArrayType = arrayType;
         type.MetadataName = metadataName;
 
+        type.Interfaces = [];
         type.GenericArguments = {};
         type.prototype.vtable = {};
         type.prototype.ifacemap = {};
     }
 
-    blr.implement_interface = function(type, iface, implementation) {
-        blr.tree_set(iface, type.prototype.ifacemap, implementation);
+    blr.implement_interface = function (type, iface, implementation) {
+        type.Interfaces.push(iface[0]);
+        if (implementation !== null)
+            blr.tree_set(iface, type.prototype.ifacemap, implementation);
     }
 
     blr.declare_virtual = function (type, slot, target) {
@@ -232,6 +235,23 @@ var BLR;
         var r = new (asm0['System.Array`1'](type))();
         r.etype = type;
         r.jsarr = new ctor(length);
+        var i;
+        if (type.IsValueType === false) {
+            for (i = 0; i < length; i++)
+                r.jsarr[i] = null;
+        }
+        else if (type.IsPrimitive === false) {
+            for (i = 0; i < length; i++)
+                r.jsarr[i] = new type();
+        }
+        else if (type.FullName === "System.Int64" || type.FullName === "System.UInt64") {
+            for (i = 0; i < length; i++)
+                r.jsarr[i] = [0, 0];
+        }
+        else {
+            for (i = 0; i < length; i++)
+                r.jsarr[i] = 0;
+        }
         return r;
     }
 
@@ -261,7 +281,7 @@ var BLR;
             else if (typeof obj === 'number') {
                 return obj;
             }
-            else if (typeof obj.length == 'number' && obj.length == 2) {
+            else if (typeof obj.length === 'number' && obj.length === 2) {
                 return obj; /* this is for (u)int64 */
             }
         }

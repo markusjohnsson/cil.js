@@ -160,7 +160,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -176,7 +175,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -194,7 +192,6 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"I`1",false,false,true,true,false,[],[
                     [asm1, "x600000c", "Print"]
                 ],null,BLR.is_inst_interface(this),Array,"asm1.t2000007");
-            this.Interfaces = [];
             (this.GenericArguments)["asm1.t2000007"] = [T];
             BLR.declare_virtual(this,"asm1.x600000c","asm1.x600000c");
         });
@@ -209,7 +206,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"A",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -225,7 +221,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"B",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000009");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -241,19 +236,21 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"C",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000a");
-            this.Interfaces = [
-                (asm1)["I`1"](asm1.A()),
-                (asm1)["I`1"](asm1.B())
-            ];
             BLR.declare_virtual(this,"asm1.x600000f","asm1.x600000f");
             BLR.declare_virtual(this,"asm1.x6000010","asm1.x6000010");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-            BLR.implement_interface(this,[(asm1)["I`1"](asm1.A()), asm1.A()],{
+            BLR.implement_interface(
+                this,
+                [(asm1)["I`1"](asm1.A()), asm1.A()],
+                {
                     'x600000c': function (){ return asm1.x600000f;}
                 });
-            BLR.implement_interface(this,[(asm1)["I`1"](asm1.B()), asm1.B()],{
+            BLR.implement_interface(
+                this,
+                [(asm1)["I`1"](asm1.B()), asm1.B()],
+                {
                     'x600000c': function (){ return asm1.x6000010;}
                 });
         });
@@ -268,7 +265,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000b");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");

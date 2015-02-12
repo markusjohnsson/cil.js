@@ -74,6 +74,7 @@
     <Compile Include="System\ICloneable.cs" />
     <Compile Include="System\IComparable.cs" />
     <Compile Include="System\IDisposable.cs" />
+    <Compile Include="System\IEquatable.cs" />
     <Compile Include="System\Int16.cs" />
     <Compile Include="System\Int32.cs" />
     <Compile Include="System\InternalFormatting.cs" />

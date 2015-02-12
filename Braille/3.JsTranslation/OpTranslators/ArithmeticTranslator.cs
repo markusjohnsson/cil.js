@@ -228,6 +228,22 @@ namespace Braille.JsTranslation.OpTranslators
 
                         return expr;
                     }
+                case "xor":
+                    if (IsUInt64Operation(node) || IsInt64Operation(node))
+                    {
+                        return CreateXInt64BinaryOperation(node, "XInt64_ExclusiveOr");
+                    }
+                    else
+                    {
+                        var expr = new JSBinaryExpression
+                        {
+                            Left = ProcessInternal(node.Arguments.First()),
+                            Right = ProcessInternal(node.Arguments.Last()),
+                            Operator = "^"
+                        } as JSExpression;
+                        
+                        return expr;
+                    }
                 default:
                     throw new NotSupportedException(node.Instruction.OpCode.Name);
             }

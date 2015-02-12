@@ -324,7 +324,7 @@ namespace Braille.JsTranslation
             var function = new JSFunctionDelcaration
             {
                 Body = functionBlock,
-                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_"),
+                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_").Replace(",","_"),
                 Parameters = Enumerable.Range(0, ps).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
             };
 

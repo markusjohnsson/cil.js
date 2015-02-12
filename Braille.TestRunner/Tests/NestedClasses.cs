@@ -1,4 +1,6 @@
 ﻿
+using System.Runtime.InteropServices;
+
 public class A
 {
     public class B
@@ -15,6 +17,22 @@ public class A
     }
 }
 
+public class C
+{
+    public class D
+    {
+        public class E
+        {
+            private static int y = 123;
+
+            public void Y()
+            {
+                TestLog.Log("C.D.E.Y" + y++);
+            }
+        }
+    }
+}
+
 public class Program
 {
     public static void Main()
@@ -23,6 +41,9 @@ public class Program
 
         var b = new A.B();
         b.X();
+
+        var e = new C.D.E();
+        e.Y();
     }
 }
 

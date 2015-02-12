@@ -216,7 +216,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -232,7 +231,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -251,7 +249,6 @@ var asm1; (function (asm)
                     [asm1, "x600000c", "Add"],
                     [asm1, "x600000d", "Add2"]
                 ],null,BLR.is_inst_interface(this),Array,"asm1.t2000007");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm1.x600000c","asm1.x600000c");
             BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
         });
@@ -268,7 +265,6 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"IB",false,false,true,false,false,[],[
                     [asm1, "x600000e", "Add"]
                 ],null,BLR.is_inst_interface(this),Array,"asm1.t2000008");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm1.x600000e","asm1.x600000e");
         });
     asm.IC = BLR.declare_type(
@@ -284,7 +280,6 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"IC",false,false,true,false,false,[],[
                     [asm1, "x600000f", "Add"]
                 ],null,BLR.is_inst_interface(this),Array,"asm1.t2000009");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm1.x600000f","asm1.x600000f");
         });
     asm.ID = BLR.declare_type(
@@ -298,10 +293,14 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"ID",false,false,true,false,false,[],[],null,BLR.is_inst_interface(this),Array,"asm1.t200000a");
-            this.Interfaces = [
-                asm1.IA(),
-                asm1.IB()
-            ];
+            BLR.implement_interface(
+                this,
+                [asm1.IA()],
+                null);
+            BLR.implement_interface(
+                this,
+                [asm1.IB()],
+                null);
         });
     asm.D = BLR.declare_type(
         "D",
@@ -314,23 +313,27 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"D",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000b");
-            this.Interfaces = [
-                asm1.ID(),
-                asm1.IA(),
-                asm1.IB()
-            ];
             BLR.declare_virtual(this,"asm1.x6000010","asm1.x6000010");
             BLR.declare_virtual(this,"asm1.x6000011","asm1.x6000011");
             BLR.declare_virtual(this,"asm1.x6000012","asm1.x6000012");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-            BLR.implement_interface(this,[asm1.ID()],{});
-            BLR.implement_interface(this,[asm1.IA()],{
+            BLR.implement_interface(
+                this,
+                [asm1.ID()],
+                {});
+            BLR.implement_interface(
+                this,
+                [asm1.IA()],
+                {
                     'x600000c': function (){ return asm1.x6000010;},
                     'x600000d': function (){ return asm1.x6000011;}
                 });
-            BLR.implement_interface(this,[asm1.IB()],{
+            BLR.implement_interface(
+                this,
+                [asm1.IB()],
+                {
                     'x600000e': function (){ return asm1.x6000012;}
                 });
         });
@@ -345,12 +348,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"E",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000c");
-            this.Interfaces = [
-                asm1.IC(),
-                asm1.ID(),
-                asm1.IA(),
-                asm1.IB()
-            ];
             BLR.declare_virtual(this,"asm1.x6000014","asm1.x6000014");
             BLR.declare_virtual(this,"asm1.x6000015","asm1.x6000015");
             BLR.declare_virtual(this,"asm1.x6000016","asm1.x6000016");
@@ -358,15 +355,27 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-            BLR.implement_interface(this,[asm1.IC()],{
+            BLR.implement_interface(
+                this,
+                [asm1.IC()],
+                {
                     'x600000f': function (){ return asm1.x6000014;}
                 });
-            BLR.implement_interface(this,[asm1.ID()],{});
-            BLR.implement_interface(this,[asm1.IA()],{
+            BLR.implement_interface(
+                this,
+                [asm1.ID()],
+                {});
+            BLR.implement_interface(
+                this,
+                [asm1.IA()],
+                {
                     'x600000c': function (){ return asm1.x6000015;},
                     'x600000d': function (){ return asm1.x6000016;}
                 });
-            BLR.implement_interface(this,[asm1.IB()],{
+            BLR.implement_interface(
+                this,
+                [asm1.IB()],
+                {
                     'x600000e': function (){ return asm1.x6000017;}
                 });
         });
@@ -381,7 +390,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"C",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000d");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");

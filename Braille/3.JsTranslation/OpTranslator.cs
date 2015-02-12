@@ -326,7 +326,7 @@ namespace Braille.JsTranslation
         private JSIfStatement CreateComparisonBranch(OpExpression node, string op)
         {
             var isUnsigned = node.Instruction.OpCode.Name.Contains(".un");
-            
+
             return new JSIfStatement
             {
                 Condition = new JSBinaryExpression
@@ -408,6 +408,7 @@ namespace Braille.JsTranslation
                 case "shr":
                 case "shr.un":
                 case "sub":
+                case "xor":
                     return new ArithmeticTranslator(context, assembly, type, method).Translate(node);
 
                 case "box":
@@ -527,6 +528,7 @@ namespace Braille.JsTranslation
                         }
 
                         var thisArg = arglist[0];
+                        JSExpression alternateThisArg = null;
 
                         var firstArgNode = node.Arguments.First();
 
@@ -550,7 +552,8 @@ namespace Braille.JsTranslation
                             {
                                 var pointerTargetType = firstArgNode.ResultType.GetGenericArguments().First();
 
-                                thisArg = JSFactory.Identifier(
+                                thisArg = UnwrapReaderWriter(thisArg);
+                                alternateThisArg = JSFactory.Identifier(
                                     GetTypeAccessor(pointerTargetType, thisScope),
                                     "prototype");
 
@@ -565,9 +568,9 @@ namespace Braille.JsTranslation
                         {
                             Function =
                                 mi.DeclaringType.IsInterface
-                                    ? GetInterfaceMethodAccessor(thisArg, thisScope, mi) :
+                                    ? GetInterfaceMethodAccessor(thisArg, alternateThisArg, thisScope, mi) :
                                 mi.IsVirtual
-                                    ? GetVirtualMethodAccessor(thisArg, (MethodInfo)mi) :
+                                    ? GetVirtualMethodAccessor(thisArg, alternateThisArg, (MethodInfo)mi) :
                                       GetMethodAccessor(mi, this.method.ReflectionMethod),
                             Arguments = arglist
                         };
@@ -595,7 +598,7 @@ namespace Braille.JsTranslation
                     return ProcessInternal(node.Arguments.Single());
                 case "initobj":
                     {
-                        var typeTok = (Type)node.Instruction.Data;    
+                        var typeTok = (Type)node.Instruction.Data;
                         var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
                         if (false == typeTok.IsGenericParameter)
@@ -824,12 +827,9 @@ namespace Braille.JsTranslation
                         });
                     }
                 case "ldind":
-                    return JSFactory.Call(JSFactory.Identifier(ProcessInternal(node.Arguments.Single()), "r"));
-                //return new JSPropertyAccessExpression
-                //{
-                //    Host = ProcessInternal(node.Arguments.Single()),
-                //    Property = "boxed"
-                //};
+                    var param = ProcessInternal(node.Arguments.Single());
+                    return UnwrapReaderWriter(param);
+                
                 case "ldftn":
                     {
                         var target = ((LoadFunctionNode)node).Target;
@@ -838,7 +838,7 @@ namespace Braille.JsTranslation
                         if (target.NeedInitializer &&
 
                             // optimization not working if initializer happens to use type's generic args..
-                            ! target.ReflectionMethod.DeclaringType.IsGenericType) 
+                            !target.ReflectionMethod.DeclaringType.IsGenericType)
                         {
                             return new JSCallExpression
                             {
@@ -1081,7 +1081,7 @@ namespace Braille.JsTranslation
                         var target = ProcessInternal(node.Arguments.First());
                         var fieldInfo = (FieldInfo)node.Instruction.Data;
                         var host = (fieldInfo.DeclaringType.IsValueType) ?
-                            new JSCallExpression { Function = new JSPropertyAccessExpression { Host = target, Property = "r" } } :
+                            UnwrapReaderWriter(target) :
                             target;
 
                         return JSFactory
@@ -1175,13 +1175,8 @@ namespace Braille.JsTranslation
                 return argExpression;
 
             return IsManagedPointer(argument.ResultType) ?
-                Dereference(argExpression) :
+                UnwrapReaderWriter(argExpression) :
                 argExpression;
-        }
-
-        private static JSCallExpression Dereference(JSExpression argExpression)
-        {
-            return new JSCallExpression { Function = new JSPropertyAccessExpression { Host = argExpression, Property = "r" } };
         }
 
         private bool IsManagedPointer(Type type)
@@ -1205,7 +1200,7 @@ namespace Braille.JsTranslation
                 return value;
         }
 
-        private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, JSExpression thisScope, MethodBase mi)
+        private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, JSExpression alternateThisArg, JSExpression thisScope, MethodBase mi)
         {
             // vtables and interface maps are dictionaries of function references:
             //
@@ -1220,16 +1215,44 @@ namespace Braille.JsTranslation
             // We might be able to change this later and just store the reference to the actual method implementation.
             // To accomplish this, we need to call the init function when the vtable or interface map is created.
 
+            JSExpression host;
+
+            if (alternateThisArg != null)
+            {
+                host = new JSBinaryExpression
+                {
+                    Left = new JSPropertyAccessExpression
+                    {
+                        Host = thisArg,
+                        Property = "ifacemap"
+                    },
+                    Operator = "||",
+                    Right = new JSPropertyAccessExpression
+                    {
+                        Host = alternateThisArg,
+                        Property = "ifacemap"
+                    }
+                };
+            }
+            else
+            {
+                host = new JSPropertyAccessExpression
+                {
+                    Host = thisArg,
+                    Property = "ifacemap"
+                };
+            }
+
             var function = new JSArrayLookupExpression
             {
-                Array = JSFactory.Identifier(thisArg, "ifacemap"),
+                Array = host,
                 Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
             };
 
-            if (mi.DeclaringType.IsGenericType) 
+            if (mi.DeclaringType.IsGenericType)
             {
                 foreach (var i in mi.DeclaringType.GenericTypeArguments)
-                    function = new JSArrayLookupExpression 
+                    function = new JSArrayLookupExpression
                     {
                         Array = function,
                         Indexer = GetTypeAccessor(i, thisScope: thisScope)
@@ -1247,7 +1270,7 @@ namespace Braille.JsTranslation
             };
         }
 
-        private JSExpression GetVirtualMethodAccessor(JSExpression thisArg, MethodInfo mi)
+        private JSExpression GetVirtualMethodAccessor(JSExpression thisArg, JSExpression alternateThisArg, MethodInfo mi)
         {
             // vtables and interface maps are dictionaries of function references:
             //
@@ -1262,62 +1285,92 @@ namespace Braille.JsTranslation
             // We might be able to change this later and just store the reference to the actual method implementation.
             // To accomplish this, we need to call the init function when the vtable or interface map is created.
 
-            return new JSCallExpression
+            JSExpression host;
+
+            if (alternateThisArg != null)
             {
-                Function = new JSPropertyAccessExpression
+                host = new JSBinaryExpression
                 {
-                    Host = new JSPropertyAccessExpression
+                    Left = new JSPropertyAccessExpression
                     {
                         Host = thisArg,
                         Property = "vtable"
                     },
+                    Operator = "||",
+                    Right = new JSPropertyAccessExpression
+                    {
+                        Host = alternateThisArg,
+                        Property = "vtable"
+                    }
+                };
+            }
+            else
+            {
+                host = new JSPropertyAccessExpression
+                {
+                    Host = thisArg,
+                    Property = "vtable"
+                };
+            }
+
+            return new JSCallExpression
+            {
+                Function = new JSPropertyAccessExpression
+                {
+                    Host = host,
                     Property = GetVirtualMethodIdentifier(mi)
                 }
             };
         }
 
-        private static JSExpression WrapInReaderWriter(JSExpression ifier)
+        private JSExpression UnwrapReaderWriter(JSExpression expression)
         {
-            return new JSObjectLiteral
+            var wrapped = expression as ReaderWriter;
+            if (wrapped != null)
+                return wrapped.WrappedExpression;
+            else
+                return new JSCallExpression {Function = JSFactory.Identifier(expression, "r")};
+        }
+
+        private class ReaderWriter : JSObjectLiteral
+        {
+            public JSExpression WrappedExpression { get; private set; }
+
+            public ReaderWriter(JSExpression ifier)
             {
+                WrappedExpression = ifier;
+
                 Properties = new Dictionary<string, JSExpression>
                 {
-                    { 
-                        "w", 
-                        new JSFunctionDelcaration 
-                        { 
+                    {
+                        "w",
+                        new JSFunctionDelcaration
+                        {
                             Body =
-                            { 
-                                JSFactory
-                                    .Assignment(
-                                        ifier, 
-                                        new JSArrayLookupExpression 
-                                        {
-                                            Array = new JSIdentifier 
-                                            { 
-                                                Name = "arguments" 
-                                            }, 
-                                            Indexer = new JSNumberLiteral 
-                                            { 
-                                                Value = 0 
-                                            } 
-                                        })
-                                    .ToStatement()
-                            }
+                            {
+                                JSFactory.Assignment(ifier, JSFactory.Identifier("v")).ToStatement()
+                            },
+                            Parameters = { new JSFunctionParameter { Name = "v" } }
                         }
                     },
                     {
-                        "r", 
-                        new JSFunctionDelcaration 
-                        { 
-                            Body = 
-                            { 
-                                new JSExpressionStatement { Expression = new JSReturnExpression { Expression = ifier } }
+                        "r",
+                        new JSFunctionDelcaration
+                        {
+                            Body =
+                            {
+                                new JSReturnExpression {Expression = ifier}.ToStatement()
                             }
                         }
                     }
-                }
-            };
+                };
+            }
+
+        }
+
+        private static JSExpression WrapInReaderWriter(JSExpression ifier)
+        {
+            return new ReaderWriter(ifier);
         }
 
         private IEnumerable<JSExpression> ProcessList(IEnumerable<Node> list)

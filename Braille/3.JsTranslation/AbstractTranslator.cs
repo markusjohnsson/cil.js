@@ -83,7 +83,7 @@ namespace Braille.JsTranslation
                 return new JSCallExpression
                 {
                     Function = JSFactory.Identifier(
-                        GetAssemblyIdentifier(type), ConstructFullName(type)),
+                        GetAssemblyIdentifier(type), type.GetGenericTypeDefinition().FullName),
                     Arguments = type
                         .GetGenericArguments()
                         .Select(
@@ -124,7 +124,7 @@ namespace Braille.JsTranslation
         private static string ConstructFullName(Type type)
         {
             var name = "";
-
+            
             if (type.Namespace != null)
                 name = type.Namespace + ".";
 

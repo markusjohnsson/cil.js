@@ -1,9 +1,10 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public class String
+    public class String: IEquatable<string>
     {
         internal object jsstr;
 

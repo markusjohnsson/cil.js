@@ -58,9 +58,9 @@ var asm1; (function (asm)
         /* IL_00: ldloca.s 2*/
         /* IL_03: initobj System.Nullable`1[A]*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc2 = (arguments)[0];
+                loc2 = v;
             },
             'r': function ()
             {
@@ -73,9 +73,9 @@ var asm1; (function (asm)
         /* IL_0E: ldloca.s 3*/
         /* IL_11: initobj System.Nullable`1[A]*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc3 = (arguments)[0];
+                loc3 = v;
             },
             'r': function ()
             {
@@ -88,9 +88,9 @@ var asm1; (function (asm)
         /* IL_1C: ldloca.s 0*/
         /* IL_1F: initobj A*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc0 = (arguments)[0];
+                loc0 = v;
             },
             'r': function ()
             {
@@ -100,26 +100,17 @@ var asm1; (function (asm)
         /* IL_24: ldloca.s 0*/
         /* IL_26: ldc.i4.s 33*/
         /* IL_28: stfld Int32 X*/
-        ({
-            'w': function ()
-            {
-                loc0 = (arguments)[0];
-            },
-            'r': function ()
-            {
-                return loc0;
-            }
-        }.r)().X = (33|0);
+        loc0.X = (33|0);
         /* IL_2D: ldloc.0 */
         /* IL_2E: newobj Void .ctor(A)*/
         /* IL_33: call Void Print(System.Nullable`1[A])*/
-        asm1.x600000e(BLR.clone_value(BLR.newobj(t2,asm0.x600015a,[null, BLR.clone_value(loc0)])));
+        asm1.x600000e(BLR.clone_value(BLR.newobj(t2,asm0.x600015b,[null, BLR.clone_value(loc0)])));
         /* IL_38: ldloca.s 4*/
         /* IL_3B: initobj A*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc4 = (arguments)[0];
+                loc4 = v;
             },
             'r': function ()
             {
@@ -129,16 +120,16 @@ var asm1; (function (asm)
         /* IL_40: ldloc.s 4*/
         /* IL_42: newobj Void .ctor(A)*/
         /* IL_47: call Void Print(System.Nullable`1[A])*/
-        asm1.x600000e(BLR.clone_value(BLR.newobj(t2,asm0.x600015a,[null, BLR.clone_value(loc4)])));
+        asm1.x600000e(BLR.clone_value(BLR.newobj(t2,asm0.x600015b,[null, BLR.clone_value(loc4)])));
         /* IL_4C: ldnull */
         /* IL_4D: call Void PrintObject(System.Object)*/
         asm1.x600000d(null);
         /* IL_52: ldloca.s 5*/
         /* IL_55: initobj System.Nullable`1[A]*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc5 = (arguments)[0];
+                loc5 = v;
             },
             'r': function ()
             {
@@ -157,9 +148,9 @@ var asm1; (function (asm)
         /* IL_66: ldloca.s 1*/
         /* IL_69: initobj A*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc1 = (arguments)[0];
+                loc1 = v;
             },
             'r': function ()
             {
@@ -169,16 +160,7 @@ var asm1; (function (asm)
         /* IL_6E: ldloca.s 1*/
         /* IL_70: ldc.i4.s 33*/
         /* IL_72: stfld Int32 X*/
-        ({
-            'w': function ()
-            {
-                loc1 = (arguments)[0];
-            },
-            'r': function ()
-            {
-                return loc1;
-            }
-        }.r)().X = (33|0);
+        loc1.X = (33|0);
         /* IL_77: ldloc.1 */
         /* IL_78: box A*/
         /* IL_7D: call Void PrintObject(System.Object)*/
@@ -191,9 +173,9 @@ var asm1; (function (asm)
         /* IL_82: ldloca.s 6*/
         /* IL_85: initobj A*/
         ({
-            'w': function ()
+            'w': function (v)
             {
-                loc6 = (arguments)[0];
+                loc6 = v;
             },
             'r': function ()
             {
@@ -249,10 +231,10 @@ var asm1; (function (asm)
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_10*/
                 
-                if (asm0.x600015b({
-                        'w': function ()
+                if (asm0.x600015c({
+                        'w': function (v)
                         {
-                            arg0 = (arguments)[0];
+                            arg0 = v;
                         },
                         'r': function ()
                         {
@@ -277,10 +259,10 @@ var asm1; (function (asm)
                 /* IL_1C: call Boolean get_HasValue()*/
                 /* IL_21: brfalse.s IL_39*/
                 
-                if ((!(asm0.x600015b({
-                        'w': function ()
+                if ((!(asm0.x600015c({
+                        'w': function (v)
                         {
-                            arg0 = (arguments)[0];
+                            arg0 = v;
                         },
                         'r': function ()
                         {
@@ -296,10 +278,10 @@ var asm1; (function (asm)
                 /* IL_2F: box System.Int32*/
                 /* IL_34: call Void Log(System.Object)*/
                 asm1.x6000001({
-                        'boxed': asm0.x600015c({
-                                'w': function ()
+                        'boxed': asm0.x600015d({
+                                'w': function (v)
                                 {
-                                    arg0 = (arguments)[0];
+                                    arg0 = v;
                                 },
                                 'r': function ()
                                 {
@@ -335,7 +317,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -351,7 +332,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -367,7 +347,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"A",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000016");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -384,7 +363,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");

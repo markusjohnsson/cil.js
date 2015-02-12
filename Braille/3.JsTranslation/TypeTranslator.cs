@@ -156,9 +156,7 @@ namespace Braille.JsTranslation
                     )
                 .ToStatement();
 
-            var staticProperties = GetStaticFieldInitializers(type)
-                .EndWith(new KeyValuePair<string, JSExpression>("Interfaces", GetInterfaces(type)))
-                ;
+            var staticProperties = GetStaticFieldInitializers(type);
 
             foreach (var p in staticProperties)
             {
@@ -194,13 +192,16 @@ namespace Braille.JsTranslation
 
             foreach (var iface in GetInterfaceMaps(type))
             {
-                yield return JSFactory
+                var call = JSFactory
                     .Call(
                         JSFactory.Identifier("BLR", "implement_interface"),
                         JSFactory.Identifier(n),
                         JSFactory.Array(inline: true, exprs: iface.Key),
-                        iface.Value)
-                    .ToStatement();
+                        iface.Value);
+
+                call.Indent = true;
+
+                yield return call.ToStatement();
             }
 
             var prototypeProperties = GetFieldInitializers(type)
@@ -390,17 +391,18 @@ namespace Braille.JsTranslation
 
         private IEnumerable<KeyValuePair<JSExpression[], JSExpression>> GetInterfaceMaps(CilType type)
         {
-            if (type.ReflectionType.IsInterface)
-                return Enumerable.Empty<KeyValuePair<JSExpression[], JSExpression>>();
-
             return type.ReflectionType
-                .GetInterfaces()
-                .Select(
-                    iface => new KeyValuePair<JSExpression[], JSExpression>(
-                        new[] { GetTypeIdentifier(iface, typeScope: type.ReflectionType) }
-                            .Concat(iface.GenericTypeArguments.Select(g => GetTypeIdentifier(g, typeScope: type.ReflectionType)))
-                            .ToArray(),
-                        GetInterfaceMap(type, iface)));
+                       .GetInterfaces()
+                       .Select(
+                           iface => new KeyValuePair<JSExpression[], JSExpression>(
+                               new[] {GetTypeIdentifier(iface, typeScope: type.ReflectionType)}
+                                   .Concat(
+                                       iface.GenericTypeArguments.Select(
+                                           g => GetTypeIdentifier(g, typeScope: type.ReflectionType)))
+                                   .ToArray(),
+                               type.ReflectionType.IsInterface
+                                   ? JSFactory.Null()
+                                   : GetInterfaceMap(type, iface)));
         }
 
         private Dictionary<string, string> GetVtable(CilType type)

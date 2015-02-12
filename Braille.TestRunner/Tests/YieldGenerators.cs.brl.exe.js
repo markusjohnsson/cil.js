@@ -171,7 +171,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.2 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: stloc.0 */
-                                loc0 = ((((loc2.ifacemap)[t2])[t0].x60000e7)())(BLR.convert_box_to_pointer_as_needed(loc2));
+                                loc0 = ((((loc2.ifacemap)[t2])[t0].x60000e8)())(BLR.convert_box_to_pointer_as_needed(loc2));
                                 /* IL_10: ldloc.0 */
                                 /* IL_11: stloc.1 */
                                 loc1 = loc0;
@@ -184,7 +184,7 @@ var asm1; (function (asm)
                                 /* IL_15: callvirt Boolean MoveNext()*/
                                 /* IL_1A: brtrue.s IL_09*/
                                 
-                                if ((((loc2.ifacemap)[t3].x60000e5)())(BLR.convert_box_to_pointer_as_needed(loc2))){
+                                if ((((loc2.ifacemap)[t3].x60000e6)())(BLR.convert_box_to_pointer_as_needed(loc2))){
                                     __pos_1__ = 0x9;
                                     continue;
                                 }
@@ -226,9 +226,9 @@ var asm1; (function (asm)
                     /* IL_28: ldloca.s 3*/
                     /* IL_2B: initobj T*/
                     ({
-                        'w': function ()
+                        'w': function (v)
                         {
-                            loc3 = (arguments)[0];
+                            loc3 = v;
                         },
                         'r': function ()
                         {
@@ -308,7 +308,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.1 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: pop */
-                                ((((loc1.ifacemap)[t2])[t0].x60000e7)())(BLR.convert_box_to_pointer_as_needed(loc1));
+                                ((((loc1.ifacemap)[t2])[t0].x60000e8)())(BLR.convert_box_to_pointer_as_needed(loc1));
                                 /* IL_10: ldc.i4.1 */
                                 /* IL_11: stloc.0 */
                                 loc0 = (1|0);
@@ -321,7 +321,7 @@ var asm1; (function (asm)
                                 /* IL_15: callvirt Boolean MoveNext()*/
                                 /* IL_1A: brtrue.s IL_09*/
                                 
-                                if ((((loc1.ifacemap)[t3].x60000e5)())(BLR.convert_box_to_pointer_as_needed(loc1))){
+                                if ((((loc1.ifacemap)[t3].x60000e6)())(BLR.convert_box_to_pointer_as_needed(loc1))){
                                     __pos_1__ = 0x9;
                                     continue;
                                 }
@@ -792,7 +792,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap2*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__1*/
-                            (arg0)["<s>5__1"] = (((((arg0)["<>7__wrap2"].ifacemap)[t2])[t0].x60000e7)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]));
+                            (arg0)["<s>5__1"] = (((((arg0)["<>7__wrap2"].ifacemap)[t2])[t0].x60000e8)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]));
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldarg.0 */
                             /* IL_4F: ldfld Func`2 selector*/
@@ -828,7 +828,7 @@ var asm1; (function (asm)
                             /* IL_7C: callvirt Boolean MoveNext()*/
                             /* IL_81: brtrue.s IL_3C*/
                             
-                            if (((((arg0)["<>7__wrap2"].ifacemap)[t3].x60000e5)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]))){
+                            if (((((arg0)["<>7__wrap2"].ifacemap)[t3].x60000e6)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]))){
                                 __pos_1__ = 0x3C;
                                 continue;
                             }
@@ -896,7 +896,7 @@ var asm1; (function (asm)
         t0 = (asm0)["System.NotSupportedException"]();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: throw */
-        throw BLR.newobj(t0,asm0.x60000eb,[null]);
+        throw BLR.newobj(t0,asm0.x60000ec,[null]);
     };
     /* Void System.IDisposable.Dispose()*/
     asm.x600001b = function System_IDisposable_Dispose(arg0)
@@ -1203,7 +1203,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap8*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__7*/
-                            (arg0)["<s>5__7"] = (((((arg0)["<>7__wrap8"].ifacemap)[t2])[t0].x60000e7)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]));
+                            (arg0)["<s>5__7"] = (((((arg0)["<>7__wrap8"].ifacemap)[t2])[t0].x60000e8)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]));
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldfld Func`2 predicate*/
                             /* IL_53: ldarg.0 */
@@ -1247,7 +1247,7 @@ var asm1; (function (asm)
                             /* IL_84: callvirt Boolean MoveNext()*/
                             /* IL_89: brtrue.s IL_3C*/
                             
-                            if (((((arg0)["<>7__wrap8"].ifacemap)[t3].x60000e5)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]))){
+                            if (((((arg0)["<>7__wrap8"].ifacemap)[t3].x60000e6)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]))){
                                 __pos_1__ = 0x3C;
                                 continue;
                             }
@@ -1315,7 +1315,7 @@ var asm1; (function (asm)
         t0 = (asm0)["System.NotSupportedException"]();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: throw */
-        throw BLR.newobj(t0,asm0.x60000eb,[null]);
+        throw BLR.newobj(t0,asm0.x60000ec,[null]);
     };
     /* Void System.IDisposable.Dispose()*/
     asm.x6000024 = function System_IDisposable_Dispose(arg0)
@@ -1456,7 +1456,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -1472,7 +1471,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -1490,10 +1488,9 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"E",false,false,false,false,false,[
                     [
                         (asm0)["System.Runtime.CompilerServices.ExtensionAttribute"](),
-                        asm0.x600011b
+                        asm0.x600011c
                     ]
                 ],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -1512,7 +1509,6 @@ var asm1; (function (asm)
                     [asm1, "x6000010", "get_Prop"],
                     [asm1, "x6000011", "set_Prop"]
                 ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -1530,7 +1526,6 @@ var asm1; (function (asm)
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000009");
             (this)["CS$<>9__CachedAnonymousMethodDelegate6"] = null;
-            this.Interfaces = [];
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -1546,13 +1541,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"E+<Select>d__0`2",false,false,false,true,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000a");
-            this.Interfaces = [
-                (asm0)["System.Collections.Generic.IEnumerable`1"](TResult),
-                (asm0)["System.Collections.IEnumerable"](),
-                (asm0)["System.Collections.Generic.IEnumerator`1"](TResult),
-                (asm0)["System.Collections.IEnumerator"](),
-                (asm0)["System.IDisposable"]()
-            ];
             (this.GenericArguments)["asm1.t200000a"] = [T, TResult];
             BLR.declare_virtual(this,"asm1.x6000016","asm1.x6000016");
             BLR.declare_virtual(this,"asm1.x6000017","asm1.x6000017");
@@ -1564,21 +1552,36 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-            BLR.implement_interface(this,[(asm0)["System.Collections.Generic.IEnumerable`1"](TResult), TResult],{
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.Generic.IEnumerable`1"](TResult), TResult],
+                {
                     'x600000e': function (){ return asm1.x6000016;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.Collections.IEnumerable"]()],{
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.IEnumerable"]()],
+                {
                     'x600000d': function (){ return asm1.x6000017;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.Collections.Generic.IEnumerator`1"](TResult), TResult],{
-                    'x60000e7': function (){ return asm1.x6000019;}
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.Generic.IEnumerator`1"](TResult), TResult],
+                {
+                    'x60000e8': function (){ return asm1.x6000019;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.Collections.IEnumerator"]()],{
-                    'x60000e4': function (){ return asm1.x600001c;},
-                    'x60000e5': function (){ return asm1.x6000018;},
-                    'x60000e6': function (){ return asm1.x600001a;}
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.IEnumerator"]()],
+                {
+                    'x60000e5': function (){ return asm1.x600001c;},
+                    'x60000e6': function (){ return asm1.x6000018;},
+                    'x60000e7': function (){ return asm1.x600001a;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.IDisposable"]()],{
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.IDisposable"]()],
+                {
                     'x600008f': function (){ return asm1.x600001b;}
                 });
             (this.prototype)["_Select_d__0_2<>2__current"] = ((TResult.IsValueType) ? (((TResult.IsPrimitive) ? (0) : (new TResult()))) : (null));
@@ -1602,13 +1605,6 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"E+<Where>d__6`1",false,false,false,true,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000b");
-            this.Interfaces = [
-                (asm0)["System.Collections.Generic.IEnumerable`1"](T),
-                (asm0)["System.Collections.IEnumerable"](),
-                (asm0)["System.Collections.Generic.IEnumerator`1"](T),
-                (asm0)["System.Collections.IEnumerator"](),
-                (asm0)["System.IDisposable"]()
-            ];
             (this.GenericArguments)["asm1.t200000b"] = [T];
             BLR.declare_virtual(this,"asm1.x600001f","asm1.x600001f");
             BLR.declare_virtual(this,"asm1.x6000020","asm1.x6000020");
@@ -1620,21 +1616,36 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-            BLR.implement_interface(this,[(asm0)["System.Collections.Generic.IEnumerable`1"](T), T],{
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.Generic.IEnumerable`1"](T), T],
+                {
                     'x600000e': function (){ return asm1.x600001f;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.Collections.IEnumerable"]()],{
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.IEnumerable"]()],
+                {
                     'x600000d': function (){ return asm1.x6000020;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.Collections.Generic.IEnumerator`1"](T), T],{
-                    'x60000e7': function (){ return asm1.x6000022;}
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.Generic.IEnumerator`1"](T), T],
+                {
+                    'x60000e8': function (){ return asm1.x6000022;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.Collections.IEnumerator"]()],{
-                    'x60000e4': function (){ return asm1.x6000025;},
-                    'x60000e5': function (){ return asm1.x6000021;},
-                    'x60000e6': function (){ return asm1.x6000023;}
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.Collections.IEnumerator"]()],
+                {
+                    'x60000e5': function (){ return asm1.x6000025;},
+                    'x60000e6': function (){ return asm1.x6000021;},
+                    'x60000e7': function (){ return asm1.x6000023;}
                 });
-            BLR.implement_interface(this,[(asm0)["System.IDisposable"]()],{
+            BLR.implement_interface(
+                this,
+                [(asm0)["System.IDisposable"]()],
+                {
                     'x600008f': function (){ return asm1.x6000024;}
                 });
             (this.prototype)["_Where_d__6_1<>2__current"] = ((T.IsValueType) ? (((T.IsPrimitive) ? (0) : (new T()))) : (null));
