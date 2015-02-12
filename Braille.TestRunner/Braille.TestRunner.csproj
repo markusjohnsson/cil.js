@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <None Include="Tests\IsInstValueType.cs" />
     <None Include="Tests\CallVirtualMethodOnGenericParameter.cs" />
     <None Include="Tests\StringEquality.cs" />
     <None Include="Tests\ValueTypeEquality.cs" />

@@ -59,19 +59,23 @@ var BLR;
     }
 
     blr.is_inst_interface = function(interfaceType) {
-        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) != -1 ? t : null; } catch (e) { return false; } };
+        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return false; } };
     }
 
     blr.is_inst_primitive = function(primitiveType) {
-        return function (t) { try { return t.type == primitiveType ? t : null; } catch (e) { return false; } }
+        return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return false; } }
     }
 
     blr.is_inst_array = function(T) {
-        return function (t) { return t instanceof asm0['System.Array']() && (t.etype == T || t.etype.prototype instanceof T) ? t : null; };
+        return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || t.etype.prototype instanceof T) ? t : null; };
     }
 
-    blr.is_inst_default = function(type) {
+    blr.is_inst_default = function (type) {
         return function (t) { return t instanceof type ? t : null; };
+    }
+
+    blr.is_inst_value_type = function (type) {
+        return function (t) { return t.boxed instanceof type ? t : t instanceof type ? t : null; };
     }
 
     blr.clone_value = function(v) {

@@ -163,7 +163,7 @@ var asm1; (function (asm)
             this.init = BLR.nop;
             BLR.init_type(this,asm,"S",true,false,false,false,false,[],[
                     [asm1, "x600000d", "Foo"]
-                ],(asm0)["System.ValueType"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
+                ],(asm0)["System.ValueType"](),BLR.is_inst_value_type(this),Array,"asm1.t2000008");
             BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000016");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");

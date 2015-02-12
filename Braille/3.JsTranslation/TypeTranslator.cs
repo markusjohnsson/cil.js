@@ -383,6 +383,10 @@ namespace Braille.JsTranslation
             {
                 return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_array"), JSFactory.Identifier("T"));
             }
+            else if (type.ReflectionType.IsValueType)
+            {
+                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_value_type"), simpleName);
+            }
             else
             {
                 return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_default"), simpleName);

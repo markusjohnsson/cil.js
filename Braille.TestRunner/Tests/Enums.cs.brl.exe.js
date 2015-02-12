@@ -138,7 +138,7 @@ var asm1; (function (asm)
         function ()
         {
             this.init = BLR.nop;
-            BLR.init_type(this,asm,"X",true,false,false,false,false,[],[],(asm0)["System.Enum"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
+            BLR.init_type(this,asm,"X",true,false,false,false,false,[],[],(asm0)["System.Enum"](),BLR.is_inst_value_type(this),Array,"asm1.t2000007");
             this.A = new (asm1.X())();
             this.B = new (asm1.X())();
             this.C = new (asm1.X())();
