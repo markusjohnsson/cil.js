@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Web.Http;
@@ -18,25 +19,11 @@ namespace Braille.TestRunner.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<TestResult>> GetAllTestRuns()
+        [ActionName("RemoveCorlib")]
+        public bool RemoveCorlib()
         {
-            var runner = new Tests(HostingEnvironment.MapPath("~"));
-            return await runner.RunAll().ToList();
-        }
-
-        [HttpGet]
-        public TestResult GetAssemblyTest([FromUri] string assemblyTest)
-        {
-            var workDir = HostingEnvironment.MapPath("/");
-            var dir = Path.Combine(workDir, assemblyTest.Replace("/", "\\"));
-            var runner = new Tests(workDir);
-
-            return runner
-                .CompileAndRun(
-                    Directory
-                        .GetFiles(dir, "*.cs")
-                        .Select(f => f.Substring(workDir.Length))
-                        .ToArray());
+            File.Delete(Path.Combine(HostingEnvironment.MapPath("~"), "corlib.brl.js"));
+            return true;
         }
     }
 }

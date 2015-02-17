@@ -67,7 +67,7 @@ var BLR;
     }
 
     blr.is_inst_array = function(T) {
-        return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || t.etype.prototype instanceof T) ? t : null; };
+        return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || T === asm0['System.Object']() || t.etype.prototype instanceof T) ? t : null; };
     }
 
     blr.is_inst_default = function (type) {
@@ -76,6 +76,10 @@ var BLR;
 
     blr.is_inst_value_type = function (type) {
         return function (t) { return t.boxed instanceof type ? t : t instanceof type ? t : null; };
+    }
+
+    blr.is_inst_delegate = function(delegateType) {
+        return function (t) { return (t && typeof t._methodPtr === 'function') ? t : null; };
     }
 
     blr.clone_value = function(v) {
@@ -176,6 +180,11 @@ var BLR;
         }
         else
             return blr.cast_class(o, type);
+    }
+
+    blr.stelem_ref = function (array, index, element) {
+        var castedElement = blr.cast_class(element, array.etype);
+        array.jsarr[index] = castedElement;
     }
 
     blr.convert_box_to_pointer_as_needed = function(o) {
@@ -289,6 +298,9 @@ var BLR;
                 return obj; /* this is for (u)int64 */
             }
         }
+        else if (type === asm0['System.Object']() && typeof obj.boxed !== 'undefined') {
+            return obj;
+        } 
 
         var t = asm0['System.InvalidCastException']();
         var e = new t();

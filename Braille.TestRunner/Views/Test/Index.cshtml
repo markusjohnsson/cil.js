@@ -73,50 +73,29 @@
             items: data.Items.map(createItem),
             runAll: function() {
 
-                this.items
-                    .forEach(
-                        function(item) {
-                            item.testRunning(true);
-                            $.getJSON("/api/testrunner?name=" + item.Name)
-                                .done(
-                                    function(result) {
-                                        if (result.TestSuccess)
-                                            item.testHasSucceeded(true);
-                                        else {
-                                            item.testHasFailed(true);
-                                            item.errors(result.Errors);
-                                        }
+                $.getJSON("/api/testrunner/removecorlib")
+                    .done(
+                        function() {
+                            vm.items
+                              .forEach(
+                                    function(item) {
+                                        item.testRunning(true);
+                                        $.getJSON("/api/testrunner?name=" + item.Name)
+                                            .done(
+                                                function(result) {
+                                                    if (result.TestSuccess)
+                                                        item.testHasSucceeded(true);
+                                                    else {
+                                                        item.testHasFailed(true);
+                                                        item.errors(result.Errors);
+                                                    }
 
-                                        item.testRunning(false);
+                                                    item.testRunning(false);
+                                                });
                                     });
                         });
 
-                //Rx.Observable
-                //    .fromArray(this.items)
-                //    .select(
-                //        function (item) {
-                //            //return Rx.Observable
-                //            //    .defer(
-                //            //        function() {
-                //                        item.testRunning(true);
-                //                        return $
-                //                            .getJSONAsObservable("/api/testrunner?name=" + item.Name)
-                //                            .do(
-                //                                function (result) { 
-                //                                    if (result.data.TestSuccess)
-                //                                        item.testHasSucceeded(true);
-                //                                    else
-                //                                    {
-                //                                        item.testHasFailed(true);
-                //                                        item.errors(result.data.Errors);
-                //                                    }
-
-                //                                    item.testRunning(false); 
-                //                                });
-                //                    //});
-                //        })
-                //    .concatAll()
-                //    .subscribe();
+                
             }
         };
 

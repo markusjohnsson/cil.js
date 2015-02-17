@@ -142,7 +142,7 @@ var asm1; (function (asm)
         /* IL_01: ldstr  world*/
         /* IL_06: call String Concat(System.String, System.String)*/
         /* IL_0B: stloc.0 */
-        loc0 = asm0.x6000170(arg0,BLR.new_string(" world"));
+        loc0 = asm0.x6000171(arg0,BLR.new_string(" world"));
         /* IL_0C: ldstr hello world*/
         /* IL_11: stloc.1 */
         loc1 = BLR.new_string("hello world");

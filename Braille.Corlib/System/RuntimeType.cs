@@ -161,15 +161,15 @@ namespace System
             if (!IsGenericTypeDefinition)
                 throw new InvalidOperationException();
 
-            var type_args = new constructor[args.Length];
+            var typeArgs = Braille.JavaScript.Array.New();
 
             for (var i = 0; i < args.Length; i++)
-                type_args[i] = ((RuntimeType)args[i]).ctor;
+                typeArgs[i] = ((RuntimeType)args[i]).ctor;
 
-            var open_type = Marshal.ObjectLookup(ctor.Assembly, FullName);
-            var closed_type = Marshal.Apply(open_type, null, type_args);
+            var openType = Marshal.ObjectLookup(ctor.Assembly, FullName);
+            var closedType = Marshal.Apply(openType, null, typeArgs);
 
-            return GetInstance(UnsafeCast<constructor>(closed_type));
+            return GetInstance(UnsafeCast<constructor>(closedType));
         }
 
         public override Type[] GetGenericArguments()

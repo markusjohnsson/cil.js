@@ -811,8 +811,7 @@ namespace Braille.JsTranslation
                         });
                     }
                 case "ldind":
-                    var param = ProcessInternal(node.Arguments.Single());
-                    return UnwrapReader(param);
+                    return UnwrapReader(ProcessInternal(node.Arguments.Single()));
                 
                 case "ldftn":
                     {
@@ -878,7 +877,7 @@ namespace Braille.JsTranslation
                 case "ldnull":
                     return new JSNullLiteral();
                 case "ldobj":
-                    return ProcessInternal(node.Arguments.Single());
+                    return UnwrapReader(ProcessInternal(node.Arguments.Single()));
                 case "ldsfld":
                     {
                         var field = (FieldInfo)node.Instruction.Data;
@@ -1014,14 +1013,24 @@ namespace Braille.JsTranslation
                         return JSFactory.Assignment(result, ProcessInternal(node.Arguments.SingleOrDefault()));
                     }
                 case "stelem":
+
+                    var array = ProcessInternal(node.Arguments.First());
+                    var index = ProcessInternal(node.Arguments.Skip(1).First());
+                    var element = ProcessInternal(node.Arguments.Last());
+                    
+                    if (opc == "stelem.ref")
+                    {
+                        return JSFactory.Call(JSFactory.Identifier("BLR", "stelem_ref"), array, index, element);
+                    }
+                    
                     return JSFactory
                         .Assignment(
                             new JSArrayLookupExpression
                             {
-                                Array = new JSPropertyAccessExpression { Host = ProcessInternal(node.Arguments.First()), Property = "jsarr" },
-                                Indexer = ProcessInternal(node.Arguments.Skip(1).First())
-                            },
-                            ProcessInternal(node.Arguments.Last()));
+                                Array = new JSPropertyAccessExpression { Host = array, Property = "jsarr" },
+                                Indexer = index
+                            }, 
+                            element);
                 case "stind":
                     return new JSCallExpression
                     {

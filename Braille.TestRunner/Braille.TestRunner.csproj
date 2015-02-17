@@ -127,6 +127,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <Compile Include="Tests\StructArray.cs" />
+    <None Include="Tests\ArrayVariance.cs" />
     <None Include="Tests\IsInstValueType.cs" />
     <None Include="Tests\CallVirtualMethodOnGenericParameter.cs" />
     <None Include="Tests\StringEquality.cs" />

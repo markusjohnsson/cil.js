@@ -1,4 +1,5 @@
 ﻿
+using Braille.JavaScript;
 using Braille.Runtime.TranslatorServices;
 namespace Braille.Runtime.InteropServices
 {
@@ -15,7 +16,10 @@ namespace Braille.Runtime.InteropServices
         [JsReplace("({0}[{1}.jsstr])")]
         public extern static object ObjectLookup(object arr, string property);
 
-        [JsReplace("({0}.apply({1}, {2}.jsarr))")] 
+        [JsReplace("({0}.apply({1}, {2}.jsarr))")]
         public extern static object Apply(object function, object thisobj, object[] args);
+
+        [JsReplace("({0}.apply({1}, {2}))")]
+        public extern static object Apply(object function, object thisobj, Array args);
     }
 }

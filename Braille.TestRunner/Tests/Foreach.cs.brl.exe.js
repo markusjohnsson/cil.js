@@ -251,7 +251,7 @@ var asm1; (function (asm)
                             }
                             /* IL_35: ldloc.3 */
                             /* IL_36: callvirt Void Dispose()*/
-                            (((loc3.ifacemap)[t3].x600008f)())(BLR.convert_box_to_pointer_as_needed(loc3));
+                            (((loc3.ifacemap)[t3].x6000090)())(BLR.convert_box_to_pointer_as_needed(loc3));
                             case 0x3B:
                             /* IL_3B: endfinally */
                             __pos_1__ = -1;

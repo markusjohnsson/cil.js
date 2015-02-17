@@ -64,7 +64,7 @@ var asm1; (function (asm)
                 /* IL_10: ldc.i4.2 */
                 /* IL_11: beq.s IL_15*/
                 
-                if (asm1.x600000e(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x600015b,[null, (1|0)]))) === (2|0)){
+                if (asm1.x600000e(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x600015c,[null, (1|0)]))) === (2|0)){
                     __pos_0__ = 0x15;
                     continue;
                 }
@@ -104,7 +104,7 @@ var asm1; (function (asm)
                 /* IL_35: callvirt Object GetValue(System.Int32)*/
                 /* IL_3A: brfalse.s IL_3E*/
                 
-                if ((!(asm0.x600012a(loc0,(0|0))))){
+                if ((!(asm0.x600012b(loc0,(0|0))))){
                     __pos_0__ = 0x3E;
                     continue;
                 }
@@ -140,7 +140,7 @@ var asm1; (function (asm)
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_0B*/
                 
-                if (asm0.x600015c({
+                if (asm0.x600015d({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -162,7 +162,7 @@ var asm1; (function (asm)
                 /* IL_12: ldc.i4.1 */
                 /* IL_13: add */
                 /* IL_14: ret */
-                return (asm0.x600015d({
+                return (asm0.x600015e({
                         'w': function (v)
                         {
                             arg1 = v;

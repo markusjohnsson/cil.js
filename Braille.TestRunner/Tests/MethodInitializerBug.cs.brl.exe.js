@@ -142,13 +142,13 @@ var asm1; (function (asm)
         /* IL_0A: callvirt Type GetType()*/
         /* IL_0F: callvirt String get_FullName()*/
         /* IL_14: call Void Log(System.Object)*/
-        asm1.x6000001((((asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value).vtable)["asm0.x60000ad"])())(asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value)));
+        asm1.x6000001((((asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value).vtable)["asm0.x60000ae"])())(asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value)));
         /* IL_19: newobj Void .ctor()*/
         /* IL_1E: ldfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_23: callvirt Type GetType()*/
         /* IL_28: callvirt String get_FullName()*/
         /* IL_2D: call Void Log(System.Object)*/
-        asm1.x6000001((((asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value).vtable)["asm0.x60000ad"])())(asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value)));
+        asm1.x6000001((((asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value).vtable)["asm0.x60000ae"])())(asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value)));
         /* IL_32: ret */
         return ;
     };

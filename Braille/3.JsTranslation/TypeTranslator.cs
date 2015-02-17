@@ -372,25 +372,22 @@ namespace Braille.JsTranslation
             var simpleName = JSFactory.Identifier("this");
 
             if (type.IsInterface)
-            {
                 return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_interface"), simpleName);
-            }
-            else if (type.ReflectionType.IsPrimitive)
-            {
+
+            if (type.ReflectionType.IsPrimitive)
                 return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_primitive"), simpleName);
-            }
-            else if (type.ReflectionType.FullName == "System.Array`1")
-            {
+
+            if (type.ReflectionType.FullName == "System.Array`1")
                 return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_array"), JSFactory.Identifier("T"));
-            }
-            else if (type.ReflectionType.IsValueType)
-            {
+
+            if (type.ReflectionType.IsValueType)
                 return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_value_type"), simpleName);
-            }
-            else
-            {
-                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_default"), simpleName);
-            }
+
+            if (type.ReflectionType == context.SystemTypes.Delegate ||
+                type.ReflectionType.BaseType == context.SystemTypes.Delegate)
+                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_delegate"), simpleName);
+
+            return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_default"), simpleName);
         }
 
         private IEnumerable<KeyValuePair<JSExpression[], JSExpression>> GetInterfaceMaps(CilType type)
@@ -399,7 +396,7 @@ namespace Braille.JsTranslation
                        .GetInterfaces()
                        .Select(
                            iface => new KeyValuePair<JSExpression[], JSExpression>(
-                               new[] {GetTypeIdentifier(iface, typeScope: type.ReflectionType)}
+                               new[] { GetTypeIdentifier(iface, typeScope: type.ReflectionType) }
                                    .Concat(
                                        iface.GenericTypeArguments.Select(
                                            g => GetTypeIdentifier(g, typeScope: type.ReflectionType)))

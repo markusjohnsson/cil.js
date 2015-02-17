@@ -429,7 +429,7 @@ var asm1; (function (asm)
         /* IL_0E: ldc.i4.0 */
         /* IL_0F: ldarg.0 */
         /* IL_10: stelem.ref */
-        (loc0.jsarr)[(0|0)] = arg0;
+        BLR.stelem_ref(loc0,(0|0),arg0);
         /* IL_11: ldloc.0 */
         /* IL_12: call Void PrintArray(System.Object[])*/
         asm1.x600000e(loc0);
