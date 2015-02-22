@@ -301,7 +301,10 @@ var BLR;
         }
         else if (type === asm0['System.Object']() && typeof obj.boxed !== 'undefined') {
             return obj;
-        } 
+        }
+        else if (type === asm0['System.ValueType']() && typeof obj.boxed !== 'undefined') {
+            return obj.boxed;
+        }
 
         var t = asm0['System.InvalidCastException']();
         var e = new t();
