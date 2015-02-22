@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <None Include="Tests\NestedGenericDelegate.cs" />
     <None Include="Tests\DeepGenericCacheBug.cs" />
     <None Include="Tests\MethodInitializerBug2.cs" />
     <None Include="Tests\StructArray.cs" />

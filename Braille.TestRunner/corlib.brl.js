@@ -8083,7 +8083,6 @@ var BLR;
     asm.x600014a_init = function ()
     {
         ((asm0)["System.Array`1+ArrayEnumerator"]((((arguments)[0].constructor.GenericArguments)["asm0.t2000055"])[0]).init)();
-        asm.x600014a = asm.x600014a_;
     };;
     asm.x600014a = function (arg0)
     {
@@ -8188,7 +8187,6 @@ var BLR;
     asm.x6000150_init = function ()
     {
         ((asm0)["System.Array`1"]((((arguments)[0].constructor.GenericArguments)["asm0.t2000055"])[0]).init)();
-        asm.x6000150 = asm.x6000150_;
     };;
     asm.x6000150 = function (arg0,arg1)
     {
@@ -8224,7 +8222,6 @@ var BLR;
     asm.x6000151_init = function ()
     {
         ((asm0)["System.Array`1"]((((arguments)[0].constructor.GenericArguments)["asm0.t2000055"])[0]).init)();
-        asm.x6000151 = asm.x6000151_;
     };;
     asm.x6000151 = function (arg0,arg1,arg2)
     {
@@ -8464,7 +8461,6 @@ var BLR;
     {
         ((asm0)["Braille.Runtime.UnboundGenericParameter"]().init)();
         ((asm0)["System.Nullable`1"](((((arguments)[0].r)().constructor.GenericArguments)["asm0.t200005a"])[0]).init)();
-        asm.x600015f = asm.x600015f_;
     };;
     asm.x600015f = function (arg0,arg1)
     {
@@ -10392,7 +10388,6 @@ var BLR;
     asm.x60001a4_init = function ()
     {
         ((asm0)["System.Collections.Generic.IComparer`1"]((((arguments)[0].constructor.GenericArguments)["asm0.t2000065"])[0]).init)();
-        asm.x60001a4 = asm.x60001a4_;
     };;
     asm.x60001a4 = function (arg0,arg1,arg2)
     {

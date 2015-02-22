@@ -837,7 +837,7 @@ namespace Braille.JsTranslation
                                         }.ToStatement(),
                                         new JSReturnExpression 
                                         { 
-                                            Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod) 
+                                            Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod, this.type.ReflectionType, thisScope) 
                                         }.ToStatement()
                                     }
                                 }
@@ -845,7 +845,7 @@ namespace Braille.JsTranslation
                         }
                         else
                         {
-                            return GetMethodAccessor(methodBase, this.method.ReflectionMethod);
+                            return GetMethodAccessor(methodBase, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
                         }
                     }
                 case "ldlen":

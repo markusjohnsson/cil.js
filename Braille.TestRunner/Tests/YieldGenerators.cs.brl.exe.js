@@ -609,7 +609,6 @@ var asm1; (function (asm)
     {
         ((asm0)["Braille.Runtime.UnboundGenericParameter"]().init)();
         ((asm1)["E+<Select>d__0`2"]((((arguments)[0].constructor.GenericArguments)["asm1.t200000a"])[0],(((arguments)[0].constructor.GenericArguments)["asm1.t200000a"])[1]).init)();
-        asm.x6000016 = asm.x6000016_;
     };;
     asm.x6000016 = function (arg0)
     {
@@ -698,7 +697,6 @@ var asm1; (function (asm)
         ((asm0)["System.Collections.Generic.IEnumerable`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t200000a"])[0]).init)();
         ((asm0)["System.Collections.Generic.IEnumerator`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t200000a"])[0]).init)();
         ((asm0)["System.Collections.IEnumerator"]().init)();
-        asm.x6000018 = asm.x6000018_;
     };;
     asm.x6000018 = function (arg0)
     {
@@ -1022,7 +1020,6 @@ var asm1; (function (asm)
     {
         ((asm0)["Braille.Runtime.UnboundGenericParameter"]().init)();
         ((asm1)["E+<Where>d__6`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t200000b"])[0]).init)();
-        asm.x600001f = asm.x600001f_;
     };;
     asm.x600001f = function (arg0)
     {
@@ -1109,7 +1106,6 @@ var asm1; (function (asm)
         ((asm0)["System.Collections.Generic.IEnumerable`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t200000b"])[0]).init)();
         ((asm0)["System.Collections.Generic.IEnumerator`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t200000b"])[0]).init)();
         ((asm0)["System.Collections.IEnumerator"]().init)();
-        asm.x6000021 = asm.x6000021_;
     };;
     asm.x6000021 = function (arg0)
     {
