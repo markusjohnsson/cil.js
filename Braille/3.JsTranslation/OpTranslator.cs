@@ -571,7 +571,7 @@ namespace Braille.JsTranslation
                                     ? GetInterfaceMethodAccessor(thisArg, alternateThisArg, thisScope, mi) :
                                 mi.IsVirtual
                                     ? GetVirtualMethodAccessor(thisArg, alternateThisArg, (MethodInfo)mi) :
-                                      GetMethodAccessor(mi, this.method.ReflectionMethod),
+                                      GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = arglist
                         };
                     }
