@@ -37,6 +37,12 @@ namespace Braille.Analysis
                 yield return context.SystemTypes.UnboundGenericParameter;
             }
 
+            if (t.IsArray)
+            {
+                foreach (var g in ExpandGenericTypes(t.GetElementType()))
+                    yield return g;
+            }
+
             if (t.IsGenericType)
             {
                 foreach (var genericArgument in t.GetGenericArguments())

@@ -48,16 +48,20 @@ namespace Braille.JsTranslation
             if (method.DeclaringType.ReflectionType.IsGenericTypeDefinition && method.ReflectionMethod.IsConstructor)
                 mustInitialize = true;
 
-            else if (HasGenericParameters(method)) {
-                var args = GetGenericParameterList(method.ReflectionMethod);
+            else if (HasGenericParameters(method) || type.ReflectionType.IsGenericType) {
+                var args = GetGenericParameterList(method.ReflectionMethod)
+                    .Concat(type.ReflectionType.GetGenericArguments())
+                    .ToList()
+                    ;
 
                 mustInitialize = method
                     .ReferencedTypes
-                    .Where(r => r.IsGenericType)
+                    .Where(r => r.IsGenericType || r.IsArray)
                     .Any(r => r
                         .GetGenericArguments()
                         .Intersect(args)
-                        .Any());
+                        .Any() ||
+                        (r.IsArray && args.Contains(r.GetElementType())));
             }
 
             // We need to always call the initializer for 
@@ -65,8 +69,8 @@ namespace Braille.JsTranslation
             //  2. any method with generic arguments which are used in the initializer
             //
             // TODO: we should inline the initialization for those cases.
-            
-            if (! mustInitialize)
+
+            if (!mustInitialize)
             {
                 functionBlock.Add(
                     JSFactory

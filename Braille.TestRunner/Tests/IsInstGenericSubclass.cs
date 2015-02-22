@@ -12,27 +12,28 @@ class Program
     {
         TestCreate<A>();
 
-        Test(new D());
-        Test(new E());
+        Test1(new D());
+        Test1(new E());
 
-        Test<A>(new D());
-        Test<B>(new E());
+        Test2<A>(new D());
+        Test2<B>(new E());
     }
 
     private static void TestCreate<T>()
     {
         C<T> c = (C<T>)(object)new D();
-        Test(c);
+        Test1(c);
+        Test2(c);
     }
 
-    private static void Test(C c)
+    private static void Test1(C c)
     {
         TestLog.Log(c is C<A>);
         TestLog.Log(c is C<B>);
         TestLog.Log(c is C);
     }
 
-    private static void Test<T>(C<T> c)
+    private static void Test2<T>(C<T> c)
     {
         TestLog.Log(c is C<A>);
         TestLog.Log(c is C<B>);

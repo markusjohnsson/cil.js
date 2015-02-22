@@ -8,14 +8,15 @@ var BLR;
         var isGeneric = genericArgs && genericArgs.length > 0;
         var ct = isGeneric ? {} : null;
         var gA = isGeneric ? genericArgs.join(",") : "";
+        var gAmD = isGeneric ? genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; } ).join(",") : "";
         var s = "" +
             "function t(" + gA + ") {\n" +
-            "    var c = " + (isGeneric ? "blr.tree_get([" + gA + "], ct)" : "ct") + ";\n" +
+            "    var c = " + (isGeneric ? "blr.tree_get([" + gAmD + "], ct)" : "ct") + ";\n" +
             "    if (c) return c;\n" +
             "    \n" +
-            "    eval('function '+name+'() {c.init();this.constructor = c;}');\n" +
+            "    eval('function '+name+'() { c.init();this.constructor = c; }');\n" +
             "    c = eval(name);\n" +
-            "    " + (isGeneric ? "blr.tree_set([" + gA + "], ct, c);" : "ct = c;") + "\n" +
+            "    " + (isGeneric ? "blr.tree_set([" + gAmD + "], ct, c);" : "ct = c;") + "\n" +
             "    \n" +
             "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
             "    if (baseType)\n" +

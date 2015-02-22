@@ -215,6 +215,7 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -230,6 +231,7 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
+            this.GenericTypeMetadataName = "asm1.t2000006";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -247,6 +249,7 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"ICommon",false,false,true,false,false,[],[
                     [asm1, "x600000c", "DoIt"]
                 ],null,BLR.is_inst_interface(this),Array,"asm1.t2000007");
+            this.GenericTypeMetadataName = "asm1.t2000007";
             BLR.declare_virtual(this,"asm1.x600000c","asm1.x600000c");
         });
     asm.Base = BLR.declare_type(
@@ -262,6 +265,7 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"Base",false,false,false,false,false,[],[
                     [asm1, "x600000e", "DoIt"]
                 ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
+            this.GenericTypeMetadataName = "asm1.t2000008";
             BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
             BLR.declare_virtual(this,"asm1.x600000e","asm1.x600000e");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
@@ -287,6 +291,7 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"Derived",false,false,false,false,false,[],[
                     [asm1, "x6000011", "DoIt"]
                 ],asm1.Base(),BLR.is_inst_default(this),Array,"asm1.t2000009");
+            this.GenericTypeMetadataName = "asm1.t2000009";
             BLR.declare_virtual(this,"asm1.x6000010","asm1.x6000010");
             BLR.declare_virtual(this,"asm1.x6000011","asm1.x6000011");
             BLR.declare_virtual(this,"asm1.x600000e","asm1.x600000e");
@@ -313,6 +318,7 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"ReallyDerived",false,false,false,false,false,[],[
                     [asm1, "x6000013", "DoIt"]
                 ],asm1.Derived(),BLR.is_inst_default(this),Array,"asm1.t200000a");
+            this.GenericTypeMetadataName = "asm1.t200000a";
             BLR.declare_virtual(this,"asm1.x6000011","asm1.x6000013");
             BLR.declare_virtual(this,"asm1.x600000e","asm1.x600000e");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
@@ -336,6 +342,7 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000b");
+            this.GenericTypeMetadataName = "asm1.t200000b";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");

@@ -86,7 +86,7 @@ namespace Braille.JsTranslation
 
             yield return new JSFunctionDelcaration
             {
-                Body = { new JSReturnExpression { Expression = GetPrototype(type) }.ToStatement() },
+                Body = GetPrototype(type),
                 Parameters = genericParameters
             };
 
@@ -109,20 +109,41 @@ namespace Braille.JsTranslation
             };
         }
 
-        private JSExpression GetPrototype(CilType type)
+        private List<JSStatement> GetPrototype(CilType type)
         {
-            var shouldHaveBasePrototype =
-                type.ReflectionType.BaseType != null &&
-                type.ReflectionType.BaseType.FullName != "System.MulticastDelegate" &&
-                type.ReflectionType.BaseType.FullName != "System.ValueType";
+            var baseType = type.ReflectionType.BaseType;
 
-            var basePrototype = shouldHaveBasePrototype
-                ? new JSNewExpression
+            var shouldHaveBasePrototype =
+                baseType != null &&
+                baseType.FullName != "System.MulticastDelegate" &&
+                baseType.FullName != "System.ValueType";
+
+            JSExpression basePrototype;
+            var body = new List<JSStatement>();
+
+            if (shouldHaveBasePrototype)
+            {
+                basePrototype = new JSNewExpression
                 {
-                    Constructor = GetTypeIdentifier(type.ReflectionType.BaseType, typeScope: type.ReflectionType)
+                    Constructor = GetTypeIdentifier(baseType, typeScope: type.ReflectionType)
+                };
+
+                if (baseType.IsGenericType)
+                {
+                    body.AddRange(baseType
+                        .GetGenericArguments()
+                        .Where(g => g.IsGenericParameter == false)
+                        .Select(g => GetTypeIdentifier(g, typeScope: type.ReflectionType))
+                        .Select(g => JSFactory.Call(JSFactory.Identifier(g, "init")).ToStatement()));
                 }
-                : new JSObjectLiteral() as JSExpression;
-            return basePrototype;
+            }
+            else 
+            {
+                basePrototype = new JSObjectLiteral();
+            }
+
+            body.Add(new JSReturnExpression { Expression = basePrototype }.ToStatement());
+            return body;
         }
 
         public IEnumerable<JSStatement> GetInitialization(string n, CilType type)
@@ -180,6 +201,12 @@ namespace Braille.JsTranslation
                 }
             }
 
+            yield return JSFactory
+                .Assignment(
+                    JSFactory.Identifier(n, "GenericTypeMetadataName"),
+                    GetGenericTypeMetadataName(type.ReflectionType))
+                .ToStatement();
+
             foreach (var f in GetVtable(type))
             {
                 yield return JSFactory.Call(
@@ -216,6 +243,28 @@ namespace Braille.JsTranslation
                     .ToStatement();
             }
 
+        }
+
+        private JSExpression GetGenericTypeMetadataName(Type type)
+        {
+            var n = GetTypeMetadataName(type);
+
+            if (!type.IsGenericTypeDefinition)
+                return JSFactory.Literal(n);
+
+            var ga = type.GetGenericArguments().Select(a => JSFactory.Identifier(a.Name, "GenericTypeMetadataName"));
+            var gaStr = ga.Aggregate((a, b) => new JSBinaryExpression { Left = a, Right = b, Operator = "+" });
+            return new JSBinaryExpression
+            {
+                Left = JSFactory.Literal(n + "<"),
+                Operator = "+",
+                Right = new JSBinaryExpression
+                {
+                    Left = gaStr,
+                    Operator = "+",
+                    Right = JSFactory.Literal(">")
+                }
+            };
         }
 
         private JSExpression GetMethods(CilType type)
