@@ -410,6 +410,9 @@ namespace System
 
             return ~iMin; 
         }
+
+        [JsImport("function (elementType, length) { return BLR.new_array(elementType.ctor, length); }")]
+        public extern static Array CreateInstance(Type elementType, int length);
     }
 
     internal class Array<T> : Array, IEnumerable<T>, ICollection<T>
