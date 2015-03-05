@@ -126,14 +126,14 @@ var asm1; (function (asm)
         /* IL_13: ldc.i4.1 */
         /* IL_14: callvirt Object[] GetCustomAttributes(System.Boolean)*/
         /* IL_19: stloc.1 */
-        loc1 = ((((loc0.jsarr)[(0|0)].vtable)["asm0.x600003a"])())((loc0.jsarr)[(0|0)],(1|0));
+        loc1 = (((BLR.ldelem_ref(loc0,(0|0)).vtable)["asm0.x600003a"])())(BLR.ldelem_ref(loc0,(0|0)),(1|0));
         /* IL_1A: ldloc.0 */
         /* IL_1B: ldc.i4.1 */
         /* IL_1C: ldelem.ref */
         /* IL_1D: ldc.i4.1 */
         /* IL_1E: callvirt Object[] GetCustomAttributes(System.Boolean)*/
         /* IL_23: stloc.2 */
-        loc2 = ((((loc0.jsarr)[(1|0)].vtable)["asm0.x600003a"])())((loc0.jsarr)[(1|0)],(1|0));
+        loc2 = (((BLR.ldelem_ref(loc0,(1|0)).vtable)["asm0.x600003a"])())(BLR.ldelem_ref(loc0,(1|0)),(1|0));
         /* IL_24: ldloc.1 */
         /* IL_25: ldlen */
         /* IL_26: conv.i4 */
@@ -151,7 +151,7 @@ var asm1; (function (asm)
         /* IL_34: callvirt Type GetType()*/
         /* IL_39: callvirt String get_Name()*/
         /* IL_3E: call Void Log(System.Object)*/
-        asm1.x6000001((((asm0.x600000a((loc1.jsarr)[(0|0)]).vtable)["asm0.x600003e"])())(asm0.x600000a((loc1.jsarr)[(0|0)])));
+        asm1.x6000001((((asm0.x600000a(BLR.ldelem_ref(loc1,(0|0))).vtable)["asm0.x600003e"])())(asm0.x600000a(BLR.ldelem_ref(loc1,(0|0)))));
         /* IL_43: ldloc.2 */
         /* IL_44: ldlen */
         /* IL_45: conv.i4 */
@@ -170,7 +170,7 @@ var asm1; (function (asm)
         /* IL_58: callvirt Type get_T()*/
         /* IL_5D: callvirt String get_Name()*/
         /* IL_62: call Void Log(System.Object)*/
-        asm1.x6000001((((asm1.x600000d(BLR.cast_class((loc2.jsarr)[(0|0)],t3)).vtable)["asm0.x600003e"])())(asm1.x600000d(BLR.cast_class((loc2.jsarr)[(0|0)],t3))));
+        asm1.x6000001((((asm1.x600000d(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t3)).vtable)["asm0.x600003e"])())(asm1.x600000d(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t3))));
         /* IL_67: ret */
         return ;
     };

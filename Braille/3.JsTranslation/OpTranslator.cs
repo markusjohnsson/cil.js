@@ -602,12 +602,12 @@ namespace Braille.JsTranslation
                         var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
                         var target = ProcessInternal(node.Arguments.Single());
-                        
+
                         JSExpression value;
 
                         if (false == typeTok.IsGenericParameter)
                         {
-                            value = typeTok.IsValueType ? 
+                            value = typeTok.IsValueType ?
                                 typeTok.IsPrimitive ? JSFactory.Literal(0) : new JSNewExpression { Constructor = typeExpr } :
                                 new JSNullLiteral();
                         }
@@ -620,7 +620,7 @@ namespace Braille.JsTranslation
                                 {
                                     Condition = JSFactory.Identifier(typeExpr, "IsPrimitive"),
                                     TrueValue = JSFactory.Literal(0),
-                                    FalseValue = new JSNewExpression 
+                                    FalseValue = new JSNewExpression
                                     {
                                         Constructor = typeExpr
                                     }
@@ -772,11 +772,23 @@ namespace Braille.JsTranslation
                             };
                     }
                 case "ldelem":
-                    return new JSArrayLookupExpression
                     {
-                        Array = new JSPropertyAccessExpression { Host = ProcessInternal(node.Arguments.First()), Property = "jsarr" },
-                        Indexer = ProcessInternal(node.Arguments.Last())
-                    };
+                        var array = ProcessInternal(node.Arguments.First());
+                        var index = ProcessInternal(node.Arguments.Last());
+
+                        if (opc == "ldelem.ref")
+                        {
+                            return JSFactory.Call(JSFactory.Identifier("BLR.ldelem_ref"), array, index);
+                        }
+                        else
+                        {
+                            return new JSArrayLookupExpression
+                            {
+                                Array = new JSPropertyAccessExpression { Host = array, Property = "jsarr" },
+                                Indexer = index
+                            };
+                        }
+                    }
                 case "ldelema":
                     return WrapInReaderWriter(new JSArrayLookupExpression
                     {
@@ -812,7 +824,7 @@ namespace Braille.JsTranslation
                     }
                 case "ldind":
                     return UnwrapReader(ProcessInternal(node.Arguments.Single()));
-                
+
                 case "ldftn":
                     {
                         var target = ((LoadFunctionNode)node).Target;
@@ -1013,24 +1025,25 @@ namespace Braille.JsTranslation
                         return JSFactory.Assignment(result, ProcessInternal(node.Arguments.SingleOrDefault()));
                     }
                 case "stelem":
-
-                    var array = ProcessInternal(node.Arguments.First());
-                    var index = ProcessInternal(node.Arguments.Skip(1).First());
-                    var element = ProcessInternal(node.Arguments.Last());
-                    
-                    if (opc == "stelem.ref")
                     {
-                        return JSFactory.Call(JSFactory.Identifier("BLR", "stelem_ref"), array, index, element);
+                        var array = ProcessInternal(node.Arguments.First());
+                        var index = ProcessInternal(node.Arguments.Skip(1).First());
+                        var element = ProcessInternal(node.Arguments.Last());
+
+                        if (opc == "stelem.ref")
+                        {
+                            return JSFactory.Call(JSFactory.Identifier("BLR", "stelem_ref"), array, index, element);
+                        }
+
+                        return JSFactory
+                            .Assignment(
+                                new JSArrayLookupExpression
+                                {
+                                    Array = new JSPropertyAccessExpression { Host = array, Property = "jsarr" },
+                                    Indexer = index
+                                },
+                                element);
                     }
-                    
-                    return JSFactory
-                        .Assignment(
-                            new JSArrayLookupExpression
-                            {
-                                Array = new JSPropertyAccessExpression { Host = array, Property = "jsarr" },
-                                Indexer = index
-                            }, 
-                            element);
                 case "stind":
                     return new JSCallExpression
                     {
@@ -1322,7 +1335,7 @@ namespace Braille.JsTranslation
             if (wrapped != null)
                 return wrapped.WrappedExpression;
             else
-                return new JSCallExpression {Function = JSFactory.Identifier(expression, "r")};
+                return new JSCallExpression { Function = JSFactory.Identifier(expression, "r") };
         }
 
         private static JSExpression UnwrapAndWrite(JSExpression target, JSExpression value)

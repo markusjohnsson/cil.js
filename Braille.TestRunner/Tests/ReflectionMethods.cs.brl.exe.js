@@ -98,7 +98,7 @@ var asm1; (function (asm)
                 /* IL_1A: ldloc.s 4*/
                 /* IL_1C: ldelem.ref */
                 /* IL_1D: stloc.2 */
-                loc2 = (loc3.jsarr)[loc4];
+                loc2 = BLR.ldelem_ref(loc3,loc4);
                 /* IL_1E: ldloc.2 */
                 /* IL_1F: callvirt String get_Name()*/
                 /* IL_24: call Void Log(System.Object)*/

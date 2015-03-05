@@ -67,7 +67,7 @@ var asm1; (function (asm)
         /* IL_15: castclass B*/
         /* IL_1A: ldfld String X*/
         /* IL_1F: call Void Log(System.Object)*/
-        asm1.x6000001(BLR.cast_class((BLR.cast_class(loc0,t2).jsarr)[(0|0)],t3).X);
+        asm1.x6000001(BLR.cast_class(BLR.ldelem_ref(BLR.cast_class(loc0,t2),(0|0)),t3).X);
         /* IL_24: ret */
         return ;
     };

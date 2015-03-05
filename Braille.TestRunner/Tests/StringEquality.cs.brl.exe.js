@@ -41,7 +41,7 @@ var asm1; (function (asm)
         /* IL_0B: box System.Boolean*/
         /* IL_10: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm0.x600017c(arg0,BLR.new_string("Hello World")),
+                'boxed': asm0.x600017e(arg0,BLR.new_string("Hello World")),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -52,7 +52,7 @@ var asm1; (function (asm)
         /* IL_20: box System.Boolean*/
         /* IL_25: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': ((arg0.vtable)["asm0.x600017d"]())(arg0,BLR.new_string("Hello World")),
+                'boxed': ((arg0.vtable)["asm0.x600017f"]())(arg0,BLR.new_string("Hello World")),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -63,7 +63,7 @@ var asm1; (function (asm)
         /* IL_35: box System.Boolean*/
         /* IL_3A: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': (((BLR.new_string("Hello World").vtable)["asm0.x600017d"])())(BLR.new_string("Hello World"),arg0),
+                'boxed': (((BLR.new_string("Hello World").vtable)["asm0.x600017f"])())(BLR.new_string("Hello World"),arg0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap

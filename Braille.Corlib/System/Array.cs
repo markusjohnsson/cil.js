@@ -92,7 +92,7 @@ namespace System
             }")]
         private extern static Exception GetException(string classname);
 
-        public static void Copy<T>(T[] source, int startIndex, T[] target, int targetStartIndex, int length)
+        public static void Copy(Array source, int startIndex, Array target, int targetStartIndex, int length)
         {
             if (source == null)
                 throw GetException("System.ArgumentNullException");
@@ -119,7 +119,9 @@ namespace System
 
             for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
             {
-                target[t] = source[s];
+                //target[t] = source[s];
+
+                target.SetValue(source.GetValue(s), t);
             }
         }
 
@@ -413,6 +415,11 @@ namespace System
 
         [JsImport("function (elementType, length) { return BLR.new_array(elementType.ctor, length); }")]
         public extern static Array CreateInstance(Type elementType, int length);
+
+        [JsImport("BLR.array_set_value")]
+        public extern void SetValue(object value, int index);
+        
+
     }
 
     internal class Array<T> : Array, IEnumerable<T>, ICollection<T>

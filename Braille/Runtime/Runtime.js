@@ -2,9 +2,9 @@
 var BLR;
 
 (function (blr) {
-    blr.nop = function() {};
+    blr.nop = function nop() { };
 
-    blr.declare_type = function (name, genericArgs, baseType, init) {
+    blr.declare_type = function declare_type(name, genericArgs, baseType, init) {
         var isGeneric = genericArgs && genericArgs.length > 0;
         var ct = isGeneric ? {} : null;
         var gA = isGeneric ? genericArgs.join(",") : "";
@@ -27,7 +27,7 @@ var BLR;
         return t;
     }
 
-    blr.init_type = function (type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
+    blr.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
         type.FullName = fullname;
         type.Assembly = assembly;
         type.IsValueType = isValueType;
@@ -49,41 +49,41 @@ var BLR;
         type.prototype.ifacemap = {};
     }
 
-    blr.implement_interface = function (type, iface, implementation) {
+    blr.implement_interface = function implement_interface(type, iface, implementation) {
         type.Interfaces.push(iface[0]);
         if (implementation !== null)
             blr.tree_set(iface, type.prototype.ifacemap, implementation);
     }
 
-    blr.declare_virtual = function (type, slot, target) {
+    blr.declare_virtual = function declare_virtual(type, slot, target) {
         type.prototype.vtable[slot] = new Function("return " + target + ";");
     }
 
-    blr.is_inst_interface = function(interfaceType) {
+    blr.is_inst_interface = function is_inst_interface(interfaceType) {
         return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return null; } };
     }
 
-    blr.is_inst_primitive = function(primitiveType) {
+    blr.is_inst_primitive = function is_inst_primitive(primitiveType) {
         return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return null; } }
     }
 
-    blr.is_inst_array = function(T) {
+    blr.is_inst_array = function is_inst_array(T) {
         return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || T === asm0['System.Object']() || t.etype.prototype instanceof T) ? t : null; };
     }
 
-    blr.is_inst_default = function (type) {
+    blr.is_inst_default = function is_inst_default(type) {
         return function (t) { return t instanceof type ? t : null; };
     }
 
-    blr.is_inst_value_type = function (type) {
+    blr.is_inst_value_type = function is_inst_value_type(type) {
         return function (t) { return t.boxed instanceof type ? t : t instanceof type ? t : null; };
     }
 
-    blr.is_inst_delegate = function(delegateType) {
+    blr.is_inst_delegate = function is_inst_delegate(delegateType) {
         return function (t) { return (t && typeof t._methodPtr === 'function') ? t : null; };
     }
 
-    blr.clone_value = function(v) {
+    blr.clone_value = function clone_value(v) {
         if (v === null) return v;
         if (typeof v === "number") return v;
         if (typeof v === "function") return v;
@@ -96,7 +96,7 @@ var BLR;
         return result;
     }
 
-    blr.value_equals = function(a, b) {
+    blr.value_equals = function value_equals(a, b) {
 
         if (typeof a !== typeof b)
             return 0;
@@ -121,14 +121,14 @@ var BLR;
         }
     }
 
-    blr.unsigned_value = function(a) {
+    blr.unsigned_value = function unsigned_value(a) {
         if (a < 0)
             return 0xffffffff + a + 1;
         else
             return a;
     }
 
-    blr.box = function(v, type) {
+    blr.box = function box(v, type) {
         if (v === null)
             return v;
 
@@ -150,7 +150,7 @@ var BLR;
         };
     }
 
-    blr.unbox = function(o, type) {
+    blr.unbox = function unbox(o, type) {
         if (o === null) {
             var t = asm0['System.InvalidCastException']();
             var e = new t();
@@ -160,7 +160,7 @@ var BLR;
         return blr.cast_class(o.boxed, type);
     }
 
-    blr.unbox_any = function(o, type) {
+    blr.unbox_any = function unbox_any(o, type) {
         if (type.IsNullable) {
             var result = new type();
             if (o !== null) {
@@ -183,12 +183,16 @@ var BLR;
             return blr.cast_class(o, type);
     }
 
-    blr.stelem_ref = function (array, index, element) {
+    blr.stelem_ref = function stelem_ref(array, index, element) {
         var castedElement = blr.cast_class(element, array.etype);
         array.jsarr[index] = castedElement;
     }
 
-    blr.convert_box_to_pointer_as_needed = function(o) {
+    blr.ldelem_ref = function ldelem_ref(array, index) {
+        return blr.box(array.jsarr[index], array.etype);
+    }
+
+    blr.convert_box_to_pointer_as_needed = function convert_box_to_pointer_as_needed(o) {
         if (typeof o.boxed !== "undefined" &&
             typeof o.type !== "undefined" &&
             o.type.IsValueType) {
@@ -214,14 +218,14 @@ var BLR;
         return p;
     }
 
-    blr.tree_get = function(a, s) {
+    blr.tree_get = function tree_get(a, s) {
         var c = s;
         for (var i = 0; c && i < a.length; i++)
             c = c[a[i]];
         return c;
     }
 
-    blr.tree_set = function(a, s, v) {
+    blr.tree_set = function tree_set(a, s, v) {
         if (a.length === 1) {
             s[a[0]] = v;
         }
@@ -232,19 +236,19 @@ var BLR;
         }
     }
 
-    blr.new_string = function(jsstr) {
+    blr.new_string = function new_string(jsstr) {
         var r = new (asm0['System.String']())();
         r.jsstr = jsstr;
         return r;
     }
 
-    blr.new_handle = function(type, value) {
+    blr.new_handle = function new_handle(type, value) {
         var r = new type();
         r.value = value;
         return r;
     }
 
-    blr.new_array = function(type, length) {
+    blr.new_array = function new_array(type, length) {
         var ctor = type.ArrayType || Array;
         var r = new (asm0['System.Array`1'](type))();
         r.etype = type;
@@ -269,7 +273,7 @@ var BLR;
         return r;
     }
 
-    blr.newobj = function(type, ctor, args) {
+    blr.newobj = function newobj(type, ctor, args) {
         var result = new type();
 
         if (type.IsValueType)
@@ -285,7 +289,7 @@ var BLR;
         return result;
     }
 
-    blr.cast_class = function(obj, type) {
+    blr.cast_class = function cast_class(obj, type) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
             return obj;
         }
@@ -299,20 +303,24 @@ var BLR;
                 return obj; /* this is for (u)int64 */
             }
         }
-        else if (type === asm0['System.Object']() && typeof obj.boxed !== 'undefined') {
+        else if (
+            (type === asm0['System.Object']() || type === asm0['System.ValueType']()) &&
+            (typeof obj.boxed !== 'undefined'))
+        {
             return obj;
         }
-        else if (type === asm0['System.ValueType']() && typeof obj.boxed !== 'undefined') {
-            return obj.boxed;
-        }
 
+        blr.throw_invalid_cast();
+    }
+
+    blr.throw_invalid_cast = function throw_invalid_cast() {
         var t = asm0['System.InvalidCastException']();
         var e = new t();
         e.stack = new Error().stack;
         throw e;
     }
 
-    blr.conv_u8 = function(n) {
+    blr.conv_u8 = function conv_u8(n) {
         if (n < 0) {
             /* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */
             n = 0x100000000 + n;
@@ -321,7 +329,7 @@ var BLR;
         return blr.make_uint64(n);
     }
 
-    blr.conv_i8 = function(n) {
+    blr.conv_i8 = function conv_i8(n) {
         if (n < 0) {
             /* signed 32 bit int */
             n = 0x100000000 + n;
@@ -333,7 +341,7 @@ var BLR;
         return blr.make_uint64(n);
     }
 
-    blr.make_uint64 = function(n) {
+    blr.make_uint64 = function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -346,7 +354,56 @@ var BLR;
         return new Uint32Array([low, high]);
     }
 
-    blr.to_number = function(n) {
+    blr.to_number = function to_number(n) {
         return n[1] * 4294967296 + n[0];
+    }
+
+    blr.array_set_value = function array_set_value(dest, value, pos) {
+
+        // value is either an object or a boxed value type.
+        var etype = dest.etype;
+        var vtype = value != null ? (value.constructor || value.type) : null;
+
+        if (dest.etype.IsNullable) {
+            throw "not implemented";
+
+            return;
+        }
+
+        if (value == null) {
+
+            // Null is the universal zero...
+
+            if (!etype.IsValueType)
+                dest.jsarr[pos] = null; // reference type
+            else if (etype.Is64BitPrimitive)
+                dest.jsarr[pos] = [0, 0];
+            else if (etype.IsPrimitive)
+                dest.jsarr[pos] = 0
+            else // value type
+                dest.jsarr[pos] = new etype();
+        }
+        else if (etype == asm0['System.Object']()) {
+
+            // Everything is compatible with Object
+
+            dest.jsarr[pos] = value;
+        }
+        else if (!etype.IsValueType) {
+            dest.jsarr[pos] = blr.cast_class(value, etype)
+        }
+        else {
+
+            if (etype.IsInst(value)) {
+                dest.jsarr[pos] = value.boxed;
+            }
+            else {
+                if (!etype.IsPrimitive || !vtype.IsPrimitive) {
+                    blr.throw_invalid_cast();
+                }
+
+                dest.jsarr[pos] = value;
+            }
+        }
     }
 })(BLR || (BLR = {}));

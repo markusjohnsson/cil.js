@@ -444,7 +444,7 @@ var asm1; (function (asm)
         /* IL_02: ldelem.ref */
         /* IL_03: callvirt String ToString()*/
         /* IL_08: call Void Log(System.Object)*/
-        asm1.x6000001(((((arg0.jsarr)[(0|0)].vtable)["asm0.x6000005"])())(BLR.convert_box_to_pointer_as_needed((arg0.jsarr)[(0|0)])));
+        asm1.x6000001((((BLR.ldelem_ref(arg0,(0|0)).vtable)["asm0.x6000005"])())(BLR.convert_box_to_pointer_as_needed(BLR.ldelem_ref(arg0,(0|0)))));
         /* IL_0D: ret */
         return ;
     };;

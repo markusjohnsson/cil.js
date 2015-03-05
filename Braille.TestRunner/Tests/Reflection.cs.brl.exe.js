@@ -292,7 +292,7 @@ var asm1; (function (asm)
         /* IL_1C5: ldstr .brl*/
         /* IL_1CA: callvirt String Replace(System.String, System.String)*/
         /* IL_1CF: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x6000178((((asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000b4"])())(asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),BLR.new_string(".clr"),BLR.new_string(".brl")));
+        asm1.x6000001(asm0.x600017a((((asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000b4"])())(asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),BLR.new_string(".clr"),BLR.new_string(".brl")));
         /* IL_1D4: ldtoken X`1[A]*/
         /* IL_1D9: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_1DE: callvirt String get_FullName()*/
@@ -300,7 +300,7 @@ var asm1; (function (asm)
         /* IL_1E8: ldstr .brl*/
         /* IL_1ED: callvirt String Replace(System.String, System.String)*/
         /* IL_1F2: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x6000178((((asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)).vtable)["asm0.x60000ae"])())(asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))),BLR.new_string(".clr"),BLR.new_string(".brl")));
+        asm1.x6000001(asm0.x600017a((((asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)).vtable)["asm0.x60000ae"])())(asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))),BLR.new_string(".clr"),BLR.new_string(".brl")));
         /* IL_1F7: newobj Void .ctor()*/
         /* IL_1FC: call Type GetType()*/
         /* IL_201: callvirt String get_FullName()*/
@@ -308,7 +308,7 @@ var asm1; (function (asm)
         /* IL_20B: ldstr .brl*/
         /* IL_210: callvirt String Replace(System.String, System.String)*/
         /* IL_215: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x6000178((((asm0.x600000a(BLR.newobj(t5,asm1.x600000e,[null])).vtable)["asm0.x60000ae"])())(asm0.x600000a(BLR.newobj(t5,asm1.x600000e,[null]))),BLR.new_string(".clr"),BLR.new_string(".brl")));
+        asm1.x6000001(asm0.x600017a((((asm0.x600000a(BLR.newobj(t5,asm1.x600000e,[null])).vtable)["asm0.x60000ae"])())(asm0.x600000a(BLR.newobj(t5,asm1.x600000e,[null]))),BLR.new_string(".clr"),BLR.new_string(".brl")));
         /* IL_21A: newobj Void .ctor()*/
         /* IL_21F: call Type GetType()*/
         /* IL_224: ldtoken X`1[T]*/
