@@ -146,7 +146,7 @@ var asm1; (function (asm)
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.B();
-        t2 = (asm1)["A`1"](asm1.B());
+        t2 = (asm1)["A`1"](t1);
         t3 = asm1.A();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */

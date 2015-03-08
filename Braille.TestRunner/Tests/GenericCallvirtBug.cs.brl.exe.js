@@ -31,7 +31,7 @@ var asm1; (function (asm)
             /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_0A: callvirt String get_Name()*/
             /* IL_0F: call Void Log(System.Object)*/
-            asm1.x6000001((((asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003e"])())(asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
+            asm1.x6000001((((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x6000040"])())(asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
             /* IL_14: ret */
             return ;
         };
@@ -91,8 +91,8 @@ var asm1; (function (asm)
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.String"]();
-        t2 = (asm1)["A`1"]((asm0)["System.String"]());
-        t3 = (asm1)["A`1+B"]((asm0)["System.String"]());
+        t2 = (asm1)["A`1"](t1);
+        t3 = (asm1)["A`1+B"](t1);
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: newobj Void .ctor(A`1[System.String])*/
         /* IL_0A: stloc.0 */

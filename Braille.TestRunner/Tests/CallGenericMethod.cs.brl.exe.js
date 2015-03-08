@@ -100,7 +100,7 @@ var asm1; (function (asm)
             var t1;
             var loc0;
             t0 = T;
-            t1 = (asm1)["A`1"](T);
+            t1 = (asm1)["A`1"](t0);
             /* IL_00: newobj Void .ctor()*/
             /* IL_05: stloc.0 */
             loc0 = BLR.newobj(t1,asm1.x6000010,[null]);
@@ -138,7 +138,7 @@ var asm1; (function (asm)
             var t0;
             var t1;
             t0 = T;
-            t1 = (asm1)["I`1"](T);
+            t1 = (asm1)["I`1"](t0);
             /* IL_00: ldarg.0 */
             /* IL_01: callvirt T get_Prop()*/
             /* IL_06: box T*/

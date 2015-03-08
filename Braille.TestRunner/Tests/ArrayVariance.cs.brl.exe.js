@@ -51,7 +51,7 @@ var asm1; (function (asm)
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.I();
-        t2 = (asm0)["System.Array`1"](asm1.I());
+        t2 = (asm0)["System.Array`1"](t1);
         t3 = asm1.B();
         /* IL_00: ldc.i4.1 */
         /* IL_01: newarr I*/
@@ -97,7 +97,7 @@ var asm1; (function (asm)
         var loc0;
         var loc1;
         t0 = (asm0)["System.Object"]();
-        t1 = (asm0)["System.Array`1"]((asm0)["System.Object"]());
+        t1 = (asm0)["System.Array`1"](t0);
         t2 = asm1.B();
         /* IL_00: ldarg.0 */
         /* IL_01: castclass System.Object[]*/

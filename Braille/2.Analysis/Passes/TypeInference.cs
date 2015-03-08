@@ -335,25 +335,28 @@ namespace Braille.Analysis
 
         private Type MergeTypes(Type type, Type newType)
         {
-
             if (type == null)
             {
-                type = newType;
+                return newType;
+            }
+            else if (newType == null)
+            {
+                return type;
             }
             else if (newType.IsAssignableFrom(type))
             {
-                type = newType;
+                return newType;
             }
             else if (type.IsAssignableFrom(newType))
             {
-                //type = type;
+                return type;
             }
             else if (type.IsClass && newType.IsClass)
             {
                 var ss = type.GetTypeChain().Reverse(); // System.Object, ..., X, ..., type
                 var ts = newType.GetTypeChain().Reverse(); // System.Object, ..., Y, ..., newType
 
-                type = Enumerable
+                return Enumerable
                     .Zip(ss, ts, Tuple.Create)
                     .Where(t => t.Item1 == t.Item2)
                     .Last()
@@ -361,17 +364,22 @@ namespace Braille.Analysis
             }
             else if (type == types.Boolean && (newType == types.Int32 || newType == types.Int64))
             {
-                type = newType;
+                return newType;
             }
             else if (newType == types.Boolean && (type == types.Int32 || type == types.Int64))
             {
-                //type = type;
+                return type;
+            }
+            else if (
+                (type == types.UInt32 && newType == types.Int32) ||
+                (type == types.Int32 && newType == types.UInt32))
+            {
+                return newType;
             }
             else
             {
                 throw new InvalidOperationException("Cannot determine type");
             }
-            return type;
         }
     }
 }

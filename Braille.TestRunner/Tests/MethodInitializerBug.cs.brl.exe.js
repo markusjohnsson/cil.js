@@ -59,7 +59,7 @@ var asm1; (function (asm)
             (asm1)["A`1"](T).FieldHasBeenInitialized = true;
             t0 = T;
             t1 = (asm0)["Braille.Runtime.UnboundGenericParameter"]();
-            t2 = (asm1)["A`1"](T);
+            t2 = (asm1)["A`1"](t0);
             /* IL_00: ldc.i4.0 */
             /* IL_01: newarr T*/
             /* IL_06: stsfld T[] Value*/
@@ -83,7 +83,7 @@ var asm1; (function (asm)
         var t0;
         var t1;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0];
-        t1 = (asm1)["A`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0]);
+        t1 = (asm1)["A`1"](t0);
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         (asm1.x600000d((((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0]))();
@@ -134,21 +134,21 @@ var asm1; (function (asm)
         var t4;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.C();
-        t2 = (asm1)["B`1"](asm1.C());
+        t2 = (asm1)["B`1"](t1);
         t3 = asm1.D();
-        t4 = (asm1)["B`1"](asm1.D());
+        t4 = (asm1)["B`1"](t3);
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: ldfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_0A: callvirt Type GetType()*/
         /* IL_0F: callvirt String get_FullName()*/
         /* IL_14: call Void Log(System.Object)*/
-        asm1.x6000001((((asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value).vtable)["asm0.x60000ae"])())(asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value)));
+        asm1.x6000001((((asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value).vtable)["asm0.x60000b4"])())(asm0.x600000a(BLR.newobj(t2,asm1.x600000e,[null]).Value)));
         /* IL_19: newobj Void .ctor()*/
         /* IL_1E: ldfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_23: callvirt Type GetType()*/
         /* IL_28: callvirt String get_FullName()*/
         /* IL_2D: call Void Log(System.Object)*/
-        asm1.x6000001((((asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value).vtable)["asm0.x60000ae"])())(asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value)));
+        asm1.x6000001((((asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value).vtable)["asm0.x60000b4"])())(asm0.x600000a(BLR.newobj(t4,asm1.x600000e,[null]).Value)));
         /* IL_32: ret */
         return ;
     };

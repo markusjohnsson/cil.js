@@ -1168,11 +1168,7 @@ namespace Braille.JsTranslation
 
         private JSExpression GetTypeAccessor(Type typeTok, JSExpression thisScope)
         {
-            var idx = method.ReferencedTypes.IndexOf(typeTok);
-            if (idx == -1)
-                return GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
-            else
-                return JSFactory.Identifier("t" + idx);
+            return GetTypeIdentifier(typeTok, this.method.ReflectionMethod, this.type.ReflectionType, thisScope, method.ReferencedTypes);
         }
 
         private JSExpression DereferenceIfNeeded(Node argument, JSExpression argExpression)

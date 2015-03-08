@@ -258,15 +258,18 @@ namespace Braille.JsTranslation
             if (method.ReferencedTypes != null)
             {
                 var tIdx = 0;
+                var typesInScope = new List<Type>();
                 foreach (var t in method.ReferencedTypes)
                 {
                     functionBlock.Add(
                         new JSVariableDelcaration
                         {
                             Name = "t" + tIdx,
-                            Value = GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope)
+                            Value = GetTypeIdentifier(t, method.ReflectionMethod, method.ReflectionMethod.DeclaringType, thisScope, typesInScope)
                         }
                         .ToStatement());
+
+                    typesInScope.Add(t);
 
                     tIdx++;
                 }

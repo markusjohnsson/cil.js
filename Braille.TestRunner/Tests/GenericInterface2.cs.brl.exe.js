@@ -110,7 +110,7 @@ var asm1; (function (asm)
         var t0;
         var t1;
         t0 = asm1.A();
-        t1 = (asm1)["I`1"](asm1.A());
+        t1 = (asm1)["I`1"](t0);
         /* IL_00: ldarg.0 */
         /* IL_01: callvirt Void Print()*/
         ((((arg0.ifacemap)[t1])[t0].x600000c)())(BLR.convert_box_to_pointer_as_needed(arg0));
@@ -134,7 +134,7 @@ var asm1; (function (asm)
         var t0;
         var t1;
         t0 = asm1.B();
-        t1 = (asm1)["I`1"](asm1.B());
+        t1 = (asm1)["I`1"](t0);
         /* IL_00: ldarg.0 */
         /* IL_01: callvirt Void Print()*/
         ((((arg0.ifacemap)[t1])[t0].x600000c)())(BLR.convert_box_to_pointer_as_needed(arg0));

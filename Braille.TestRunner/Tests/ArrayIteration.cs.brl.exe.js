@@ -125,7 +125,7 @@ var asm1; (function (asm)
                             /* IL_09: ldloc.1 */
                             /* IL_0A: callvirt Object get_Current()*/
                             /* IL_0F: stloc.0 */
-                            loc0 = (((loc1.ifacemap)[t1].x60000e6)())(BLR.convert_box_to_pointer_as_needed(loc1));
+                            loc0 = (((loc1.ifacemap)[t1].x60000ec)())(BLR.convert_box_to_pointer_as_needed(loc1));
                             /* IL_10: ldloc.0 */
                             /* IL_11: call Void Log(System.Object)*/
                             asm1.x6000001(loc0);
@@ -134,13 +134,13 @@ var asm1; (function (asm)
                             /* IL_17: callvirt Boolean MoveNext()*/
                             /* IL_1C: brtrue.s IL_09*/
                             
-                            if ((((loc1.ifacemap)[t1].x60000e7)())(BLR.convert_box_to_pointer_as_needed(loc1))){
+                            if ((((loc1.ifacemap)[t1].x60000ed)())(BLR.convert_box_to_pointer_as_needed(loc1))){
                                 __pos_1__ = 0x9;
                                 continue;
                             }
-                            /* IL_1E: leave.s IL_2C*/
+                            /* IL_1E: leave.s IL_31*/
                             __pos_1__ = -1;
-                            __pos_0__ = 0x2C;
+                            __pos_0__ = 0x31;
                             break;
                         }
                     }
@@ -155,28 +155,29 @@ var asm1; (function (asm)
                         switch (__pos_1__){
                             case 0x0:
                             /* IL_20: ldloc.1 */
-                            /* IL_21: stloc.2 */
-                            loc2 = loc1;
-                            /* IL_22: ldloc.2 */
-                            /* IL_23: brfalse.s IL_2B*/
+                            /* IL_21: isinst System.IDisposable*/
+                            /* IL_26: stloc.2 */
+                            loc2 = t2.IsInst(loc1);
+                            /* IL_27: ldloc.2 */
+                            /* IL_28: brfalse.s IL_30*/
                             
                             if ((!(loc2))){
-                                __pos_1__ = 0x2B;
+                                __pos_1__ = 0x30;
                                 continue;
                             }
-                            /* IL_25: ldloc.2 */
-                            /* IL_26: callvirt Void Dispose()*/
-                            (((loc2.ifacemap)[t2].x6000090)())(BLR.convert_box_to_pointer_as_needed(loc2));
-                            case 0x2B:
-                            /* IL_2B: endfinally */
+                            /* IL_2A: ldloc.2 */
+                            /* IL_2B: callvirt Void Dispose()*/
+                            (((loc2.ifacemap)[t2].x600009f)())(BLR.convert_box_to_pointer_as_needed(loc2));
+                            case 0x30:
+                            /* IL_30: endfinally */
                             __pos_1__ = -1;
                             break;
                         }
                     }
                     break;
                 }
-                case 0x2C:
-                /* IL_2C: ret */
+                case 0x31:
+                /* IL_31: ret */
                 return ;
             }
         }

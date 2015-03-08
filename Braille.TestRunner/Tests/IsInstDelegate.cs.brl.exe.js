@@ -87,11 +87,11 @@ var asm1; (function (asm)
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.Program();
         t2 = (asm0)["System.Object"]();
-        t3 = (asm1)["FuncX`2"]((asm0)["System.Object"](),(asm0)["System.Object"]());
+        t3 = (asm1)["FuncX`2"](t2,t2);
         t4 = (asm0)["System.Int32"]();
-        t5 = (asm1)["FuncX`2"]((asm0)["System.Int32"](),(asm0)["System.Object"]());
+        t5 = (asm1)["FuncX`2"](t4,t2);
         t6 = (asm0)["System.String"]();
-        t7 = (asm1)["FuncX`2"]((asm0)["System.String"](),(asm0)["System.Object"]());
+        t7 = (asm1)["FuncX`2"](t6,t2);
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -198,12 +198,12 @@ var asm1; (function (asm)
         var t6;
         var __pos_0__;
         t0 = (asm0)["System.Object"]();
-        t1 = (asm1)["FuncX`1"]((asm0)["System.Object"]());
-        t2 = (asm1)["FuncX`2"]((asm0)["System.Object"](),(asm0)["System.Object"]());
+        t1 = (asm1)["FuncX`1"](t0);
+        t2 = (asm1)["FuncX`2"](t0,t0);
         t3 = (asm0)["System.String"]();
-        t4 = (asm1)["FuncX`2"]((asm0)["System.String"](),(asm0)["System.Object"]());
+        t4 = (asm1)["FuncX`2"](t3,t0);
         t5 = (asm0)["System.Int32"]();
-        t6 = (asm1)["FuncX`2"]((asm0)["System.Int32"](),(asm0)["System.Object"]());
+        t6 = (asm1)["FuncX`2"](t5,t0);
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -318,10 +318,10 @@ var asm1; (function (asm)
             (this.GenericArguments)["asm1.t2000007"] = [T, TResult];
             this.GenericTypeMetadataName = ("asm1.t2000007<" + ((T.GenericTypeMetadataName + TResult.GenericTypeMetadataName) + ">"));
             BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000076","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x6000080");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000077");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x600007a");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;
@@ -343,10 +343,10 @@ var asm1; (function (asm)
             (this.GenericArguments)["asm1.t2000008"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000008<" + (T.GenericTypeMetadataName + ">"));
             BLR.declare_virtual(this,"asm1.x600000f","asm1.x600000f");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000076","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x6000080");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000077");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x600007a");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

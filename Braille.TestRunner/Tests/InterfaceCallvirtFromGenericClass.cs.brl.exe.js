@@ -109,7 +109,7 @@ var asm1; (function (asm)
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.D();
-        t2 = (asm1)["C`1"](asm1.D());
+        t2 = (asm1)["C`1"](t1);
         /* IL_00: newobj Void .ctor()*/
         st_03 = BLR.newobj(t2,asm1.x6000010,[null]);
         /* IL_05: newobj Void .ctor()*/

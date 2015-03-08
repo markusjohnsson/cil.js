@@ -100,9 +100,9 @@ var asm1; (function (asm)
         var loc3;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.IntWrapper();
-        t2 = (asm1)["A`1"](asm1.IntWrapper());
+        t2 = (asm1)["A`1"](t1);
         t3 = asm1.StringWrapper();
-        t4 = (asm1)["A`1"](asm1.StringWrapper());
+        t4 = (asm1)["A`1"](t3);
         t5 = (asm0)["System.Int32"]();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */

@@ -56,7 +56,7 @@ var asm1; (function (asm)
             var t3;
             t0 = (asm0)["Braille.Runtime.UnboundGenericParameter"]();
             t1 = T;
-            t2 = (asm1)["C`1"](T);
+            t2 = (asm1)["C`1"](t1);
             t3 = (asm0)["System.Boolean"]();
             /* IL_00: ldsfld T t*/
             /* IL_05: box T*/
@@ -119,8 +119,8 @@ var asm1; (function (asm)
         t2 = (asm0)["System.Boolean"]();
         t3 = asm1.B();
         t4 = asm1.A();
-        t5 = (asm1)["C`1"](asm1.A());
-        t6 = (asm1)["C`1"](asm1.B());
+        t5 = (asm1)["C`1"](t4);
+        t6 = (asm1)["C`1"](t3);
         loc1 = new (asm1.B())();
         loc2 = new (asm1.B())();
         loc4 = new (asm1.B())();

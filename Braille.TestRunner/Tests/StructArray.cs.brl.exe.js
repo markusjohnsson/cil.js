@@ -74,7 +74,7 @@ var asm1; (function (asm)
         var t1;
         var t2;
         t0 = asm1.A();
-        t1 = (asm0)["System.Array`1"](asm1.A());
+        t1 = (asm0)["System.Array`1"](t0);
         t2 = (asm0)["System.Int32"]();
         /* IL_00: ldarg.0 */
         /* IL_01: castclass A[]*/

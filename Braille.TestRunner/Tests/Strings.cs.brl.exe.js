@@ -92,7 +92,7 @@ var asm1; (function (asm)
         /* IL_40: box System.Int32*/
         /* IL_45: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm0.x600017b(BLR.new_string("123456789")),
+                'boxed': asm0.x6000181(BLR.new_string("123456789")),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap

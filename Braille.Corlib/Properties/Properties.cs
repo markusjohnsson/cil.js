@@ -1,4 +1,5 @@
 ﻿
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("mono-corlib")]
+[assembly: InternalsVisibleToAttribute("mono-corlib")]
+[assembly: InternalsVisibleToAttribute("System")]

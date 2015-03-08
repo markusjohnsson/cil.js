@@ -69,9 +69,9 @@ var asm1; (function (asm)
         var __pos_0__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Int32"]();
-        t2 = (asm1)["A`1"]((asm0)["System.Int32"]());
+        t2 = (asm1)["A`1"](t1);
         t3 = asm1.B();
-        t4 = (asm1)["A`1"](asm1.B());
+        t4 = (asm1)["A`1"](t3);
         loc0 = new ((asm1)["A`1"]((asm0)["System.Int32"]()))();
         loc1 = new ((asm1)["A`1"](asm1.B()))();
         __pos_0__ = 0x0;

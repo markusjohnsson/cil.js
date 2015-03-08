@@ -46,8 +46,8 @@ var asm1; (function (asm)
         var t2;
         var __pos_0__;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0];
-        t1 = (asm0)["System.Array`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0]);
-        t2 = (asm1)["A`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0]);
+        t1 = (asm0)["System.Array`1"](t0);
+        t2 = (asm1)["A`1"](t0);
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){
@@ -139,10 +139,10 @@ var asm1; (function (asm)
         var loc1;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.C();
-        t2 = (asm1)["B`1"](asm1.C());
+        t2 = (asm1)["B`1"](t1);
         t3 = (asm0)["System.Boolean"]();
         t4 = asm1.D();
-        t5 = (asm1)["B`1"](asm1.D());
+        t5 = (asm1)["B`1"](t4);
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000e,[null]);

@@ -117,12 +117,27 @@ namespace System
                 throw GetException("System.ArgumentException");
             }
 
-            for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
+            if (!Object.ReferenceEquals(source, target) || startIndex > targetStartIndex)
             {
-                //target[t] = source[s];
-
-                target.SetValue(source.GetValue(s), t);
+                for (int i = 0; i < length; i++)
+                {
+                    target.SetValue(source.GetValue(startIndex + i), targetStartIndex + i);
+                }
             }
+            else
+            {
+                for (int i = length - 1; i >= 0; i--) 
+                {
+                    target.SetValue(source.GetValue(startIndex + i), targetStartIndex + i);
+                }
+            }
+
+            //for (int s = startIndex, t = targetStartIndex, i = 0; i < length && s < source.Length; s++, t++, i++)
+            //{
+            //    //target[t] = source[s];
+
+            //    target.SetValue(source.GetValue(s), t);
+            //}
         }
 
         internal static int GetIndex<T>(T[] source, int startIndex, int length, Predicate<T> match)
@@ -280,19 +295,23 @@ namespace System
         private static extern void Splice(object array, int index, int howMany);
 
         [JsReplace("(Array.prototype.reverse.apply({0}.jsarr))")]
-        private extern static void Reverse<T>(T[] array);
+        private extern static void Reverse(Array array);
 
-        internal static void Reverse<T>(T[] array, int start, int count)
+        public static void Reverse(Array array, int start, int length)
         {
-            if (start != 0 || count < array.Length)
+            if (start != 0 || length < array.Length)
             {
-                var h = count / 2;
-                var e = start + count - 1;
-                for (var i = 0; i < h; i++) 
+                var index = start;
+                var end = start + length - 1;
+
+                while (index < end)
                 {
-                    var tmp = array[i];
-                    array[i] = array[e - i];
-                    array[e - i] = tmp;
+                    var a = array.GetValue(index);
+                    var b = array.GetValue(end);
+                    array.SetValue(b, index);
+                    array.SetValue(a, end);
+                    index++;
+                    end--;
                 }
             }
             else
@@ -418,7 +437,6 @@ namespace System
 
         [JsImport("BLR.array_set_value")]
         public extern void SetValue(object value, int index);
-        
 
     }
 

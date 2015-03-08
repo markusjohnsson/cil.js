@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace System.Runtime.CompilerServices
 {
-    [AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Assembly, Inherited = false, AllowMultiple=true)]
     public sealed class InternalsVisibleToAttribute : Attribute
     {
         public InternalsVisibleToAttribute(string assemblyName)

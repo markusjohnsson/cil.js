@@ -128,7 +128,7 @@ var asm1; (function (asm)
         t1 = asm1.A();
         t2 = (asm0)["System.Int32"]();
         t3 = (asm0)["System.String"]();
-        t4 = (asm1)["B`1"]((asm0)["System.String"]());
+        t4 = (asm1)["B`1"](t3);
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: ldc.i4 12345*/
         /* IL_0A: call Void Run[System.Int32](I`1[System.Int32], System.Int32)*/
@@ -163,7 +163,7 @@ var asm1; (function (asm)
             var t0;
             var t1;
             t0 = T;
-            t1 = (asm1)["I`1"](T);
+            t1 = (asm1)["I`1"](t0);
             /* IL_00: ldarg.0 */
             /* IL_01: callvirt Void NonGeneric()*/
             ((((arg0.ifacemap)[t1])[t0].x600000c)())(BLR.convert_box_to_pointer_as_needed(arg0));

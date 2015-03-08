@@ -79,11 +79,11 @@ var asm1; (function (asm)
                 /* IL_00: ldtoken A*/
                 /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
                 /* IL_0A: stloc.0 */
-                loc0 = asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1));
+                loc0 = asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1));
                 /* IL_0B: ldloc.0 */
                 /* IL_0C: callvirt MethodInfo[] GetMethods()*/
                 /* IL_11: stloc.1 */
-                loc1 = ((loc0.vtable)["asm0.x60000bf"]())(loc0);
+                loc1 = ((loc0.vtable)["asm0.x60000c5"]())(loc0);
                 /* IL_12: ldloc.1 */
                 /* IL_13: stloc.3 */
                 loc3 = loc1;
@@ -102,7 +102,7 @@ var asm1; (function (asm)
                 /* IL_1E: ldloc.2 */
                 /* IL_1F: callvirt String get_Name()*/
                 /* IL_24: call Void Log(System.Object)*/
-                asm1.x6000001(((loc2.vtable)["asm0.x600003e"]())(loc2));
+                asm1.x6000001(((loc2.vtable)["asm0.x6000040"]())(loc2));
                 /* IL_29: ldloc.s 4*/
                 /* IL_2B: ldc.i4.1 */
                 /* IL_2C: add */

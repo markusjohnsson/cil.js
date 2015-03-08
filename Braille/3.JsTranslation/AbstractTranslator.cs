@@ -32,10 +32,17 @@ namespace Braille.JsTranslation
             return new JSIdentifier { Name = asm.Identifier };
         }
 
-        protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
+        protected virtual JSExpression GetTypeIdentifier(Type type, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null, ICollection<Type> typesInScope = null)
         {
             if (IsIgnoredType(type))
                 throw new InvalidOperationException("type is marked as ignored and cannot be referenced");
+
+            if (typesInScope != null)
+            {
+                var idx = typesInScope.IndexOf(type);
+                if (idx != -1)
+                    return JSFactory.Identifier("t" + idx);
+            }
 
             if (type.IsArray)
             {
@@ -44,7 +51,8 @@ namespace Braille.JsTranslation
                     genericArray.MakeGenericType(type.GetElementType()),
                     methodScope,
                     typeScope,
-                    thisScope);
+                    thisScope,
+                    typesInScope);
             }
             else if (type.IsGenericParameter)
             {
@@ -87,7 +95,7 @@ namespace Braille.JsTranslation
                     Arguments = type
                         .GetGenericArguments()
                         .Select(
-                            g => GetTypeIdentifier(g, methodScope, typeScope, thisScope))
+                            g => GetTypeIdentifier(g, methodScope, typeScope, thisScope, typesInScope))
                         .ToList()
                 };
             }
@@ -102,7 +110,7 @@ namespace Braille.JsTranslation
 
         protected string GetTypeMetadataName(Type current)
         {
-            current = (current.IsGenericType && !current.IsGenericTypeDefinition) ? 
+            current = (current.IsGenericType && !current.IsGenericTypeDefinition) ?
                 current.GetGenericTypeDefinition() : current;
 
             return GetAssemblyIdentifier(current).Name + ".t" + current.MetadataToken.ToString("x");
@@ -124,7 +132,7 @@ namespace Braille.JsTranslation
         private static string ConstructFullName(Type type)
         {
             var name = "";
-            
+
             if (type.Namespace != null)
                 name = type.Namespace + ".";
 

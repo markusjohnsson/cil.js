@@ -43,7 +43,7 @@ var asm1; (function (asm)
         /* IL_06: call Delegate Combine(System.Delegate, System.Delegate)*/
         /* IL_0B: castclass System.EventHandler*/
         /* IL_10: stsfld EventHandler MyEvent*/
-        (t0)["MyEvent"] = BLR.cast_class(asm0.x6000071(t0.MyEvent,arg0),t1);
+        (t0)["MyEvent"] = BLR.cast_class(asm0.x6000073(t0.MyEvent,arg0),t1);
         /* IL_15: ret */
         return ;
     };
@@ -70,7 +70,7 @@ var asm1; (function (asm)
         /* IL_06: call Delegate Remove(System.Delegate, System.Delegate)*/
         /* IL_0B: castclass System.EventHandler*/
         /* IL_10: stsfld EventHandler MyEvent*/
-        (t0)["MyEvent"] = BLR.cast_class(asm0.x6000072(t0.MyEvent,arg0),t1);
+        (t0)["MyEvent"] = BLR.cast_class(asm0.x6000074(t0.MyEvent,arg0),t1);
         /* IL_15: ret */
         return ;
     };
@@ -119,7 +119,7 @@ var asm1; (function (asm)
                 /* IL_09: ldftn Void <Main>b__0(System.Object, System.EventArgs)*/
                 /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_13: stsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
-                (t1)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t2,asm0.x6000123,[null, null, asm1.x6000011]);
+                (t1)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t2,asm0.x6000129,[null, null, asm1.x6000011]);
                 case 0x18:
                 /* IL_18: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_1D: call Void add_MyEvent(System.EventHandler)*/
@@ -128,8 +128,8 @@ var asm1; (function (asm)
                 /* IL_24: ldftn Void Handler(System.Object, System.EventArgs)*/
                 /* IL_29: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_2E: call Void add_MyEvent(System.EventHandler)*/
-                asm1.x600000c(BLR.newobj(t2,asm0.x6000123,[null, null, asm1.x600000f]));
-                asm0.x6000122();
+                asm1.x600000c(BLR.newobj(t2,asm0.x6000129,[null, null, asm1.x600000f]));
+                asm0.x6000128();
                 /* IL_33: ldsfld EventHandler MyEvent*/
                 /* IL_38: newobj Void .ctor()*/
                 /* IL_3D: newobj Void .ctor()*/
@@ -137,17 +137,17 @@ var asm1; (function (asm)
                 t1.MyEvent._methodPtr.apply(null,((t1.MyEvent._target) ? ([
                         t1.MyEvent._target,
                         BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000121,[null])
+                        BLR.newobj(t4,asm0.x6000127,[null])
                     ]) : ([
                         BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000121,[null])
+                        BLR.newobj(t4,asm0.x6000127,[null])
                     ])));
                 /* IL_47: ldnull */
                 /* IL_49: ldftn Void Handler(System.Object, System.EventArgs)*/
                 /* IL_4E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_53: call Void remove_MyEvent(System.EventHandler)*/
-                asm1.x600000d(BLR.newobj(t2,asm0.x6000123,[null, null, asm1.x600000f]));
-                asm0.x6000122();
+                asm1.x600000d(BLR.newobj(t2,asm0.x6000129,[null, null, asm1.x600000f]));
+                asm0.x6000128();
                 /* IL_58: ldsfld EventHandler MyEvent*/
                 /* IL_5D: newobj Void .ctor()*/
                 /* IL_62: newobj Void .ctor()*/
@@ -155,10 +155,10 @@ var asm1; (function (asm)
                 t1.MyEvent._methodPtr.apply(null,((t1.MyEvent._target) ? ([
                         t1.MyEvent._target,
                         BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000121,[null])
+                        BLR.newobj(t4,asm0.x6000127,[null])
                     ]) : ([
                         BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000121,[null])
+                        BLR.newobj(t4,asm0.x6000127,[null])
                     ])));
                 /* IL_6C: ret */
                 return ;

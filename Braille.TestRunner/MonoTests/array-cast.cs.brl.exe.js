@@ -47,7 +47,7 @@ var asm1; (function (asm)
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Attribute"]();
         t2 = (asm0)["System.Object"]();
-        t3 = (asm0)["System.Array`1"]((asm0)["System.Object"]());
+        t3 = (asm0)["System.Array`1"](t2);
         __pos_0__ = 0x0;
         
         while (__pos_0__ >= 0){

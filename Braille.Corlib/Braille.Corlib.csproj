@@ -66,11 +66,13 @@
     <Compile Include="System\Char.cs" />
     <Compile Include="System\Comparison.cs" />
     <Compile Include="System\Console.cs" />
+    <Compile Include="System\DivideByZeroException.cs" />
     <Compile Include="System\Double.cs" />
     <Compile Include="System\Enum.cs" />
     <Compile Include="System\Environment.cs" />
     <Compile Include="System\FlagsAttribute.cs" />
     <Compile Include="System\Func.cs" />
+    <Compile Include="System\GC.cs" />
     <Compile Include="System\ICloneable.cs" />
     <Compile Include="System\IComparable.cs" />
     <Compile Include="System\IDisposable.cs" />

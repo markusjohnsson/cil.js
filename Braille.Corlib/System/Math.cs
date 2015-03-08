@@ -5,6 +5,7 @@ namespace System
 {
     public class Math
     {
+        public const double E = 2.71828;
         public const double PI = 3.14159265359;
 
         [JsReplace("Math.sqrt({0})")]

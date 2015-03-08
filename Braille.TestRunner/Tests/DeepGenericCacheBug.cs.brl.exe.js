@@ -82,11 +82,11 @@ var asm1; (function (asm)
         var t7;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.X();
-        t2 = (asm1)["K`1"](asm1.X());
-        t3 = (asm1)["A`1"]((asm1)["K`1"](asm1.X()));
+        t2 = (asm1)["K`1"](t1);
+        t3 = (asm1)["A`1"](t2);
         t4 = asm1.Y();
-        t5 = (asm1)["K`1"](asm1.Y());
-        t6 = (asm1)["A`1"]((asm1)["K`1"](asm1.Y()));
+        t5 = (asm1)["K`1"](t4);
+        t6 = (asm1)["A`1"](t5);
         t7 = (asm0)["System.Boolean"]();
         /* IL_00: ldtoken A`1[K`1[X]]*/
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -96,7 +96,7 @@ var asm1; (function (asm)
         /* IL_16: box System.Boolean*/
         /* IL_1B: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': ((asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)) === asm0.x60000af(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))) ? (1) : (0)),
+                'boxed': ((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)) === asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))) ? (1) : (0)),
                 'type': t7,
                 'vtable': t7.prototype.vtable,
                 'ifacemap': t7.prototype.ifacemap

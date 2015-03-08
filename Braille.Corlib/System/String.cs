@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
 using Braille.Runtime.TranslatorServices;
+using Braille.JavaScript;
 
 namespace System
 {
-    public class String: IEquatable<string>
+    public class String: IEquatable<string>, IComparable<string>
     {
-        internal object jsstr;
+        internal Braille.JavaScript.String jsstr;
 
         [JsImport("function(o) { return o.jsstr.length; }")]
         private extern static int GetLengthImpl(object s);
@@ -143,5 +144,45 @@ namespace System
             }
             ")]
         public extern static int Compare(string s1, string s2);
+
+        public static string Format(string formatString, params object []values)
+        {
+            // poor man's implementation. 
+
+            for (var i = 0; i < values.Length; i++)
+            {
+                var v = values[i];
+                if (v == null)
+                    v = string.Empty;
+                formatString = formatString.Replace("{" + i + "}", v.ToString());
+            }
+
+            return formatString;
+        }
+
+        [JsImport("function(v) { return BLR.new_string(v.jsstr.toLowerCase()); } ")]
+        internal static extern string ToLowerImpl(string v);
+
+        public string ToLower() 
+        {
+            return ToLowerImpl(this);
+        }
+
+        [JsReplace("({0}.jsstr < {1}.jsstr ? 1 : 0)")]
+        private extern static bool LessThan(string a, string b);
+
+        public int CompareTo(string other)
+        {
+            if (other == null)
+                return 1;
+
+            if (this == other)
+                return 0;
+
+            if (LessThan(this, other))
+                return -1;
+            else
+                return 1;
+        }
     }
 }

@@ -4,7 +4,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System.Collections
 {
-    public interface IEnumerator : IDisposable
+    public interface IEnumerator 
     {
         object Current { get; }
         bool MoveNext();

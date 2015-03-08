@@ -54,9 +54,9 @@ var asm1; (function (asm)
         var loc1;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Object"]();
-        t2 = (asm1)["A`1"]((asm0)["System.Object"]());
+        t2 = (asm1)["A`1"](t1);
         t3 = (asm0)["System.Int32"]();
-        t4 = (asm1)["A`1"]((asm0)["System.Int32"]());
+        t4 = (asm1)["A`1"](t3);
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000c,[null]);
