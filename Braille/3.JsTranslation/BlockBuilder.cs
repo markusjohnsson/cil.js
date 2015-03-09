@@ -27,12 +27,12 @@ namespace Braille.JsTranslation
         public BlockBuilder(int depth)
         {
             this.depth = depth;
+            //this.breakAfterBranchingBlock
         }
 
         public IEnumerable<JSStatement> Build()
         {
             UpdatePositions();
-            //InsertMissingCatchBlocks();
 
             if (hasBranching)
             {
@@ -61,7 +61,6 @@ namespace Braille.JsTranslation
                     }
                 };
 
-                yield return new JSBreakExpression().ToStatement();
             }
             else
             {
@@ -103,11 +102,6 @@ namespace Braille.JsTranslation
         public void InsertStatements(IEnumerable<JSStatement> statements)
         {
             Statements.AddRange(statements);
-        }
-
-        internal void InsertTryBlock(IEnumerable<JSStatement> enumerable)
-        {
-            throw new NotImplementedException();
         }
     }
 }

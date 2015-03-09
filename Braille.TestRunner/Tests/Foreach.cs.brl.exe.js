@@ -220,7 +220,6 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
                 
                 finally {
@@ -250,8 +249,8 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
+                break;
                 case 0x3C:
                 /* IL_3C: ret */
                 return ;

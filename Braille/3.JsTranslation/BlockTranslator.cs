@@ -59,6 +59,7 @@ namespace Braille.JsTranslation
                         if (protectedRegion.FinallyBlock != null)
                             builder.InsertStatements(CreateJsFinallyBlock(protectedRegion.FinallyBlock, depth + 1));
 
+                        builder.InsertStatements(new [] {new JSBreakExpression().ToStatement()});
                     }
                 }
                 else if (label != null)
@@ -197,6 +198,7 @@ namespace Braille.JsTranslation
             {
                 Statements = CreateJsBlock(finallyBlock, p).Build().ToList()
             };
+            
         }
     }
 }

@@ -136,7 +136,6 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
                 
                 finally {
@@ -166,8 +165,8 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
+                break;
                 case 0x31:
                 /* IL_31: ret */
                 return ;

@@ -78,7 +78,6 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
                 
                 finally {
@@ -126,7 +125,6 @@ var asm1; (function (asm)
                                         break;
                                     }
                                 }
-                                break;
                             }
                             
                             finally {
@@ -165,8 +163,8 @@ var asm1; (function (asm)
                                         break;
                                     }
                                 }
-                                break;
                             }
+                            break;
                             case 0x50:
                             /* IL_50: call Int32 Get()*/
                             /* IL_55: brfalse.s IL_69*/
@@ -197,8 +195,8 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
+                break;
                 case 0x6A:
                 /* IL_6A: ret */
                 return ;

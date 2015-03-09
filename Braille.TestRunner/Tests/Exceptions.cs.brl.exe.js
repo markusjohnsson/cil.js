@@ -166,6 +166,7 @@ var asm1; (function (asm)
                     /* IL_38: endfinally */
                     __pos_1__ = -1;
                 }
+                break;
                 case 0x39:
                 /* IL_39: ret */
                 return ;

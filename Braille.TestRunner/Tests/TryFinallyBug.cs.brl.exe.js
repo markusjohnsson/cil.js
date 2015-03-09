@@ -83,7 +83,6 @@ var asm1; (function (asm)
                                 break;
                             }
                         }
-                        break;
                     }
                 }
                 
@@ -108,6 +107,7 @@ var asm1; (function (asm)
                         throw __error__;
                     }
                 }
+                break;
                 case 0x4D:
                 /* IL_4D: ret */
                 return ;

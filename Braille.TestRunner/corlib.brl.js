@@ -7362,6 +7362,7 @@ var BLR;
                             throw __error__;
                         }
                     }
+                    break;
                     case 0x32:
                     /* IL_32: nop */
                     
@@ -8205,7 +8206,6 @@ var BLR;
                                 break;
                             }
                         }
-                        break;
                     }
                     
                     catch (__error__){
@@ -8229,6 +8229,7 @@ var BLR;
                             throw __error__;
                         }
                     }
+                    break;
                     case 0xF9:
                     /* IL_F9: nop */
                     

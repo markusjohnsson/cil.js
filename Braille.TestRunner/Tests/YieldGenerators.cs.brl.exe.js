@@ -186,7 +186,6 @@ var asm1; (function (asm)
                                 break;
                             }
                         }
-                        break;
                     }
                     
                     finally {
@@ -212,8 +211,8 @@ var asm1; (function (asm)
                                 break;
                             }
                         }
-                        break;
                     }
+                    break;
                     case 0x28:
                     /* IL_28: ldloca.s 3*/
                     /* IL_2B: initobj T*/
@@ -314,7 +313,6 @@ var asm1; (function (asm)
                                 break;
                             }
                         }
-                        break;
                     }
                     
                     finally {
@@ -340,8 +338,8 @@ var asm1; (function (asm)
                                 break;
                             }
                         }
-                        break;
                     }
+                    break;
                     case 0x28:
                     /* IL_28: ldc.i4.0 */
                     /* IL_29: ret */
@@ -826,7 +824,6 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
                 
                 catch (__error__){
@@ -845,6 +842,7 @@ var asm1; (function (asm)
                         throw __error__;
                     }
                 }
+                break;
                 case 0x94:
                 /* IL_94: ldloc.0 */
                 /* IL_95: ret */
@@ -930,6 +928,7 @@ var asm1; (function (asm)
                     /* IL_20: endfinally */
                     __pos_1__ = -1;
                 }
+                break;
                 case 0x21:
                 /* IL_21: ret */
                 return ;
@@ -1243,7 +1242,6 @@ var asm1; (function (asm)
                             break;
                         }
                     }
-                    break;
                 }
                 
                 catch (__error__){
@@ -1262,6 +1260,7 @@ var asm1; (function (asm)
                         throw __error__;
                     }
                 }
+                break;
                 case 0x9C:
                 /* IL_9C: ldloc.0 */
                 /* IL_9D: ret */
@@ -1347,6 +1346,7 @@ var asm1; (function (asm)
                     /* IL_20: endfinally */
                     __pos_1__ = -1;
                 }
+                break;
                 case 0x21:
                 /* IL_21: ret */
                 return ;

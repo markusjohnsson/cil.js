@@ -161,6 +161,7 @@ var asm1; (function (asm)
                             throw __error__;
                         }
                     }
+                    break;
                     case 0x20:
                     /* IL_20: ret */
                     return ;
