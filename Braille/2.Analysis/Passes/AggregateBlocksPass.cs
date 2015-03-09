@@ -45,6 +45,13 @@ namespace Braille.Analysis.Passes
                     currentAggregate = new List<Block>();
                 }
             }
+            
+            if (currentAggregate.Count > 0)
+            {
+                replacements.Add(currentAggregate);
+
+                currentAggregate = new List<Block>();
+            }
 
             foreach (var aggregate in replacements)
             {

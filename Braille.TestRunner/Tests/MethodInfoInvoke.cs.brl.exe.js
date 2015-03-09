@@ -2,9 +2,9 @@ var asm1; (function (asm)
 {
     asm.FullName = "MethodInfoInvoke.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static Void Log(System.Object)*/
+    /* static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /* Void .ctor()*/
+    /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
@@ -12,16 +12,8 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    /* Void .ctor()*/
-    asm.x600000b = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
-    /* String X(System.String)*/
-    asm.x600000d = function X(arg0,arg1)
+    /* System.String A.X(String)*/
+    asm.x600000b = function X(arg0,arg1)
     {
         /* IL_00: ldarg.1 */
         /* IL_01: call Void Log(System.Object)*/
@@ -31,10 +23,10 @@ var asm1; (function (asm)
         /* IL_0C: ldarg.1 */
         /* IL_0D: call String Concat(System.String, System.String)*/
         /* IL_12: ret */
-        return asm0.x6000179(arg0.AY,arg1);
+        return asm0.x6000177(arg0.AY,arg1);
     };;
-    /* Void .ctor(System.String)*/
-    asm.x600000c = function _ctor(arg0,arg1)
+    /*  A..ctor(String)*/
+    asm.x600000a = function _ctor(arg0,arg1)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -45,20 +37,20 @@ var asm1; (function (asm)
         /* IL_0D: ret */
         return ;
     };;
-    /* static Void Main()*/
-    asm.x600000e_init = function ()
+    /* static System.Void Program.Main()*/
+    asm.x600000c_init = function ()
     {
         ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         ((asm0)["System.Object"]().init)();
-        asm.x600000e = asm.x600000e_;
+        asm.x600000c = asm.x600000c_;
     };;
-    asm.x600000e = function ()
+    asm.x600000c = function ()
     {
-        asm.x600000e_init.apply(this,arguments);
-        return asm.x600000e_.apply(this,arguments);
+        asm.x600000c_init.apply(this,arguments);
+        return asm.x600000c_.apply(this,arguments);
     };;
-    asm.x600000e_ = function Main()
+    asm.x600000c_ = function Main()
     {
         var t0;
         var t1;
@@ -81,12 +73,12 @@ var asm1; (function (asm)
         /* IL_0F: ldc.i4.0 */
         /* IL_10: ldelem.ref */
         /* IL_11: stloc.0 */
-        loc0 = BLR.ldelem_ref((((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c5"])())(asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),(0|0));
+        loc0 = BLR.ldelem_ref((((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c3"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),(0|0));
         /* IL_12: ldloc.0 */
         st_0B = loc0;
         /* IL_13: ldstr Hello*/
         /* IL_18: newobj Void .ctor(System.String)*/
-        st_0C = BLR.newobj(t1,asm1.x600000c,[null, BLR.new_string("Hello")]);
+        st_0C = BLR.newobj(t1,asm1.x600000a,[null, BLR.new_string("Hello")]);
         /* IL_1D: ldc.i4.1 */
         /* IL_1E: newarr System.Object*/
         /* IL_23: stloc.1 */
@@ -102,14 +94,14 @@ var asm1; (function (asm)
         /* IL_2C: ldloc.1 */
         st_0D = loc1;
         /* IL_2D: callvirt Object Invoke(System.Object, System.Object[])*/
-        st_0E = asm0.x6000048(st_0B,st_0C,st_0D);
+        st_0E = asm0.x6000046(st_0B,st_0C,st_0D);
         /* IL_32: call Void Log(System.Object)*/
         asm1.x6000001(st_0E);
         /* IL_37: ret */
         return ;
     };
-    /* Void .ctor()*/
-    asm.x600000f = function _ctor(arg0)
+    /*  Program..ctor()*/
+    asm.x600000d = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -132,22 +124,6 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.TestHelper = BLR.declare_type(
-        "TestHelper",
-        [],
-        function ()
-        {
-            return new ((asm0)["System.Object"]())();
-        },
-        function ()
-        {
-            this.init = BLR.nop;
-            BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.GenericTypeMetadataName = "asm1.t2000006";
-            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-        });
     asm.A = BLR.declare_type(
         "A",
         [],
@@ -159,9 +135,9 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"A",false,false,false,false,false,[],[
-                    [asm1, "x600000d", "X"]
-                ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
-            this.GenericTypeMetadataName = "asm1.t2000007";
+                    [asm1, "x600000b", "X"]
+                ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
+            this.GenericTypeMetadataName = "asm1.t2000006";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -177,11 +153,11 @@ var asm1; (function (asm)
         function ()
         {
             this.init = BLR.nop;
-            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
-            this.GenericTypeMetadataName = "asm1.t2000008";
+            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
+            this.GenericTypeMetadataName = "asm1.t2000007";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.entryPoint = asm.x600000e;
+    asm.entryPoint = asm.x600000c;
 })(asm1 || (asm1 = {}));

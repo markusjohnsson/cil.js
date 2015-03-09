@@ -2,9 +2,9 @@ var asm1; (function (asm)
 {
     asm.FullName = "FieldInitializers.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static Void Log(System.Object)*/
+    /* static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /* Void .ctor()*/
+    /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
@@ -12,28 +12,20 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    /* Void .ctor()*/
-    asm.x600000b = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
-    /* static Void Main()*/
-    asm.x600000c_init = function ()
+    /* static System.Void Program.Main()*/
+    asm.x600000a_init = function ()
     {
         ((asm0)["System.ValueType"]().init)();
         (asm1.Program().init)();
         ((asm0)["System.Int32"]().init)();
-        asm.x600000c = asm.x600000c_;
+        asm.x600000a = asm.x600000a_;
     };;
-    asm.x600000c = function ()
+    asm.x600000a = function ()
     {
-        asm.x600000c_init.apply(this,arguments);
-        return asm.x600000c_.apply(this,arguments);
+        asm.x600000a_init.apply(this,arguments);
+        return asm.x600000a_.apply(this,arguments);
     };;
-    asm.x600000c_ = function Main()
+    asm.x600000a_ = function Main()
     {
         var t0;
         var t1;
@@ -41,7 +33,7 @@ var asm1; (function (asm)
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.Program();
         t2 = (asm0)["System.Int32"]();
-        asm1.x600000e();
+        asm1.x600000c();
         /* IL_00: ldsfld Int32 X*/
         /* IL_05: box System.Int32*/
         /* IL_0A: call Void Log(System.Object)*/
@@ -51,13 +43,13 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        asm1.x600000e();
+        asm1.x600000c();
         /* IL_0F: newobj Void .ctor()*/
         /* IL_14: ldfld Int32 Y*/
         /* IL_19: box System.Int32*/
         /* IL_1E: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': BLR.newobj(t1,asm1.x600000d,[null]).Y,
+                'boxed': BLR.newobj(t1,asm1.x600000b,[null]).Y,
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
@@ -65,8 +57,8 @@ var asm1; (function (asm)
         /* IL_23: ret */
         return ;
     };
-    /* Void .ctor()*/
-    asm.x600000d = function _ctor(arg0)
+    /*  Program..ctor()*/
+    asm.x600000b = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: ldc.i4 321*/
@@ -77,18 +69,18 @@ var asm1; (function (asm)
         /* IL_11: ret */
         return ;
     };;
-    /* static Void .cctor()*/
-    asm.x600000e_init = function ()
+    /* static  Program..cctor()*/
+    asm.x600000c_init = function ()
     {
         (asm1.Program().init)();
-        asm.x600000e = asm.x600000e_;
+        asm.x600000c = asm.x600000c_;
     };;
-    asm.x600000e = function ()
+    asm.x600000c = function ()
     {
-        asm.x600000e_init.apply(this,arguments);
-        return asm.x600000e_.apply(this,arguments);
+        asm.x600000c_init.apply(this,arguments);
+        return asm.x600000c_.apply(this,arguments);
     };;
-    asm.x600000e_ = function _cctor()
+    asm.x600000c_ = function _cctor()
     {
         var t0;
         
@@ -119,22 +111,6 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.TestHelper = BLR.declare_type(
-        "TestHelper",
-        [],
-        function ()
-        {
-            return new ((asm0)["System.Object"]())();
-        },
-        function ()
-        {
-            this.init = BLR.nop;
-            BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.GenericTypeMetadataName = "asm1.t2000006";
-            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-        });
     asm.Program = BLR.declare_type(
         "Program",
         [],
@@ -145,13 +121,13 @@ var asm1; (function (asm)
         function ()
         {
             this.init = BLR.nop;
-            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
+            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
             this.X = 0;
-            this.GenericTypeMetadataName = "asm1.t2000007";
+            this.GenericTypeMetadataName = "asm1.t2000006";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
             this.prototype.Y = 0;
         });
-    asm.entryPoint = asm.x600000c;
+    asm.entryPoint = asm.x600000a;
 })(asm1 || (asm1 = {}));

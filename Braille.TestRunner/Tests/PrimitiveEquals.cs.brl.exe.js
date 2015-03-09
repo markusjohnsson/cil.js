@@ -2,9 +2,9 @@ var asm1; (function (asm)
 {
     asm.FullName = "PrimitiveEquals.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static Void Log(System.Object)*/
+    /* static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /* Void .ctor()*/
+    /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
@@ -12,30 +12,22 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    /* Void .ctor()*/
-    asm.x600000b = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
-    /* static Void Main()*/
-    asm.x600000c_init = function ()
+    /* static System.Void Program.Main()*/
+    asm.x600000a_init = function ()
     {
         ((asm0)["System.ValueType"]().init)();
         ((asm0)["System.Byte"]().init)();
         ((asm0)["System.Int32"]().init)();
         ((asm0)["System.SByte"]().init)();
         ((asm0)["System.Boolean"]().init)();
-        asm.x600000c = asm.x600000c_;
+        asm.x600000a = asm.x600000a_;
     };;
-    asm.x600000c = function ()
+    asm.x600000a = function ()
     {
-        asm.x600000c_init.apply(this,arguments);
-        return asm.x600000c_.apply(this,arguments);
+        asm.x600000a_init.apply(this,arguments);
+        return asm.x600000a_.apply(this,arguments);
     };;
-    asm.x600000c_ = function Main()
+    asm.x600000a_ = function Main()
     {
         var t0;
         var t1;
@@ -52,7 +44,7 @@ var asm1; (function (asm)
         /* IL_06: ldc.i4.0 */
         /* IL_07: box System.Byte*/
         /* IL_0C: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -68,7 +60,7 @@ var asm1; (function (asm)
         /* IL_17: ldc.i4.1 */
         /* IL_18: box System.Byte*/
         /* IL_1D: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -84,7 +76,7 @@ var asm1; (function (asm)
         /* IL_28: ldc.i4.1 */
         /* IL_29: box System.Int32*/
         /* IL_2E: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (1|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -100,7 +92,7 @@ var asm1; (function (asm)
         /* IL_39: ldc.i4.0 */
         /* IL_3A: box System.SByte*/
         /* IL_3F: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -116,7 +108,7 @@ var asm1; (function (asm)
         /* IL_4A: ldc.i4.0 */
         /* IL_4B: box System.Byte*/
         /* IL_50: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -132,7 +124,7 @@ var asm1; (function (asm)
         /* IL_5B: ldc.i4.1 */
         /* IL_5C: box System.Byte*/
         /* IL_61: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -148,7 +140,7 @@ var asm1; (function (asm)
         /* IL_6C: ldc.i4 1000*/
         /* IL_71: box System.Int32*/
         /* IL_76: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (1|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -164,7 +156,7 @@ var asm1; (function (asm)
         /* IL_81: ldc.i4.0 */
         /* IL_82: box System.SByte*/
         /* IL_87: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -180,7 +172,7 @@ var asm1; (function (asm)
         /* IL_96: ldc.i4.m1 */
         /* IL_97: box System.SByte*/
         /* IL_9C: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (255|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -196,7 +188,7 @@ var asm1; (function (asm)
         /* IL_A7: ldc.i4.1 */
         /* IL_A8: box System.Byte*/
         /* IL_AD: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -212,7 +204,7 @@ var asm1; (function (asm)
         /* IL_B8: ldc.i4 1000*/
         /* IL_BD: box System.Int32*/
         /* IL_C2: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (1|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -228,7 +220,7 @@ var asm1; (function (asm)
         /* IL_CD: ldc.i4.0 */
         /* IL_CE: box System.SByte*/
         /* IL_D3: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -244,7 +236,7 @@ var asm1; (function (asm)
         /* IL_DE: ldc.i4.1 */
         /* IL_DF: box System.Boolean*/
         /* IL_E4: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (1|0),
                 'type': t4,
                 'vtable': t4.prototype.vtable,
@@ -260,7 +252,7 @@ var asm1; (function (asm)
         /* IL_EF: ldc.i4.0 */
         /* IL_F0: box System.Boolean*/
         /* IL_F5: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (1|0),
                 'type': t4,
                 'vtable': t4.prototype.vtable,
@@ -276,7 +268,7 @@ var asm1; (function (asm)
         /* IL_100: ldc.i4.1 */
         /* IL_101: box System.Boolean*/
         /* IL_106: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t4,
                 'vtable': t4.prototype.vtable,
@@ -292,7 +284,7 @@ var asm1; (function (asm)
         /* IL_111: ldc.i4.0 */
         /* IL_112: box System.Boolean*/
         /* IL_117: call Void Test(System.Object, System.Object)*/
-        asm1.x600000d({
+        asm1.x600000b({
                 'boxed': (0|0),
                 'type': t4,
                 'vtable': t4.prototype.vtable,
@@ -306,18 +298,18 @@ var asm1; (function (asm)
         /* IL_11C: ret */
         return ;
     };
-    /* static Void Test(System.Object, System.Object)*/
-    asm.x600000d_init = function ()
+    /* static System.Void Program.Test(Object,Object)*/
+    asm.x600000b_init = function ()
     {
         ((asm0)["System.Boolean"]().init)();
-        asm.x600000d = asm.x600000d_;
+        asm.x600000b = asm.x600000b_;
     };;
-    asm.x600000d = function (arg0,arg1)
+    asm.x600000b = function (arg0,arg1)
     {
-        asm.x600000d_init.apply(this,arguments);
-        return asm.x600000d_.apply(this,arguments);
+        asm.x600000b_init.apply(this,arguments);
+        return asm.x600000b_.apply(this,arguments);
     };;
-    asm.x600000d_ = function Test(arg0,arg1)
+    asm.x600000b_ = function Test(arg0,arg1)
     {
         var t0;
         t0 = (asm0)["System.Boolean"]();
@@ -335,8 +327,8 @@ var asm1; (function (asm)
         /* IL_11: ret */
         return ;
     };
-    /* Void .ctor()*/
-    asm.x600000e = function _ctor(arg0)
+    /*  Program..ctor()*/
+    asm.x600000c = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -359,22 +351,6 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.TestHelper = BLR.declare_type(
-        "TestHelper",
-        [],
-        function ()
-        {
-            return new ((asm0)["System.Object"]())();
-        },
-        function ()
-        {
-            this.init = BLR.nop;
-            BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.GenericTypeMetadataName = "asm1.t2000006";
-            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-        });
     asm.Program = BLR.declare_type(
         "Program",
         [],
@@ -385,11 +361,11 @@ var asm1; (function (asm)
         function ()
         {
             this.init = BLR.nop;
-            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
-            this.GenericTypeMetadataName = "asm1.t2000007";
+            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
+            this.GenericTypeMetadataName = "asm1.t2000006";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.entryPoint = asm.x600000c;
+    asm.entryPoint = asm.x600000a;
 })(asm1 || (asm1 = {}));

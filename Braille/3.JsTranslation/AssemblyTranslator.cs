@@ -4,6 +4,7 @@ using System.Linq;
 using Braille.Ast;
 using Braille.JSAst;
 using Braille.Loading.Model;
+using IKVM.Reflection;
 
 namespace Braille.JsTranslation
 {
@@ -50,7 +51,18 @@ namespace Braille.JsTranslation
                     if (function == null)
                         continue;
 
-                    yield return new JSLineComment { Text = (method.ReflectionMethod.IsStatic ? "static " : "") + method.ReflectionMethod.ToString() };
+                    var rmtd = method.ReflectionMethod;
+                    var mtdInfo = rmtd as MethodInfo;
+
+                    yield return new JSLineComment { Text = 
+                        string.Format("{0}{1} {2}.{3}{4}({5})",
+                            rmtd.IsStatic ? "static " : "",
+                            mtdInfo != null ? mtdInfo.ReturnType.ToString() : null,
+                            method.DeclaringType.Name,
+                            method.Name,
+                            rmtd.IsGenericMethod ? "<" + string.Join(",", rmtd.GetGenericArguments().Select(g => g.Name)) + ">" : "",
+                            string.Join(",", rmtd.GetParameters().Select(p => p.ParameterType.Name)))
+                    };
 
                     var accessor = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod));
 

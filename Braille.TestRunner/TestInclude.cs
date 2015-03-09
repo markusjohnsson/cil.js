@@ -36,12 +36,3 @@ class JsReplaceAttribute : Attribute
 
     public string Replacement { get; set; }
 }
-
-class TestHelper
-{
-    [JsReplace("new Error()")]
-    public static Exception CreateException(string message)
-    {
-        throw new Exception(message);
-    }
-}

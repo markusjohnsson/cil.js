@@ -187,7 +187,7 @@ namespace Braille.JsTranslation
             }
             else
             {
-                return TransformNormalMethod(assembly, type, method);
+                return TranslateNormalMethod(assembly, type, method);
             }
         }
 
@@ -228,7 +228,7 @@ namespace Braille.JsTranslation
             }
         }
 
-        private JSFunctionDelcaration TransformNormalMethod(CilAssembly asm, CilType type, CilMethod method)
+        private JSFunctionDelcaration TranslateNormalMethod(CilAssembly asm, CilType type, CilMethod method)
         {
             var functionBlock = new List<JSStatement>();
 

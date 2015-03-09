@@ -2,9 +2,9 @@ var asm1; (function (asm)
 {
     asm.FullName = "nullable_boxing.2.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static Void Log(System.Object)*/
+    /* static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /* Void .ctor()*/
+    /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
@@ -12,29 +12,21 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    /* Void .ctor()*/
-    asm.x600000b = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
-    /* static Int32 Main()*/
-    asm.x600000c_init = function ()
+    /* static System.Int32 Program.Main()*/
+    asm.x600000a_init = function ()
     {
         ((asm0)["System.ValueType"]().init)();
         ((asm1)["Program+Button"]().init)();
         ((asm0)["System.Int32"]().init)();
         ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()).init)();
-        asm.x600000c = asm.x600000c_;
+        asm.x600000a = asm.x600000a_;
     };;
-    asm.x600000c = function ()
+    asm.x600000a = function ()
     {
-        asm.x600000c_init.apply(this,arguments);
-        return asm.x600000c_.apply(this,arguments);
+        asm.x600000a_init.apply(this,arguments);
+        return asm.x600000a_.apply(this,arguments);
     };;
-    asm.x600000c_ = function Main()
+    asm.x600000a_ = function Main()
     {
         var t0;
         var t1;
@@ -64,7 +56,7 @@ var asm1; (function (asm)
                 /* IL_10: ldc.i4.2 */
                 /* IL_11: beq.s IL_15*/
                 
-                if (asm1.x600000e(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x6000164,[null, (1|0)]))) === (2|0)){
+                if (asm1.x600000c(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x6000162,[null, (1|0)]))) === (2|0)){
                     __pos_0__ = 0x15;
                     continue;
                 }
@@ -104,7 +96,7 @@ var asm1; (function (asm)
                 /* IL_35: callvirt Object GetValue(System.Int32)*/
                 /* IL_3A: brfalse.s IL_3E*/
                 
-                if ((!(asm0.x6000131(loc0,(0|0))))){
+                if ((!(asm0.x600012f(loc0,(0|0))))){
                     __pos_0__ = 0x3E;
                     continue;
                 }
@@ -118,16 +110,16 @@ var asm1; (function (asm)
             }
         }
     };
-    /* Void .ctor()*/
-    asm.x600000d = function _ctor(arg0)
+    /*  Program..ctor()*/
+    asm.x600000b = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
         return ;
     };;
-    /* Int32 Counter(System.Nullable`1[System.Int32])*/
-    asm.x600000e = function Counter(arg0,arg1)
+    /* System.Int32 Button.Counter(Nullable`1)*/
+    asm.x600000c = function Counter(arg0,arg1)
     {
         var __pos_0__;
         __pos_0__ = 0x0;
@@ -140,7 +132,7 @@ var asm1; (function (asm)
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_0B*/
                 
-                if (asm0.x6000165({
+                if (asm0.x6000163({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -162,7 +154,7 @@ var asm1; (function (asm)
                 /* IL_12: ldc.i4.1 */
                 /* IL_13: add */
                 /* IL_14: ret */
-                return (asm0.x6000166({
+                return (asm0.x6000164({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -175,26 +167,26 @@ var asm1; (function (asm)
             }
         }
     };;
-    /* Void .ctor()*/
-    asm.x600000f = function _ctor(arg0)
+    /*  Button..ctor()*/
+    asm.x600000d = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
         return ;
     };;
-    /* static Void .cctor()*/
-    asm.x6000010_init = function ()
+    /* static  Button..cctor()*/
+    asm.x600000e_init = function ()
     {
         ((asm1)["Program+Button"]().init)();
-        asm.x6000010 = asm.x6000010_;
+        asm.x600000e = asm.x600000e_;
     };;
-    asm.x6000010 = function ()
+    asm.x600000e = function ()
     {
-        asm.x6000010_init.apply(this,arguments);
-        return asm.x6000010_.apply(this,arguments);
+        asm.x600000e_init.apply(this,arguments);
+        return asm.x600000e_.apply(this,arguments);
     };;
-    asm.x6000010_ = function _cctor()
+    asm.x600000e_ = function _cctor()
     {
         var t0;
         
@@ -203,10 +195,10 @@ var asm1; (function (asm)
         }
         (asm1)["Program+Button"]().FieldHasBeenInitialized = true;
         t0 = (asm1)["Program+Button"]();
-        asm1.x6000010();
+        asm1.x600000e();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stsfld Button TheButton*/
-        (t0)["TheButton"] = BLR.newobj(t0,asm1.x600000f,[null]);
+        (t0)["TheButton"] = BLR.newobj(t0,asm1.x600000d,[null]);
         /* IL_0A: ret */
         return ;
     };
@@ -226,22 +218,6 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.TestHelper = BLR.declare_type(
-        "TestHelper",
-        [],
-        function ()
-        {
-            return new ((asm0)["System.Object"]())();
-        },
-        function ()
-        {
-            this.init = BLR.nop;
-            BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.GenericTypeMetadataName = "asm1.t2000006";
-            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-        });
     asm.Program = BLR.declare_type(
         "Program",
         [],
@@ -252,8 +228,8 @@ var asm1; (function (asm)
         function ()
         {
             this.init = BLR.nop;
-            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
-            this.GenericTypeMetadataName = "asm1.t2000007";
+            BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
+            this.GenericTypeMetadataName = "asm1.t2000006";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -269,13 +245,13 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Program+Button",false,false,false,false,false,[],[
-                    [asm1, "x600000e", "Counter"]
-                ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
+                    [asm1, "x600000c", "Counter"]
+                ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
             this.TheButton = null;
-            this.GenericTypeMetadataName = "asm1.t2000008";
+            this.GenericTypeMetadataName = "asm1.t2000007";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.entryPoint = asm.x600000c;
+    asm.entryPoint = asm.x600000a;
 })(asm1 || (asm1 = {}));

@@ -122,9 +122,15 @@ namespace Braille.JsTranslation
                 var expression = catchBlock.Ast.FirstOrDefault() as OpExpression;
                 if (expression != null)
                 {
-                    var exception = expression.StackBefore.First().Definitions.SingleOrDefault() as ExceptionNode;
+                    var locations = expression
+                        .StackBefore
+                        .First()
+                        .Definitions
+                        .Cast<ExceptionNode>()
+                        .SelectMany(e => e.StoreLocations)
+                        ;
 
-                    foreach (var location in exception.StoreLocations)
+                    foreach (var location in locations)
                     {
                         block.Statements.Insert(index, JSFactory.Assignment(location.Name, exceptionObject).ToStatement());
                     }

@@ -2,9 +2,9 @@ var asm1; (function (asm)
 {
     asm.FullName = "interface.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static Void Log(System.Object)*/
+    /* static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /* Void .ctor()*/
+    /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
@@ -12,31 +12,23 @@ var asm1; (function (asm)
         /* IL_06: ret */
         return ;
     };;
-    /* Void .ctor()*/
-    asm.x600000b = function _ctor(arg0)
-    {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
-    /* Double Area()*/
-    asm.x600000d = function Area(arg0)
+    /* System.Double Obj.Area()*/
+    asm.x600000b = function Area(arg0)
     {
         /* IL_00: ldc.r8 0*/
         /* IL_09: ret */
         return (+0);
     };;
-    /* Void .ctor()*/
-    asm.x600000e = function _ctor(arg0)
+    /*  Obj..ctor()*/
+    asm.x600000c = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
         return ;
     };;
-    /* Double Area()*/
-    asm.x6000010 = function Area(arg0)
+    /* System.Double Rect.Area()*/
+    asm.x600000e = function Area(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Int32 w*/
@@ -48,12 +40,12 @@ var asm1; (function (asm)
         /* IL_0F: ret */
         return arg0.ObjRectw * arg0.ObjRecth;
     };;
-    /* Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32)*/
-    asm.x600000f = function _ctor(arg0,arg1,arg2,arg3,arg4)
+    /*  Rect..ctor(Int32,Int32,Int32,Int32)*/
+    asm.x600000d = function _ctor(arg0,arg1,arg2,arg3,arg4)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
-        asm1.x600000e(arg0);
+        asm1.x600000c(arg0);
         /* IL_06: ldarg.0 */
         /* IL_07: ldarg.1 */
         /* IL_08: stfld Int32 x*/
@@ -73,8 +65,8 @@ var asm1; (function (asm)
         /* IL_23: ret */
         return ;
     };;
-    /* Double Area()*/
-    asm.x6000012 = function Area(arg0)
+    /* System.Double Circle.Area()*/
+    asm.x6000010 = function Area(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Int32 r*/
@@ -87,12 +79,12 @@ var asm1; (function (asm)
         /* IL_18: ret */
         return (arg0.ObjCircler * arg0.ObjCircler) * (+3.14159265359);
     };;
-    /* Void .ctor(System.Int32, System.Int32, System.Int32)*/
-    asm.x6000011 = function _ctor(arg0,arg1,arg2,arg3)
+    /*  Circle..ctor(Int32,Int32,Int32)*/
+    asm.x600000f = function _ctor(arg0,arg1,arg2,arg3)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
-        asm1.x600000e(arg0);
+        asm1.x600000c(arg0);
         /* IL_06: ldarg.0 */
         /* IL_07: ldarg.1 */
         /* IL_08: stfld Int32 x*/
@@ -108,21 +100,21 @@ var asm1; (function (asm)
         /* IL_1B: ret */
         return ;
     };;
-    /* static Int32 Main()*/
-    asm.x6000013_init = function ()
+    /* static System.Int32 Test.Main()*/
+    asm.x6000011_init = function ()
     {
         ((asm0)["System.ValueType"]().init)();
         ((asm1)["Obj.Rect"]().init)();
         ((asm1)["Obj.Circle"]().init)();
         ((asm1)["Obj.Measurable"]().init)();
-        asm.x6000013 = asm.x6000013_;
+        asm.x6000011 = asm.x6000011_;
     };;
-    asm.x6000013 = function ()
+    asm.x6000011 = function ()
     {
-        asm.x6000013_init.apply(this,arguments);
-        return asm.x6000013_.apply(this,arguments);
+        asm.x6000011_init.apply(this,arguments);
+        return asm.x6000011_.apply(this,arguments);
     };;
-    asm.x6000013_ = function Main()
+    asm.x6000011_ = function Main()
     {
         var t0;
         var t1;
@@ -148,20 +140,20 @@ var asm1; (function (asm)
                 /* IL_04: ldc.i4.s 20*/
                 /* IL_06: newobj Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32)*/
                 /* IL_0B: stloc.0 */
-                loc0 = BLR.newobj(t1,asm1.x600000f,[null, (0|0), (0|0), (10|0), (20|0)]);
+                loc0 = BLR.newobj(t1,asm1.x600000d,[null, (0|0), (0|0), (10|0), (20|0)]);
                 /* IL_0C: ldc.i4.0 */
                 /* IL_0D: ldc.i4.0 */
                 /* IL_0E: ldc.i4.s 20*/
                 /* IL_10: newobj Void .ctor(System.Int32, System.Int32, System.Int32)*/
                 /* IL_15: stloc.1 */
-                loc1 = BLR.newobj(t2,asm1.x6000011,[null, (0|0), (0|0), (20|0)]);
+                loc1 = BLR.newobj(t2,asm1.x600000f,[null, (0|0), (0|0), (20|0)]);
                 /* IL_16: ldloc.0 */
                 /* IL_17: callvirt Double Area()*/
                 /* IL_1C: ldloc.1 */
                 /* IL_1D: callvirt Double Area()*/
                 /* IL_22: add */
                 /* IL_23: stloc.2 */
-                loc2 = ((loc0.vtable)["asm1.x600000d"]())(loc0) + ((loc1.vtable)["asm1.x600000d"]())(loc1);
+                loc2 = ((loc0.vtable)["asm1.x600000b"]())(loc0) + ((loc1.vtable)["asm1.x600000b"]())(loc1);
                 /* IL_24: ldloc.2 */
                 /* IL_25: ldc.r8 0*/
                 /* IL_2E: beq.s IL_32*/
@@ -182,7 +174,7 @@ var asm1; (function (asm)
                 /* IL_43: callvirt Double Area()*/
                 /* IL_48: add */
                 /* IL_49: stloc.2 */
-                loc2 = asm1.x6000010(BLR.cast_class(loc0,t1)) + asm1.x6000012(BLR.cast_class(loc1,t2));
+                loc2 = asm1.x600000e(BLR.cast_class(loc0,t1)) + asm1.x6000010(BLR.cast_class(loc1,t2));
                 /* IL_4A: ldloc.2 */
                 /* IL_4B: ldc.r8 1456,637061436*/
                 /* IL_54: sub */
@@ -203,7 +195,7 @@ var asm1; (function (asm)
                 /* IL_69: callvirt Double Area()*/
                 /* IL_6E: add */
                 /* IL_6F: stloc.2 */
-                loc2 = (((loc0.ifacemap)[t3].x600000c)())(loc0) + (((loc1.ifacemap)[t3].x600000c)())(loc1);
+                loc2 = (((loc0.ifacemap)[t3].x600000a)())(loc0) + (((loc1.ifacemap)[t3].x600000a)())(loc1);
                 /* IL_70: ldloc.2 */
                 /* IL_71: ldc.r8 0*/
                 /* IL_7A: beq.s IL_7E*/
@@ -222,8 +214,8 @@ var asm1; (function (asm)
             }
         }
     };
-    /* Void .ctor()*/
-    asm.x6000014 = function _ctor(arg0)
+    /*  Test..ctor()*/
+    asm.x6000012 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
@@ -246,22 +238,6 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.TestHelper = BLR.declare_type(
-        "TestHelper",
-        [],
-        function ()
-        {
-            return new ((asm0)["System.Object"]())();
-        },
-        function ()
-        {
-            this.init = BLR.nop;
-            BLR.init_type(this,asm,"TestHelper",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
-            this.GenericTypeMetadataName = "asm1.t2000006";
-            BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-        });
     (asm)["Obj.Measurable"] = BLR.declare_type(
         "Measurable",
         [],
@@ -273,10 +249,10 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Obj.Measurable",false,false,true,false,false,[],[
-                    [asm1, "x600000c", "Area"]
-                ],null,BLR.is_inst_interface(this),Array,"asm1.t2000007");
-            this.GenericTypeMetadataName = "asm1.t2000007";
-            BLR.declare_virtual(this,"asm1.x600000c","asm1.x600000c");
+                    [asm1, "x600000a", "Area"]
+                ],null,BLR.is_inst_interface(this),Array,"asm1.t2000006");
+            this.GenericTypeMetadataName = "asm1.t2000006";
+            BLR.declare_virtual(this,"asm1.x600000a","asm1.x600000a");
         });
     (asm)["Obj.Obj"] = BLR.declare_type(
         "Obj",
@@ -289,10 +265,10 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Obj.Obj",false,false,false,false,false,[],[
-                    [asm1, "x600000d", "Area"]
-                ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
-            this.GenericTypeMetadataName = "asm1.t2000008";
-            BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
+                    [asm1, "x600000b", "Area"]
+                ],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
+            this.GenericTypeMetadataName = "asm1.t2000007";
+            BLR.declare_virtual(this,"asm1.x600000b","asm1.x600000b");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -300,7 +276,7 @@ var asm1; (function (asm)
                 this,
                 [(asm1)["Obj.Measurable"]()],
                 {
-                    'x600000c': function (){ return asm1.x600000d;}
+                    'x600000a': function (){ return asm1.x600000b;}
                 });
         });
     (asm)["Obj.Rect"] = BLR.declare_type(
@@ -314,10 +290,10 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Obj.Rect",false,false,false,false,false,[],[
-                    [asm1, "x6000010", "Area"]
-                ],(asm1)["Obj.Obj"](),BLR.is_inst_default(this),Array,"asm1.t2000009");
-            this.GenericTypeMetadataName = "asm1.t2000009";
-            BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
+                    [asm1, "x600000e", "Area"]
+                ],(asm1)["Obj.Obj"](),BLR.is_inst_default(this),Array,"asm1.t2000008");
+            this.GenericTypeMetadataName = "asm1.t2000008";
+            BLR.declare_virtual(this,"asm1.x600000b","asm1.x600000b");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -325,7 +301,7 @@ var asm1; (function (asm)
                 this,
                 [(asm1)["Obj.Measurable"]()],
                 {
-                    'x600000c': function (){ return asm1.x600000d;}
+                    'x600000a': function (){ return asm1.x600000b;}
                 });
             this.prototype.ObjRectx = 0;
             this.prototype.ObjRecty = 0;
@@ -343,10 +319,10 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Obj.Circle",false,false,false,false,false,[],[
-                    [asm1, "x6000012", "Area"]
-                ],(asm1)["Obj.Obj"](),BLR.is_inst_default(this),Array,"asm1.t200000a");
-            this.GenericTypeMetadataName = "asm1.t200000a";
-            BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
+                    [asm1, "x6000010", "Area"]
+                ],(asm1)["Obj.Obj"](),BLR.is_inst_default(this),Array,"asm1.t2000009");
+            this.GenericTypeMetadataName = "asm1.t2000009";
+            BLR.declare_virtual(this,"asm1.x600000b","asm1.x600000b");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
@@ -354,7 +330,7 @@ var asm1; (function (asm)
                 this,
                 [(asm1)["Obj.Measurable"]()],
                 {
-                    'x600000c': function (){ return asm1.x600000d;}
+                    'x600000a': function (){ return asm1.x600000b;}
                 });
             this.prototype.ObjCirclex = 0;
             this.prototype.ObjCircley = 0;
@@ -370,11 +346,11 @@ var asm1; (function (asm)
         function ()
         {
             this.init = BLR.nop;
-            BLR.init_type(this,asm,"Obj.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000b");
-            this.GenericTypeMetadataName = "asm1.t200000b";
+            BLR.init_type(this,asm,"Obj.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t200000a");
+            this.GenericTypeMetadataName = "asm1.t200000a";
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.entryPoint = asm.x6000013;
+    asm.entryPoint = asm.x6000011;
 })(asm1 || (asm1 = {}));

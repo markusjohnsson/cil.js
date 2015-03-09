@@ -68,7 +68,8 @@ namespace Braille.Analysis.Passes
             
             var spans = regions
                 .SelectMany(r => r.GetSpans())
-                .OrderBy(s => s.From);
+                .OrderBy(s => s.From)
+                .ThenByDescending(s => s.To);
 
             var regionQueue = new Queue<ProtectedRegionSpan>(spans);
 
@@ -87,7 +88,7 @@ namespace Braille.Analysis.Passes
 
             foreach (var op in method.OpTree)
             {
-                if (currentRegion != null && false == currentRegion.Contains(op))
+                while (currentRegion != null && false == currentRegion.Contains(op))
                 {
                     // we are no longer in currentRegion, let's wrap it up!
 
@@ -123,6 +124,12 @@ namespace Braille.Analysis.Passes
                 }
 
                 block.Ast.Add(op);
+            }
+
+            if (blockStack.Any())
+            {
+                var parentBlock = blockStack.Pop();
+                parentBlock.Ast.Add(block);
             }
 
             method.Block = rootBlock;
