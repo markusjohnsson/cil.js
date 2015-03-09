@@ -143,7 +143,12 @@ namespace System
                 return 0;
             }
             ")]
-        public extern static int Compare(string s1, string s2);
+        public extern static int CompareOrdinal(string s1, string s2);
+
+        public static int Compare(string s1, string s2)
+        {
+            return CompareOrdinal(s1, s2);
+        }
 
         public static string Format(string formatString, params object []values)
         {
