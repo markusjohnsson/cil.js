@@ -27,6 +27,8 @@ namespace System
         
         public int Length { get { return GetLengthImpl(this); } }
 
+        public long LongLength { get { return Length; } }
+
         [JsImport("function(o) { return o.jsarr.length; }")]
         private extern static int GetLengthImpl(object s);
 
@@ -90,7 +92,7 @@ namespace System
                 var t = asm1[classname]();
                 return new t(); 
             }")]
-        private extern static Exception GetException(string classname);
+        internal extern static Exception GetException(string classname);
 
         public static void Copy(Array source, int startIndex, Array target, int targetStartIndex, int length)
         {
@@ -243,7 +245,7 @@ namespace System
             ")]
         private extern static void Sort<T>(T[] array, object comparison);
 
-        internal static void Sort<T>(T[] array, int start, int size)
+        public static void Sort<T>(T[] array, int start, int size)
         {
             try
             {
@@ -254,6 +256,11 @@ namespace System
             {
                 throw new InvalidOperationException("Failed to sort the array. ", e);
             }
+        }
+
+        public static void Sort<T>(T[] array, IComparer<T> comparer)
+        {
+            Sort(array, 0, array.Length, comparer);
         }
 
         internal static void SortImpl<T>(T[] array, int size, Comparison<T> comparison)
@@ -270,7 +277,7 @@ namespace System
 
         }
 
-        internal static void Sort<T>(T[] source, int start, int count, IComparer<T> comparer)
+        public static void Sort<T>(T[] source, int start, int count, IComparer<T> comparer)
         {
             if (start != 0)
                 throw new NotImplementedException();
@@ -521,7 +528,15 @@ namespace System
 
         void ICollection<T>.CopyTo(T[] array, int arrayIndex)
         {
-            Copy((T[])(Array)this, array, arrayIndex);
+            if (arrayIndex < Length - array.Length)
+                throw GetException("System.ArgumentException");
+
+            var len = Length;
+            var src = (T[])(Array)this;
+            for (int i=0, a=arrayIndex; i<len; a++, i++)
+            {
+                array[a] = src[i];
+            }
         }
 
         bool ICollection<T>.Remove(T item)

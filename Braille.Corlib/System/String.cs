@@ -189,5 +189,10 @@ namespace System
             else
                 return 1;
         }
+
+        public static bool IsNullOrEmpty(string s)
+        {
+            return s == null || s == Empty;
+        }
     }
 }

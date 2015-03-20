@@ -20,13 +20,31 @@ namespace System
         [JsReplace("Math.max({0}, {1})")]
         public extern static int Max(int a, int b);
 
+        // long and ulong does not use JavaScript's Number
+        public static long Max(long a, long b) 
+        {
+            return a > b ? a : b;
+        }
+
+        [JsReplace("Math.max({0}, {1})")]
+        public extern static float Max(float a, float b);
+
         [JsReplace("Math.max({0}, {1})")]
         public extern static double Max(double a, double b);
 
         [JsReplace("Math.min({0}, {1})")]
         public extern static int Min(int a, int b);
 
+        // long and ulong does not use JavaScript's Number
+        public static long Min(long a, long b)
+        {
+            return a < b ? a : b;
+        }
+
         [JsReplace("Math.min({0}, {1})")]
         public extern static double Min(double a, double b);
+
+        [JsReplace("Math.min({0}, {1})")]
+        public extern static float Min(float a, float b);
     }
 }
