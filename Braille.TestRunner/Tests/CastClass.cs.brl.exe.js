@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -57,10 +65,12 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = asm1.B();
         t3 = asm1.C();
+        __pos__ = 0x0;
         /* IL_00: call Void Test[A]()*/
         (asm1.x600000e(asm1.A()))();
         /* IL_05: call Void Test[B]()*/
@@ -97,10 +107,12 @@ var asm1; (function (asm)
             var t1;
             var t2;
             var t3;
+            var __pos__;
             t0 = asm1.A();
             t1 = T;
             t2 = asm1.B();
             t3 = asm1.C();
+            __pos__ = 0x0;
             /* IL_00: newobj Void .ctor()*/
             /* IL_05: call Void Cast[T](System.Object)*/
             (asm1.x600000f(T))(BLR.newobj(t0,asm1.x600000a,[null]));
@@ -119,13 +131,18 @@ var asm1; (function (asm)
     {
         return function Cast(arg0)
         {
-            var __pos_0__;
+            var __pos__;
+            var in_block_0;
+            var __finally_continuation_0__;
             var __error_handled_1__;
-            __pos_0__ = 0x0;
+            __pos__ = 0x0;
+            in_block_0 = true;
+            __finally_continuation_0__ = __pos__;
+            __pos__ = 0;
             
-            while (__pos_0__ >= 0){
+            while (in_block_0){
                 
-                switch (__pos_0__){
+                switch (__pos__){
                     case 0x0:
                     
                     try {
@@ -137,8 +154,8 @@ var asm1; (function (asm)
                         /* IL_0C: call Void Log(System.Object)*/
                         asm1.x6000001(BLR.new_string("Success"));
                         /* IL_11: leave.s IL_20*/
-                        __pos_1__ = -1;
-                        __pos_0__ = 0x20;
+                        in_block_1 = false;
+                        __pos__ = 0x20;
                     }
                     
                     catch (__error__){
@@ -153,8 +170,8 @@ var asm1; (function (asm)
                             /* IL_19: call Void Log(System.Object)*/
                             asm1.x6000001(BLR.new_string("Failure"));
                             /* IL_1E: leave.s IL_20*/
-                            __pos_1__ = -1;
-                            __pos_0__ = 0x20;
+                            in_block_1 = false;
+                            __pos__ = 0x20;
                         }
                         
                         if ((!(__error_handled_1__))){
@@ -172,6 +189,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

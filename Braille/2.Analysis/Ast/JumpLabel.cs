@@ -5,9 +5,12 @@ namespace Braille.Ast
     {
         public int Position;
 
-        public JumpLabel(int position)
+        public bool IntruducesBranching;
+
+        public JumpLabel(int position, bool intruducesBranching)
         {
             Position = position;
+            IntruducesBranching = intruducesBranching;
         }
     }
 }

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,7 +28,9 @@ var asm1; (function (asm)
     asm.x600000a_ = function Main()
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr Hello World!*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("Hello World!"));
@@ -36,6 +40,8 @@ var asm1; (function (asm)
     /*  TestTest..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

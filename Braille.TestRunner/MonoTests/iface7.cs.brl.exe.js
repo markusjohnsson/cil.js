@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.Int32 Base.TestMono.IBase.Do()*/
     asm.x600000b = function TestMono_IBase_Do(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.1 */
         /* IL_01: ldarg.0 */
         /* IL_02: callvirt Int32 Do()*/
@@ -25,6 +29,8 @@ var asm1; (function (asm)
     /* System.Int32 Base.Do()*/
     asm.x600000c = function Do(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.1 */
         /* IL_01: ret */
         return (1|0);
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /*  Base..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -40,6 +48,8 @@ var asm1; (function (asm)
     /*  Derived..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000d(arg0);
@@ -66,7 +76,9 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
@@ -75,11 +87,14 @@ var asm1; (function (asm)
         t1 = (asm1)["TestMono.Derived"]();
         t2 = (asm1)["TestMono.IBase"]();
         t3 = (asm1)["TestMono.Base"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: stloc.0 */
@@ -90,7 +105,7 @@ var asm1; (function (asm)
                 /* IL_0D: beq.s IL_11*/
                 
                 if ((((loc0.ifacemap)[t2].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (2|0)){
-                    __pos_0__ = 0x11;
+                    __pos__ = 0x11;
                     continue;
                 }
                 /* IL_0F: ldc.i4.1 */
@@ -106,7 +121,7 @@ var asm1; (function (asm)
                 /* IL_1A: beq.s IL_1E*/
                 
                 if ((((loc1.ifacemap)[t2].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc1)) === (2|0)){
-                    __pos_0__ = 0x1E;
+                    __pos__ = 0x1E;
                     continue;
                 }
                 /* IL_1C: ldc.i4.2 */
@@ -123,7 +138,7 @@ var asm1; (function (asm)
                 /* IL_2C: beq.s IL_30*/
                 
                 if (((loc2.vtable)["asm1.x600000c"]())(loc2) === (1|0)){
-                    __pos_0__ = 0x30;
+                    __pos__ = 0x30;
                     continue;
                 }
                 /* IL_2E: ldc.i4.3 */
@@ -140,7 +155,7 @@ var asm1; (function (asm)
                 /* IL_3E: beq.s IL_42*/
                 
                 if (((loc3.vtable)["asm1.x600000c"]())(loc3) === (1|0)){
-                    __pos_0__ = 0x42;
+                    __pos__ = 0x42;
                     continue;
                 }
                 /* IL_40: ldc.i4.4 */
@@ -156,6 +171,8 @@ var asm1; (function (asm)
     /*  Class1..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -37,6 +39,7 @@ var asm1; (function (asm)
         var loc4;
         var loc5;
         var loc6;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm0)["System.Nullable`1"](t1);
@@ -47,6 +50,7 @@ var asm1; (function (asm)
         loc4 = new (asm1.A())();
         loc5 = new ((asm0)["System.Nullable`1"](asm1.A()))();
         loc6 = new (asm1.A())();
+        __pos__ = 0x0;
         /* IL_00: ldloca.s 2*/
         /* IL_03: initobj System.Nullable`1[A]*/
         loc2 = new t2();
@@ -69,14 +73,14 @@ var asm1; (function (asm)
         /* IL_2D: ldloc.0 */
         /* IL_2E: newobj Void .ctor(A)*/
         /* IL_33: call Void Print(System.Nullable`1[A])*/
-        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x6000162,[null, BLR.clone_value(loc0)])));
+        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x6000169,[null, BLR.clone_value(loc0)])));
         /* IL_38: ldloca.s 4*/
         /* IL_3B: initobj A*/
         loc4 = new t1();
         /* IL_40: ldloc.s 4*/
         /* IL_42: newobj Void .ctor(A)*/
         /* IL_47: call Void Print(System.Nullable`1[A])*/
-        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x6000162,[null, BLR.clone_value(loc4)])));
+        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x6000169,[null, BLR.clone_value(loc4)])));
         /* IL_4C: ldnull */
         /* IL_4D: call Void PrintObject(System.Object)*/
         asm1.x600000b(null);
@@ -126,6 +130,8 @@ var asm1; (function (asm)
     /* static System.Void Program.PrintObject(Object)*/
     asm.x600000b = function PrintObject(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: unbox.any System.Nullable`1[A]*/
         /* IL_06: call Void Print(System.Nullable`1[A])*/
@@ -148,19 +154,24 @@ var asm1; (function (asm)
     {
         var t0;
         var st_02;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = (asm0)["System.Int32"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarga.s 0*/
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_10*/
                 
-                if (asm0.x6000163({
+                if (asm0.x600016a({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -170,13 +181,13 @@ var asm1; (function (asm)
                             return arg0;
                         }
                     })){
-                    __pos_0__ = 0x10;
+                    __pos__ = 0x10;
                     continue;
                 }
                 /* IL_09: ldstr false*/
                 st_02 = BLR.new_string("false");
                 /* IL_0E: br.s IL_15*/
-                __pos_0__ = 0x15;
+                __pos__ = 0x15;
                 continue;
                 case 0x10:
                 /* IL_10: ldstr true*/
@@ -188,7 +199,7 @@ var asm1; (function (asm)
                 /* IL_1C: call Boolean get_HasValue()*/
                 /* IL_21: brfalse.s IL_39*/
                 
-                if ((!(asm0.x6000163({
+                if ((!(asm0.x600016a({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -198,7 +209,7 @@ var asm1; (function (asm)
                             return arg0;
                         }
                     })))){
-                    __pos_0__ = 0x39;
+                    __pos__ = 0x39;
                     continue;
                 }
                 /* IL_23: ldarga.s 0*/
@@ -207,7 +218,7 @@ var asm1; (function (asm)
                 /* IL_2F: box System.Int32*/
                 /* IL_34: call Void Log(System.Object)*/
                 asm1.x6000001({
-                        'boxed': asm0.x6000164({
+                        'boxed': asm0.x600016b({
                                 'w': function (v)
                                 {
                                     arg0 = v;
@@ -230,6 +241,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

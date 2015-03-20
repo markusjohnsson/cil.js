@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,7 +28,9 @@ var asm1; (function (asm)
     asm.x600000a_ = function Main()
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
+        __pos__ = 0x0;
         /* IL_00: call Void TestUInt8()*/
         asm1.x600000c();
         /* IL_05: call Void TestInt8()*/
@@ -56,17 +60,22 @@ var asm1; (function (asm)
     asm.x600000b_ = function TestInt8()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc2;
         var loc3;
         var loc1;
         t0 = (asm0)["System.SByte"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.3 */
                 /* IL_01: newarr System.SByte*/
@@ -94,7 +103,7 @@ var asm1; (function (asm)
                 /* IL_17: stloc.3 */
                 loc3 = (0|0);
                 /* IL_18: br.s IL_2D*/
-                __pos_0__ = 0x2D;
+                __pos__ = 0x2D;
                 continue;
                 case 0x1A:
                 /* IL_1A: ldloc.2 */
@@ -124,7 +133,7 @@ var asm1; (function (asm)
                 /* IL_31: blt.s IL_1A*/
                 
                 if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos_0__ = 0x1A;
+                    __pos__ = 0x1A;
                     continue;
                 }
                 /* IL_33: ret */
@@ -146,17 +155,22 @@ var asm1; (function (asm)
     asm.x600000c_ = function TestUInt8()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc2;
         var loc3;
         var loc1;
         t0 = (asm0)["System.Byte"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.3 */
                 /* IL_01: newarr System.Byte*/
@@ -184,7 +198,7 @@ var asm1; (function (asm)
                 /* IL_16: stloc.3 */
                 loc3 = (0|0);
                 /* IL_17: br.s IL_2C*/
-                __pos_0__ = 0x2C;
+                __pos__ = 0x2C;
                 continue;
                 case 0x19:
                 /* IL_19: ldloc.2 */
@@ -214,7 +228,7 @@ var asm1; (function (asm)
                 /* IL_30: blt.s IL_19*/
                 
                 if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos_0__ = 0x19;
+                    __pos__ = 0x19;
                     continue;
                 }
                 /* IL_32: ret */
@@ -236,17 +250,22 @@ var asm1; (function (asm)
     asm.x600000d_ = function TestInt16()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc2;
         var loc3;
         var loc1;
         t0 = (asm0)["System.Int16"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.3 */
                 /* IL_01: newarr System.Int16*/
@@ -274,7 +293,7 @@ var asm1; (function (asm)
                 /* IL_17: stloc.3 */
                 loc3 = (0|0);
                 /* IL_18: br.s IL_2D*/
-                __pos_0__ = 0x2D;
+                __pos__ = 0x2D;
                 continue;
                 case 0x1A:
                 /* IL_1A: ldloc.2 */
@@ -304,7 +323,7 @@ var asm1; (function (asm)
                 /* IL_31: blt.s IL_1A*/
                 
                 if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos_0__ = 0x1A;
+                    __pos__ = 0x1A;
                     continue;
                 }
                 /* IL_33: ret */
@@ -326,17 +345,22 @@ var asm1; (function (asm)
     asm.x600000e_ = function TestUInt16()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc2;
         var loc3;
         var loc1;
         t0 = (asm0)["System.UInt16"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.3 */
                 /* IL_01: newarr System.UInt16*/
@@ -364,7 +388,7 @@ var asm1; (function (asm)
                 /* IL_16: stloc.3 */
                 loc3 = (0|0);
                 /* IL_17: br.s IL_2C*/
-                __pos_0__ = 0x2C;
+                __pos__ = 0x2C;
                 continue;
                 case 0x19:
                 /* IL_19: ldloc.2 */
@@ -394,7 +418,7 @@ var asm1; (function (asm)
                 /* IL_30: blt.s IL_19*/
                 
                 if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos_0__ = 0x19;
+                    __pos__ = 0x19;
                     continue;
                 }
                 /* IL_32: ret */
@@ -416,17 +440,22 @@ var asm1; (function (asm)
     asm.x600000f_ = function TestInt32()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc2;
         var loc3;
         var loc1;
         t0 = (asm0)["System.Int32"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.3 */
                 /* IL_01: newarr System.Int32*/
@@ -454,7 +483,7 @@ var asm1; (function (asm)
                 /* IL_17: stloc.3 */
                 loc3 = (0|0);
                 /* IL_18: br.s IL_2D*/
-                __pos_0__ = 0x2D;
+                __pos__ = 0x2D;
                 continue;
                 case 0x1A:
                 /* IL_1A: ldloc.2 */
@@ -484,7 +513,7 @@ var asm1; (function (asm)
                 /* IL_31: blt.s IL_1A*/
                 
                 if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos_0__ = 0x1A;
+                    __pos__ = 0x1A;
                     continue;
                 }
                 /* IL_33: ret */
@@ -506,17 +535,22 @@ var asm1; (function (asm)
     asm.x6000010_ = function TestUInt32()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc2;
         var loc3;
         var loc1;
         t0 = (asm0)["System.UInt32"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.3 */
                 /* IL_01: newarr System.UInt32*/
@@ -544,7 +578,7 @@ var asm1; (function (asm)
                 /* IL_16: stloc.3 */
                 loc3 = (0|0);
                 /* IL_17: br.s IL_2C*/
-                __pos_0__ = 0x2C;
+                __pos__ = 0x2C;
                 continue;
                 case 0x19:
                 /* IL_19: ldloc.2 */
@@ -574,7 +608,7 @@ var asm1; (function (asm)
                 /* IL_30: blt.s IL_19*/
                 
                 if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos_0__ = 0x19;
+                    __pos__ = 0x19;
                     continue;
                 }
                 /* IL_32: ret */
@@ -585,6 +619,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000011 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

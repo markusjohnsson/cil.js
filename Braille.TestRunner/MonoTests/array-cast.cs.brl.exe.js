@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -32,7 +34,9 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
@@ -40,11 +44,14 @@ var asm1; (function (asm)
         t1 = (asm0)["System.Attribute"]();
         t2 = (asm0)["System.Object"]();
         t3 = (asm0)["System.Array`1"](t2);
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.1 */
                 /* IL_01: newarr System.Attribute*/
@@ -65,7 +72,7 @@ var asm1; (function (asm)
                 /* IL_18: brtrue.s IL_1C*/
                 
                 if (loc2){
-                    __pos_0__ = 0x1C;
+                    __pos__ = 0x1C;
                     continue;
                 }
                 /* IL_1A: ldc.i4.1 */
@@ -81,6 +88,8 @@ var asm1; (function (asm)
     /*  Test..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

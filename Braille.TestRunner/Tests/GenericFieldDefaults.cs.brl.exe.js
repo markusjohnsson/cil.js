@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -42,6 +46,7 @@ var asm1; (function (asm)
         var t2;
         var t3;
         var t4;
+        var __pos__;
         var loc0;
         var loc1;
         t0 = (asm0)["System.ValueType"]();
@@ -49,6 +54,7 @@ var asm1; (function (asm)
         t2 = (asm1)["A`1"](t1);
         t3 = (asm0)["System.Int32"]();
         t4 = (asm1)["A`1"](t3);
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000a,[null]);
@@ -75,6 +81,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

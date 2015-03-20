@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -34,11 +36,13 @@ var asm1; (function (asm)
         var t2;
         var t3;
         var t4;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Byte"]();
         t2 = (asm0)["System.Int32"]();
         t3 = (asm0)["System.SByte"]();
         t4 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.0 */
         /* IL_01: box System.Byte*/
         /* IL_06: ldc.i4.0 */
@@ -312,7 +316,9 @@ var asm1; (function (asm)
     asm.x600000b_ = function Test(arg0,arg1)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: callvirt Boolean Equals(System.Object)*/
@@ -330,6 +336,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

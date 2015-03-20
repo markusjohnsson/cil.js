@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* System.Void B.X()*/
     asm.x600000c = function X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr B.X*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("B.X"));
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000b(arg0);
@@ -41,6 +49,8 @@ var asm1; (function (asm)
     /* System.Void C.X()*/
     asm.x600000e = function X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr C.X*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("C.X"));
@@ -50,6 +60,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000b(arg0);
@@ -74,9 +86,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.B();
         t2 = asm1.C();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void InvokeX(A)*/
         asm1.x6000011(BLR.newobj(t1,asm1.x600000d,[null]));
@@ -89,6 +103,8 @@ var asm1; (function (asm)
     /* static System.Void Program.InvokeX(A)*/
     asm.x6000011 = function InvokeX(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: callvirt Void X()*/
         ((arg0.vtable)["asm1.x600000a"]())(arg0);
@@ -98,6 +114,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000012 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -16,7 +18,9 @@ var asm1; (function (asm)
     asm.x600000b = function get_zerop()
     {
         var loc0;
+        var __pos__;
         loc0 = new (asm1.Point())();
+        __pos__ = 0x0;
         /* IL_00: ldloca.s 0*/
         /* IL_02: ldc.i4.0 */
         /* IL_03: ldc.i4.0 */
@@ -42,12 +46,17 @@ var asm1; (function (asm)
     /* static System.Int32 Point.struct_param(Point)*/
     asm.x600000c = function struct_param(arg0)
     {
-        var __pos_0__;
-        __pos_0__ = 0x0;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarga.s 0*/
                 /* IL_02: ldfld Int32 x*/
@@ -56,7 +65,7 @@ var asm1; (function (asm)
                 /* IL_0E: bne.un.s IL_29*/
                 
                 if (BLR.unsigned_value(arg0.x) != BLR.unsigned_value(arg0.y)){
-                    __pos_0__ = 0x29;
+                    __pos__ = 0x29;
                     continue;
                 }
                 /* IL_10: ldarga.s 0*/
@@ -66,7 +75,7 @@ var asm1; (function (asm)
                 /* IL_1E: bne.un.s IL_29*/
                 
                 if (BLR.unsigned_value(arg0.y) != BLR.unsigned_value(arg0.z)){
-                    __pos_0__ = 0x29;
+                    __pos__ = 0x29;
                     continue;
                 }
                 /* IL_20: ldarga.s 0*/
@@ -74,7 +83,7 @@ var asm1; (function (asm)
                 /* IL_27: brfalse.s IL_2B*/
                 
                 if ((!(arg0.z))){
-                    __pos_0__ = 0x2B;
+                    __pos__ = 0x2B;
                     continue;
                 }
                 case 0x29:
@@ -103,6 +112,8 @@ var asm1; (function (asm)
     /*  Point..ctor(Int32,Int32)*/
     asm.x600000a = function _ctor(arg0,arg1,arg2)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld Int32 x*/
@@ -133,16 +144,21 @@ var asm1; (function (asm)
     {
         var t0;
         var loc0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc1;
         var loc2;
         t0 = (asm0)["System.ValueType"]();
         loc0 = new (asm1.Point())();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldloca.s 0*/
                 /* IL_02: ldc.i4.s 10*/
@@ -167,7 +183,7 @@ var asm1; (function (asm)
                 /* IL_16: beq.s IL_1A*/
                 
                 if (loc1.x === (10|0)){
-                    __pos_0__ = 0x1A;
+                    __pos__ = 0x1A;
                     continue;
                 }
                 /* IL_18: ldc.i4.1 */
@@ -180,7 +196,7 @@ var asm1; (function (asm)
                 /* IL_23: beq.s IL_27*/
                 
                 if (loc1.y === (20|0)){
-                    __pos_0__ = 0x27;
+                    __pos__ = 0x27;
                     continue;
                 }
                 /* IL_25: ldc.i4.2 */
@@ -193,7 +209,7 @@ var asm1; (function (asm)
                 /* IL_2F: beq.s IL_33*/
                 
                 if (loc1.z === (5|0)){
-                    __pos_0__ = 0x33;
+                    __pos__ = 0x33;
                     continue;
                 }
                 /* IL_31: ldc.i4.3 */
@@ -206,7 +222,7 @@ var asm1; (function (asm)
                 /* IL_3C: beq.s IL_40*/
                 
                 if (loc0.x === (10|0)){
-                    __pos_0__ = 0x40;
+                    __pos__ = 0x40;
                     continue;
                 }
                 /* IL_3E: ldc.i4.4 */
@@ -219,7 +235,7 @@ var asm1; (function (asm)
                 /* IL_49: beq.s IL_4D*/
                 
                 if (loc0.y === (20|0)){
-                    __pos_0__ = 0x4D;
+                    __pos__ = 0x4D;
                     continue;
                 }
                 /* IL_4B: ldc.i4.5 */
@@ -232,7 +248,7 @@ var asm1; (function (asm)
                 /* IL_55: beq.s IL_59*/
                 
                 if (loc0.z === (5|0)){
-                    __pos_0__ = 0x59;
+                    __pos__ = 0x59;
                     continue;
                 }
                 /* IL_57: ldc.i4.6 */
@@ -249,7 +265,7 @@ var asm1; (function (asm)
                 /* IL_69: beq.s IL_6D*/
                 
                 if (loc0.z === (7|0)){
-                    __pos_0__ = 0x6D;
+                    __pos__ = 0x6D;
                     continue;
                 }
                 /* IL_6B: ldc.i4.7 */
@@ -262,7 +278,7 @@ var asm1; (function (asm)
                 /* IL_76: beq.s IL_7A*/
                 
                 if (loc1.x === (10|0)){
-                    __pos_0__ = 0x7A;
+                    __pos__ = 0x7A;
                     continue;
                 }
                 /* IL_78: ldc.i4.8 */
@@ -279,7 +295,7 @@ var asm1; (function (asm)
                 /* IL_8E: bne.un.s IL_A9*/
                 
                 if (BLR.unsigned_value(loc2.x) != BLR.unsigned_value(loc2.y)){
-                    __pos_0__ = 0xA9;
+                    __pos__ = 0xA9;
                     continue;
                 }
                 /* IL_90: ldloca.s 2*/
@@ -289,7 +305,7 @@ var asm1; (function (asm)
                 /* IL_9E: bne.un.s IL_A9*/
                 
                 if (BLR.unsigned_value(loc2.y) != BLR.unsigned_value(loc2.z)){
-                    __pos_0__ = 0xA9;
+                    __pos__ = 0xA9;
                     continue;
                 }
                 /* IL_A0: ldloca.s 2*/
@@ -297,7 +313,7 @@ var asm1; (function (asm)
                 /* IL_A7: brfalse.s IL_AC*/
                 
                 if ((!(loc2.z))){
-                    __pos_0__ = 0xAC;
+                    __pos__ = 0xAC;
                     continue;
                 }
                 case 0xA9:
@@ -310,7 +326,7 @@ var asm1; (function (asm)
                 /* IL_B2: brfalse.s IL_B7*/
                 
                 if ((!(asm1.x600000c(BLR.clone_value(loc2))))){
-                    __pos_0__ = 0xB7;
+                    __pos__ = 0xB7;
                     continue;
                 }
                 /* IL_B4: ldc.i4.s 10*/
@@ -324,7 +340,7 @@ var asm1; (function (asm)
                 /* IL_C5: bne.un.s IL_E0*/
                 
                 if (BLR.unsigned_value(loc2.x) != BLR.unsigned_value(loc2.y)){
-                    __pos_0__ = 0xE0;
+                    __pos__ = 0xE0;
                     continue;
                 }
                 /* IL_C7: ldloca.s 2*/
@@ -334,7 +350,7 @@ var asm1; (function (asm)
                 /* IL_D5: bne.un.s IL_E0*/
                 
                 if (BLR.unsigned_value(loc2.y) != BLR.unsigned_value(loc2.z)){
-                    __pos_0__ = 0xE0;
+                    __pos__ = 0xE0;
                     continue;
                 }
                 /* IL_D7: ldloca.s 2*/
@@ -342,7 +358,7 @@ var asm1; (function (asm)
                 /* IL_DE: brfalse.s IL_E3*/
                 
                 if ((!(loc2.z))){
-                    __pos_0__ = 0xE3;
+                    __pos__ = 0xE3;
                     continue;
                 }
                 case 0xE0:
@@ -359,6 +375,8 @@ var asm1; (function (asm)
     /*  test..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

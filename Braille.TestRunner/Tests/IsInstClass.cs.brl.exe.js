@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -47,9 +53,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = asm1.B();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void Isa(System.Object)*/
         asm1.x600000d(BLR.newobj(t1,asm1.x600000a,[null]));
@@ -77,26 +85,31 @@ var asm1; (function (asm)
     {
         var t0;
         var st_02;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = asm1.A();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.0 */
                 /* IL_01: isinst A*/
                 /* IL_06: brtrue.s IL_0F*/
                 
                 if (t0.IsInst(arg0)){
-                    __pos_0__ = 0xF;
+                    __pos__ = 0xF;
                     continue;
                 }
                 /* IL_08: ldstr false*/
                 st_02 = BLR.new_string("false");
                 /* IL_0D: br.s IL_14*/
-                __pos_0__ = 0x14;
+                __pos__ = 0x14;
                 continue;
                 case 0xF:
                 /* IL_0F: ldstr true*/
@@ -112,6 +125,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

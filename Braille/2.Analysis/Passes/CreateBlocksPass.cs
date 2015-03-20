@@ -82,6 +82,8 @@ namespace Braille.Analysis.Passes
                 awaitedRegion = regionQueue.Dequeue();
 
             var block = new Block(BlockKind.Normal);
+            block.Ast.Add(new JumpLabel(0, false));
+
             var rootBlock = block;
 
             var blockStack = new Stack<Block>();
@@ -102,8 +104,7 @@ namespace Braille.Analysis.Passes
 
                 if (op.IsLabel)
                 {
-                    // TODO: do this in InsertLabelsPass
-                    block.Ast.Add(new JumpLabel(op.Position));
+                    block.Ast.Add(new JumpLabel(op.Position, true));
                 }
 
                 while (awaitedRegion != null && awaitedRegion.Contains(op))
@@ -113,6 +114,8 @@ namespace Braille.Analysis.Passes
                     blockStack.Push(block);
 
                     block = CreateBlock(awaitedRegion);
+
+                    block.Ast.Add(new JumpLabel(op.Position, false));
 
                     regionStack.Push(currentRegion);
                     currentRegion = awaitedRegion;
@@ -163,7 +166,7 @@ namespace Braille.Analysis.Passes
 
             var ex = mtdb
                 .ExceptionHandlingClauses
-                .GroupBy(e => e.TryOffset);
+                .GroupBy(e => new { e.TryOffset, e.TryLength });
 
             var regions = new List<ProtectedRegion>();
 
@@ -171,9 +174,9 @@ namespace Braille.Analysis.Passes
             {
                 var result = new ProtectedRegion();
 
-                var tryEnd = clauseGroup.Min(m => m.TryOffset + m.TryLength);
+                var key = clauseGroup.Key;
 
-                result.TrySpan = new ProtectedRegionSpan(clauseGroup.Key, tryEnd, RegionKind.Try);
+                result.TrySpan = new ProtectedRegionSpan(key.TryOffset, key.TryOffset + key.TryLength, RegionKind.Try);
 
                 result.CatchSpan = clauseGroup
                     .Where(e => e.Flags == ExceptionHandlingClauseOptions.Clause)

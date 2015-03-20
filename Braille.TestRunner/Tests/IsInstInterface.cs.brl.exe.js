@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -41,6 +49,8 @@ var asm1; (function (asm)
     /*  D..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000c(arg0);
@@ -69,11 +79,13 @@ var asm1; (function (asm)
         var t2;
         var t3;
         var t4;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = asm1.B();
         t3 = asm1.C();
         t4 = asm1.D();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void TestImpl(System.Object)*/
         asm1.x600000f(BLR.newobj(t1,asm1.x600000a,[null]));
@@ -110,28 +122,33 @@ var asm1; (function (asm)
         var st_02;
         var st_05;
         var st_08;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = asm1.I1();
         t1 = asm1.I2();
         t2 = asm1.I3();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.0 */
                 /* IL_01: isinst I1*/
                 /* IL_06: brtrue.s IL_0F*/
                 
                 if (t0.IsInst(arg0)){
-                    __pos_0__ = 0xF;
+                    __pos__ = 0xF;
                     continue;
                 }
                 /* IL_08: ldstr false*/
                 st_02 = BLR.new_string("false");
                 /* IL_0D: br.s IL_14*/
-                __pos_0__ = 0x14;
+                __pos__ = 0x14;
                 continue;
                 case 0xF:
                 /* IL_0F: ldstr true*/
@@ -144,13 +161,13 @@ var asm1; (function (asm)
                 /* IL_1F: brtrue.s IL_28*/
                 
                 if (t1.IsInst(arg0)){
-                    __pos_0__ = 0x28;
+                    __pos__ = 0x28;
                     continue;
                 }
                 /* IL_21: ldstr false*/
                 st_05 = BLR.new_string("false");
                 /* IL_26: br.s IL_2D*/
-                __pos_0__ = 0x2D;
+                __pos__ = 0x2D;
                 continue;
                 case 0x28:
                 /* IL_28: ldstr true*/
@@ -163,13 +180,13 @@ var asm1; (function (asm)
                 /* IL_38: brtrue.s IL_41*/
                 
                 if (t2.IsInst(arg0)){
-                    __pos_0__ = 0x41;
+                    __pos__ = 0x41;
                     continue;
                 }
                 /* IL_3A: ldstr false*/
                 st_08 = BLR.new_string("false");
                 /* IL_3F: br.s IL_46*/
-                __pos_0__ = 0x46;
+                __pos__ = 0x46;
                 continue;
                 case 0x41:
                 /* IL_41: ldstr true*/
@@ -185,6 +202,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,16 +28,21 @@ var asm1; (function (asm)
     asm.x600000a_ = function Main()
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
         t0 = (asm0)["System.ValueType"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldstr ddd*/
                 /* IL_05: stloc.0 */
@@ -51,8 +58,8 @@ var asm1; (function (asm)
                 /* IL_14: call Boolean op_Inequality(System.String, System.String)*/
                 /* IL_19: brfalse.s IL_1D*/
                 
-                if ((!(asm0.x6000181(loc0,loc1)))){
-                    __pos_0__ = 0x1D;
+                if ((!(asm0.x6000188(loc0,loc1)))){
+                    __pos__ = 0x1D;
                     continue;
                 }
                 /* IL_1B: ldc.i4.1 */
@@ -66,8 +73,8 @@ var asm1; (function (asm)
                 /* IL_29: call Boolean op_Inequality(System.String, System.String)*/
                 /* IL_2E: brfalse.s IL_32*/
                 
-                if ((!(asm0.x6000181(loc2,asm0.x6000177(loc1,BLR.new_string("a")))))){
-                    __pos_0__ = 0x32;
+                if ((!(asm0.x6000188(loc2,asm0.x600017e(loc1,BLR.new_string("a")))))){
+                    __pos__ = 0x32;
                     continue;
                 }
                 /* IL_30: ldc.i4.2 */
@@ -81,8 +88,8 @@ var asm1; (function (asm)
                 /* IL_3E: call Boolean ReferenceEquals(System.Object, System.Object)*/
                 /* IL_43: brfalse.s IL_47*/
                 
-                if ((!(asm0.x6000007(loc2,asm0.x6000177(loc1,BLR.new_string("a")))))){
-                    __pos_0__ = 0x47;
+                if ((!(asm0.x6000007(loc2,asm0.x600017e(loc1,BLR.new_string("a")))))){
+                    __pos__ = 0x47;
                     continue;
                 }
                 /* IL_45: ldc.i4.4 */
@@ -98,6 +105,8 @@ var asm1; (function (asm)
     /*  TestString..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

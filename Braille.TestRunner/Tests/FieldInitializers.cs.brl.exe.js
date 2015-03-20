@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -30,9 +32,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.Program();
         t2 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         asm1.x600000c();
         /* IL_00: ldsfld Int32 X*/
         /* IL_05: box System.Int32*/
@@ -60,6 +64,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldc.i4 321*/
         /* IL_06: stfld Int32 Y*/
@@ -83,12 +89,14 @@ var asm1; (function (asm)
     asm.x600000c_ = function _cctor()
     {
         var t0;
+        var __pos__;
         
-        if (asm1.Program().FieldHasBeenInitialized){
+        if (asm1.Program().FieldsInitialized){
             return;
         }
-        asm1.Program().FieldHasBeenInitialized = true;
+        asm1.Program().FieldsInitialized = true;
         t0 = asm1.Program();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.s 123*/
         /* IL_02: stsfld Int32 X*/
         (t0)["X"] = (123|0);

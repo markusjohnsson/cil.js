@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.String A.X(String)*/
     asm.x600000b = function X(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.1 */
         /* IL_01: call Void Log(System.Object)*/
         asm1.x6000001(arg1);
@@ -23,11 +27,13 @@ var asm1; (function (asm)
         /* IL_0C: ldarg.1 */
         /* IL_0D: call String Concat(System.String, System.String)*/
         /* IL_12: ret */
-        return asm0.x6000177(arg0.AY,arg1);
+        return asm0.x600017e(arg0.AY,arg1);
     };;
     /*  A..ctor(String)*/
     asm.x600000a = function _ctor(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ldarg.0 */
@@ -62,18 +68,20 @@ var asm1; (function (asm)
         var st_0C;
         var st_0D;
         var st_0E;
+        var __pos__;
         var loc0;
         var loc1;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm0)["System.Object"]();
+        __pos__ = 0x0;
         /* IL_00: ldtoken A*/
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_0A: callvirt MethodInfo[] GetMethods()*/
         /* IL_0F: ldc.i4.0 */
         /* IL_10: ldelem.ref */
         /* IL_11: stloc.0 */
-        loc0 = BLR.ldelem_ref((((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c3"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),(0|0));
+        loc0 = BLR.ldelem_ref((((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c4"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),(0|0));
         /* IL_12: ldloc.0 */
         st_0B = loc0;
         /* IL_13: ldstr Hello*/
@@ -103,6 +111,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

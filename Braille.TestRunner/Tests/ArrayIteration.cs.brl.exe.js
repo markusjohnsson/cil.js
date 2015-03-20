@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -28,9 +30,11 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.5 */
         /* IL_01: newarr System.Int32*/
         /* IL_06: stloc.0 */
@@ -84,19 +88,25 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc1;
-        var __pos_1__;
+        var in_block_1;
+        var __finally_continuation_1__;
         var loc0;
         var loc2;
         t0 = (asm0)["System.Collections.IEnumerable"]();
         t1 = (asm0)["System.Collections.IEnumerator"]();
         t2 = (asm0)["System.IDisposable"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.0 */
                 /* IL_01: callvirt IEnumerator GetEnumerator()*/
@@ -104,20 +114,22 @@ var asm1; (function (asm)
                 loc1 = (((arg0.ifacemap)[t0].x600000d)())(BLR.convert_box_to_pointer_as_needed(arg0));
                 
                 try {
-                    __pos_1__ = 0x0;
+                    in_block_1 = true;
+                    __finally_continuation_1__ = __pos__;
+                    __pos__ = 7;
                     
-                    while (__pos_1__ >= 0){
+                    while (in_block_1){
                         
-                        switch (__pos_1__){
-                            case 0x0:
+                        switch (__pos__){
+                            case 0x7:
                             /* IL_07: br.s IL_16*/
-                            __pos_1__ = 0x16;
+                            __pos__ = 0x16;
                             continue;
                             case 0x9:
                             /* IL_09: ldloc.1 */
                             /* IL_0A: callvirt Object get_Current()*/
                             /* IL_0F: stloc.0 */
-                            loc0 = (((loc1.ifacemap)[t1].x60000ea)())(BLR.convert_box_to_pointer_as_needed(loc1));
+                            loc0 = (((loc1.ifacemap)[t1].x60000eb)())(BLR.convert_box_to_pointer_as_needed(loc1));
                             /* IL_10: ldloc.0 */
                             /* IL_11: call Void Log(System.Object)*/
                             asm1.x6000001(loc0);
@@ -126,25 +138,27 @@ var asm1; (function (asm)
                             /* IL_17: callvirt Boolean MoveNext()*/
                             /* IL_1C: brtrue.s IL_09*/
                             
-                            if ((((loc1.ifacemap)[t1].x60000eb)())(BLR.convert_box_to_pointer_as_needed(loc1))){
-                                __pos_1__ = 0x9;
+                            if ((((loc1.ifacemap)[t1].x60000ec)())(BLR.convert_box_to_pointer_as_needed(loc1))){
+                                __pos__ = 0x9;
                                 continue;
                             }
                             /* IL_1E: leave.s IL_31*/
-                            __pos_1__ = -1;
-                            __pos_0__ = 0x31;
+                            in_block_1 = false;
+                            __pos__ = 0x31;
                             break;
                         }
                     }
                 }
                 
                 finally {
-                    __pos_1__ = 0x0;
+                    in_block_1 = true;
+                    __finally_continuation_1__ = __pos__;
+                    __pos__ = 32;
                     
-                    while (__pos_1__ >= 0){
+                    while (in_block_1){
                         
-                        switch (__pos_1__){
-                            case 0x0:
+                        switch (__pos__){
+                            case 0x20:
                             /* IL_20: ldloc.1 */
                             /* IL_21: isinst System.IDisposable*/
                             /* IL_26: stloc.2 */
@@ -153,15 +167,16 @@ var asm1; (function (asm)
                             /* IL_28: brfalse.s IL_30*/
                             
                             if ((!(loc2))){
-                                __pos_1__ = 0x30;
+                                __pos__ = 0x30;
                                 continue;
                             }
                             /* IL_2A: ldloc.2 */
                             /* IL_2B: callvirt Void Dispose()*/
-                            (((loc2.ifacemap)[t2].x600009d)())(BLR.convert_box_to_pointer_as_needed(loc2));
+                            (((loc2.ifacemap)[t2].x600009e)())(BLR.convert_box_to_pointer_as_needed(loc2));
                             case 0x30:
                             /* IL_30: endfinally */
-                            __pos_1__ = -1;
+                            in_block_1 = false;
+                            __pos__ = __finally_continuation_1__;
                             break;
                         }
                     }
@@ -176,6 +191,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

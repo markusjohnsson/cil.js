@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -32,6 +34,8 @@ var asm1; (function (asm)
     /* static System.String Program.X(Int32)*/
     asm.x600000c = function X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr RESULT!*/
         /* IL_05: ret */
         return BLR.new_string("RESULT!");
@@ -39,6 +43,8 @@ var asm1; (function (asm)
     /* static System.String Program.Y(Int32)*/
     asm.x600000d = function Y(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr FOO!*/
         /* IL_05: ret */
         return BLR.new_string("FOO!");
@@ -59,9 +65,11 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.Foo();
+        __pos__ = 0x0;
         /* IL_00: ldnull */
         /* IL_02: ldftn String X(System.Int32)*/
         /* IL_07: newobj Void .ctor(System.Object, System.IntPtr)*/
@@ -115,6 +123,8 @@ var asm1; (function (asm)
     /* static System.Void Program.CallDelegate(Foo)*/
     asm.x600000f = function CallDelegate(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldc.i4.s 123*/
         /* IL_03: callvirt String Invoke(System.Int32)*/
@@ -142,14 +152,16 @@ var asm1; (function (asm)
     asm.x6000010_ = function TestEquality(arg0,arg1)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: call Boolean op_Equality(System.Delegate, System.Delegate)*/
         /* IL_07: box System.Boolean*/
         /* IL_0C: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm0.x6000076(arg0,arg1),
+                'boxed': asm0.x6000077(arg0,arg1),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -160,7 +172,7 @@ var asm1; (function (asm)
         /* IL_18: box System.Boolean*/
         /* IL_1D: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm0.x6000077(arg0,arg1),
+                'boxed': asm0.x6000078(arg0,arg1),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -171,6 +183,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000011 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -207,10 +221,10 @@ var asm1; (function (asm)
                 ],(asm0)["System.MulticastDelegate"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
             this.GenericTypeMetadataName = "asm1.t2000006";
             BLR.declare_virtual(this,"asm1.x600000b","asm1.x600000b");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
+            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

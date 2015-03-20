@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.Void A.NonGeneric()*/
     asm.x600000d = function NonGeneric(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr A.NonGeneric*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("A.NonGeneric"));
@@ -24,6 +28,8 @@ var asm1; (function (asm)
     /* System.Void A.GenericArg(Int32)*/
     asm.x600000e = function GenericArg(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr A.GenericArg*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("A.GenericArg"));
@@ -37,6 +43,8 @@ var asm1; (function (asm)
     /* System.Int32 A.GenericReturn()*/
     asm.x600000f = function GenericReturn(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr A.GenericReturn*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("A.GenericReturn"));
@@ -48,6 +56,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -56,6 +66,8 @@ var asm1; (function (asm)
     /* System.Void B`1.NonGeneric()*/
     asm.x6000011 = function NonGeneric(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr B.NonGeneric*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("B.NonGeneric"));
@@ -65,6 +77,8 @@ var asm1; (function (asm)
     /* System.Void B`1.GenericArg(T)*/
     asm.x6000012 = function GenericArg(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr B.NonGeneric*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("B.NonGeneric"));
@@ -78,6 +92,8 @@ var asm1; (function (asm)
     /* T B`1.GenericReturn()*/
     asm.x6000013 = function GenericReturn(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr B.GenericReturn*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("B.GenericReturn"));
@@ -89,6 +105,8 @@ var asm1; (function (asm)
     /*  B`1..ctor()*/
     asm.x6000014 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -116,11 +134,13 @@ var asm1; (function (asm)
         var t2;
         var t3;
         var t4;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm0)["System.Int32"]();
         t3 = (asm0)["System.String"]();
         t4 = (asm1)["B`1"](t3);
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: ldc.i4 12345*/
         /* IL_0A: call Void Run[System.Int32](I`1[System.Int32], System.Int32)*/
@@ -154,8 +174,10 @@ var asm1; (function (asm)
         {
             var t0;
             var t1;
+            var __pos__;
             t0 = T;
             t1 = (asm1)["I`1"](t0);
+            __pos__ = 0x0;
             /* IL_00: ldarg.0 */
             /* IL_01: callvirt Void NonGeneric()*/
             ((((arg0.ifacemap)[t1])[t0].x600000a)())(BLR.convert_box_to_pointer_as_needed(arg0));
@@ -175,6 +197,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000017 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

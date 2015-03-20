@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.String A.get_X()*/
     asm.x600000a = function get_X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld String <X>k__BackingField*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* System.Void A.set_X(String)*/
     asm.x600000b = function set_X(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld String <X>k__BackingField*/
@@ -33,6 +39,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -56,10 +64,12 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: call String GetString()*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(asm1.x600000f());
@@ -84,7 +94,7 @@ var asm1; (function (asm)
         /* IL_40: box System.Int32*/
         /* IL_45: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm0.x600017f(BLR.new_string("123456789")),
+                'boxed': asm0.x6000186(BLR.new_string("123456789")),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
@@ -106,20 +116,25 @@ var asm1; (function (asm)
     asm.x600000e_ = function IsString(arg0)
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = (asm0)["System.String"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.0 */
                 /* IL_01: isinst System.String*/
                 /* IL_06: brtrue.s IL_0E*/
                 
                 if (t0.IsInst(arg0)){
-                    __pos_0__ = 0xE;
+                    __pos__ = 0xE;
                     continue;
                 }
                 /* IL_08: ldstr false*/
@@ -135,6 +150,8 @@ var asm1; (function (asm)
     /* static System.String Program.GetString()*/
     asm.x600000f = function GetString()
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr Hello*/
         /* IL_05: ret */
         return BLR.new_string("Hello");
@@ -142,6 +159,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

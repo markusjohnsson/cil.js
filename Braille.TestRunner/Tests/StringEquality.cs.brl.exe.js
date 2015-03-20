@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,14 +28,16 @@ var asm1; (function (asm)
     asm.x600000a_ = function Cmp(arg0)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr Hello World*/
         /* IL_06: call Boolean op_Equality(System.String, System.String)*/
         /* IL_0B: box System.Boolean*/
         /* IL_10: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm0.x6000182(arg0,BLR.new_string("Hello World")),
+                'boxed': asm0.x6000189(arg0,BLR.new_string("Hello World")),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -44,7 +48,7 @@ var asm1; (function (asm)
         /* IL_20: box System.Boolean*/
         /* IL_25: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': ((arg0.vtable)["asm0.x6000183"]())(arg0,BLR.new_string("Hello World")),
+                'boxed': ((arg0.vtable)["asm0.x600018a"]())(arg0,BLR.new_string("Hello World")),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -55,7 +59,7 @@ var asm1; (function (asm)
         /* IL_35: box System.Boolean*/
         /* IL_3A: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': (((BLR.new_string("Hello World").vtable)["asm0.x6000183"])())(BLR.new_string("Hello World"),arg0),
+                'boxed': (((BLR.new_string("Hello World").vtable)["asm0.x600018a"])())(BLR.new_string("Hello World"),arg0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
@@ -77,7 +81,9 @@ var asm1; (function (asm)
     asm.x600000b_ = function Main()
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr Hello World*/
         /* IL_05: call Void Cmp(System.String)*/
         asm1.x600000a(BLR.new_string("Hello World"));
@@ -93,6 +99,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

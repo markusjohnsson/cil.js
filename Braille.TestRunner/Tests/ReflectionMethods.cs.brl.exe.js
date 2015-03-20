@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,24 +17,32 @@ var asm1; (function (asm)
     /* System.Void A.X()*/
     asm.x600000a = function X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ret */
         return ;
     };;
     /* System.Void A.Y()*/
     asm.x600000b = function Y(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ret */
         return ;
     };;
     /* System.Void A.Z()*/
     asm.x600000c = function Z(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ret */
         return ;
     };;
     /*  A..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -54,7 +64,9 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc3;
@@ -62,20 +74,23 @@ var asm1; (function (asm)
         var loc2;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldtoken A*/
                 /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
                 /* IL_0A: stloc.0 */
-                loc0 = asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1));
+                loc0 = asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1));
                 /* IL_0B: ldloc.0 */
                 /* IL_0C: callvirt MethodInfo[] GetMethods()*/
                 /* IL_11: stloc.1 */
-                loc1 = ((loc0.vtable)["asm0.x60000c3"]())(loc0);
+                loc1 = ((loc0.vtable)["asm0.x60000c4"]())(loc0);
                 /* IL_12: ldloc.1 */
                 /* IL_13: stloc.3 */
                 loc3 = loc1;
@@ -83,7 +98,7 @@ var asm1; (function (asm)
                 /* IL_15: stloc.s 4*/
                 loc4 = (0|0);
                 /* IL_17: br.s IL_2F*/
-                __pos_0__ = 0x2F;
+                __pos__ = 0x2F;
                 continue;
                 case 0x19:
                 /* IL_19: ldloc.3 */
@@ -108,7 +123,7 @@ var asm1; (function (asm)
                 /* IL_34: blt.s IL_19*/
                 
                 if (loc4 < (loc3.jsarr.length | (0|0))){
-                    __pos_0__ = 0x19;
+                    __pos__ = 0x19;
                     continue;
                 }
                 /* IL_36: ret */
@@ -119,6 +134,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

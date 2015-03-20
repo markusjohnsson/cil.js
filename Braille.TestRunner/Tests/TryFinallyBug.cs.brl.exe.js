@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -28,16 +30,22 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var __pos_0__;
-        var __pos_2__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
+        var in_block_2;
+        var __finally_continuation_2__;
         var __error_handled_1__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Exception"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 
                 try {
@@ -51,16 +59,18 @@ var asm1; (function (asm)
                         asm1.x6000001(BLR.new_string("Try 2"));
                         /* IL_14: newobj Void .ctor()*/
                         /* IL_19: throw */
-                        throw BLR.newobj(t1,asm0.x6000085,[null]);
+                        throw BLR.newobj(t1,asm0.x6000086,[null]);
                     }
                     
                     finally {
-                        __pos_2__ = 0x0;
+                        in_block_2 = true;
+                        __finally_continuation_2__ = __pos__;
+                        __pos__ = 26;
                         
-                        while (__pos_2__ >= 0){
+                        while (in_block_2){
                             
-                            switch (__pos_2__){
-                                case 0x0:
+                            switch (__pos__){
+                                case 0x1A:
                                 /* IL_1A: ldstr Finally with branching*/
                                 /* IL_1F: call Void Log(System.Object)*/
                                 asm1.x6000001(BLR.new_string("Finally with branching"));
@@ -68,7 +78,7 @@ var asm1; (function (asm)
                                 /* IL_29: brfalse.s IL_35*/
                                 
                                 if ((!(asm1.x600000b()))){
-                                    __pos_2__ = 0x35;
+                                    __pos__ = 0x35;
                                     continue;
                                 }
                                 /* IL_2B: ldstr In branch*/
@@ -79,7 +89,8 @@ var asm1; (function (asm)
                                 /* IL_3A: call Void Log(System.Object)*/
                                 asm1.x6000001(BLR.new_string("After branch"));
                                 /* IL_3F: endfinally */
-                                __pos_2__ = -1;
+                                in_block_2 = false;
+                                __pos__ = __finally_continuation_2__;
                                 break;
                             }
                         }
@@ -99,8 +110,8 @@ var asm1; (function (asm)
                         /* IL_46: call Void Log(System.Object)*/
                         asm1.x6000001(BLR.new_string("Catch"));
                         /* IL_4B: leave.s IL_4D*/
-                        __pos_1__ = -1;
-                        __pos_0__ = 0x4D;
+                        in_block_1 = false;
+                        __pos__ = 0x4D;
                     }
                     
                     if ((!(__error_handled_1__))){
@@ -117,6 +128,8 @@ var asm1; (function (asm)
     /* static System.Boolean Program.What()*/
     asm.x600000b = function What()
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.1 */
         /* IL_01: ret */
         return (1|0);
@@ -124,6 +137,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.Void A.M()*/
     asm.x600000a = function M(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr A*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("A"));
@@ -24,6 +28,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /* System.Void B.M()*/
     asm.x600000c = function M(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr B*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("B"));
@@ -41,6 +49,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000b(arg0);
@@ -52,6 +62,8 @@ var asm1; (function (asm)
     {
         return function X(arg0)
         {
+            var __pos__;
+            __pos__ = 0x0;
             /* IL_00: ldarga.s 0*/
             /* IL_08: callvirt Void M()*/
             /* warning: ignoring prefixes constrained.*/
@@ -87,9 +99,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = asm1.B();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void X[A](A)*/
         (asm1.x600000e(asm1.A()))(BLR.newobj(t1,asm1.x600000b,[null]));
@@ -105,6 +119,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

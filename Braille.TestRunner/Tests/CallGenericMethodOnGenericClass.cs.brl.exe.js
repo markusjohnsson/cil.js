@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -35,18 +41,20 @@ var asm1; (function (asm)
         {
             var t0;
             var t1;
+            var __pos__;
             t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0];
             t1 = T2;
+            __pos__ = 0x0;
             /* IL_00: ldtoken T*/
             /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_0A: callvirt String get_Name()*/
             /* IL_0F: call Void Log(System.Object)*/
-            asm1.x6000001((((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003e"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
+            asm1.x6000001((((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003e"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
             /* IL_14: ldtoken T2*/
             /* IL_19: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_1E: callvirt String get_Name()*/
             /* IL_23: call Void Log(System.Object)*/
-            asm1.x6000001((((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x600003e"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))));
+            asm1.x6000001((((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x600003e"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))));
             /* IL_28: ret */
             return ;
         };
@@ -54,6 +62,8 @@ var asm1; (function (asm)
     /*  C`1..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -79,11 +89,13 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm1)["C`1"](t1);
         t3 = asm1.B();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000d,[null]);
@@ -96,6 +108,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* static System.Void Program.Callee()*/
     asm.x600000a = function Callee()
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr Called!*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("Called!"));
@@ -35,7 +39,9 @@ var asm1; (function (asm)
     asm.x600000b_ = function Main()
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
+        __pos__ = 0x0;
         /* IL_00: call Void Callee()*/
         asm1.x600000a();
         /* IL_05: ret */
@@ -44,6 +50,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

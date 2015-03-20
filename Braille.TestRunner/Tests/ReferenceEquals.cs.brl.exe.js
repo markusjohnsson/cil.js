@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -46,10 +50,12 @@ var asm1; (function (asm)
             var t1;
             var t2;
             var t3;
+            var __pos__;
             t0 = (asm0)["Braille.Runtime.UnboundGenericParameter"]();
             t1 = T;
             t2 = (asm1)["C`1"](t1);
             t3 = (asm0)["System.Boolean"]();
+            __pos__ = 0x0;
             /* IL_00: ldsfld T t*/
             /* IL_05: box T*/
             /* IL_0A: ldarg.0 */
@@ -70,6 +76,8 @@ var asm1; (function (asm)
     /*  C`1..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -104,6 +112,7 @@ var asm1; (function (asm)
         var loc1;
         var loc2;
         var loc4;
+        var __pos__;
         var loc0;
         var loc3;
         t0 = (asm0)["System.ValueType"]();
@@ -116,6 +125,7 @@ var asm1; (function (asm)
         loc1 = new (asm1.B())();
         loc2 = new (asm1.B())();
         loc4 = new (asm1.B())();
+        __pos__ = 0x0;
         /* IL_00: ldsfld Object a*/
         /* IL_05: ldnull */
         /* IL_06: call Boolean ReferenceEquals(System.Object, System.Object)*/
@@ -338,8 +348,10 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
+        var __pos__;
         t0 = asm1.Program();
         t1 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldsfld Object a*/
         /* IL_05: ldarg.0 */
         /* IL_06: call Boolean ReferenceEquals(System.Object, System.Object)*/
@@ -405,9 +417,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = asm1.Program();
         t1 = asm1.B();
         t2 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldsfld B b*/
         /* IL_05: box B*/
         /* IL_0A: ldarg.0 */
@@ -566,6 +580,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

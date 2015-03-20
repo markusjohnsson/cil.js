@@ -30,21 +30,25 @@ namespace Braille.JsTranslation
             this.method = method;
         }
 
+        private IEnumerable<Type> RequireFieldInitTypes(OpExpression node)
+        {
+            foreach (var n in node.RequireFieldInitTypes)
+                yield return n;
+            foreach (var a in node.Arguments.OfType<OpExpression>())
+                foreach (var t in RequireFieldInitTypes(a))
+                    yield return t;
+        }
+
         public IEnumerable<JSStatement> Process(OpExpression node)
         {
             var thisScope = GetThisScope(method.ReflectionMethod, type.ReflectionType);
 
-            if (node.RequireFieldInitTypes.Any())
+            foreach (var t in RequireFieldInitTypes(node).Distinct())
             {
-                var ts = node.RequireFieldInitTypes.Distinct();
-
-                foreach (var t in ts)
-                {
-                    // call static initializers
-                    var cctor = GetFieldInit(t, thisScope);
-                    if (cctor != null)
-                        yield return cctor;
-                }
+                // call static initializers
+                var cctor = GetFieldInit(t, thisScope);
+                if (cctor != null)
+                    yield return cctor;
             }
 
             if (context.Settings.OutputILComments)
@@ -67,17 +71,8 @@ namespace Braille.JsTranslation
             {
                 case "br":
                 case "br.s":
-                    yield return JSFactory.Statement(
-                        new JSBinaryExpression
-                        {
-                            Left = new JSIdentifier
-                            {
-                                Name = "__pos__"
-                            },
-                            Operator = "=",
-                            Right = new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true }
-                        });
-                    yield return JSFactory.Statement(new JSContinueExpression());
+                    foreach (var statement in CreateJumpTo(GetTargetPosition(node.Instruction)))
+                        yield return statement;
                     break;
 
                 case "beq":
@@ -118,17 +113,7 @@ namespace Braille.JsTranslation
                     yield return new JSIfStatement
                     {
                         Condition = ProcessInternal(node.Arguments.Single()),
-                        Statements = {
-                            JSFactory.Statement(
-                                JSFactory
-                                    .Assignment(
-                                        new JSIdentifier
-                                        {
-                                            Name = "__pos__"
-                                        },
-                                        new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })),
-                            JSFactory.Statement(new JSContinueExpression())
-                        }
+                        Statements = CreateJumpTo(GetTargetPosition(node.Instruction))
                     };
                     break;
 
@@ -141,17 +126,7 @@ namespace Braille.JsTranslation
                             Operator = "!",
                             Operand = ProcessInternal(node.Arguments.Single())
                         },
-                        Statements = {
-                            JSFactory.Statement(
-                                JSFactory
-                                    .Assignment(
-                                        new JSIdentifier
-                                        {
-                                            Name = "__pos__"
-                                        },
-                                        new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })),
-                            JSFactory.Statement(new JSContinueExpression())
-                        }
+                        Statements = CreateJumpTo(GetTargetPosition(node.Instruction))
                     };
                     break;
 
@@ -164,8 +139,13 @@ namespace Braille.JsTranslation
                 case "endfinally":
                     yield return JSFactory
                         .Assignment(
+                            new JSIdentifier { Name = "in_block" },
+                            new JSBoolLiteral { Value = false })
+                        .ToStatement();
+                    yield return JSFactory
+                        .Assignment(
                             new JSIdentifier { Name = "__pos__" },
-                            new JSNumberLiteral { Value = -1 })
+                            new JSIdentifier { Name = "__finally_continuation__" })
                         .ToStatement();
                     yield return new JSBreakExpression().ToStatement();
                     break;
@@ -173,12 +153,12 @@ namespace Braille.JsTranslation
                 case "leave.s":
                     yield return JSFactory
                         .Assignment(
-                            new JSIdentifier { Name = "__pos__" },
-                            new JSNumberLiteral { Value = -1 })
+                            new JSIdentifier { Name = "in_block" },
+                            new JSBoolLiteral { Value = false })
                         .ToStatement();
                     yield return JSFactory
                         .Assignment(
-                            new JSIdentifier { Name = "__outer_pos__" },
+                            new JSIdentifier { Name = "__pos__" },
                             new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
                         .ToStatement();
                     yield return new JSBreakExpression().ToStatement();
@@ -202,21 +182,7 @@ namespace Braille.JsTranslation
                             Operator = ">=",
                             Right = new JSNumberLiteral { Value = ((int[])node.Instruction.Data).Length, IsHex = true }
                         },
-                        Statements = 
-                        {
-                            JSFactory
-                                .Assignment(
-                                    new JSIdentifier
-                                    {
-                                        Name = "__pos__"
-                                    },
-                                    new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
-                                .ToStatement(),
-                            new JSExpressionStatement
-                            {
-                                Expression = new JSContinueExpression()
-                            }       
-                        }
+                        Statements = CreateJumpTo(GetTargetPosition(node.Instruction))
                     };
 
                     yield return new JSExpressionStatement
@@ -263,6 +229,21 @@ namespace Braille.JsTranslation
                     break;
             }
 
+        }
+
+        private static List<JSStatement> CreateJumpTo(double target)
+        {
+            return new List<JSStatement> {
+                JSFactory.Statement(
+                    JSFactory
+                        .Assignment(
+                            new JSIdentifier
+                            {
+                                Name = "__pos__"
+                            },
+                            new JSNumberLiteral { Value = target, IsHex = true })),
+                JSFactory.Statement(new JSContinueExpression())
+            };
         }
 
         private JSStatement GetFieldInit(Type t, JSExpression thisScope)
@@ -335,18 +316,7 @@ namespace Braille.JsTranslation
                     Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
                     Operator = op
                 },
-                Statements = 
-                {
-                    JSFactory
-                        .Assignment(
-                            "__pos__",
-                            new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
-                        .ToStatement(),
-                    new JSExpressionStatement
-                    {
-                        Expression = new JSContinueExpression()
-                    }       
-                }
+                Statements = CreateJumpTo(GetTargetPosition(node.Instruction))
             };
         }
 

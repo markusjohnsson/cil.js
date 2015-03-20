@@ -24,18 +24,7 @@ namespace Braille.Analysis.Passes
                     node is FinallyBlock ||
                     node is FaultBlock)
                 {
-                    if (node is FinallyBlock && currentAggregate.Count == 0)
-                    {
-                        // nasty solution for rare case where there is a leave(.s) op between catch and finally. 
-                        // TODO: read up un what's happening
-
-                        replacements.Last().Add((Block)node);
-                    }
-                    else
-                    {
-                        currentAggregate.Add((Block)node);
-                    }
-
+                    currentAggregate.Add((Block)node);
                     RewriteBlock((Block)node);
                 }
                 else if (currentAggregate.Count > 0)

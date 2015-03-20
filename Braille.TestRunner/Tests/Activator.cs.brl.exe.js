@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.Int32 A.X()*/
     asm.x600000a = function X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.s 123*/
         /* IL_02: ret */
         return (123|0);
@@ -22,6 +26,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -47,17 +53,19 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm0)["System.Boolean"]();
         t3 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: ldtoken A*/
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_0A: call Object CreateInstance(System.Type)*/
         /* IL_0F: castclass A*/
         /* IL_14: stloc.0 */
-        loc0 = BLR.cast_class(asm0.x6000053(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),t1);
+        loc0 = BLR.cast_class(asm0.x6000053(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),t1);
         /* IL_15: ldtoken A*/
         /* IL_1A: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_1F: ldloc.0 */
@@ -66,7 +74,7 @@ var asm1; (function (asm)
         /* IL_2A: box System.Boolean*/
         /* IL_2F: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': (((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x6000008"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x600000a(loc0)),
+                'boxed': (((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x6000008"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x600000a(loc0)),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
@@ -87,6 +95,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

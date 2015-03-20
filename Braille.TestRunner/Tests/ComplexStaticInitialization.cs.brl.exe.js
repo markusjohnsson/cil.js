@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -62,13 +66,15 @@ var asm1; (function (asm)
             var st_0E;
             var st_0F;
             var st_10;
-            var __pos_0__;
+            var __pos__;
+            var in_block_0;
+            var __finally_continuation_0__;
             var loc0;
             
-            if ((asm1)["A`1"](T).FieldHasBeenInitialized){
+            if ((asm1)["A`1"](T).FieldsInitialized){
                 return;
             }
-            (asm1)["A`1"](T).FieldHasBeenInitialized = true;
+            (asm1)["A`1"](T).FieldsInitialized = true;
             t0 = T;
             t1 = (asm1)["I`1"](t0);
             t2 = (asm1)["B`1"](t0);
@@ -77,11 +83,14 @@ var asm1; (function (asm)
             t5 = (asm1)["C`1"](t4);
             t6 = (asm0)["System.Type"]();
             t7 = (asm1)["A`1"](t0);
-            __pos_0__ = 0x0;
+            __pos__ = 0x0;
+            in_block_0 = true;
+            __finally_continuation_0__ = __pos__;
+            __pos__ = 0;
             
-            while (__pos_0__ >= 0){
+            while (in_block_0){
                 
-                switch (__pos_0__){
+                switch (__pos__){
                     case 0x0:
                     /* IL_00: ldtoken I`1[T]*/
                     /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -90,20 +99,20 @@ var asm1; (function (asm)
                     /* IL_14: callvirt Boolean IsAssignableFrom(System.Type)*/
                     /* IL_19: brtrue.s IL_22*/
                     
-                    if ((((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000bf"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))){
-                        __pos_0__ = 0x22;
+                    if ((((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c0"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))){
+                        __pos__ = 0x22;
                         continue;
                     }
                     (asm1.x600000b(T))();
                     /* IL_1B: newobj Void .ctor()*/
                     st_10 = BLR.newobj(t2,asm1.x600000c,[null]);
                     /* IL_20: br.s IL_50*/
-                    __pos_0__ = 0x50;
+                    __pos__ = 0x50;
                     continue;
                     case 0x22:
                     /* IL_22: ldtoken C`1[T]*/
                     /* IL_27: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-                    st_0C = asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5));
+                    st_0C = asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5));
                     /* IL_2C: ldc.i4.1 */
                     /* IL_2D: newarr System.Type*/
                     /* IL_32: stloc.0 */
@@ -115,13 +124,13 @@ var asm1; (function (asm)
                     /* IL_35: ldtoken T*/
                     st_08 = BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0);
                     /* IL_3A: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-                    st_0B = asm0.x60000b3(st_08);
+                    st_0B = asm0.x60000b4(st_08);
                     /* IL_3F: stelem.ref */
                     BLR.stelem_ref(st_09,st_0A,st_0B);
                     /* IL_40: ldloc.0 */
                     st_0D = loc0;
                     /* IL_41: callvirt Type MakeGenericType(System.Type[])*/
-                    st_0E = ((st_0C.vtable)["asm0.x60000be"]())(st_0C,st_0D);
+                    st_0E = ((st_0C.vtable)["asm0.x60000bf"]())(st_0C,st_0D);
                     /* IL_46: call Object CreateInstance(System.Type)*/
                     st_0F = asm0.x6000053(st_0E);
                     /* IL_4B: castclass A`1[T]*/
@@ -139,6 +148,8 @@ var asm1; (function (asm)
     /*  B`1..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -148,6 +159,8 @@ var asm1; (function (asm)
     /*  C`1..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -157,6 +170,8 @@ var asm1; (function (asm)
     /*  D..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -165,6 +180,8 @@ var asm1; (function (asm)
     /*  E..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -192,8 +209,10 @@ var asm1; (function (asm)
         {
             var t0;
             var t1;
+            var __pos__;
             t0 = T;
             t1 = (asm1)["A`1"](t0);
+            __pos__ = 0x0;
             /* IL_00: ldarg.0 */
             /* IL_01: isinst A`1[T]*/
             /* IL_06: ldnull */
@@ -226,12 +245,14 @@ var asm1; (function (asm)
         var t3;
         var t4;
         var t5;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.D();
         t2 = (asm1)["A`1"](t1);
         t3 = (asm0)["System.Boolean"]();
         t4 = asm1.E();
         t5 = (asm1)["A`1"](t4);
+        __pos__ = 0x0;
         (asm1.x600000b(asm1.D()))();
         /* IL_00: ldsfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_05: call Boolean IsA[D](System.Object)*/
@@ -261,6 +282,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000012 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

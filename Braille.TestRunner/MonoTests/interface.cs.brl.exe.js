@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.Double Obj.Area()*/
     asm.x600000b = function Area(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldc.r8 0*/
         /* IL_09: ret */
         return (+0);
@@ -22,6 +26,8 @@ var asm1; (function (asm)
     /*  Obj..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -30,6 +36,8 @@ var asm1; (function (asm)
     /* System.Double Rect.Area()*/
     asm.x600000e = function Area(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Int32 w*/
         /* IL_06: conv.r8 */
@@ -43,6 +51,8 @@ var asm1; (function (asm)
     /*  Rect..ctor(Int32,Int32,Int32,Int32)*/
     asm.x600000d = function _ctor(arg0,arg1,arg2,arg3,arg4)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000c(arg0);
@@ -68,6 +78,8 @@ var asm1; (function (asm)
     /* System.Double Circle.Area()*/
     asm.x6000010 = function Area(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Int32 r*/
         /* IL_06: ldarg.0 */
@@ -82,6 +94,8 @@ var asm1; (function (asm)
     /*  Circle..ctor(Int32,Int32,Int32)*/
     asm.x600000f = function _ctor(arg0,arg1,arg2,arg3)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000c(arg0);
@@ -120,7 +134,9 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
@@ -128,11 +144,14 @@ var asm1; (function (asm)
         t1 = (asm1)["Obj.Rect"]();
         t2 = (asm1)["Obj.Circle"]();
         t3 = (asm1)["Obj.Measurable"]();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldc.i4.0 */
                 /* IL_01: ldc.i4.0 */
@@ -159,7 +178,7 @@ var asm1; (function (asm)
                 /* IL_2E: beq.s IL_32*/
                 
                 if (loc2 === (+0)){
-                    __pos_0__ = 0x32;
+                    __pos__ = 0x32;
                     continue;
                 }
                 /* IL_30: ldc.i4.1 */
@@ -182,7 +201,7 @@ var asm1; (function (asm)
                 /* IL_5E: ble.un.s IL_62*/
                 
                 if (BLR.unsigned_value(loc2 - (+1456.637061436)) <= BLR.unsigned_value((+1E-06))){
-                    __pos_0__ = 0x62;
+                    __pos__ = 0x62;
                     continue;
                 }
                 /* IL_60: ldc.i4.2 */
@@ -201,7 +220,7 @@ var asm1; (function (asm)
                 /* IL_7A: beq.s IL_7E*/
                 
                 if (loc2 === (+0)){
-                    __pos_0__ = 0x7E;
+                    __pos__ = 0x7E;
                     continue;
                 }
                 /* IL_7C: ldc.i4.3 */
@@ -217,6 +236,8 @@ var asm1; (function (asm)
     /*  Test..ctor()*/
     asm.x6000012 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

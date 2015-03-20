@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.Int32 A.get_AX()*/
     asm.x600000a = function get_AX(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Int32 x*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* System.Void A.set_AX(Int32)*/
     asm.x600000b = function set_AX(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld Int32 x*/
@@ -33,6 +39,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -41,6 +49,8 @@ var asm1; (function (asm)
     /* System.Int32 B.get_BX()*/
     asm.x600000d = function get_BX(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld Int32 x*/
         /* IL_06: ret */
@@ -49,6 +59,8 @@ var asm1; (function (asm)
     /* System.Void B.set_BX(Int32)*/
     asm.x600000e = function set_BX(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld Int32 x*/
@@ -59,6 +71,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000c(arg0);
@@ -83,10 +97,12 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.B();
         t2 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t1,asm1.x600000f,[null]);
@@ -124,6 +140,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000011 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

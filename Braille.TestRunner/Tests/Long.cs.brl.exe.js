@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -30,9 +32,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Int64"]();
         t2 = (asm0)["System.Double"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr 1 - 21 ToString*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("1 - 21 ToString"));
@@ -6485,6 +6489,8 @@ var asm1; (function (asm)
     /* static System.Double Program.Double(Int64)*/
     asm.x600000b = function Double(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: conv.r8 */
         /* IL_02: ret */
@@ -6493,6 +6499,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.Add(Int64,Int64)*/
     asm.x600000c = function Add(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: add */
@@ -6502,6 +6510,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.Sub(Int64,Int64)*/
     asm.x600000d = function Sub(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: sub */
@@ -6511,6 +6521,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.Mul(Int64,Int64)*/
     asm.x600000e = function Mul(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: mul */
@@ -6520,6 +6532,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.Div(Int64,Int64)*/
     asm.x600000f = function Div(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: div */
@@ -6529,6 +6543,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.Mod(Int64,Int64)*/
     asm.x6000010 = function Mod(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: rem */
@@ -6549,13 +6565,15 @@ var asm1; (function (asm)
     asm.x6000011_ = function TestRightShift(arg0)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Int64"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr RightShift */
         /* IL_05: ldarg.0 */
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x600017b(BLR.new_string("RightShift "),{
+        asm1.x6000001(asm0.x6000182(BLR.new_string("RightShift "),{
                     'boxed': arg0,
                     'type': t0,
                     'vtable': t0.prototype.vtable,
@@ -6743,13 +6761,15 @@ var asm1; (function (asm)
     asm.x6000012_ = function TestLeftShift(arg0)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Int64"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr LeftShift */
         /* IL_05: ldarg.0 */
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x600017b(BLR.new_string("LeftShift "),{
+        asm1.x6000001(asm0.x6000182(BLR.new_string("LeftShift "),{
                     'boxed': arg0,
                     'type': t0,
                     'vtable': t0.prototype.vtable,
@@ -6926,6 +6946,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.RightShift(Int64,Int32)*/
     asm.x6000013 = function RightShift(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: ldc.i4.s 63*/
@@ -6937,6 +6959,8 @@ var asm1; (function (asm)
     /* static System.Int64 Program.LeftShift(Int64,Int32)*/
     asm.x6000014 = function LeftShift(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: ldc.i4.s 63*/
@@ -6948,6 +6972,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000015 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

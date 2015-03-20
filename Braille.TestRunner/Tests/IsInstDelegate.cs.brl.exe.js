@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -74,7 +76,9 @@ var asm1; (function (asm)
         var t5;
         var t6;
         var t7;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.Program();
@@ -84,17 +88,20 @@ var asm1; (function (asm)
         t5 = (asm1)["FuncX`2"](t4,t2);
         t6 = (asm0)["System.String"]();
         t7 = (asm1)["FuncX`2"](t6,t2);
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_05: brtrue.s IL_18*/
                 
                 if ((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]){
-                    __pos_0__ = 0x18;
+                    __pos__ = 0x18;
                     continue;
                 }
                 /* IL_07: ldnull */
@@ -144,6 +151,8 @@ var asm1; (function (asm)
     /* static System.Object Program.MethodObj(Object)*/
     asm.x600000f = function MethodObj(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldnull */
         /* IL_01: ret */
         return null;
@@ -151,6 +160,8 @@ var asm1; (function (asm)
     /* static System.Object Program.MethodInt(Int32)*/
     asm.x6000010 = function MethodInt(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldnull */
         /* IL_01: ret */
         return null;
@@ -158,6 +169,8 @@ var asm1; (function (asm)
     /* static System.Object Program.MethodString(String)*/
     asm.x6000011 = function MethodString(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldnull */
         /* IL_01: ret */
         return null;
@@ -188,7 +201,9 @@ var asm1; (function (asm)
         var t4;
         var t5;
         var t6;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = (asm0)["System.Object"]();
         t1 = (asm1)["FuncX`1"](t0);
         t2 = (asm1)["FuncX`2"](t0,t0);
@@ -196,18 +211,21 @@ var asm1; (function (asm)
         t4 = (asm1)["FuncX`2"](t3,t0);
         t5 = (asm0)["System.Int32"]();
         t6 = (asm1)["FuncX`2"](t5,t0);
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.0 */
                 /* IL_01: isinst FuncX`1[System.Object]*/
                 /* IL_06: brfalse.s IL_12*/
                 
                 if ((!(t1.IsInst(arg0)))){
-                    __pos_0__ = 0x12;
+                    __pos__ = 0x12;
                     continue;
                 }
                 /* IL_08: ldstr FuncX<object>*/
@@ -219,7 +237,7 @@ var asm1; (function (asm)
                 /* IL_18: brfalse.s IL_24*/
                 
                 if ((!(t2.IsInst(arg0)))){
-                    __pos_0__ = 0x24;
+                    __pos__ = 0x24;
                     continue;
                 }
                 /* IL_1A: ldstr FuncX<object, object>*/
@@ -231,7 +249,7 @@ var asm1; (function (asm)
                 /* IL_2A: brfalse.s IL_36*/
                 
                 if ((!(t4.IsInst(arg0)))){
-                    __pos_0__ = 0x36;
+                    __pos__ = 0x36;
                     continue;
                 }
                 /* IL_2C: ldstr FuncX<string, object>*/
@@ -243,7 +261,7 @@ var asm1; (function (asm)
                 /* IL_3C: brfalse.s IL_48*/
                 
                 if ((!(t6.IsInst(arg0)))){
-                    __pos_0__ = 0x48;
+                    __pos__ = 0x48;
                     continue;
                 }
                 /* IL_3E: ldstr FuncX<int, object>*/
@@ -258,6 +276,8 @@ var asm1; (function (asm)
     /* static System.Object Program.<Main>b__0(Object)*/
     asm.x6000013 = function _Main_b__0(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldnull */
         /* IL_01: ret */
         return null;
@@ -294,10 +314,10 @@ var asm1; (function (asm)
             (this.GenericArguments)["asm1.t2000006"] = [T, TResult];
             this.GenericTypeMetadataName = ("asm1.t2000006<" + ((T.GenericTypeMetadataName + TResult.GenericTypeMetadataName) + ">"));
             BLR.declare_virtual(this,"asm1.x600000b","asm1.x600000b");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
+            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;
@@ -319,10 +339,10 @@ var asm1; (function (asm)
             (this.GenericArguments)["asm1.t2000007"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000007<" + (T.GenericTypeMetadataName + ">"));
             BLR.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
+            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

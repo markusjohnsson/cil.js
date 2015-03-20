@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,12 +28,14 @@ var asm1; (function (asm)
     asm.x600000a_ = function _cctor()
     {
         var t0;
+        var __pos__;
         
-        if (asm1.X().FieldHasBeenInitialized){
+        if (asm1.X().FieldsInitialized){
             return;
         }
-        asm1.X().FieldHasBeenInitialized = true;
+        asm1.X().FieldsInitialized = true;
         t0 = asm1.test();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.1 */
         /* IL_01: stsfld Int32 global*/
         (t0)["global"] = (1|0);
@@ -41,6 +45,8 @@ var asm1; (function (asm)
     /*  X..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -49,6 +55,8 @@ var asm1; (function (asm)
     /*  Y..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000b(arg0);
@@ -58,6 +66,8 @@ var asm1; (function (asm)
     /*  Z..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000c(arg0);
@@ -82,15 +92,20 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.Z();
         t2 = asm1.test();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 asm1.x600000a();
                 /* IL_00: newobj Void .ctor()*/
@@ -101,7 +116,7 @@ var asm1; (function (asm)
                 /* IL_0C: beq.s IL_1A*/
                 
                 if (t2.global === (1|0)){
-                    __pos_0__ = 0x1A;
+                    __pos__ = 0x1A;
                     continue;
                 }
                 /* IL_0E: ldstr Error*/
@@ -123,6 +138,8 @@ var asm1; (function (asm)
     /*  test..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

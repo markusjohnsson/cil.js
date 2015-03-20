@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -109,6 +113,7 @@ var asm1; (function (asm)
         var st_66;
         var st_67;
         var st_68;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = asm1.B();
@@ -141,6 +146,7 @@ var asm1; (function (asm)
         loc24 = new (asm1.A())();
         loc25 = new (asm1.B())();
         loc26 = new (asm1.B())();
+        __pos__ = 0x0;
         /* IL_00: ldloca.s 23*/
         /* IL_03: initobj A*/
         loc23 = new t1();
@@ -643,12 +649,14 @@ var asm1; (function (asm)
         var loc1;
         var loc2;
         var loc3;
+        var __pos__;
         var loc0;
         t0 = asm1.A();
         t1 = (asm0)["System.Boolean"]();
         loc1 = new (asm1.A())();
         loc2 = new (asm1.A())();
         loc3 = new (asm1.A())();
+        __pos__ = 0x0;
         /* IL_00: ldloca.s 3*/
         /* IL_03: initobj A*/
         loc3 = new t0();
@@ -848,6 +856,7 @@ var asm1; (function (asm)
         var st_0B;
         var st_0C;
         var st_0D;
+        var __pos__;
         var loc0;
         var loc2;
         t0 = asm1.B();
@@ -859,6 +868,7 @@ var asm1; (function (asm)
         loc4 = new (asm1.A())();
         loc5 = new (asm1.B())();
         loc6 = new (asm1.A())();
+        __pos__ = 0x0;
         /* IL_00: ldloca.s 3*/
         /* IL_03: initobj B*/
         loc3 = new t0();
@@ -1097,6 +1107,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

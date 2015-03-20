@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* T A`1.get_Prop()*/
     asm.x600000a = function get_Prop(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld T <Prop>k__BackingField*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* System.Void A`1.set_Prop(T)*/
     asm.x600000b = function set_Prop(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld T <Prop>k__BackingField*/
@@ -33,6 +39,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -41,6 +49,8 @@ var asm1; (function (asm)
     /*  IntWrapper..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -49,6 +59,8 @@ var asm1; (function (asm)
     /*  StringWrapper..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -86,6 +98,7 @@ var asm1; (function (asm)
         var st_09;
         var st_0A;
         var st_0B;
+        var __pos__;
         var loc0;
         var loc2;
         var loc1;
@@ -96,6 +109,7 @@ var asm1; (function (asm)
         t3 = asm1.StringWrapper();
         t4 = (asm1)["A`1"](t3);
         t5 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000c,[null]);
@@ -154,6 +168,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         asm1.x600000a(arg0);
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -57,10 +65,12 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = asm1.B();
         t3 = asm1.C();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void AsA(System.Object)*/
         asm1.x600000e(BLR.newobj(t1,asm1.x600000a,[null]));
@@ -106,26 +116,31 @@ var asm1; (function (asm)
     {
         var t0;
         var st_02;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = asm1.A();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.0 */
                 /* IL_01: isinst A*/
                 /* IL_06: brfalse.s IL_0F*/
                 
                 if ((!(t0.IsInst(arg0)))){
-                    __pos_0__ = 0xF;
+                    __pos__ = 0xF;
                     continue;
                 }
                 /* IL_08: ldstr not null*/
                 st_02 = BLR.new_string("not null");
                 /* IL_0D: br.s IL_14*/
-                __pos_0__ = 0x14;
+                __pos__ = 0x14;
                 continue;
                 case 0xF:
                 /* IL_0F: ldstr null*/
@@ -145,13 +160,18 @@ var asm1; (function (asm)
         {
             var t0;
             var st_04;
-            var __pos_0__;
+            var __pos__;
+            var in_block_0;
+            var __finally_continuation_0__;
             t0 = T;
-            __pos_0__ = 0x0;
+            __pos__ = 0x0;
+            in_block_0 = true;
+            __finally_continuation_0__ = __pos__;
+            __pos__ = 0;
             
-            while (__pos_0__ >= 0){
+            while (in_block_0){
                 
-                switch (__pos_0__){
+                switch (__pos__){
                     case 0x0:
                     /* IL_00: ldarg.0 */
                     /* IL_01: isinst T*/
@@ -160,13 +180,13 @@ var asm1; (function (asm)
                     /* IL_10: brfalse.s IL_19*/
                     
                     if ((!(BLR.box(BLR.unbox_any(t0.IsInst(arg0),t0),t0)))){
-                        __pos_0__ = 0x19;
+                        __pos__ = 0x19;
                         continue;
                     }
                     /* IL_12: ldstr not null*/
                     st_04 = BLR.new_string("not null");
                     /* IL_17: br.s IL_1E*/
-                    __pos_0__ = 0x1E;
+                    __pos__ = 0x1E;
                     continue;
                     case 0x19:
                     /* IL_19: ldstr null*/
@@ -183,6 +203,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

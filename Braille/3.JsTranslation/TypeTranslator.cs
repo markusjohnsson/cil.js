@@ -75,13 +75,14 @@ namespace Braille.JsTranslation
             var genericParameters = type
                 .ReflectionType
                 .GetGenericArguments()
-                .Select(g => new JSFunctionParameter { Name = g.Name })
-                .ToList();
+                .Select(g => new JSFunctionParameter { Name = GetSimpleName(g) })
+                .ToList()
+                ;
 
             yield return new JSArrayLiteral
             {
                 Inline = true,
-                Values = type.ReflectionType.GetGenericArguments().Select(g => JSFactory.Literal(g.Name)).ToList()
+                Values = type.ReflectionType.GetGenericArguments().Select(g => JSFactory.Literal(GetSimpleName(g))).ToList()
             };
 
             yield return new JSFunctionDelcaration
@@ -252,7 +253,7 @@ namespace Braille.JsTranslation
             if (!type.IsGenericTypeDefinition)
                 return JSFactory.Literal(n);
 
-            var ga = type.GetGenericArguments().Select(a => JSFactory.Identifier(a.Name, "GenericTypeMetadataName"));
+            var ga = type.GetGenericArguments().Select(a => JSFactory.Identifier(GetSimpleName(a), "GenericTypeMetadataName"));
             var gaStr = ga.Aggregate((a, b) => new JSBinaryExpression { Left = a, Right = b, Operator = "+" });
             return new JSBinaryExpression
             {

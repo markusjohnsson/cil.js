@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -28,9 +30,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000006"])[0];
         t1 = (asm0)["System.Type"]();
         t2 = (asm1)["A`1+D`1"](t0,t1);
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldnull */
         /* IL_03: ldftn Type Y(T)*/
@@ -46,11 +50,13 @@ var asm1; (function (asm)
         return function Y(arg0)
         {
             var t0;
+            var __pos__;
             t0 = T;
+            __pos__ = 0x0;
             /* IL_00: ldtoken T*/
             /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_0A: ret */
-            return asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
+            return asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
         };
     };;
     /* System.Void A`1.Z(D`1)*/
@@ -62,8 +68,10 @@ var asm1; (function (asm)
         var st_02;
         var st_03;
         var st_04;
+        var __pos__;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000006"])[0];
         loc0 = (((((arguments)[0].constructor.GenericArguments)["asm1.t2000006"])[0].IsValueType) ? ((((((arguments)[0].constructor.GenericArguments)["asm1.t2000006"])[0].IsPrimitive) ? (0) : (new ((((arguments)[0].constructor.GenericArguments)["asm1.t2000006"])[0])()))) : (null));
+        __pos__ = 0x0;
         /* IL_00: ldarg.1 */
         st_01 = arg1;
         /* IL_01: ldloca.s 0*/
@@ -88,6 +96,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -128,10 +138,12 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.String"]();
         t2 = (asm1)["A`1"](t1);
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000d,[null]);
@@ -144,6 +156,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000011 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -200,10 +214,10 @@ var asm1; (function (asm)
             (this.GenericArguments)["asm1.t2000007"] = [T, TResult];
             this.GenericTypeMetadataName = ("asm1.t2000007<" + ((T.GenericTypeMetadataName + TResult.GenericTypeMetadataName) + ">"));
             BLR.declare_virtual(this,"asm1.x600000f","asm1.x600000f");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
+            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

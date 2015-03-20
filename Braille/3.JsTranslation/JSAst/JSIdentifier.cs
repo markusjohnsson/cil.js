@@ -6,6 +6,21 @@ using System.Text;
 
 namespace Braille.JSAst
 {
+    class JSRaw : JSExpression
+    {
+        public string Value { get; set; }
+
+        public override string ToString(Formatting formatting)
+        {
+            return Value;
+        }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
+        }
+    }
+
     class JSIdentifier : JSExpression
     {
         private string _Name;
@@ -19,6 +34,10 @@ namespace Braille.JSAst
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new InvalidOperationException();
+
+                if (value.Contains('<') || value.Contains('>'))
+                    throw new InvalidOperationException();
+
                 _Name = value;
             }
         }

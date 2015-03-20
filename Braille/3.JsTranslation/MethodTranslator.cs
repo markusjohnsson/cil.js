@@ -178,7 +178,7 @@ namespace Braille.JsTranslation
             var r = method.GetReplacement();
             if (r != null && r.Kind == ReplacementKind.Function)
             {
-                return new JSIdentifier { Name = r.Replacement };
+                return new JSRaw { Value = r.Replacement };
             }
 
             if (type.IsUserDelegate)
@@ -235,7 +235,7 @@ namespace Braille.JsTranslation
             if (method.Name == ".cctor")
             {
                 var type_id = GetTypeIdentifier(type.ReflectionType, method.ReflectionMethod);
-                var has_init = JSFactory.Identifier(type_id, "FieldHasBeenInitialized");
+                var has_init = JSFactory.Identifier(type_id, "FieldsInitialized");
 
                 functionBlock.Add(
                     new JSIfStatement
@@ -320,11 +320,12 @@ namespace Braille.JsTranslation
 
             functionBlock.AddRange(
                 blockTranslator
-                    .Transform(method.Block)
-                    .Where(
-                        // TODO: This looks funny.. check this.
-                        s => !(s is JSExpressionStatement) || 
-                             !(((JSExpressionStatement)s).Expression is JSBreakExpression)));
+                    .Translate(method.Block)
+                    .Where(s => !(s is JSSwitchCase) && !((s is JSExpressionStatement) && (
+                        ((JSExpressionStatement)s).Expression is JSBreakExpression)))
+                    .StartWith(
+                        new JSVariableDelcaration { Name = "__pos__", Value = JSFactory.Hex(0) }
+                            .ToStatement()));
 
             var ps = GetParameterCount(method);
 

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* T A`1.get_Prop()*/
     asm.x600000c = function get_Prop(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld T <Prop>k__BackingField*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* System.Void A`1.set_Prop(T)*/
     asm.x600000d = function set_Prop(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld T <Prop>k__BackingField*/
@@ -33,6 +39,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -56,9 +64,11 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.String"]();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.s 123*/
         /* IL_02: call Void Y[System.Int32](System.Int32)*/
         (asm1.x6000010((asm0)["System.Int32"]()))((123|0));
@@ -90,9 +100,11 @@ var asm1; (function (asm)
         {
             var t0;
             var t1;
+            var __pos__;
             var loc0;
             t0 = T;
             t1 = (asm1)["A`1"](t0);
+            __pos__ = 0x0;
             /* IL_00: newobj Void .ctor()*/
             /* IL_05: stloc.0 */
             loc0 = BLR.newobj(t1,asm1.x600000e,[null]);
@@ -129,8 +141,10 @@ var asm1; (function (asm)
         {
             var t0;
             var t1;
+            var __pos__;
             t0 = T;
             t1 = (asm1)["I`1"](t0);
+            __pos__ = 0x0;
             /* IL_00: ldarg.0 */
             /* IL_01: callvirt T get_Prop()*/
             /* IL_06: box T*/
@@ -143,6 +157,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000012 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

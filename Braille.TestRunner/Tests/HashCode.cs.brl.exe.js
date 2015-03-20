@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -38,12 +42,14 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         var loc0;
         var loc1;
         var loc2;
         t0 = (asm0)["System.ValueType"]();
         t1 = asm1.A();
         t2 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t1,asm1.x600000a,[null]);
@@ -127,14 +133,16 @@ var asm1; (function (asm)
     asm.x600000c_ = function TestString(arg0)
     {
         var t0;
+        var __pos__;
         var loc0;
         var loc1;
         t0 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldstr  world*/
         /* IL_06: call String Concat(System.String, System.String)*/
         /* IL_0B: stloc.0 */
-        loc0 = asm0.x6000177(arg0,BLR.new_string(" world"));
+        loc0 = asm0.x600017e(arg0,BLR.new_string(" world"));
         /* IL_0C: ldstr hello world*/
         /* IL_11: stloc.1 */
         loc1 = BLR.new_string("hello world");
@@ -170,6 +178,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

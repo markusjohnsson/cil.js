@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /* System.String A.get_Prop()*/
     asm.x600000a = function get_Prop(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld String <Prop>k__BackingField*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* System.Void A.set_Prop(String)*/
     asm.x600000b = function set_Prop(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.1 */
         /* IL_02: stfld String <Prop>k__BackingField*/
@@ -33,6 +39,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -79,6 +87,7 @@ var asm1; (function (asm)
         var st_03;
         var st_04;
         var st_05;
+        var __pos__;
         var loc2;
         var loc1;
         var loc0;
@@ -86,6 +95,7 @@ var asm1; (function (asm)
         t1 = (asm1)["Program+<>c__DisplayClass2"]();
         t2 = asm1.A();
         t3 = asm1.X();
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.2 */
         loc2 = BLR.newobj(t1,asm1.x6000011,[null]);
@@ -129,6 +139,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -137,6 +149,8 @@ var asm1; (function (asm)
     /* System.Void <>c__DisplayClass2.<Main>b__1()*/
     asm.x6000012 = function _Main_b__1(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldarg.0 */
         /* IL_02: ldfld A a*/
@@ -148,6 +162,8 @@ var asm1; (function (asm)
     /*  <>c__DisplayClass2..ctor()*/
     asm.x6000011 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -204,10 +220,10 @@ var asm1; (function (asm)
                 ],(asm0)["System.MulticastDelegate"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
             this.GenericTypeMetadataName = "asm1.t2000007";
             BLR.declare_virtual(this,"asm1.x600000e","asm1.x600000e");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007d");
-            BLR.declare_virtual(this,"asm0.x6000073","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000075");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000078");
+            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
+            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

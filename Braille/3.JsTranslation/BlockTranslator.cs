@@ -2,6 +2,7 @@ using Braille.Ast;
 using Braille.JSAst;
 using Braille.Loading.Model;
 using IKVM.Reflection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,14 +27,14 @@ namespace Braille.JsTranslation
             this.opTranslator = new OpTranslator(context, assembly, type, method);
         }
 
-        public List<JSStatement> Transform(Block block)
+        public List<JSStatement> Translate(Block block)
         {
             return CreateJsBlock(block, 0).Build().ToList();
         }
 
         private BlockBuilder CreateJsBlock(Block block, int depth)
         {
-            var builder = new BlockBuilder(depth);
+            var builder = new BlockBuilder(depth, GetPosition(block));
 
             foreach (var node in block.Ast)
             {
@@ -59,12 +60,12 @@ namespace Braille.JsTranslation
                         if (protectedRegion.FinallyBlock != null)
                             builder.InsertStatements(CreateJsFinallyBlock(protectedRegion.FinallyBlock, depth + 1));
 
-                        builder.InsertStatements(new [] {new JSBreakExpression().ToStatement()});
+                        builder.InsertStatements(new [] { new JSBreakExpression().ToStatement() });
                     }
                 }
                 else if (label != null)
                 {
-                    builder.InsertLabel(label.Position);
+                    builder.InsertLabel(label.Position, label.IntruducesBranching);
                 }
                 else if (expr != null)
                 {
@@ -73,6 +74,22 @@ namespace Braille.JsTranslation
             }
 
             return builder;
+        }
+
+        private int GetPosition(Block block)
+        {
+            foreach (var node in block.Ast)
+            {
+                var op = node as OpExpression;
+                if (op != null)
+                    return op.PrefixTraversal().Min(o => o.Position);
+
+                var b = node as ProtectedRegion;
+                if (b != null)
+                    return GetPosition(b.TryBlock);
+            }
+
+            throw new NotSupportedException();
         }
 
         private IEnumerable<JSStatement> CreateJsTryBlock(TryBlock tryBlock, int depth)
@@ -119,8 +136,11 @@ namespace Braille.JsTranslation
                         .Assignment(handledFlag, new JSBoolLiteral { Value = true })
                         .ToStatement());
 
-                // assign the exception object to
-                var expression = catchBlock.Ast.FirstOrDefault() as OpExpression;
+                // assign the exception object to expressions reading from top of the stack
+
+                // ok this is too delicate.. we happen to know it is the second expression.. 
+
+                var expression = catchBlock.Ast.Skip(1).FirstOrDefault() as OpExpression;
                 if (expression != null)
                 {
                     var locations = expression
@@ -158,8 +178,8 @@ namespace Braille.JsTranslation
             {
                 Condition = new JSUnaryExpression { Operand = handledFlag, Operator = "!" },
                 Statements = {
-                        new JSThrowExpression { Expression = exceptionObject }.ToStatement()
-                    }
+                    new JSThrowExpression { Expression = exceptionObject }.ToStatement()
+                }
             });
 
             if (faultBlock != null)

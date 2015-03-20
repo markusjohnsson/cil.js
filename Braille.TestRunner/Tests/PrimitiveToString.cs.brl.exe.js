@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -44,6 +46,7 @@ var asm1; (function (asm)
         var t7;
         var t8;
         var t9;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.UInt32"]();
@@ -54,6 +57,7 @@ var asm1; (function (asm)
         t7 = (asm0)["System.Byte"]();
         t8 = (asm0)["System.SByte"]();
         t9 = (asm0)["System.Boolean"]();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.0 */
         /* IL_01: box System.Int32*/
         /* IL_06: call Void PrintObject(System.Object)*/
@@ -408,8 +412,10 @@ var asm1; (function (asm)
     asm.x600000b_ = function PrintObject(arg0)
     {
         var t0;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.Object"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void Log(System.Object)*/
         asm1.x6000001(arg0);
@@ -431,6 +437,8 @@ var asm1; (function (asm)
     /* static System.Void Program.PrintArray(Object[])*/
     asm.x600000c = function PrintArray(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldc.i4.0 */
         /* IL_02: ldelem.ref */
@@ -443,6 +451,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -36,22 +40,27 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000007"])[0];
         t1 = (asm0)["System.Array`1"](t0);
         t2 = (asm1)["A`1"](t0);
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarg.1 */
                 /* IL_01: isinst T[]*/
                 /* IL_06: brfalse.s IL_14*/
                 
                 if ((!(t1.IsInst(arg1)))){
-                    __pos_0__ = 0x14;
+                    __pos__ = 0x14;
                     continue;
                 }
                 /* IL_08: ldarg.0 */
@@ -65,7 +74,7 @@ var asm1; (function (asm)
                 /* IL_1A: brfalse.s IL_28*/
                 
                 if ((!(t2.IsInst(arg1)))){
-                    __pos_0__ = 0x28;
+                    __pos__ = 0x28;
                     continue;
                 }
                 /* IL_1C: ldarg.0 */
@@ -82,6 +91,8 @@ var asm1; (function (asm)
     /*  B`1..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -90,6 +101,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -98,6 +111,8 @@ var asm1; (function (asm)
     /*  D..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -127,6 +142,7 @@ var asm1; (function (asm)
         var t3;
         var t4;
         var t5;
+        var __pos__;
         var loc0;
         var loc1;
         t0 = (asm0)["System.ValueType"]();
@@ -135,6 +151,7 @@ var asm1; (function (asm)
         t3 = (asm0)["System.Boolean"]();
         t4 = asm1.D();
         t5 = (asm1)["B`1"](t4);
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
         loc0 = BLR.newobj(t2,asm1.x600000c,[null]);
@@ -203,6 +220,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000010 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

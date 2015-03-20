@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -18,12 +20,14 @@ var asm1; (function (asm)
         return function Y(arg0)
         {
             var t0;
+            var __pos__;
             t0 = TResult;
+            __pos__ = 0x0;
             /* IL_00: ldtoken TResult*/
             /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_0A: callvirt String get_Name()*/
             /* IL_0F: call Void Log(System.Object)*/
-            asm1.x6000001((((asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003e"])())(asm0.x60000b3(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
+            asm1.x6000001((((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003e"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
             /* IL_14: ret */
             return ;
         };
@@ -31,6 +35,8 @@ var asm1; (function (asm)
     /*  A`1..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -40,7 +46,9 @@ var asm1; (function (asm)
     asm.x600000d = function X(arg0)
     {
         var t0;
+        var __pos__;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000007"])[0];
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldfld A`1 a*/
         /* IL_06: callvirt Void Y[T]()*/
@@ -51,6 +59,8 @@ var asm1; (function (asm)
     /*  B..ctor(A`1)*/
     asm.x600000c = function _ctor(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ldarg.0 */
@@ -80,11 +90,13 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
+        var __pos__;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.String"]();
         t2 = (asm1)["A`1"](t1);
         t3 = (asm1)["A`1+B"](t1);
+        __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: newobj Void .ctor(A`1[System.String])*/
         /* IL_0A: stloc.0 */
@@ -98,6 +110,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

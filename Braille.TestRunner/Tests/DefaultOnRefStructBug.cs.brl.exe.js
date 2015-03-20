@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -16,7 +18,9 @@ var asm1; (function (asm)
     asm.x600000a = function Reset(arg0)
     {
         var t0;
+        var __pos__;
         t0 = ((((arguments)[0].r)().constructor.GenericArguments)["asm1.t2000006"])[0];
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldflda T X*/
         /* IL_07: initobj T*/
@@ -27,6 +31,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -58,7 +64,9 @@ var asm1; (function (asm)
         var loc1;
         var st_0F;
         var st_13;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm1)["A`1"](t1);
@@ -66,11 +74,14 @@ var asm1; (function (asm)
         t4 = (asm1)["A`1"](t3);
         loc0 = new ((asm1)["A`1"]((asm0)["System.Int32"]()))();
         loc1 = new ((asm1)["A`1"](asm1.B()))();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldloca.s 0*/
                 /* IL_03: initobj A`1[System.Int32]*/
@@ -123,13 +134,13 @@ var asm1; (function (asm)
                 /* IL_55: brfalse.s IL_5E*/
                 
                 if ((!(loc1.X))){
-                    __pos_0__ = 0x5E;
+                    __pos__ = 0x5E;
                     continue;
                 }
                 /* IL_57: ldstr false*/
                 st_0F = BLR.new_string("false");
                 /* IL_5C: br.s IL_63*/
-                __pos_0__ = 0x63;
+                __pos__ = 0x63;
                 continue;
                 case 0x5E:
                 /* IL_5E: ldstr true*/
@@ -154,13 +165,13 @@ var asm1; (function (asm)
                 /* IL_76: brfalse.s IL_7F*/
                 
                 if ((!(loc1.X))){
-                    __pos_0__ = 0x7F;
+                    __pos__ = 0x7F;
                     continue;
                 }
                 /* IL_78: ldstr false*/
                 st_13 = BLR.new_string("false");
                 /* IL_7D: br.s IL_84*/
-                __pos_0__ = 0x84;
+                __pos__ = 0x84;
                 continue;
                 case 0x7F:
                 /* IL_7F: ldstr true*/
@@ -176,6 +187,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

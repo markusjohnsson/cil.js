@@ -71,7 +71,7 @@ namespace Braille.JsTranslation
                 {
                     return
                         (IsInScope(type.DeclaringType, typeScope)) ?
-                            JSFactory.Identifier(type.Name) :
+                            JSFactory.Identifier(GetSimpleName(type)) :
 
                             // to my awareness, this only happens when you do "typeof(C<>)", ie not specifying any args
                             GetTypeIdentifier(context.SystemTypes.UnboundGenericParameter);

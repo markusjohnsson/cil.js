@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,7 +28,9 @@ var asm1; (function (asm)
     asm.x600000a_ = function Main()
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.0 */
         /* IL_01: call Void X(System.Int32)*/
         asm1.x600000b((0|0));
@@ -56,7 +60,9 @@ var asm1; (function (asm)
     asm.x600000b_ = function X(arg0)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: ldc.i4.1 */
         /* IL_02: div */
@@ -96,6 +102,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -15,6 +17,8 @@ var asm1; (function (asm)
     /*  A..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -23,6 +27,8 @@ var asm1; (function (asm)
     /* static System.Void B.M()*/
     asm.x600000b = function M()
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr A.B.M*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("A.B.M"));
@@ -32,6 +38,8 @@ var asm1; (function (asm)
     /* System.Void B.X()*/
     asm.x600000c = function X(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldstr A.B.X*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("A.B.X"));
@@ -41,6 +49,8 @@ var asm1; (function (asm)
     /*  B..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -49,6 +59,8 @@ var asm1; (function (asm)
     /*  C..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -57,6 +69,8 @@ var asm1; (function (asm)
     /*  D..ctor()*/
     asm.x600000f = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -86,8 +100,10 @@ var asm1; (function (asm)
         var st_05;
         var st_06;
         var st_07;
+        var __pos__;
         t0 = (asm1)["C+D+E"]();
         t1 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr C.D.E.Y*/
         st_05 = BLR.new_string("C.D.E.Y");
         asm1.x6000012();
@@ -110,7 +126,7 @@ var asm1; (function (asm)
             'ifacemap': t1.prototype.ifacemap
         };
         /* IL_17: call String Concat(System.Object, System.Object)*/
-        st_07 = asm0.x600017b(st_05,st_06);
+        st_07 = asm0.x6000182(st_05,st_06);
         /* IL_1C: call Void Log(System.Object)*/
         asm1.x6000001(st_07);
         /* IL_21: ret */
@@ -119,6 +135,8 @@ var asm1; (function (asm)
     /*  E..ctor()*/
     asm.x6000011 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -138,12 +156,14 @@ var asm1; (function (asm)
     asm.x6000012_ = function _cctor()
     {
         var t0;
+        var __pos__;
         
-        if ((asm1)["C+D+E"]().FieldHasBeenInitialized){
+        if ((asm1)["C+D+E"]().FieldsInitialized){
             return;
         }
-        (asm1)["C+D+E"]().FieldHasBeenInitialized = true;
+        (asm1)["C+D+E"]().FieldsInitialized = true;
         t0 = (asm1)["C+D+E"]();
+        __pos__ = 0x0;
         /* IL_00: ldc.i4.s 123*/
         /* IL_02: stsfld Int32 y*/
         (t0)["y"] = (123|0);
@@ -168,11 +188,13 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
+        var __pos__;
         var loc0;
         var loc1;
         t0 = (asm0)["System.ValueType"]();
         t1 = (asm1)["A+B"]();
         t2 = (asm1)["C+D+E"]();
+        __pos__ = 0x0;
         /* IL_00: call Void M()*/
         asm1.x600000b();
         /* IL_05: newobj Void .ctor()*/
@@ -194,6 +216,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x6000014 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */

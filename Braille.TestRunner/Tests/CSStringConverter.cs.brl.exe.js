@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -26,13 +28,17 @@ var asm1; (function (asm)
     asm.x600000a_ = function Main()
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.ValueType"]();
+        __pos__ = 0x0;
         /* IL_00: ret */
         return ;
     };
     /*  Program..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -41,6 +47,8 @@ var asm1; (function (asm)
     /* System.Void S.Append(String)*/
     asm.x600000c = function Append(arg0,arg1)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.1 */
         /* IL_01: call Void Log(System.Object)*/
         asm1.x6000001(arg1);
@@ -61,7 +69,9 @@ var asm1; (function (asm)
     asm.x600000d_ = function Append(arg0,arg1)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Char"]();
+        __pos__ = 0x0;
         /* IL_00: ldarg.1 */
         /* IL_01: box System.Char*/
         /* IL_06: call Void Log(System.Object)*/
@@ -77,6 +87,8 @@ var asm1; (function (asm)
     /*  S..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -96,18 +108,23 @@ var asm1; (function (asm)
     asm.x600000f_ = function Convert(arg0)
     {
         var t0;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
         var __switch_value__;
         var __jmp__;
         t0 = asm1.S();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: stloc.0 */
@@ -120,20 +137,20 @@ var asm1; (function (asm)
                 /* IL_0F: stloc.1 */
                 loc1 = (0|0);
                 /* IL_10: br IL_DB*/
-                __pos_0__ = 0xDB;
+                __pos__ = 0xDB;
                 continue;
                 case 0x15:
                 /* IL_15: ldarg.0 */
                 /* IL_16: ldloc.1 */
                 /* IL_17: callvirt Char get_Chars(System.Int32)*/
                 /* IL_1C: stloc.2 */
-                loc2 = asm0.x6000175(arg0,loc1);
+                loc2 = asm0.x600017c(arg0,loc1);
                 /* IL_1D: ldloc.2 */
                 /* IL_1E: ldc.i4.s 13*/
                 /* IL_20: bgt.s IL_48*/
                 
                 if (loc2 > (13|0)){
-                    __pos_0__ = 0x48;
+                    __pos__ = 0x48;
                     continue;
                 }
                 /* IL_22: ldloc.2 */
@@ -141,7 +158,7 @@ var asm1; (function (asm)
                 /* IL_24: beq.s IL_89*/
                 
                 if (loc2 === (0|0)){
-                    __pos_0__ = 0x89;
+                    __pos__ = 0x89;
                     continue;
                 }
                 /* IL_26: ldloc.2 */
@@ -151,7 +168,7 @@ var asm1; (function (asm)
                 __switch_value__ = (loc2 - (9|0)) | (0|0);
                 
                 if (__switch_value__ >= 0x5){
-                    __pos_0__ = 0x43;
+                    __pos__ = 0x43;
                     continue;
                 }
                 __jmp__ = [
@@ -161,11 +178,11 @@ var asm1; (function (asm)
                     0x87,
                     0x6D
                 ];
-                __pos_0__ = (0x43 + (__jmp__)[__switch_value__]);
+                __pos__ = (0x43 + (__jmp__)[__switch_value__]);
                 continue;
                 case 0x43:
                 /* IL_43: br IL_CA*/
-                __pos_0__ = 0xCA;
+                __pos__ = 0xCA;
                 continue;
                 case 0x48:
                 /* IL_48: ldloc.2 */
@@ -173,7 +190,7 @@ var asm1; (function (asm)
                 /* IL_4B: beq.s IL_BD*/
                 
                 if (loc2 === (34|0)){
-                    __pos_0__ = 0xBD;
+                    __pos__ = 0xBD;
                     continue;
                 }
                 /* IL_4D: ldloc.2 */
@@ -181,7 +198,7 @@ var asm1; (function (asm)
                 /* IL_50: beq.s IL_68*/
                 
                 if (loc2 === (92|0)){
-                    __pos_0__ = 0x68;
+                    __pos__ = 0x68;
                     continue;
                 }
                 /* IL_52: ldloc.2 */
@@ -191,18 +208,18 @@ var asm1; (function (asm)
                 __switch_value__ = (loc2 - (8232|0)) | (0|0);
                 
                 if (__switch_value__ >= 0x2){
-                    __pos_0__ = 0x66;
+                    __pos__ = 0x66;
                     continue;
                 }
                 __jmp__ = [
                     0xF,
                     0xF
                 ];
-                __pos_0__ = (0x66 + (__jmp__)[__switch_value__]);
+                __pos__ = (0x66 + (__jmp__)[__switch_value__]);
                 continue;
                 case 0x66:
                 /* IL_66: br.s IL_CA*/
-                __pos_0__ = 0xCA;
+                __pos__ = 0xCA;
                 continue;
                 case 0x68:
                 /* IL_68: ldloc.0 */
@@ -210,7 +227,7 @@ var asm1; (function (asm)
                 /* IL_6E: callvirt Void Append(System.String)*/
                 asm1.x600000c(loc0,BLR.new_string("\\\\"));
                 /* IL_73: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0x75:
                 /* IL_75: ldloc.0 */
@@ -219,9 +236,9 @@ var asm1; (function (asm)
                 /* IL_78: callvirt Char get_Chars(System.Int32)*/
                 /* IL_7D: call String EscapeChar(System.Char)*/
                 /* IL_82: callvirt Void Append(System.String)*/
-                asm1.x600000c(loc0,asm1.x6000010(asm0.x6000175(arg0,loc1)));
+                asm1.x600000c(loc0,asm1.x6000010(asm0.x600017c(arg0,loc1)));
                 /* IL_87: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0x89:
                 /* IL_89: ldloc.0 */
@@ -229,7 +246,7 @@ var asm1; (function (asm)
                 /* IL_8F: callvirt Void Append(System.String)*/
                 asm1.x600000c(loc0,BLR.new_string("\\0"));
                 /* IL_94: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0x96:
                 /* IL_96: ldloc.0 */
@@ -237,7 +254,7 @@ var asm1; (function (asm)
                 /* IL_9C: callvirt Void Append(System.String)*/
                 asm1.x600000c(loc0,BLR.new_string("\\t"));
                 /* IL_A1: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0xA3:
                 /* IL_A3: ldloc.0 */
@@ -245,7 +262,7 @@ var asm1; (function (asm)
                 /* IL_A9: callvirt Void Append(System.String)*/
                 asm1.x600000c(loc0,BLR.new_string("\\n"));
                 /* IL_AE: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0xB0:
                 /* IL_B0: ldloc.0 */
@@ -253,7 +270,7 @@ var asm1; (function (asm)
                 /* IL_B6: callvirt Void Append(System.String)*/
                 asm1.x600000c(loc0,BLR.new_string("\\r"));
                 /* IL_BB: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0xBD:
                 /* IL_BD: ldloc.0 */
@@ -261,7 +278,7 @@ var asm1; (function (asm)
                 /* IL_C3: callvirt Void Append(System.String)*/
                 asm1.x600000c(loc0,BLR.new_string("\\\""));
                 /* IL_C8: br.s IL_D7*/
-                __pos_0__ = 0xD7;
+                __pos__ = 0xD7;
                 continue;
                 case 0xCA:
                 /* IL_CA: ldloc.0 */
@@ -269,7 +286,7 @@ var asm1; (function (asm)
                 /* IL_CC: ldloc.1 */
                 /* IL_CD: callvirt Char get_Chars(System.Int32)*/
                 /* IL_D2: callvirt Void Append(System.Char)*/
-                asm1.x600000d(loc0,asm0.x6000175(arg0,loc1));
+                asm1.x600000d(loc0,asm0.x600017c(arg0,loc1));
                 case 0xD7:
                 /* IL_D7: ldloc.1 */
                 /* IL_D8: ldc.i4.1 */
@@ -282,8 +299,8 @@ var asm1; (function (asm)
                 /* IL_DD: callvirt Int32 get_Length()*/
                 /* IL_E2: blt IL_15*/
                 
-                if (loc1 < asm0.x600017f(arg0)){
-                    __pos_0__ = 0x15;
+                if (loc1 < asm0.x6000186(arg0)){
+                    __pos__ = 0x15;
                     continue;
                 }
                 /* IL_E7: ldloc.0 */
@@ -311,13 +328,15 @@ var asm1; (function (asm)
     asm.x6000010_ = function EscapeChar(arg0)
     {
         var t0;
+        var __pos__;
         t0 = (asm0)["System.Int32"]();
+        __pos__ = 0x0;
         /* IL_00: ldstr \u*/
         /* IL_05: ldarg.0 */
         /* IL_06: box System.Int32*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: ret */
-        return asm0.x600017b(BLR.new_string("\\u"),{
+        return asm0.x6000182(BLR.new_string("\\u"),{
                 'boxed': arg0,
                 'type': t0,
                 'vtable': t0.prototype.vtable,

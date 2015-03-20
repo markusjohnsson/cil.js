@@ -7,6 +7,8 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -35,7 +37,9 @@ var asm1; (function (asm)
         var loc2;
         var st_0B;
         var st_0C;
-        var __pos_0__;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
         var loc1;
         var loc0;
         t0 = (asm0)["System.ValueType"]();
@@ -43,12 +47,16 @@ var asm1; (function (asm)
         t2 = (asm0)["System.Int32"]();
         t3 = (asm0)["System.Nullable`1"](t2);
         loc2 = new ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()))();
-        __pos_0__ = 0x0;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
+                asm1.x600000e();
                 /* IL_00: ldsfld Button TheButton*/
                 /* IL_05: ldc.i4.1 */
                 /* IL_06: newobj Void .ctor(System.Int32)*/
@@ -56,8 +64,8 @@ var asm1; (function (asm)
                 /* IL_10: ldc.i4.2 */
                 /* IL_11: beq.s IL_15*/
                 
-                if (asm1.x600000c(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x6000162,[null, (1|0)]))) === (2|0)){
-                    __pos_0__ = 0x15;
+                if (asm1.x600000c(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x6000169,[null, (1|0)]))) === (2|0)){
+                    __pos__ = 0x15;
                     continue;
                 }
                 /* IL_13: ldc.i4.1 */
@@ -96,8 +104,8 @@ var asm1; (function (asm)
                 /* IL_35: callvirt Object GetValue(System.Int32)*/
                 /* IL_3A: brfalse.s IL_3E*/
                 
-                if ((!(asm0.x600012f(loc0,(0|0))))){
-                    __pos_0__ = 0x3E;
+                if ((!(asm0.x6000135(loc0,(0|0))))){
+                    __pos__ = 0x3E;
                     continue;
                 }
                 /* IL_3C: ldc.i4.2 */
@@ -113,6 +121,8 @@ var asm1; (function (asm)
     /*  Program..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -121,18 +131,23 @@ var asm1; (function (asm)
     /* System.Int32 Button.Counter(Nullable`1)*/
     asm.x600000c = function Counter(arg0,arg1)
     {
-        var __pos_0__;
-        __pos_0__ = 0x0;
+        var __pos__;
+        var in_block_0;
+        var __finally_continuation_0__;
+        __pos__ = 0x0;
+        in_block_0 = true;
+        __finally_continuation_0__ = __pos__;
+        __pos__ = 0;
         
-        while (__pos_0__ >= 0){
+        while (in_block_0){
             
-            switch (__pos_0__){
+            switch (__pos__){
                 case 0x0:
                 /* IL_00: ldarga.s 1*/
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_0B*/
                 
-                if (asm0.x6000163({
+                if (asm0.x600016a({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -142,7 +157,7 @@ var asm1; (function (asm)
                             return arg1;
                         }
                     })){
-                    __pos_0__ = 0xB;
+                    __pos__ = 0xB;
                     continue;
                 }
                 /* IL_09: ldc.i4.0 */
@@ -154,7 +169,7 @@ var asm1; (function (asm)
                 /* IL_12: ldc.i4.1 */
                 /* IL_13: add */
                 /* IL_14: ret */
-                return (asm0.x6000164({
+                return (asm0.x600016b({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -170,6 +185,8 @@ var asm1; (function (asm)
     /*  Button..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
+        var __pos__;
+        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
@@ -189,12 +206,14 @@ var asm1; (function (asm)
     asm.x600000e_ = function _cctor()
     {
         var t0;
+        var __pos__;
         
-        if ((asm1)["Program+Button"]().FieldHasBeenInitialized){
+        if ((asm1)["Program+Button"]().FieldsInitialized){
             return;
         }
-        (asm1)["Program+Button"]().FieldHasBeenInitialized = true;
+        (asm1)["Program+Button"]().FieldsInitialized = true;
         t0 = (asm1)["Program+Button"]();
+        __pos__ = 0x0;
         asm1.x600000e();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stsfld Button TheButton*/

@@ -127,7 +127,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
-    <Compile Include="Tests\ExplicitInterface.cs" />
+    <None Include="Tests\ExplicitInterface.cs" />
+    <None Include="Tests\StaticInitialization.cs" />
     <None Include="Tests\TryFinallyBug.cs" />
     <None Include="Tests\NestedFinallyBug.cs" />
     <None Include="Tests\ArraySetValue.cs" />
