@@ -15,5 +15,10 @@ namespace System
             else
                 WriteLineImpl(s.ToString());
         }
+
+        public static void WriteLine(string format, params object[] parameters)
+        {
+            WriteLineImpl(string.Format(format, parameters));
+        }
     }
 }

@@ -16,11 +16,17 @@ class Program
         return new byte[] { 0, 8, 4, 5, 1, byte.MaxValue, byte.MinValue };
     }
 
+    private static long[] GetLongArray()
+    {
+        return new long[] { 0, 8, 4, 5, 1, 6, 500, long.MaxValue, long.MinValue };
+    }
+
     public static void Main()
     {
         Print(GetIntArray());
         Print(GetUIntArray());
         Print(GetByteArray());
+        Print(GetLongArray());
     }
 
     public static void Print<T>(T[] arr) 

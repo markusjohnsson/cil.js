@@ -58,5 +58,8 @@ namespace System
         {
             return (int)this;
         }
+
+        [JsReplace("parseInt({0}.jsstr)")]
+        public static extern int Parse(string s);
     }
 }

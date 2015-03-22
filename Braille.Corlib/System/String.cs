@@ -44,6 +44,9 @@ namespace System
 
         public static string Concat(object a, object b, object c)
         {
+            a = a ?? string.Empty;
+            b = b ?? string.Empty;
+            c = c ?? string.Empty;
             return ConcatImpl(a.ToString(), b.ToString(), c.ToString());
         }
 
@@ -59,6 +62,8 @@ namespace System
 
         public static string Concat(object a, object b)
         {
+            a = a ?? string.Empty;
+            b = b ?? string.Empty;
             return ConcatImpl(a.ToString(), b.ToString());
         }
 
@@ -72,7 +77,8 @@ namespace System
             var strings = new string[args.Length];
             for (int i = 0; i < args.Length; i++)
             {
-                strings[i] = args[i].ToString();
+                var arg = args[i] ?? string.Empty;
+                strings[i] = arg.ToString();
             }
 
             return Concat(strings);
@@ -98,22 +104,28 @@ namespace System
 
         public static bool operator !=(string lhs, string rhs)
         {
-            return !EqualsImpl(lhs, rhs);
+            return !(lhs == rhs);
         }
 
         public static bool operator ==(string lhs, string rhs)
         {
+            if (lhs == null)
+                return rhs == null;
+            if (rhs == null)
+                return false;
             return EqualsImpl(lhs, rhs);
         }
 
         public bool Equals(string other)
         {
+            if (other == null)
+                return false;
             return EqualsImpl(this, other);
         }
 
         public override bool Equals(object other)
         {
-            return Equals((string)other);
+            return Equals(other as string);
         }
 
         [JsImport(@"
@@ -168,9 +180,17 @@ namespace System
         [JsImport("function(v) { return BLR.new_string(v.jsstr.toLowerCase()); } ")]
         internal static extern string ToLowerImpl(string v);
 
-        public string ToLower() 
+        public string ToLower()
         {
             return ToLowerImpl(this);
+        }
+
+        [JsImport("function(v) { return BLR.new_string(v.jsstr.toUpperCase()); } ")]
+        internal static extern string ToUpperImpl(string v);
+
+        public string ToUpper()
+        {
+            return ToUpperImpl(this);
         }
 
         [JsReplace("({0}.jsstr < {1}.jsstr ? 1 : 0)")]
@@ -181,7 +201,7 @@ namespace System
             if (other == null)
                 return 1;
 
-            if (this == other)
+            if (EqualsImpl(this, other))
                 return 0;
 
             if (LessThan(this, other))

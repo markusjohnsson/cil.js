@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct Boolean
+    public struct Boolean : IComparable<bool>, IComparable
     {
         public override string ToString()
         {
@@ -18,6 +18,24 @@ namespace System
             var a = this;
             var b = (bool)other;
             return a == b;
+        }
+
+        public int CompareTo(object p)
+        {
+            return CompareTo((bool)p);
+        }
+
+        public int CompareTo(bool p)
+        {
+            bool n = this;
+
+            if (n == p)
+                return 0;
+
+            if (!n)
+                return -1;
+            else
+                return 1;
         }
     }
 }
