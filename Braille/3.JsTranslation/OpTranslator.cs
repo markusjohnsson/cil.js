@@ -20,14 +20,16 @@ namespace Braille.JsTranslation
         protected CilType type;
         protected CilMethod method;
         protected List<CilAssembly> world;
+        protected Block block;
 
-        public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method)
+        public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block)
             : base(context)
         {
             this.world = context.Assemblies;
             this.assembly = assembly;
             this.type = type;
             this.method = method;
+            this.block = block;
         }
 
         private IEnumerable<Type> RequireFieldInitTypes(OpExpression node)
@@ -151,15 +153,19 @@ namespace Braille.JsTranslation
                     break;
                 case "leave":
                 case "leave.s":
-                    yield return JSFactory
-                        .Assignment(
-                            new JSIdentifier { Name = "in_block" },
-                            new JSBoolLiteral { Value = false })
-                        .ToStatement();
+                    var target = GetTargetPosition(node.Instruction);
+                    if (target < block.From || target > block.To)
+                    {
+                        yield return JSFactory
+                            .Assignment(
+                                new JSIdentifier { Name = "in_block" },
+                                new JSBoolLiteral { Value = false })
+                            .ToStatement();
+                    }
                     yield return JSFactory
                         .Assignment(
                             new JSIdentifier { Name = "__pos__" },
-                            new JSNumberLiteral { Value = GetTargetPosition(node.Instruction), IsHex = true })
+                            new JSNumberLiteral { Value = target, IsHex = true })
                         .ToStatement();
                     yield return new JSBreakExpression().ToStatement();
                     break;
@@ -170,7 +176,7 @@ namespace Braille.JsTranslation
                         Expression = new JSVariableDelcaration
                         {
                             Name = "__switch_value__",
-                            Value = ProcessInternal(node.Arguments.Single())
+                            Value = WrapInUnsigned(true, ProcessInternal(node.Arguments.Single()))
                         }
                     };
 
@@ -306,16 +312,40 @@ namespace Braille.JsTranslation
 
         private JSIfStatement CreateComparisonBranch(OpExpression node, string op)
         {
+            JSExpression condition;
             var isUnsigned = node.Instruction.OpCode.Name.Contains(".un");
 
-            return new JSIfStatement
+            if (IsInt64Operation(node) || IsUInt64Operation(node))
             {
-                Condition = new JSBinaryExpression
+                bool reverse = false;
+                string opFunction;
+                switch (op)
+                {
+                    case "<": opFunction = isUnsigned ? "UInt64_LessThan" : "Int64_LessThan"; break;
+                    case ">": opFunction = isUnsigned ? "UInt64_GreaterThan" : "Int64_GreaterThan"; break;
+                    case "<=": opFunction = isUnsigned ? "UInt64_GreaterThan" : "Int64_GreaterThan"; reverse = true; break;
+                    case ">=": opFunction = isUnsigned ? "UInt64_LessThan" : "Int64_LessThan"; reverse = true; break;
+                    default: throw new NotSupportedException();
+                }
+                
+                var left = reverse ? ProcessInternal(node.Arguments.Last()) : ProcessInternal(node.Arguments.First());
+                var right = reverse ? ProcessInternal(node.Arguments.First()) : ProcessInternal(node.Arguments.Last());
+
+                condition = JSFactory.Call(JSFactory.Identifier("asm0", opFunction), left, right);
+            }
+            else
+            {
+                condition = new JSBinaryExpression
                 {
                     Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First())),
                     Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
                     Operator = op
-                },
+                };
+            } 
+            
+            return new JSIfStatement
+            {
+                Condition = condition,
                 Statements = CreateJumpTo(GetTargetPosition(node.Instruction))
             };
         }
@@ -328,7 +358,7 @@ namespace Braille.JsTranslation
                 return expression;
         }
 
-        private double GetTargetPosition(OpInstruction i)
+        private int GetTargetPosition(OpInstruction i)
         {
             int data;
             if (i.Data is byte)
@@ -379,7 +409,7 @@ namespace Braille.JsTranslation
                 case "shr.un":
                 case "sub":
                 case "xor":
-                    return new ArithmeticTranslator(context, assembly, type, method).Translate(node);
+                    return new ArithmeticTranslator(context, assembly, type, method, block).Translate(node);
 
                 case "box":
                     {
@@ -559,10 +589,10 @@ namespace Braille.JsTranslation
                 case "ceq":
                 case "cgt":
                 case "clt":
-                    return new ComparisonTranslator(context, assembly, type, method).Translate(node);
+                    return new ComparisonTranslator(context, assembly, type, method, block).Translate(node);
 
                 case "conv":
-                    return new ConversionTranslator(context, assembly, type, method).Translate(node);
+                    return new ConversionTranslator(context, assembly, type, method, block).Translate(node);
 
                 case "dup":
                     return ProcessInternal(node.Arguments.Single());

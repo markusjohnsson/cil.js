@@ -10,8 +10,8 @@ namespace Braille.JsTranslation.OpTranslators
 {
     class ComparisonTranslator: OpTranslator
     {
-        public ComparisonTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method)
-            : base(context, assembly, type, method)
+        public ComparisonTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block)
+            : base(context, assembly, type, method, block)
         {
         }
 

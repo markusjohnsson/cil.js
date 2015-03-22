@@ -293,6 +293,7 @@ namespace Braille.Analysis
         private IKVM.Reflection.Type InferBinaryArithmeticType(OpExpression op)
         {
             var int32s = new[] { types.Char, types.Sbyte, types.Int32, types.Byte, types.UInt32 };
+            var int64s = new[] { types.Int64, types.UInt64 };
 
             var a = op.Arguments.First().ResultType;
             var b = op.Arguments.Last().ResultType;
@@ -302,6 +303,12 @@ namespace Braille.Analysis
 
             if (int32s.Contains(b))
                 b = types.Int32;
+
+            if (int64s.Contains(a))
+                a = types.Int64;
+
+            if (int64s.Contains(b))
+                b = types.Int64;
 
             if (a == b)
                 return a;

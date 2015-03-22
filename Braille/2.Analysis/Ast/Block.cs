@@ -21,9 +21,14 @@ namespace Braille.Ast
         public BlockKind Kind;
         public List<Node> Ast = new List<Node>();
 
-        public Block(BlockKind blockType)
+        public int From;
+        public int To;
+
+        public Block(BlockKind blockType, int from, int to)
         {
             Kind = blockType;
+            From = from;
+            To = to;
         }
 
         /// <summary>
@@ -51,8 +56,8 @@ namespace Braille.Ast
 
     class CatchBlock : Block
     {
-        public CatchBlock(Type type)
-            : base(BlockKind.Catch)
+        public CatchBlock(Type type, int from, int to)
+            : base(BlockKind.Catch, from, to)
         {
             this.CatchType = type;
         }
@@ -62,24 +67,24 @@ namespace Braille.Ast
 
     class TryBlock : Block
     {
-        public TryBlock()
-            : base(BlockKind.Try)
+        public TryBlock(int from, int to)
+            : base(BlockKind.Try, from, to)
         {
         }
     }
 
     class FinallyBlock : Block
     {
-        public FinallyBlock()
-            : base(BlockKind.Finally)
+        public FinallyBlock(int from, int to)
+            : base(BlockKind.Finally, from, to)
         {
         }
     }
 
     class FaultBlock : Block
     {
-        public FaultBlock()
-            : base(BlockKind.Fault)
+        public FaultBlock(int from, int to)
+            : base(BlockKind.Fault, from, to)
         {
         }
     }

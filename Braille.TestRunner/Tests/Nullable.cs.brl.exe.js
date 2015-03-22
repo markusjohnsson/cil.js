@@ -73,14 +73,14 @@ var asm1; (function (asm)
         /* IL_2D: ldloc.0 */
         /* IL_2E: newobj Void .ctor(A)*/
         /* IL_33: call Void Print(System.Nullable`1[A])*/
-        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x6000169,[null, BLR.clone_value(loc0)])));
+        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x600016c,[null, BLR.clone_value(loc0)])));
         /* IL_38: ldloca.s 4*/
         /* IL_3B: initobj A*/
         loc4 = new t1();
         /* IL_40: ldloc.s 4*/
         /* IL_42: newobj Void .ctor(A)*/
         /* IL_47: call Void Print(System.Nullable`1[A])*/
-        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x6000169,[null, BLR.clone_value(loc4)])));
+        asm1.x600000c(BLR.clone_value(BLR.newobj(t2,asm0.x600016c,[null, BLR.clone_value(loc4)])));
         /* IL_4C: ldnull */
         /* IL_4D: call Void PrintObject(System.Object)*/
         asm1.x600000b(null);
@@ -171,7 +171,7 @@ var asm1; (function (asm)
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_10*/
                 
-                if (asm0.x600016a({
+                if (asm0.x600016d({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -199,7 +199,7 @@ var asm1; (function (asm)
                 /* IL_1C: call Boolean get_HasValue()*/
                 /* IL_21: brfalse.s IL_39*/
                 
-                if ((!(asm0.x600016a({
+                if ((!(asm0.x600016d({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -218,7 +218,7 @@ var asm1; (function (asm)
                 /* IL_2F: box System.Int32*/
                 /* IL_34: call Void Log(System.Object)*/
                 asm1.x6000001({
-                        'boxed': asm0.x600016b({
+                        'boxed': asm0.x600016e({
                                 'w': function (v)
                                 {
                                     arg0 = v;

@@ -16,15 +16,15 @@ namespace Braille.JsTranslation
         private CilType type;
         private CilMethod method;
         private JSExpression this_;
-        private OpTranslator opTranslator;
+        private CilAssembly assembly;
 
         public BlockTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, JSExpression this_)
             : base(context)
         {
             this.type = type;
+            this.assembly = assembly;
             this.method = method;
             this.this_ = this_;
-            this.opTranslator = new OpTranslator(context, assembly, type, method);
         }
 
         public List<JSStatement> Translate(Block block)
@@ -34,6 +34,8 @@ namespace Braille.JsTranslation
 
         private BlockBuilder CreateJsBlock(Block block, int depth)
         {
+            var opTranslator = new OpTranslator(context, assembly, type, method, block);
+
             var builder = new BlockBuilder(depth, GetPosition(block));
 
             foreach (var node in block.Ast)

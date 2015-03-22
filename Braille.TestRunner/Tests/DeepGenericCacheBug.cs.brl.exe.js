@@ -100,7 +100,7 @@ var asm1; (function (asm)
         /* IL_16: box System.Boolean*/
         /* IL_1B: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': ((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)) === asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))) ? (1) : (0)),
+                'boxed': ((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)) === asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))) ? (1) : (0)),
                 'type': t7,
                 'vtable': t7.prototype.vtable,
                 'ifacemap': t7.prototype.ifacemap

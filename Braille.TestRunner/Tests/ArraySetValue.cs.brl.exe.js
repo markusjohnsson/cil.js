@@ -85,7 +85,7 @@ var asm1; (function (asm)
         /* IL_09: box System.Int32*/
         /* IL_0E: ldc.i4.0 */
         /* IL_0F: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,{
+        asm0.x6000157(loc0,{
                 'boxed': (1|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -100,7 +100,7 @@ var asm1; (function (asm)
         /* IL_1D: ldstr test*/
         /* IL_22: ldc.i4.0 */
         /* IL_23: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,BLR.new_string("test"),(0|0));
+        asm0.x6000157(loc0,BLR.new_string("test"),(0|0));
         /* IL_28: ldloc.0 */
         /* IL_29: ldc.i4.0 */
         /* IL_2A: ldelem.ref */
@@ -110,7 +110,7 @@ var asm1; (function (asm)
         /* IL_31: ldnull */
         /* IL_32: ldc.i4.0 */
         /* IL_33: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,null,(0|0));
+        asm0.x6000157(loc0,null,(0|0));
         /* IL_38: ldloc.0 */
         /* IL_39: ldc.i4.0 */
         /* IL_3A: ldelem.ref */
@@ -160,7 +160,7 @@ var asm1; (function (asm)
         /* IL_09: box System.Int32*/
         /* IL_0E: ldc.i4.0 */
         /* IL_0F: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,{
+        asm0.x6000157(loc0,{
                 'boxed': (1|0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
@@ -203,7 +203,7 @@ var asm1; (function (asm)
         /* IL_34: ldc.i4.0 */
         st_0F = (0|0);
         /* IL_35: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(st_0D,st_0E,st_0F);
+        asm0.x6000157(st_0D,st_0E,st_0F);
         /* IL_3A: ldloc.0 */
         /* IL_3B: ldc.i4.0 */
         /* IL_3C: ldelem.ref */
@@ -221,7 +221,7 @@ var asm1; (function (asm)
         /* IL_52: ldnull */
         /* IL_53: ldc.i4.0 */
         /* IL_54: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,null,(0|0));
+        asm0.x6000157(loc0,null,(0|0));
         /* IL_59: ldloc.0 */
         /* IL_5A: ldc.i4.0 */
         /* IL_5B: ldelem.ref */
@@ -304,7 +304,7 @@ var asm1; (function (asm)
         /* IL_1F: ldc.i4.0 */
         st_08 = (0|0);
         /* IL_20: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(st_06,st_07,st_08);
+        asm0.x6000157(st_06,st_07,st_08);
         /* IL_25: ldloc.0 */
         /* IL_26: ldc.i4.0 */
         /* IL_27: ldelem.ref */
@@ -327,7 +327,7 @@ var asm1; (function (asm)
         /* IL_45: ldc.i4.0 */
         st_12 = (0|0);
         /* IL_46: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(st_10,st_11,st_12);
+        asm0.x6000157(st_10,st_11,st_12);
         /* IL_4B: ldloc.0 */
         /* IL_4C: ldc.i4.0 */
         /* IL_4D: ldelem.ref */
@@ -338,7 +338,7 @@ var asm1; (function (asm)
         /* IL_59: ldnull */
         /* IL_5A: ldc.i4.0 */
         /* IL_5B: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,null,(0|0));
+        asm0.x6000157(loc0,null,(0|0));
         /* IL_60: ldloc.0 */
         /* IL_61: ldc.i4.0 */
         /* IL_62: ldelem.ref */
@@ -409,7 +409,7 @@ var asm1; (function (asm)
         /* IL_1F: ldc.i4.0 */
         st_08 = (0|0);
         /* IL_20: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(st_06,st_07,st_08);
+        asm0.x6000157(st_06,st_07,st_08);
         /* IL_25: ldloc.0 */
         /* IL_26: ldc.i4.0 */
         /* IL_27: ldelema A*/
@@ -429,7 +429,7 @@ var asm1; (function (asm)
         /* IL_37: ldnull */
         /* IL_38: ldc.i4.0 */
         /* IL_39: callvirt Void SetValue(System.Object, System.Int32)*/
-        asm0.x6000154(loc0,null,(0|0));
+        asm0.x6000157(loc0,null,(0|0));
         /* IL_3E: ldloc.0 */
         /* IL_3F: ldc.i4.0 */
         /* IL_40: ldelema A*/

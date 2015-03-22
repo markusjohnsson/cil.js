@@ -27,7 +27,7 @@ var asm1; (function (asm)
         /* IL_0C: ldarg.1 */
         /* IL_0D: call String Concat(System.String, System.String)*/
         /* IL_12: ret */
-        return asm0.x600017e(arg0.AY,arg1);
+        return asm0.x6000181(arg0.AY,arg1);
     };;
     /*  A..ctor(String)*/
     asm.x600000a = function _ctor(arg0,arg1)
@@ -81,7 +81,7 @@ var asm1; (function (asm)
         /* IL_0F: ldc.i4.0 */
         /* IL_10: ldelem.ref */
         /* IL_11: stloc.0 */
-        loc0 = BLR.ldelem_ref((((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c4"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),(0|0));
+        loc0 = BLR.ldelem_ref((((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c5"])())(asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),(0|0));
         /* IL_12: ldloc.0 */
         st_0B = loc0;
         /* IL_13: ldstr Hello*/

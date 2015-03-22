@@ -177,7 +177,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.2 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: stloc.0 */
-                                loc0 = ((((loc2.ifacemap)[t2])[t0].x60000ee)())(BLR.convert_box_to_pointer_as_needed(loc2));
+                                loc0 = ((((loc2.ifacemap)[t2])[t0].x60000ef)())(BLR.convert_box_to_pointer_as_needed(loc2));
                                 /* IL_10: ldloc.0 */
                                 /* IL_11: stloc.1 */
                                 loc1 = loc0;
@@ -190,7 +190,7 @@ var asm1; (function (asm)
                                 /* IL_15: callvirt Boolean MoveNext()*/
                                 /* IL_1A: brtrue.s IL_09*/
                                 
-                                if ((((loc2.ifacemap)[t3].x60000ec)())(BLR.convert_box_to_pointer_as_needed(loc2))){
+                                if ((((loc2.ifacemap)[t3].x60000ed)())(BLR.convert_box_to_pointer_as_needed(loc2))){
                                     __pos__ = 0x9;
                                     continue;
                                 }
@@ -315,7 +315,7 @@ var asm1; (function (asm)
                                 /* IL_09: ldloc.1 */
                                 /* IL_0A: callvirt T get_Current()*/
                                 /* IL_0F: pop */
-                                ((((loc1.ifacemap)[t2])[t0].x60000ee)())(BLR.convert_box_to_pointer_as_needed(loc1));
+                                ((((loc1.ifacemap)[t2])[t0].x60000ef)())(BLR.convert_box_to_pointer_as_needed(loc1));
                                 /* IL_10: ldc.i4.1 */
                                 /* IL_11: stloc.0 */
                                 loc0 = (1|0);
@@ -328,7 +328,7 @@ var asm1; (function (asm)
                                 /* IL_15: callvirt Boolean MoveNext()*/
                                 /* IL_1A: brtrue.s IL_09*/
                                 
-                                if ((((loc1.ifacemap)[t3].x60000ec)())(BLR.convert_box_to_pointer_as_needed(loc1))){
+                                if ((((loc1.ifacemap)[t3].x60000ed)())(BLR.convert_box_to_pointer_as_needed(loc1))){
                                     __pos__ = 0x9;
                                     continue;
                                 }
@@ -730,7 +730,7 @@ var asm1; (function (asm)
                             loc1 = (arg0)["_Select_d__0_2<>1__state"];
                             /* IL_07: ldloc.1 */
                             /* IL_08: switch System.Int32[]*/
-                            __switch_value__ = loc1;
+                            __switch_value__ = BLR.unsigned_value(loc1);
                             
                             if (__switch_value__ >= 0x3){
                                 __pos__ = 0x19;
@@ -771,7 +771,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap2*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__1*/
-                            (arg0)["<s>5__1"] = (((((arg0)["<>7__wrap2"].ifacemap)[t2])[t0].x60000ee)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]));
+                            (arg0)["<s>5__1"] = (((((arg0)["<>7__wrap2"].ifacemap)[t2])[t0].x60000ef)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]));
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldarg.0 */
                             /* IL_4F: ldfld Func`2 selector*/
@@ -807,7 +807,7 @@ var asm1; (function (asm)
                             /* IL_7C: callvirt Boolean MoveNext()*/
                             /* IL_81: brtrue.s IL_3C*/
                             
-                            if (((((arg0)["<>7__wrap2"].ifacemap)[t3].x60000ec)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]))){
+                            if (((((arg0)["<>7__wrap2"].ifacemap)[t3].x60000ed)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap2"]))){
                                 __pos__ = 0x3C;
                                 continue;
                             }
@@ -879,7 +879,7 @@ var asm1; (function (asm)
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: throw */
-        throw BLR.newobj(t0,asm0.x60000f2,[null]);
+        throw BLR.newobj(t0,asm0.x60000f3,[null]);
     };
     /* System.Void <Select>d__0`2.System.IDisposable.Dispose()*/
     asm.x6000018 = function System_IDisposable_Dispose(arg0)
@@ -907,7 +907,7 @@ var asm1; (function (asm)
                 /* IL_08: ldc.i4.1 */
                 /* IL_09: sub */
                 /* IL_0A: switch System.Int32[]*/
-                __switch_value__ = (loc0 - (1|0)) | (0|0);
+                __switch_value__ = BLR.unsigned_value((loc0 - (1|0)) | (0|0));
                 
                 if (__switch_value__ >= 0x2){
                     __pos__ = 0x17;
@@ -1173,7 +1173,7 @@ var asm1; (function (asm)
                             loc1 = (arg0)["_Where_d__6_1<>1__state"];
                             /* IL_07: ldloc.1 */
                             /* IL_08: switch System.Int32[]*/
-                            __switch_value__ = loc1;
+                            __switch_value__ = BLR.unsigned_value(loc1);
                             
                             if (__switch_value__ >= 0x3){
                                 __pos__ = 0x19;
@@ -1214,7 +1214,7 @@ var asm1; (function (asm)
                             /* IL_3E: ldfld IEnumerator`1 <>7__wrap8*/
                             /* IL_43: callvirt T get_Current()*/
                             /* IL_48: stfld T <s>5__7*/
-                            (arg0)["<s>5__7"] = (((((arg0)["<>7__wrap8"].ifacemap)[t2])[t0].x60000ee)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]));
+                            (arg0)["<s>5__7"] = (((((arg0)["<>7__wrap8"].ifacemap)[t2])[t0].x60000ef)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]));
                             /* IL_4D: ldarg.0 */
                             /* IL_4E: ldfld Func`2 predicate*/
                             /* IL_53: ldarg.0 */
@@ -1258,7 +1258,7 @@ var asm1; (function (asm)
                             /* IL_84: callvirt Boolean MoveNext()*/
                             /* IL_89: brtrue.s IL_3C*/
                             
-                            if (((((arg0)["<>7__wrap8"].ifacemap)[t3].x60000ec)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]))){
+                            if (((((arg0)["<>7__wrap8"].ifacemap)[t3].x60000ed)())(BLR.convert_box_to_pointer_as_needed((arg0)["<>7__wrap8"]))){
                                 __pos__ = 0x3C;
                                 continue;
                             }
@@ -1330,7 +1330,7 @@ var asm1; (function (asm)
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: throw */
-        throw BLR.newobj(t0,asm0.x60000f2,[null]);
+        throw BLR.newobj(t0,asm0.x60000f3,[null]);
     };
     /* System.Void <Where>d__6`1.System.IDisposable.Dispose()*/
     asm.x6000021 = function System_IDisposable_Dispose(arg0)
@@ -1358,7 +1358,7 @@ var asm1; (function (asm)
                 /* IL_08: ldc.i4.1 */
                 /* IL_09: sub */
                 /* IL_0A: switch System.Int32[]*/
-                __switch_value__ = (loc0 - (1|0)) | (0|0);
+                __switch_value__ = BLR.unsigned_value((loc0 - (1|0)) | (0|0));
                 
                 if (__switch_value__ >= 0x2){
                     __pos__ = 0x17;
@@ -1504,7 +1504,7 @@ var asm1; (function (asm)
             BLR.init_type(this,asm,"E",false,false,false,false,false,[
                     [
                         (asm0)["System.Runtime.CompilerServices.ExtensionAttribute"](),
-                        asm0.x6000126
+                        asm0.x6000127
                     ]
                 ],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
             this.GenericTypeMetadataName = "asm1.t2000006";
@@ -1587,15 +1587,15 @@ var asm1; (function (asm)
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"](TResult), TResult],
                 {
-                    'x60000ee': function (){ return asm1.x6000016;}
+                    'x60000ef': function (){ return asm1.x6000016;}
                 });
             BLR.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
                 {
-                    'x60000eb': function (){ return asm1.x6000019;},
-                    'x60000ec': function (){ return asm1.x6000015;},
-                    'x60000ed': function (){ return asm1.x6000017;}
+                    'x60000ec': function (){ return asm1.x6000019;},
+                    'x60000ed': function (){ return asm1.x6000015;},
+                    'x60000ee': function (){ return asm1.x6000017;}
                 });
             BLR.implement_interface(
                 this,
@@ -1652,15 +1652,15 @@ var asm1; (function (asm)
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"](T), T],
                 {
-                    'x60000ee': function (){ return asm1.x600001f;}
+                    'x60000ef': function (){ return asm1.x600001f;}
                 });
             BLR.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
                 {
-                    'x60000eb': function (){ return asm1.x6000022;},
-                    'x60000ec': function (){ return asm1.x600001e;},
-                    'x60000ed': function (){ return asm1.x6000020;}
+                    'x60000ec': function (){ return asm1.x6000022;},
+                    'x60000ed': function (){ return asm1.x600001e;},
+                    'x60000ee': function (){ return asm1.x6000020;}
                 });
             BLR.implement_interface(
                 this,

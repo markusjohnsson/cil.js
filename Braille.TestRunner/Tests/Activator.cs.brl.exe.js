@@ -65,7 +65,7 @@ var asm1; (function (asm)
         /* IL_0A: call Object CreateInstance(System.Type)*/
         /* IL_0F: castclass A*/
         /* IL_14: stloc.0 */
-        loc0 = BLR.cast_class(asm0.x6000053(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),t1);
+        loc0 = BLR.cast_class(asm0.x6000053(asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),t1);
         /* IL_15: ldtoken A*/
         /* IL_1A: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_1F: ldloc.0 */
@@ -74,7 +74,7 @@ var asm1; (function (asm)
         /* IL_2A: box System.Boolean*/
         /* IL_2F: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': (((asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x6000008"])())(asm0.x60000b4(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x600000a(loc0)),
+                'boxed': (((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x6000008"])())(asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x600000a(loc0)),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap

@@ -10,8 +10,8 @@ namespace Braille.JsTranslation.OpTranslators
 {
     class ArithmeticTranslator: OpTranslator
     {
-        public ArithmeticTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method)
-            : base(context, assembly, type, method)
+        public ArithmeticTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block)
+            : base(context, assembly, type, method, block)
         {
         }
 

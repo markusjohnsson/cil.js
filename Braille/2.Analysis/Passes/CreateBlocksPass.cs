@@ -81,7 +81,7 @@ namespace Braille.Analysis.Passes
             if (regionQueue.Any())
                 awaitedRegion = regionQueue.Dequeue();
 
-            var block = new Block(BlockKind.Normal);
+            var block = new Block(BlockKind.Normal, 0, 0);
             block.Ast.Add(new JumpLabel(0, false));
 
             var rootBlock = block;
@@ -127,6 +127,7 @@ namespace Braille.Analysis.Passes
                 }
 
                 block.Ast.Add(op);
+                block.To = op.Position;
             }
 
             if (blockStack.Any())
@@ -143,17 +144,17 @@ namespace Braille.Analysis.Passes
             switch (regionSpan.Type)
             {
                 case RegionKind.Try:
-                    return new TryBlock();
+                    return new TryBlock(regionSpan.From, regionSpan.To);
                 //case RegionKind.CatchWrapper:
                 //    return BlockKind.CatchWrapper;
                 case RegionKind.Catch:
-                    return new CatchBlock(regionSpan.CatchType);
+                    return new CatchBlock(regionSpan.CatchType, regionSpan.From, regionSpan.To);
                 case RegionKind.Finally:
-                    return new FinallyBlock();
+                    return new FinallyBlock(regionSpan.From, regionSpan.To);
                 case RegionKind.Fault:
-                    return new FaultBlock();
+                    return new FaultBlock(regionSpan.From, regionSpan.To);
                 default:
-                    return new Block(BlockKind.Normal);
+                    return new Block(BlockKind.Normal, regionSpan.From, regionSpan.To);
             }
         }
 
