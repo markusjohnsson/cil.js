@@ -188,10 +188,10 @@ var asm1; (function (asm)
         /* IL_06: ldarg.0 */
         /* IL_07: callvirt Object Clone()*/
         /* IL_0C: pop */
-        (((arg0.ifacemap)[t1].x600009d)())(BLR.convert_box_to_pointer_as_needed(arg0));
+        (((arg0.ifacemap)[t1].x60000a0)())(BLR.convert_box_to_pointer_as_needed(arg0));
         /* IL_0D: ldarg.0 */
         /* IL_0E: callvirt Void Dispose()*/
-        (((arg0.ifacemap)[t2].x600009e)())(BLR.convert_box_to_pointer_as_needed(arg0));
+        (((arg0.ifacemap)[t2].x60000a1)())(BLR.convert_box_to_pointer_as_needed(arg0));
         /* IL_13: ret */
         return ;
     };
@@ -409,13 +409,13 @@ var asm1; (function (asm)
                 this,
                 [(asm0)["System.ICloneable"]()],
                 {
-                    'x600009d': function (){ return asm1.x6000012;}
+                    'x60000a0': function (){ return asm1.x6000012;}
                 });
             BLR.implement_interface(
                 this,
                 [(asm0)["System.IDisposable"]()],
                 {
-                    'x600009e': function (){ return asm1.x6000013;}
+                    'x60000a1': function (){ return asm1.x6000013;}
                 });
             BLR.implement_interface(
                 this,

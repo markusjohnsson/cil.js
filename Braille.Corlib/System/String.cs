@@ -193,21 +193,15 @@ namespace System
             return ToUpperImpl(this);
         }
 
-        [JsReplace("({0}.jsstr < {1}.jsstr ? 1 : 0)")]
-        private extern static bool LessThan(string a, string b);
+        [JsReplace("({0}.jsstr.localeCompare({1}.jsstr))")]
+        private extern static int CompareToImpl(string a, string b);
 
         public int CompareTo(string other)
         {
             if (other == null)
                 return 1;
 
-            if (EqualsImpl(this, other))
-                return 0;
-
-            if (LessThan(this, other))
-                return -1;
-            else
-                return 1;
+            return CompareToImpl(this, other);
         }
 
         public static bool IsNullOrEmpty(string s)

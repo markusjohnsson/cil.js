@@ -564,14 +564,17 @@ namespace Braille.JsTranslation
                             }
                         }
 
+                        JSExpression accessor;
+                        if (mi.DeclaringType.IsInterface)
+                            accessor = GetInterfaceMethodAccessor(thisArg, alternateThisArg, thisScope, mi);
+                        else if (mi.IsVirtual)
+                            accessor = GetVirtualMethodAccessor(thisArg, alternateThisArg, (MethodInfo)mi);
+                        else
+                            accessor = GetUnboundMethodAccessor(mi);
+
                         return new JSCallExpression
                         {
-                            Function =
-                                mi.DeclaringType.IsInterface
-                                    ? GetInterfaceMethodAccessor(thisArg, alternateThisArg, thisScope, mi) :
-                                mi.IsVirtual
-                                    ? GetVirtualMethodAccessor(thisArg, alternateThisArg, (MethodInfo)mi) :
-                                      GetMethodAccessor(mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
+                            Function = BindGenericMethodArguments(accessor, mi, this.method.ReflectionMethod, this.type.ReflectionType, thisScope),
                             Arguments = arglist
                         };
                     }

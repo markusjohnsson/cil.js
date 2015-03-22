@@ -144,7 +144,7 @@ var asm1; (function (asm)
                 /* IL_16: ldloc.1 */
                 /* IL_17: callvirt Char get_Chars(System.Int32)*/
                 /* IL_1C: stloc.2 */
-                loc2 = asm0.x600017f(arg0,loc1);
+                loc2 = asm0.x6000182(arg0,loc1);
                 /* IL_1D: ldloc.2 */
                 /* IL_1E: ldc.i4.s 13*/
                 /* IL_20: bgt.s IL_48*/
@@ -236,7 +236,7 @@ var asm1; (function (asm)
                 /* IL_78: callvirt Char get_Chars(System.Int32)*/
                 /* IL_7D: call String EscapeChar(System.Char)*/
                 /* IL_82: callvirt Void Append(System.String)*/
-                asm1.x600000c(loc0,asm1.x6000010(asm0.x600017f(arg0,loc1)));
+                asm1.x600000c(loc0,asm1.x6000010(asm0.x6000182(arg0,loc1)));
                 /* IL_87: br.s IL_D7*/
                 __pos__ = 0xD7;
                 continue;
@@ -286,7 +286,7 @@ var asm1; (function (asm)
                 /* IL_CC: ldloc.1 */
                 /* IL_CD: callvirt Char get_Chars(System.Int32)*/
                 /* IL_D2: callvirt Void Append(System.Char)*/
-                asm1.x600000d(loc0,asm0.x600017f(arg0,loc1));
+                asm1.x600000d(loc0,asm0.x6000182(arg0,loc1));
                 case 0xD7:
                 /* IL_D7: ldloc.1 */
                 /* IL_D8: ldc.i4.1 */
@@ -299,7 +299,7 @@ var asm1; (function (asm)
                 /* IL_DD: callvirt Int32 get_Length()*/
                 /* IL_E2: blt IL_15*/
                 
-                if (loc1 < asm0.x6000189(arg0)){
+                if (loc1 < asm0.x600018c(arg0)){
                     __pos__ = 0x15;
                     continue;
                 }
@@ -336,7 +336,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int32*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: ret */
-        return asm0.x6000185(BLR.new_string("\\u"),{
+        return asm0.x6000188(BLR.new_string("\\u"),{
                 'boxed': arg0,
                 'type': t0,
                 'vtable': t0.prototype.vtable,

@@ -51,7 +51,7 @@ var asm1; (function (asm)
                 /* IL_06: call Boolean IsNullOrEmpty(System.String)*/
                 /* IL_0B: brfalse.s IL_1C*/
                 
-                if ((!(asm0.x600019a(arg0.Bazname)))){
+                if ((!(asm0.x600019d(arg0.Bazname)))){
                     __pos__ = 0x1C;
                     continue;
                 }
@@ -62,7 +62,7 @@ var asm1; (function (asm)
                 /* IL_14: ldloca.s 0*/
                 /* IL_16: call String ToString()*/
                 /* IL_1B: ret */
-                return asm0.x60000a3({
+                return asm0.x60000a6({
                         'w': function (v)
                         {
                             loc0 = v;
@@ -108,7 +108,7 @@ var asm1; (function (asm)
                 /* IL_4A: ldloc.1 */
                 /* IL_4B: call String Concat(System.Object[])*/
                 /* IL_50: ret */
-                return asm0.x6000187(loc1);
+                return asm0.x600018a(loc1);
             }
         }
     };
@@ -197,7 +197,7 @@ var asm1; (function (asm)
                 /* IL_21: call String get_Name()*/
                 /* IL_26: call Boolean op_Equality(System.String, System.String)*/
                 /* IL_2B: ret */
-                return asm0.x600018c(asm1.x600000a(loc0),asm1.x600000a(arg0));
+                return asm0.x600018f(asm1.x600000a(loc0),asm1.x600000a(arg0));
                 case 0x2C:
                 /* IL_2C: ldc.i4.0 */
                 /* IL_2D: ret */
@@ -245,7 +245,7 @@ var asm1; (function (asm)
         /* IL_07: callvirt String get_Name()*/
         /* IL_0C: callvirt Int32 CompareTo(System.String)*/
         /* IL_11: stloc.0 */
-        loc0 = (((asm1.x600000a(arg1).vtable)["asm0.x6000199"])())(asm1.x600000a(arg1),asm1.x600000a(arg2));
+        loc0 = (((asm1.x600000a(arg1).vtable)["asm0.x600019c"])())(asm1.x600000a(arg1),asm1.x600000a(arg2));
         /* IL_12: ldloc.0 */
         /* IL_13: neg */
         /* IL_14: ret */
@@ -273,7 +273,7 @@ var asm1; (function (asm)
         /* IL_07: callvirt String get_Name()*/
         /* IL_0C: callvirt Int32 CompareTo(System.String)*/
         /* IL_11: stloc.0 */
-        loc0 = (((asm1.x600000a(arg1).vtable)["asm0.x6000199"])())(asm1.x600000a(arg1),asm1.x600000a(arg2));
+        loc0 = (((asm1.x600000a(arg1).vtable)["asm0.x600019c"])())(asm1.x600000a(arg1),asm1.x600000a(arg2));
         /* IL_12: ldloc.0 */
         /* IL_13: ret */
         return loc0;
@@ -398,7 +398,7 @@ var asm1; (function (asm)
                 /* IL_10: ldloc.0 */
                 /* IL_11: newobj Void .ctor()*/
                 /* IL_16: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz])*/
-                (asm0.x6000144(asm1.Baz()))(loc0,BLR.newobj(t1,asm1.x6000013,[null]));
+                (asm0.x6000147(asm1.Baz()))(loc0,BLR.newobj(t1,asm1.x6000013,[null]));
                 /* IL_1B: ldc.i4.0 */
                 /* IL_1C: stloc.1 */
                 loc1 = (0|0);
@@ -436,7 +436,7 @@ var asm1; (function (asm)
                 /* IL_41: ldloc.2 */
                 /* IL_42: newobj Void .ctor()*/
                 /* IL_47: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz])*/
-                (asm0.x6000144(asm1.Baz()))(loc2,BLR.newobj(t3,asm1.x6000011,[null]));
+                (asm0.x6000147(asm1.Baz()))(loc2,BLR.newobj(t3,asm1.x6000011,[null]));
                 /* IL_4C: ldc.i4.0 */
                 /* IL_4D: stloc.3 */
                 loc3 = (0|0);

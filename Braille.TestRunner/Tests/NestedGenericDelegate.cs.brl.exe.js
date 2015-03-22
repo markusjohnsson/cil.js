@@ -56,7 +56,7 @@ var asm1; (function (asm)
             /* IL_00: ldtoken T*/
             /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_0A: ret */
-            return asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
+            return asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
         };
     };;
     /* System.Void A`1.Z(D`1)*/
@@ -214,10 +214,10 @@ var asm1; (function (asm)
             (this.GenericArguments)["asm1.t2000007"] = [T, TResult];
             this.GenericTypeMetadataName = ("asm1.t2000007<" + ((T.GenericTypeMetadataName + TResult.GenericTypeMetadataName) + ">"));
             BLR.declare_virtual(this,"asm1.x600000f","asm1.x600000f");
-            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
+            BLR.declare_virtual(this,"asm0.x6000079","asm0.x6000082");
+            BLR.declare_virtual(this,"asm0.x6000078","asm0.x6000083");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x600007a");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x600007d");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

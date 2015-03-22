@@ -129,7 +129,7 @@ var asm1; (function (asm)
                             /* IL_09: ldloc.1 */
                             /* IL_0A: callvirt Object get_Current()*/
                             /* IL_0F: stloc.0 */
-                            loc0 = (((loc1.ifacemap)[t1].x60000ec)())(BLR.convert_box_to_pointer_as_needed(loc1));
+                            loc0 = (((loc1.ifacemap)[t1].x60000ef)())(BLR.convert_box_to_pointer_as_needed(loc1));
                             /* IL_10: ldloc.0 */
                             /* IL_11: call Void Log(System.Object)*/
                             asm1.x6000001(loc0);
@@ -138,7 +138,7 @@ var asm1; (function (asm)
                             /* IL_17: callvirt Boolean MoveNext()*/
                             /* IL_1C: brtrue.s IL_09*/
                             
-                            if ((((loc1.ifacemap)[t1].x60000ed)())(BLR.convert_box_to_pointer_as_needed(loc1))){
+                            if ((((loc1.ifacemap)[t1].x60000f0)())(BLR.convert_box_to_pointer_as_needed(loc1))){
                                 __pos__ = 0x9;
                                 continue;
                             }
@@ -172,7 +172,7 @@ var asm1; (function (asm)
                             }
                             /* IL_2A: ldloc.2 */
                             /* IL_2B: callvirt Void Dispose()*/
-                            (((loc2.ifacemap)[t2].x600009e)())(BLR.convert_box_to_pointer_as_needed(loc2));
+                            (((loc2.ifacemap)[t2].x60000a1)())(BLR.convert_box_to_pointer_as_needed(loc2));
                             case 0x30:
                             /* IL_30: endfinally */
                             in_block_1 = false;

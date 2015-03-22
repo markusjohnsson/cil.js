@@ -220,10 +220,10 @@ var asm1; (function (asm)
                 ],(asm0)["System.MulticastDelegate"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
             this.GenericTypeMetadataName = "asm1.t2000007";
             BLR.declare_virtual(this,"asm1.x600000e","asm1.x600000e");
-            BLR.declare_virtual(this,"asm0.x6000075","asm0.x600007e");
-            BLR.declare_virtual(this,"asm0.x6000074","asm0.x600007f");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000076");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000079");
+            BLR.declare_virtual(this,"asm0.x6000079","asm0.x6000082");
+            BLR.declare_virtual(this,"asm0.x6000078","asm0.x6000083");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x600007a");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x600007d");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

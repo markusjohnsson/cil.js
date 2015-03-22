@@ -131,7 +131,7 @@ var asm1; (function (asm)
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_0A: callvirt MethodInfo[] GetMethods()*/
         /* IL_0F: stloc.0 */
-        loc0 = (((asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c5"])())(asm0.x60000b5(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)));
+        loc0 = (((asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c8"])())(asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)));
         /* IL_10: ldloc.0 */
         /* IL_11: ldc.i4.0 */
         /* IL_12: ldelem.ref */

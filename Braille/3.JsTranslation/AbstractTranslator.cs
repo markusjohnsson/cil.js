@@ -172,14 +172,23 @@ namespace Braille.JsTranslation
                 GetMethodIdentifier(m.GetBaseDefinition()));
         }
 
+        /// <summary>
+        /// Gets an expression that accesses the JavaScript function which is the implementation of the method
+        /// </summary>
+        /// <param name="mi">Method to be accessed</param>
+        /// <param name="callingScope">The method making a call to <paramref name="mi"/>. Used to make generic argument lookup. </param>
+        /// <param name="typeScope">The declaring type of the method making a call to <paramref name="mi"/>. Used to make generic argument lookup. </param>
+        /// <param name="thisScope">The this object of the call to <paramref name="mi"/>. Used to make generic argument lookup. Null for static methods.</param>
+        /// <returns></returns>
         protected JSExpression GetMethodAccessor(MethodBase mi, MethodBase callingScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
-            var function = new JSPropertyAccessExpression
-            {
-                Host = GetAssemblyIdentifier(mi.DeclaringType),
-                Property = GetMethodIdentifier(mi)
-            };
+            var function = GetUnboundMethodAccessor(mi);
 
+            return BindGenericMethodArguments(function, mi, callingScope, typeScope, thisScope);
+        }
+
+        protected JSExpression BindGenericMethodArguments(JSExpression function, MethodBase mi, MethodBase callingScope, Type typeScope, JSExpression thisScope)
+        {
             if (mi.IsGenericMethod || (mi.IsStatic && mi.DeclaringType.IsGenericType))
             {
                 // For static methods on generic classes, the type arguments are passed to 
@@ -207,6 +216,15 @@ namespace Braille.JsTranslation
             {
                 return function;
             }
+        }
+
+        protected JSExpression GetUnboundMethodAccessor(MethodBase mi)
+        {
+            return new JSPropertyAccessExpression
+            {
+                Host = GetAssemblyIdentifier(mi.DeclaringType),
+                Property = GetMethodIdentifier(mi)
+            };
         }
 
         protected string GetMethodIdentifier(MethodBase m)

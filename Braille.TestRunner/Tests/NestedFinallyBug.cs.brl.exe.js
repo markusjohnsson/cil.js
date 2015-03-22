@@ -72,7 +72,7 @@ var asm1; (function (asm)
                             /* IL_0D: ldloca.s 0*/
                             /* IL_0F: call String ToString()*/
                             /* IL_14: call Void Log(System.Object)*/
-                            asm1.x6000001(asm0.x60000a3({
+                            asm1.x6000001(asm0.x60000a6({
                                         'w': function (v)
                                         {
                                             loc0 = v;
@@ -123,7 +123,7 @@ var asm1; (function (asm)
                                         /* IL_28: ldloca.s 1*/
                                         /* IL_2A: call String ToString()*/
                                         /* IL_2F: call Void Log(System.Object)*/
-                                        asm1.x6000001(asm0.x60000a3({
+                                        asm1.x6000001(asm0.x60000a6({
                                                     'w': function (v)
                                                     {
                                                         loc1 = v;
@@ -164,7 +164,7 @@ var asm1; (function (asm)
                                         /* IL_43: ldloca.s 2*/
                                         /* IL_45: call String ToString()*/
                                         /* IL_4A: call Void Log(System.Object)*/
-                                        asm1.x6000001(asm0.x60000a3({
+                                        asm1.x6000001(asm0.x60000a6({
                                                     'w': function (v)
                                                     {
                                                         loc2 = v;
@@ -197,7 +197,7 @@ var asm1; (function (asm)
                             /* IL_5D: ldloca.s 3*/
                             /* IL_5F: call String ToString()*/
                             /* IL_64: call Void Log(System.Object)*/
-                            asm1.x6000001(asm0.x60000a3({
+                            asm1.x6000001(asm0.x60000a6({
                                         'w': function (v)
                                         {
                                             loc3 = v;

@@ -22,41 +22,6 @@ namespace Braille.JsTranslation
         {
         }
 
-        // This comment is old. Now the initialization is a bit more complex and is partially generated with eval.
-        //
-        // The structure of the type initializer is approximately as follows:
-        // 
-        //     asm[fullname] = (function () {
-        // 
-        //         var ct = ... // keeps cached instances of constructor(s) (one for each unique generic arguments setup)
-        //         
-        //         return function (generic_parameters) {
-        //             
-        //             // early return if there is a cached instance of the constructor
-        //
-        //             // object constructor in the JavaScript sense
-        //             function escaped_simple_name() {}  
-        //
-        //             // cache constructor instance 
-        //
-        //             // type initializer (not needed to create type hierarchy, but needed to create object instances)
-        //             escaped_simple_name.init = function() {
-        //
-        //                 // set field default values
-        //                 escaped_simple_name.prototype.myField = 0;
-        //
-        //                 // create vtable and interface maps
-        //                 escaped_simple_name.prototype.vtable = ...
-        //
-        //                 escaped_simple_name.prototype[interface_type] = ...
-        //             }
-        //             
-        //             escaped_simple_name.prototype = new asm0['basetype']();
-        //
-        //             return escaped_simple_name;
-        //         }
-        //     })();
-
         public JSExpression Translate(CilType type)
         {
             var call = JSFactory.Call(JSFactory.Identifier("BLR", "declare_type"),
@@ -464,7 +429,7 @@ namespace Braille.JsTranslation
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
                         m => GetVirtualMethodIdentifier(m),
-                        m => GetMethodAccessor(m).ToString()) //new JSFunctionDelcaration { Body = { new JSReturnExpression { Expression = GetMethodAccessor(m) }.ToStatement() } } as JSExpression)
+                        m => GetUnboundMethodAccessor(m).ToString()) 
             ;
         }
 
@@ -489,7 +454,8 @@ namespace Braille.JsTranslation
                             Inline = true,
                             Body =
                             {
-                                JSFactory.Return(GetMethodAccessor(m.targetMethod)).ToStatement()
+                                //JSFactory.Return(GetMethodAccessor(m.targetMethod)).ToStatement()
+                                JSFactory.Return(GetUnboundMethodAccessor(m.targetMethod)).ToStatement()
                             }
                         } as JSExpression)
             };
