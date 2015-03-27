@@ -6573,7 +6573,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x60001b0(BLR.new_string("RightShift "),{
+        asm1.x6000001(asm0.x60001bf(BLR.new_string("RightShift "),{
                     'boxed': arg0,
                     'type': t0,
                     'vtable': t0.prototype.vtable,
@@ -6769,7 +6769,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x60001b0(BLR.new_string("LeftShift "),{
+        asm1.x6000001(asm0.x60001bf(BLR.new_string("LeftShift "),{
                     'boxed': arg0,
                     'type': t0,
                     'vtable': t0.prototype.vtable,

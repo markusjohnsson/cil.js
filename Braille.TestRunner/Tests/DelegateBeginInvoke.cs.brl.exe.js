@@ -175,7 +175,7 @@ var asm1; (function (asm)
                 /* IL_6D: ldloc.0 */
                 /* IL_6E: callvirt Object get_AsyncState()*/
                 /* IL_73: call Void Log(System.Object)*/
-                asm1.x6000001((((loc0.ifacemap)[t5].x60000b8)())(BLR.convert_box_to_pointer_as_needed(loc0)));
+                asm1.x6000001((((loc0.ifacemap)[t5].x60000be)())(BLR.convert_box_to_pointer_as_needed(loc0)));
                 /* IL_78: ret */
                 return ;
             }

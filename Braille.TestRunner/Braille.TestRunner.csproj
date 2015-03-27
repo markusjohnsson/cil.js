@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <Compile Include="Tests\PrimitiveCompareTo.cs" />
     <None Include="Tests\GenericMethodOnInterfaceBug.cs" />
     <None Include="Tests\DelegateBeginInvoke.cs" />
     <None Include="Tests\FieldInitializers.cs" />

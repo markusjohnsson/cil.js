@@ -3,21 +3,30 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct Boolean : IComparable<bool>, IComparable
+    public struct Boolean : IComparable<bool>, IComparable, IEquatable<bool>
     {
         public override string ToString()
         {
             return this ? "True" : "False";
         }
 
+        public override int GetHashCode()
+        {
+            return this ? 1 : 0;
+        }
+
+        public bool Equals(bool other)
+        {
+            var a = this;
+            var b = other;
+            return a == b;
+        }
+
         public override bool Equals(object other)
         {
             if (!(other is bool))
                 return false;
-
-            var a = this;
-            var b = (bool)other;
-            return a == b;
+            return Equals((bool)other);
         }
 
         public int CompareTo(object p)
@@ -37,5 +46,6 @@ namespace System
             else
                 return 1;
         }
+
     }
 }

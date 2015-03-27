@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct SByte
+    public struct SByte : IComparable<sbyte>, IComparable, IEquatable<sbyte>
     {
         public const sbyte MinValue = -128;
         public const sbyte MaxValue = 127;
@@ -13,14 +13,36 @@ namespace System
             return InternalFormatting.SignedPrimitiveToString(this);
         }
 
+        public int CompareTo(object p)
+        {
+            return CompareTo((sbyte)p);
+        }
+
+        public int CompareTo(sbyte p)
+        {
+            sbyte n = this;
+
+            if (n < p)
+                return -1;
+
+            if (n > p)
+                return 1;
+
+            return 0;
+        }
+
+        public bool Equals(sbyte other)
+        {
+            var a = this;
+            var b = other;
+            return a == b;
+        }
+
         public override bool Equals(object other)
         {
             if (!(other is sbyte))
                 return false;
-
-            var a = this;
-            var b = (sbyte)other;
-            return a == b;
+            return Equals((sbyte)other);
         }
 
         public override int GetHashCode()

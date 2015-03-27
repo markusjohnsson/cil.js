@@ -58,7 +58,7 @@ var asm1; (function (asm)
                 /* IL_14: call Boolean op_Inequality(System.String, System.String)*/
                 /* IL_19: brfalse.s IL_1D*/
                 
-                if ((!(asm0.x60001b6(loc0,loc1)))){
+                if ((!(asm0.x60001c5(loc0,loc1)))){
                     __pos__ = 0x1D;
                     continue;
                 }
@@ -73,7 +73,7 @@ var asm1; (function (asm)
                 /* IL_29: call Boolean op_Inequality(System.String, System.String)*/
                 /* IL_2E: brfalse.s IL_32*/
                 
-                if ((!(asm0.x60001b6(loc2,asm0.x60001ac(loc1,BLR.new_string("a")))))){
+                if ((!(asm0.x60001c5(loc2,asm0.x60001bb(loc1,BLR.new_string("a")))))){
                     __pos__ = 0x32;
                     continue;
                 }
@@ -88,7 +88,7 @@ var asm1; (function (asm)
                 /* IL_3E: call Boolean ReferenceEquals(System.Object, System.Object)*/
                 /* IL_43: brfalse.s IL_47*/
                 
-                if ((!(asm0.x6000007(loc2,asm0.x60001ac(loc1,BLR.new_string("a")))))){
+                if ((!(asm0.x6000007(loc2,asm0.x60001bb(loc1,BLR.new_string("a")))))){
                     __pos__ = 0x47;
                     continue;
                 }

@@ -157,7 +157,7 @@ var BLR;
             e.stack = new Error().stack;
             throw e;
         }
-        return blr.cast_class(o.boxed, type);
+        return blr.cast_class(o, type).boxed;
     }
 
     blr.unbox_any = function unbox_any(o, type) {
@@ -177,7 +177,7 @@ var BLR;
                 throw new t();
             }
 
-            return blr.cast_class(o.boxed, type);
+            return blr.cast_class(o, type).boxed;
         }
         else
             return blr.cast_class(o, type);

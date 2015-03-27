@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct Int32 : IComparable<int>, IComparable
+    public struct Int32 : IComparable<int>, IComparable, IEquatable<Int32>
     {
         public const int MaxValue = 0x7fffffff;
         public const int MinValue = -2147483648;
@@ -48,9 +48,13 @@ namespace System
         {
             if (!(other is int))
                 return false;
+            return Equals((int)other);
+        }
 
+        public bool Equals(int other)
+        {
             var a = this;
-            var b = (int)other;
+            var b = other;
             return a == b;
         }
 

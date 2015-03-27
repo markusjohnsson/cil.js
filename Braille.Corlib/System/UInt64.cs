@@ -3,7 +3,7 @@ using Braille.Runtime.TranslatorServices;
 
 namespace System
 {
-    public struct UInt64
+    public struct UInt64 : IComparable<ulong>, IComparable, IEquatable<ulong>
     {
         public const ulong MinValue = 0;
         public const ulong MaxValue = 0xffffffffffffffff;
@@ -195,11 +195,6 @@ namespace System
             }")]
         public extern static ulong operator %(ulong a, ulong b);
 
-        public override bool Equals(object other)
-        {
-            return this == (ulong)other;
-        }
-
         public override int GetHashCode()
         {
             return GetLow(this);
@@ -208,5 +203,36 @@ namespace System
         [JsReplace("{0}[0]")]
         private static extern int GetLow(ulong s);
 
+        public int CompareTo(object p)
+        {
+            return CompareTo((ulong)p);
+        }
+
+        public int CompareTo(ulong p)
+        {
+            ulong n = this;
+
+            if (n < p)
+                return -1;
+
+            if (n > p)
+                return 1;
+
+            return 0;
+        }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is ulong))
+                return false;
+            return Equals((ulong)other);
+        }
+
+        public bool Equals(ulong other)
+        {
+            var a = this;
+            var b = other;
+            return a == b;
+        }
     }
 }

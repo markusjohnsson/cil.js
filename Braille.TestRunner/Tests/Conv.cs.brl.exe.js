@@ -270,7 +270,6 @@ var asm1; (function (asm)
     {
         var t0;
         var __pos__;
-        var loc0;
         t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: ldc.i4.1 */
@@ -285,20 +284,13 @@ var asm1; (function (asm)
         /* IL_0F: conv.i8 */
         /* IL_10: call Void Test(System.UInt64)*/
         asm1.x600000b(BLR.conv_i8((1|0)));
-        /* IL_15: ldc.i4.m1 */
-        /* IL_16: conv.i8 */
-        /* IL_17: stloc.0 */
-        loc0 = BLR.conv_i8((-1|0));
-        /* IL_18: ldloc.0 */
-        /* IL_19: call Void Test(System.UInt64)*/
-        asm1.x600000b(loc0);
-        /* IL_1E: ldc.i4.1 */
-        /* IL_1F: call Void Test(System.Int32)*/
+        /* IL_15: ldc.i4.1 */
+        /* IL_16: call Void Test(System.Int32)*/
         asm1.x600000c((1|0));
-        /* IL_24: ldc.i4.m1 */
-        /* IL_25: call Void Test(System.Int32)*/
+        /* IL_1B: ldc.i4.m1 */
+        /* IL_1C: call Void Test(System.Int32)*/
         asm1.x600000c((-1|0));
-        /* IL_2A: ret */
+        /* IL_21: ret */
         return ;
     };
     /*  Program..ctor()*/

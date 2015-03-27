@@ -59,7 +59,7 @@ var asm1; (function (asm)
                         asm1.x6000001(BLR.new_string("Try 2"));
                         /* IL_14: newobj Void .ctor()*/
                         /* IL_19: throw */
-                        throw BLR.newobj(t1,asm0.x600009e,[null]);
+                        throw BLR.newobj(t1,asm0.x60000a4,[null]);
                     }
                     
                     finally {

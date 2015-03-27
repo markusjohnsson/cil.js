@@ -56,7 +56,7 @@ var asm1; (function (asm)
             /* IL_00: ldtoken T*/
             /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
             /* IL_0A: ret */
-            return asm0.x60000d8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
+            return asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
         };
     };;
     /* System.Void A`1.Z(D`1)*/

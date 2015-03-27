@@ -5,7 +5,7 @@ using JsString = Braille.JavaScript.String;
 
 namespace System
 {
-    public struct Int64
+    public struct Int64 : IComparable<long>, IComparable, IEquatable<long>
     {
         public const long MaxValue = 0x7fffffffffffffff;
         public const long MinValue = -9223372036854775808;
@@ -32,11 +32,6 @@ namespace System
             } while (a != 0);
 
             return (string)(n + s);
-        }
-
-        public override bool Equals(object other)
-        {
-            return this == (long)other;
         }
 
         public override int GetHashCode()
@@ -300,9 +295,38 @@ namespace System
                 return asm0.UInt64_GreaterThan(n, [0xffffffff, 0x7fffffff]);
             }")]
         internal extern static bool isNegative(long n);
-        //{
-        //    return ((ulong)n) > ((ulong)MaxValue);
-        //}
+
+        public int CompareTo(object p)
+        {
+            return CompareTo((long)p);
+        }
+
+        public int CompareTo(long p)
+        {
+            long n = this;
+
+            if (n < p)
+                return -1;
+
+            if (n > p)
+                return 1;
+
+            return 0;
+        }
+
+        public override bool Equals(object other)
+        {
+            if (!(other is long))
+                return false;
+            return Equals((long)other);
+        }
+
+        public bool Equals(long other)
+        {
+            var a = this;
+            var b = other;
+            return a == b;
+        }
 
     }
 }

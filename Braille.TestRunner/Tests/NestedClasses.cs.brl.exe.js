@@ -126,7 +126,7 @@ var asm1; (function (asm)
             'ifacemap': t1.prototype.ifacemap
         };
         /* IL_17: call String Concat(System.Object, System.Object)*/
-        st_07 = asm0.x60001b0(st_05,st_06);
+        st_07 = asm0.x60001bf(st_05,st_06);
         /* IL_1C: call Void Log(System.Object)*/
         asm1.x6000001(st_07);
         /* IL_21: ret */
