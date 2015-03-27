@@ -863,6 +863,13 @@ namespace Braille.JsTranslation
                             return GetMethodAccessor(methodBase, this.method.ReflectionMethod, this.type.ReflectionType, thisScope);
                         }
                     }
+                case "ldvirtftn":
+                    {
+                        var thisArg = ProcessInternal(node.Arguments.Single());
+                        var mi = (MethodInfo)node.Instruction.Data;
+                        var acc = GetVirtualMethodAccessor(thisArg, null, mi);
+                        return BindGenericMethodArguments(acc, mi, method.ReflectionMethod, type.ReflectionType, thisScope);
+                    }
                 case "ldlen":
                     return JSFactory.Identifier(ProcessInternal(node.Arguments.Single()), "jsarr", "length");
                 case "ldloc":

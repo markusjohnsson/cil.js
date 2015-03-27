@@ -99,7 +99,7 @@ var asm1; (function (asm)
                     /* IL_14: callvirt Boolean IsAssignableFrom(System.Type)*/
                     /* IL_19: brtrue.s IL_22*/
                     
-                    if ((((asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000c4"])())(asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))){
+                    if ((((asm0.x60000d8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000e4"])())(asm0.x60000d8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x60000d8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))){
                         __pos__ = 0x22;
                         continue;
                     }
@@ -112,7 +112,7 @@ var asm1; (function (asm)
                     case 0x22:
                     /* IL_22: ldtoken C`1[T]*/
                     /* IL_27: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-                    st_0C = asm0.x60000b8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5));
+                    st_0C = asm0.x60000d8(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5));
                     /* IL_2C: ldc.i4.1 */
                     /* IL_2D: newarr System.Type*/
                     /* IL_32: stloc.0 */
@@ -124,15 +124,15 @@ var asm1; (function (asm)
                     /* IL_35: ldtoken T*/
                     st_08 = BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0);
                     /* IL_3A: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-                    st_0B = asm0.x60000b8(st_08);
+                    st_0B = asm0.x60000d8(st_08);
                     /* IL_3F: stelem.ref */
                     BLR.stelem_ref(st_09,st_0A,st_0B);
                     /* IL_40: ldloc.0 */
                     st_0D = loc0;
                     /* IL_41: callvirt Type MakeGenericType(System.Type[])*/
-                    st_0E = ((st_0C.vtable)["asm0.x60000c3"]())(st_0C,st_0D);
+                    st_0E = ((st_0C.vtable)["asm0.x60000e3"]())(st_0C,st_0D);
                     /* IL_46: call Object CreateInstance(System.Type)*/
-                    st_0F = asm0.x6000053(st_0E);
+                    st_0F = asm0.x6000060(st_0E);
                     /* IL_4B: castclass A`1[T]*/
                     st_10 = BLR.cast_class(st_0F,t7);
                     case 0x50:

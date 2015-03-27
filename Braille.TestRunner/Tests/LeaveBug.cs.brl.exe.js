@@ -210,22 +210,13 @@ var asm1; (function (asm)
         return ;
     };;
     /* System.Boolean pred`1.Invoke(T)*/
-    asm.x600000f = function Invoke()
-    {
-        
-                                var m = arguments[0]._methodPtr;
-                                var t = arguments[0]._target;
-                                if (t != null)
-                                    arguments[0] = t;
-                                else
-                                    arguments = Array.prototype.slice.call(arguments, 1);
-                                return m.apply(null, arguments);
-    };;
+    asm.x600000f = BLR.delegate_invoke;;
+    /* System.IAsyncResult pred`1.BeginInvoke(T,AsyncCallback,Object)*/
+    asm.x6000010 = BLR.delegate_begin_invoke;;
+    /* System.Boolean pred`1.EndInvoke(IAsyncResult)*/
+    asm.x6000011 = BLR.delegate_end_invoke;;
     /*  pred`1..ctor(Object,IntPtr)*/
-    asm.x600000e = function ctor()
-    {
-        arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];;
-    };;
+    asm.x600000e = BLR.delegate_ctor;;
     asm.TestLog = BLR.declare_type(
         "TestLog",
         [],
@@ -270,15 +261,19 @@ var asm1; (function (asm)
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Program+pred`1",false,false,false,true,false,[],[
-                    [asm1, "x600000f", "Invoke"]
+                    [asm1, "x600000f", "Invoke"],
+                    [asm1, "x6000010", "BeginInvoke"],
+                    [asm1, "x6000011", "EndInvoke"]
                 ],(asm0)["System.MulticastDelegate"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
             (this.GenericArguments)["asm1.t2000007"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000007<" + (T.GenericTypeMetadataName + ">"));
             BLR.declare_virtual(this,"asm1.x600000f","asm1.x600000f");
-            BLR.declare_virtual(this,"asm0.x6000079","asm0.x6000082");
-            BLR.declare_virtual(this,"asm0.x6000078","asm0.x6000083");
-            BLR.declare_virtual(this,"asm0.x6000008","asm0.x600007a");
-            BLR.declare_virtual(this,"asm0.x6000009","asm0.x600007d");
+            BLR.declare_virtual(this,"asm1.x6000010","asm1.x6000010");
+            BLR.declare_virtual(this,"asm1.x6000011","asm1.x6000011");
+            BLR.declare_virtual(this,"asm0.x6000066","asm0.x600006f");
+            BLR.declare_virtual(this,"asm0.x6000065","asm0.x6000070");
+            BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000067");
+            BLR.declare_virtual(this,"asm0.x6000009","asm0.x600006a");
             BLR.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
             this.prototype._invocationList = null;
             this.prototype._methodPtr = null;

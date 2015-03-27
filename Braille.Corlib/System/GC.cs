@@ -10,5 +10,9 @@ namespace System
         {
             // nop
         }
+
+        public static void SuppressFinalize(object o)
+        {
+        }
     }
 }

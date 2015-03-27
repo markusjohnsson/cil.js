@@ -55,5 +55,7 @@ namespace System
         public abstract Type GetElementType();
 
         public abstract MethodInfo[] GetMethods();
+
+        public abstract bool IsInstanceOfType(object value);
     }
 }

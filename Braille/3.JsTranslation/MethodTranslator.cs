@@ -191,7 +191,7 @@ namespace Braille.JsTranslation
             }
         }
 
-        private JSFunctionDelcaration TranslateDelegateMethod(CilMethod method)
+        private JSExpression TranslateDelegateMethod(CilMethod method)
         {
             // TODO: we should avoid the extra trampoline for invoking delegates. 
             // We could leave the codegen here though as it can be useful for reflection later
@@ -199,30 +199,13 @@ namespace Braille.JsTranslation
             switch (method.Name)
             {
                 case "Invoke":
-                    return new JSFunctionDelcaration
-                    {
-                        Name = "Invoke",
-                        Body = 
-                        {
-                            JSFactory.RawStatement(@"
-                                var m = arguments[0]._methodPtr;
-                                var t = arguments[0]._target;
-                                if (t != null)
-                                    arguments[0] = t;
-                                else
-                                    arguments = Array.prototype.slice.call(arguments, 1);
-                                return m.apply(null, arguments)")
-                        }
-                    };
+                    return JSFactory.Identifier("BLR", "delegate_invoke");
+                case "BeginInvoke":
+                    return JSFactory.Identifier("BLR", "delegate_begin_invoke");
+                case "EndInvoke":
+                    return JSFactory.Identifier("BLR", "delegate_end_invoke");
                 case ".ctor":
-                    return new JSFunctionDelcaration
-                    {
-                        Name = "ctor",
-                        Body = 
-                        {
-                            JSFactory.RawStatement("arguments[0]._methodPtr = arguments[2]; arguments[0]._target = arguments[1];")
-                        }
-                    };
+                    return JSFactory.Identifier("BLR", "delegate_ctor");
                 default:
                     return JSFunctionDelcaration.Empty;
             }
@@ -332,7 +315,7 @@ namespace Braille.JsTranslation
             var function = new JSFunctionDelcaration
             {
                 Body = functionBlock,
-                Name = method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_").Replace(",","_"),
+                Name = GetSimpleName(method.ReflectionMethod),
                 Parameters = Enumerable.Range(0, ps).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
             };
 

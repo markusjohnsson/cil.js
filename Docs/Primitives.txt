@@ -15,6 +15,10 @@ E.g. uint.MaxValue is actually stored as -1.
 int64 and uint64 are modelled at runtime as two-element Uint32Array. 
 Arithemetic operations are defined in the types System.Int64 and System.UInt64.
 
-
 Methods
 Instance methods of primitives, such as Equals, ToString and GetHashCode are implemented in corlib. 
+
+Number
+======
+
+The type Braille.JavaScript.Number can be used when you want to have access to JavaScript's native Number values. 

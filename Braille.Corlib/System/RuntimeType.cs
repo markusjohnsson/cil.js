@@ -302,5 +302,13 @@ namespace System
 
             return result;
         }
+
+        [JsReplace("({1}.IsInst({0}) ? 1: 0)")]
+        private static extern bool IsInstanceOfTypeImpl(object value, object ctor);
+
+        public override bool IsInstanceOfType(object value)
+        {
+            return IsInstanceOfTypeImpl(value, ctor);
+        }
     }
 }

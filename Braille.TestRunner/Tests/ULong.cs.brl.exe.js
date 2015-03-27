@@ -3597,7 +3597,7 @@ var asm1; (function (asm)
         /* IL_01: conv.r.un */
         /* IL_02: conv.r8 */
         /* IL_03: ret */
-        return BLR.to_number(arg0);
+        return BLR.to_number_unsigned(arg0);
     };;
     /* static System.UInt64 Program.Add(UInt64,UInt64)*/
     asm.x600000c = function Add(arg0,arg1)

@@ -42,7 +42,7 @@ If find that you need to do this, use JsImport with a function instead.
 
 The type Braille.JavaScript.Number can be used when you want to have access to JavaScript's native number. 
 
-Please note that all primitive numbers ((s)byte, (u)int16, (u)int32, float and double) are all mapped directly to JavaScript's number and has
-very little or no overhead. 
-
 Providing this type is mainly for semantics and to make it possible to write complex arithmetic in C# without having to go to JavaScript to avoid extra truncations for integers and so on.
+
+Please note that all primitive numbers ((s)byte, (u)int16, (u)int32, float and double) are all mapped directly to JavaScript's number and has
+very little or no overhead. The two exceptions are uint64 and int64 which, at runtime has Uint32Array as value. 

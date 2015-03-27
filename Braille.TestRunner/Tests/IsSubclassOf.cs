@@ -12,20 +12,20 @@ public class Program
 {
     public static void Main()
     {
-        //Test(new A());
-        //Test(new B());
-        //Test(new C());
-        //Test(new D());
-        //Test(123);
-        //Test(-555);
+        Test(new A());
+        Test(new B());
+        Test(new C());
+        Test(new D());
+        Test(123);
+        Test(-555);
         Test(new int[0]);
-        //Test(new uint[0]);
-        //Test(new object[0]);
-        //Test(new A[0]);
-        //Test(new B[0]);
-        //Test(new C[0]);
-        //Test(new D[0]);
-        //Test(new I[0]);
+        Test(new uint[0]);
+        Test(new object[0]);
+        Test(new A[0]);
+        Test(new B[0]);
+        Test(new C[0]);
+        Test(new D[0]);
+        Test(new I[0]);
     }
 
     public static void Test(object o)

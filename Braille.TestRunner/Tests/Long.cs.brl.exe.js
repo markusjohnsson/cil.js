@@ -6494,7 +6494,7 @@ var asm1; (function (asm)
         /* IL_00: ldarg.0 */
         /* IL_01: conv.r8 */
         /* IL_02: ret */
-        return BLR.to_number(arg0);
+        return BLR.to_number_signed(arg0);
     };;
     /* static System.Int64 Program.Add(Int64,Int64)*/
     asm.x600000c = function Add(arg0,arg1)
@@ -6573,7 +6573,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x6000188(BLR.new_string("RightShift "),{
+        asm1.x6000001(asm0.x60001b0(BLR.new_string("RightShift "),{
                     'boxed': arg0,
                     'type': t0,
                     'vtable': t0.prototype.vtable,
@@ -6769,7 +6769,7 @@ var asm1; (function (asm)
         /* IL_06: box System.Int64*/
         /* IL_0B: call String Concat(System.Object, System.Object)*/
         /* IL_10: call Void Log(System.Object)*/
-        asm1.x6000001(asm0.x6000188(BLR.new_string("LeftShift "),{
+        asm1.x6000001(asm0.x60001b0(BLR.new_string("LeftShift "),{
                     'boxed': arg0,
                     'type': t0,
                     'vtable': t0.prototype.vtable,

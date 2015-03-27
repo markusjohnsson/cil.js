@@ -152,6 +152,11 @@ namespace Braille.JsTranslation
             return n;
         }
 
+        protected static string GetSimpleName(MethodBase method)
+        {
+            return method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_").Replace(",", "_");
+        }
+
         protected string GetTranslatedFieldName(CilType type, FieldInfo f)
         {
             if (f.IsStatic == false && f.IsPrivate && f.DeclaringType.IsValueType == false)
@@ -237,8 +242,6 @@ namespace Braille.JsTranslation
             return
                 fieldType.IsGenericParameter ?
                     GetGenericFieldInitializer(fieldType, methodScope, typeScope, thisScope) :
-                fieldType.FullName == "System.Boolean" ?
-                    new JSBoolLiteral { Value = default(bool) } :
                 fieldType.IsPrimitive ?
                     new JSNumberLiteral { Value = 0 } as JSExpression :
                 fieldType.IsValueType ?

@@ -354,7 +354,16 @@ var BLR;
         return new Uint32Array([low, high]);
     }
 
-    blr.to_number = function to_number(n) {
+    blr.to_number_signed = function to_number_signed(n) {
+        if (asm0.Int64_isNegative(n)) {
+            n = asm0.Int64_UnaryNegation(n);
+            return -blr.to_number_unsigned(n);
+        }
+
+        return blr.to_number_unsigned(n);
+    }
+
+    blr.to_number_unsigned = function to_number_unsigned(n) {
         return n[1] * 4294967296 + n[0];
     }
 
@@ -405,5 +414,39 @@ var BLR;
                 dest.jsarr[pos] = value;
             }
         }
+    }
+
+    blr.delegate_invoke = function (self) {
+        var m = self._methodPtr;
+        var t = self._target;
+        if (t != null)
+            arguments[0] = t;
+        else
+            arguments = Array.prototype.slice.call(arguments, 1);
+        return m.apply(null, arguments);
+    }
+
+    blr.delegate_begin_invoke = function (self /* , [delegate arguments], callback, state */) {
+        var asyncResult = asm0.CreateAsyncResult(self);
+
+        asyncResult.result = blr.delegate_invoke.apply(null, arguments);
+        asyncResult.asyncState = arguments[arguments.length - 1];
+
+        var asyncCallback = arguments[arguments.length - 2];
+        if (asyncCallback != null)
+        {
+            blr.delegate_invoke(asyncCallback, asyncResult);
+        }
+        
+        return asyncResult;
+    }
+
+    blr.delegate_end_invoke = function (self, asyncResult) {
+        return asyncResult.result;
+    }
+
+    blr.delegate_ctor = function (self, target, methodPtr) {
+        self._methodPtr = methodPtr;
+        self._target = target;
     }
 })(BLR || (BLR = {}));

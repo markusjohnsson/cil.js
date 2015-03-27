@@ -20,12 +20,12 @@ namespace Braille.JsTranslation.OpTranslators
             var arg = node.Arguments.Single();
             var expr = ProcessInternal(arg);
 
-            var isInt64 = arg.ResultType == context.SystemTypes.Int64 ||
-                          arg.ResultType == context.SystemTypes.UInt64;
+            var argIsInt64 = arg.ResultType == context.SystemTypes.Int64 ||
+                             arg.ResultType == context.SystemTypes.UInt64;
 
             if (node.Instruction.OpCode.Name == "conv.u8")
             {
-                if (isInt64)
+                if (argIsInt64)
                     return expr;
                 else
                     return JSFactory.Call(JSFactory.Identifier("BLR", "conv_u8"), expr);
@@ -33,15 +33,20 @@ namespace Braille.JsTranslation.OpTranslators
 
             if (node.Instruction.OpCode.Name == "conv.i8")
             {
-                if (isInt64)
+                if (argIsInt64)
                     return expr;
                 else
                     return JSFactory.Call(JSFactory.Identifier("BLR", "conv_i8"), expr);
             }
 
-            if (isInt64)
-                return JSFactory.Call(JSFactory.Identifier("BLR", "to_number"), expr); 
-
+            if (argIsInt64)
+            {
+                if (node.Instruction.OpCode.Name == "conv.r.un")
+                    return JSFactory.Call(JSFactory.Identifier("BLR", "to_number_unsigned"), expr);
+                else
+                    return JSFactory.Call(JSFactory.Identifier("BLR", "to_number_signed"), expr);
+            }
+            
             if (IsIntegerType(node.ResultType))
                 return JSFactory.Truncate(expr);
             else
