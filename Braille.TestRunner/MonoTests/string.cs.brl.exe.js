@@ -17,24 +17,22 @@ var asm1; (function (asm)
     /* static System.Int32 TestString.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
     asm.x600000a_ = function Main()
     {
-        var t0;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;

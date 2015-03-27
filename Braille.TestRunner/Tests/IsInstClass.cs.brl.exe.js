@@ -38,13 +38,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.B().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function ()
     {
+        BLR.init_base_types();
         asm.x600000c_init.apply(this,arguments);
         return asm.x600000c_.apply(this,arguments);
     };;
@@ -52,18 +52,16 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.B();
+        t0 = asm1.A();
+        t1 = asm1.B();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void Isa(System.Object)*/
-        asm1.x600000d(BLR.newobj(t1,asm1.x600000a,[null]));
+        asm1.x600000d(BLR.newobj(t0,asm1.x600000a,[null]));
         /* IL_0A: newobj Void .ctor()*/
         /* IL_0F: call Void Isa(System.Object)*/
-        asm1.x600000d(BLR.newobj(t2,asm1.x600000b,[null]));
+        asm1.x600000d(BLR.newobj(t1,asm1.x600000b,[null]));
         /* IL_14: ldstr hello*/
         /* IL_19: call Void Isa(System.Object)*/
         asm1.x600000d(BLR.new_string("hello"));

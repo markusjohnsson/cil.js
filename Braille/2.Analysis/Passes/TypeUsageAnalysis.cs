@@ -54,11 +54,6 @@ namespace Braille.Analysis
 
         private IEnumerable<Type> FindTypes(CilMethod method, OpExpression op)
         {
-            if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
-            {
-                yield return context.SystemTypes.ValueType;
-            }
-
             var opc = op.Instruction.OpCode.Name;
 
             var i = opc.IndexOf(".");

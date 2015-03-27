@@ -33,18 +33,15 @@ var asm1; (function (asm)
     /* static System.Void Program.Main(String[])*/
     asm.x6000012_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.Program().init)();
-        ((asm0)["System.Object"]().init)();
         ((asm1)["FuncX`2"]((asm0)["System.Object"](),(asm0)["System.Object"]()).init)();
-        ((asm0)["System.Int32"]().init)();
         ((asm1)["FuncX`2"]((asm0)["System.Int32"](),(asm0)["System.Object"]()).init)();
-        ((asm0)["System.String"]().init)();
         ((asm1)["FuncX`2"]((asm0)["System.String"](),(asm0)["System.Object"]()).init)();
         asm.x6000012 = asm.x6000012_;
     };;
     asm.x6000012 = function (arg0)
     {
+        BLR.init_base_types();
         asm.x6000012_init.apply(this,arguments);
         return asm.x6000012_.apply(this,arguments);
     };;
@@ -57,19 +54,17 @@ var asm1; (function (asm)
         var t4;
         var t5;
         var t6;
-        var t7;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.Program();
-        t2 = (asm0)["System.Object"]();
-        t3 = (asm1)["FuncX`2"](t2,t2);
-        t4 = (asm0)["System.Int32"]();
-        t5 = (asm1)["FuncX`2"](t4,t2);
-        t6 = (asm0)["System.String"]();
-        t7 = (asm1)["FuncX`2"](t6,t2);
+        t0 = asm1.Program();
+        t1 = (asm0)["System.Object"]();
+        t2 = (asm1)["FuncX`2"](t1,t1);
+        t3 = (asm0)["System.Int32"]();
+        t4 = (asm1)["FuncX`2"](t3,t1);
+        t5 = (asm0)["System.String"]();
+        t6 = (asm1)["FuncX`2"](t5,t1);
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -82,7 +77,7 @@ var asm1; (function (asm)
                 /* IL_00: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_05: brtrue.s IL_18*/
                 
-                if ((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]){
+                if ((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]){
                     __pos__ = 0x18;
                     continue;
                 }
@@ -90,11 +85,11 @@ var asm1; (function (asm)
                 /* IL_09: ldftn Object <Main>b__0(System.Object)*/
                 /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_13: stsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
-                (t1)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t3,asm1.x600000a,[null, null, asm1.x6000017]);
+                (t0)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t2,asm1.x600000a,[null, null, asm1.x6000017]);
                 case 0x18:
                 /* IL_18: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_1D: stloc.0 */
-                loc0 = (t1)["CS$<>9__CachedAnonymousMethodDelegate1"];
+                loc0 = (t0)["CS$<>9__CachedAnonymousMethodDelegate1"];
                 /* IL_1E: ldstr Lambda:*/
                 /* IL_23: call Void Log(System.Object)*/
                 asm1.x6000001(BLR.new_string("Lambda:"));
@@ -108,7 +103,7 @@ var asm1; (function (asm)
                 /* IL_3A: ldftn Object MethodObj(System.Object)*/
                 /* IL_3F: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_44: call Void WriteType(System.Delegate)*/
-                asm1.x6000016(BLR.newobj(t3,asm1.x600000a,[null, null, asm1.x6000013]));
+                asm1.x6000016(BLR.newobj(t2,asm1.x600000a,[null, null, asm1.x6000013]));
                 /* IL_49: ldstr Method (object):*/
                 /* IL_4E: call Void Log(System.Object)*/
                 asm1.x6000001(BLR.new_string("Method (object):"));
@@ -116,7 +111,7 @@ var asm1; (function (asm)
                 /* IL_55: ldftn Object MethodInt(System.Int32)*/
                 /* IL_5A: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_5F: call Void WriteType(System.Delegate)*/
-                asm1.x6000016(BLR.newobj(t5,asm1.x600000a,[null, null, asm1.x6000014]));
+                asm1.x6000016(BLR.newobj(t4,asm1.x600000a,[null, null, asm1.x6000014]));
                 /* IL_64: ldstr Method (object):*/
                 /* IL_69: call Void Log(System.Object)*/
                 asm1.x6000001(BLR.new_string("Method (object):"));
@@ -124,7 +119,7 @@ var asm1; (function (asm)
                 /* IL_70: ldftn Object MethodString(System.String)*/
                 /* IL_75: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_7A: call Void WriteType(System.Delegate)*/
-                asm1.x6000016(BLR.newobj(t7,asm1.x600000a,[null, null, asm1.x6000015]));
+                asm1.x6000016(BLR.newobj(t6,asm1.x600000a,[null, null, asm1.x6000015]));
                 /* IL_7F: ret */
                 return ;
             }
@@ -160,12 +155,9 @@ var asm1; (function (asm)
     /* static System.Void Program.WriteType(Delegate)*/
     asm.x6000016_init = function ()
     {
-        ((asm0)["System.Object"]().init)();
         ((asm1)["FuncX`1"]((asm0)["System.Object"]()).init)();
         ((asm1)["FuncX`2"]((asm0)["System.Object"](),(asm0)["System.Object"]()).init)();
-        ((asm0)["System.String"]().init)();
         ((asm1)["FuncX`2"]((asm0)["System.String"](),(asm0)["System.Object"]()).init)();
-        ((asm0)["System.Int32"]().init)();
         ((asm1)["FuncX`2"]((asm0)["System.Int32"](),(asm0)["System.Object"]()).init)();
         asm.x6000016 = asm.x6000016_;
     };;

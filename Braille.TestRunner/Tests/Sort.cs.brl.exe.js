@@ -15,18 +15,7 @@ var asm1; (function (asm)
         return ;
     };;
     /* System.String Baz.get_Name()*/
-    asm.x600000a_init = function ()
-    {
-        ((asm0)["System.Object"]().init)();
-        ((asm0)["System.Int32"]().init)();
-        asm.x600000a = asm.x600000a_;
-    };;
-    asm.x600000a = function (arg0)
-    {
-        asm.x600000a_init.apply(this,arguments);
-        return asm.x600000a_.apply(this,arguments);
-    };;
-    asm.x600000a_ = function get_Name(arg0)
+    asm.x600000a = function get_Name(arg0)
     {
         var t0;
         var t1;
@@ -111,7 +100,7 @@ var asm1; (function (asm)
                 return asm0.x60001c1(loc1);
             }
         }
-    };
+    };;
     /* System.Int32 Baz.get_Age()*/
     asm.x600000b = function get_Age(arg0)
     {
@@ -352,7 +341,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000015_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.ByName().init)();
         (asm1.Baz().init)();
         (asm1.ByNameDescending().init)();
@@ -360,6 +348,7 @@ var asm1; (function (asm)
     };;
     asm.x6000015 = function ()
     {
+        BLR.init_base_types();
         asm.x6000015_init.apply(this,arguments);
         return asm.x6000015_.apply(this,arguments);
     };;
@@ -368,7 +357,6 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -376,10 +364,9 @@ var asm1; (function (asm)
         var loc1;
         var loc2;
         var loc3;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.ByName();
-        t2 = asm1.Baz();
-        t3 = asm1.ByNameDescending();
+        t0 = asm1.ByName();
+        t1 = asm1.Baz();
+        t2 = asm1.ByNameDescending();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -398,7 +385,7 @@ var asm1; (function (asm)
                 /* IL_10: ldloc.0 */
                 /* IL_11: newobj Void .ctor()*/
                 /* IL_16: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz])*/
-                (asm0.x600017e(asm1.Baz()))(loc0,BLR.newobj(t1,asm1.x6000013,[null]));
+                (asm0.x600017e(asm1.Baz()))(loc0,BLR.newobj(t0,asm1.x6000013,[null]));
                 /* IL_1B: ldc.i4.0 */
                 /* IL_1C: stloc.1 */
                 loc1 = (0|0);
@@ -436,7 +423,7 @@ var asm1; (function (asm)
                 /* IL_41: ldloc.2 */
                 /* IL_42: newobj Void .ctor()*/
                 /* IL_47: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz])*/
-                (asm0.x600017e(asm1.Baz()))(loc2,BLR.newobj(t3,asm1.x6000011,[null]));
+                (asm0.x600017e(asm1.Baz()))(loc2,BLR.newobj(t2,asm1.x6000011,[null]));
                 /* IL_4C: ldc.i4.0 */
                 /* IL_4D: stloc.3 */
                 loc3 = (0|0);

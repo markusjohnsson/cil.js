@@ -9,6 +9,7 @@ using System.Text;
 using Type = IKVM.Reflection.Type;
 using System.Diagnostics;
 using Braille.Ast;
+using Braille.Loading.Model;
 
 namespace Braille.Ast
 {
@@ -131,6 +132,11 @@ namespace Braille.Ast
         {
             get
             {
+                if (ReflectionMethod == ReflectionMethod.DeclaringType.Assembly.EntryPoint)
+                {
+                    return true;
+                }
+
                 if (GetReplacement() != null || DeclaringType.IsInterface || ReflectionMethod.IsAbstract)
                 {
                     return false;
@@ -141,7 +147,10 @@ namespace Braille.Ast
                     return false;
                 }
 
-                if (ReferencedTypes.Where(t => !t.IsGenericParameter).IsEmpty())
+                if (ReferencedTypes
+                    .Where(t => !t.IsGenericParameter)
+                    .Where(t => !SystemTypes.BaseTypes.Contains(t.FullName))
+                    .IsEmpty())
                 {
                     return false;
                 }

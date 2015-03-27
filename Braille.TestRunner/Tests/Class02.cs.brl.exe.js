@@ -38,19 +38,17 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function ()
     {
+        BLR.init_base_types();
         asm.x600000c_init.apply(this,arguments);
         return asm.x600000c_.apply(this,arguments);
     };;
     asm.x600000c_ = function Main()
     {
-        var t0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: ret */
         return ;

@@ -17,7 +17,6 @@ var asm1; (function (asm)
     /* System.Void A`1.X()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.Type"]().init)();
         ((asm1)["A`1+D`1"]((((arguments)[0].constructor.GenericArguments)["asm1.t2000006"])[0],(asm0)["System.Type"]()).init)();
     };;
     asm.x600000a = function (arg0)
@@ -114,13 +113,12 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000012_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
-        ((asm0)["System.String"]().init)();
         ((asm1)["A`1"]((asm0)["System.String"]()).init)();
         asm.x6000012 = asm.x6000012_;
     };;
     asm.x6000012 = function ()
     {
+        BLR.init_base_types();
         asm.x6000012_init.apply(this,arguments);
         return asm.x6000012_.apply(this,arguments);
     };;
@@ -128,16 +126,14 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm0)["System.String"]();
-        t2 = (asm1)["A`1"](t1);
+        t0 = (asm0)["System.String"]();
+        t1 = (asm1)["A`1"](t0);
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t2,asm1.x600000d,[null]);
+        loc0 = BLR.newobj(t1,asm1.x600000d,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: callvirt Void X()*/
         asm1.x600000a(loc0);

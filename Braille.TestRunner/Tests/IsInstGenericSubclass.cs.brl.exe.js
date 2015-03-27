@@ -80,7 +80,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000010_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.D().init)();
         (asm1.E().init)();
@@ -89,6 +88,7 @@ var asm1; (function (asm)
     };;
     asm.x6000010 = function ()
     {
+        BLR.init_base_types();
         asm.x6000010_init.apply(this,arguments);
         return asm.x6000010_.apply(this,arguments);
     };;
@@ -98,28 +98,26 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.D();
-        t3 = asm1.E();
-        t4 = asm1.B();
+        t0 = asm1.A();
+        t1 = asm1.D();
+        t2 = asm1.E();
+        t3 = asm1.B();
         __pos__ = 0x0;
         /* IL_00: call Void TestCreate[A]()*/
         (asm1.x6000011(asm1.A()))();
         /* IL_05: newobj Void .ctor()*/
         /* IL_0A: call Void Test1(C)*/
-        asm1.x6000012(BLR.newobj(t2,asm1.x600000e,[null]));
+        asm1.x6000012(BLR.newobj(t1,asm1.x600000e,[null]));
         /* IL_0F: newobj Void .ctor()*/
         /* IL_14: call Void Test1(C)*/
-        asm1.x6000012(BLR.newobj(t3,asm1.x600000f,[null]));
+        asm1.x6000012(BLR.newobj(t2,asm1.x600000f,[null]));
         /* IL_19: newobj Void .ctor()*/
         /* IL_1E: call Void Test2[A](C`1[A])*/
-        (asm1.x6000013(asm1.A()))(BLR.newobj(t2,asm1.x600000e,[null]));
+        (asm1.x6000013(asm1.A()))(BLR.newobj(t1,asm1.x600000e,[null]));
         /* IL_23: newobj Void .ctor()*/
         /* IL_28: call Void Test2[B](C`1[B])*/
-        (asm1.x6000013(asm1.B()))(BLR.newobj(t3,asm1.x600000f,[null]));
+        (asm1.x6000013(asm1.B()))(BLR.newobj(t2,asm1.x600000f,[null]));
         /* IL_2D: ret */
         return ;
     };
@@ -172,7 +170,6 @@ var asm1; (function (asm)
     {
         (asm1.A().init)();
         ((asm1)["C`1"](asm1.A()).init)();
-        ((asm0)["System.Boolean"]().init)();
         (asm1.B().init)();
         ((asm1)["C`1"](asm1.B()).init)();
         asm.x6000012 = asm.x6000012_;
@@ -243,7 +240,6 @@ var asm1; (function (asm)
         {
             (asm1.A().init)();
             ((asm1)["C`1"](asm1.A()).init)();
-            ((asm0)["System.Boolean"]().init)();
             (asm1.B().init)();
             ((asm1)["C`1"](asm1.B()).init)();
             asm.x6000013 = asm.x6000013_;

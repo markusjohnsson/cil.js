@@ -17,23 +17,20 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
-        ((asm0)["System.Int32"]().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
     asm.x600000a_ = function Main()
     {
         var t0;
-        var t1;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm0)["System.Int32"]();
+        t0 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
         /* IL_00: ldc.i4.0 */
         /* IL_01: stloc.0 */
@@ -43,9 +40,9 @@ var asm1; (function (asm)
         /* IL_08: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
+                'type': t0,
+                'vtable': t0.prototype.vtable,
+                'ifacemap': t0.prototype.ifacemap
             });
         /* IL_0D: ldc.i4.0 */
         /* IL_0E: stloc.0 */
@@ -55,9 +52,9 @@ var asm1; (function (asm)
         /* IL_15: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
+                'type': t0,
+                'vtable': t0.prototype.vtable,
+                'ifacemap': t0.prototype.ifacemap
             });
         /* IL_1A: ldc.i4.1 */
         /* IL_1B: stloc.0 */
@@ -67,9 +64,9 @@ var asm1; (function (asm)
         /* IL_22: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
+                'type': t0,
+                'vtable': t0.prototype.vtable,
+                'ifacemap': t0.prototype.ifacemap
             });
         /* IL_27: ldc.i4.2 */
         /* IL_28: stloc.0 */
@@ -79,9 +76,9 @@ var asm1; (function (asm)
         /* IL_2F: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
+                'type': t0,
+                'vtable': t0.prototype.vtable,
+                'ifacemap': t0.prototype.ifacemap
             });
         /* IL_34: ret */
         return ;

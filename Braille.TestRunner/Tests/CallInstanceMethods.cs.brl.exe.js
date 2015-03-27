@@ -38,27 +38,25 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function ()
     {
+        BLR.init_base_types();
         asm.x600000c_init.apply(this,arguments);
         return asm.x600000c_.apply(this,arguments);
     };;
     asm.x600000c_ = function Main()
     {
         var t0;
-        var t1;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
+        t0 = asm1.A();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t1,asm1.x600000b,[null]);
+        loc0 = BLR.newobj(t0,asm1.x600000b,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: callvirt Void Callee()*/
         asm1.x600000a(loc0);

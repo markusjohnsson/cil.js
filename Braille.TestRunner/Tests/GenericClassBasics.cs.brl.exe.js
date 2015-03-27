@@ -69,16 +69,15 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.IntWrapper().init)();
         ((asm1)["A`1"](asm1.IntWrapper()).init)();
         (asm1.StringWrapper().init)();
         ((asm1)["A`1"](asm1.StringWrapper()).init)();
-        ((asm0)["System.Int32"]().init)();
         asm.x600000f = asm.x600000f_;
     };;
     asm.x600000f = function ()
     {
+        BLR.init_base_types();
         asm.x600000f_init.apply(this,arguments);
         return asm.x600000f_.apply(this,arguments);
     };;
@@ -89,7 +88,6 @@ var asm1; (function (asm)
         var t2;
         var t3;
         var t4;
-        var t5;
         var st_02;
         var st_03;
         var st_04;
@@ -103,21 +101,20 @@ var asm1; (function (asm)
         var loc2;
         var loc1;
         var loc3;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.IntWrapper();
-        t2 = (asm1)["A`1"](t1);
-        t3 = asm1.StringWrapper();
-        t4 = (asm1)["A`1"](t3);
-        t5 = (asm0)["System.Int32"]();
+        t0 = asm1.IntWrapper();
+        t1 = (asm1)["A`1"](t0);
+        t2 = asm1.StringWrapper();
+        t3 = (asm1)["A`1"](t2);
+        t4 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t2,asm1.x600000c,[null]);
+        loc0 = BLR.newobj(t1,asm1.x600000c,[null]);
         /* IL_06: ldloc.0 */
         st_04 = loc0;
         /* IL_07: newobj Void .ctor()*/
         /* IL_0C: stloc.2 */
-        loc2 = BLR.newobj(t1,asm1.x600000d,[null]);
+        loc2 = BLR.newobj(t0,asm1.x600000d,[null]);
         /* IL_0D: ldloc.2 */
         st_02 = loc2;
         /* IL_0E: ldc.i4.s 123*/
@@ -130,12 +127,12 @@ var asm1; (function (asm)
         asm1.x600000b(st_04,st_05);
         /* IL_1B: newobj Void .ctor()*/
         /* IL_20: stloc.1 */
-        loc1 = BLR.newobj(t4,asm1.x600000c,[null]);
+        loc1 = BLR.newobj(t3,asm1.x600000c,[null]);
         /* IL_21: ldloc.1 */
         st_0A = loc1;
         /* IL_22: newobj Void .ctor()*/
         /* IL_27: stloc.3 */
-        loc3 = BLR.newobj(t3,asm1.x600000e,[null]);
+        loc3 = BLR.newobj(t2,asm1.x600000e,[null]);
         /* IL_28: ldloc.3 */
         st_08 = loc3;
         /* IL_29: ldstr Hello*/
@@ -153,9 +150,9 @@ var asm1; (function (asm)
         /* IL_49: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': asm1.x600000a(loc0).Value,
-                'type': t5,
-                'vtable': t5.prototype.vtable,
-                'ifacemap': t5.prototype.ifacemap
+                'type': t4,
+                'vtable': t4.prototype.vtable,
+                'ifacemap': t4.prototype.ifacemap
             });
         /* IL_4E: ldloc.1 */
         /* IL_4F: callvirt StringWrapper get_Prop()*/

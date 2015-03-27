@@ -27,6 +27,30 @@ var BLR;
         return t;
     }
 
+    blr.init_base_types = function init_base_types()
+    {
+        asm0['System.Object']().init();
+        asm0['System.ValueType']().init();
+        asm0['System.Array']().init();
+        asm0['System.String']().init();
+        asm0['System.Delegate']().init();
+        asm0['System.Exception']().init();
+        asm0['System.Enum']().init();
+        asm0['System.Type']().init();
+        asm0['System.Boolean']().init();
+        asm0['System.Char']().init();
+        asm0['System.Byte']().init();
+        asm0['System.SByte']().init();
+        asm0['System.Int16']().init();
+        asm0['System.UInt16']().init();
+        asm0['System.Int32']().init();
+        asm0['System.UInt32']().init();
+        asm0['System.Int64']().init();
+        asm0['System.UInt64']().init();
+        asm0['System.Single']().init();
+        asm0['System.Double']().init();
+    }
+
     blr.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
         type.FullName = fullname;
         type.Assembly = assembly;

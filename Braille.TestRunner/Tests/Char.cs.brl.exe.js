@@ -17,19 +17,17 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
     asm.x600000a_ = function Main()
     {
-        var t0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: ldstr hello world*/
         /* IL_05: call Void Log(System.String)*/
@@ -44,17 +42,7 @@ var asm1; (function (asm)
         return ;
     };
     /* static System.Void Program.Log(String)*/
-    asm.x600000b_init = function ()
-    {
-        ((asm0)["System.Char"]().init)();
-        asm.x600000b = asm.x600000b_;
-    };;
-    asm.x600000b = function (arg0)
-    {
-        asm.x600000b_init.apply(this,arguments);
-        return asm.x600000b_.apply(this,arguments);
-    };;
-    asm.x600000b_ = function Log(arg0)
+    asm.x600000b = function Log(arg0)
     {
         var t0;
         var __pos__;
@@ -106,7 +94,7 @@ var asm1; (function (asm)
             });
         /* IL_44: ret */
         return ;
-    };
+    };;
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {

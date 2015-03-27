@@ -75,15 +75,14 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.Program().init)();
         ((asm0)["System.EventHandler"]().init)();
-        ((asm0)["System.Object"]().init)();
         ((asm0)["System.EventArgs"]().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function ()
     {
+        BLR.init_base_types();
         asm.x600000c_init.apply(this,arguments);
         return asm.x600000c_.apply(this,arguments);
     };;
@@ -93,15 +92,13 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.Program();
-        t2 = (asm0)["System.EventHandler"]();
-        t3 = (asm0)["System.Object"]();
-        t4 = (asm0)["System.EventArgs"]();
+        t0 = asm1.Program();
+        t1 = (asm0)["System.EventHandler"]();
+        t2 = (asm0)["System.Object"]();
+        t3 = (asm0)["System.EventArgs"]();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -114,7 +111,7 @@ var asm1; (function (asm)
                 /* IL_00: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_05: brtrue.s IL_18*/
                 
-                if ((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]){
+                if ((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]){
                     __pos__ = 0x18;
                     continue;
                 }
@@ -122,46 +119,46 @@ var asm1; (function (asm)
                 /* IL_09: ldftn Void <Main>b__0(System.Object, System.EventArgs)*/
                 /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_13: stsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
-                (t1)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t2,asm0.x6000165,[null, null, asm1.x600000f]);
+                (t0)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t1,asm0.x6000165,[null, null, asm1.x600000f]);
                 case 0x18:
                 /* IL_18: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_1D: call Void add_MyEvent(System.EventHandler)*/
-                asm1.x600000a((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]);
+                asm1.x600000a((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]);
                 /* IL_22: ldnull */
                 /* IL_24: ldftn Void Handler(System.Object, System.EventArgs)*/
                 /* IL_29: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_2E: call Void add_MyEvent(System.EventHandler)*/
-                asm1.x600000a(BLR.newobj(t2,asm0.x6000165,[null, null, asm1.x600000d]));
+                asm1.x600000a(BLR.newobj(t1,asm0.x6000165,[null, null, asm1.x600000d]));
                 asm0.x6000164();
                 /* IL_33: ldsfld EventHandler MyEvent*/
                 /* IL_38: newobj Void .ctor()*/
                 /* IL_3D: newobj Void .ctor()*/
                 /* IL_42: callvirt Void Invoke(System.Object, System.EventArgs)*/
-                t1.MyEvent._methodPtr.apply(null,((t1.MyEvent._target) ? ([
-                        t1.MyEvent._target,
-                        BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000163,[null])
+                t0.MyEvent._methodPtr.apply(null,((t0.MyEvent._target) ? ([
+                        t0.MyEvent._target,
+                        BLR.newobj(t2,asm0.x600000c,[null]),
+                        BLR.newobj(t3,asm0.x6000163,[null])
                     ]) : ([
-                        BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000163,[null])
+                        BLR.newobj(t2,asm0.x600000c,[null]),
+                        BLR.newobj(t3,asm0.x6000163,[null])
                     ])));
                 /* IL_47: ldnull */
                 /* IL_49: ldftn Void Handler(System.Object, System.EventArgs)*/
                 /* IL_4E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_53: call Void remove_MyEvent(System.EventHandler)*/
-                asm1.x600000b(BLR.newobj(t2,asm0.x6000165,[null, null, asm1.x600000d]));
+                asm1.x600000b(BLR.newobj(t1,asm0.x6000165,[null, null, asm1.x600000d]));
                 asm0.x6000164();
                 /* IL_58: ldsfld EventHandler MyEvent*/
                 /* IL_5D: newobj Void .ctor()*/
                 /* IL_62: newobj Void .ctor()*/
                 /* IL_67: callvirt Void Invoke(System.Object, System.EventArgs)*/
-                t1.MyEvent._methodPtr.apply(null,((t1.MyEvent._target) ? ([
-                        t1.MyEvent._target,
-                        BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000163,[null])
+                t0.MyEvent._methodPtr.apply(null,((t0.MyEvent._target) ? ([
+                        t0.MyEvent._target,
+                        BLR.newobj(t2,asm0.x600000c,[null]),
+                        BLR.newobj(t3,asm0.x6000163,[null])
                     ]) : ([
-                        BLR.newobj(t3,asm0.x600000c,[null]),
-                        BLR.newobj(t4,asm0.x6000163,[null])
+                        BLR.newobj(t2,asm0.x600000c,[null]),
+                        BLR.newobj(t3,asm0.x6000163,[null])
                     ])));
                 /* IL_6C: ret */
                 return ;

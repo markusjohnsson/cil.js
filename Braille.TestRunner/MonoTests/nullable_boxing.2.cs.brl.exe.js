@@ -17,14 +17,13 @@ var asm1; (function (asm)
     /* static System.Int32 Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         ((asm1)["Program+Button"]().init)();
-        ((asm0)["System.Int32"]().init)();
         ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()).init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
@@ -33,7 +32,6 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var loc2;
         var st_0B;
         var st_0C;
@@ -42,10 +40,9 @@ var asm1; (function (asm)
         var __finally_continuation_0__;
         var loc1;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm1)["Program+Button"]();
-        t2 = (asm0)["System.Int32"]();
-        t3 = (asm0)["System.Nullable`1"](t2);
+        t0 = (asm1)["Program+Button"]();
+        t1 = (asm0)["System.Int32"]();
+        t2 = (asm0)["System.Nullable`1"](t1);
         loc2 = new ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()))();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -64,7 +61,7 @@ var asm1; (function (asm)
                 /* IL_10: ldc.i4.2 */
                 /* IL_11: beq.s IL_15*/
                 
-                if (asm1.x600000c(t1.TheButton,BLR.clone_value(BLR.newobj(t3,asm0.x60001a6,[null, (1|0)]))) === (2|0)){
+                if (asm1.x600000c(t0.TheButton,BLR.clone_value(BLR.newobj(t2,asm0.x60001a6,[null, (1|0)]))) === (2|0)){
                     __pos__ = 0x15;
                     continue;
                 }
@@ -75,7 +72,7 @@ var asm1; (function (asm)
                 /* IL_15: ldc.i4.1 */
                 /* IL_16: newarr System.Nullable`1[System.Int32]*/
                 /* IL_1B: stloc.1 */
-                loc1 = BLR.new_array(t3,(1|0));
+                loc1 = BLR.new_array(t2,(1|0));
                 /* IL_1C: ldloc.1 */
                 /* IL_1D: ldc.i4.0 */
                 /* IL_1E: ldelema System.Nullable`1[System.Int32]*/
@@ -91,7 +88,7 @@ var asm1; (function (asm)
                 };
                 /* IL_23: ldloca.s 2*/
                 /* IL_26: initobj System.Nullable`1[System.Int32]*/
-                loc2 = new t3();
+                loc2 = new t2();
                 /* IL_2B: ldloc.2 */
                 st_0C = loc2;
                 /* IL_2C: stobj System.Nullable`1[System.Int32]*/

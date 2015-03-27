@@ -17,19 +17,17 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
     asm.x600000a_ = function Main()
     {
-        var t0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: ret */
         return ;
@@ -56,17 +54,7 @@ var asm1; (function (asm)
         return ;
     };;
     /* System.Void S.Append(Char)*/
-    asm.x600000d_init = function ()
-    {
-        ((asm0)["System.Char"]().init)();
-        asm.x600000d = asm.x600000d_;
-    };;
-    asm.x600000d = function (arg0,arg1)
-    {
-        asm.x600000d_init.apply(this,arguments);
-        return asm.x600000d_.apply(this,arguments);
-    };;
-    asm.x600000d_ = function Append(arg0,arg1)
+    asm.x600000d = function Append(arg0,arg1)
     {
         var t0;
         var __pos__;
@@ -83,7 +71,7 @@ var asm1; (function (asm)
             });
         /* IL_0B: ret */
         return ;
-    };
+    };;
     /*  S..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
@@ -315,17 +303,7 @@ var asm1; (function (asm)
         }
     };
     /* static System.String CSStringConverter.EscapeChar(Char)*/
-    asm.x6000010_init = function ()
-    {
-        ((asm0)["System.Int32"]().init)();
-        asm.x6000010 = asm.x6000010_;
-    };;
-    asm.x6000010 = function (arg0)
-    {
-        asm.x6000010_init.apply(this,arguments);
-        return asm.x6000010_.apply(this,arguments);
-    };;
-    asm.x6000010_ = function EscapeChar(arg0)
+    asm.x6000010 = function EscapeChar(arg0)
     {
         var t0;
         var __pos__;
@@ -342,7 +320,7 @@ var asm1; (function (asm)
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-    };
+    };;
     asm.TestLog = BLR.declare_type(
         "TestLog",
         [],

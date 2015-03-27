@@ -101,14 +101,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000012_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.C().init)();
-        ((asm0)["System.Int32"]().init)();
         (asm1.B().init)();
         asm.x6000012 = asm.x6000012_;
     };;
     asm.x6000012 = function ()
     {
+        BLR.init_base_types();
         asm.x6000012_init.apply(this,arguments);
         return asm.x6000012_.apply(this,arguments);
     };;
@@ -117,21 +116,19 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var loc0;
         var loc1;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.C();
-        t2 = (asm0)["System.Int32"]();
-        t3 = asm1.B();
+        t0 = asm1.C();
+        t1 = (asm0)["System.Int32"]();
+        t2 = asm1.B();
         __pos__ = 0x0;
         /* IL_00: ldtoken C*/
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
         /* IL_0A: callvirt MethodInfo[] GetMethods()*/
         /* IL_0F: stloc.0 */
-        loc0 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x60000f1"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)));
+        loc0 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000f1"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)));
         /* IL_10: ldloc.0 */
         /* IL_11: ldc.i4.0 */
         /* IL_12: ldelem.ref */
@@ -153,9 +150,9 @@ var asm1; (function (asm)
         /* IL_2C: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc1.jsarr.length | (0|0),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_31: ldloc.1 */
         /* IL_32: ldc.i4.0 */
@@ -171,9 +168,9 @@ var asm1; (function (asm)
         /* IL_4B: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc2.jsarr.length | (0|0),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_50: ldloc.2 */
         /* IL_51: ldc.i4.0 */
@@ -182,7 +179,7 @@ var asm1; (function (asm)
         /* IL_58: callvirt Type get_T()*/
         /* IL_5D: callvirt String get_Name()*/
         /* IL_62: call Void Log(System.Object)*/
-        asm1.x6000001((((asm1.x600000b(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t3)).vtable)["asm0.x600003e"])())(asm1.x600000b(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t3))));
+        asm1.x6000001((((asm1.x600000b(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t2)).vtable)["asm0.x600003e"])())(asm1.x600000b(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t2))));
         /* IL_67: ret */
         return ;
     };

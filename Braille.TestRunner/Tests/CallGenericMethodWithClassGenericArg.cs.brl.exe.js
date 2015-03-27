@@ -55,23 +55,7 @@ var asm1; (function (asm)
         };
     };;
     /* static System.Void E.Log<T>(Object)*/
-    asm.x600000d_init = function (T)
-    {
-        return function ()
-        {
-            ((asm0)["System.Boolean"]().init)();
-            asm.x600000d = asm.x600000d_;
-        };
-    };;
     asm.x600000d = function (T)
-    {
-        return function (arg0)
-        {
-            (asm.x600000d_init(T).apply)(this,arguments);
-            return (asm.x600000d_(T).apply)(this,arguments);
-        };
-    };;
-    asm.x600000d_ = function (T)
     {
         return function Log(arg0)
         {
@@ -96,7 +80,7 @@ var asm1; (function (asm)
             /* IL_13: ret */
             return ;
         };
-    };
+    };;
     /*  E..ctor()*/
     asm.x600000e = function _ctor(arg0)
     {
@@ -134,7 +118,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000011_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.B().init)();
         ((asm1)["A`1"](asm1.B()).init)();
         (asm1.A().init)();
@@ -142,6 +125,7 @@ var asm1; (function (asm)
     };;
     asm.x6000011 = function ()
     {
+        BLR.init_base_types();
         asm.x6000011_init.apply(this,arguments);
         return asm.x6000011_.apply(this,arguments);
     };;
@@ -150,27 +134,25 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.B();
-        t2 = (asm1)["A`1"](t1);
-        t3 = asm1.A();
+        t0 = asm1.B();
+        t1 = (asm1)["A`1"](t0);
+        t2 = asm1.A();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t2,asm1.x6000010,[null]);
+        loc0 = BLR.newobj(t1,asm1.x6000010,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: newobj Void .ctor()*/
         /* IL_0C: newobj Void .ctor()*/
         /* IL_11: callvirt Void M(System.Object, B)*/
-        asm1.x600000f(loc0,BLR.newobj(t3,asm1.x600000a,[null]),BLR.newobj(t1,asm1.x600000b,[null]));
+        asm1.x600000f(loc0,BLR.newobj(t2,asm1.x600000a,[null]),BLR.newobj(t0,asm1.x600000b,[null]));
         /* IL_16: ldloc.0 */
         /* IL_17: newobj Void .ctor()*/
         /* IL_1C: newobj Void .ctor()*/
         /* IL_21: callvirt Void M(System.Object, B)*/
-        asm1.x600000f(loc0,BLR.newobj(t1,asm1.x600000b,[null]),BLR.newobj(t1,asm1.x600000b,[null]));
+        asm1.x600000f(loc0,BLR.newobj(t0,asm1.x600000b,[null]),BLR.newobj(t0,asm1.x600000b,[null]));
         /* IL_26: ret */
         return ;
     };

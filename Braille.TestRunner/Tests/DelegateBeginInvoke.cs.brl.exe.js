@@ -41,19 +41,17 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000016_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x6000016 = asm.x6000016_;
     };;
     asm.x6000016 = function ()
     {
+        BLR.init_base_types();
         asm.x6000016_init.apply(this,arguments);
         return asm.x6000016_.apply(this,arguments);
     };;
     asm.x6000016_ = function Main()
     {
-        var t0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: call Void Simple()*/
         asm1.x6000018();
@@ -69,7 +67,6 @@ var asm1; (function (asm)
         (asm1.Program().init)();
         (asm1.A().init)();
         ((asm0)["System.AsyncCallback"]().init)();
-        ((asm0)["System.Int32"]().init)();
         ((asm0)["System.IAsyncResult"]().init)();
         asm.x6000017 = asm.x6000017_;
     };;
@@ -188,9 +185,7 @@ var asm1; (function (asm)
         (asm1.Program().init)();
         (asm1.A().init)();
         (asm1.B().init)();
-        ((asm0)["System.Int32"]().init)();
         (asm1.C().init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x6000018 = asm.x6000018_;
     };;
     asm.x6000018 = function ()

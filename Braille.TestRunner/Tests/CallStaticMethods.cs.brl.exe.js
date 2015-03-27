@@ -28,19 +28,17 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000b_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000b = asm.x600000b_;
     };;
     asm.x600000b = function ()
     {
+        BLR.init_base_types();
         asm.x600000b_init.apply(this,arguments);
         return asm.x600000b_.apply(this,arguments);
     };;
     asm.x600000b_ = function Main()
     {
-        var t0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: call Void Callee()*/
         asm1.x600000a();

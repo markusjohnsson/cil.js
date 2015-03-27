@@ -57,18 +57,17 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000e_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.X().init)();
         ((asm1)["K`1"](asm1.X()).init)();
         ((asm1)["A`1"]((asm1)["K`1"](asm1.X())).init)();
         (asm1.Y().init)();
         ((asm1)["K`1"](asm1.Y()).init)();
         ((asm1)["A`1"]((asm1)["K`1"](asm1.Y())).init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x600000e = asm.x600000e_;
     };;
     asm.x600000e = function ()
     {
+        BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
@@ -81,16 +80,14 @@ var asm1; (function (asm)
         var t4;
         var t5;
         var t6;
-        var t7;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.X();
-        t2 = (asm1)["K`1"](t1);
-        t3 = (asm1)["A`1"](t2);
-        t4 = asm1.Y();
-        t5 = (asm1)["K`1"](t4);
-        t6 = (asm1)["A`1"](t5);
-        t7 = (asm0)["System.Boolean"]();
+        t0 = asm1.X();
+        t1 = (asm1)["K`1"](t0);
+        t2 = (asm1)["A`1"](t1);
+        t3 = asm1.Y();
+        t4 = (asm1)["K`1"](t3);
+        t5 = (asm1)["A`1"](t4);
+        t6 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
         /* IL_00: ldtoken A`1[K`1[X]]*/
         /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
@@ -100,10 +97,10 @@ var asm1; (function (asm)
         /* IL_16: box System.Boolean*/
         /* IL_1B: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': ((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)) === asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))) ? (1) : (0)),
-                'type': t7,
-                'vtable': t7.prototype.vtable,
-                'ifacemap': t7.prototype.ifacemap
+                'boxed': ((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? (1) : (0)),
+                'type': t6,
+                'vtable': t6.prototype.vtable,
+                'ifacemap': t6.prototype.ifacemap
             });
         /* IL_20: ret */
         return ;

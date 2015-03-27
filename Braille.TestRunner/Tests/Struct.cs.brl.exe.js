@@ -17,13 +17,12 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.S().init)();
-        ((asm0)["System.Int32"]().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
@@ -31,26 +30,24 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var loc0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.S();
-        t2 = (asm0)["System.Int32"]();
+        t0 = asm1.S();
+        t1 = (asm0)["System.Int32"]();
         loc0 = new (asm1.S())();
         __pos__ = 0x0;
         /* IL_00: ldloca.s 0*/
         /* IL_03: initobj S*/
-        loc0 = new t1();
+        loc0 = new t0();
         /* IL_08: ldloca.s 0*/
         /* IL_0A: ldfld Int32 X*/
         /* IL_0F: box System.Int32*/
         /* IL_14: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0.X,
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_19: ldloca.s 0*/
         /* IL_1B: ldfld Int32 Y*/
@@ -58,9 +55,9 @@ var asm1; (function (asm)
         /* IL_25: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0.Y,
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_2A: ret */
         return ;

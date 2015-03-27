@@ -415,10 +415,7 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000011_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.P().init)();
-        ((asm0)["System.Int32"]().init)();
-        ((asm0)["System.Boolean"]().init)();
         (asm1.Program().init)();
         ((asm0)["System.Func`2"](asm1.P(),(asm0)["System.Int32"]()).init)();
         ((asm0)["System.Func`2"](asm1.P(),(asm0)["System.Boolean"]()).init)();
@@ -426,6 +423,7 @@ var asm1; (function (asm)
     };;
     asm.x6000011 = function ()
     {
+        BLR.init_base_types();
         asm.x6000011_init.apply(this,arguments);
         return asm.x6000011_.apply(this,arguments);
     };;
@@ -437,7 +435,6 @@ var asm1; (function (asm)
         var t3;
         var t4;
         var t5;
-        var t6;
         var st_03;
         var st_04;
         var st_05;
@@ -496,13 +493,12 @@ var asm1; (function (asm)
         var loc3;
         var loc4;
         var loc5;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.P();
-        t2 = (asm0)["System.Int32"]();
-        t3 = (asm0)["System.Boolean"]();
-        t4 = asm1.Program();
-        t5 = (asm0)["System.Func`2"](t1,t2);
-        t6 = (asm0)["System.Func`2"](t1,t3);
+        t0 = asm1.P();
+        t1 = (asm0)["System.Int32"]();
+        t2 = (asm0)["System.Boolean"]();
+        t3 = asm1.Program();
+        t4 = (asm0)["System.Func`2"](t0,t1);
+        t5 = (asm0)["System.Func`2"](t0,t2);
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -515,14 +511,14 @@ var asm1; (function (asm)
                 /* IL_00: ldc.i4.5 */
                 /* IL_01: newarr P*/
                 /* IL_06: stloc.0 */
-                loc0 = BLR.new_array(t1,(5|0));
+                loc0 = BLR.new_array(t0,(5|0));
                 /* IL_07: ldloc.0 */
                 st_05 = loc0;
                 /* IL_08: ldc.i4.0 */
                 st_06 = (0|0);
                 /* IL_09: newobj Void .ctor()*/
                 /* IL_0E: stloc.1 */
-                loc1 = BLR.newobj(t1,asm1.x6000010,[null]);
+                loc1 = BLR.newobj(t0,asm1.x6000010,[null]);
                 /* IL_0F: ldloc.1 */
                 st_03 = loc1;
                 /* IL_10: ldc.i4.s 11*/
@@ -539,7 +535,7 @@ var asm1; (function (asm)
                 st_0C = (1|0);
                 /* IL_1B: newobj Void .ctor()*/
                 /* IL_20: stloc.2 */
-                loc2 = BLR.newobj(t1,asm1.x6000010,[null]);
+                loc2 = BLR.newobj(t0,asm1.x6000010,[null]);
                 /* IL_21: ldloc.2 */
                 st_09 = loc2;
                 /* IL_22: ldc.i4.s 22*/
@@ -556,7 +552,7 @@ var asm1; (function (asm)
                 st_12 = (2|0);
                 /* IL_2D: newobj Void .ctor()*/
                 /* IL_32: stloc.3 */
-                loc3 = BLR.newobj(t1,asm1.x6000010,[null]);
+                loc3 = BLR.newobj(t0,asm1.x6000010,[null]);
                 /* IL_33: ldloc.3 */
                 st_0F = loc3;
                 /* IL_34: ldc.i4.s 33*/
@@ -573,7 +569,7 @@ var asm1; (function (asm)
                 st_18 = (3|0);
                 /* IL_3F: newobj Void .ctor()*/
                 /* IL_44: stloc.s 4*/
-                loc4 = BLR.newobj(t1,asm1.x6000010,[null]);
+                loc4 = BLR.newobj(t0,asm1.x6000010,[null]);
                 /* IL_46: ldloc.s 4*/
                 st_15 = loc4;
                 /* IL_48: ldc.i4.s 44*/
@@ -590,7 +586,7 @@ var asm1; (function (asm)
                 st_1E = (4|0);
                 /* IL_54: newobj Void .ctor()*/
                 /* IL_59: stloc.s 5*/
-                loc5 = BLR.newobj(t1,asm1.x6000010,[null]);
+                loc5 = BLR.newobj(t0,asm1.x6000010,[null]);
                 /* IL_5B: ldloc.s 5*/
                 st_1B = loc5;
                 /* IL_5D: ldc.i4.s 55*/
@@ -608,9 +604,9 @@ var asm1; (function (asm)
                 /* IL_77: call Void Log(System.Object)*/
                 asm1.x6000001({
                         'boxed': asm1.x600000e((asm1.x600000c(asm1.P()))(loc0)),
-                        'type': t2,
-                        'vtable': t2.prototype.vtable,
-                        'ifacemap': t2.prototype.ifacemap
+                        'type': t1,
+                        'vtable': t1.prototype.vtable,
+                        'ifacemap': t1.prototype.ifacemap
                     });
                 /* IL_7C: ldloc.0 */
                 /* IL_7D: call Boolean Any[P](System.Collections.Generic.IEnumerable`1[P])*/
@@ -618,16 +614,16 @@ var asm1; (function (asm)
                 /* IL_87: call Void Log(System.Object)*/
                 asm1.x6000001({
                         'boxed': (asm1.x600000d(asm1.P()))(loc0),
-                        'type': t3,
-                        'vtable': t3.prototype.vtable,
-                        'ifacemap': t3.prototype.ifacemap
+                        'type': t2,
+                        'vtable': t2.prototype.vtable,
+                        'ifacemap': t2.prototype.ifacemap
                     });
                 /* IL_8C: ldloc.0 */
                 st_2B = loc0;
                 /* IL_8D: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate8*/
                 /* IL_92: brtrue.s IL_A5*/
                 
-                if ((t4)["CS$<>9__CachedAnonymousMethodDelegate8"]){
+                if ((t3)["CS$<>9__CachedAnonymousMethodDelegate8"]){
                     __pos__ = 0xA5;
                     continue;
                 }
@@ -636,12 +632,12 @@ var asm1; (function (asm)
                 /* IL_96: ldftn Int32 <Main>b__5(P)*/
                 st_29 = asm1.x6000013;
                 /* IL_9B: newobj Void .ctor(System.Object, System.IntPtr)*/
-                st_2A = BLR.newobj(t5,asm0.x60000b6,[null, st_28, st_29]);
+                st_2A = BLR.newobj(t4,asm0.x60000b6,[null, st_28, st_29]);
                 /* IL_A0: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate8*/
-                (t4)["CS$<>9__CachedAnonymousMethodDelegate8"] = st_2A;
+                (t3)["CS$<>9__CachedAnonymousMethodDelegate8"] = st_2A;
                 case 0xA5:
                 /* IL_A5: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate8*/
-                st_2C = (t4)["CS$<>9__CachedAnonymousMethodDelegate8"];
+                st_2C = (t3)["CS$<>9__CachedAnonymousMethodDelegate8"];
                 /* IL_AA: call IEnumerable`1 Select[P, System.Int32](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Int32])*/
                 st_2D = (asm1.x600000a(asm1.P(),(asm0)["System.Int32"]()))(st_2B,st_2C);
                 /* IL_AF: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32])*/
@@ -649,9 +645,9 @@ var asm1; (function (asm)
                 /* IL_B4: box System.Int32*/
                 st_2F = {
                     'boxed': st_2E,
-                    'type': t2,
-                    'vtable': t2.prototype.vtable,
-                    'ifacemap': t2.prototype.ifacemap
+                    'type': t1,
+                    'vtable': t1.prototype.vtable,
+                    'ifacemap': t1.prototype.ifacemap
                 };
                 /* IL_B9: call Void Log(System.Object)*/
                 asm1.x6000001(st_2F);
@@ -660,7 +656,7 @@ var asm1; (function (asm)
                 /* IL_BF: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate9*/
                 /* IL_C4: brtrue.s IL_D7*/
                 
-                if ((t4)["CS$<>9__CachedAnonymousMethodDelegate9"]){
+                if ((t3)["CS$<>9__CachedAnonymousMethodDelegate9"]){
                     __pos__ = 0xD7;
                     continue;
                 }
@@ -669,12 +665,12 @@ var asm1; (function (asm)
                 /* IL_C8: ldftn Boolean <Main>b__6(P)*/
                 st_32 = asm1.x6000014;
                 /* IL_CD: newobj Void .ctor(System.Object, System.IntPtr)*/
-                st_33 = BLR.newobj(t6,asm0.x60000b6,[null, st_31, st_32]);
+                st_33 = BLR.newobj(t5,asm0.x60000b6,[null, st_31, st_32]);
                 /* IL_D2: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate9*/
-                (t4)["CS$<>9__CachedAnonymousMethodDelegate9"] = st_33;
+                (t3)["CS$<>9__CachedAnonymousMethodDelegate9"] = st_33;
                 case 0xD7:
                 /* IL_D7: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegate9*/
-                st_35 = (t4)["CS$<>9__CachedAnonymousMethodDelegate9"];
+                st_35 = (t3)["CS$<>9__CachedAnonymousMethodDelegate9"];
                 /* IL_DC: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean])*/
                 st_36 = (asm1.x600000b(asm1.P()))(st_34,st_35);
                 /* IL_E1: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P])*/
@@ -684,9 +680,9 @@ var asm1; (function (asm)
                 /* IL_EB: box System.Int32*/
                 st_39 = {
                     'boxed': st_38,
-                    'type': t2,
-                    'vtable': t2.prototype.vtable,
-                    'ifacemap': t2.prototype.ifacemap
+                    'type': t1,
+                    'vtable': t1.prototype.vtable,
+                    'ifacemap': t1.prototype.ifacemap
                 };
                 /* IL_F0: call Void Log(System.Object)*/
                 asm1.x6000001(st_39);
@@ -695,7 +691,7 @@ var asm1; (function (asm)
                 /* IL_F6: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegatea*/
                 /* IL_FB: brtrue.s IL_10E*/
                 
-                if ((t4)["CS$<>9__CachedAnonymousMethodDelegatea"]){
+                if ((t3)["CS$<>9__CachedAnonymousMethodDelegatea"]){
                     __pos__ = 0x10E;
                     continue;
                 }
@@ -704,12 +700,12 @@ var asm1; (function (asm)
                 /* IL_FF: ldftn Boolean <Main>b__7(P)*/
                 st_3C = asm1.x6000015;
                 /* IL_104: newobj Void .ctor(System.Object, System.IntPtr)*/
-                st_3D = BLR.newobj(t6,asm0.x60000b6,[null, st_3B, st_3C]);
+                st_3D = BLR.newobj(t5,asm0.x60000b6,[null, st_3B, st_3C]);
                 /* IL_109: stsfld Func`2 CS$<>9__CachedAnonymousMethodDelegatea*/
-                (t4)["CS$<>9__CachedAnonymousMethodDelegatea"] = st_3D;
+                (t3)["CS$<>9__CachedAnonymousMethodDelegatea"] = st_3D;
                 case 0x10E:
                 /* IL_10E: ldsfld Func`2 CS$<>9__CachedAnonymousMethodDelegatea*/
-                st_3F = (t4)["CS$<>9__CachedAnonymousMethodDelegatea"];
+                st_3F = (t3)["CS$<>9__CachedAnonymousMethodDelegatea"];
                 /* IL_113: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean])*/
                 st_40 = (asm1.x600000b(asm1.P()))(st_3E,st_3F);
                 /* IL_118: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P])*/

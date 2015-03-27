@@ -59,7 +59,6 @@ var asm1; (function (asm)
     /* static System.Int32 Class1.Main(String[])*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         ((asm1)["TestMono.Derived"]().init)();
         ((asm1)["TestMono.IBase"]().init)();
         ((asm1)["TestMono.Base"]().init)();
@@ -67,6 +66,7 @@ var asm1; (function (asm)
     };;
     asm.x600000f = function (arg0)
     {
+        BLR.init_base_types();
         asm.x600000f_init.apply(this,arguments);
         return asm.x600000f_.apply(this,arguments);
     };;
@@ -75,7 +75,6 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -83,10 +82,9 @@ var asm1; (function (asm)
         var loc1;
         var loc2;
         var loc3;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm1)["TestMono.Derived"]();
-        t2 = (asm1)["TestMono.IBase"]();
-        t3 = (asm1)["TestMono.Base"]();
+        t0 = (asm1)["TestMono.Derived"]();
+        t1 = (asm1)["TestMono.IBase"]();
+        t2 = (asm1)["TestMono.Base"]();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -98,13 +96,13 @@ var asm1; (function (asm)
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: stloc.0 */
-                loc0 = BLR.newobj(t1,asm1.x600000e,[null]);
+                loc0 = BLR.newobj(t0,asm1.x600000e,[null]);
                 /* IL_06: ldloc.0 */
                 /* IL_07: callvirt Int32 Do()*/
                 /* IL_0C: ldc.i4.2 */
                 /* IL_0D: beq.s IL_11*/
                 
-                if ((((loc0.ifacemap)[t2].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (2|0)){
+                if ((((loc0.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (2|0)){
                     __pos__ = 0x11;
                     continue;
                 }
@@ -120,7 +118,7 @@ var asm1; (function (asm)
                 /* IL_19: ldc.i4.2 */
                 /* IL_1A: beq.s IL_1E*/
                 
-                if ((((loc1.ifacemap)[t2].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc1)) === (2|0)){
+                if ((((loc1.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc1)) === (2|0)){
                     __pos__ = 0x1E;
                     continue;
                 }
@@ -131,7 +129,7 @@ var asm1; (function (asm)
                 /* IL_1E: ldloc.0 */
                 /* IL_1F: castclass TestMono.Derived*/
                 /* IL_24: stloc.2 */
-                loc2 = BLR.cast_class(loc0,t1);
+                loc2 = BLR.cast_class(loc0,t0);
                 /* IL_25: ldloc.2 */
                 /* IL_26: callvirt Int32 Do()*/
                 /* IL_2B: ldc.i4.1 */
@@ -148,7 +146,7 @@ var asm1; (function (asm)
                 /* IL_30: ldloc.0 */
                 /* IL_31: castclass TestMono.Base*/
                 /* IL_36: stloc.3 */
-                loc3 = BLR.cast_class(loc0,t3);
+                loc3 = BLR.cast_class(loc0,t2);
                 /* IL_37: ldloc.3 */
                 /* IL_38: callvirt Int32 Do()*/
                 /* IL_3D: ldc.i4.1 */

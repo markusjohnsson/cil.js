@@ -59,19 +59,16 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000e_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.B().init)();
         (asm1.C().init)();
         (asm1.D().init)();
-        ((asm0)["System.Int32"]().init)();
-        ((asm0)["System.UInt32"]().init)();
-        ((asm0)["System.Object"]().init)();
         (asm1.I().init)();
         asm.x600000e = asm.x600000e_;
     };;
     asm.x600000e = function ()
     {
+        BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
@@ -85,96 +82,89 @@ var asm1; (function (asm)
         var t5;
         var t6;
         var t7;
-        var t8;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.B();
-        t3 = asm1.C();
-        t4 = asm1.D();
-        t5 = (asm0)["System.Int32"]();
-        t6 = (asm0)["System.UInt32"]();
-        t7 = (asm0)["System.Object"]();
-        t8 = asm1.I();
+        t0 = asm1.A();
+        t1 = asm1.B();
+        t2 = asm1.C();
+        t3 = asm1.D();
+        t4 = (asm0)["System.Int32"]();
+        t5 = (asm0)["System.UInt32"]();
+        t6 = (asm0)["System.Object"]();
+        t7 = asm1.I();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.newobj(t1,asm1.x600000a,[null]));
+        asm1.x600000f(BLR.newobj(t0,asm1.x600000a,[null]));
         /* IL_0A: newobj Void .ctor()*/
         /* IL_0F: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.newobj(t2,asm1.x600000b,[null]));
+        asm1.x600000f(BLR.newobj(t1,asm1.x600000b,[null]));
         /* IL_14: newobj Void .ctor()*/
         /* IL_19: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.newobj(t3,asm1.x600000c,[null]));
+        asm1.x600000f(BLR.newobj(t2,asm1.x600000c,[null]));
         /* IL_1E: newobj Void .ctor()*/
         /* IL_23: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.newobj(t4,asm1.x600000d,[null]));
+        asm1.x600000f(BLR.newobj(t3,asm1.x600000d,[null]));
         /* IL_28: ldc.i4.s 123*/
         /* IL_2A: box System.Int32*/
         /* IL_2F: call Void Test(System.Object)*/
         asm1.x600000f({
                 'boxed': (123|0),
-                'type': t5,
-                'vtable': t5.prototype.vtable,
-                'ifacemap': t5.prototype.ifacemap
+                'type': t4,
+                'vtable': t4.prototype.vtable,
+                'ifacemap': t4.prototype.ifacemap
             });
         /* IL_34: ldc.i4 -555*/
         /* IL_39: box System.Int32*/
         /* IL_3E: call Void Test(System.Object)*/
         asm1.x600000f({
                 'boxed': (-555|0),
-                'type': t5,
-                'vtable': t5.prototype.vtable,
-                'ifacemap': t5.prototype.ifacemap
+                'type': t4,
+                'vtable': t4.prototype.vtable,
+                'ifacemap': t4.prototype.ifacemap
             });
         /* IL_43: ldc.i4.0 */
         /* IL_44: newarr System.Int32*/
         /* IL_49: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t5,(0|0)));
+        asm1.x600000f(BLR.new_array(t4,(0|0)));
         /* IL_4E: ldc.i4.0 */
         /* IL_4F: newarr System.UInt32*/
         /* IL_54: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t6,(0|0)));
+        asm1.x600000f(BLR.new_array(t5,(0|0)));
         /* IL_59: ldc.i4.0 */
         /* IL_5A: newarr System.Object*/
         /* IL_5F: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t7,(0|0)));
+        asm1.x600000f(BLR.new_array(t6,(0|0)));
         /* IL_64: ldc.i4.0 */
         /* IL_65: newarr A*/
         /* IL_6A: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t1,(0|0)));
+        asm1.x600000f(BLR.new_array(t0,(0|0)));
         /* IL_6F: ldc.i4.0 */
         /* IL_70: newarr B*/
         /* IL_75: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t2,(0|0)));
+        asm1.x600000f(BLR.new_array(t1,(0|0)));
         /* IL_7A: ldc.i4.0 */
         /* IL_7B: newarr C*/
         /* IL_80: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t3,(0|0)));
+        asm1.x600000f(BLR.new_array(t2,(0|0)));
         /* IL_85: ldc.i4.0 */
         /* IL_86: newarr D*/
         /* IL_8B: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t4,(0|0)));
+        asm1.x600000f(BLR.new_array(t3,(0|0)));
         /* IL_90: ldc.i4.0 */
         /* IL_91: newarr I*/
         /* IL_96: call Void Test(System.Object)*/
-        asm1.x600000f(BLR.new_array(t8,(0|0)));
+        asm1.x600000f(BLR.new_array(t7,(0|0)));
         /* IL_9B: ret */
         return ;
     };
     /* static System.Void Program.Test(Object)*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.Int32"]().init)();
-        ((asm0)["System.Boolean"]().init)();
-        ((asm0)["System.Object"]().init)();
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.B().init)();
         (asm1.C().init)();
         (asm1.D().init)();
         (asm1.I().init)();
-        ((asm0)["System.Array"]().init)();
         ((asm0)["System.Array`1"]((asm0)["System.Int32"]()).init)();
         ((asm0)["System.Array`1"]((asm0)["System.Object"]()).init)();
         ((asm0)["System.Array`1"]((asm0)["System.ValueType"]()).init)();

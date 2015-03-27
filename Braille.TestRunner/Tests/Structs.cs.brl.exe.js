@@ -17,28 +17,26 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
     asm.x600000a_ = function Main()
     {
         var t0;
-        var t1;
         var loc0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
+        t0 = asm1.A();
         loc0 = new (asm1.A())();
         __pos__ = 0x0;
         /* IL_00: ldloca.s 0*/
         /* IL_03: initobj A*/
-        loc0 = new t1();
+        loc0 = new t0();
         /* IL_08: ldloca.s 0*/
         /* IL_0A: ldc.i4 123456789*/
         /* IL_0F: stfld Int32 Value*/
@@ -71,17 +69,7 @@ var asm1; (function (asm)
         return ;
     };;
     /* static System.Void Program.Print(A)*/
-    asm.x600000c_init = function ()
-    {
-        ((asm0)["System.Int32"]().init)();
-        asm.x600000c = asm.x600000c_;
-    };;
-    asm.x600000c = function (arg0)
-    {
-        asm.x600000c_init.apply(this,arguments);
-        return asm.x600000c_.apply(this,arguments);
-    };;
-    asm.x600000c_ = function Print(arg0)
+    asm.x600000c = function Print(arg0)
     {
         var t0;
         var __pos__;
@@ -99,7 +87,7 @@ var asm1; (function (asm)
             });
         /* IL_11: ret */
         return ;
-    };
+    };;
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {

@@ -43,29 +43,27 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000010_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.Foo().init)();
         asm.x6000010 = asm.x6000010_;
     };;
     asm.x6000010 = function ()
     {
+        BLR.init_base_types();
         asm.x6000010_init.apply(this,arguments);
         return asm.x6000010_.apply(this,arguments);
     };;
     asm.x6000010_ = function Main()
     {
         var t0;
-        var t1;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.Foo();
+        t0 = asm1.Foo();
         __pos__ = 0x0;
         /* IL_00: ldnull */
         /* IL_02: ldftn String X(System.Int32)*/
         /* IL_07: newobj Void .ctor(System.Object, System.IntPtr)*/
         /* IL_0C: stloc.0 */
-        loc0 = BLR.newobj(t1,asm1.x600000a,[null, null, asm1.x600000e]);
+        loc0 = BLR.newobj(t0,asm1.x600000a,[null, null, asm1.x600000e]);
         /* IL_0D: ldloc.0 */
         /* IL_0E: call Void CallDelegate(Foo)*/
         asm1.x6000011(loc0);
@@ -84,7 +82,7 @@ var asm1; (function (asm)
         /* IL_31: ldftn String X(System.Int32)*/
         /* IL_36: newobj Void .ctor(System.Object, System.IntPtr)*/
         /* IL_3B: call Void TestEquality(Foo, Foo)*/
-        asm1.x6000012(loc0,BLR.newobj(t1,asm1.x600000a,[null, null, asm1.x600000e]));
+        asm1.x6000012(loc0,BLR.newobj(t0,asm1.x600000a,[null, null, asm1.x600000e]));
         /* IL_40: ldstr f, Y*/
         /* IL_45: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("f, Y"));
@@ -93,7 +91,7 @@ var asm1; (function (asm)
         /* IL_4D: ldftn String Y(System.Int32)*/
         /* IL_52: newobj Void .ctor(System.Object, System.IntPtr)*/
         /* IL_57: call Void TestEquality(Foo, Foo)*/
-        asm1.x6000012(loc0,BLR.newobj(t1,asm1.x600000a,[null, null, asm1.x600000f]));
+        asm1.x6000012(loc0,BLR.newobj(t0,asm1.x600000a,[null, null, asm1.x600000f]));
         /* IL_5C: ldstr f, null*/
         /* IL_61: call Void Log(System.Object)*/
         asm1.x6000001(BLR.new_string("f, null"));
@@ -130,17 +128,7 @@ var asm1; (function (asm)
         return ;
     };;
     /* static System.Void Program.TestEquality(Foo,Foo)*/
-    asm.x6000012_init = function ()
-    {
-        ((asm0)["System.Boolean"]().init)();
-        asm.x6000012 = asm.x6000012_;
-    };;
-    asm.x6000012 = function (arg0,arg1)
-    {
-        asm.x6000012_init.apply(this,arguments);
-        return asm.x6000012_.apply(this,arguments);
-    };;
-    asm.x6000012_ = function TestEquality(arg0,arg1)
+    asm.x6000012 = function TestEquality(arg0,arg1)
     {
         var t0;
         var __pos__;
@@ -170,7 +158,7 @@ var asm1; (function (asm)
             });
         /* IL_22: ret */
         return ;
-    };
+    };;
     /*  Program..ctor()*/
     asm.x6000013 = function _ctor(arg0)
     {

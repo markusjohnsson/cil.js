@@ -17,7 +17,6 @@ var asm1; (function (asm)
     /* Iter A.GetEnumerator()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.Int32"]().init)();
         (asm1.Iter().init)();
         asm.x600000a = asm.x600000a_;
     };;
@@ -152,14 +151,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
-        ((asm0)["System.Int32"]().init)();
         ((asm0)["System.IDisposable"]().init)();
         asm.x600000f = asm.x600000f_;
     };;
     asm.x600000f = function ()
     {
+        BLR.init_base_types();
         asm.x600000f_init.apply(this,arguments);
         return asm.x600000f_.apply(this,arguments);
     };;
@@ -168,7 +166,6 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -178,10 +175,9 @@ var asm1; (function (asm)
         var __finally_continuation_1__;
         var loc1;
         var loc3;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = (asm0)["System.Int32"]();
-        t3 = (asm0)["System.IDisposable"]();
+        t0 = asm1.A();
+        t1 = (asm0)["System.Int32"]();
+        t2 = (asm0)["System.IDisposable"]();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -193,7 +189,7 @@ var asm1; (function (asm)
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: stloc.0 */
-                loc0 = BLR.newobj(t1,asm1.x600000b,[null]);
+                loc0 = BLR.newobj(t0,asm1.x600000b,[null]);
                 /* IL_06: ldloc.0 */
                 /* IL_07: callvirt Iter GetEnumerator()*/
                 /* IL_0C: stloc.2 */
@@ -221,9 +217,9 @@ var asm1; (function (asm)
                             /* IL_1C: call Void Log(System.Object)*/
                             asm1.x6000001({
                                     'boxed': loc1,
-                                    'type': t2,
-                                    'vtable': t2.prototype.vtable,
-                                    'ifacemap': t2.prototype.ifacemap
+                                    'type': t1,
+                                    'vtable': t1.prototype.vtable,
+                                    'ifacemap': t1.prototype.ifacemap
                                 });
                             case 0x21:
                             /* IL_21: ldloc.2 */
@@ -254,7 +250,7 @@ var asm1; (function (asm)
                             /* IL_2B: ldloc.2 */
                             /* IL_2C: isinst System.IDisposable*/
                             /* IL_31: stloc.3 */
-                            loc3 = t3.IsInst(loc2);
+                            loc3 = t2.IsInst(loc2);
                             /* IL_32: ldloc.3 */
                             /* IL_33: brfalse.s IL_3B*/
                             
@@ -264,7 +260,7 @@ var asm1; (function (asm)
                             }
                             /* IL_35: ldloc.3 */
                             /* IL_36: callvirt Void Dispose()*/
-                            (((loc3.ifacemap)[t3].x60000c7)())(BLR.convert_box_to_pointer_as_needed(loc3));
+                            (((loc3.ifacemap)[t2].x60000c7)())(BLR.convert_box_to_pointer_as_needed(loc3));
                             case 0x3B:
                             /* IL_3B: endfinally */
                             in_block_1 = false;

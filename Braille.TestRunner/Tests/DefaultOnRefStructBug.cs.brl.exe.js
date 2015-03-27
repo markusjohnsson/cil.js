@@ -41,8 +41,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
-        ((asm0)["System.Int32"]().init)();
         ((asm1)["A`1"]((asm0)["System.Int32"]()).init)();
         (asm1.B().init)();
         ((asm1)["A`1"](asm1.B()).init)();
@@ -50,6 +48,7 @@ var asm1; (function (asm)
     };;
     asm.x600000c = function ()
     {
+        BLR.init_base_types();
         asm.x600000c_init.apply(this,arguments);
         return asm.x600000c_.apply(this,arguments);
     };;
@@ -59,7 +58,6 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var loc0;
         var loc1;
         var st_0F;
@@ -67,11 +65,10 @@ var asm1; (function (asm)
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm0)["System.Int32"]();
-        t2 = (asm1)["A`1"](t1);
-        t3 = asm1.B();
-        t4 = (asm1)["A`1"](t3);
+        t0 = (asm0)["System.Int32"]();
+        t1 = (asm1)["A`1"](t0);
+        t2 = asm1.B();
+        t3 = (asm1)["A`1"](t2);
         loc0 = new ((asm1)["A`1"]((asm0)["System.Int32"]()))();
         loc1 = new ((asm1)["A`1"](asm1.B()))();
         __pos__ = 0x0;
@@ -85,7 +82,7 @@ var asm1; (function (asm)
                 case 0x0:
                 /* IL_00: ldloca.s 0*/
                 /* IL_03: initobj A`1[System.Int32]*/
-                loc0 = new t2();
+                loc0 = new t1();
                 /* IL_08: ldloca.s 0*/
                 /* IL_0A: ldc.i4.s 123*/
                 /* IL_0C: stfld IKVM.Reflection.GenericFieldInstance*/
@@ -96,9 +93,9 @@ var asm1; (function (asm)
                 /* IL_1D: call Void Log(System.Object)*/
                 asm1.x6000001({
                         'boxed': loc0.X,
-                        'type': t1,
-                        'vtable': t1.prototype.vtable,
-                        'ifacemap': t1.prototype.ifacemap
+                        'type': t0,
+                        'vtable': t0.prototype.vtable,
+                        'ifacemap': t0.prototype.ifacemap
                     });
                 /* IL_22: ldloca.s 0*/
                 /* IL_24: call Void Reset()*/
@@ -118,17 +115,17 @@ var asm1; (function (asm)
                 /* IL_35: call Void Log(System.Object)*/
                 asm1.x6000001({
                         'boxed': loc0.X,
-                        'type': t1,
-                        'vtable': t1.prototype.vtable,
-                        'ifacemap': t1.prototype.ifacemap
+                        'type': t0,
+                        'vtable': t0.prototype.vtable,
+                        'ifacemap': t0.prototype.ifacemap
                     });
                 /* IL_3A: ldloca.s 1*/
                 /* IL_3D: initobj A`1[B]*/
-                loc1 = new t4();
+                loc1 = new t3();
                 /* IL_42: ldloca.s 1*/
                 /* IL_44: newobj Void .ctor()*/
                 /* IL_49: stfld IKVM.Reflection.GenericFieldInstance*/
-                loc1.X = BLR.newobj(t3,asm1.x600000b,[null]);
+                loc1.X = BLR.newobj(t2,asm1.x600000b,[null]);
                 /* IL_4E: ldloca.s 1*/
                 /* IL_50: ldfld IKVM.Reflection.GenericFieldInstance*/
                 /* IL_55: brfalse.s IL_5E*/

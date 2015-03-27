@@ -62,14 +62,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000e_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.B().init)();
         (asm1.C().init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x600000e = asm.x600000e_;
     };;
     asm.x600000e = function ()
     {
+        BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
@@ -78,27 +77,25 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.B();
-        t2 = asm1.C();
-        t3 = (asm0)["System.Boolean"]();
+        t0 = asm1.B();
+        t1 = asm1.C();
+        t2 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t1,asm1.x600000c,[null]);
+        loc0 = BLR.newobj(t0,asm1.x600000c,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: newobj Void .ctor()*/
         /* IL_0C: callvirt Boolean X(System.Object)*/
         /* IL_11: box System.Boolean*/
         /* IL_16: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': asm1.x600000a(loc0,BLR.newobj(t2,asm1.x600000d,[null])),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
+                'boxed': asm1.x600000a(loc0,BLR.newobj(t1,asm1.x600000d,[null])),
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
             });
         /* IL_1B: ret */
         return ;

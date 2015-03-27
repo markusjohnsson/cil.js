@@ -17,27 +17,24 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000a_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
-        ((asm0)["System.Exception"]().init)();
         asm.x600000a = asm.x600000a_;
     };;
     asm.x600000a = function ()
     {
+        BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
     asm.x600000a_ = function Main()
     {
         var t0;
-        var t1;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
         var in_block_2;
         var __finally_continuation_2__;
         var __error_handled_1__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm0)["System.Exception"]();
+        t0 = (asm0)["System.Exception"]();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -59,7 +56,7 @@ var asm1; (function (asm)
                         asm1.x6000001(BLR.new_string("Try 2"));
                         /* IL_14: newobj Void .ctor()*/
                         /* IL_19: throw */
-                        throw BLR.newobj(t1,asm0.x60000a4,[null]);
+                        throw BLR.newobj(t0,asm0.x60000a4,[null]);
                     }
                     
                     finally {

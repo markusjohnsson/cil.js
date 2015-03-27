@@ -15,17 +15,7 @@ var asm1; (function (asm)
         return ;
     };;
     /* static System.Void Program.Cmp(String)*/
-    asm.x600000a_init = function ()
-    {
-        ((asm0)["System.Boolean"]().init)();
-        asm.x600000a = asm.x600000a_;
-    };;
-    asm.x600000a = function (arg0)
-    {
-        asm.x600000a_init.apply(this,arguments);
-        return asm.x600000a_.apply(this,arguments);
-    };;
-    asm.x600000a_ = function Cmp(arg0)
+    asm.x600000a = function Cmp(arg0)
     {
         var t0;
         var __pos__;
@@ -66,23 +56,21 @@ var asm1; (function (asm)
             });
         /* IL_3F: ret */
         return ;
-    };
+    };;
     /* static System.Void Program.Main()*/
     asm.x600000b_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000b = asm.x600000b_;
     };;
     asm.x600000b = function ()
     {
+        BLR.init_base_types();
         asm.x600000b_init.apply(this,arguments);
         return asm.x600000b_.apply(this,arguments);
     };;
     asm.x600000b_ = function Main()
     {
-        var t0;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
         __pos__ = 0x0;
         /* IL_00: ldstr Hello World*/
         /* IL_05: call Void Cmp(System.String)*/

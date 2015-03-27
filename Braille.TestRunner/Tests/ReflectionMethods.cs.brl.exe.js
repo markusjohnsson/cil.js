@@ -51,19 +51,18 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000e_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         asm.x600000e = asm.x600000e_;
     };;
     asm.x600000e = function ()
     {
+        BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
     asm.x600000e_ = function Main()
     {
         var t0;
-        var t1;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -72,8 +71,7 @@ var asm1; (function (asm)
         var loc3;
         var loc4;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
+        t0 = asm1.A();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -86,7 +84,7 @@ var asm1; (function (asm)
                 /* IL_00: ldtoken A*/
                 /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
                 /* IL_0A: stloc.0 */
-                loc0 = asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1));
+                loc0 = asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0));
                 /* IL_0B: ldloc.0 */
                 /* IL_0C: callvirt MethodInfo[] GetMethods()*/
                 /* IL_11: stloc.1 */

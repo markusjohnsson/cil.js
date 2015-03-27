@@ -141,7 +141,6 @@ var asm1; (function (asm)
     /* static System.Int32 Test.Main()*/
     asm.x600001b_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.Derived1().init)();
         (asm1.Derived2().init)();
         (asm1.Derived3().init)();
@@ -151,6 +150,7 @@ var asm1; (function (asm)
     };;
     asm.x600001b = function ()
     {
+        BLR.init_base_types();
         asm.x600001b_init.apply(this,arguments);
         return asm.x600001b_.apply(this,arguments);
     };;
@@ -161,7 +161,6 @@ var asm1; (function (asm)
         var t2;
         var t3;
         var t4;
-        var t5;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -170,12 +169,11 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc4;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.Derived1();
-        t2 = asm1.Derived2();
-        t3 = asm1.Derived3();
-        t4 = asm1.Base();
-        t5 = asm1.IVehicle();
+        t0 = asm1.Derived1();
+        t1 = asm1.Derived2();
+        t2 = asm1.Derived3();
+        t3 = asm1.Base();
+        t4 = asm1.IVehicle();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -187,19 +185,19 @@ var asm1; (function (asm)
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: stloc.0 */
-                loc0 = BLR.newobj(t1,asm1.x6000014,[null]);
+                loc0 = BLR.newobj(t0,asm1.x6000014,[null]);
                 /* IL_06: newobj Void .ctor()*/
                 /* IL_0B: stloc.1 */
-                loc1 = BLR.newobj(t2,asm1.x6000019,[null]);
+                loc1 = BLR.newobj(t1,asm1.x6000019,[null]);
                 /* IL_0C: newobj Void .ctor()*/
                 /* IL_11: stloc.2 */
-                loc2 = BLR.newobj(t3,asm1.x600001a,[null]);
+                loc2 = BLR.newobj(t2,asm1.x600001a,[null]);
                 /* IL_12: ldloc.1 */
                 /* IL_13: stloc.3 */
                 loc3 = loc1;
                 /* IL_14: newobj Void .ctor()*/
                 /* IL_19: stloc.s 4*/
-                loc4 = BLR.newobj(t4,asm1.x6000012,[null]);
+                loc4 = BLR.newobj(t3,asm1.x6000012,[null]);
                 /* IL_1B: ldloc.0 */
                 /* IL_1C: callvirt Int32 Turn()*/
                 /* IL_21: ldc.i4.4 */
@@ -218,7 +216,7 @@ var asm1; (function (asm)
                 /* IL_2C: ldc.i4.4 */
                 /* IL_2D: beq.s IL_31*/
                 
-                if ((((loc0.ifacemap)[t5].x600000c)())(loc0) === (4|0)){
+                if ((((loc0.ifacemap)[t4].x600000c)())(loc0) === (4|0)){
                     __pos__ = 0x31;
                     continue;
                 }
@@ -244,7 +242,7 @@ var asm1; (function (asm)
                 /* IL_43: ldc.i4.7 */
                 /* IL_44: beq.s IL_48*/
                 
-                if ((((loc1.ifacemap)[t5].x600000c)())(loc1) === (7|0)){
+                if ((((loc1.ifacemap)[t4].x600000c)())(loc1) === (7|0)){
                     __pos__ = 0x48;
                     continue;
                 }
@@ -270,7 +268,7 @@ var asm1; (function (asm)
                 /* IL_59: ldc.i4.7 */
                 /* IL_5A: beq.s IL_5E*/
                 
-                if ((((loc3.ifacemap)[t5].x600000c)())(loc3) === (7|0)){
+                if ((((loc3.ifacemap)[t4].x600000c)())(loc3) === (7|0)){
                     __pos__ = 0x5E;
                     continue;
                 }
@@ -283,7 +281,7 @@ var asm1; (function (asm)
                 /* IL_65: ldc.i4.2 */
                 /* IL_66: beq.s IL_6A*/
                 
-                if ((((loc4.ifacemap)[t5].x600000b)())(loc4) === (2|0)){
+                if ((((loc4.ifacemap)[t4].x600000b)())(loc4) === (2|0)){
                     __pos__ = 0x6A;
                     continue;
                 }
@@ -296,7 +294,7 @@ var asm1; (function (asm)
                 /* IL_70: ldc.i4.2 */
                 /* IL_71: beq.s IL_75*/
                 
-                if ((((loc0.ifacemap)[t5].x600000b)())(loc0) === (2|0)){
+                if ((((loc0.ifacemap)[t4].x600000b)())(loc0) === (2|0)){
                     __pos__ = 0x75;
                     continue;
                 }
@@ -309,7 +307,7 @@ var asm1; (function (asm)
                 /* IL_7B: ldc.i4.6 */
                 /* IL_7C: beq.s IL_80*/
                 
-                if ((((loc1.ifacemap)[t5].x600000b)())(loc1) === (6|0)){
+                if ((((loc1.ifacemap)[t4].x600000b)())(loc1) === (6|0)){
                     __pos__ = 0x80;
                     continue;
                 }

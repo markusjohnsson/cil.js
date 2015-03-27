@@ -224,7 +224,6 @@ var asm1; (function (asm)
         {
             ((asm0)["Braille.Runtime.UnboundGenericParameter"]().init)();
             ((asm1)["P`1"](T).init)();
-            ((asm0)["System.Boolean"]().init)();
             ((asm1)["Func`2"](T,(asm0)["System.Boolean"]()).init)();
         };
     };;
@@ -379,20 +378,18 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000020_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.X().init)();
-        ((asm0)["System.Object"]().init)();
         ((asm1)["Y`1"]((asm0)["System.Object"]()).init)();
         (asm1.A().init)();
         ((asm1)["Y`1"](asm1.A()).init)();
         (asm1.B().init)();
         ((asm1)["Y`1"](asm1.B()).init)();
         (asm1.Q().init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x6000020 = asm.x6000020_;
     };;
     asm.x6000020 = function ()
     {
+        BLR.init_base_types();
         asm.x6000020_init.apply(this,arguments);
         return asm.x6000020_.apply(this,arguments);
     };;
@@ -407,35 +404,33 @@ var asm1; (function (asm)
         var t6;
         var t7;
         var t8;
-        var t9;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.X();
-        t2 = (asm0)["System.Object"]();
-        t3 = (asm1)["Y`1"](t2);
-        t4 = asm1.A();
-        t5 = (asm1)["Y`1"](t4);
-        t6 = asm1.B();
-        t7 = (asm1)["Y`1"](t6);
-        t8 = asm1.Q();
-        t9 = (asm0)["System.Boolean"]();
+        t0 = asm1.X();
+        t1 = (asm0)["System.Object"]();
+        t2 = (asm1)["Y`1"](t1);
+        t3 = asm1.A();
+        t4 = (asm1)["Y`1"](t3);
+        t5 = asm1.B();
+        t6 = (asm1)["Y`1"](t5);
+        t7 = asm1.Q();
+        t8 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
         asm1.x600000f();
         /* IL_00: ldsfld A Prop*/
         /* IL_05: call Void Is(System.Object)*/
-        asm1.x6000021(t1.Prop);
+        asm1.x6000021(t0.Prop);
         (asm1.x6000011((asm0)["System.Object"]()))();
         /* IL_0A: ldsfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_0F: call Void Is(System.Object)*/
-        asm1.x6000021(t3.Prop);
+        asm1.x6000021(t2.Prop);
         (asm1.x6000011(asm1.A()))();
         /* IL_14: ldsfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_19: call Void Is(System.Object)*/
-        asm1.x6000021(t5.Prop);
+        asm1.x6000021(t4.Prop);
         (asm1.x6000011(asm1.B()))();
         /* IL_1E: ldsfld IKVM.Reflection.GenericFieldInstance*/
         /* IL_23: call Void Is(System.Object)*/
-        asm1.x6000021(t7.Prop);
+        asm1.x6000021(t6.Prop);
         asm1.x600001e();
         /* IL_28: ldsfld Func Always*/
         /* IL_2D: ldnull */
@@ -443,15 +438,15 @@ var asm1; (function (asm)
         /* IL_33: box System.Boolean*/
         /* IL_38: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': t8.Always._methodPtr.apply(null,((t8.Always._target) ? ([
-                        t8.Always._target,
+                'boxed': t7.Always._methodPtr.apply(null,((t7.Always._target) ? ([
+                        t7.Always._target,
                         null
                     ]) : ([
                         null
                     ]))),
-                'type': t9,
-                'vtable': t9.prototype.vtable,
-                'ifacemap': t9.prototype.ifacemap
+                'type': t8,
+                'vtable': t8.prototype.vtable,
+                'ifacemap': t8.prototype.ifacemap
             });
         asm1.x600001e();
         /* IL_3D: ldsfld Func Always*/
@@ -460,15 +455,15 @@ var asm1; (function (asm)
         /* IL_48: box System.Boolean*/
         /* IL_4D: call Void Log(System.Object)*/
         asm1.x6000001({
-                'boxed': t8.Always._methodPtr.apply(null,((t8.Always._target) ? ([
-                        t8.Always._target,
+                'boxed': t7.Always._methodPtr.apply(null,((t7.Always._target) ? ([
+                        t7.Always._target,
                         null
                     ]) : ([
                         null
                     ]))),
-                'type': t9,
-                'vtable': t9.prototype.vtable,
-                'ifacemap': t9.prototype.ifacemap
+                'type': t8,
+                'vtable': t8.prototype.vtable,
+                'ifacemap': t8.prototype.ifacemap
             });
         /* IL_52: ret */
         return ;
@@ -477,7 +472,6 @@ var asm1; (function (asm)
     asm.x6000021_init = function ()
     {
         (asm1.A().init)();
-        ((asm0)["System.Boolean"]().init)();
         (asm1.B().init)();
         asm.x6000021 = asm.x6000021_;
     };;

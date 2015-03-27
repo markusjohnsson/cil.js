@@ -27,7 +27,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000b_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.B().init)();
         (asm1.C().init)();
@@ -36,6 +35,7 @@ var asm1; (function (asm)
     };;
     asm.x600000b = function ()
     {
+        BLR.init_base_types();
         asm.x600000b_init.apply(this,arguments);
         return asm.x600000b_.apply(this,arguments);
     };;
@@ -45,7 +45,6 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var loc0;
         var loc1;
         var loc2;
@@ -114,11 +113,10 @@ var asm1; (function (asm)
         var st_67;
         var st_68;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.B();
-        t3 = asm1.C();
-        t4 = asm1.Program();
+        t0 = asm1.A();
+        t1 = asm1.B();
+        t2 = asm1.C();
+        t3 = asm1.Program();
         loc0 = new (asm1.A())();
         loc1 = new (asm1.A())();
         loc2 = new (asm1.A())();
@@ -149,13 +147,13 @@ var asm1; (function (asm)
         __pos__ = 0x0;
         /* IL_00: ldloca.s 23*/
         /* IL_03: initobj A*/
-        loc23 = new t1();
+        loc23 = new t0();
         /* IL_08: ldloc.s 23*/
         /* IL_0A: call Void TestA(A)*/
         asm1.x600000c(BLR.clone_value(loc23));
         /* IL_0F: ldloca.s 0*/
         /* IL_12: initobj A*/
-        loc0 = new t1();
+        loc0 = new t0();
         /* IL_17: ldloca.s 0*/
         /* IL_19: ldc.i4.0 */
         /* IL_1A: stfld Int32 x*/
@@ -165,7 +163,7 @@ var asm1; (function (asm)
         asm1.x600000c(BLR.clone_value(loc0));
         /* IL_25: ldloca.s 1*/
         /* IL_28: initobj A*/
-        loc1 = new t1();
+        loc1 = new t0();
         /* IL_2D: ldloca.s 1*/
         /* IL_2F: ldc.i4.s 123*/
         /* IL_31: stfld Int32 x*/
@@ -175,7 +173,7 @@ var asm1; (function (asm)
         asm1.x600000c(BLR.clone_value(loc1));
         /* IL_3C: ldloca.s 2*/
         /* IL_3F: initobj A*/
-        loc2 = new t1();
+        loc2 = new t0();
         /* IL_44: ldloca.s 2*/
         /* IL_46: ldc.i4 321*/
         /* IL_4B: stfld Int32 x*/
@@ -185,29 +183,29 @@ var asm1; (function (asm)
         asm1.x600000c(BLR.clone_value(loc2));
         /* IL_56: ldloca.s 24*/
         /* IL_59: initobj A*/
-        loc24 = new t1();
+        loc24 = new t0();
         /* IL_5E: ldloc.s 24*/
         /* IL_60: call Void TestA(A)*/
         asm1.x600000c(BLR.clone_value(loc24));
         /* IL_65: ldloca.s 25*/
         /* IL_68: initobj B*/
-        loc25 = new t2();
+        loc25 = new t1();
         /* IL_6D: ldloc.s 25*/
         /* IL_6F: ldfld A a*/
         /* IL_74: call Void TestA(A)*/
         asm1.x600000c(BLR.clone_value(loc25.a));
         /* IL_79: newobj Void .ctor()*/
         /* IL_7E: stsfld C c1*/
-        (t4)["c1"] = BLR.newobj(t3,asm1.x600000a,[null]);
+        (t3)["c1"] = BLR.newobj(t2,asm1.x600000a,[null]);
         /* IL_83: ldloca.s 26*/
         /* IL_86: initobj B*/
-        loc26 = new t2();
+        loc26 = new t1();
         /* IL_8B: ldloc.s 26*/
         /* IL_8D: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc26));
         /* IL_92: ldloca.s 3*/
         /* IL_95: initobj B*/
-        loc3 = new t2();
+        loc3 = new t1();
         /* IL_9A: ldloca.s 3*/
         st_1A = {
             'w': function (v)
@@ -221,7 +219,7 @@ var asm1; (function (asm)
         };
         /* IL_9C: ldloca.s 4*/
         /* IL_9F: initobj A*/
-        loc4 = new t1();
+        loc4 = new t0();
         /* IL_A4: ldloca.s 4*/
         st_18 = {
             'w': function (v)
@@ -246,7 +244,7 @@ var asm1; (function (asm)
         asm1.x600000d(BLR.clone_value(loc3));
         /* IL_BA: ldloca.s 5*/
         /* IL_BD: initobj B*/
-        loc5 = new t2();
+        loc5 = new t1();
         /* IL_C2: ldloca.s 5*/
         st_21 = {
             'w': function (v)
@@ -260,7 +258,7 @@ var asm1; (function (asm)
         };
         /* IL_C4: ldloca.s 6*/
         /* IL_C7: initobj A*/
-        loc6 = new t1();
+        loc6 = new t0();
         /* IL_CC: ldloca.s 6*/
         st_1F = {
             'w': function (v)
@@ -289,7 +287,7 @@ var asm1; (function (asm)
         asm1.x600000d(BLR.clone_value(loc5));
         /* IL_EB: ldloca.s 7*/
         /* IL_EE: initobj B*/
-        loc7 = new t2();
+        loc7 = new t1();
         /* IL_F3: ldloca.s 7*/
         st_2A = {
             'w': function (v)
@@ -303,7 +301,7 @@ var asm1; (function (asm)
         };
         /* IL_F5: ldloca.s 8*/
         /* IL_F8: initobj A*/
-        loc8 = new t1();
+        loc8 = new t0();
         /* IL_FD: ldloca.s 8*/
         st_28 = {
             'w': function (v)
@@ -326,13 +324,13 @@ var asm1; (function (asm)
         /* IL_10D: ldloca.s 7*/
         /* IL_10F: ldsfld C c1*/
         /* IL_114: stfld C c*/
-        loc7.c = t4.c1;
+        loc7.c = t3.c1;
         /* IL_119: ldloc.s 7*/
         /* IL_11B: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc7));
         /* IL_120: ldloca.s 9*/
         /* IL_123: initobj B*/
-        loc9 = new t2();
+        loc9 = new t1();
         /* IL_128: ldloca.s 9*/
         st_33 = {
             'w': function (v)
@@ -346,7 +344,7 @@ var asm1; (function (asm)
         };
         /* IL_12A: ldloca.s 10*/
         /* IL_12D: initobj A*/
-        loc10 = new t1();
+        loc10 = new t0();
         /* IL_132: ldloca.s 10*/
         st_31 = {
             'w': function (v)
@@ -369,13 +367,13 @@ var asm1; (function (asm)
         /* IL_142: ldloca.s 9*/
         /* IL_144: ldsfld C c2*/
         /* IL_149: stfld C c*/
-        loc9.c = t4.c2;
+        loc9.c = t3.c2;
         /* IL_14E: ldloc.s 9*/
         /* IL_150: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc9));
         /* IL_155: ldloca.s 11*/
         /* IL_158: initobj B*/
-        loc11 = new t2();
+        loc11 = new t1();
         /* IL_15D: ldloca.s 11*/
         st_3C = {
             'w': function (v)
@@ -389,7 +387,7 @@ var asm1; (function (asm)
         };
         /* IL_15F: ldloca.s 12*/
         /* IL_162: initobj A*/
-        loc12 = new t1();
+        loc12 = new t0();
         /* IL_167: ldloca.s 12*/
         st_3A = {
             'w': function (v)
@@ -412,13 +410,13 @@ var asm1; (function (asm)
         /* IL_177: ldloca.s 11*/
         /* IL_179: newobj Void .ctor()*/
         /* IL_17E: stfld C c*/
-        loc11.c = BLR.newobj(t3,asm1.x600000a,[null]);
+        loc11.c = BLR.newobj(t2,asm1.x600000a,[null]);
         /* IL_183: ldloc.s 11*/
         /* IL_185: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc11));
         /* IL_18A: ldloca.s 13*/
         /* IL_18D: initobj B*/
-        loc13 = new t2();
+        loc13 = new t1();
         /* IL_192: ldloca.s 13*/
         st_45 = {
             'w': function (v)
@@ -432,7 +430,7 @@ var asm1; (function (asm)
         };
         /* IL_194: ldloca.s 14*/
         /* IL_197: initobj A*/
-        loc14 = new t1();
+        loc14 = new t0();
         /* IL_19C: ldloca.s 14*/
         st_43 = {
             'w': function (v)
@@ -457,7 +455,7 @@ var asm1; (function (asm)
         asm1.x600000d(BLR.clone_value(loc13));
         /* IL_1B3: ldloca.s 15*/
         /* IL_1B6: initobj B*/
-        loc15 = new t2();
+        loc15 = new t1();
         /* IL_1BB: ldloca.s 15*/
         st_4C = {
             'w': function (v)
@@ -471,7 +469,7 @@ var asm1; (function (asm)
         };
         /* IL_1BD: ldloca.s 16*/
         /* IL_1C0: initobj A*/
-        loc16 = new t1();
+        loc16 = new t0();
         /* IL_1C5: ldloca.s 16*/
         st_4A = {
             'w': function (v)
@@ -500,7 +498,7 @@ var asm1; (function (asm)
         asm1.x600000d(BLR.clone_value(loc15));
         /* IL_1E4: ldloca.s 17*/
         /* IL_1E7: initobj B*/
-        loc17 = new t2();
+        loc17 = new t1();
         /* IL_1EC: ldloca.s 17*/
         st_55 = {
             'w': function (v)
@@ -514,7 +512,7 @@ var asm1; (function (asm)
         };
         /* IL_1EE: ldloca.s 18*/
         /* IL_1F1: initobj A*/
-        loc18 = new t1();
+        loc18 = new t0();
         /* IL_1F6: ldloca.s 18*/
         st_53 = {
             'w': function (v)
@@ -537,13 +535,13 @@ var asm1; (function (asm)
         /* IL_206: ldloca.s 17*/
         /* IL_208: ldsfld C c1*/
         /* IL_20D: stfld C c*/
-        loc17.c = t4.c1;
+        loc17.c = t3.c1;
         /* IL_212: ldloc.s 17*/
         /* IL_214: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc17));
         /* IL_219: ldloca.s 19*/
         /* IL_21C: initobj B*/
-        loc19 = new t2();
+        loc19 = new t1();
         /* IL_221: ldloca.s 19*/
         st_5E = {
             'w': function (v)
@@ -557,7 +555,7 @@ var asm1; (function (asm)
         };
         /* IL_223: ldloca.s 20*/
         /* IL_226: initobj A*/
-        loc20 = new t1();
+        loc20 = new t0();
         /* IL_22B: ldloca.s 20*/
         st_5C = {
             'w': function (v)
@@ -580,13 +578,13 @@ var asm1; (function (asm)
         /* IL_23B: ldloca.s 19*/
         /* IL_23D: ldsfld C c2*/
         /* IL_242: stfld C c*/
-        loc19.c = t4.c2;
+        loc19.c = t3.c2;
         /* IL_247: ldloc.s 19*/
         /* IL_249: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc19));
         /* IL_24E: ldloca.s 21*/
         /* IL_251: initobj B*/
-        loc21 = new t2();
+        loc21 = new t1();
         /* IL_256: ldloca.s 21*/
         st_67 = {
             'w': function (v)
@@ -600,7 +598,7 @@ var asm1; (function (asm)
         };
         /* IL_258: ldloca.s 22*/
         /* IL_25B: initobj A*/
-        loc22 = new t1();
+        loc22 = new t0();
         /* IL_260: ldloca.s 22*/
         st_65 = {
             'w': function (v)
@@ -623,7 +621,7 @@ var asm1; (function (asm)
         /* IL_270: ldloca.s 21*/
         /* IL_272: newobj Void .ctor()*/
         /* IL_277: stfld C c*/
-        loc21.c = BLR.newobj(t3,asm1.x600000a,[null]);
+        loc21.c = BLR.newobj(t2,asm1.x600000a,[null]);
         /* IL_27C: ldloc.s 21*/
         /* IL_27E: call Void TestB(B)*/
         asm1.x600000d(BLR.clone_value(loc21));
@@ -634,7 +632,6 @@ var asm1; (function (asm)
     asm.x600000c_init = function ()
     {
         (asm1.A().init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function (arg0)
@@ -829,7 +826,6 @@ var asm1; (function (asm)
         (asm1.B().init)();
         (asm1.A().init)();
         (asm1.Program().init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x600000d = asm.x600000d_;
     };;
     asm.x600000d = function (arg0)

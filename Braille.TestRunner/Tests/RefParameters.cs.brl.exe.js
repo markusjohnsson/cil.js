@@ -129,14 +129,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000e_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.C().init)();
-        ((asm0)["System.Int32"]().init)();
         asm.x600000e = asm.x600000e_;
     };;
     asm.x600000e = function ()
     {
+        BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
@@ -145,17 +144,15 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var loc3;
         var __pos__;
         var loc0;
         var loc1;
         var loc4;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.C();
-        t3 = (asm0)["System.Int32"]();
+        t0 = asm1.A();
+        t1 = asm1.C();
+        t2 = (asm0)["System.Int32"]();
         loc3 = new (asm1.A())();
         __pos__ = 0x0;
         /* IL_00: ldc.i4.1 */
@@ -163,7 +160,7 @@ var asm1; (function (asm)
         loc0 = (1|0);
         /* IL_02: ldloca.s 3*/
         /* IL_05: initobj A*/
-        loc3 = new t1();
+        loc3 = new t0();
         /* IL_0A: ldloca.s 3*/
         /* IL_0C: ldc.i4.1 */
         /* IL_0D: stfld Int32 U*/
@@ -173,7 +170,7 @@ var asm1; (function (asm)
         loc1 = loc3;
         /* IL_14: newobj Void .ctor()*/
         /* IL_19: stloc.s 4*/
-        loc4 = BLR.newobj(t2,asm1.x600000a,[null]);
+        loc4 = BLR.newobj(t1,asm1.x600000a,[null]);
         /* IL_1B: ldloc.s 4*/
         /* IL_1D: ldc.i4.1 */
         /* IL_1E: stfld Int32 V*/
@@ -222,9 +219,9 @@ var asm1; (function (asm)
         /* IL_41: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc0,
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
             });
         /* IL_46: ldloca.s 1*/
         /* IL_48: ldfld Int32 U*/
@@ -232,9 +229,9 @@ var asm1; (function (asm)
         /* IL_52: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc1.U,
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
             });
         /* IL_57: ldloc.2 */
         /* IL_58: ldfld Int32 V*/
@@ -242,9 +239,9 @@ var asm1; (function (asm)
         /* IL_62: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': loc2.V,
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
+                'type': t2,
+                'vtable': t2.prototype.vtable,
+                'ifacemap': t2.prototype.ifacemap
             });
         /* IL_67: ret */
         return ;

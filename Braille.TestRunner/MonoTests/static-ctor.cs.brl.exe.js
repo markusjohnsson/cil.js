@@ -77,13 +77,13 @@ var asm1; (function (asm)
     /* static System.Int32 test.Main()*/
     asm.x600000e_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.Z().init)();
         (asm1.test().init)();
         asm.x600000e = asm.x600000e_;
     };;
     asm.x600000e = function ()
     {
+        BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
@@ -91,13 +91,11 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.Z();
-        t2 = asm1.test();
+        t0 = asm1.Z();
+        t1 = asm1.test();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -110,12 +108,12 @@ var asm1; (function (asm)
                 asm1.x600000a();
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: pop */
-                BLR.newobj(t1,asm1.x600000d,[null]);
+                BLR.newobj(t0,asm1.x600000d,[null]);
                 /* IL_06: ldsfld Int32 global*/
                 /* IL_0B: ldc.i4.1 */
                 /* IL_0C: beq.s IL_1A*/
                 
-                if (t2.global === (1|0)){
+                if (t1.global === (1|0)){
                     __pos__ = 0x1A;
                     continue;
                 }

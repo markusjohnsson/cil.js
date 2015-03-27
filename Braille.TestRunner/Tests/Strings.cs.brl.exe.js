@@ -49,13 +49,12 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000d_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
-        ((asm0)["System.Int32"]().init)();
         asm.x600000d = asm.x600000d_;
     };;
     asm.x600000d = function ()
     {
+        BLR.init_base_types();
         asm.x600000d_init.apply(this,arguments);
         return asm.x600000d_.apply(this,arguments);
     };;
@@ -63,19 +62,17 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = (asm0)["System.Int32"]();
+        t0 = asm1.A();
+        t1 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
         /* IL_00: call String GetString()*/
         /* IL_05: call Void Log(System.Object)*/
         asm1.x6000001(asm1.x600000f());
         /* IL_0A: newobj Void .ctor()*/
         /* IL_0F: stloc.0 */
-        loc0 = BLR.newobj(t1,asm1.x600000c,[null]);
+        loc0 = BLR.newobj(t0,asm1.x600000c,[null]);
         /* IL_10: ldloc.0 */
         /* IL_11: ldstr 300*/
         /* IL_16: callvirt Void set_X(System.String)*/
@@ -95,25 +92,15 @@ var asm1; (function (asm)
         /* IL_45: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': asm0.x60001c3(BLR.new_string("123456789")),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_4A: ret */
         return ;
     };
     /* static System.String Program.IsString(Object)*/
-    asm.x600000e_init = function ()
-    {
-        ((asm0)["System.String"]().init)();
-        asm.x600000e = asm.x600000e_;
-    };;
-    asm.x600000e = function (arg0)
-    {
-        asm.x600000e_init.apply(this,arguments);
-        return asm.x600000e_.apply(this,arguments);
-    };;
-    asm.x600000e_ = function IsString(arg0)
+    asm.x600000e = function IsString(arg0)
     {
         var t0;
         var __pos__;
@@ -146,7 +133,7 @@ var asm1; (function (asm)
                 return BLR.new_string("true");
             }
         }
-    };
+    };;
     /* static System.String Program.GetString()*/
     asm.x600000f = function GetString()
     {

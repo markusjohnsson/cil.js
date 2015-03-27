@@ -15,7 +15,7 @@ namespace Braille.JsTranslation
             : base(context)
         {
         }
-
+        
         public JSFunctionDelcaration GetInitializer(CilAssembly assembly, CilType type, CilMethod method)
         {
             if (type.IsIgnored)
@@ -32,7 +32,12 @@ namespace Braille.JsTranslation
 
             foreach (var t in method.ReferencedTypes)
             {
-                if (t.IsGenericParameter) // types shall be initialized before they are used as generic parameters 
+                // types shall be initialized before they are used as generic parameters 
+                if (t.IsGenericParameter) 
+                    continue;
+
+                // base types are initialized int BLR.init_base_types, called from entryPoint method
+                if (SystemTypes.BaseTypes.Contains(t.FullName))
                     continue;
 
                 functionBlock.Add(
@@ -101,6 +106,11 @@ namespace Braille.JsTranslation
             }
 
             var functionBlock = new List<JSStatement>();
+
+            if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
+            {
+                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("BLR", "init_base_types")).ToStatement());
+            }
 
             JSExpression closedMethodInitializer;
             JSExpression openMethodInitializer = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init");

@@ -27,13 +27,12 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000b_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
-        ((asm0)["System.Boolean"]().init)();
         asm.x600000b = asm.x600000b_;
     };;
     asm.x600000b = function ()
     {
+        BLR.init_base_types();
         asm.x600000b_init.apply(this,arguments);
         return asm.x600000b_.apply(this,arguments);
     };;
@@ -41,18 +40,16 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
         var loc0;
         var loc1;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = (asm0)["System.Boolean"]();
+        t0 = asm1.A();
+        t1 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t1,asm1.x600000a,[null]);
+        loc0 = BLR.newobj(t0,asm1.x600000a,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: callvirt Int32 GetHashCode()*/
         /* IL_0C: stloc.1 */
@@ -66,9 +63,9 @@ var asm1; (function (asm)
         /* IL_19: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': ((((loc1 === (0|0)) ? (1) : (0)) === (0|0)) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_1E: ldloc.1 */
         /* IL_1F: ldloc.0 */
@@ -78,13 +75,13 @@ var asm1; (function (asm)
         /* IL_2C: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': ((loc1 === ((loc0.vtable)["asm0.x6000009"]())(loc0)) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_31: newobj Void .ctor()*/
         /* IL_36: stloc.2 */
-        loc2 = BLR.newobj(t1,asm1.x600000a,[null]);
+        loc2 = BLR.newobj(t0,asm1.x600000a,[null]);
         /* IL_37: ldloc.2 */
         /* IL_38: callvirt Int32 GetHashCode()*/
         /* IL_3D: ldloc.2 */
@@ -94,9 +91,9 @@ var asm1; (function (asm)
         /* IL_4A: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': ((((loc2.vtable)["asm0.x6000009"]())(loc2) === ((loc2.vtable)["asm0.x6000009"]())(loc2)) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_4F: ldloc.2 */
         /* IL_50: callvirt Int32 GetHashCode()*/
@@ -109,9 +106,9 @@ var asm1; (function (asm)
         /* IL_65: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': ((((((loc2.vtable)["asm0.x6000009"]())(loc2) === ((loc0.vtable)["asm0.x6000009"]())(loc0)) ? (1) : (0)) === (0|0)) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_6A: ldstr hello*/
         /* IL_6F: call Void TestString(System.String)*/
@@ -120,17 +117,7 @@ var asm1; (function (asm)
         return ;
     };
     /* static System.Void Program.TestString(String)*/
-    asm.x600000c_init = function ()
-    {
-        ((asm0)["System.Boolean"]().init)();
-        asm.x600000c = asm.x600000c_;
-    };;
-    asm.x600000c = function (arg0)
-    {
-        asm.x600000c_init.apply(this,arguments);
-        return asm.x600000c_.apply(this,arguments);
-    };;
-    asm.x600000c_ = function TestString(arg0)
+    asm.x600000c = function TestString(arg0)
     {
         var t0;
         var __pos__;
@@ -174,7 +161,7 @@ var asm1; (function (asm)
             });
         /* IL_42: ret */
         return ;
-    };
+    };;
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {

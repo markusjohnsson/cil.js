@@ -84,13 +84,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.B().init)();
         asm.x600000f = asm.x600000f_;
     };;
     asm.x600000f = function ()
     {
+        BLR.init_base_types();
         asm.x600000f_init.apply(this,arguments);
         return asm.x600000f_.apply(this,arguments);
     };;
@@ -98,21 +98,19 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.B();
+        t0 = asm1.A();
+        t1 = asm1.B();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void X[A](A)*/
-        (asm1.x600000e(asm1.A()))(BLR.newobj(t1,asm1.x600000b,[null]));
+        (asm1.x600000e(asm1.A()))(BLR.newobj(t0,asm1.x600000b,[null]));
         /* IL_0A: newobj Void .ctor()*/
         /* IL_0F: call Void X[B](B)*/
-        (asm1.x600000e(asm1.B()))(BLR.newobj(t2,asm1.x600000d,[null]));
+        (asm1.x600000e(asm1.B()))(BLR.newobj(t1,asm1.x600000d,[null]));
         /* IL_14: newobj Void .ctor()*/
         /* IL_19: call Void X[A](A)*/
-        (asm1.x600000e(asm1.A()))(BLR.newobj(t2,asm1.x600000d,[null]));
+        (asm1.x600000e(asm1.A()))(BLR.newobj(t1,asm1.x600000d,[null]));
         /* IL_1E: ret */
         return ;
     };

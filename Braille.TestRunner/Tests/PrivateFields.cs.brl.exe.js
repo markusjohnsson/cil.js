@@ -82,13 +82,12 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000010_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.B().init)();
-        ((asm0)["System.Int32"]().init)();
         asm.x6000010 = asm.x6000010_;
     };;
     asm.x6000010 = function ()
     {
+        BLR.init_base_types();
         asm.x6000010_init.apply(this,arguments);
         return asm.x6000010_.apply(this,arguments);
     };;
@@ -96,16 +95,14 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.B();
-        t2 = (asm0)["System.Int32"]();
+        t0 = asm1.B();
+        t1 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t1,asm1.x600000f,[null]);
+        loc0 = BLR.newobj(t0,asm1.x600000f,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: ldc.i4.s 123*/
         /* IL_09: callvirt Void set_AX(System.Int32)*/
@@ -120,9 +117,9 @@ var asm1; (function (asm)
         /* IL_24: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': asm1.x600000a(loc0),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_29: ldloc.0 */
         /* IL_2A: callvirt Int32 get_BX()*/
@@ -130,9 +127,9 @@ var asm1; (function (asm)
         /* IL_34: call Void Log(System.Object)*/
         asm1.x6000001({
                 'boxed': asm1.x600000d(loc0),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
+                'type': t1,
+                'vtable': t1.prototype.vtable,
+                'ifacemap': t1.prototype.ifacemap
             });
         /* IL_39: ret */
         return ;

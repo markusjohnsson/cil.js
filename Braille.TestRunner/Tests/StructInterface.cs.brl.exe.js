@@ -28,37 +28,35 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.S().init)();
         asm.x600000c = asm.x600000c_;
     };;
     asm.x600000c = function ()
     {
+        BLR.init_base_types();
         asm.x600000c_init.apply(this,arguments);
         return asm.x600000c_.apply(this,arguments);
     };;
     asm.x600000c_ = function Main()
     {
         var t0;
-        var t1;
         var loc0;
         var __pos__;
         var loc1;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.S();
+        t0 = asm1.S();
         loc0 = new (asm1.S())();
         __pos__ = 0x0;
         /* IL_00: ldloca.s 0*/
         /* IL_03: initobj S*/
-        loc0 = new t1();
+        loc0 = new t0();
         /* IL_08: ldloc.0 */
         /* IL_09: box S*/
         /* IL_0E: stloc.1 */
         loc1 = {
             'boxed': BLR.clone_value(loc0),
-            'type': t1,
-            'vtable': t1.prototype.vtable,
-            'ifacemap': t1.prototype.ifacemap
+            'type': t0,
+            'vtable': t0.prototype.vtable,
+            'ifacemap': t0.prototype.ifacemap
         };
         /* IL_0F: ldloc.1 */
         /* IL_10: call Void Run(I)*/

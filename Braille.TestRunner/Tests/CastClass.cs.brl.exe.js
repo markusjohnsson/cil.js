@@ -48,7 +48,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000d_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
         (asm1.B().init)();
         (asm1.C().init)();
@@ -56,6 +55,7 @@ var asm1; (function (asm)
     };;
     asm.x600000d = function ()
     {
+        BLR.init_base_types();
         asm.x600000d_init.apply(this,arguments);
         return asm.x600000d_.apply(this,arguments);
     };;
@@ -64,12 +64,10 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = asm1.B();
-        t3 = asm1.C();
+        t0 = asm1.A();
+        t1 = asm1.B();
+        t2 = asm1.C();
         __pos__ = 0x0;
         /* IL_00: call Void Test[A]()*/
         (asm1.x600000e(asm1.A()))();

@@ -71,13 +71,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000010_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.B().init)();
         (asm1.C().init)();
         asm.x6000010 = asm.x6000010_;
     };;
     asm.x6000010 = function ()
     {
+        BLR.init_base_types();
         asm.x6000010_init.apply(this,arguments);
         return asm.x6000010_.apply(this,arguments);
     };;
@@ -85,18 +85,16 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.B();
-        t2 = asm1.C();
+        t0 = asm1.B();
+        t1 = asm1.C();
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: call Void InvokeX(A)*/
-        asm1.x6000011(BLR.newobj(t1,asm1.x600000d,[null]));
+        asm1.x6000011(BLR.newobj(t0,asm1.x600000d,[null]));
         /* IL_0A: newobj Void .ctor()*/
         /* IL_0F: call Void InvokeX(A)*/
-        asm1.x6000011(BLR.newobj(t2,asm1.x600000f,[null]));
+        asm1.x6000011(BLR.newobj(t1,asm1.x600000f,[null]));
         /* IL_14: ret */
         return ;
     };

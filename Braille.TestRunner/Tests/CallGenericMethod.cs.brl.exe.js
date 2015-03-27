@@ -49,13 +49,11 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
-        ((asm0)["System.Int32"]().init)();
-        ((asm0)["System.String"]().init)();
         asm.x600000f = asm.x600000f_;
     };;
     asm.x600000f = function ()
     {
+        BLR.init_base_types();
         asm.x600000f_init.apply(this,arguments);
         return asm.x600000f_.apply(this,arguments);
     };;
@@ -63,11 +61,9 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm0)["System.Int32"]();
-        t2 = (asm0)["System.String"]();
+        t0 = (asm0)["System.Int32"]();
+        t1 = (asm0)["System.String"]();
         __pos__ = 0x0;
         /* IL_00: ldc.i4.s 123*/
         /* IL_02: call Void Y[System.Int32](System.Int32)*/

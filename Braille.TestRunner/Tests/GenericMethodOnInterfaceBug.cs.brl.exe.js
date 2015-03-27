@@ -68,7 +68,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000f_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.X().init)();
         ((asm1)["A`1"](asm1.X()).init)();
         (asm1.Y().init)();
@@ -77,6 +76,7 @@ var asm1; (function (asm)
     };;
     asm.x600000f = function ()
     {
+        BLR.init_base_types();
         asm.x600000f_init.apply(this,arguments);
         return asm.x600000f_.apply(this,arguments);
     };;
@@ -86,18 +86,16 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.X();
-        t2 = (asm1)["A`1"](t1);
-        t3 = asm1.Y();
-        t4 = (asm1)["I`1"](t1);
+        t0 = asm1.X();
+        t1 = (asm1)["A`1"](t0);
+        t2 = asm1.Y();
+        t3 = (asm1)["I`1"](t0);
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stloc.0 */
-        loc0 = BLR.newobj(t2,asm1.x600000c,[null]);
+        loc0 = BLR.newobj(t1,asm1.x600000c,[null]);
         /* IL_06: ldloc.0 */
         /* IL_07: ldstr test1*/
         /* IL_0C: callvirt Void X[Y](System.String)*/
@@ -105,7 +103,7 @@ var asm1; (function (asm)
         /* IL_11: ldloc.0 */
         /* IL_12: ldstr test2*/
         /* IL_17: callvirt Void X[Y](System.String)*/
-        (((((loc0.ifacemap)[t4])[t1].x600000a)())(asm1.Y()))(loc0,BLR.new_string("test2"));
+        (((((loc0.ifacemap)[t3])[t0].x600000a)())(asm1.Y()))(loc0,BLR.new_string("test2"));
         /* IL_1C: ret */
         return ;
     };

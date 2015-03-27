@@ -94,13 +94,13 @@ var asm1; (function (asm)
     /* static System.Int32 Test.Main()*/
     asm.x6000013_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.ReallyDerived().init)();
         (asm1.ICommon().init)();
         asm.x6000013 = asm.x6000013_;
     };;
     asm.x6000013 = function ()
     {
+        BLR.init_base_types();
         asm.x6000013_init.apply(this,arguments);
         return asm.x6000013_.apply(this,arguments);
     };;
@@ -108,7 +108,6 @@ var asm1; (function (asm)
     {
         var t0;
         var t1;
-        var t2;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -116,9 +115,8 @@ var asm1; (function (asm)
         var loc1;
         var loc2;
         var loc3;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.ReallyDerived();
-        t2 = asm1.ICommon();
+        t0 = asm1.ReallyDerived();
+        t1 = asm1.ICommon();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -130,7 +128,7 @@ var asm1; (function (asm)
                 case 0x0:
                 /* IL_00: newobj Void .ctor()*/
                 /* IL_05: stloc.0 */
-                loc0 = BLR.newobj(t1,asm1.x6000012,[null]);
+                loc0 = BLR.newobj(t0,asm1.x6000012,[null]);
                 /* IL_06: ldloc.0 */
                 /* IL_07: stloc.1 */
                 loc1 = loc0;
@@ -158,7 +156,7 @@ var asm1; (function (asm)
                 /* IL_1D: ldc.i4.3 */
                 /* IL_1E: beq.s IL_22*/
                 
-                if ((((loc0.ifacemap)[t2].x600000a)())(loc0) === (3|0)){
+                if ((((loc0.ifacemap)[t1].x600000a)())(loc0) === (3|0)){
                     __pos__ = 0x22;
                     continue;
                 }
@@ -197,7 +195,7 @@ var asm1; (function (asm)
                 /* IL_3E: ldc.i4.3 */
                 /* IL_3F: beq.s IL_43*/
                 
-                if ((((loc3.ifacemap)[t2].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc3)) === (3|0)){
+                if ((((loc3.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc3)) === (3|0)){
                     __pos__ = 0x43;
                     continue;
                 }

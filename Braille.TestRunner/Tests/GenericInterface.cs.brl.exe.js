@@ -115,15 +115,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000015_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.A().init)();
-        ((asm0)["System.Int32"]().init)();
-        ((asm0)["System.String"]().init)();
         ((asm1)["B`1"]((asm0)["System.String"]()).init)();
         asm.x6000015 = asm.x6000015_;
     };;
     asm.x6000015 = function ()
     {
+        BLR.init_base_types();
         asm.x6000015_init.apply(this,arguments);
         return asm.x6000015_.apply(this,arguments);
     };;
@@ -133,22 +131,20 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var __pos__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.A();
-        t2 = (asm0)["System.Int32"]();
-        t3 = (asm0)["System.String"]();
-        t4 = (asm1)["B`1"](t3);
+        t0 = asm1.A();
+        t1 = (asm0)["System.Int32"]();
+        t2 = (asm0)["System.String"]();
+        t3 = (asm1)["B`1"](t2);
         __pos__ = 0x0;
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: ldc.i4 12345*/
         /* IL_0A: call Void Run[System.Int32](I`1[System.Int32], System.Int32)*/
-        (asm1.x6000016((asm0)["System.Int32"]()))(BLR.newobj(t1,asm1.x6000010,[null]),(12345|0));
+        (asm1.x6000016((asm0)["System.Int32"]()))(BLR.newobj(t0,asm1.x6000010,[null]),(12345|0));
         /* IL_0F: newobj Void .ctor()*/
         /* IL_14: ldstr Hello*/
         /* IL_19: call Void Run[System.String](I`1[System.String], System.String)*/
-        (asm1.x6000016((asm0)["System.String"]()))(BLR.newobj(t4,asm1.x6000014,[null]),BLR.new_string("Hello"));
+        (asm1.x6000016((asm0)["System.String"]()))(BLR.newobj(t3,asm1.x6000014,[null]),BLR.new_string("Hello"));
         /* IL_1E: ret */
         return ;
     };

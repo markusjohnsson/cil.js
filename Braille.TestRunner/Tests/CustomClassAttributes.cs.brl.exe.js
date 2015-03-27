@@ -95,11 +95,8 @@ var asm1; (function (asm)
     /* static System.Void Program.Main(String[])*/
     asm.x6000011_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.B().init)();
-        ((asm0)["System.Int32"]().init)();
         (asm1.A().init)();
-        ((asm0)["System.Boolean"]().init)();
         (asm1.C().init)();
         (asm1.A2().init)();
         (asm1.D().init)();
@@ -107,6 +104,7 @@ var asm1; (function (asm)
     };;
     asm.x6000011 = function (arg0)
     {
+        BLR.init_base_types();
         asm.x6000011_init.apply(this,arguments);
         return asm.x6000011_.apply(this,arguments);
     };;
@@ -119,7 +117,6 @@ var asm1; (function (asm)
         var t4;
         var t5;
         var t6;
-        var t7;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
@@ -127,14 +124,13 @@ var asm1; (function (asm)
         var loc1;
         var loc2;
         var loc3;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.B();
-        t2 = (asm0)["System.Int32"]();
-        t3 = asm1.A();
-        t4 = (asm0)["System.Boolean"]();
-        t5 = asm1.C();
-        t6 = asm1.A2();
-        t7 = asm1.D();
+        t0 = asm1.B();
+        t1 = (asm0)["System.Int32"]();
+        t2 = asm1.A();
+        t3 = (asm0)["System.Boolean"]();
+        t4 = asm1.C();
+        t5 = asm1.A2();
+        t6 = asm1.D();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -149,7 +145,7 @@ var asm1; (function (asm)
                 /* IL_0A: ldc.i4.1 */
                 /* IL_0B: callvirt Object[] GetCustomAttributes(System.Boolean)*/
                 /* IL_10: stloc.0 */
-                loc0 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x600003a"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),(1|0));
+                loc0 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003a"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),(1|0));
                 /* IL_11: ldloc.0 */
                 /* IL_12: ldlen */
                 /* IL_13: conv.i4 */
@@ -157,9 +153,9 @@ var asm1; (function (asm)
                 /* IL_19: call Void Log(System.Object)*/
                 asm1.x6000001({
                         'boxed': loc0.jsarr.length | (0|0),
-                        'type': t2,
-                        'vtable': t2.prototype.vtable,
-                        'ifacemap': t2.prototype.ifacemap
+                        'type': t1,
+                        'vtable': t1.prototype.vtable,
+                        'ifacemap': t1.prototype.ifacemap
                     });
                 /* IL_1E: ldc.i4.0 */
                 /* IL_1F: stloc.1 */
@@ -178,10 +174,10 @@ var asm1; (function (asm)
                 /* IL_39: box System.Boolean*/
                 /* IL_3E: call Void Log(System.Object)*/
                 asm1.x6000001({
-                        'boxed': (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)).vtable)["asm0.x6000008"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t3)),asm0.x600000a(BLR.ldelem_ref(loc0,loc1))),
-                        'type': t4,
-                        'vtable': t4.prototype.vtable,
-                        'ifacemap': t4.prototype.ifacemap
+                        'boxed': (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)).vtable)["asm0.x6000008"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)),asm0.x600000a(BLR.ldelem_ref(loc0,loc1))),
+                        'type': t3,
+                        'vtable': t3.prototype.vtable,
+                        'ifacemap': t3.prototype.ifacemap
                     });
                 /* IL_43: ldloc.0 */
                 /* IL_44: ldloc.1 */
@@ -211,20 +207,20 @@ var asm1; (function (asm)
                 /* IL_69: ldc.i4.1 */
                 /* IL_6A: callvirt Object[] GetCustomAttributes(System.Boolean)*/
                 /* IL_6F: stloc.2 */
-                loc2 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)).vtable)["asm0.x600003a"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)),(1|0));
+                loc2 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t4)).vtable)["asm0.x600003a"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t4)),(1|0));
                 /* IL_70: ldloc.2 */
                 /* IL_71: ldc.i4.0 */
                 /* IL_72: ldelem.ref */
                 /* IL_73: castclass A2*/
                 /* IL_78: callvirt String get_P()*/
                 /* IL_7D: call Void Log(System.Object)*/
-                asm1.x6000001(asm1.x600000c(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t6)));
+                asm1.x6000001(asm1.x600000c(BLR.cast_class(BLR.ldelem_ref(loc2,(0|0)),t5)));
                 /* IL_82: ldtoken D*/
                 /* IL_87: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
                 /* IL_8C: ldc.i4.1 */
                 /* IL_8D: callvirt Object[] GetCustomAttributes(System.Boolean)*/
                 /* IL_92: stloc.3 */
-                loc3 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t7)).vtable)["asm0.x600003a"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t7)),(1|0));
+                loc3 = (((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6)).vtable)["asm0.x600003a"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t6)),(1|0));
                 /* IL_93: ldloc.3 */
                 /* IL_94: ldlen */
                 /* IL_95: conv.i4 */
@@ -232,9 +228,9 @@ var asm1; (function (asm)
                 /* IL_9B: call Void Log(System.Object)*/
                 asm1.x6000001({
                         'boxed': loc3.jsarr.length | (0|0),
-                        'type': t2,
-                        'vtable': t2.prototype.vtable,
-                        'ifacemap': t2.prototype.ifacemap
+                        'type': t1,
+                        'vtable': t1.prototype.vtable,
+                        'ifacemap': t1.prototype.ifacemap
                     });
                 /* IL_A0: ret */
                 return ;

@@ -108,14 +108,13 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x600000b_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
-        ((asm0)["System.String"]().init)();
         (asm1.Program().init)();
         ((asm1)["Program+pred`1"]((asm0)["System.String"]()).init)();
         asm.x600000b = asm.x600000b_;
     };;
     asm.x600000b = function ()
     {
+        BLR.init_base_types();
         asm.x600000b_init.apply(this,arguments);
         return asm.x600000b_.apply(this,arguments);
     };;
@@ -124,7 +123,6 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var st_07;
         var st_08;
         var st_09;
@@ -136,10 +134,9 @@ var asm1; (function (asm)
         var __finally_continuation_0__;
         var loc1;
         var loc0;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm0)["System.String"]();
-        t2 = asm1.Program();
-        t3 = (asm1)["Program+pred`1"](t1);
+        t0 = (asm0)["System.String"]();
+        t1 = asm1.Program();
+        t2 = (asm1)["Program+pred`1"](t0);
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -152,7 +149,7 @@ var asm1; (function (asm)
                 /* IL_00: ldc.i4.1 */
                 /* IL_01: newarr System.String*/
                 /* IL_06: stloc.1 */
-                loc1 = BLR.new_array(t1,(1|0));
+                loc1 = BLR.new_array(t0,(1|0));
                 /* IL_07: ldloc.1 */
                 /* IL_08: ldc.i4.0 */
                 /* IL_09: ldstr asd*/
@@ -166,7 +163,7 @@ var asm1; (function (asm)
                 /* IL_12: ldsfld pred`1 CS$<>9__CachedAnonymousMethodDelegate1*/
                 /* IL_17: brtrue.s IL_2A*/
                 
-                if ((t2)["CS$<>9__CachedAnonymousMethodDelegate1"]){
+                if ((t1)["CS$<>9__CachedAnonymousMethodDelegate1"]){
                     __pos__ = 0x2A;
                     continue;
                 }
@@ -175,12 +172,12 @@ var asm1; (function (asm)
                 /* IL_1B: ldftn Boolean <Main>b__0(System.String)*/
                 st_08 = asm1.x600000d;
                 /* IL_20: newobj Void .ctor(System.Object, System.IntPtr)*/
-                st_09 = BLR.newobj(t3,asm1.x600000e,[null, st_07, st_08]);
+                st_09 = BLR.newobj(t2,asm1.x600000e,[null, st_07, st_08]);
                 /* IL_25: stsfld pred`1 CS$<>9__CachedAnonymousMethodDelegate1*/
-                (t2)["CS$<>9__CachedAnonymousMethodDelegate1"] = st_09;
+                (t1)["CS$<>9__CachedAnonymousMethodDelegate1"] = st_09;
                 case 0x2A:
                 /* IL_2A: ldsfld pred`1 CS$<>9__CachedAnonymousMethodDelegate1*/
-                st_0B = (t2)["CS$<>9__CachedAnonymousMethodDelegate1"];
+                st_0B = (t1)["CS$<>9__CachedAnonymousMethodDelegate1"];
                 /* IL_2F: call String FirstOrDefault[System.String](System.String[], Program+pred`1[System.String])*/
                 st_0C = (asm1.x600000a((asm0)["System.String"]()))(st_0A,st_0B);
                 /* IL_34: call Void Log(System.Object)*/

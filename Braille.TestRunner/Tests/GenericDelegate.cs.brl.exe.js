@@ -45,7 +45,6 @@ var asm1; (function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000010_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         (asm1.Program().init)();
         (asm1.IntWrapper().init)();
         (asm1.StringWrapper().init)();
@@ -54,6 +53,7 @@ var asm1; (function (asm)
     };;
     asm.x6000010 = function ()
     {
+        BLR.init_base_types();
         asm.x6000010_init.apply(this,arguments);
         return asm.x6000010_.apply(this,arguments);
     };;
@@ -63,15 +63,13 @@ var asm1; (function (asm)
         var t1;
         var t2;
         var t3;
-        var t4;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = asm1.Program();
-        t2 = asm1.IntWrapper();
-        t3 = asm1.StringWrapper();
-        t4 = (asm1)["MFunc`2"](t2,t3);
+        t0 = asm1.Program();
+        t1 = asm1.IntWrapper();
+        t2 = asm1.StringWrapper();
+        t3 = (asm1)["MFunc`2"](t1,t2);
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -84,7 +82,7 @@ var asm1; (function (asm)
                 /* IL_00: ldsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
                 /* IL_05: brtrue.s IL_18*/
                 
-                if ((t1)["CS$<>9__CachedAnonymousMethodDelegate2"]){
+                if ((t0)["CS$<>9__CachedAnonymousMethodDelegate2"]){
                     __pos__ = 0x18;
                     continue;
                 }
@@ -92,7 +90,7 @@ var asm1; (function (asm)
                 /* IL_09: ldftn StringWrapper <Main>b__1(IntWrapper)*/
                 /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
                 /* IL_13: stsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
-                (t1)["CS$<>9__CachedAnonymousMethodDelegate2"] = BLR.newobj(t4,asm1.x600000a,[null, null, (function ()
+                (t0)["CS$<>9__CachedAnonymousMethodDelegate2"] = BLR.newobj(t3,asm1.x600000a,[null, null, (function ()
                         {
                             asm1.x6000013_init();
                             return asm1.x6000013;
@@ -100,7 +98,7 @@ var asm1; (function (asm)
                 case 0x18:
                 /* IL_18: ldsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
                 /* IL_1D: call Void CallDelegate(MFunc`2[IntWrapper,StringWrapper])*/
-                asm1.x6000011((t1)["CS$<>9__CachedAnonymousMethodDelegate2"]);
+                asm1.x6000011((t0)["CS$<>9__CachedAnonymousMethodDelegate2"]);
                 /* IL_22: ret */
                 return ;
             }

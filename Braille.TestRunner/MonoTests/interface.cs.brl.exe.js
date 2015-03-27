@@ -117,7 +117,6 @@ var asm1; (function (asm)
     /* static System.Int32 Test.Main()*/
     asm.x6000011_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         ((asm1)["Obj.Rect"]().init)();
         ((asm1)["Obj.Circle"]().init)();
         ((asm1)["Obj.Measurable"]().init)();
@@ -125,6 +124,7 @@ var asm1; (function (asm)
     };;
     asm.x6000011 = function ()
     {
+        BLR.init_base_types();
         asm.x6000011_init.apply(this,arguments);
         return asm.x6000011_.apply(this,arguments);
     };;
@@ -133,17 +133,15 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var t3;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
         var loc0;
         var loc1;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
-        t1 = (asm1)["Obj.Rect"]();
-        t2 = (asm1)["Obj.Circle"]();
-        t3 = (asm1)["Obj.Measurable"]();
+        t0 = (asm1)["Obj.Rect"]();
+        t1 = (asm1)["Obj.Circle"]();
+        t2 = (asm1)["Obj.Measurable"]();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -159,13 +157,13 @@ var asm1; (function (asm)
                 /* IL_04: ldc.i4.s 20*/
                 /* IL_06: newobj Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32)*/
                 /* IL_0B: stloc.0 */
-                loc0 = BLR.newobj(t1,asm1.x600000d,[null, (0|0), (0|0), (10|0), (20|0)]);
+                loc0 = BLR.newobj(t0,asm1.x600000d,[null, (0|0), (0|0), (10|0), (20|0)]);
                 /* IL_0C: ldc.i4.0 */
                 /* IL_0D: ldc.i4.0 */
                 /* IL_0E: ldc.i4.s 20*/
                 /* IL_10: newobj Void .ctor(System.Int32, System.Int32, System.Int32)*/
                 /* IL_15: stloc.1 */
-                loc1 = BLR.newobj(t2,asm1.x600000f,[null, (0|0), (0|0), (20|0)]);
+                loc1 = BLR.newobj(t1,asm1.x600000f,[null, (0|0), (0|0), (20|0)]);
                 /* IL_16: ldloc.0 */
                 /* IL_17: callvirt Double Area()*/
                 /* IL_1C: ldloc.1 */
@@ -193,7 +191,7 @@ var asm1; (function (asm)
                 /* IL_43: callvirt Double Area()*/
                 /* IL_48: add */
                 /* IL_49: stloc.2 */
-                loc2 = asm1.x600000e(BLR.cast_class(loc0,t1)) + asm1.x6000010(BLR.cast_class(loc1,t2));
+                loc2 = asm1.x600000e(BLR.cast_class(loc0,t0)) + asm1.x6000010(BLR.cast_class(loc1,t1));
                 /* IL_4A: ldloc.2 */
                 /* IL_4B: ldc.r8 1456,637061436*/
                 /* IL_54: sub */
@@ -214,7 +212,7 @@ var asm1; (function (asm)
                 /* IL_69: callvirt Double Area()*/
                 /* IL_6E: add */
                 /* IL_6F: stloc.2 */
-                loc2 = (((loc0.ifacemap)[t3].x600000a)())(loc0) + (((loc1.ifacemap)[t3].x600000a)())(loc1);
+                loc2 = (((loc0.ifacemap)[t2].x600000a)())(loc0) + (((loc1.ifacemap)[t2].x600000a)())(loc1);
                 /* IL_70: ldloc.2 */
                 /* IL_71: ldc.r8 0*/
                 /* IL_7A: beq.s IL_7E*/

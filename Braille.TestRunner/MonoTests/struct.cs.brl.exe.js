@@ -132,24 +132,22 @@ var asm1; (function (asm)
     /* static System.Int32 test.Main()*/
     asm.x600000d_init = function ()
     {
-        ((asm0)["System.ValueType"]().init)();
         asm.x600000d = asm.x600000d_;
     };;
     asm.x600000d = function ()
     {
+        BLR.init_base_types();
         asm.x600000d_init.apply(this,arguments);
         return asm.x600000d_.apply(this,arguments);
     };;
     asm.x600000d_ = function Main()
     {
-        var t0;
         var loc0;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
         var loc1;
         var loc2;
-        t0 = (asm0)["System.ValueType"]();
         loc0 = new (asm1.Point())();
         __pos__ = 0x0;
         in_block_0 = true;

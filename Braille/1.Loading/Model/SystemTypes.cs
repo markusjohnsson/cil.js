@@ -1,4 +1,5 @@
 using IKVM.Reflection;
+using System.Collections.Generic;
 using Type = IKVM.Reflection.Type;
 
 namespace Braille.Loading.Model
@@ -59,6 +60,31 @@ namespace Braille.Loading.Model
             ValueType = universe.GetType("System.ValueType");
             Delegate = universe.GetType("System.Delegate");
         }
+
+        public static HashSet<string> BaseTypes = new HashSet<string> 
+        {
+            // these are inited in init_base_type and will not need initialization in first call initializer
+            "System.Object",
+            "System.ValueType",
+            "System.Array",
+            "System.String",
+            "System.Delegate",
+            "System.Exception",
+            "System.Enum",
+            "System.Type",
+            "System.Boolean",
+            "System.Char",
+            "System.Byte",
+            "System.SByte",
+            "System.Int16",
+            "System.UInt16",
+            "System.Int32",
+            "System.UInt32",
+            "System.Int64",
+            "System.UInt64",
+            "System.Single",
+            "System.Double"
+        };
 
     }
 }
