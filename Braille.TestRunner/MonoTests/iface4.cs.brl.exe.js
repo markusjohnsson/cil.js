@@ -9,122 +9,167 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Int32 Base.IVehicle.Start()*/
     asm.x600000e = function IVehicle_Start(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: ret */
-        return (1|0);
+        /* IL_00: nop  iface4.cs:17:26*/
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* System.Int32 Base.Stop()*/
     asm.x600000f = function Stop(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.2 */
-        /* IL_01: ret */
-        return (2|0);
+        /* IL_00: nop  iface4.cs:18:23*/
+        /* IL_01: ldc.i4.2  */
+        /* IL_02: stloc.0  */
+        loc0 = (2|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* System.Int32 Base.Turn()*/
     asm.x6000010 = function Turn(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.3 */
-        /* IL_01: ret */
-        return (3|0);
+        /* IL_00: nop  iface4.cs:19:31*/
+        /* IL_01: ldc.i4.3  */
+        /* IL_02: stloc.0  */
+        loc0 = (3|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* System.Int32 Base.Walk()*/
     asm.x6000011 = function Walk(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: ret */
-        return (1|0);
+        /* IL_00: nop  iface4.cs:20:23*/
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Base..ctor()*/
     asm.x6000012 = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Int32 Derived1.Turn()*/
     asm.x6000013 = function Turn(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.4 */
-        /* IL_01: ret */
-        return (4|0);
+        /* IL_00: nop  iface4.cs:26:32*/
+        /* IL_01: ldc.i4.4  */
+        /* IL_02: stloc.0  */
+        loc0 = (4|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Derived1..ctor()*/
     asm.x6000014 = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x6000012(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Int32 Derived2.Stop()*/
     asm.x6000015 = function Stop(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.6 */
-        /* IL_01: ret */
-        return (6|0);
+        /* IL_00: nop  iface4.cs:32:27*/
+        /* IL_01: ldc.i4.6  */
+        /* IL_02: stloc.0  */
+        loc0 = (6|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* System.Int32 Derived2.IVehicle.Start()*/
     asm.x6000016 = function IVehicle_Start(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.5 */
-        /* IL_01: ret */
-        return (5|0);
+        /* IL_00: nop  iface4.cs:34:26*/
+        /* IL_01: ldc.i4.5  */
+        /* IL_02: stloc.0  */
+        loc0 = (5|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* System.Int32 Derived2.IVehicle.Turn()*/
     asm.x6000017 = function IVehicle_Turn(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.7 */
-        /* IL_01: ret */
-        return (7|0);
+        /* IL_00: nop  iface4.cs:36:25*/
+        /* IL_01: ldc.i4.7  */
+        /* IL_02: stloc.0  */
+        loc0 = (7|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* System.Int32 Derived2.Turn()*/
     asm.x6000018 = function Turn(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.8 */
-        /* IL_01: ret */
-        return (8|0);
+        /* IL_00: nop  iface4.cs:38:32*/
+        /* IL_01: ldc.i4.8  */
+        /* IL_02: stloc.0  */
+        loc0 = (8|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Derived2..ctor()*/
     asm.x6000019 = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x6000012(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /*  Derived3..ctor()*/
@@ -132,10 +177,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x6000014(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Int32 Test.Main()*/
@@ -169,6 +214,9 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc4;
+        var loc5;
+        var loc7;
+        var loc6;
         t0 = asm1.Derived1();
         t1 = asm1.Derived2();
         t2 = asm1.Derived3();
@@ -183,154 +231,233 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.0 */
+                /* IL_00: nop  iface4.cs:49:5*/
+                
+                /* IL_01: newobj Void .ctor() */
+                /* IL_06: stloc.0  */
                 loc0 = BLR.newobj(t0,asm1.x6000014,[null]);
-                /* IL_06: newobj Void .ctor()*/
-                /* IL_0B: stloc.1 */
+                /* IL_07: newobj Void .ctor() */
+                /* IL_0C: stloc.1  */
                 loc1 = BLR.newobj(t1,asm1.x6000019,[null]);
-                /* IL_0C: newobj Void .ctor()*/
-                /* IL_11: stloc.2 */
+                /* IL_0D: newobj Void .ctor() */
+                /* IL_12: stloc.2  */
                 loc2 = BLR.newobj(t2,asm1.x600001a,[null]);
-                /* IL_12: ldloc.1 */
-                /* IL_13: stloc.3 */
-                loc3 = loc1;
-                /* IL_14: newobj Void .ctor()*/
-                /* IL_19: stloc.s 4*/
-                loc4 = BLR.newobj(t3,asm1.x6000012,[null]);
-                /* IL_1B: ldloc.0 */
-                /* IL_1C: callvirt Int32 Turn()*/
-                /* IL_21: ldc.i4.4 */
-                /* IL_22: beq.s IL_26*/
+                /* IL_13: ldloc.0  */
+                /* IL_14: stloc.3  */
+                loc3 = loc0;
+                /* IL_15: ldloc.1  */
+                /* IL_16: stloc.s 4 */
+                loc4 = loc1;
+                /* IL_18: newobj Void .ctor() */
+                /* IL_1D: stloc.s 5 */
+                loc5 = BLR.newobj(t3,asm1.x6000012,[null]);
+                /* IL_1F: ldloc.0  */
+                /* IL_20: callvirt Int32 Turn() */
+                /* IL_25: ldc.i4.4  */
+                /* IL_27: ceq  */
+                /* IL_28: stloc.s 7 */
+                loc7 = ((((loc0.vtable)["asm1.x6000010"]())(loc0) === (4|0)) ? (1) : (0));
+                /* IL_2A: ldloc.s 7 */
+                /* IL_2C: brtrue.s IL_36 */
                 
-                if (((loc0.vtable)["asm1.x6000010"]())(loc0) === (4|0)){
-                    __pos__ = 0x26;
+                if (loc7){
+                    __pos__ = 0x36;
                     continue;
                 }
-                /* IL_24: ldc.i4.1 */
-                /* IL_25: ret */
-                return (1|0);
-                case 0x26:
-                /* IL_26: ldloc.0 */
-                /* IL_27: callvirt Int32 Turn()*/
-                /* IL_2C: ldc.i4.4 */
-                /* IL_2D: beq.s IL_31*/
+                /* IL_2E: ldc.i4.1  */
+                /* IL_2F: stloc.s 6 */
+                loc6 = (1|0);
+                /* IL_31: br IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0x36:
+                /* IL_36: ldloc.0  */
+                /* IL_37: callvirt Int32 Turn() */
+                /* IL_3C: ldc.i4.4  */
+                /* IL_3E: ceq  */
+                /* IL_3F: stloc.s 7 */
+                loc7 = (((((loc0.ifacemap)[t4].x600000c)())(loc0) === (4|0)) ? (1) : (0));
+                /* IL_41: ldloc.s 7 */
+                /* IL_43: brtrue.s IL_4D */
                 
-                if ((((loc0.ifacemap)[t4].x600000c)())(loc0) === (4|0)){
-                    __pos__ = 0x31;
+                if (loc7){
+                    __pos__ = 0x4D;
                     continue;
                 }
-                /* IL_2F: ldc.i4.2 */
-                /* IL_30: ret */
-                return (2|0);
-                case 0x31:
-                /* IL_31: ldloc.1 */
-                /* IL_32: callvirt Int32 Turn()*/
-                /* IL_37: ldc.i4.8 */
-                /* IL_38: beq.s IL_3D*/
+                /* IL_45: ldc.i4.2  */
+                /* IL_46: stloc.s 6 */
+                loc6 = (2|0);
+                /* IL_48: br IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0x4D:
+                /* IL_4D: ldloc.1  */
+                /* IL_4E: callvirt Int32 Turn() */
+                /* IL_53: ldc.i4.8  */
+                /* IL_55: ceq  */
+                /* IL_56: stloc.s 7 */
+                loc7 = ((((loc1.vtable)["asm1.x6000010"]())(loc1) === (8|0)) ? (1) : (0));
+                /* IL_58: ldloc.s 7 */
+                /* IL_5A: brtrue.s IL_65 */
                 
-                if (((loc1.vtable)["asm1.x6000010"]())(loc1) === (8|0)){
-                    __pos__ = 0x3D;
+                if (loc7){
+                    __pos__ = 0x65;
                     continue;
                 }
-                /* IL_3A: ldc.i4.s 10*/
-                /* IL_3C: ret */
-                return (10|0);
-                case 0x3D:
-                /* IL_3D: ldloc.1 */
-                /* IL_3E: callvirt Int32 Turn()*/
-                /* IL_43: ldc.i4.7 */
-                /* IL_44: beq.s IL_48*/
+                /* IL_5C: ldc.i4.s 10 */
+                /* IL_5E: stloc.s 6 */
+                loc6 = (10|0);
+                /* IL_60: br IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0x65:
+                /* IL_65: ldloc.1  */
+                /* IL_66: callvirt Int32 Turn() */
+                /* IL_6B: ldc.i4.7  */
+                /* IL_6D: ceq  */
+                /* IL_6E: stloc.s 7 */
+                loc7 = (((((loc1.ifacemap)[t4].x600000c)())(loc1) === (7|0)) ? (1) : (0));
+                /* IL_70: ldloc.s 7 */
+                /* IL_72: brtrue.s IL_7C */
                 
-                if ((((loc1.ifacemap)[t4].x600000c)())(loc1) === (7|0)){
-                    __pos__ = 0x48;
+                if (loc7){
+                    __pos__ = 0x7C;
                     continue;
                 }
-                /* IL_46: ldc.i4.3 */
-                /* IL_47: ret */
-                return (3|0);
-                case 0x48:
-                /* IL_48: ldloc.3 */
-                /* IL_49: callvirt Int32 Turn()*/
-                /* IL_4E: ldc.i4.8 */
-                /* IL_4F: beq.s IL_53*/
+                /* IL_74: ldc.i4.3  */
+                /* IL_75: stloc.s 6 */
+                loc6 = (3|0);
+                /* IL_77: br IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0x7C:
+                /* IL_7C: ldloc.s 4 */
+                /* IL_7E: callvirt Int32 Turn() */
+                /* IL_83: ldc.i4.8  */
+                /* IL_85: ceq  */
+                /* IL_86: stloc.s 7 */
+                loc7 = ((((loc4.vtable)["asm1.x6000010"]())(loc4) === (8|0)) ? (1) : (0));
+                /* IL_88: ldloc.s 7 */
+                /* IL_8A: brtrue.s IL_91 */
                 
-                if (((loc3.vtable)["asm1.x6000010"]())(loc3) === (8|0)){
-                    __pos__ = 0x53;
+                if (loc7){
+                    __pos__ = 0x91;
                     continue;
                 }
-                /* IL_51: ldc.i4.4 */
-                /* IL_52: ret */
-                return (4|0);
-                case 0x53:
-                /* IL_53: ldloc.3 */
-                /* IL_54: callvirt Int32 Turn()*/
-                /* IL_59: ldc.i4.7 */
-                /* IL_5A: beq.s IL_5E*/
+                /* IL_8C: ldc.i4.4  */
+                /* IL_8D: stloc.s 6 */
+                loc6 = (4|0);
+                /* IL_8F: br.s IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0x91:
+                /* IL_91: ldloc.s 4 */
+                /* IL_93: callvirt Int32 Turn() */
+                /* IL_98: ldc.i4.7  */
+                /* IL_9A: ceq  */
+                /* IL_9B: stloc.s 7 */
+                loc7 = (((((loc4.ifacemap)[t4].x600000c)())(loc4) === (7|0)) ? (1) : (0));
+                /* IL_9D: ldloc.s 7 */
+                /* IL_9F: brtrue.s IL_A6 */
                 
-                if ((((loc3.ifacemap)[t4].x600000c)())(loc3) === (7|0)){
-                    __pos__ = 0x5E;
+                if (loc7){
+                    __pos__ = 0xA6;
                     continue;
                 }
-                /* IL_5C: ldc.i4.5 */
-                /* IL_5D: ret */
-                return (5|0);
-                case 0x5E:
-                /* IL_5E: ldloc.s 4*/
-                /* IL_60: callvirt Int32 Stop()*/
-                /* IL_65: ldc.i4.2 */
-                /* IL_66: beq.s IL_6A*/
+                /* IL_A1: ldc.i4.5  */
+                /* IL_A2: stloc.s 6 */
+                loc6 = (5|0);
+                /* IL_A4: br.s IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0xA6:
+                /* IL_A6: ldloc.s 5 */
+                /* IL_A8: callvirt Int32 Stop() */
+                /* IL_AD: ldc.i4.2  */
+                /* IL_AF: ceq  */
+                /* IL_B0: stloc.s 7 */
+                loc7 = (((((loc5.ifacemap)[t4].x600000b)())(loc5) === (2|0)) ? (1) : (0));
+                /* IL_B2: ldloc.s 7 */
+                /* IL_B4: brtrue.s IL_BB */
                 
-                if ((((loc4.ifacemap)[t4].x600000b)())(loc4) === (2|0)){
-                    __pos__ = 0x6A;
+                if (loc7){
+                    __pos__ = 0xBB;
                     continue;
                 }
-                /* IL_68: ldc.i4.6 */
-                /* IL_69: ret */
-                return (6|0);
-                case 0x6A:
-                /* IL_6A: ldloc.0 */
-                /* IL_6B: callvirt Int32 Stop()*/
-                /* IL_70: ldc.i4.2 */
-                /* IL_71: beq.s IL_75*/
+                /* IL_B6: ldc.i4.6  */
+                /* IL_B7: stloc.s 6 */
+                loc6 = (6|0);
+                /* IL_B9: br.s IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0xBB:
+                /* IL_BB: ldloc.0  */
+                /* IL_BC: callvirt Int32 Stop() */
+                /* IL_C1: ldc.i4.2  */
+                /* IL_C3: ceq  */
+                /* IL_C4: stloc.s 7 */
+                loc7 = (((((loc0.ifacemap)[t4].x600000b)())(loc0) === (2|0)) ? (1) : (0));
+                /* IL_C6: ldloc.s 7 */
+                /* IL_C8: brtrue.s IL_CF */
                 
-                if ((((loc0.ifacemap)[t4].x600000b)())(loc0) === (2|0)){
-                    __pos__ = 0x75;
+                if (loc7){
+                    __pos__ = 0xCF;
                     continue;
                 }
-                /* IL_73: ldc.i4.7 */
-                /* IL_74: ret */
-                return (7|0);
-                case 0x75:
-                /* IL_75: ldloc.1 */
-                /* IL_76: callvirt Int32 Stop()*/
-                /* IL_7B: ldc.i4.6 */
-                /* IL_7C: beq.s IL_80*/
+                /* IL_CA: ldc.i4.7  */
+                /* IL_CB: stloc.s 6 */
+                loc6 = (7|0);
+                /* IL_CD: br.s IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0xCF:
+                /* IL_CF: ldloc.1  */
+                /* IL_D0: callvirt Int32 Stop() */
+                /* IL_D5: ldc.i4.6  */
+                /* IL_D7: ceq  */
+                /* IL_D8: stloc.s 7 */
+                loc7 = (((((loc1.ifacemap)[t4].x600000b)())(loc1) === (6|0)) ? (1) : (0));
+                /* IL_DA: ldloc.s 7 */
+                /* IL_DC: brtrue.s IL_E3 */
                 
-                if ((((loc1.ifacemap)[t4].x600000b)())(loc1) === (6|0)){
-                    __pos__ = 0x80;
+                if (loc7){
+                    __pos__ = 0xE3;
                     continue;
                 }
-                /* IL_7E: ldc.i4.8 */
-                /* IL_7F: ret */
-                return (8|0);
-                case 0x80:
-                /* IL_80: ldloc.2 */
-                /* IL_81: callvirt Int32 Walk()*/
-                /* IL_86: ldc.i4.1 */
-                /* IL_87: beq.s IL_8C*/
+                /* IL_DE: ldc.i4.8  */
+                /* IL_DF: stloc.s 6 */
+                loc6 = (8|0);
+                /* IL_E1: br.s IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0xE3:
+                /* IL_E3: ldloc.2  */
+                /* IL_E4: callvirt Int32 Walk() */
+                /* IL_E9: ldc.i4.1  */
+                /* IL_EB: ceq  */
+                /* IL_EC: stloc.s 7 */
+                loc7 = ((((loc2.vtable)["asm1.x6000011"]())(loc2) === (1|0)) ? (1) : (0));
+                /* IL_EE: ldloc.s 7 */
+                /* IL_F0: brtrue.s IL_F8 */
                 
-                if (((loc2.vtable)["asm1.x6000011"]())(loc2) === (1|0)){
-                    __pos__ = 0x8C;
+                if (loc7){
+                    __pos__ = 0xF8;
                     continue;
                 }
-                /* IL_89: ldc.i4.s 9*/
-                /* IL_8B: ret */
-                return (9|0);
-                case 0x8C:
-                /* IL_8C: ldc.i4.0 */
-                /* IL_8D: ret */
-                return (0|0);
+                /* IL_F2: ldc.i4.s 9 */
+                /* IL_F4: stloc.s 6 */
+                loc6 = (9|0);
+                /* IL_F6: br.s IL_FD */
+                __pos__ = 0xFD;
+                continue;
+                case 0xF8:
+                /* IL_F8: ldc.i4.0  */
+                /* IL_F9: stloc.s 6 */
+                loc6 = (0|0);
+                case 0xFD:
+                /* IL_FD: ldloc.s 6 */
+                /* IL_FF: ret  */
+                return loc6;
             }
         }
     };
@@ -339,9 +466,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

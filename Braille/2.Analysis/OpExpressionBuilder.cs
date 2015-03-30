@@ -6,6 +6,7 @@ using IKVM.Reflection;
 using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
@@ -37,8 +38,13 @@ namespace Braille.Analysis
             var opInfos = new List<OpExpression>();
             var prefixes = new List<OpInstruction>();
 
+            var instructions = method.CeclilMethod.Body.Instructions;
+            var index = 0;
+
             foreach (var op in ilOps.Process())
             {
+                var cecilInstruction = instructions[index++];
+
                 if (op.OpCode.OpCodeType == OpCodeType.Prefix)
                 {
                     prefixes.Add(op);
@@ -49,15 +55,18 @@ namespace Braille.Analysis
 
                 if (op.OpCode.Name.StartsWith("call"))
                 {
-                    opx = new CallNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
+                    opx = new CallNode(
+                        op, prefixes, cecilInstruction, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
                 }
                 else if (op.OpCode.Name.StartsWith("ldftn"))
                 {
-                    opx = new LoadFunctionNode(op, prefixes, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
+                    opx = new LoadFunctionNode(
+                        op, prefixes, cecilInstruction, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
                 }
                 else
                 {
-                    opx = new OpExpression(op, prefixes, GetPopCount(method, op), GetPushCount(method, op));
+                    opx = new OpExpression(
+                        op, prefixes, cecilInstruction, GetPopCount(method, op), GetPushCount(method, op));
                 }
 
                 opInfos.Add(opx);

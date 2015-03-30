@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B..ctor()*/
@@ -29,9 +29,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  C..ctor()*/
@@ -39,9 +39,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -59,7 +59,8 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ret */
+        /* IL_00: nop  Class01.cs:17:5*/
+        /* IL_01: ret  Class01.cs:19:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -67,9 +68,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

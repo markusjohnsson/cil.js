@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B..ctor()*/
@@ -29,9 +29,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void E.Any<T>(Object,T)*/
@@ -43,14 +43,17 @@ var asm1; (function (asm)
             var __pos__;
             t0 = T;
             __pos__ = 0x0;
-            /* IL_00: ldarg.0 */
-            /* IL_01: call Void Log[T](System.Object)*/
+            /* IL_00: nop  CallGenericMethodWithClassGenericArg.cs:10:5*/
+            /* IL_01: ldarg.0  */
+            /* IL_02: call Void Log[T](System.Object) */
             (asm1.x600000d(T))(arg0);
-            /* IL_06: ldarg.1 */
-            /* IL_07: box T*/
-            /* IL_0C: call Void Log[T](System.Object)*/
+            /* IL_07: nop  */
+            /* IL_08: ldarg.1  */
+            /* IL_09: box T */
+            /* IL_0E: call Void Log[T](System.Object) */
             (asm1.x600000d(T))(BLR.box(arg1,t0));
-            /* IL_11: ret */
+            /* IL_13: nop  */
+            /* IL_14: ret  CallGenericMethodWithClassGenericArg.cs:13:5*/
             return ;
         };
     };;
@@ -65,19 +68,21 @@ var asm1; (function (asm)
             t0 = T;
             t1 = (asm0)["System.Boolean"]();
             __pos__ = 0x0;
-            /* IL_00: ldarg.0 */
-            /* IL_01: isinst T*/
-            /* IL_06: ldnull */
-            /* IL_08: cgt.un */
-            /* IL_09: box System.Boolean*/
-            /* IL_0E: call Void Log(System.Object)*/
+            /* IL_00: nop  CallGenericMethodWithClassGenericArg.cs:16:5*/
+            /* IL_01: ldarg.0  */
+            /* IL_02: isinst T */
+            /* IL_07: ldnull  */
+            /* IL_09: cgt.un  */
+            /* IL_0A: box System.Boolean */
+            /* IL_0F: call Void Log(System.Object) */
             asm1.x6000001({
                     'boxed': ((t0.IsInst(arg0) !== null) ? (1) : (0)),
                     'type': t1,
                     'vtable': t1.prototype.vtable,
                     'ifacemap': t1.prototype.ifacemap
                 });
-            /* IL_13: ret */
+            /* IL_14: nop  */
+            /* IL_15: ret  CallGenericMethodWithClassGenericArg.cs:18:5*/
             return ;
         };
     };;
@@ -86,9 +91,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void A`1.M(Object,T)*/
@@ -98,11 +103,13 @@ var asm1; (function (asm)
         var __pos__;
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000009"])[0];
         __pos__ = 0x0;
-        /* IL_00: ldarg.1 */
-        /* IL_01: ldarg.2 */
-        /* IL_02: call Void Any[T](System.Object, T)*/
+        /* IL_00: nop  CallGenericMethodWithClassGenericArg.cs:24:5*/
+        /* IL_01: ldarg.1  */
+        /* IL_02: ldarg.2  */
+        /* IL_03: call Void Any[T](System.Object, T) */
         (asm1.x600000c((((arguments)[0].constructor.GenericArguments)["asm1.t2000009"])[0]))(arg1,arg2);
-        /* IL_07: ret */
+        /* IL_08: nop  */
+        /* IL_09: ret  CallGenericMethodWithClassGenericArg.cs:26:5*/
         return ;
     };;
     /*  A`1..ctor()*/
@@ -110,9 +117,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -140,20 +147,23 @@ var asm1; (function (asm)
         t1 = (asm1)["A`1"](t0);
         t2 = asm1.A();
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stloc.0 */
+        /* IL_00: nop  CallGenericMethodWithClassGenericArg.cs:32:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = BLR.newobj(t1,asm1.x6000010,[null]);
-        /* IL_06: ldloc.0 */
-        /* IL_07: newobj Void .ctor()*/
-        /* IL_0C: newobj Void .ctor()*/
-        /* IL_11: callvirt Void M(System.Object, B)*/
+        /* IL_07: ldloc.0  */
+        /* IL_08: newobj Void .ctor() */
+        /* IL_0D: newobj Void .ctor() */
+        /* IL_12: callvirt Void M(System.Object, B) */
         asm1.x600000f(loc0,BLR.newobj(t2,asm1.x600000a,[null]),BLR.newobj(t0,asm1.x600000b,[null]));
-        /* IL_16: ldloc.0 */
-        /* IL_17: newobj Void .ctor()*/
-        /* IL_1C: newobj Void .ctor()*/
-        /* IL_21: callvirt Void M(System.Object, B)*/
+        /* IL_17: nop  */
+        /* IL_18: ldloc.0  */
+        /* IL_19: newobj Void .ctor() */
+        /* IL_1E: newobj Void .ctor() */
+        /* IL_23: callvirt Void M(System.Object, B) */
         asm1.x600000f(loc0,BLR.newobj(t0,asm1.x600000b,[null]),BLR.newobj(t0,asm1.x600000b,[null]));
-        /* IL_26: ret */
+        /* IL_28: nop  */
+        /* IL_29: ret  CallGenericMethodWithClassGenericArg.cs:36:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -161,9 +171,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

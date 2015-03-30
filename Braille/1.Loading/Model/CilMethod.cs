@@ -181,5 +181,7 @@ namespace Braille.Ast
         public IList<OpExpression> OpTree { get; set; }
 
         public Block Block { get; set; }
+
+        public Mono.Cecil.MethodDefinition CeclilMethod { get; set; }
     }
 }

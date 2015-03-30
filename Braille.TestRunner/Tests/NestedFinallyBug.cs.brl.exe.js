@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -33,11 +33,9 @@ var asm1; (function (asm)
         var in_block_1;
         var __finally_continuation_1__;
         var loc0;
+        var loc1;
         var in_block_2;
         var __finally_continuation_2__;
-        var loc1;
-        var loc2;
-        var loc3;
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -47,43 +45,56 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
+                /* IL_00: nop  NestedFinallyBug.cs:5:5*/
+                
                 
                 try {
                     in_block_1 = true;
                     __finally_continuation_1__ = __pos__;
-                    __pos__ = 0;
+                    __pos__ = 1;
                     
                     while (in_block_1){
                         
                         switch (__pos__){
-                            case 0x0:
-                            /* IL_00: call Int32 Get()*/
-                            /* IL_05: brfalse.s IL_19*/
+                            case 0x1:
+                            /* IL_01: nop  NestedFinallyBug.cs:7:9*/
                             
-                            if ((!(asm1.x600000b()))){
-                                __pos__ = 0x19;
+                            /* IL_02: call Int32 Get() */
+                            /* IL_07: ldc.i4.0  */
+                            /* IL_09: ceq  */
+                            /* IL_0A: stloc.0  */
+                            loc0 = ((asm1.x600000b() === (0|0)) ? (1) : (0));
+                            /* IL_0B: ldloc.0  */
+                            /* IL_0C: brtrue.s IL_21 */
+                            
+                            if (loc0){
+                                __pos__ = 0x21;
                                 continue;
                             }
-                            /* IL_07: call Int32 Get()*/
-                            /* IL_0C: stloc.0 */
-                            loc0 = asm1.x600000b();
-                            /* IL_0D: ldloca.s 0*/
-                            /* IL_0F: call String ToString()*/
-                            /* IL_14: call Void Log(System.Object)*/
+                            /* IL_0E: call Int32 Get() */
+                            /* IL_13: stloc.1  */
+                            loc1 = asm1.x600000b();
+                            /* IL_14: ldloca.s 1 */
+                            /* IL_16: call String ToString() */
+                            /* IL_1B: call Void Log(System.Object) */
                             asm1.x6000001(asm0.x60000ce({
                                         'w': function (v)
                                         {
-                                            loc0 = v;
+                                            loc1 = v;
                                         },
                                         'r': function ()
                                         {
-                                            return loc0;
+                                            return loc1;
                                         }
                                     }));
-                            case 0x19:
-                            /* IL_19: leave.s IL_6A*/
+                            /* IL_20: nop  */
+                            
+                            case 0x21:
+                            /* IL_21: nop  NestedFinallyBug.cs:10:9*/
+                            
+                            /* IL_22: leave.s IL_8C NestedFinallyBug.cs:16707566:0*/
                             in_block_1 = false;
-                            __pos__ = 0x6A;
+                            __pos__ = 0x8C;
                             break;
                         }
                     }
@@ -92,35 +103,44 @@ var asm1; (function (asm)
                 finally {
                     in_block_1 = true;
                     __finally_continuation_1__ = __pos__;
-                    __pos__ = 27;
+                    __pos__ = 36;
                     
                     while (in_block_1){
                         
                         switch (__pos__){
-                            case 0x1B:
+                            case 0x24:
+                            /* IL_24: nop  NestedFinallyBug.cs:12:9*/
+                            
                             
                             try {
                                 in_block_2 = true;
                                 __finally_continuation_2__ = __pos__;
-                                __pos__ = 27;
+                                __pos__ = 37;
                                 
                                 while (in_block_2){
                                     
                                     switch (__pos__){
-                                        case 0x1B:
-                                        /* IL_1B: call Int32 Get()*/
-                                        /* IL_20: brfalse.s IL_34*/
+                                        case 0x25:
+                                        /* IL_25: nop  NestedFinallyBug.cs:14:13*/
                                         
-                                        if ((!(asm1.x600000b()))){
-                                            __pos__ = 0x34;
+                                        /* IL_26: call Int32 Get() */
+                                        /* IL_2B: ldc.i4.0  */
+                                        /* IL_2D: ceq  */
+                                        /* IL_2E: stloc.0  */
+                                        loc0 = ((asm1.x600000b() === (0|0)) ? (1) : (0));
+                                        /* IL_2F: ldloc.0  */
+                                        /* IL_30: brtrue.s IL_45 */
+                                        
+                                        if (loc0){
+                                            __pos__ = 0x45;
                                             continue;
                                         }
-                                        /* IL_22: call Int32 Get()*/
-                                        /* IL_27: stloc.1 */
+                                        /* IL_32: call Int32 Get() */
+                                        /* IL_37: stloc.1  */
                                         loc1 = asm1.x600000b();
-                                        /* IL_28: ldloca.s 1*/
-                                        /* IL_2A: call String ToString()*/
-                                        /* IL_2F: call Void Log(System.Object)*/
+                                        /* IL_38: ldloca.s 1 */
+                                        /* IL_3A: call String ToString() */
+                                        /* IL_3F: call Void Log(System.Object) */
                                         asm1.x6000001(asm0.x60000ce({
                                                     'w': function (v)
                                                     {
@@ -131,10 +151,14 @@ var asm1; (function (asm)
                                                         return loc1;
                                                     }
                                                 }));
-                                        case 0x34:
-                                        /* IL_34: leave.s IL_50*/
+                                        /* IL_44: nop  */
+                                        
+                                        case 0x45:
+                                        /* IL_45: nop  NestedFinallyBug.cs:17:13*/
+                                        
+                                        /* IL_46: leave.s IL_6A NestedFinallyBug.cs:16707566:0*/
                                         in_block_2 = false;
-                                        __pos__ = 0x50;
+                                        __pos__ = 0x6A;
                                         break;
                                     }
                                 }
@@ -143,37 +167,48 @@ var asm1; (function (asm)
                             finally {
                                 in_block_2 = true;
                                 __finally_continuation_2__ = __pos__;
-                                __pos__ = 54;
+                                __pos__ = 72;
                                 
                                 while (in_block_2){
                                     
                                     switch (__pos__){
-                                        case 0x36:
-                                        /* IL_36: call Int32 Get()*/
-                                        /* IL_3B: brfalse.s IL_4F*/
+                                        case 0x48:
+                                        /* IL_48: nop  NestedFinallyBug.cs:19:13*/
                                         
-                                        if ((!(asm1.x600000b()))){
-                                            __pos__ = 0x4F;
+                                        /* IL_49: call Int32 Get() */
+                                        /* IL_4E: ldc.i4.0  */
+                                        /* IL_50: ceq  */
+                                        /* IL_51: stloc.0  */
+                                        loc0 = ((asm1.x600000b() === (0|0)) ? (1) : (0));
+                                        /* IL_52: ldloc.0  */
+                                        /* IL_53: brtrue.s IL_68 */
+                                        
+                                        if (loc0){
+                                            __pos__ = 0x68;
                                             continue;
                                         }
-                                        /* IL_3D: call Int32 Get()*/
-                                        /* IL_42: stloc.2 */
-                                        loc2 = asm1.x600000b();
-                                        /* IL_43: ldloca.s 2*/
-                                        /* IL_45: call String ToString()*/
-                                        /* IL_4A: call Void Log(System.Object)*/
+                                        /* IL_55: call Int32 Get() */
+                                        /* IL_5A: stloc.1  */
+                                        loc1 = asm1.x600000b();
+                                        /* IL_5B: ldloca.s 1 */
+                                        /* IL_5D: call String ToString() */
+                                        /* IL_62: call Void Log(System.Object) */
                                         asm1.x6000001(asm0.x60000ce({
                                                     'w': function (v)
                                                     {
-                                                        loc2 = v;
+                                                        loc1 = v;
                                                     },
                                                     'r': function ()
                                                     {
-                                                        return loc2;
+                                                        return loc1;
                                                     }
                                                 }));
-                                        case 0x4F:
-                                        /* IL_4F: endfinally */
+                                        /* IL_67: nop  */
+                                        
+                                        case 0x68:
+                                        /* IL_68: nop  NestedFinallyBug.cs:22:13*/
+                                        
+                                        /* IL_69: endfinally  NestedFinallyBug.cs:16707566:0*/
                                         in_block_2 = false;
                                         __pos__ = __finally_continuation_2__;
                                         break;
@@ -181,32 +216,43 @@ var asm1; (function (asm)
                                 }
                             }
                             break;
-                            case 0x50:
-                            /* IL_50: call Int32 Get()*/
-                            /* IL_55: brfalse.s IL_69*/
+                            case 0x6A:
+                            /* IL_6A: nop  NestedFinallyBug.cs:16707566:0*/
                             
-                            if ((!(asm1.x600000b()))){
-                                __pos__ = 0x69;
+                            /* IL_6B: call Int32 Get() */
+                            /* IL_70: ldc.i4.0  */
+                            /* IL_72: ceq  */
+                            /* IL_73: stloc.0  */
+                            loc0 = ((asm1.x600000b() === (0|0)) ? (1) : (0));
+                            /* IL_74: ldloc.0  */
+                            /* IL_75: brtrue.s IL_8A */
+                            
+                            if (loc0){
+                                __pos__ = 0x8A;
                                 continue;
                             }
-                            /* IL_57: call Int32 Get()*/
-                            /* IL_5C: stloc.3 */
-                            loc3 = asm1.x600000b();
-                            /* IL_5D: ldloca.s 3*/
-                            /* IL_5F: call String ToString()*/
-                            /* IL_64: call Void Log(System.Object)*/
+                            /* IL_77: call Int32 Get() */
+                            /* IL_7C: stloc.1  */
+                            loc1 = asm1.x600000b();
+                            /* IL_7D: ldloca.s 1 */
+                            /* IL_7F: call String ToString() */
+                            /* IL_84: call Void Log(System.Object) */
                             asm1.x6000001(asm0.x60000ce({
                                         'w': function (v)
                                         {
-                                            loc3 = v;
+                                            loc1 = v;
                                         },
                                         'r': function ()
                                         {
-                                            return loc3;
+                                            return loc1;
                                         }
                                     }));
-                            case 0x69:
-                            /* IL_69: endfinally */
+                            /* IL_89: nop  */
+                            
+                            case 0x8A:
+                            /* IL_8A: nop  NestedFinallyBug.cs:26:9*/
+                            
+                            /* IL_8B: endfinally  NestedFinallyBug.cs:16707566:0*/
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
                             break;
@@ -214,8 +260,10 @@ var asm1; (function (asm)
                     }
                 }
                 break;
-                case 0x6A:
-                /* IL_6A: ret */
+                case 0x8C:
+                /* IL_8C: nop  NestedFinallyBug.cs:16707566:0*/
+                
+                /* IL_8D: ret  NestedFinallyBug.cs:27:5*/
                 return ;
             }
         }
@@ -224,19 +272,24 @@ var asm1; (function (asm)
     asm.x600000b = function Get()
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: ret */
-        return (1|0);
+        /* IL_00: nop  NestedFinallyBug.cs:30:5*/
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Program..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

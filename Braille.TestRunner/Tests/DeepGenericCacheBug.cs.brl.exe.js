@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A`1..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  K`1..ctor()*/
@@ -29,9 +29,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  X..ctor()*/
@@ -39,9 +39,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  Y..ctor()*/
@@ -49,9 +49,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -89,20 +89,22 @@ var asm1; (function (asm)
         t5 = (asm1)["A`1"](t4);
         t6 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
-        /* IL_00: ldtoken A`1[K`1[X]]*/
-        /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_0A: ldtoken A`1[K`1[Y]]*/
-        /* IL_0F: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_15: ceq */
-        /* IL_16: box System.Boolean*/
-        /* IL_1B: call Void Log(System.Object)*/
+        /* IL_00: nop  DeepGenericCacheBug.cs:11:5*/
+        /* IL_01: ldtoken A`1[K`1[X]] */
+        /* IL_06: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_0B: ldtoken A`1[K`1[Y]] */
+        /* IL_10: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_16: ceq  */
+        /* IL_17: box System.Boolean */
+        /* IL_1C: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': ((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? (1) : (0)),
                 'type': t6,
                 'vtable': t6.prototype.vtable,
                 'ifacemap': t6.prototype.ifacemap
             });
-        /* IL_20: ret */
+        /* IL_21: nop  */
+        /* IL_22: ret  DeepGenericCacheBug.cs:13:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -110,9 +112,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

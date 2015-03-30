@@ -6,6 +6,7 @@ using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
@@ -268,10 +269,20 @@ namespace Braille.JsTranslation
             return null;
         }
 
+        private static string DebugInfo(OpExpression op)
+        { 
+            var ci = op.CecilInstruction;
+            
+            if (ci != null && op.CecilInstruction.SequencePoint != null)
+                return string.Format("{0}:{1}:{2}", Path.GetFileName(ci.SequencePoint.Document.Url), ci.SequencePoint.StartLine, ci.SequencePoint.StartColumn);
+
+            return string.Empty;
+        }
+
         private static JSStatement GetILAsComment(OpExpression node)
         {
-            var il = node.PrefixTraversal().OrderBy(i => i.Position);
-
+            var il = node.PrefixTraversal().OrderBy(i => i.Position).Select(op => op.Instruction.ToString() + " " + DebugInfo(node));
+            
             return JSFactory
                 .Statement(
                     new JSLineComment

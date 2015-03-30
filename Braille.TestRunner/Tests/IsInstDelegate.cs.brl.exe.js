@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* TResult FuncX`2.Invoke(T)*/
@@ -74,53 +74,71 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
-                /* IL_05: brtrue.s IL_18*/
+                /* IL_00: nop  IsInstDelegate.cs:9:5*/
+                
+                /* IL_01: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1 */
+                /* IL_06: brtrue.s IL_1B */
                 
                 if ((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]){
-                    __pos__ = 0x18;
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_07: ldnull */
-                /* IL_09: ldftn Object <Main>b__0(System.Object)*/
-                /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_13: stsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
+                /* IL_08: ldnull  */
+                /* IL_0A: ldftn Object <Main>b__0(System.Object) */
+                /* IL_0F: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_14: stsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1 */
                 (t0)["CS$<>9__CachedAnonymousMethodDelegate1"] = BLR.newobj(t2,asm1.x600000a,[null, null, asm1.x6000017]);
-                case 0x18:
-                /* IL_18: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1*/
-                /* IL_1D: stloc.0 */
+                case 0x1B:
+                /* IL_1B: ldsfld FuncX`2 CS$<>9__CachedAnonymousMethodDelegate1 */
+                /* IL_20: stloc.0  */
                 loc0 = (t0)["CS$<>9__CachedAnonymousMethodDelegate1"];
-                /* IL_1E: ldstr Lambda:*/
-                /* IL_23: call Void Log(System.Object)*/
+                /* IL_21: ldstr Lambda: */
+                /* IL_26: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("Lambda:"));
-                /* IL_28: ldloc.0 */
-                /* IL_29: call Void WriteType(System.Delegate)*/
+                /* IL_2B: nop  */
+                
+                /* IL_2C: ldloc.0  */
+                /* IL_2D: call Void WriteType(System.Delegate) */
                 asm1.x6000016(loc0);
-                /* IL_2E: ldstr Method (object):*/
-                /* IL_33: call Void Log(System.Object)*/
+                /* IL_32: nop  */
+                
+                /* IL_33: ldstr Method (object): */
+                /* IL_38: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("Method (object):"));
-                /* IL_38: ldnull */
-                /* IL_3A: ldftn Object MethodObj(System.Object)*/
-                /* IL_3F: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_44: call Void WriteType(System.Delegate)*/
+                /* IL_3D: nop  */
+                
+                /* IL_3E: ldnull  */
+                /* IL_40: ldftn Object MethodObj(System.Object) */
+                /* IL_45: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_4A: call Void WriteType(System.Delegate) */
                 asm1.x6000016(BLR.newobj(t2,asm1.x600000a,[null, null, asm1.x6000013]));
-                /* IL_49: ldstr Method (object):*/
-                /* IL_4E: call Void Log(System.Object)*/
+                /* IL_4F: nop  */
+                
+                /* IL_50: ldstr Method (object): */
+                /* IL_55: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("Method (object):"));
-                /* IL_53: ldnull */
-                /* IL_55: ldftn Object MethodInt(System.Int32)*/
-                /* IL_5A: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_5F: call Void WriteType(System.Delegate)*/
+                /* IL_5A: nop  */
+                
+                /* IL_5B: ldnull  */
+                /* IL_5D: ldftn Object MethodInt(System.Int32) */
+                /* IL_62: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_67: call Void WriteType(System.Delegate) */
                 asm1.x6000016(BLR.newobj(t4,asm1.x600000a,[null, null, asm1.x6000014]));
-                /* IL_64: ldstr Method (object):*/
-                /* IL_69: call Void Log(System.Object)*/
+                /* IL_6C: nop  */
+                
+                /* IL_6D: ldstr Method (object): */
+                /* IL_72: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("Method (object):"));
-                /* IL_6E: ldnull */
-                /* IL_70: ldftn Object MethodString(System.String)*/
-                /* IL_75: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_7A: call Void WriteType(System.Delegate)*/
+                /* IL_77: nop  */
+                
+                /* IL_78: ldnull  */
+                /* IL_7A: ldftn Object MethodString(System.String) */
+                /* IL_7F: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_84: call Void WriteType(System.Delegate) */
                 asm1.x6000016(BLR.newobj(t6,asm1.x600000a,[null, null, asm1.x6000015]));
-                /* IL_7F: ret */
+                /* IL_89: nop  */
+                
+                /* IL_8A: ret  IsInstDelegate.cs:19:5*/
                 return ;
             }
         }
@@ -129,28 +147,43 @@ var asm1; (function (asm)
     asm.x6000013 = function MethodObj(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldnull */
-        /* IL_01: ret */
-        return null;
+        /* IL_00: nop  IsInstDelegate.cs:22:5*/
+        /* IL_01: ldnull  */
+        /* IL_02: stloc.0  */
+        loc0 = null;
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* static System.Object Program.MethodInt(Int32)*/
     asm.x6000014 = function MethodInt(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldnull */
-        /* IL_01: ret */
-        return null;
+        /* IL_00: nop  IsInstDelegate.cs:27:5*/
+        /* IL_01: ldnull  */
+        /* IL_02: stloc.0  */
+        loc0 = null;
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* static System.Object Program.MethodString(String)*/
     asm.x6000015 = function MethodString(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldnull */
-        /* IL_01: ret */
-        return null;
+        /* IL_00: nop  IsInstDelegate.cs:32:5*/
+        /* IL_01: ldnull  */
+        /* IL_02: stloc.0  */
+        loc0 = null;
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /* static System.Void Program.WriteType(Delegate)*/
     asm.x6000016_init = function ()
@@ -178,6 +211,7 @@ var asm1; (function (asm)
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
+        var loc0;
         t0 = (asm0)["System.Object"]();
         t1 = (asm1)["FuncX`1"](t0);
         t2 = (asm1)["FuncX`2"](t0,t0);
@@ -194,55 +228,101 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldarg.0 */
-                /* IL_01: isinst FuncX`1[System.Object]*/
-                /* IL_06: brfalse.s IL_12*/
+                /* IL_00: nop  IsInstDelegate.cs:37:5*/
                 
-                if ((!(t1.IsInst(arg0)))){
-                    __pos__ = 0x12;
+                /* IL_01: ldarg.0  */
+                /* IL_02: isinst FuncX`1[System.Object] */
+                /* IL_07: ldnull  */
+                /* IL_09: ceq  */
+                /* IL_0A: stloc.0  */
+                loc0 = ((t1.IsInst(arg0) === null) ? (1) : (0));
+                /* IL_0B: ldloc.0  */
+                /* IL_0C: brtrue.s IL_1B */
+                
+                if (loc0){
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_08: ldstr FuncX<object>*/
-                /* IL_0D: call Void Log(System.Object)*/
+                /* IL_0E: nop  IsInstDelegate.cs:39:9*/
+                
+                /* IL_0F: ldstr FuncX<object> */
+                /* IL_14: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("FuncX<object>"));
-                case 0x12:
-                /* IL_12: ldarg.0 */
-                /* IL_13: isinst FuncX`2[System.Object,System.Object]*/
-                /* IL_18: brfalse.s IL_24*/
+                /* IL_19: nop  */
                 
-                if ((!(t2.IsInst(arg0)))){
-                    __pos__ = 0x24;
+                /* IL_1A: nop  IsInstDelegate.cs:41:9*/
+                
+                case 0x1B:
+                /* IL_1B: ldarg.0  */
+                /* IL_1C: isinst FuncX`2[System.Object,System.Object] */
+                /* IL_21: ldnull  */
+                /* IL_23: ceq  */
+                /* IL_24: stloc.0  */
+                loc0 = ((t2.IsInst(arg0) === null) ? (1) : (0));
+                /* IL_25: ldloc.0  */
+                /* IL_26: brtrue.s IL_35 */
+                
+                if (loc0){
+                    __pos__ = 0x35;
                     continue;
                 }
-                /* IL_1A: ldstr FuncX<object, object>*/
-                /* IL_1F: call Void Log(System.Object)*/
+                /* IL_28: nop  IsInstDelegate.cs:43:9*/
+                
+                /* IL_29: ldstr FuncX<object, object> */
+                /* IL_2E: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("FuncX<object, object>"));
-                case 0x24:
-                /* IL_24: ldarg.0 */
-                /* IL_25: isinst FuncX`2[System.String,System.Object]*/
-                /* IL_2A: brfalse.s IL_36*/
+                /* IL_33: nop  */
                 
-                if ((!(t4.IsInst(arg0)))){
-                    __pos__ = 0x36;
+                /* IL_34: nop  IsInstDelegate.cs:45:9*/
+                
+                case 0x35:
+                /* IL_35: ldarg.0  */
+                /* IL_36: isinst FuncX`2[System.String,System.Object] */
+                /* IL_3B: ldnull  */
+                /* IL_3D: ceq  */
+                /* IL_3E: stloc.0  */
+                loc0 = ((t4.IsInst(arg0) === null) ? (1) : (0));
+                /* IL_3F: ldloc.0  */
+                /* IL_40: brtrue.s IL_4F */
+                
+                if (loc0){
+                    __pos__ = 0x4F;
                     continue;
                 }
-                /* IL_2C: ldstr FuncX<string, object>*/
-                /* IL_31: call Void Log(System.Object)*/
+                /* IL_42: nop  IsInstDelegate.cs:47:9*/
+                
+                /* IL_43: ldstr FuncX<string, object> */
+                /* IL_48: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("FuncX<string, object>"));
-                case 0x36:
-                /* IL_36: ldarg.0 */
-                /* IL_37: isinst FuncX`2[System.Int32,System.Object]*/
-                /* IL_3C: brfalse.s IL_48*/
+                /* IL_4D: nop  */
                 
-                if ((!(t6.IsInst(arg0)))){
-                    __pos__ = 0x48;
+                /* IL_4E: nop  IsInstDelegate.cs:49:9*/
+                
+                case 0x4F:
+                /* IL_4F: ldarg.0  */
+                /* IL_50: isinst FuncX`2[System.Int32,System.Object] */
+                /* IL_55: ldnull  */
+                /* IL_57: ceq  */
+                /* IL_58: stloc.0  */
+                loc0 = ((t6.IsInst(arg0) === null) ? (1) : (0));
+                /* IL_59: ldloc.0  */
+                /* IL_5A: brtrue.s IL_69 */
+                
+                if (loc0){
+                    __pos__ = 0x69;
                     continue;
                 }
-                /* IL_3E: ldstr FuncX<int, object>*/
-                /* IL_43: call Void Log(System.Object)*/
+                /* IL_5C: nop  IsInstDelegate.cs:51:9*/
+                
+                /* IL_5D: ldstr FuncX<int, object> */
+                /* IL_62: call Void Log(System.Object) */
                 asm1.x6000001(BLR.new_string("FuncX<int, object>"));
-                case 0x48:
-                /* IL_48: ret */
+                /* IL_67: nop  */
+                
+                /* IL_68: nop  IsInstDelegate.cs:53:9*/
+                
+                case 0x69:
+                /* IL_69: ret  IsInstDelegate.cs:54:5*/
                 return ;
             }
         }
@@ -251,10 +331,14 @@ var asm1; (function (asm)
     asm.x6000017 = function _Main_b__0(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldnull */
-        /* IL_01: ret */
-        return null;
+        /* IL_00: ldnull  */
+        /* IL_01: stloc.0  */
+        loc0 = null;
+        /* IL_04: ldloc.0  */
+        /* IL_05: ret  */
+        return loc0;
     };;
     asm.TestLog = BLR.declare_type(
         "TestLog",

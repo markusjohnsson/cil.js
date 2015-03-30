@@ -9,28 +9,33 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Int32 RealWriter.WriteIt()*/
     asm.x600000b = function WriteIt(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.s 33*/
-        /* IL_02: ret */
-        return (33|0);
+        /* IL_00: nop  iface.cs:9:5*/
+        /* IL_01: ldc.i4.s 33 */
+        /* IL_03: stloc.0  */
+        loc0 = (33|0);
+        /* IL_06: ldloc.0  */
+        /* IL_07: ret  */
+        return loc0;
     };;
     /*  RealWriter..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Int32 ProjectName.Main()*/
@@ -54,6 +59,8 @@ var asm1; (function (asm)
         var in_block_0;
         var __finally_continuation_0__;
         var loc0;
+        var loc2;
+        var loc1;
         t0 = asm1.RealWriter();
         t1 = asm1.IHelloWorldWriter();
         __pos__ = 0x0;
@@ -65,25 +72,38 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.0 */
-                loc0 = BLR.newobj(t0,asm1.x600000c,[null]);
-                /* IL_06: ldloc.0 */
-                /* IL_07: callvirt Int32 WriteIt()*/
-                /* IL_0C: ldc.i4.s 33*/
-                /* IL_0E: beq.s IL_12*/
+                /* IL_00: nop  iface.cs:17:5*/
                 
-                if ((((loc0.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (33|0)){
-                    __pos__ = 0x12;
+                /* IL_01: newobj Void .ctor() */
+                /* IL_06: stloc.0  */
+                loc0 = BLR.newobj(t0,asm1.x600000c,[null]);
+                /* IL_07: ldloc.0  */
+                /* IL_08: callvirt Int32 WriteIt() */
+                /* IL_0D: ldc.i4.s 33 */
+                /* IL_10: ceq  */
+                /* IL_11: stloc.2  */
+                loc2 = (((((loc0.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (33|0)) ? (1) : (0));
+                /* IL_12: ldloc.2  */
+                /* IL_13: brtrue.s IL_19 */
+                
+                if (loc2){
+                    __pos__ = 0x19;
                     continue;
                 }
-                /* IL_10: ldc.i4.1 */
-                /* IL_11: ret */
-                return (1|0);
-                case 0x12:
-                /* IL_12: ldc.i4.0 */
-                /* IL_13: ret */
-                return (0|0);
+                /* IL_15: ldc.i4.1  */
+                /* IL_16: stloc.1  */
+                loc1 = (1|0);
+                /* IL_17: br.s IL_1D */
+                __pos__ = 0x1D;
+                continue;
+                case 0x19:
+                /* IL_19: ldc.i4.0  */
+                /* IL_1A: stloc.1  */
+                loc1 = (0|0);
+                case 0x1D:
+                /* IL_1D: ldloc.1  */
+                /* IL_1E: ret  */
+                return loc1;
             }
         }
     };
@@ -92,9 +112,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

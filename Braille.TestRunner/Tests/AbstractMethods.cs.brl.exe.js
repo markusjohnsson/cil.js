@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void B.X()*/
@@ -29,10 +29,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr B.X*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  AbstractMethods.cs:10:5*/
+        /* IL_01: ldstr B.X */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(BLR.new_string("B.X"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  AbstractMethods.cs:12:5*/
         return ;
     };;
     /*  B..ctor()*/
@@ -40,10 +42,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000b(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void C.X()*/
@@ -51,10 +53,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr C.X*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  AbstractMethods.cs:18:5*/
+        /* IL_01: ldstr C.X */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(BLR.new_string("C.X"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  AbstractMethods.cs:20:5*/
         return ;
     };;
     /*  C..ctor()*/
@@ -62,10 +66,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000b(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -89,13 +93,16 @@ var asm1; (function (asm)
         t0 = asm1.B();
         t1 = asm1.C();
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: call Void InvokeX(A)*/
+        /* IL_00: nop  AbstractMethods.cs:26:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: call Void InvokeX(A) */
         asm1.x6000011(BLR.newobj(t0,asm1.x600000d,[null]));
-        /* IL_0A: newobj Void .ctor()*/
-        /* IL_0F: call Void InvokeX(A)*/
+        /* IL_0B: nop  */
+        /* IL_0C: newobj Void .ctor() */
+        /* IL_11: call Void InvokeX(A) */
         asm1.x6000011(BLR.newobj(t1,asm1.x600000f,[null]));
-        /* IL_14: ret */
+        /* IL_16: nop  */
+        /* IL_17: ret  AbstractMethods.cs:29:5*/
         return ;
     };
     /* static System.Void Program.InvokeX(A)*/
@@ -103,10 +110,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: callvirt Void X()*/
+        /* IL_00: nop  AbstractMethods.cs:32:5*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: callvirt Void X() */
         ((arg0.vtable)["asm1.x600000a"]())(arg0);
-        /* IL_06: ret */
+        /* IL_07: nop  */
+        /* IL_08: ret  AbstractMethods.cs:34:5*/
         return ;
     };;
     /*  Program..ctor()*/
@@ -114,9 +123,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

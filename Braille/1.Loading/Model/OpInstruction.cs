@@ -4,7 +4,10 @@ using System;
 namespace Braille.Ast
 {
     class OpInstruction
-    { 
+    {
+        public OpInstruction()
+        {
+        }
         public OpCode OpCode { get; set; }
 
         public object Data { get; set; }

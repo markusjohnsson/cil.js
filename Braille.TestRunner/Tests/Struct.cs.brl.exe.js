@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -36,30 +36,33 @@ var asm1; (function (asm)
         t1 = (asm0)["System.Int32"]();
         loc0 = new (asm1.S())();
         __pos__ = 0x0;
-        /* IL_00: ldloca.s 0*/
-        /* IL_03: initobj S*/
+        /* IL_00: nop  Struct.cs:11:5*/
+        /* IL_01: ldloca.s 0 */
+        /* IL_04: initobj S */
         loc0 = new t0();
-        /* IL_08: ldloca.s 0*/
-        /* IL_0A: ldfld Int32 X*/
-        /* IL_0F: box System.Int32*/
-        /* IL_14: call Void Log(System.Object)*/
+        /* IL_09: ldloca.s 0 */
+        /* IL_0B: ldfld Int32 X */
+        /* IL_10: box System.Int32 */
+        /* IL_15: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': loc0.X,
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_19: ldloca.s 0*/
-        /* IL_1B: ldfld Int32 Y*/
-        /* IL_20: box System.Int32*/
-        /* IL_25: call Void Log(System.Object)*/
+        /* IL_1A: nop  */
+        /* IL_1B: ldloca.s 0 */
+        /* IL_1D: ldfld Int32 Y */
+        /* IL_22: box System.Int32 */
+        /* IL_27: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': loc0.Y,
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_2A: ret */
+        /* IL_2C: nop  */
+        /* IL_2D: ret  Struct.cs:15:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -67,9 +70,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

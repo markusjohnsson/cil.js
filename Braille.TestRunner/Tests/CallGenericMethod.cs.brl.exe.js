@@ -9,31 +9,35 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* T A`1.get_Prop()*/
     asm.x600000c = function get_Prop(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldfld T <Prop>k__BackingField*/
-        /* IL_06: ret */
-        return (arg0)["A_1<Prop>k__BackingField"];
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldfld T <Prop>k__BackingField */
+        /* IL_06: stloc.0  */
+        loc0 = (arg0)["A_1<Prop>k__BackingField"];
+        /* IL_09: ldloc.0  */
+        /* IL_0A: ret  */
+        return loc0;
     };;
     /* System.Void A`1.set_Prop(T)*/
     asm.x600000d = function set_Prop(arg0,arg1)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldarg.1 */
-        /* IL_02: stfld T <Prop>k__BackingField*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: stfld T <Prop>k__BackingField */
         (arg0)["A_1<Prop>k__BackingField"] = arg1;
-        /* IL_07: ret */
+        /* IL_07: ret  */
         return ;
     };;
     /*  A`1..ctor()*/
@@ -41,9 +45,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -65,13 +69,16 @@ var asm1; (function (asm)
         t0 = (asm0)["System.Int32"]();
         t1 = (asm0)["System.String"]();
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.s 123*/
-        /* IL_02: call Void Y[System.Int32](System.Int32)*/
+        /* IL_00: nop  CallGenericMethod.cs:15:5*/
+        /* IL_01: ldc.i4.s 123 */
+        /* IL_03: call Void Y[System.Int32](System.Int32) */
         (asm1.x6000010((asm0)["System.Int32"]()))((123|0));
-        /* IL_07: ldstr Hello*/
-        /* IL_0C: call Void Y[System.String](System.String)*/
+        /* IL_08: nop  */
+        /* IL_09: ldstr Hello */
+        /* IL_0E: call Void Y[System.String](System.String) */
         (asm1.x6000010((asm0)["System.String"]()))(BLR.new_string("Hello"));
-        /* IL_11: ret */
+        /* IL_13: nop  */
+        /* IL_14: ret  CallGenericMethod.cs:18:5*/
         return ;
     };
     /* static System.Void Program.Y<T>(T)*/
@@ -101,17 +108,20 @@ var asm1; (function (asm)
             t0 = T;
             t1 = (asm1)["A`1"](t0);
             __pos__ = 0x0;
-            /* IL_00: newobj Void .ctor()*/
-            /* IL_05: stloc.0 */
+            /* IL_00: nop  CallGenericMethod.cs:21:5*/
+            /* IL_01: newobj Void .ctor() */
+            /* IL_06: stloc.0  */
             loc0 = BLR.newobj(t1,asm1.x600000e,[null]);
-            /* IL_06: ldloc.0 */
-            /* IL_07: ldarg.0 */
-            /* IL_08: callvirt Void set_Prop(T)*/
+            /* IL_07: ldloc.0  */
+            /* IL_08: ldarg.0  */
+            /* IL_09: callvirt Void set_Prop(T) */
             ((loc0.vtable)["asm1.x600000d"]())(loc0,arg0);
-            /* IL_0D: ldloc.0 */
-            /* IL_0E: call Void X[T](I`1[T])*/
+            /* IL_0E: nop  */
+            /* IL_0F: ldloc.0  */
+            /* IL_10: call Void X[T](I`1[T]) */
             (asm1.x6000011(T))(loc0);
-            /* IL_13: ret */
+            /* IL_15: nop  */
+            /* IL_16: ret  CallGenericMethod.cs:23:5*/
             return ;
         };
     };
@@ -141,12 +151,14 @@ var asm1; (function (asm)
             t0 = T;
             t1 = (asm1)["I`1"](t0);
             __pos__ = 0x0;
-            /* IL_00: ldarg.0 */
-            /* IL_01: callvirt T get_Prop()*/
-            /* IL_06: box T*/
-            /* IL_0B: call Void Log(System.Object)*/
+            /* IL_00: nop  CallGenericMethod.cs:26:5*/
+            /* IL_01: ldarg.0  */
+            /* IL_02: callvirt T get_Prop() */
+            /* IL_07: box T */
+            /* IL_0C: call Void Log(System.Object) */
             asm1.x6000001(BLR.box(((((arg0.ifacemap)[t1])[t0].x600000a)())(BLR.convert_box_to_pointer_as_needed(arg0)),t0));
-            /* IL_10: ret */
+            /* IL_11: nop  */
+            /* IL_12: ret  CallGenericMethod.cs:28:5*/
             return ;
         };
     };
@@ -155,9 +167,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

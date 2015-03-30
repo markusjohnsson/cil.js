@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A`1..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static  A`1..cctor()*/
@@ -58,11 +58,11 @@ var asm1; (function (asm)
             t1 = (asm0)["Braille.Runtime.UnboundGenericParameter"]();
             t2 = (asm1)["A`1"](t0);
             __pos__ = 0x0;
-            /* IL_00: ldc.i4.0 */
-            /* IL_01: newarr T*/
-            /* IL_06: stsfld T[] Value*/
+            /* IL_00: ldc.i4.0  */
+            /* IL_01: newarr T */
+            /* IL_06: stsfld T[] Value */
             (t2)["Value"] = BLR.new_array(t0,(0|0));
-            /* IL_0B: ret */
+            /* IL_0B: ret  MethodInitializerBug.cs:16707566:0*/
             return ;
         };
     };
@@ -84,14 +84,17 @@ var asm1; (function (asm)
         t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000007"])[0];
         t1 = (asm1)["A`1"](t0);
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: nop  MethodInitializerBug.cs:10:5*/
         (asm1.x600000b((((arguments)[0].constructor.GenericArguments)["asm1.t2000007"])[0]))();
-        /* IL_06: ldarg.0 */
-        /* IL_07: ldsfld IKVM.Reflection.GenericFieldInstance*/
-        /* IL_0C: stfld T[] Value*/
+        /* IL_08: ldarg.0  */
+        /* IL_09: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_0E: stfld T[] Value */
         arg0.Value = t1.Value;
-        /* IL_11: ret */
+        /* IL_13: nop  MethodInitializerBug.cs:12:5*/
+        /* IL_14: ret  */
         return ;
     };
     /*  C..ctor()*/
@@ -99,9 +102,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  D..ctor()*/
@@ -109,9 +112,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -141,19 +144,22 @@ var asm1; (function (asm)
         t2 = asm1.D();
         t3 = (asm1)["B`1"](t2);
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: ldfld IKVM.Reflection.GenericFieldInstance*/
-        /* IL_0A: callvirt Type GetType()*/
-        /* IL_0F: callvirt String get_FullName()*/
-        /* IL_14: call Void Log(System.Object)*/
+        /* IL_00: nop  MethodInitializerBug.cs:21:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_0B: callvirt Type GetType() */
+        /* IL_10: callvirt String get_FullName() */
+        /* IL_15: call Void Log(System.Object) */
         asm1.x6000001((((asm0.x600000a(BLR.newobj(t1,asm1.x600000c,[null]).Value).vtable)["asm0.x60000e0"])())(asm0.x600000a(BLR.newobj(t1,asm1.x600000c,[null]).Value)));
-        /* IL_19: newobj Void .ctor()*/
-        /* IL_1E: ldfld IKVM.Reflection.GenericFieldInstance*/
-        /* IL_23: callvirt Type GetType()*/
-        /* IL_28: callvirt String get_FullName()*/
-        /* IL_2D: call Void Log(System.Object)*/
+        /* IL_1A: nop  */
+        /* IL_1B: newobj Void .ctor() */
+        /* IL_20: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_25: callvirt Type GetType() */
+        /* IL_2A: callvirt String get_FullName() */
+        /* IL_2F: call Void Log(System.Object) */
         asm1.x6000001((((asm0.x600000a(BLR.newobj(t3,asm1.x600000c,[null]).Value).vtable)["asm0.x60000e0"])())(asm0.x600000a(BLR.newobj(t3,asm1.x600000c,[null]).Value)));
-        /* IL_32: ret */
+        /* IL_34: nop  */
+        /* IL_35: ret  MethodInitializerBug.cs:24:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -161,9 +167,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

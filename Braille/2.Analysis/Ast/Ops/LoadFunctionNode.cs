@@ -1,8 +1,5 @@
-﻿using Braille.Ast;
-using System;
+﻿using Mono.Cecil.Cil;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Braille.Ast
 {
@@ -10,8 +7,8 @@ namespace Braille.Ast
     {
         public CilMethod Target { get; set; }
 
-        public LoadFunctionNode(OpInstruction op, List<OpInstruction> prefixes, int? popCount, int pushCount, CilMethod target) :
-            base(op, prefixes, popCount, pushCount)
+        public LoadFunctionNode(OpInstruction op, List<OpInstruction> prefixes, Instruction cecilInstruction, int? popCount, int pushCount, CilMethod target) :
+            base(op, prefixes, cecilInstruction, popCount, pushCount)
         {
             Target = target;
         }

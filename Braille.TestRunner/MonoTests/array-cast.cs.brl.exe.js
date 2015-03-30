@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Int32 Test.Main()*/
@@ -38,6 +38,8 @@ var asm1; (function (asm)
         var loc0;
         var loc1;
         var loc2;
+        var loc4;
+        var loc3;
         t0 = (asm0)["System.Attribute"]();
         t1 = (asm0)["System.Object"]();
         t2 = (asm0)["System.Array`1"](t1);
@@ -50,35 +52,51 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.1 */
-                /* IL_01: newarr System.Attribute*/
-                /* IL_06: stloc.0 */
-                loc0 = BLR.new_array(t0,(1|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: stloc.1 */
-                loc1 = loc0;
-                /* IL_09: ldloc.1 */
-                /* IL_0A: castclass System.Object[]*/
-                /* IL_0F: stloc.2 */
-                loc2 = BLR.cast_class(loc1,t2);
-                /* IL_10: ldloc.1 */
-                /* IL_11: isinst System.Object[]*/
-                /* IL_16: stloc.2 */
-                loc2 = t2.IsInst(loc1);
-                /* IL_17: ldloc.2 */
-                /* IL_18: brtrue.s IL_1C*/
+                /* IL_00: nop  array-cast.cs:8:9*/
                 
-                if (loc2){
-                    __pos__ = 0x1C;
+                /* IL_01: ldc.i4.1  */
+                /* IL_02: newarr System.Attribute */
+                /* IL_07: stloc.0  */
+                loc0 = BLR.new_array(t0,(1|0));
+                /* IL_08: ldloc.0  */
+                /* IL_09: stloc.1  */
+                loc1 = loc0;
+                /* IL_0A: ldloc.1  */
+                /* IL_0B: castclass System.Object[] */
+                /* IL_10: stloc.2  */
+                loc2 = BLR.cast_class(loc1,t2);
+                /* IL_11: ldloc.1  */
+                /* IL_12: isinst System.Object[] */
+                /* IL_17: stloc.2  */
+                loc2 = t2.IsInst(loc1);
+                /* IL_18: ldloc.2  */
+                /* IL_19: ldnull  */
+                /* IL_1B: ceq  */
+                /* IL_1C: ldc.i4.0  */
+                /* IL_1E: ceq  */
+                /* IL_1F: stloc.s 4 */
+                loc4 = ((((loc2 === null) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_21: ldloc.s 4 */
+                /* IL_23: brtrue.s IL_29 */
+                
+                if (loc4){
+                    __pos__ = 0x29;
                     continue;
                 }
-                /* IL_1A: ldc.i4.1 */
-                /* IL_1B: ret */
-                return (1|0);
-                case 0x1C:
-                /* IL_1C: ldc.i4.0 */
-                /* IL_1D: ret */
-                return (0|0);
+                /* IL_25: ldc.i4.1  */
+                /* IL_26: stloc.3  */
+                loc3 = (1|0);
+                /* IL_27: br.s IL_2D */
+                __pos__ = 0x2D;
+                continue;
+                case 0x29:
+                /* IL_29: ldc.i4.0  */
+                /* IL_2A: stloc.3  */
+                loc3 = (0|0);
+                case 0x2D:
+                /* IL_2D: ldloc.3  */
+                /* IL_2E: ret  */
+                return loc3;
             }
         }
     };
@@ -87,9 +105,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -49,22 +49,25 @@ var asm1; (function (asm)
         t1 = (asm0)["System.Array`1"](t0);
         t2 = asm1.B();
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: newarr I*/
-        /* IL_06: stloc.0 */
+        /* IL_00: nop  ArrayVariance.cs:14:5*/
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: newarr I */
+        /* IL_07: stloc.0  */
         loc0 = BLR.new_array(t0,(1|0));
-        /* IL_07: ldloc.0 */
-        /* IL_08: call Void M(System.Object)*/
+        /* IL_08: ldloc.0  */
+        /* IL_09: call Void M(System.Object) */
         asm1.x600000c(loc0);
-        /* IL_0D: ldloc.0 */
-        /* IL_0E: castclass I[]*/
-        /* IL_13: ldc.i4.0 */
-        /* IL_14: ldelem.ref */
-        /* IL_15: castclass B*/
-        /* IL_1A: ldfld String X*/
-        /* IL_1F: call Void Log(System.Object)*/
+        /* IL_0E: nop  */
+        /* IL_0F: ldloc.0  */
+        /* IL_10: castclass I[] */
+        /* IL_15: ldc.i4.0  */
+        /* IL_16: ldelem.ref  */
+        /* IL_17: castclass B */
+        /* IL_1C: ldfld String X */
+        /* IL_21: call Void Log(System.Object) */
         asm1.x6000001(BLR.cast_class(BLR.ldelem_ref(BLR.cast_class(loc0,t1),(0|0)),t2).X);
-        /* IL_24: ret */
+        /* IL_26: nop  */
+        /* IL_27: ret  ArrayVariance.cs:18:5*/
         return ;
     };
     /* static System.Void Program.M(Object)*/
@@ -96,28 +99,29 @@ var asm1; (function (asm)
         t1 = (asm0)["System.Array`1"](t0);
         t2 = asm1.B();
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: castclass System.Object[]*/
-        /* IL_06: stloc.0 */
+        /* IL_00: nop  ArrayVariance.cs:21:5*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: castclass System.Object[] */
+        /* IL_07: stloc.0  */
         loc0 = BLR.cast_class(arg0,t1);
-        /* IL_07: ldloc.0 */
+        /* IL_08: ldloc.0  ArrayVariance.cs:23:9*/
         st_05 = loc0;
-        /* IL_08: ldc.i4.0 */
+        /* IL_09: ldc.i4.0  */
         st_06 = (0|0);
-        /* IL_09: newobj Void .ctor()*/
-        /* IL_0E: stloc.1 */
+        /* IL_0A: newobj Void .ctor() */
+        /* IL_0F: stloc.1  */
         loc1 = BLR.newobj(t2,asm1.x600000a,[null]);
-        /* IL_0F: ldloc.1 */
+        /* IL_10: ldloc.1  */
         st_03 = loc1;
-        /* IL_10: ldstr X*/
+        /* IL_11: ldstr X */
         st_04 = BLR.new_string("X");
-        /* IL_15: stfld String X*/
+        /* IL_16: stfld String X */
         st_03.X = st_04;
-        /* IL_1A: ldloc.1 */
+        /* IL_1B: ldloc.1  */
         st_07 = loc1;
-        /* IL_1B: stelem.ref */
+        /* IL_1C: stelem.ref  */
         BLR.stelem_ref(st_05,st_06,st_07);
-        /* IL_1C: ret */
+        /* IL_1D: ret  ArrayVariance.cs:24:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -125,9 +129,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

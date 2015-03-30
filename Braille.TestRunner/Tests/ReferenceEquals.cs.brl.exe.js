@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void C`1.CheckEquals(T)*/
@@ -55,20 +55,22 @@ var asm1; (function (asm)
             t2 = (asm1)["C`1"](t1);
             t3 = (asm0)["System.Boolean"]();
             __pos__ = 0x0;
-            /* IL_00: ldsfld T t*/
-            /* IL_05: box T*/
-            /* IL_0A: ldarg.0 */
-            /* IL_0B: box T*/
-            /* IL_10: call Boolean ReferenceEquals(System.Object, System.Object)*/
-            /* IL_15: box System.Boolean*/
-            /* IL_1A: call Void Log(System.Object)*/
+            /* IL_00: nop  ReferenceEquals.cs:11:5*/
+            /* IL_01: ldsfld T t */
+            /* IL_06: box T */
+            /* IL_0B: ldarg.0  */
+            /* IL_0C: box T */
+            /* IL_11: call Boolean ReferenceEquals(System.Object, System.Object) */
+            /* IL_16: box System.Boolean */
+            /* IL_1B: call Void Log(System.Object) */
             asm1.x6000001({
                     'boxed': asm0.x6000007(BLR.box(t2.t,t1),BLR.box(arg0,t1)),
                     'type': t3,
                     'vtable': t3.prototype.vtable,
                     'ifacemap': t3.prototype.ifacemap
                 });
-            /* IL_1F: ret */
+            /* IL_20: nop  */
+            /* IL_21: ret  ReferenceEquals.cs:13:5*/
             return ;
         };
     };
@@ -77,9 +79,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -122,23 +124,25 @@ var asm1; (function (asm)
         loc2 = new (asm1.B())();
         loc4 = new (asm1.B())();
         __pos__ = 0x0;
-        /* IL_00: ldsfld Object a*/
-        /* IL_05: ldnull */
-        /* IL_06: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_0B: box System.Boolean*/
-        /* IL_10: call Void Log(System.Object)*/
+        /* IL_00: nop  ReferenceEquals.cs:23:5*/
+        /* IL_01: ldsfld Object a */
+        /* IL_06: ldnull  */
+        /* IL_07: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_0C: box System.Boolean */
+        /* IL_11: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.a,null),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_15: ldsfld B b*/
-        /* IL_1A: box B*/
-        /* IL_1F: ldnull */
-        /* IL_20: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_25: box System.Boolean*/
-        /* IL_2A: call Void Log(System.Object)*/
+        /* IL_16: nop  */
+        /* IL_17: ldsfld B b */
+        /* IL_1C: box B */
+        /* IL_21: ldnull  */
+        /* IL_22: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_27: box System.Boolean */
+        /* IL_2C: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007({
                         'boxed': BLR.clone_value(t0.b),
@@ -150,34 +154,37 @@ var asm1; (function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_2F: ldsfld Object b4*/
-        /* IL_34: ldnull */
-        /* IL_35: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_3A: box System.Boolean*/
-        /* IL_3F: call Void Log(System.Object)*/
+        /* IL_31: nop  */
+        /* IL_32: ldsfld Object b4 */
+        /* IL_37: ldnull  */
+        /* IL_38: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_3D: box System.Boolean */
+        /* IL_42: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.b4,null),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_44: ldnull */
-        /* IL_45: ldsfld Object a*/
-        /* IL_4A: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_4F: box System.Boolean*/
-        /* IL_54: call Void Log(System.Object)*/
+        /* IL_47: nop  */
+        /* IL_48: ldnull  */
+        /* IL_49: ldsfld Object a */
+        /* IL_4E: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_53: box System.Boolean */
+        /* IL_58: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(null,t0.a),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_59: ldnull */
-        /* IL_5A: ldsfld B b*/
-        /* IL_5F: box B*/
-        /* IL_64: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_69: box System.Boolean*/
-        /* IL_6E: call Void Log(System.Object)*/
+        /* IL_5D: nop  */
+        /* IL_5E: ldnull  */
+        /* IL_5F: ldsfld B b */
+        /* IL_64: box B */
+        /* IL_69: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_6E: box System.Boolean */
+        /* IL_73: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(null,{
                         'boxed': BLR.clone_value(t0.b),
@@ -189,88 +196,95 @@ var asm1; (function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_73: ldnull */
-        /* IL_74: ldsfld Object b4*/
-        /* IL_79: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_7E: box System.Boolean*/
-        /* IL_83: call Void Log(System.Object)*/
+        /* IL_78: nop  */
+        /* IL_79: ldnull  */
+        /* IL_7A: ldsfld Object b4 */
+        /* IL_7F: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_84: box System.Boolean */
+        /* IL_89: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(null,t0.b4),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_88: newobj Void .ctor()*/
-        /* IL_8D: stloc.0 */
+        /* IL_8E: nop  */
+        /* IL_8F: newobj Void .ctor() */
+        /* IL_94: stloc.0  */
         loc0 = BLR.newobj(t3,asm1.x600000a,[null]);
-        /* IL_8E: ldloc.0 */
-        /* IL_8F: stsfld Object a*/
+        /* IL_95: ldloc.0  */
+        /* IL_96: stsfld Object a */
         (t0)["a"] = loc0;
-        /* IL_94: ldloc.0 */
-        /* IL_95: call Void CheckEquals(A)*/
+        /* IL_9B: ldloc.0  */
+        /* IL_9C: call Void CheckEquals(A) */
         asm1.x600000e(loc0);
-        /* IL_9A: newobj Void .ctor()*/
-        /* IL_9F: call Void CheckEquals(A)*/
+        /* IL_A1: nop  */
+        /* IL_A2: newobj Void .ctor() */
+        /* IL_A7: call Void CheckEquals(A) */
         asm1.x600000e(BLR.newobj(t3,asm1.x600000a,[null]));
-        /* IL_A4: ldloca.s 1*/
-        /* IL_A7: initobj B*/
+        /* IL_AC: nop  */
+        /* IL_AD: ldloca.s 1 */
+        /* IL_B0: initobj B */
         loc1 = new t2();
-        /* IL_AC: ldloc.1 */
-        /* IL_AD: stsfld B b*/
+        /* IL_B5: ldloc.1  */
+        /* IL_B6: stsfld B b */
         (t0)["b"] = loc1;
-        /* IL_B2: ldloc.1 */
-        /* IL_B3: box B*/
-        /* IL_B8: stsfld Object b4*/
+        /* IL_BB: ldloc.1  */
+        /* IL_BC: box B */
+        /* IL_C1: stsfld Object b4 */
         (t0)["b4"] = {
             'boxed': BLR.clone_value(loc1),
             'type': t2,
             'vtable': t2.prototype.vtable,
             'ifacemap': t2.prototype.ifacemap
         };
-        /* IL_BD: ldloc.1 */
-        /* IL_BE: ldloc.1 */
-        /* IL_BF: box B*/
-        /* IL_C4: call Void CheckEquals(B, System.Object)*/
+        /* IL_C6: ldloc.1  */
+        /* IL_C7: ldloc.1  */
+        /* IL_C8: box B */
+        /* IL_CD: call Void CheckEquals(B, System.Object) */
         asm1.x600000f(BLR.clone_value(loc1),{
                 'boxed': BLR.clone_value(loc1),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_C9: ldloca.s 2*/
-        /* IL_CC: initobj B*/
+        /* IL_D2: nop  */
+        /* IL_D3: ldloca.s 2 */
+        /* IL_D6: initobj B */
         loc2 = new t2();
-        /* IL_D1: ldloc.2 */
-        /* IL_D2: ldloc.2 */
-        /* IL_D3: box B*/
-        /* IL_D8: call Void CheckEquals(B, System.Object)*/
+        /* IL_DB: ldloc.2  */
+        /* IL_DC: ldloc.2  */
+        /* IL_DD: box B */
+        /* IL_E2: call Void CheckEquals(B, System.Object) */
         asm1.x600000f(BLR.clone_value(loc2),{
                 'boxed': BLR.clone_value(loc2),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_DD: ldsfld Object b4*/
-        /* IL_E2: stloc.3 */
+        /* IL_E7: nop  */
+        /* IL_E8: ldsfld Object b4 */
+        /* IL_ED: stloc.3  */
         loc3 = t0.b4;
-        /* IL_E3: ldloc.3 */
-        /* IL_E4: ldsfld Object b4*/
-        /* IL_E9: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_EE: box System.Boolean*/
-        /* IL_F3: call Void Log(System.Object)*/
+        /* IL_EE: ldloc.3  */
+        /* IL_EF: ldsfld Object b4 */
+        /* IL_F4: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_F9: box System.Boolean */
+        /* IL_FE: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(loc3,t0.b4),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_F8: ldloc.1 */
-        /* IL_F9: box B*/
-        /* IL_FE: ldloc.1 */
-        /* IL_FF: box B*/
-        /* IL_104: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_109: box System.Boolean*/
-        /* IL_10E: call Void Log(System.Object)*/
+        /* IL_103: nop  */
+        /* IL_104: ldloc.1  */
+        /* IL_105: box B */
+        /* IL_10A: ldloc.1  */
+        /* IL_10B: box B */
+        /* IL_110: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_115: box System.Boolean */
+        /* IL_11A: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007({
                         'boxed': BLR.clone_value(loc1),
@@ -287,12 +301,13 @@ var asm1; (function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_113: ldloc.1 */
-        /* IL_114: box B*/
-        /* IL_119: ldnull */
-        /* IL_11A: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_11F: box System.Boolean*/
-        /* IL_124: call Void Log(System.Object)*/
+        /* IL_11F: nop  */
+        /* IL_120: ldloc.1  */
+        /* IL_121: box B */
+        /* IL_126: ldnull  */
+        /* IL_127: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_12C: box System.Boolean */
+        /* IL_131: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007({
                         'boxed': BLR.clone_value(loc1),
@@ -304,28 +319,33 @@ var asm1; (function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_129: ldloc.0 */
-        /* IL_12A: stsfld IKVM.Reflection.GenericFieldInstance*/
+        /* IL_136: nop  */
+        /* IL_137: ldloc.0  */
+        /* IL_138: stsfld IKVM.Reflection.GenericFieldInstance */
         (t4)["t"] = loc0;
-        /* IL_12F: ldloc.0 */
-        /* IL_130: call Void CheckEquals(A)*/
+        /* IL_13D: ldloc.0  */
+        /* IL_13E: call Void CheckEquals(A) */
         (asm1.x600000b(asm1.A()))(loc0);
-        /* IL_135: newobj Void .ctor()*/
-        /* IL_13A: call Void CheckEquals(A)*/
+        /* IL_143: nop  */
+        /* IL_144: newobj Void .ctor() */
+        /* IL_149: call Void CheckEquals(A) */
         (asm1.x600000b(asm1.A()))(BLR.newobj(t3,asm1.x600000a,[null]));
-        /* IL_13F: ldloc.1 */
-        /* IL_140: stsfld IKVM.Reflection.GenericFieldInstance*/
+        /* IL_14E: nop  */
+        /* IL_14F: ldloc.1  */
+        /* IL_150: stsfld IKVM.Reflection.GenericFieldInstance */
         (t5)["t"] = loc1;
-        /* IL_145: ldloc.1 */
-        /* IL_146: call Void CheckEquals(B)*/
+        /* IL_155: ldloc.1  */
+        /* IL_156: call Void CheckEquals(B) */
         (asm1.x600000b(asm1.B()))(BLR.clone_value(loc1));
-        /* IL_14B: ldloca.s 4*/
-        /* IL_14E: initobj B*/
+        /* IL_15B: nop  */
+        /* IL_15C: ldloca.s 4 */
+        /* IL_15F: initobj B */
         loc4 = new t2();
-        /* IL_153: ldloc.s 4*/
-        /* IL_155: call Void CheckEquals(B)*/
+        /* IL_164: ldloc.s 4 */
+        /* IL_166: call Void CheckEquals(B) */
         (asm1.x600000b(asm1.B()))(BLR.clone_value(loc4));
-        /* IL_15A: ret */
+        /* IL_16B: nop  */
+        /* IL_16C: ret  ReferenceEquals.cs:55:5*/
         return ;
     };
     /* static System.Void Program.CheckEquals(A)*/
@@ -347,51 +367,56 @@ var asm1; (function (asm)
         t0 = asm1.Program();
         t1 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
-        /* IL_00: ldsfld Object a*/
-        /* IL_05: ldarg.0 */
-        /* IL_06: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_0B: box System.Boolean*/
-        /* IL_10: call Void Log(System.Object)*/
+        /* IL_00: nop  ReferenceEquals.cs:58:5*/
+        /* IL_01: ldsfld Object a */
+        /* IL_06: ldarg.0  */
+        /* IL_07: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_0C: box System.Boolean */
+        /* IL_11: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.a,arg0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_15: ldarg.0 */
-        /* IL_16: ldsfld Object a*/
-        /* IL_1B: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_20: box System.Boolean*/
-        /* IL_25: call Void Log(System.Object)*/
+        /* IL_16: nop  */
+        /* IL_17: ldarg.0  */
+        /* IL_18: ldsfld Object a */
+        /* IL_1D: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_22: box System.Boolean */
+        /* IL_27: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(arg0,t0.a),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_2A: ldarg.0 */
-        /* IL_2B: ldnull */
-        /* IL_2C: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_31: box System.Boolean*/
-        /* IL_36: call Void Log(System.Object)*/
+        /* IL_2C: nop  */
+        /* IL_2D: ldarg.0  */
+        /* IL_2E: ldnull  */
+        /* IL_2F: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_34: box System.Boolean */
+        /* IL_39: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(arg0,null),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_3B: ldnull */
-        /* IL_3C: ldarg.0 */
-        /* IL_3D: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_42: box System.Boolean*/
-        /* IL_47: call Void Log(System.Object)*/
+        /* IL_3E: nop  */
+        /* IL_3F: ldnull  */
+        /* IL_40: ldarg.0  */
+        /* IL_41: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_46: box System.Boolean */
+        /* IL_4B: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(null,arg0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_4C: ret */
+        /* IL_50: nop  */
+        /* IL_51: ret  ReferenceEquals.cs:63:5*/
         return ;
     };
     /* static System.Void Program.CheckEquals(B,Object)*/
@@ -416,13 +441,14 @@ var asm1; (function (asm)
         t1 = asm1.B();
         t2 = (asm0)["System.Boolean"]();
         __pos__ = 0x0;
-        /* IL_00: ldsfld B b*/
-        /* IL_05: box B*/
-        /* IL_0A: ldarg.0 */
-        /* IL_0B: box B*/
-        /* IL_10: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_15: box System.Boolean*/
-        /* IL_1A: call Void Log(System.Object)*/
+        /* IL_00: nop  ReferenceEquals.cs:66:5*/
+        /* IL_01: ldsfld B b */
+        /* IL_06: box B */
+        /* IL_0B: ldarg.0  */
+        /* IL_0C: box B */
+        /* IL_11: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_16: box System.Boolean */
+        /* IL_1B: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007({
                         'boxed': BLR.clone_value(t0.b),
@@ -439,12 +465,13 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_1F: ldsfld B b*/
-        /* IL_24: box B*/
-        /* IL_29: ldarg.1 */
-        /* IL_2A: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_2F: box System.Boolean*/
-        /* IL_34: call Void Log(System.Object)*/
+        /* IL_20: nop  */
+        /* IL_21: ldsfld B b */
+        /* IL_26: box B */
+        /* IL_2B: ldarg.1  */
+        /* IL_2C: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_31: box System.Boolean */
+        /* IL_36: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007({
                         'boxed': BLR.clone_value(t0.b),
@@ -456,12 +483,13 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_39: ldsfld Object b4*/
-        /* IL_3E: ldarg.0 */
-        /* IL_3F: box B*/
-        /* IL_44: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_49: box System.Boolean*/
-        /* IL_4E: call Void Log(System.Object)*/
+        /* IL_3B: nop  */
+        /* IL_3C: ldsfld Object b4 */
+        /* IL_41: ldarg.0  */
+        /* IL_42: box B */
+        /* IL_47: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_4C: box System.Boolean */
+        /* IL_51: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.b4,{
                         'boxed': BLR.clone_value(arg0),
@@ -473,23 +501,25 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_53: ldsfld Object b4*/
-        /* IL_58: ldarg.1 */
-        /* IL_59: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_5E: box System.Boolean*/
-        /* IL_63: call Void Log(System.Object)*/
+        /* IL_56: nop  */
+        /* IL_57: ldsfld Object b4 */
+        /* IL_5C: ldarg.1  */
+        /* IL_5D: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_62: box System.Boolean */
+        /* IL_67: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.b4,arg1),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_68: ldnull */
-        /* IL_69: ldarg.0 */
-        /* IL_6A: box B*/
-        /* IL_6F: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_74: box System.Boolean*/
-        /* IL_79: call Void Log(System.Object)*/
+        /* IL_6C: nop  */
+        /* IL_6D: ldnull  */
+        /* IL_6E: ldarg.0  */
+        /* IL_6F: box B */
+        /* IL_74: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_79: box System.Boolean */
+        /* IL_7E: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(null,{
                         'boxed': BLR.clone_value(arg0),
@@ -501,23 +531,25 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_7E: ldnull */
-        /* IL_7F: ldarg.1 */
-        /* IL_80: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_85: box System.Boolean*/
-        /* IL_8A: call Void Log(System.Object)*/
+        /* IL_83: nop  */
+        /* IL_84: ldnull  */
+        /* IL_85: ldarg.1  */
+        /* IL_86: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_8B: box System.Boolean */
+        /* IL_90: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(null,arg1),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_8F: ldarg.0 */
-        /* IL_90: box B*/
-        /* IL_95: ldnull */
-        /* IL_96: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_9B: box System.Boolean*/
-        /* IL_A0: call Void Log(System.Object)*/
+        /* IL_95: nop  */
+        /* IL_96: ldarg.0  */
+        /* IL_97: box B */
+        /* IL_9C: ldnull  */
+        /* IL_9D: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_A2: box System.Boolean */
+        /* IL_A7: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007({
                         'boxed': BLR.clone_value(arg0),
@@ -529,23 +561,25 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_A5: ldarg.1 */
-        /* IL_A6: ldnull */
-        /* IL_A7: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_AC: box System.Boolean*/
-        /* IL_B1: call Void Log(System.Object)*/
+        /* IL_AC: nop  */
+        /* IL_AD: ldarg.1  */
+        /* IL_AE: ldnull  */
+        /* IL_AF: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_B4: box System.Boolean */
+        /* IL_B9: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(arg1,null),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_B6: ldsfld Object b4*/
-        /* IL_BB: ldarg.0 */
-        /* IL_BC: box B*/
-        /* IL_C1: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_C6: box System.Boolean*/
-        /* IL_CB: call Void Log(System.Object)*/
+        /* IL_BE: nop  */
+        /* IL_BF: ldsfld Object b4 */
+        /* IL_C4: ldarg.0  */
+        /* IL_C5: box B */
+        /* IL_CA: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_CF: box System.Boolean */
+        /* IL_D4: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.b4,{
                         'boxed': BLR.clone_value(arg0),
@@ -557,18 +591,20 @@ var asm1; (function (asm)
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_D0: ldsfld Object b4*/
-        /* IL_D5: ldarg.1 */
-        /* IL_D6: call Boolean ReferenceEquals(System.Object, System.Object)*/
-        /* IL_DB: box System.Boolean*/
-        /* IL_E0: call Void Log(System.Object)*/
+        /* IL_D9: nop  */
+        /* IL_DA: ldsfld Object b4 */
+        /* IL_DF: ldarg.1  */
+        /* IL_E0: call Boolean ReferenceEquals(System.Object, System.Object) */
+        /* IL_E5: box System.Boolean */
+        /* IL_EA: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': asm0.x6000007(t0.b4,arg1),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_E5: ret */
+        /* IL_EF: nop  */
+        /* IL_F0: ret  ReferenceEquals.cs:78:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -576,9 +612,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

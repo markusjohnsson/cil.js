@@ -40,5 +40,7 @@ namespace Braille.Ast
                 return ReflectionType.IsInterface;
             }
         }
+
+        public Mono.Cecil.TypeDefinition CecilType { get; set; }
     }
 }

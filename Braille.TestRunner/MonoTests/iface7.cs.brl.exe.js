@@ -9,40 +9,50 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Int32 Base.TestMono.IBase.Do()*/
     asm.x600000b = function TestMono_IBase_Do(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: ldarg.0 */
-        /* IL_02: callvirt Int32 Do()*/
-        /* IL_07: add */
-        /* IL_08: ret */
-        return ((1|0) + ((arg0.vtable)["asm1.x600000c"]())(arg0)) | (0|0);
+        /* IL_00: nop  iface7.cs:17:9*/
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: ldarg.0  */
+        /* IL_03: callvirt Int32 Do() */
+        /* IL_08: add  */
+        /* IL_09: stloc.0  */
+        loc0 = ((1|0) + ((arg0.vtable)["asm1.x600000c"]())(arg0)) | (0|0);
+        /* IL_0C: ldloc.0  */
+        /* IL_0D: ret  */
+        return loc0;
     };;
     /* System.Int32 Base.Do()*/
     asm.x600000c = function Do(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: ret */
-        return (1|0);
+        /* IL_00: nop  iface7.cs:21:9*/
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Base..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  Derived..ctor()*/
@@ -50,10 +60,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000d(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Int32 Class1.Main(String[])*/
@@ -79,6 +89,8 @@ var asm1; (function (asm)
         var in_block_0;
         var __finally_continuation_0__;
         var loc0;
+        var loc5;
+        var loc4;
         var loc1;
         var loc2;
         var loc3;
@@ -94,75 +106,109 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.0 */
+                /* IL_00: nop  iface7.cs:33:9*/
+                
+                /* IL_01: newobj Void .ctor() */
+                /* IL_06: stloc.0  */
                 loc0 = BLR.newobj(t0,asm1.x600000e,[null]);
-                /* IL_06: ldloc.0 */
-                /* IL_07: callvirt Int32 Do()*/
-                /* IL_0C: ldc.i4.2 */
-                /* IL_0D: beq.s IL_11*/
+                /* IL_07: ldloc.0  */
+                /* IL_08: callvirt Int32 Do() */
+                /* IL_0D: ldc.i4.2  */
+                /* IL_0F: ceq  */
+                /* IL_10: stloc.s 5 */
+                loc5 = (((((loc0.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (2|0)) ? (1) : (0));
+                /* IL_12: ldloc.s 5 */
+                /* IL_14: brtrue.s IL_1B */
                 
-                if ((((loc0.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc0)) === (2|0)){
-                    __pos__ = 0x11;
+                if (loc5){
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_0F: ldc.i4.1 */
-                /* IL_10: ret */
-                return (1|0);
-                case 0x11:
-                /* IL_11: ldloc.0 */
-                /* IL_12: stloc.1 */
+                /* IL_16: ldc.i4.1  */
+                /* IL_17: stloc.s 4 */
+                loc4 = (1|0);
+                /* IL_19: br.s IL_6C */
+                __pos__ = 0x6C;
+                continue;
+                case 0x1B:
+                /* IL_1B: ldloc.0  */
+                /* IL_1C: stloc.1  */
                 loc1 = loc0;
-                /* IL_13: ldloc.1 */
-                /* IL_14: callvirt Int32 Do()*/
-                /* IL_19: ldc.i4.2 */
-                /* IL_1A: beq.s IL_1E*/
+                /* IL_1D: ldloc.1  */
+                /* IL_1E: callvirt Int32 Do() */
+                /* IL_23: ldc.i4.2  */
+                /* IL_25: ceq  */
+                /* IL_26: stloc.s 5 */
+                loc5 = (((((loc1.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc1)) === (2|0)) ? (1) : (0));
+                /* IL_28: ldloc.s 5 */
+                /* IL_2A: brtrue.s IL_31 */
                 
-                if ((((loc1.ifacemap)[t1].x600000a)())(BLR.convert_box_to_pointer_as_needed(loc1)) === (2|0)){
-                    __pos__ = 0x1E;
+                if (loc5){
+                    __pos__ = 0x31;
                     continue;
                 }
-                /* IL_1C: ldc.i4.2 */
-                /* IL_1D: ret */
-                return (2|0);
-                case 0x1E:
-                /* IL_1E: ldloc.0 */
-                /* IL_1F: castclass TestMono.Derived*/
-                /* IL_24: stloc.2 */
+                /* IL_2C: ldc.i4.2  */
+                /* IL_2D: stloc.s 4 */
+                loc4 = (2|0);
+                /* IL_2F: br.s IL_6C */
+                __pos__ = 0x6C;
+                continue;
+                case 0x31:
+                /* IL_31: ldloc.0  */
+                /* IL_32: castclass TestMono.Derived */
+                /* IL_37: stloc.2  */
                 loc2 = BLR.cast_class(loc0,t0);
-                /* IL_25: ldloc.2 */
-                /* IL_26: callvirt Int32 Do()*/
-                /* IL_2B: ldc.i4.1 */
-                /* IL_2C: beq.s IL_30*/
+                /* IL_38: ldloc.2  */
+                /* IL_39: callvirt Int32 Do() */
+                /* IL_3E: ldc.i4.1  */
+                /* IL_40: ceq  */
+                /* IL_41: stloc.s 5 */
+                loc5 = ((((loc2.vtable)["asm1.x600000c"]())(loc2) === (1|0)) ? (1) : (0));
+                /* IL_43: ldloc.s 5 */
+                /* IL_45: brtrue.s IL_4C */
                 
-                if (((loc2.vtable)["asm1.x600000c"]())(loc2) === (1|0)){
-                    __pos__ = 0x30;
+                if (loc5){
+                    __pos__ = 0x4C;
                     continue;
                 }
-                /* IL_2E: ldc.i4.3 */
-                /* IL_2F: ret */
-                return (3|0);
-                case 0x30:
-                /* IL_30: ldloc.0 */
-                /* IL_31: castclass TestMono.Base*/
-                /* IL_36: stloc.3 */
+                /* IL_47: ldc.i4.3  */
+                /* IL_48: stloc.s 4 */
+                loc4 = (3|0);
+                /* IL_4A: br.s IL_6C */
+                __pos__ = 0x6C;
+                continue;
+                case 0x4C:
+                /* IL_4C: ldloc.0  */
+                /* IL_4D: castclass TestMono.Base */
+                /* IL_52: stloc.3  */
                 loc3 = BLR.cast_class(loc0,t2);
-                /* IL_37: ldloc.3 */
-                /* IL_38: callvirt Int32 Do()*/
-                /* IL_3D: ldc.i4.1 */
-                /* IL_3E: beq.s IL_42*/
+                /* IL_53: ldloc.3  */
+                /* IL_54: callvirt Int32 Do() */
+                /* IL_59: ldc.i4.1  */
+                /* IL_5B: ceq  */
+                /* IL_5C: stloc.s 5 */
+                loc5 = ((((loc3.vtable)["asm1.x600000c"]())(loc3) === (1|0)) ? (1) : (0));
+                /* IL_5E: ldloc.s 5 */
+                /* IL_60: brtrue.s IL_67 */
                 
-                if (((loc3.vtable)["asm1.x600000c"]())(loc3) === (1|0)){
-                    __pos__ = 0x42;
+                if (loc5){
+                    __pos__ = 0x67;
                     continue;
                 }
-                /* IL_40: ldc.i4.4 */
-                /* IL_41: ret */
-                return (4|0);
-                case 0x42:
-                /* IL_42: ldc.i4.0 */
-                /* IL_43: ret */
-                return (0|0);
+                /* IL_62: ldc.i4.4  */
+                /* IL_63: stloc.s 4 */
+                loc4 = (4|0);
+                /* IL_65: br.s IL_6C */
+                __pos__ = 0x6C;
+                continue;
+                case 0x67:
+                /* IL_67: ldc.i4.0  */
+                /* IL_68: stloc.s 4 */
+                loc4 = (0|0);
+                case 0x6C:
+                /* IL_6C: ldloc.s 4 */
+                /* IL_6E: ret  */
+                return loc4;
             }
         }
     };
@@ -171,9 +217,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

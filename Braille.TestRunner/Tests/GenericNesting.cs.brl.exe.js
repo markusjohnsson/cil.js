@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B`1..ctor()*/
@@ -29,9 +29,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  C..ctor()*/
@@ -39,10 +39,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000b(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -63,16 +63,19 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var __pos__;
+        var loc0;
+        var loc1;
         t0 = asm1.A();
         t1 = asm1.C();
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: pop */
-        BLR.newobj(t0,asm1.x600000a,[null]);
-        /* IL_06: newobj Void .ctor()*/
-        /* IL_0B: pop */
-        BLR.newobj(t1,asm1.x600000c,[null]);
-        /* IL_0C: ret */
+        /* IL_00: nop  GenericNesting.cs:23:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
+        loc0 = BLR.newobj(t0,asm1.x600000a,[null]);
+        /* IL_07: newobj Void .ctor() */
+        /* IL_0C: stloc.1  */
+        loc1 = BLR.newobj(t1,asm1.x600000c,[null]);
+        /* IL_0D: ret  GenericNesting.cs:26:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -80,9 +83,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

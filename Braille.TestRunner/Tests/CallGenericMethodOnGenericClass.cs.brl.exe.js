@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B..ctor()*/
@@ -29,9 +29,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void C`1.X<T2>()*/
@@ -45,17 +45,20 @@ var asm1; (function (asm)
             t0 = (((arguments)[0].constructor.GenericArguments)["asm1.t2000008"])[0];
             t1 = T2;
             __pos__ = 0x0;
-            /* IL_00: ldtoken T*/
-            /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-            /* IL_0A: callvirt String get_Name()*/
-            /* IL_0F: call Void Log(System.Object)*/
+            /* IL_00: nop  CallGenericMethodOnGenericClass.cs:9:5*/
+            /* IL_01: ldtoken T */
+            /* IL_06: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+            /* IL_0B: callvirt String get_Name() */
+            /* IL_10: call Void Log(System.Object) */
             asm1.x6000001((((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x600003e"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
-            /* IL_14: ldtoken T2*/
-            /* IL_19: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-            /* IL_1E: callvirt String get_Name()*/
-            /* IL_23: call Void Log(System.Object)*/
+            /* IL_15: nop  */
+            /* IL_16: ldtoken T2 */
+            /* IL_1B: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+            /* IL_20: callvirt String get_Name() */
+            /* IL_25: call Void Log(System.Object) */
             asm1.x6000001((((asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x600003e"])())(asm0.x60000e1(BLR.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))));
-            /* IL_28: ret */
+            /* IL_2A: nop  */
+            /* IL_2B: ret  CallGenericMethodOnGenericClass.cs:12:5*/
             return ;
         };
     };;
@@ -64,9 +67,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -94,13 +97,15 @@ var asm1; (function (asm)
         t1 = (asm1)["C`1"](t0);
         t2 = asm1.B();
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stloc.0 */
+        /* IL_00: nop  CallGenericMethodOnGenericClass.cs:19:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = BLR.newobj(t1,asm1.x600000d,[null]);
-        /* IL_06: ldloc.0 */
-        /* IL_07: callvirt Void X[B]()*/
+        /* IL_07: ldloc.0  */
+        /* IL_08: callvirt Void X[B]() */
         (asm1.x600000c(asm1.B()))(loc0);
-        /* IL_0C: ret */
+        /* IL_0D: nop  */
+        /* IL_0E: ret  CallGenericMethodOnGenericClass.cs:22:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -108,9 +113,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

@@ -1,5 +1,7 @@
 using Braille.JsTranslation;
+using Mono.Cecil.Cil;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Braille.Ast
@@ -45,8 +47,9 @@ namespace Braille.Ast
             return InstructionPopCount ?? StackBefore.Count;
         }
 
-        public OpExpression(OpInstruction op, List<OpInstruction> prefixes, int? popCount, int pushCount)
+        public OpExpression(OpInstruction op, List<OpInstruction> prefixes, Instruction cecilInstruction, int? popCount, int pushCount)
         {
+            this.CecilInstruction = cecilInstruction;
             this.Instruction = op;
             this.Prefixes = prefixes;
             this.InstructionPopCount = popCount;
@@ -71,14 +74,16 @@ namespace Braille.Ast
         public bool IsHandlerStart { get; set; }
 
 
-        public IEnumerable<OpInstruction> PrefixTraversal()
+        public IEnumerable<OpExpression> PrefixTraversal()
         {
-            yield return Instruction;
+            yield return this;
             foreach (var subnode in Arguments.OfType<OpExpression>().SelectMany(n => n.PrefixTraversal()))
                 yield return subnode;
         }
 
 
         public List<IKVM.Reflection.Type> RequireFieldInitTypes { get; set; }
+
+        public Instruction CecilInstruction { get; set; }
     }
 }

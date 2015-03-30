@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -29,19 +29,24 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.0 */
-        /* IL_01: call Void X(System.Int32)*/
+        /* IL_00: nop  IntegerArithmetic.cs:6:5*/
+        /* IL_01: ldc.i4.0  */
+        /* IL_02: call Void X(System.Int32) */
         asm1.x600000b((0|0));
-        /* IL_06: ldc.i4.1 */
-        /* IL_07: call Void X(System.Int32)*/
+        /* IL_07: nop  */
+        /* IL_08: ldc.i4.1  */
+        /* IL_09: call Void X(System.Int32) */
         asm1.x600000b((1|0));
-        /* IL_0C: ldc.i4.2 */
-        /* IL_0D: call Void X(System.Int32)*/
+        /* IL_0E: nop  */
+        /* IL_0F: ldc.i4.2  */
+        /* IL_10: call Void X(System.Int32) */
         asm1.x600000b((2|0));
-        /* IL_12: ldc.i4.3 */
-        /* IL_13: call Void X(System.Int32)*/
+        /* IL_15: nop  */
+        /* IL_16: ldc.i4.3  */
+        /* IL_17: call Void X(System.Int32) */
         asm1.x600000b((3|0));
-        /* IL_18: ret */
+        /* IL_1C: nop  */
+        /* IL_1D: ret  IntegerArithmetic.cs:11:5*/
         return ;
     };
     /* static System.Void Program.X(Int32)*/
@@ -51,40 +56,44 @@ var asm1; (function (asm)
         var __pos__;
         t0 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldc.i4.1 */
-        /* IL_02: div */
-        /* IL_03: box System.Int32*/
-        /* IL_08: call Void Log(System.Object)*/
+        /* IL_00: nop  IntegerArithmetic.cs:14:5*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldc.i4.1  */
+        /* IL_03: div  */
+        /* IL_04: box System.Int32 */
+        /* IL_09: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': (arg0 / (1|0)) | (0|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_0D: ldarg.0 */
-        /* IL_0E: ldc.i4.2 */
-        /* IL_0F: div */
-        /* IL_10: box System.Int32*/
-        /* IL_15: call Void Log(System.Object)*/
+        /* IL_0E: nop  */
+        /* IL_0F: ldarg.0  */
+        /* IL_10: ldc.i4.2  */
+        /* IL_11: div  */
+        /* IL_12: box System.Int32 */
+        /* IL_17: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': (arg0 / (2|0)) | (0|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_1A: ldarg.0 */
-        /* IL_1B: ldc.i4.3 */
-        /* IL_1C: div */
-        /* IL_1D: box System.Int32*/
-        /* IL_22: call Void Log(System.Object)*/
+        /* IL_1C: nop  */
+        /* IL_1D: ldarg.0  */
+        /* IL_1E: ldc.i4.3  */
+        /* IL_1F: div  */
+        /* IL_20: box System.Int32 */
+        /* IL_25: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': (arg0 / (3|0)) | (0|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_27: ret */
+        /* IL_2A: nop  */
+        /* IL_2B: ret  IntegerArithmetic.cs:18:5*/
         return ;
     };;
     /*  Program..ctor()*/
@@ -92,9 +101,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

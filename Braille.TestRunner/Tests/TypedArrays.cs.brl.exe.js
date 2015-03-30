@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -29,19 +29,26 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: call Void TestUInt8()*/
+        /* IL_00: nop  TypedArrays.cs:4:5*/
+        /* IL_01: call Void TestUInt8() TypedArrays.cs:5:9*/
         asm1.x600000c();
-        /* IL_05: call Void TestInt8()*/
+        /* IL_06: nop  */
+        /* IL_07: call Void TestInt8() TypedArrays.cs:6:9*/
         asm1.x600000b();
-        /* IL_0A: call Void TestUInt16()*/
+        /* IL_0C: nop  */
+        /* IL_0D: call Void TestUInt16() TypedArrays.cs:7:9*/
         asm1.x600000e();
-        /* IL_0F: call Void TestInt16()*/
+        /* IL_12: nop  */
+        /* IL_13: call Void TestInt16() TypedArrays.cs:8:9*/
         asm1.x600000d();
-        /* IL_14: call Void TestUInt32()*/
+        /* IL_18: nop  */
+        /* IL_19: call Void TestUInt32() TypedArrays.cs:9:9*/
         asm1.x6000010();
-        /* IL_19: call Void TestInt32()*/
+        /* IL_1E: nop  */
+        /* IL_1F: call Void TestInt32() TypedArrays.cs:10:9*/
         asm1.x600000f();
-        /* IL_1E: ret */
+        /* IL_24: nop  */
+        /* IL_25: ret  TypedArrays.cs:12:5*/
         return ;
     };
     /* static System.Void Program.TestInt8()*/
@@ -55,6 +62,7 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc1;
+        var loc4;
         t0 = (asm0)["System.SByte"]();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -65,66 +73,76 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.3 */
-                /* IL_01: newarr System.SByte*/
-                /* IL_06: stloc.0 */
+                /* IL_00: nop  TypedArrays.cs:15:5*/
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: newarr System.SByte */
+                /* IL_07: stloc.0  */
                 loc0 = BLR.new_array(t0,(3|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: ldc.i4.0 */
-                /* IL_09: ldc.i4.s 251*/
-                /* IL_0B: stelem.i1 */
+                /* IL_08: ldloc.0  */
+                /* IL_09: ldc.i4.0  */
+                /* IL_0A: ldc.i4.s 251 */
+                /* IL_0C: stelem.i1  */
                 (loc0.jsarr)[(0|0)] = (-5|0);
-                /* IL_0C: ldloc.0 */
-                /* IL_0D: ldc.i4.1 */
-                /* IL_0E: ldc.i4.6 */
-                /* IL_0F: stelem.i1 */
+                /* IL_0D: ldloc.0  */
+                /* IL_0E: ldc.i4.1  */
+                /* IL_0F: ldc.i4.6  */
+                /* IL_10: stelem.i1  */
                 (loc0.jsarr)[(1|0)] = (6|0);
-                /* IL_10: ldloc.0 */
-                /* IL_11: ldc.i4.2 */
-                /* IL_12: ldc.i4.7 */
-                /* IL_13: stelem.i1 */
+                /* IL_11: ldloc.0  */
+                /* IL_12: ldc.i4.2  */
+                /* IL_13: ldc.i4.7  */
+                /* IL_14: stelem.i1  */
                 (loc0.jsarr)[(2|0)] = (7|0);
-                /* IL_14: ldloc.0 */
-                /* IL_15: stloc.2 */
+                /* IL_15: nop  TypedArrays.cs:20:9*/
+                
+                /* IL_16: ldloc.0  */
+                /* IL_17: stloc.2  */
                 loc2 = loc0;
-                /* IL_16: ldc.i4.0 */
-                /* IL_17: stloc.3 */
+                /* IL_18: ldc.i4.0  */
+                /* IL_19: stloc.3  */
                 loc3 = (0|0);
-                /* IL_18: br.s IL_2D*/
-                __pos__ = 0x2D;
+                /* IL_1A: br.s IL_30 */
+                __pos__ = 0x30;
                 continue;
-                case 0x1A:
-                /* IL_1A: ldloc.2 */
-                /* IL_1B: ldloc.3 */
-                /* IL_1C: ldelem.i1 */
-                /* IL_1D: stloc.1 */
+                case 0x1C:
+                /* IL_1C: ldloc.2  */
+                /* IL_1D: ldloc.3  */
+                /* IL_1E: ldelem.i1  */
+                /* IL_1F: stloc.1  */
                 loc1 = (loc2.jsarr)[loc3];
-                /* IL_1E: ldloc.1 */
-                /* IL_1F: box System.SByte*/
-                /* IL_24: call Void Log(System.Object)*/
+                /* IL_20: ldloc.1  */
+                /* IL_21: box System.SByte */
+                /* IL_26: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc1,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_29: ldloc.3 */
-                /* IL_2A: ldc.i4.1 */
-                /* IL_2B: add */
-                /* IL_2C: stloc.3 */
-                loc3 = (loc3 + (1|0)) | (0|0);
-                case 0x2D:
-                /* IL_2D: ldloc.3 */
-                /* IL_2E: ldloc.2 */
-                /* IL_2F: ldlen */
-                /* IL_30: conv.i4 */
-                /* IL_31: blt.s IL_1A*/
+                /* IL_2B: nop  */
                 
-                if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos__ = 0x1A;
+                /* IL_2C: ldloc.3  */
+                /* IL_2D: ldc.i4.1  */
+                /* IL_2E: add  */
+                /* IL_2F: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                case 0x30:
+                /* IL_30: ldloc.3  */
+                /* IL_31: ldloc.2  */
+                /* IL_32: ldlen  */
+                /* IL_33: conv.i4  */
+                /* IL_35: clt  */
+                /* IL_36: stloc.s 4 */
+                loc4 = ((loc3 < (loc2.jsarr.length | (0|0))) ? (1) : (0));
+                /* IL_38: ldloc.s 4 */
+                /* IL_3A: brtrue.s IL_1C */
+                
+                if (loc4){
+                    __pos__ = 0x1C;
                     continue;
                 }
-                /* IL_33: ret */
+                /* IL_3C: ret  TypedArrays.cs:22:5*/
                 return ;
             }
         }
@@ -140,6 +158,7 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc1;
+        var loc4;
         t0 = (asm0)["System.Byte"]();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -150,66 +169,76 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.3 */
-                /* IL_01: newarr System.Byte*/
-                /* IL_06: stloc.0 */
+                /* IL_00: nop  TypedArrays.cs:25:5*/
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: newarr System.Byte */
+                /* IL_07: stloc.0  */
                 loc0 = BLR.new_array(t0,(3|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: ldc.i4.0 */
-                /* IL_09: ldc.i4.5 */
-                /* IL_0A: stelem.i1 */
+                /* IL_08: ldloc.0  */
+                /* IL_09: ldc.i4.0  */
+                /* IL_0A: ldc.i4.5  */
+                /* IL_0B: stelem.i1  */
                 (loc0.jsarr)[(0|0)] = (5|0);
-                /* IL_0B: ldloc.0 */
-                /* IL_0C: ldc.i4.1 */
-                /* IL_0D: ldc.i4.6 */
-                /* IL_0E: stelem.i1 */
+                /* IL_0C: ldloc.0  */
+                /* IL_0D: ldc.i4.1  */
+                /* IL_0E: ldc.i4.6  */
+                /* IL_0F: stelem.i1  */
                 (loc0.jsarr)[(1|0)] = (6|0);
-                /* IL_0F: ldloc.0 */
-                /* IL_10: ldc.i4.2 */
-                /* IL_11: ldc.i4.7 */
-                /* IL_12: stelem.i1 */
+                /* IL_10: ldloc.0  */
+                /* IL_11: ldc.i4.2  */
+                /* IL_12: ldc.i4.7  */
+                /* IL_13: stelem.i1  */
                 (loc0.jsarr)[(2|0)] = (7|0);
-                /* IL_13: ldloc.0 */
-                /* IL_14: stloc.2 */
+                /* IL_14: nop  TypedArrays.cs:30:9*/
+                
+                /* IL_15: ldloc.0  */
+                /* IL_16: stloc.2  */
                 loc2 = loc0;
-                /* IL_15: ldc.i4.0 */
-                /* IL_16: stloc.3 */
+                /* IL_17: ldc.i4.0  */
+                /* IL_18: stloc.3  */
                 loc3 = (0|0);
-                /* IL_17: br.s IL_2C*/
-                __pos__ = 0x2C;
+                /* IL_19: br.s IL_2F */
+                __pos__ = 0x2F;
                 continue;
-                case 0x19:
-                /* IL_19: ldloc.2 */
-                /* IL_1A: ldloc.3 */
-                /* IL_1B: ldelem.u1 */
-                /* IL_1C: stloc.1 */
+                case 0x1B:
+                /* IL_1B: ldloc.2  */
+                /* IL_1C: ldloc.3  */
+                /* IL_1D: ldelem.u1  */
+                /* IL_1E: stloc.1  */
                 loc1 = (loc2.jsarr)[loc3];
-                /* IL_1D: ldloc.1 */
-                /* IL_1E: box System.Byte*/
-                /* IL_23: call Void Log(System.Object)*/
+                /* IL_1F: ldloc.1  */
+                /* IL_20: box System.Byte */
+                /* IL_25: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc1,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_28: ldloc.3 */
-                /* IL_29: ldc.i4.1 */
-                /* IL_2A: add */
-                /* IL_2B: stloc.3 */
-                loc3 = (loc3 + (1|0)) | (0|0);
-                case 0x2C:
-                /* IL_2C: ldloc.3 */
-                /* IL_2D: ldloc.2 */
-                /* IL_2E: ldlen */
-                /* IL_2F: conv.i4 */
-                /* IL_30: blt.s IL_19*/
+                /* IL_2A: nop  */
                 
-                if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos__ = 0x19;
+                /* IL_2B: ldloc.3  */
+                /* IL_2C: ldc.i4.1  */
+                /* IL_2D: add  */
+                /* IL_2E: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                case 0x2F:
+                /* IL_2F: ldloc.3  */
+                /* IL_30: ldloc.2  */
+                /* IL_31: ldlen  */
+                /* IL_32: conv.i4  */
+                /* IL_34: clt  */
+                /* IL_35: stloc.s 4 */
+                loc4 = ((loc3 < (loc2.jsarr.length | (0|0))) ? (1) : (0));
+                /* IL_37: ldloc.s 4 */
+                /* IL_39: brtrue.s IL_1B */
+                
+                if (loc4){
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_32: ret */
+                /* IL_3B: ret  TypedArrays.cs:32:5*/
                 return ;
             }
         }
@@ -225,6 +254,7 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc1;
+        var loc4;
         t0 = (asm0)["System.Int16"]();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -235,66 +265,76 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.3 */
-                /* IL_01: newarr System.Int16*/
-                /* IL_06: stloc.0 */
+                /* IL_00: nop  TypedArrays.cs:35:5*/
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: newarr System.Int16 */
+                /* IL_07: stloc.0  */
                 loc0 = BLR.new_array(t0,(3|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: ldc.i4.0 */
-                /* IL_09: ldc.i4.s 251*/
-                /* IL_0B: stelem.i2 */
+                /* IL_08: ldloc.0  */
+                /* IL_09: ldc.i4.0  */
+                /* IL_0A: ldc.i4.s 251 */
+                /* IL_0C: stelem.i2  */
                 (loc0.jsarr)[(0|0)] = (-5|0);
-                /* IL_0C: ldloc.0 */
-                /* IL_0D: ldc.i4.1 */
-                /* IL_0E: ldc.i4.6 */
-                /* IL_0F: stelem.i2 */
+                /* IL_0D: ldloc.0  */
+                /* IL_0E: ldc.i4.1  */
+                /* IL_0F: ldc.i4.6  */
+                /* IL_10: stelem.i2  */
                 (loc0.jsarr)[(1|0)] = (6|0);
-                /* IL_10: ldloc.0 */
-                /* IL_11: ldc.i4.2 */
-                /* IL_12: ldc.i4.7 */
-                /* IL_13: stelem.i2 */
+                /* IL_11: ldloc.0  */
+                /* IL_12: ldc.i4.2  */
+                /* IL_13: ldc.i4.7  */
+                /* IL_14: stelem.i2  */
                 (loc0.jsarr)[(2|0)] = (7|0);
-                /* IL_14: ldloc.0 */
-                /* IL_15: stloc.2 */
+                /* IL_15: nop  TypedArrays.cs:40:9*/
+                
+                /* IL_16: ldloc.0  */
+                /* IL_17: stloc.2  */
                 loc2 = loc0;
-                /* IL_16: ldc.i4.0 */
-                /* IL_17: stloc.3 */
+                /* IL_18: ldc.i4.0  */
+                /* IL_19: stloc.3  */
                 loc3 = (0|0);
-                /* IL_18: br.s IL_2D*/
-                __pos__ = 0x2D;
+                /* IL_1A: br.s IL_30 */
+                __pos__ = 0x30;
                 continue;
-                case 0x1A:
-                /* IL_1A: ldloc.2 */
-                /* IL_1B: ldloc.3 */
-                /* IL_1C: ldelem.i2 */
-                /* IL_1D: stloc.1 */
+                case 0x1C:
+                /* IL_1C: ldloc.2  */
+                /* IL_1D: ldloc.3  */
+                /* IL_1E: ldelem.i2  */
+                /* IL_1F: stloc.1  */
                 loc1 = (loc2.jsarr)[loc3];
-                /* IL_1E: ldloc.1 */
-                /* IL_1F: box System.Int16*/
-                /* IL_24: call Void Log(System.Object)*/
+                /* IL_20: ldloc.1  */
+                /* IL_21: box System.Int16 */
+                /* IL_26: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc1,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_29: ldloc.3 */
-                /* IL_2A: ldc.i4.1 */
-                /* IL_2B: add */
-                /* IL_2C: stloc.3 */
-                loc3 = (loc3 + (1|0)) | (0|0);
-                case 0x2D:
-                /* IL_2D: ldloc.3 */
-                /* IL_2E: ldloc.2 */
-                /* IL_2F: ldlen */
-                /* IL_30: conv.i4 */
-                /* IL_31: blt.s IL_1A*/
+                /* IL_2B: nop  */
                 
-                if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos__ = 0x1A;
+                /* IL_2C: ldloc.3  */
+                /* IL_2D: ldc.i4.1  */
+                /* IL_2E: add  */
+                /* IL_2F: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                case 0x30:
+                /* IL_30: ldloc.3  */
+                /* IL_31: ldloc.2  */
+                /* IL_32: ldlen  */
+                /* IL_33: conv.i4  */
+                /* IL_35: clt  */
+                /* IL_36: stloc.s 4 */
+                loc4 = ((loc3 < (loc2.jsarr.length | (0|0))) ? (1) : (0));
+                /* IL_38: ldloc.s 4 */
+                /* IL_3A: brtrue.s IL_1C */
+                
+                if (loc4){
+                    __pos__ = 0x1C;
                     continue;
                 }
-                /* IL_33: ret */
+                /* IL_3C: ret  TypedArrays.cs:42:5*/
                 return ;
             }
         }
@@ -310,6 +350,7 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc1;
+        var loc4;
         t0 = (asm0)["System.UInt16"]();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -320,66 +361,76 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.3 */
-                /* IL_01: newarr System.UInt16*/
-                /* IL_06: stloc.0 */
+                /* IL_00: nop  TypedArrays.cs:45:5*/
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: newarr System.UInt16 */
+                /* IL_07: stloc.0  */
                 loc0 = BLR.new_array(t0,(3|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: ldc.i4.0 */
-                /* IL_09: ldc.i4.5 */
-                /* IL_0A: stelem.i2 */
+                /* IL_08: ldloc.0  */
+                /* IL_09: ldc.i4.0  */
+                /* IL_0A: ldc.i4.5  */
+                /* IL_0B: stelem.i2  */
                 (loc0.jsarr)[(0|0)] = (5|0);
-                /* IL_0B: ldloc.0 */
-                /* IL_0C: ldc.i4.1 */
-                /* IL_0D: ldc.i4.6 */
-                /* IL_0E: stelem.i2 */
+                /* IL_0C: ldloc.0  */
+                /* IL_0D: ldc.i4.1  */
+                /* IL_0E: ldc.i4.6  */
+                /* IL_0F: stelem.i2  */
                 (loc0.jsarr)[(1|0)] = (6|0);
-                /* IL_0F: ldloc.0 */
-                /* IL_10: ldc.i4.2 */
-                /* IL_11: ldc.i4.7 */
-                /* IL_12: stelem.i2 */
+                /* IL_10: ldloc.0  */
+                /* IL_11: ldc.i4.2  */
+                /* IL_12: ldc.i4.7  */
+                /* IL_13: stelem.i2  */
                 (loc0.jsarr)[(2|0)] = (7|0);
-                /* IL_13: ldloc.0 */
-                /* IL_14: stloc.2 */
+                /* IL_14: nop  TypedArrays.cs:50:9*/
+                
+                /* IL_15: ldloc.0  */
+                /* IL_16: stloc.2  */
                 loc2 = loc0;
-                /* IL_15: ldc.i4.0 */
-                /* IL_16: stloc.3 */
+                /* IL_17: ldc.i4.0  */
+                /* IL_18: stloc.3  */
                 loc3 = (0|0);
-                /* IL_17: br.s IL_2C*/
-                __pos__ = 0x2C;
+                /* IL_19: br.s IL_2F */
+                __pos__ = 0x2F;
                 continue;
-                case 0x19:
-                /* IL_19: ldloc.2 */
-                /* IL_1A: ldloc.3 */
-                /* IL_1B: ldelem.u2 */
-                /* IL_1C: stloc.1 */
+                case 0x1B:
+                /* IL_1B: ldloc.2  */
+                /* IL_1C: ldloc.3  */
+                /* IL_1D: ldelem.u2  */
+                /* IL_1E: stloc.1  */
                 loc1 = (loc2.jsarr)[loc3];
-                /* IL_1D: ldloc.1 */
-                /* IL_1E: box System.UInt16*/
-                /* IL_23: call Void Log(System.Object)*/
+                /* IL_1F: ldloc.1  */
+                /* IL_20: box System.UInt16 */
+                /* IL_25: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc1,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_28: ldloc.3 */
-                /* IL_29: ldc.i4.1 */
-                /* IL_2A: add */
-                /* IL_2B: stloc.3 */
-                loc3 = (loc3 + (1|0)) | (0|0);
-                case 0x2C:
-                /* IL_2C: ldloc.3 */
-                /* IL_2D: ldloc.2 */
-                /* IL_2E: ldlen */
-                /* IL_2F: conv.i4 */
-                /* IL_30: blt.s IL_19*/
+                /* IL_2A: nop  */
                 
-                if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos__ = 0x19;
+                /* IL_2B: ldloc.3  */
+                /* IL_2C: ldc.i4.1  */
+                /* IL_2D: add  */
+                /* IL_2E: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                case 0x2F:
+                /* IL_2F: ldloc.3  */
+                /* IL_30: ldloc.2  */
+                /* IL_31: ldlen  */
+                /* IL_32: conv.i4  */
+                /* IL_34: clt  */
+                /* IL_35: stloc.s 4 */
+                loc4 = ((loc3 < (loc2.jsarr.length | (0|0))) ? (1) : (0));
+                /* IL_37: ldloc.s 4 */
+                /* IL_39: brtrue.s IL_1B */
+                
+                if (loc4){
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_32: ret */
+                /* IL_3B: ret  TypedArrays.cs:52:5*/
                 return ;
             }
         }
@@ -395,6 +446,7 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc1;
+        var loc4;
         t0 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -405,66 +457,76 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.3 */
-                /* IL_01: newarr System.Int32*/
-                /* IL_06: stloc.0 */
+                /* IL_00: nop  TypedArrays.cs:55:5*/
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: newarr System.Int32 */
+                /* IL_07: stloc.0  */
                 loc0 = BLR.new_array(t0,(3|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: ldc.i4.0 */
-                /* IL_09: ldc.i4.s 251*/
-                /* IL_0B: stelem.i4 */
+                /* IL_08: ldloc.0  */
+                /* IL_09: ldc.i4.0  */
+                /* IL_0A: ldc.i4.s 251 */
+                /* IL_0C: stelem.i4  */
                 (loc0.jsarr)[(0|0)] = (-5|0);
-                /* IL_0C: ldloc.0 */
-                /* IL_0D: ldc.i4.1 */
-                /* IL_0E: ldc.i4.6 */
-                /* IL_0F: stelem.i4 */
+                /* IL_0D: ldloc.0  */
+                /* IL_0E: ldc.i4.1  */
+                /* IL_0F: ldc.i4.6  */
+                /* IL_10: stelem.i4  */
                 (loc0.jsarr)[(1|0)] = (6|0);
-                /* IL_10: ldloc.0 */
-                /* IL_11: ldc.i4.2 */
-                /* IL_12: ldc.i4.7 */
-                /* IL_13: stelem.i4 */
+                /* IL_11: ldloc.0  */
+                /* IL_12: ldc.i4.2  */
+                /* IL_13: ldc.i4.7  */
+                /* IL_14: stelem.i4  */
                 (loc0.jsarr)[(2|0)] = (7|0);
-                /* IL_14: ldloc.0 */
-                /* IL_15: stloc.2 */
+                /* IL_15: nop  TypedArrays.cs:60:9*/
+                
+                /* IL_16: ldloc.0  */
+                /* IL_17: stloc.2  */
                 loc2 = loc0;
-                /* IL_16: ldc.i4.0 */
-                /* IL_17: stloc.3 */
+                /* IL_18: ldc.i4.0  */
+                /* IL_19: stloc.3  */
                 loc3 = (0|0);
-                /* IL_18: br.s IL_2D*/
-                __pos__ = 0x2D;
+                /* IL_1A: br.s IL_30 */
+                __pos__ = 0x30;
                 continue;
-                case 0x1A:
-                /* IL_1A: ldloc.2 */
-                /* IL_1B: ldloc.3 */
-                /* IL_1C: ldelem.i4 */
-                /* IL_1D: stloc.1 */
+                case 0x1C:
+                /* IL_1C: ldloc.2  */
+                /* IL_1D: ldloc.3  */
+                /* IL_1E: ldelem.i4  */
+                /* IL_1F: stloc.1  */
                 loc1 = (loc2.jsarr)[loc3];
-                /* IL_1E: ldloc.1 */
-                /* IL_1F: box System.Int32*/
-                /* IL_24: call Void Log(System.Object)*/
+                /* IL_20: ldloc.1  */
+                /* IL_21: box System.Int32 */
+                /* IL_26: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc1,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_29: ldloc.3 */
-                /* IL_2A: ldc.i4.1 */
-                /* IL_2B: add */
-                /* IL_2C: stloc.3 */
-                loc3 = (loc3 + (1|0)) | (0|0);
-                case 0x2D:
-                /* IL_2D: ldloc.3 */
-                /* IL_2E: ldloc.2 */
-                /* IL_2F: ldlen */
-                /* IL_30: conv.i4 */
-                /* IL_31: blt.s IL_1A*/
+                /* IL_2B: nop  */
                 
-                if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos__ = 0x1A;
+                /* IL_2C: ldloc.3  */
+                /* IL_2D: ldc.i4.1  */
+                /* IL_2E: add  */
+                /* IL_2F: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                case 0x30:
+                /* IL_30: ldloc.3  */
+                /* IL_31: ldloc.2  */
+                /* IL_32: ldlen  */
+                /* IL_33: conv.i4  */
+                /* IL_35: clt  */
+                /* IL_36: stloc.s 4 */
+                loc4 = ((loc3 < (loc2.jsarr.length | (0|0))) ? (1) : (0));
+                /* IL_38: ldloc.s 4 */
+                /* IL_3A: brtrue.s IL_1C */
+                
+                if (loc4){
+                    __pos__ = 0x1C;
                     continue;
                 }
-                /* IL_33: ret */
+                /* IL_3C: ret  TypedArrays.cs:62:5*/
                 return ;
             }
         }
@@ -480,6 +542,7 @@ var asm1; (function (asm)
         var loc2;
         var loc3;
         var loc1;
+        var loc4;
         t0 = (asm0)["System.UInt32"]();
         __pos__ = 0x0;
         in_block_0 = true;
@@ -490,66 +553,76 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.3 */
-                /* IL_01: newarr System.UInt32*/
-                /* IL_06: stloc.0 */
+                /* IL_00: nop  TypedArrays.cs:65:5*/
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: newarr System.UInt32 */
+                /* IL_07: stloc.0  */
                 loc0 = BLR.new_array(t0,(3|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: ldc.i4.0 */
-                /* IL_09: ldc.i4.5 */
-                /* IL_0A: stelem.i4 */
+                /* IL_08: ldloc.0  */
+                /* IL_09: ldc.i4.0  */
+                /* IL_0A: ldc.i4.5  */
+                /* IL_0B: stelem.i4  */
                 (loc0.jsarr)[(0|0)] = (5|0);
-                /* IL_0B: ldloc.0 */
-                /* IL_0C: ldc.i4.1 */
-                /* IL_0D: ldc.i4.6 */
-                /* IL_0E: stelem.i4 */
+                /* IL_0C: ldloc.0  */
+                /* IL_0D: ldc.i4.1  */
+                /* IL_0E: ldc.i4.6  */
+                /* IL_0F: stelem.i4  */
                 (loc0.jsarr)[(1|0)] = (6|0);
-                /* IL_0F: ldloc.0 */
-                /* IL_10: ldc.i4.2 */
-                /* IL_11: ldc.i4.7 */
-                /* IL_12: stelem.i4 */
+                /* IL_10: ldloc.0  */
+                /* IL_11: ldc.i4.2  */
+                /* IL_12: ldc.i4.7  */
+                /* IL_13: stelem.i4  */
                 (loc0.jsarr)[(2|0)] = (7|0);
-                /* IL_13: ldloc.0 */
-                /* IL_14: stloc.2 */
+                /* IL_14: nop  TypedArrays.cs:70:9*/
+                
+                /* IL_15: ldloc.0  */
+                /* IL_16: stloc.2  */
                 loc2 = loc0;
-                /* IL_15: ldc.i4.0 */
-                /* IL_16: stloc.3 */
+                /* IL_17: ldc.i4.0  */
+                /* IL_18: stloc.3  */
                 loc3 = (0|0);
-                /* IL_17: br.s IL_2C*/
-                __pos__ = 0x2C;
+                /* IL_19: br.s IL_2F */
+                __pos__ = 0x2F;
                 continue;
-                case 0x19:
-                /* IL_19: ldloc.2 */
-                /* IL_1A: ldloc.3 */
-                /* IL_1B: ldelem.u4 */
-                /* IL_1C: stloc.1 */
+                case 0x1B:
+                /* IL_1B: ldloc.2  */
+                /* IL_1C: ldloc.3  */
+                /* IL_1D: ldelem.u4  */
+                /* IL_1E: stloc.1  */
                 loc1 = (loc2.jsarr)[loc3];
-                /* IL_1D: ldloc.1 */
-                /* IL_1E: box System.UInt32*/
-                /* IL_23: call Void Log(System.Object)*/
+                /* IL_1F: ldloc.1  */
+                /* IL_20: box System.UInt32 */
+                /* IL_25: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc1,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_28: ldloc.3 */
-                /* IL_29: ldc.i4.1 */
-                /* IL_2A: add */
-                /* IL_2B: stloc.3 */
-                loc3 = (loc3 + (1|0)) | (0|0);
-                case 0x2C:
-                /* IL_2C: ldloc.3 */
-                /* IL_2D: ldloc.2 */
-                /* IL_2E: ldlen */
-                /* IL_2F: conv.i4 */
-                /* IL_30: blt.s IL_19*/
+                /* IL_2A: nop  */
                 
-                if (loc3 < (loc2.jsarr.length | (0|0))){
-                    __pos__ = 0x19;
+                /* IL_2B: ldloc.3  */
+                /* IL_2C: ldc.i4.1  */
+                /* IL_2D: add  */
+                /* IL_2E: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                case 0x2F:
+                /* IL_2F: ldloc.3  */
+                /* IL_30: ldloc.2  */
+                /* IL_31: ldlen  */
+                /* IL_32: conv.i4  */
+                /* IL_34: clt  */
+                /* IL_35: stloc.s 4 */
+                loc4 = ((loc3 < (loc2.jsarr.length | (0|0))) ? (1) : (0));
+                /* IL_37: ldloc.s 4 */
+                /* IL_39: brtrue.s IL_1B */
+                
+                if (loc4){
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_32: ret */
+                /* IL_3B: ret  TypedArrays.cs:72:5*/
                 return ;
             }
         }
@@ -559,9 +632,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(

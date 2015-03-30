@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void A.Invoke()*/
@@ -53,11 +53,14 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: call Void Simple()*/
+        /* IL_00: nop  DelegateBeginInvoke.cs:12:5*/
+        /* IL_01: call Void Simple() DelegateBeginInvoke.cs:13:9*/
         asm1.x6000018();
-        /* IL_05: call Void WithCallback()*/
+        /* IL_06: nop  */
+        /* IL_07: call Void WithCallback() DelegateBeginInvoke.cs:14:9*/
         asm1.x6000017();
-        /* IL_0A: ret */
+        /* IL_0C: nop  */
+        /* IL_0D: ret  DelegateBeginInvoke.cs:15:5*/
         return ;
     };
     /* static System.Void Program.WithCallback()*/
@@ -89,6 +92,7 @@ var asm1; (function (asm)
         var loc2;
         var loc1;
         var loc0;
+        var loc3;
         t0 = (asm1)["Program+<>c__DisplayClass3"]();
         t1 = asm1.Program();
         t2 = asm1.A();
@@ -104,76 +108,93 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.2 */
+                /* IL_00: newobj Void .ctor() */
+                /* IL_05: stloc.2  */
                 loc2 = BLR.newobj(t0,asm1.x600001d,[null]);
-                /* IL_06: ldloc.2 */
-                /* IL_07: ldc.i4.0 */
-                /* IL_08: stfld Int32 state*/
+                /* IL_06: nop  DelegateBeginInvoke.cs:18:5*/
+                
+                /* IL_07: ldloc.2  */
+                /* IL_08: ldc.i4.0  */
+                /* IL_09: stfld Int32 state */
                 loc2.state = (0|0);
-                /* IL_0D: ldsfld A CS$<>9__CachedAnonymousMethodDelegate2*/
-                /* IL_12: brtrue.s IL_25*/
+                /* IL_0E: ldsfld A CS$<>9__CachedAnonymousMethodDelegate2 */
+                /* IL_13: brtrue.s IL_28 */
                 
                 if ((t1)["CS$<>9__CachedAnonymousMethodDelegate2"]){
-                    __pos__ = 0x25;
+                    __pos__ = 0x28;
                     continue;
                 }
-                /* IL_14: ldnull */
-                /* IL_16: ldftn Void <WithCallback>b__0()*/
-                /* IL_1B: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_20: stsfld A CS$<>9__CachedAnonymousMethodDelegate2*/
+                /* IL_15: ldnull  */
+                /* IL_17: ldftn Void <WithCallback>b__0() */
+                /* IL_1C: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_21: stsfld A CS$<>9__CachedAnonymousMethodDelegate2 */
                 (t1)["CS$<>9__CachedAnonymousMethodDelegate2"] = BLR.newobj(t2,asm1.x600000a,[null, null, asm1.x600001a]);
-                case 0x25:
-                /* IL_25: ldsfld A CS$<>9__CachedAnonymousMethodDelegate2*/
-                /* IL_2A: stloc.1 */
+                case 0x28:
+                /* IL_28: ldsfld A CS$<>9__CachedAnonymousMethodDelegate2 */
+                /* IL_2D: stloc.1  */
                 loc1 = (t1)["CS$<>9__CachedAnonymousMethodDelegate2"];
-                /* IL_2B: ldnull */
-                /* IL_2C: stloc.0 */
+                /* IL_2E: ldnull  */
+                /* IL_2F: stloc.0  */
                 loc0 = null;
-                /* IL_2D: ldloc.1 */
-                /* IL_2E: ldloc.2 */
-                /* IL_30: ldftn Void <WithCallback>b__1(System.IAsyncResult)*/
-                /* IL_35: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_3A: ldstr  state */
-                /* IL_3F: callvirt IAsyncResult BeginInvoke(System.AsyncCallback, System.Object)*/
-                /* IL_44: stloc.0 */
+                /* IL_30: ldloc.1  */
+                /* IL_31: ldloc.2  */
+                /* IL_33: ldftn Void <WithCallback>b__1(System.IAsyncResult) */
+                /* IL_38: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_3D: ldstr  state  */
+                /* IL_42: callvirt IAsyncResult BeginInvoke(System.AsyncCallback, System.Object) */
+                /* IL_47: stloc.0  */
                 loc0 = ((loc1.vtable)["asm1.x600000c"]())(loc1,BLR.newobj(t3,asm0.x6000072,[null, loc2, asm1.x600001e]),BLR.new_string(" state "));
-                /* IL_45: br.s IL_4E*/
-                __pos__ = 0x4E;
+                /* IL_48: br.s IL_52 DelegateBeginInvoke.cs:16707566:0*/
+                __pos__ = 0x52;
                 continue;
-                case 0x47:
-                /* IL_47: ldc.i4.0 */
-                /* IL_48: conv.i8 */
-                /* IL_49: call Void Sleep(System.Int64)*/
+                case 0x4A:
+                /* IL_4A: ldc.i4.0  */
+                /* IL_4B: conv.i8  */
+                /* IL_4C: call Void Sleep(System.Int64) */
                 asm0.x600005b(BLR.conv_i8((0|0)));
-                case 0x4E:
-                /* IL_4E: ldloc.2 */
-                /* IL_4F: ldfld Int32 state*/
-                /* IL_54: brfalse.s IL_47*/
+                /* IL_51: nop  */
                 
-                if ((!(loc2.state))){
-                    __pos__ = 0x47;
+                case 0x52:
+                /* IL_52: ldloc.2  */
+                /* IL_53: ldfld Int32 state */
+                /* IL_58: ldc.i4.0  */
+                /* IL_5A: ceq  */
+                /* IL_5B: stloc.3  */
+                loc3 = ((loc2.state === (0|0)) ? (1) : (0));
+                /* IL_5C: ldloc.3  */
+                /* IL_5D: brtrue.s IL_4A */
+                
+                if (loc3){
+                    __pos__ = 0x4A;
                     continue;
                 }
-                /* IL_56: ldloc.1 */
-                /* IL_57: ldloc.0 */
-                /* IL_58: callvirt Void EndInvoke(System.IAsyncResult)*/
+                /* IL_5F: ldloc.1  */
+                /* IL_60: ldloc.0  */
+                /* IL_61: callvirt Void EndInvoke(System.IAsyncResult) */
                 ((loc1.vtable)["asm1.x600000d"]())(loc1,loc0);
-                /* IL_5D: ldloc.2 */
-                /* IL_5E: ldfld Int32 state*/
-                /* IL_63: box System.Int32*/
-                /* IL_68: call Void Log(System.Object)*/
+                /* IL_66: nop  */
+                
+                /* IL_67: ldloc.2  */
+                /* IL_68: ldfld Int32 state */
+                /* IL_6D: box System.Int32 */
+                /* IL_72: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc2.state,
                         'type': t4,
                         'vtable': t4.prototype.vtable,
                         'ifacemap': t4.prototype.ifacemap
                     });
-                /* IL_6D: ldloc.0 */
-                /* IL_6E: callvirt Object get_AsyncState()*/
-                /* IL_73: call Void Log(System.Object)*/
+                /* IL_77: nop  */
+                
+                /* IL_78: ldloc.0  */
+                /* IL_79: callvirt Object get_AsyncState() */
+                /* IL_7E: call Void Log(System.Object) */
                 asm1.x6000001((((loc0.ifacemap)[t5].x60000be)())(BLR.convert_box_to_pointer_as_needed(loc0)));
-                /* IL_78: ret */
+                /* IL_83: nop  */
+                
+                /* IL_84: nop  DelegateBeginInvoke.cs:31:5*/
+                
+                /* IL_85: ret  */
                 return ;
             }
         }
@@ -232,179 +253,199 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.s 6*/
+                /* IL_00: newobj Void .ctor() */
+                /* IL_05: stloc.s 6 */
                 loc6 = BLR.newobj(t0,asm1.x600001f,[null]);
-                /* IL_07: ldsfld A CS$<>9__CachedAnonymousMethodDelegate8*/
-                /* IL_0C: brtrue.s IL_1F*/
+                /* IL_07: nop  DelegateBeginInvoke.cs:34:5*/
+                
+                /* IL_08: ldsfld A CS$<>9__CachedAnonymousMethodDelegate8 */
+                /* IL_0D: brtrue.s IL_22 */
                 
                 if ((t1)["CS$<>9__CachedAnonymousMethodDelegate8"]){
-                    __pos__ = 0x1F;
+                    __pos__ = 0x22;
                     continue;
                 }
-                /* IL_0E: ldnull */
-                /* IL_10: ldftn Void <Simple>b__5()*/
-                /* IL_15: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_1A: stsfld A CS$<>9__CachedAnonymousMethodDelegate8*/
+                /* IL_0F: ldnull  */
+                /* IL_11: ldftn Void <Simple>b__5() */
+                /* IL_16: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_1B: stsfld A CS$<>9__CachedAnonymousMethodDelegate8 */
                 (t1)["CS$<>9__CachedAnonymousMethodDelegate8"] = BLR.newobj(t2,asm1.x600000a,[null, null, asm1.x600001b]);
-                case 0x1F:
-                /* IL_1F: ldsfld A CS$<>9__CachedAnonymousMethodDelegate8*/
-                /* IL_24: stloc.1 */
+                case 0x22:
+                /* IL_22: ldsfld A CS$<>9__CachedAnonymousMethodDelegate8 */
+                /* IL_27: stloc.1  */
                 loc1 = (t1)["CS$<>9__CachedAnonymousMethodDelegate8"];
-                /* IL_25: ldnull */
-                /* IL_26: stloc.0 */
+                /* IL_28: ldnull  */
+                /* IL_29: stloc.0  */
                 loc0 = null;
-                /* IL_27: ldloc.1 */
-                /* IL_28: ldnull */
-                /* IL_29: ldnull */
-                /* IL_2A: callvirt IAsyncResult BeginInvoke(System.AsyncCallback, System.Object)*/
-                /* IL_2F: stloc.0 */
+                /* IL_2A: ldloc.1  */
+                /* IL_2B: ldnull  */
+                /* IL_2C: ldnull  */
+                /* IL_2D: callvirt IAsyncResult BeginInvoke(System.AsyncCallback, System.Object) */
+                /* IL_32: stloc.0  */
                 loc0 = ((loc1.vtable)["asm1.x600000c"]())(loc1,null,null);
-                /* IL_30: ldloc.1 */
-                /* IL_31: ldloc.0 */
-                /* IL_32: callvirt Void EndInvoke(System.IAsyncResult)*/
+                /* IL_33: ldloc.1  */
+                /* IL_34: ldloc.0  */
+                /* IL_35: callvirt Void EndInvoke(System.IAsyncResult) */
                 ((loc1.vtable)["asm1.x600000d"]())(loc1,loc0);
-                /* IL_37: ldsfld B CS$<>9__CachedAnonymousMethodDelegate9*/
-                /* IL_3C: brtrue.s IL_4F*/
+                /* IL_3A: nop  */
+                
+                /* IL_3B: ldsfld B CS$<>9__CachedAnonymousMethodDelegate9 */
+                /* IL_40: brtrue.s IL_55 */
                 
                 if ((t1)["CS$<>9__CachedAnonymousMethodDelegate9"]){
-                    __pos__ = 0x4F;
+                    __pos__ = 0x55;
                     continue;
                 }
-                /* IL_3E: ldnull */
-                /* IL_40: ldftn Int32 <Simple>b__6()*/
-                /* IL_45: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_4A: stsfld B CS$<>9__CachedAnonymousMethodDelegate9*/
+                /* IL_42: ldnull  */
+                /* IL_44: ldftn Int32 <Simple>b__6() */
+                /* IL_49: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_4E: stsfld B CS$<>9__CachedAnonymousMethodDelegate9 */
                 (t1)["CS$<>9__CachedAnonymousMethodDelegate9"] = BLR.newobj(t3,asm1.x600000e,[null, null, asm1.x600001c]);
-                case 0x4F:
-                /* IL_4F: ldsfld B CS$<>9__CachedAnonymousMethodDelegate9*/
-                /* IL_54: stloc.2 */
+                case 0x55:
+                /* IL_55: ldsfld B CS$<>9__CachedAnonymousMethodDelegate9 */
+                /* IL_5A: stloc.2  */
                 loc2 = (t1)["CS$<>9__CachedAnonymousMethodDelegate9"];
-                /* IL_55: ldnull */
-                /* IL_56: stloc.0 */
+                /* IL_5B: ldnull  */
+                /* IL_5C: stloc.0  */
                 loc0 = null;
-                /* IL_57: ldloc.2 */
-                /* IL_58: ldnull */
-                /* IL_59: ldnull */
-                /* IL_5A: callvirt IAsyncResult BeginInvoke(System.AsyncCallback, System.Object)*/
-                /* IL_5F: stloc.0 */
+                /* IL_5D: ldloc.2  */
+                /* IL_5E: ldnull  */
+                /* IL_5F: ldnull  */
+                /* IL_60: callvirt IAsyncResult BeginInvoke(System.AsyncCallback, System.Object) */
+                /* IL_65: stloc.0  */
                 loc0 = ((loc2.vtable)["asm1.x6000010"]())(loc2,null,null);
-                /* IL_60: ldloc.2 */
-                /* IL_61: ldloc.0 */
-                /* IL_62: callvirt Int32 EndInvoke(System.IAsyncResult)*/
-                /* IL_67: box System.Int32*/
-                /* IL_6C: call Void Log(System.Object)*/
+                /* IL_66: ldloc.2  */
+                /* IL_67: ldloc.0  */
+                /* IL_68: callvirt Int32 EndInvoke(System.IAsyncResult) */
+                /* IL_6D: box System.Int32 */
+                /* IL_72: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': ((loc2.vtable)["asm1.x6000011"]())(loc2,loc0),
                         'type': t4,
                         'vtable': t4.prototype.vtable,
                         'ifacemap': t4.prototype.ifacemap
                     });
-                /* IL_71: ldloc.s 6*/
-                /* IL_73: ldc.i4.0 */
-                /* IL_74: stfld Int32 i*/
+                /* IL_77: nop  */
+                
+                /* IL_78: ldloc.s 6 */
+                /* IL_7A: ldc.i4.0  */
+                /* IL_7B: stfld Int32 i */
                 loc6.i = (0|0);
-                /* IL_79: ldloc.s 6*/
-                /* IL_7B: ldc.i4.2 */
-                /* IL_7C: newarr System.Int32*/
-                /* IL_81: stfld Int32[] arr*/
+                /* IL_80: ldloc.s 6 */
+                /* IL_82: ldc.i4.2  */
+                /* IL_83: newarr System.Int32 */
+                /* IL_88: stfld Int32[] arr */
                 loc6.arr = BLR.new_array(t4,(2|0));
-                /* IL_86: ldloc.s 6*/
-                /* IL_89: ldftn Void <Simple>b__7(System.Int32)*/
-                /* IL_8E: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_93: stloc.s 5*/
+                /* IL_8D: ldloc.s 6 */
+                /* IL_90: ldftn Void <Simple>b__7(System.Int32) */
+                /* IL_95: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_9A: stloc.s 5 */
                 loc5 = BLR.newobj(t5,asm1.x6000012,[null, loc6, asm1.x6000020]);
-                /* IL_95: ldloc.s 5*/
-                /* IL_97: ldc.i4.s 123*/
-                /* IL_99: ldnull */
-                /* IL_9A: ldnull */
-                /* IL_9B: callvirt IAsyncResult BeginInvoke(System.Int32, System.AsyncCallback, System.Object)*/
-                /* IL_A0: stloc.3 */
+                /* IL_9C: ldloc.s 5 */
+                /* IL_9E: ldc.i4.s 123 */
+                /* IL_A0: ldnull  */
+                /* IL_A1: ldnull  */
+                /* IL_A2: callvirt IAsyncResult BeginInvoke(System.Int32, System.AsyncCallback, System.Object) */
+                /* IL_A7: stloc.3  */
                 loc3 = ((loc5.vtable)["asm1.x6000014"]())(loc5,(123|0),null,null);
-                /* IL_A1: ldloc.s 5*/
-                /* IL_A3: ldc.i4 456*/
-                /* IL_A8: ldnull */
-                /* IL_A9: ldnull */
-                /* IL_AA: callvirt IAsyncResult BeginInvoke(System.Int32, System.AsyncCallback, System.Object)*/
-                /* IL_AF: stloc.s 4*/
+                /* IL_A8: ldloc.s 5 */
+                /* IL_AA: ldc.i4 456 */
+                /* IL_AF: ldnull  */
+                /* IL_B0: ldnull  */
+                /* IL_B1: callvirt IAsyncResult BeginInvoke(System.Int32, System.AsyncCallback, System.Object) */
+                /* IL_B6: stloc.s 4 */
                 loc4 = ((loc5.vtable)["asm1.x6000014"]())(loc5,(456|0),null,null);
-                /* IL_B1: ldloc.s 5*/
-                /* IL_B3: ldloc.3 */
-                /* IL_B4: callvirt Void EndInvoke(System.IAsyncResult)*/
+                /* IL_B8: ldloc.s 5 */
+                /* IL_BA: ldloc.3  */
+                /* IL_BB: callvirt Void EndInvoke(System.IAsyncResult) */
                 ((loc5.vtable)["asm1.x6000015"]())(loc5,loc3);
-                /* IL_B9: ldloc.s 5*/
-                /* IL_BB: ldloc.s 4*/
-                /* IL_BD: callvirt Void EndInvoke(System.IAsyncResult)*/
+                /* IL_C0: nop  */
+                
+                /* IL_C1: ldloc.s 5 */
+                /* IL_C3: ldloc.s 4 */
+                /* IL_C5: callvirt Void EndInvoke(System.IAsyncResult) */
                 ((loc5.vtable)["asm1.x6000015"]())(loc5,loc4);
-                /* IL_C2: ldloc.s 6*/
-                /* IL_C4: ldfld Int32[] arr*/
-                /* IL_C9: ldc.i4.0 */
-                /* IL_CA: ldelem.i4 */
-                /* IL_CB: ldc.i4.s 123*/
-                /* IL_CD: beq.s IL_E1*/
+                /* IL_CA: nop  */
+                
+                /* IL_CB: ldloc.s 6 */
+                /* IL_CD: ldfld Int32[] arr */
+                /* IL_D2: ldc.i4.0  */
+                /* IL_D3: ldelem.i4  */
+                /* IL_D4: ldc.i4.s 123 */
+                /* IL_D6: beq.s IL_EA */
                 
                 if ((loc6.arr.jsarr)[(0|0)] === (123|0)){
-                    __pos__ = 0xE1;
+                    __pos__ = 0xEA;
                     continue;
                 }
-                /* IL_CF: ldloc.s 6*/
-                /* IL_D1: ldfld Int32[] arr*/
-                /* IL_D6: ldc.i4.0 */
-                /* IL_D7: ldelem.i4 */
-                /* IL_D8: ldc.i4 456*/
-                /* IL_DE: ceq */
+                /* IL_D8: ldloc.s 6 */
+                /* IL_DA: ldfld Int32[] arr */
+                /* IL_DF: ldc.i4.0  */
+                /* IL_E0: ldelem.i4  */
+                /* IL_E1: ldc.i4 456 */
+                /* IL_E7: ceq  */
                 st_3B = (((loc6.arr.jsarr)[(0|0)] === (456|0)) ? (1) : (0));
-                /* IL_DF: br.s IL_E2*/
-                __pos__ = 0xE2;
+                /* IL_E8: br.s IL_EB */
+                __pos__ = 0xEB;
                 continue;
-                case 0xE1:
-                /* IL_E1: ldc.i4.1 */
+                case 0xEA:
+                /* IL_EA: ldc.i4.1  */
                 st_3B = (1|0);
-                case 0xE2:
-                /* IL_E2: box System.Boolean*/
+                case 0xEB:
+                /* IL_EB: nop  */
+                
+                /* IL_EC: box System.Boolean */
                 st_3C = {
                     'boxed': st_3B,
                     'type': t6,
                     'vtable': t6.prototype.vtable,
                     'ifacemap': t6.prototype.ifacemap
                 };
-                /* IL_E7: call Void Log(System.Object)*/
+                /* IL_F1: call Void Log(System.Object) */
                 asm1.x6000001(st_3C);
-                /* IL_EC: ldloc.s 6*/
-                /* IL_EE: ldfld Int32[] arr*/
-                /* IL_F3: ldc.i4.1 */
-                /* IL_F4: ldelem.i4 */
-                /* IL_F5: ldc.i4.s 123*/
-                /* IL_F7: beq.s IL_10B*/
+                /* IL_F6: nop  */
+                
+                /* IL_F7: ldloc.s 6 */
+                /* IL_F9: ldfld Int32[] arr */
+                /* IL_FE: ldc.i4.1  */
+                /* IL_FF: ldelem.i4  */
+                /* IL_100: ldc.i4.s 123 */
+                /* IL_102: beq.s IL_116 */
                 
                 if ((loc6.arr.jsarr)[(1|0)] === (123|0)){
-                    __pos__ = 0x10B;
+                    __pos__ = 0x116;
                     continue;
                 }
-                /* IL_F9: ldloc.s 6*/
-                /* IL_FB: ldfld Int32[] arr*/
-                /* IL_100: ldc.i4.1 */
-                /* IL_101: ldelem.i4 */
-                /* IL_102: ldc.i4 456*/
-                /* IL_108: ceq */
+                /* IL_104: ldloc.s 6 */
+                /* IL_106: ldfld Int32[] arr */
+                /* IL_10B: ldc.i4.1  */
+                /* IL_10C: ldelem.i4  */
+                /* IL_10D: ldc.i4 456 */
+                /* IL_113: ceq  */
                 st_47 = (((loc6.arr.jsarr)[(1|0)] === (456|0)) ? (1) : (0));
-                /* IL_109: br.s IL_10C*/
-                __pos__ = 0x10C;
+                /* IL_114: br.s IL_117 */
+                __pos__ = 0x117;
                 continue;
-                case 0x10B:
-                /* IL_10B: ldc.i4.1 */
+                case 0x116:
+                /* IL_116: ldc.i4.1  */
                 st_47 = (1|0);
-                case 0x10C:
-                /* IL_10C: box System.Boolean*/
+                case 0x117:
+                /* IL_117: nop  */
+                
+                /* IL_118: box System.Boolean */
                 st_48 = {
                     'boxed': st_47,
                     'type': t6,
                     'vtable': t6.prototype.vtable,
                     'ifacemap': t6.prototype.ifacemap
                 };
-                /* IL_111: call Void Log(System.Object)*/
+                /* IL_11D: call Void Log(System.Object) */
                 asm1.x6000001(st_48);
-                /* IL_116: ret */
+                /* IL_122: nop  */
+                
+                /* IL_123: nop  DelegateBeginInvoke.cs:58:5*/
+                
+                /* IL_124: ret  */
                 return ;
             }
         }
@@ -414,10 +455,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr A*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  DelegateBeginInvoke.cs:21:21*/
+        /* IL_01: ldstr A */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(BLR.new_string("A"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  DelegateBeginInvoke.cs:16707566:0*/
         return ;
     };;
     /* static System.Void Program.<Simple>b__5()*/
@@ -425,32 +468,40 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr A*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  DelegateBeginInvoke.cs:37:21*/
+        /* IL_01: ldstr A */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(BLR.new_string("A"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  DelegateBeginInvoke.cs:16707566:0*/
         return ;
     };;
     /* static System.Int32 Program.<Simple>b__6()*/
     asm.x600001c = function _Simple_b__6()
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldstr B*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  DelegateBeginInvoke.cs:42:21*/
+        /* IL_01: ldstr B */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(BLR.new_string("B"));
-        /* IL_0A: ldc.i4.s 123*/
-        /* IL_0C: ret */
-        return (123|0);
+        /* IL_0B: nop  */
+        /* IL_0C: ldc.i4.s 123 */
+        /* IL_0E: stloc.0  */
+        loc0 = (123|0);
+        /* IL_11: ldloc.0  */
+        /* IL_12: ret  */
+        return loc0;
     };;
     /*  Program..ctor()*/
     asm.x6000019 = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void <>c__DisplayClass3.<WithCallback>b__1(IAsyncResult)*/
@@ -458,11 +509,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldc.i4.1 */
-        /* IL_02: stfld Int32 state*/
+        /* IL_00: nop  DelegateBeginInvoke.cs:23:39*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldc.i4.1  */
+        /* IL_03: stfld Int32 state */
         arg0.state = (1|0);
-        /* IL_07: ret */
+        /* IL_08: ret  DelegateBeginInvoke.cs:16707566:0*/
         return ;
     };;
     /*  <>c__DisplayClass3..ctor()*/
@@ -470,9 +522,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void <>c__DisplayClassa.<Simple>b__7(Int32)*/
@@ -496,59 +548,71 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldarg.0 */
+                /* IL_00: nop  DelegateBeginInvoke.cs:50:22*/
+                
+                /* IL_01: ldarg.0  DelegateBeginInvoke.cs:50:24*/
                 st_00 = arg0;
-                /* IL_01: ldfld Int32[] arr*/
+                /* IL_02: ldfld Int32[] arr */
                 st_01 = st_00.arr;
-                /* IL_06: dup */
+                /* IL_07: dup  */
                 st_03 = (st_02 = st_01);
-                /* IL_07: stloc.0 */
+                /* IL_08: stloc.0  */
                 loc0 = st_02;
-                /* IL_08: call Void Enter(System.Object)*/
+                /* IL_09: call Void Enter(System.Object) */
                 asm0.x6000057(st_03);
+                /* IL_0E: nop  */
+                
                 
                 try {
-                    /* IL_0D: ldarg.0 */
+                    /* IL_0F: nop  DelegateBeginInvoke.cs:50:35*/
+                    
+                    /* IL_10: ldarg.0  DelegateBeginInvoke.cs:50:37*/
                     st_04 = arg0;
-                    /* IL_0E: ldfld Int32[] arr*/
+                    /* IL_11: ldfld Int32[] arr */
                     st_0D = st_04.arr;
-                    /* IL_13: ldarg.0 */
+                    /* IL_16: ldarg.0  */
                     st_05 = arg0;
-                    /* IL_14: dup */
+                    /* IL_17: dup  */
                     st_0B = (st_06 = st_05);
-                    /* IL_15: ldfld Int32 i*/
+                    /* IL_18: ldfld Int32 i */
                     st_07 = st_06.i;
-                    /* IL_1A: dup */
+                    /* IL_1D: dup  */
                     st_09 = (st_08 = st_07);
-                    /* IL_1B: stloc.1 */
+                    /* IL_1E: stloc.1  */
                     loc1 = st_08;
-                    /* IL_1C: ldc.i4.1 */
+                    /* IL_1F: ldc.i4.1  */
                     st_0A = (1|0);
-                    /* IL_1D: add */
+                    /* IL_20: add  */
                     st_0C = ((st_09 + st_0A) | (0|0));
-                    /* IL_1E: stfld Int32 i*/
+                    /* IL_21: stfld Int32 i */
                     st_0B.i = st_0C;
-                    /* IL_23: ldloc.1 */
+                    /* IL_26: ldloc.1  */
                     st_0E = loc1;
-                    /* IL_24: ldarg.1 */
+                    /* IL_27: ldarg.1  */
                     st_0F = arg1;
-                    /* IL_25: stelem.i4 */
+                    /* IL_28: stelem.i4  */
                     (st_0D.jsarr)[st_0E] = st_0F;
-                    /* IL_26: leave.s IL_2F*/
+                    /* IL_29: nop  DelegateBeginInvoke.cs:50:51*/
+                    
+                    /* IL_2A: leave.s IL_34 DelegateBeginInvoke.cs:16707566:0*/
                     in_block_1 = false;
-                    __pos__ = 0x2F;
+                    __pos__ = 0x34;
                 }
                 
                 finally {
-                    /* IL_28: ldloc.0 */
-                    /* IL_29: call Void Exit(System.Object)*/
+                    /* IL_2C: ldloc.0  */
+                    /* IL_2D: call Void Exit(System.Object) */
                     asm0.x6000058(loc0);
-                    /* IL_2E: endfinally */
+                    /* IL_32: nop  */
+                    
+                    /* IL_33: endfinally  */
                     in_block_1 = false;
                 }
                 break;
-                case 0x2F:
-                /* IL_2F: ret */
+                case 0x34:
+                /* IL_34: nop  DelegateBeginInvoke.cs:16707566:0*/
+                
+                /* IL_35: ret  DelegateBeginInvoke.cs:16707566:0*/
                 return ;
             }
         }
@@ -558,9 +622,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = BLR.declare_type(
