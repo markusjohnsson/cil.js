@@ -22,13 +22,30 @@ namespace Braille.JSAst
             }
         }
         public JSExpression Value { get; set; }
+        public bool ForceDeclaration { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            if (Value == null)
-                return ""; //string.Format("{0}", Name);
+            if (ForceDeclaration)
+            {
+                emitter.EmitString("var ");
+                emitter.EmitString(Name);
+
+                if (Value == null)
+                    return;
+
+                emitter.EmitString(" = ");
+                Value.Emit(emitter);
+            }
             else
-                return string.Format("{0} = {1}", Name, Value.ToString(formatting));
+            {
+                if (Value == null)
+                    return;
+
+                emitter.EmitString(Name);
+                emitter.EmitString(" = ");
+                Value.Emit(emitter);
+            }
         }
 
 
@@ -36,5 +53,6 @@ namespace Braille.JSAst
         {
             yield return Value;
         }
+
     }
 }

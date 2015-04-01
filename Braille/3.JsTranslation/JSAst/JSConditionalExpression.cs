@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Braille.JSAst
 {
@@ -10,9 +11,15 @@ namespace Braille.JSAst
 
         public JSExpression FalseValue { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return String.Format("(({0}) ? ({1}) : ({2}))", Condition.ToString(formatting), TrueValue.ToString(formatting), FalseValue.ToString(formatting));
+            emitter.EmitString("(");
+            emitter.EmitParenthesized(Condition);
+            emitter.EmitString("?");
+            emitter.EmitParenthesized(TrueValue);
+            emitter.EmitString(":");
+            emitter.EmitParenthesized(FalseValue);
+            emitter.EmitString(")");
         }
 
         public override System.Collections.Generic.IEnumerable<JSExpression> GetChildren()

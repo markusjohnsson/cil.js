@@ -10,9 +10,15 @@ namespace Braille.JSAst
     {
         public string Text { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return string.Join(formatting.NewLine + formatting.Indentation, Text.Split('\n').Select(t => "/* " + t.Replace("*/", "* /") + "*/"));
+            foreach (var t in Text.Split('\n'))
+            {
+                emitter.EmitNewLineAndIndentation();
+                emitter.EmitString("/*");
+                emitter.EmitString(t.Replace("*/", "* /"));
+                emitter.EmitString("*/");
+            }
         }
 
         public override IEnumerable<JSExpression> GetChildren()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -31,12 +32,16 @@ namespace Braille.JSAst
 
     abstract class JSExpression 
     {
-        public override string ToString()
+        public sealed override string ToString()
         {
-            return ToString(new Formatting());
+            using (var writer = new StringWriter())
+            {
+                Emit(new Emitter(new Formatting(), writer));
+                return writer.ToString();
+            }
         }
 
-        public abstract string ToString(Formatting formatting);
+        public abstract void Emit(Emitter emitter);
 
         public abstract IEnumerable<JSExpression> GetChildren();
 

@@ -16,26 +16,28 @@ namespace Braille.JSAst
 
         public List<JSStatement> Statements { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            var sb = new StringBuilder();
-            sb.Append(formatting.NewLine + formatting.Indentation + "while (");
-            sb.Append(Condition.ToString(formatting));
-            sb.Append("){");
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("while ");
+            emitter.EmitParenthesized(Condition);
+            emitter.EmitString("{");
 
-            formatting.IncreaseIndentation();
+            emitter.Formatting.IncreaseIndentation();
+            
             if (Statements != null)
             {
                 foreach (var s in Statements)
                 {
-                    sb.Append(formatting.NewLine + formatting.Indentation);
-                    sb.Append(s.ToString(formatting));
+                    emitter.EmitNewLineAndIndentation();
+                    s.Emit(emitter);
                 }
             }
-            formatting.DecreaseIndentation();
-            sb.Append(formatting.NewLine + formatting.Indentation + "}");
+            
+            emitter.Formatting.DecreaseIndentation();
 
-            return sb.ToString();
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("}");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

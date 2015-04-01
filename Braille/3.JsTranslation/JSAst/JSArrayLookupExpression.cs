@@ -37,9 +37,10 @@ namespace Braille.JSAst
             }
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return string.Format("({0})[{1}]", Array.ToString(formatting), Indexer.ToString(formatting));
+            emitter.EmitParenthesized(Array);
+            emitter.EmitBracketed(Indexer);
         }
 
         public override IEnumerable<JSExpression> GetChildren()

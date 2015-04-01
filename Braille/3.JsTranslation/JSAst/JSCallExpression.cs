@@ -16,38 +16,40 @@ namespace Braille.JSAst
             Arguments = new List<JSExpression>();
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            var s = "";
-
             var function = Function;
 
-            if (IsIdentifier(function))
-                s += Function.ToString(formatting);
-            else
-                s += "(" + Function.ToString(formatting) + ")";
+            emitter.EmitParenthesizedIf(function, false == IsIdentifier(function));
 
-            formatting.IncreaseIndentation();
+            emitter.Formatting.IncreaseIndentation();
 
-            string prefix;
-            if (Indent)
-            {
-                prefix = formatting.NewLine + formatting.Indentation;
-            }
-            else
-            {
-                prefix = "";
-            }
-                
-
+            emitter.EmitString("(");
             if (Arguments != null)
-                s += string.Format("({0}{1})", prefix, string.Join("," + prefix, Arguments.Select(a => a.ToString(formatting))));
-            else
-                s += "()";
+            {
+                var first = true;
+                foreach (var arg in Arguments)
+                {
+                    if (false == first)
+                    {
+                        emitter.EmitString(",");
 
-            formatting.DecreaseIndentation();
+                        if (Indent)
+                        {
+                            emitter.EmitNewLine();
+                            emitter.EmitIndentation();
+                        }
+                    }
 
-            return s;
+                    first = false;
+
+                    arg.Emit(emitter);
+                }
+            }
+            emitter.EmitString(")");
+            
+
+            emitter.Formatting.DecreaseIndentation();
         }
 
         private static bool IsIdentifier(JSExpression function)

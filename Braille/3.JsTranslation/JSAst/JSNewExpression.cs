@@ -15,17 +15,28 @@ namespace Braille.JSAst
             Arguments = new List<JSExpression>();
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return String.Format("new {0}({1})", WrapIfNeeded(formatting), Arguments == null ? "" : string.Join(",", Arguments.Select(a => a.ToString(formatting))));
-        }
+            emitter.EmitString("new ");
+            emitter.EmitParenthesizedIf(Constructor, false == (Constructor is JSIdentifier));
+            emitter.EmitString("(");
 
-        private string WrapIfNeeded(Formatting formatting)
-        {
-            if (Constructor is JSIdentifier)
-                return Constructor.ToString(formatting);
-            else
-                return "(" + Constructor.ToString(formatting) + ")";
+            if (Arguments != null)
+            {
+                var first = true;
+                foreach (var arg in Arguments)
+                {
+                    if (false == first)
+                    {
+                        emitter.EmitString(",");
+                    }
+
+                    first = false;
+                    arg.Emit(emitter);
+                }
+            }
+
+            emitter.EmitString(")");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

@@ -7,9 +7,8 @@ namespace Braille.JSAst
 {
     class JSEmptyExpression : JSExpression
     {
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return "";
         }
 
         public override IEnumerable<JSExpression> GetChildren()

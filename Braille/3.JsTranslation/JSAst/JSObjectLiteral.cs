@@ -14,29 +14,47 @@ namespace Braille.JSAst
             Properties = new Dictionary<string, JSExpression>();
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
             if (Properties.IsEmpty())
-                return "{}";
-
-            var sb = new StringBuilder();
-            sb.Append("{");
-
-            formatting.IncreaseIndentation();
-
             {
-                sb.Append(formatting.NewLine);
-                sb.Append(formatting.Indentation);
-                sb.Append(string.Join("," + formatting.NewLine + formatting.Indentation,
-                    Properties.Select(p => string.Format("'{0}': {1}", p.Key, p.Value.ToString(formatting)))));
-
-                sb.Append(formatting.NewLine);
+                emitter.EmitString("{}");
+                return;
             }
 
-            formatting.DecreaseIndentation();
+            emitter.EmitString("{");
 
-            sb.Append(formatting.Indentation + "}");
-            return sb.ToString();
+            emitter.Formatting.IncreaseIndentation();
+
+            {
+                emitter.EmitNewLineAndIndentation();
+
+                var first = true;
+
+                foreach (var prop in Properties)
+                {
+                    if (false == first)
+                    {
+                        emitter.EmitString(",");
+                        emitter.EmitNewLineAndIndentation();
+                    }
+
+                    first = false;
+
+                    emitter.EmitString("'");
+                    emitter.EmitString(prop.Key);
+                    emitter.EmitString("'");
+                    emitter.EmitString(": ");
+                    prop.Value.Emit(emitter);
+                }
+
+                emitter.EmitNewLine();
+            }
+
+            emitter.Formatting.DecreaseIndentation();
+
+            emitter.EmitIndentation();
+            emitter.EmitString("}");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

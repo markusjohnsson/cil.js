@@ -5,6 +5,7 @@ using System.Linq;
 using Braille.Analysis;
 using Braille.JsTranslation;
 using Braille.Loading;
+using Braille.JSAst;
 
 namespace Braille
 {
@@ -62,8 +63,6 @@ namespace Braille
                     if (!asm.Settings.Translate)
                         continue;
 
-                    var asmExpression = translator.Translate(asms, asm);
-
                     string outputFileName;
 
                     if (settings.OutputFileName != null)
@@ -76,10 +75,18 @@ namespace Braille
                         outputNames.Add(outputFileName);
                     }
 
-                    File.AppendAllText(outputFileName,
-                        "var " + asm.Identifier + "; (" +
-                            asmExpression.ToString() + ")(" + asm.Identifier + " || (" +
-                            asm.Identifier + " = {}));" + Environment.NewLine);
+                    using (var stream = File.Open(outputFileName, FileMode.OpenOrCreate, FileAccess.Write))
+                    {
+                        stream.Seek(0, SeekOrigin.End);
+
+                        using (var writer = new StreamWriter(stream))
+                        {
+                            var emitter = new Emitter(new Formatting(), writer);
+                            foreach (var statement in translator.Translate(asms, asm))
+                                statement.Emit(emitter);
+                        }
+                    }
+
                 }
 
                 var entrypointAssembly = ctx

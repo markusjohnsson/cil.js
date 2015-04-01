@@ -7,9 +7,9 @@ namespace Braille.JSAst
 {
     class JSNullLiteral: JSExpression
     {
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return "null";
+            emitter.EmitString("null");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

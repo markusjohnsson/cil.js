@@ -19,20 +19,26 @@ namespace Braille.JSAst
 
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
             if (SafeChars.IsMatch(Property))
-                return Host.ToString(formatting) + "." + Property;
+            {
+                Host.Emit(emitter);
+                emitter.EmitString(".");
+                emitter.EmitString(Property);
+            }
             else
-                return new JSArrayLookupExpression
+            {
+                new JSArrayLookupExpression
                 {
                     Array = Host,
                     Indexer = new JSStringLiteral { Value = Property }
-                }.ToString(formatting);
+                }.Emit(emitter);
+            }
         }
 
         private string _Property;
-        
+
         public string Property
         {
             get

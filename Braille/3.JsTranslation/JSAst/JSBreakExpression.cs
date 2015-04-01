@@ -7,9 +7,9 @@ namespace Braille.JSAst
 {
     class JSBreakExpression: JSExpression
     {
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return "break";
+            emitter.EmitString("break");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

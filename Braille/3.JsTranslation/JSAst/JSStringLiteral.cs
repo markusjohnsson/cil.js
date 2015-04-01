@@ -23,9 +23,11 @@ namespace Braille.JSAst
             }
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return string.Format(@"""{0}""", Value.Replace("\n", "\\n").Replace("\\", "\\\\").Replace("\"", "\\\""));
+            emitter.EmitString("\"");
+            emitter.EmitString(Value.Replace("\n", "\\n").Replace("\\", "\\\\").Replace("\"", "\\\""));
+            emitter.EmitString("\"");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

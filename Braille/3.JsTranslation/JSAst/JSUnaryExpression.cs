@@ -12,9 +12,12 @@ namespace Braille.JSAst
 
         public JSExpression Operand { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return "(" + Operator + "(" + Operand.ToString(formatting) + "))";
+            emitter.EmitString("(");
+            emitter.EmitString(Operator);
+            emitter.EmitParenthesized(Operand);
+            emitter.EmitString(")");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

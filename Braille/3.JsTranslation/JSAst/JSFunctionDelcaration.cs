@@ -20,28 +20,40 @@ namespace Braille.JSAst
             Parameters = new List<JSFunctionParameter>();
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            var sb = new StringBuilder();
-
-            sb.Append("function ");
+            emitter.EmitString("function ");
 
             if (Name != null)
-                sb.Append(Name);
+                emitter.EmitString(Name);
 
-            sb.Append("(");
+            emitter.EmitString("(");
 
             if (Parameters != null)
-                sb.Append(string.Join(",", Parameters.Select(p => p.ToString(formatting))));
+            {
+                var first = true;
+                foreach (var p in Parameters)
+                {
+                    if (false == first)
+                    {
+                        emitter.EmitString(", ");
+                    }
 
-            sb.Append(")");
+                    first = false;
 
-            if (Inline)
-                sb.Append("{");
-            else
-                sb.Append(formatting.NewLine + formatting.Indentation + "{");
+                    p.Emit(emitter);
+                }
+            }
 
-            formatting.IncreaseIndentation();
+            emitter.EmitString(") ");
+
+
+            if (!Inline)
+                emitter.EmitNewLineAndIndentation();
+
+            emitter.EmitString("{");
+
+            emitter.Formatting.IncreaseIndentation();
 
             {
                 var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration))
@@ -49,29 +61,36 @@ namespace Braille.JSAst
                     .Select(v => v.Name)
                     .Distinct();
 
-                var indent = Inline ? " " : formatting.NewLine + formatting.Indentation;
-
                 if (variables.Any())
                 {
-                    sb.Append(indent);
-                    sb.Append(string.Join(indent, variables.Select(v => "var " + v + ";")));
+                    foreach (var v in variables)
+                    {
+                        if (false == Inline)
+                            emitter.EmitNewLineAndIndentation();
+
+                        emitter.EmitString("var ");
+                        emitter.EmitString(v);
+                        emitter.EmitString(";");
+                    }
                 }
 
                 if (Body != null)
                 {
-                    sb.Append(indent);
-                    sb.Append(string.Join(indent, Body.Select(p => p.ToString(formatting)).Where(s => !string.IsNullOrWhiteSpace(s))));
+                    foreach (var p in Body)
+                    {
+                        if (false == Inline)
+                            emitter.EmitNewLineAndIndentation();
+                        p.Emit(emitter);
+                    }
                 }
             }
             
-            formatting.DecreaseIndentation();
+            emitter.Formatting.DecreaseIndentation();
 
-            if (Inline)
-                sb.Append("}");
-            else
-                sb.Append(formatting.NewLine + formatting.Indentation + "}");
+            if (!Inline)
+                emitter.EmitNewLineAndIndentation();
 
-            return sb.ToString();
+            emitter.EmitString("}");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

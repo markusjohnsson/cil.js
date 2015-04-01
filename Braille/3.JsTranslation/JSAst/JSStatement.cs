@@ -35,17 +35,19 @@ namespace Braille.JSAst
             Expression = expression;
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
+            if (Expression is JSEmptyExpression)
+                return;
+
             if (Expression is JSLineComment)
-                return Expression.ToString(formatting);
+            {
+                Expression.Emit(emitter);
+                return;
+            }
 
-            var result = Expression.ToString(formatting);
-
-            if (string.IsNullOrWhiteSpace(result))
-                return string.Empty;
-
-            return result + ";";
+            Expression.Emit(emitter);
+            emitter.EmitString(";");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

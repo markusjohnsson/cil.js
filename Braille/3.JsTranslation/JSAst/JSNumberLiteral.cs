@@ -13,26 +13,34 @@ namespace Braille.JSAst
         Float
     }
 
-    class JSNumberLiteral: JSExpression
+    class JSNumberLiteral : JSExpression
     {
         public bool IsHex { get; set; }
 
         public double Value { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
             if (IsHex)
-                return "0x"+((ulong)Value).ToString("X");
+            {
+                emitter.EmitString("0x" + ((ulong)Value).ToString("X"));
+                return;
+            }
 
             var value = Value.ToString(CultureInfo.InvariantCulture);
 
             if (TypeHint == TypeHint.Integer)
-                return "(" + value + "|0)";
-
-            if (TypeHint == TypeHint.Float)
-                return "(+" + value + ")";
-
-            return value;
+            {
+                emitter.EmitString("(" + value + "|0)");
+            }
+            else if (TypeHint == TypeHint.Float)
+            {
+                emitter.EmitString("(" + value + ")");
+            }
+            else
+            {
+                emitter.EmitString(value);
+            }
         }
 
         public override IEnumerable<JSExpression> GetChildren()

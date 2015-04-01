@@ -1,60 +1,75 @@
-var asm1; (function (asm)
+var asm1;(function (asm) 
 {
     asm.FullName = "TestTest.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static System.Void TestLog.Log(Object)*/
+    
+    /*static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /*  TestLog..ctor()*/
-    asm.x6000002 = function _ctor(arg0)
+    
+    /* TestLog..ctor()*/
+    asm.x6000002 = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: call Void .ctor() */
+        
+        
+        /*IL_06: ret  */
         return ;
     };;
-    /* static System.Void TestTest.Main()*/
-    asm.x600000a_init = function ()
+    
+    /*static System.Void TestTest.Main()*/
+    asm.x600000a_init = function () 
     {
         asm.x600000a = asm.x600000a_;
     };;
-    asm.x600000a = function ()
+    asm.x600000a = function () 
     {
         BLR.init_base_types();
         asm.x600000a_init.apply(this,arguments);
         return asm.x600000a_.apply(this,arguments);
     };;
-    asm.x600000a_ = function Main()
+    asm.x600000a_ = function Main() 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: nop  TestTest.cs:9:9*/
-        /* IL_01: ldstr Hello World! */
-        /* IL_06: call Void Log(System.Object) */
+        
+        /*IL_00: nop  TestTest.cs:9:9*/
+        
+        
+        /*IL_01: ldstr Hello World! */
+        /*IL_06: call Void Log(System.Object) */
         asm1.x6000001(BLR.new_string("Hello World!"));
-        /* IL_0B: nop  */
-        /* IL_0C: ret  TestTest.cs:11:9*/
+        
+        /*IL_0B: nop  */
+        
+        
+        /*IL_0C: ret  TestTest.cs:11:9*/
         return ;
     };
-    /*  TestTest..ctor()*/
-    asm.x600000b = function _ctor(arg0)
+    
+    /* TestTest..ctor()*/
+    asm.x600000b = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: call Void .ctor() */
+        
+        
+        /*IL_06: ret  */
         return ;
     };;
-    asm.TestLog = BLR.declare_type(
-        "TestLog",
+    asm.TestLog = BLR.declare_type("TestLog",
         [],
-        function ()
+        function () 
         {
             return new ((asm0)["System.Object"]())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
@@ -63,14 +78,13 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    (asm)["Braille.TestRunner.Tests.TestTest"] = BLR.declare_type(
-        "TestTest",
+    (asm)["Braille.TestRunner.Tests.TestTest"] = BLR.declare_type("TestTest",
         [],
-        function ()
+        function () 
         {
             return new ((asm0)["System.Object"]())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Braille.TestRunner.Tests.TestTest",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000006");

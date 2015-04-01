@@ -37,17 +37,13 @@ namespace Braille.JSAst
 
         public string Operator { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return string.Format("{0} {1} {2}", WrapBinaryExpressions(Left, formatting), Operator, WrapBinaryExpressions(Right, formatting));
-        }
-
-        private string WrapBinaryExpressions(JSExpression expression, Formatting formatting)
-        {
-            if (expression is JSBinaryExpression)
-                return "(" + expression.ToString(formatting) + ")";
-            else
-                return expression.ToString(formatting);
+            emitter.EmitParenthesizedIf(Left, Left is JSBinaryExpression);
+            emitter.EmitString(" ");
+            emitter.EmitString(Operator);
+            emitter.EmitString(" ");
+            emitter.EmitParenthesizedIf(Right, Right is JSBinaryExpression);
         }
 
         public override IEnumerable<JSExpression> GetChildren()

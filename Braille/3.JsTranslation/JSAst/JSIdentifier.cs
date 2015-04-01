@@ -10,9 +10,9 @@ namespace Braille.JSAst
     {
         public string Value { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return Value;
+            emitter.EmitString(Value);
         }
 
         public override IEnumerable<JSExpression> GetChildren()
@@ -42,9 +42,9 @@ namespace Braille.JSAst
             }
         }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return Name;
+            emitter.EmitString(Name);
         }
 
         public override IEnumerable<JSExpression> GetChildren()

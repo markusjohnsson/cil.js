@@ -9,9 +9,12 @@ namespace Braille.JSAst
     {
         public bool Value { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            return Value ? "true": "false";
+            if (Value)
+                emitter.EmitString("true");
+            else
+                emitter.EmitString("false");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

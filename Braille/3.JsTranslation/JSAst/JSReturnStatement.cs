@@ -9,12 +9,15 @@ namespace Braille.JSAst
     {
         public JSExpression Expression { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            if (Expression == null)
-                return "return";
-            else
-                return string.Format("return {0}", Expression.ToString(formatting));
+            emitter.EmitString("return");
+
+            if (Expression != null)
+            {
+                emitter.EmitString(" ");
+                Expression.Emit(emitter);
+            }
         }
 
         public override IEnumerable<JSExpression> GetChildren()

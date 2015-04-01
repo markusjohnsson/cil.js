@@ -19,13 +19,30 @@ namespace Braille.JsTranslation
             methodTranslator = new MethodTranslator(context);
         }
 
-        public JSExpression Translate(List<CilAssembly> world, CilAssembly asm)
+        public IEnumerable<JSStatement> Translate(List<CilAssembly> world, CilAssembly asm)
         {
-            return new JSFunctionDelcaration
+            var name = "asm" + world.IndexOf(asm);
+            var ifier = JSFactory.Identifier(name);
+
+            yield return new JSVariableDelcaration { Name = name, ForceDeclaration = true }.ToStatement();
+
+            yield return new JSCallExpression
             {
-                Parameters = new List<JSFunctionParameter> { new JSFunctionParameter { Name = "asm" } },
-                Body = GetBody(world, asm).Select(JSFactory.Statement).ToList()
-            };
+                Function = new JSFunctionDelcaration
+                {
+                    Parameters = new List<JSFunctionParameter> { new JSFunctionParameter { Name = "asm" } },
+                    Body = GetBody(world, asm).Select(JSFactory.Statement).ToList()
+                },
+                Arguments = 
+                {
+                    new JSBinaryExpression 
+                    {
+                        Left = ifier,
+                        Operator = "||",
+                        Right = JSFactory.Assignment(ifier, new JSObjectLiteral())
+                    }
+                }
+            }.ToStatement();
         }
 
         private IEnumerable<JSExpression> GetBody(List<CilAssembly> world, CilAssembly asm)

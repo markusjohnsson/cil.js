@@ -8,25 +8,28 @@ namespace Braille.JSAst
     class JSSwitchStatement: JSStatement
     {
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("switch ");
+            emitter.EmitParenthesized(Value);
+            emitter.EmitString("{");
 
-            var sb = new StringBuilder();
-            sb.Append(formatting.NewLine + formatting.Indentation + "switch (");
-            sb.Append(Value.ToString(formatting));
-            sb.Append("){");
-
-            formatting.IncreaseIndentation();
+            emitter.Formatting.IncreaseIndentation();
+            
             if (Statements != null)
             {
-                sb.Append(formatting.NewLine);
-                sb.Append(formatting.Indentation);
-                sb.Append(string.Join(formatting.NewLine + formatting.Indentation, Statements.Select(s => s.ToString(formatting))));
+                foreach (var stmnt in Statements)
+                {
+                    emitter.EmitNewLineAndIndentation();
+                    stmnt.Emit(emitter);
+                }
             }
-            formatting.DecreaseIndentation();
-            sb.Append(formatting.NewLine + formatting.Indentation + "}");
 
-            return sb.ToString();
+            emitter.Formatting.DecreaseIndentation();
+            
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("}");
         }
 
         public JSIdentifier Value { get; set; }

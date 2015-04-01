@@ -1,94 +1,136 @@
-var asm1; (function (asm)
+var asm1;(function (asm) 
 {
     asm.FullName = "Exceptions.cs.brl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
-    /* static System.Void TestLog.Log(Object)*/
+    
+    /*static System.Void TestLog.Log(Object)*/
     asm.x6000001 = braille_test_log;;
-    /*  TestLog..ctor()*/
-    asm.x6000002 = function _ctor(arg0)
+    
+    /* TestLog..ctor()*/
+    asm.x6000002 = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: call Void .ctor() */
+        
+        
+        /*IL_06: ret  */
         return ;
     };;
-    /*  A..ctor()*/
-    asm.x600000a = function _ctor(arg0)
+    
+    /* A..ctor()*/
+    asm.x600000a = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldstr Exception A */
-        /* IL_06: call Void .ctor(System.String) */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: ldstr Exception A */
+        /*IL_06: call Void .ctor(System.String) */
         asm0.x60000a5(arg0,BLR.new_string("Exception A"));
-        /* IL_0B: nop  */
-        /* IL_0C: nop  Exceptions.cs:6:38*/
-        /* IL_0D: nop  Exceptions.cs:6:40*/
-        /* IL_0E: ret  */
+        
+        /*IL_0B: nop  */
+        
+        
+        /*IL_0C: nop  Exceptions.cs:6:38*/
+        
+        
+        /*IL_0D: nop  Exceptions.cs:6:40*/
+        
+        
+        /*IL_0E: ret  */
         return ;
     };;
-    /*  B..ctor()*/
-    asm.x600000b = function _ctor(arg0)
+    
+    /* B..ctor()*/
+    asm.x600000b = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldstr Exception B */
-        /* IL_06: call Void .ctor(System.String) */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: ldstr Exception B */
+        /*IL_06: call Void .ctor(System.String) */
         asm0.x60000a5(arg0,BLR.new_string("Exception B"));
-        /* IL_0B: nop  */
-        /* IL_0C: nop  Exceptions.cs:11:38*/
-        /* IL_0D: nop  Exceptions.cs:11:40*/
-        /* IL_0E: ret  */
+        
+        /*IL_0B: nop  */
+        
+        
+        /*IL_0C: nop  Exceptions.cs:11:38*/
+        
+        
+        /*IL_0D: nop  Exceptions.cs:11:40*/
+        
+        
+        /*IL_0E: ret  */
         return ;
     };;
-    /*  B..ctor(String)*/
-    asm.x600000c = function _ctor(arg0,arg1)
+    
+    /* B..ctor(String)*/
+    asm.x600000c = function _ctor(arg0, arg1) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldarg.1  */
-        /* IL_02: call Void .ctor(System.String) */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: ldarg.1  */
+        /*IL_02: call Void .ctor(System.String) */
         asm0.x60000a5(arg0,arg1);
-        /* IL_07: nop  */
-        /* IL_08: nop  Exceptions.cs:12:41*/
-        /* IL_09: nop  Exceptions.cs:12:43*/
-        /* IL_0A: ret  */
+        
+        /*IL_07: nop  */
+        
+        
+        /*IL_08: nop  Exceptions.cs:12:41*/
+        
+        
+        /*IL_09: nop  Exceptions.cs:12:43*/
+        
+        
+        /*IL_0A: ret  */
         return ;
     };;
-    /*  C..ctor()*/
-    asm.x600000d = function _ctor(arg0)
+    
+    /* C..ctor()*/
+    asm.x600000d = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldstr Exception C */
-        /* IL_06: call Void .ctor(System.String) */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: ldstr Exception C */
+        /*IL_06: call Void .ctor(System.String) */
         asm1.x600000c(arg0,BLR.new_string("Exception C"));
-        /* IL_0B: nop  */
-        /* IL_0C: nop  Exceptions.cs:17:38*/
-        /* IL_0D: nop  Exceptions.cs:17:40*/
-        /* IL_0E: ret  */
+        
+        /*IL_0B: nop  */
+        
+        
+        /*IL_0C: nop  Exceptions.cs:17:38*/
+        
+        
+        /*IL_0D: nop  Exceptions.cs:17:40*/
+        
+        
+        /*IL_0E: ret  */
         return ;
     };;
-    /* static System.Void Program.Main()*/
-    asm.x600000e_init = function ()
+    
+    /*static System.Void Program.Main()*/
+    asm.x600000e_init = function () 
     {
         (asm1.A().init)();
         (asm1.B().init)();
         (asm1.C().init)();
         asm.x600000e = asm.x600000e_;
     };;
-    asm.x600000e = function ()
+    asm.x600000e = function () 
     {
         BLR.init_base_types();
         asm.x600000e_init.apply(this,arguments);
         return asm.x600000e_.apply(this,arguments);
     };;
-    asm.x600000e_ = function Main()
+    asm.x600000e_ = function Main() 
     {
         var t0;
         var t1;
@@ -98,24 +140,37 @@ var asm1; (function (asm)
         t1 = asm1.B();
         t2 = asm1.C();
         __pos__ = 0x0;
-        /* IL_00: nop  Exceptions.cs:23:5*/
-        /* IL_01: newobj Void .ctor() */
-        /* IL_06: call Void TestTryCatch(System.Exception) */
+        
+        /*IL_00: nop  Exceptions.cs:23:5*/
+        
+        
+        /*IL_01: newobj Void .ctor() */
+        /*IL_06: call Void TestTryCatch(System.Exception) */
         asm1.x600000f(BLR.newobj(t0,asm1.x600000a,[null]));
-        /* IL_0B: nop  */
-        /* IL_0C: newobj Void .ctor() */
-        /* IL_11: call Void TestTryCatch(System.Exception) */
+        
+        /*IL_0B: nop  */
+        
+        
+        /*IL_0C: newobj Void .ctor() */
+        /*IL_11: call Void TestTryCatch(System.Exception) */
         asm1.x600000f(BLR.newobj(t1,asm1.x600000b,[null]));
-        /* IL_16: nop  */
-        /* IL_17: newobj Void .ctor() */
-        /* IL_1C: call Void TestTryCatch(System.Exception) */
+        
+        /*IL_16: nop  */
+        
+        
+        /*IL_17: newobj Void .ctor() */
+        /*IL_1C: call Void TestTryCatch(System.Exception) */
         asm1.x600000f(BLR.newobj(t2,asm1.x600000d,[null]));
-        /* IL_21: nop  */
-        /* IL_22: ret  Exceptions.cs:27:5*/
+        
+        /*IL_21: nop  */
+        
+        
+        /*IL_22: ret  Exceptions.cs:27:5*/
         return ;
     };
-    /* static System.Void Program.TestTryCatch(Exception)*/
-    asm.x600000f = function TestTryCatch(arg0)
+    
+    /*static System.Void Program.TestTryCatch(Exception)*/
+    asm.x600000f = function TestTryCatch(arg0) 
     {
         var __pos__;
         var in_block_0;
@@ -135,7 +190,8 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: nop  Exceptions.cs:30:5*/
+                
+                /*IL_00: nop  Exceptions.cs:30:5*/
                 
                 
                 try {
@@ -149,85 +205,107 @@ var asm1; (function (asm)
                             case 0x1:
                             
                             try {
-                                /* IL_01: nop  Exceptions.cs:32:9*/
                                 
-                                /* IL_02: ldarg.0  */
-                                /* IL_03: throw  */
+                                /*IL_01: nop  Exceptions.cs:32:9*/
+                                
+                                
+                                /*IL_02: ldarg.0  */
+                                /*IL_03: throw  */
                                 throw arg0;
                             }
                             
-                            catch (__error__){
+                            catch (__error__) {
                                 __error_handled_2__ = false;
                                 
-                                if ((!(__error_handled_2__)) && (__error__ instanceof asm1.C())){
+                                if((!(__error_handled_2__)) && (__error__ instanceof asm1.C())){
                                     st_01 = __error__;
                                     __error_handled_2__ = true;
-                                    /* IL_04: stloc.0  Exceptions.cs:35:9*/
+                                    
+                                    /*IL_04: stloc.0  Exceptions.cs:35:9*/
                                     loc0 = st_01;
-                                    /* IL_05: nop  Exceptions.cs:36:9*/
                                     
-                                    /* IL_06: ldloc.0  */
-                                    /* IL_07: callvirt String get_Message() */
-                                    /* IL_0C: call Void Log(System.Object) */
+                                    /*IL_05: nop  Exceptions.cs:36:9*/
+                                    
+                                    
+                                    /*IL_06: ldloc.0  */
+                                    /*IL_07: callvirt String get_Message() */
+                                    /*IL_0C: call Void Log(System.Object) */
                                     asm1.x6000001(((loc0.vtable)["asm0.x60000a9"]())(loc0));
-                                    /* IL_11: nop  */
                                     
-                                    /* IL_12: nop  Exceptions.cs:38:9*/
+                                    /*IL_11: nop  */
                                     
-                                    /* IL_13: leave.s IL_37 Exceptions.cs:16707566:0*/
+                                    
+                                    /*IL_12: nop  Exceptions.cs:38:9*/
+                                    
+                                    
+                                    /*IL_13: leave.s IL_37 Exceptions.cs:16707566:0*/
                                     in_block_2 = false;
                                     __pos__ = 0x37;
                                 }
                                 
-                                if ((!(__error_handled_2__)) && (__error__ instanceof asm1.B())){
+                                if((!(__error_handled_2__)) && (__error__ instanceof asm1.B())){
                                     st_04 = __error__;
                                     __error_handled_2__ = true;
-                                    /* IL_15: stloc.1  Exceptions.cs:39:9*/
+                                    
+                                    /*IL_15: stloc.1  Exceptions.cs:39:9*/
                                     loc1 = st_04;
-                                    /* IL_16: nop  Exceptions.cs:40:9*/
                                     
-                                    /* IL_17: ldloc.1  */
-                                    /* IL_18: callvirt String get_Message() */
-                                    /* IL_1D: call Void Log(System.Object) */
+                                    /*IL_16: nop  Exceptions.cs:40:9*/
+                                    
+                                    
+                                    /*IL_17: ldloc.1  */
+                                    /*IL_18: callvirt String get_Message() */
+                                    /*IL_1D: call Void Log(System.Object) */
                                     asm1.x6000001(((loc1.vtable)["asm0.x60000a9"]())(loc1));
-                                    /* IL_22: nop  */
                                     
-                                    /* IL_23: nop  Exceptions.cs:42:9*/
+                                    /*IL_22: nop  */
                                     
-                                    /* IL_24: leave.s IL_37 Exceptions.cs:16707566:0*/
+                                    
+                                    /*IL_23: nop  Exceptions.cs:42:9*/
+                                    
+                                    
+                                    /*IL_24: leave.s IL_37 Exceptions.cs:16707566:0*/
                                     in_block_2 = false;
                                     __pos__ = 0x37;
                                 }
                                 
-                                if ((!(__error_handled_2__)) && (__error__ instanceof asm1.A())){
+                                if((!(__error_handled_2__)) && (__error__ instanceof asm1.A())){
                                     st_07 = __error__;
                                     __error_handled_2__ = true;
-                                    /* IL_26: stloc.2  Exceptions.cs:43:9*/
+                                    
+                                    /*IL_26: stloc.2  Exceptions.cs:43:9*/
                                     loc2 = st_07;
-                                    /* IL_27: nop  Exceptions.cs:44:9*/
                                     
-                                    /* IL_28: ldloc.2  */
-                                    /* IL_29: callvirt String get_Message() */
-                                    /* IL_2E: call Void Log(System.Object) */
+                                    /*IL_27: nop  Exceptions.cs:44:9*/
+                                    
+                                    
+                                    /*IL_28: ldloc.2  */
+                                    /*IL_29: callvirt String get_Message() */
+                                    /*IL_2E: call Void Log(System.Object) */
                                     asm1.x6000001(((loc2.vtable)["asm0.x60000a9"]())(loc2));
-                                    /* IL_33: nop  */
                                     
-                                    /* IL_34: nop  Exceptions.cs:46:9*/
+                                    /*IL_33: nop  */
                                     
-                                    /* IL_35: leave.s IL_37 Exceptions.cs:16707566:0*/
+                                    
+                                    /*IL_34: nop  Exceptions.cs:46:9*/
+                                    
+                                    
+                                    /*IL_35: leave.s IL_37 Exceptions.cs:16707566:0*/
                                     in_block_2 = false;
                                     __pos__ = 0x37;
                                 }
                                 
-                                if ((!(__error_handled_2__))){
+                                if((!(__error_handled_2__))){
                                     throw __error__;
                                 }
                             }
                             break;
                             case 0x37:
-                            /* IL_37: nop  Exceptions.cs:16707566:0*/
                             
-                            /* IL_38: leave.s IL_48 Exceptions.cs:16707566:0*/
+                            /*IL_37: nop  Exceptions.cs:16707566:0*/
+                            
+                            
+                            /*IL_38: leave.s IL_48 Exceptions.cs:16707566:0*/
                             in_block_1 = false;
                             __pos__ = 0x48;
                             break;
@@ -236,45 +314,55 @@ var asm1; (function (asm)
                 }
                 
                 finally {
-                    /* IL_3A: nop  Exceptions.cs:48:9*/
                     
-                    /* IL_3B: ldstr Finally */
-                    /* IL_40: call Void Log(System.Object) */
+                    /*IL_3A: nop  Exceptions.cs:48:9*/
+                    
+                    
+                    /*IL_3B: ldstr Finally */
+                    /*IL_40: call Void Log(System.Object) */
                     asm1.x6000001(BLR.new_string("Finally"));
-                    /* IL_45: nop  */
                     
-                    /* IL_46: nop  Exceptions.cs:50:9*/
+                    /*IL_45: nop  */
                     
-                    /* IL_47: endfinally  Exceptions.cs:16707566:0*/
+                    
+                    /*IL_46: nop  Exceptions.cs:50:9*/
+                    
+                    
+                    /*IL_47: endfinally  Exceptions.cs:16707566:0*/
                     in_block_1 = false;
                 }
                 break;
                 case 0x48:
-                /* IL_48: nop  Exceptions.cs:16707566:0*/
                 
-                /* IL_49: ret  Exceptions.cs:51:5*/
+                /*IL_48: nop  Exceptions.cs:16707566:0*/
+                
+                
+                /*IL_49: ret  Exceptions.cs:51:5*/
                 return ;
             }
         }
     };;
-    /*  Program..ctor()*/
-    asm.x6000010 = function _ctor(arg0)
+    
+    /* Program..ctor()*/
+    asm.x6000010 = function _ctor(arg0) 
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        
+        /*IL_00: ldarg.0  */
+        /*IL_01: call Void .ctor() */
+        
+        
+        /*IL_06: ret  */
         return ;
     };;
-    asm.TestLog = BLR.declare_type(
-        "TestLog",
+    asm.TestLog = BLR.declare_type("TestLog",
         [],
-        function ()
+        function () 
         {
             return new ((asm0)["System.Object"]())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000002");
@@ -283,14 +371,13 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.A = BLR.declare_type(
-        "A",
+    asm.A = BLR.declare_type("A",
         [],
-        function ()
+        function () 
         {
             return new ((asm0)["System.Exception"]())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"A",false,false,false,false,false,[],[],(asm0)["System.Exception"](),BLR.is_inst_default(this),Array,"asm1.t2000006");
@@ -301,14 +388,13 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.B = BLR.declare_type(
-        "B",
+    asm.B = BLR.declare_type("B",
         [],
-        function ()
+        function () 
         {
             return new ((asm0)["System.Exception"]())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"B",false,false,false,false,false,[],[],(asm0)["System.Exception"](),BLR.is_inst_default(this),Array,"asm1.t2000007");
@@ -319,14 +405,13 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.C = BLR.declare_type(
-        "C",
+    asm.C = BLR.declare_type("C",
         [],
-        function ()
+        function () 
         {
             return new (asm1.B())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"C",false,false,false,false,false,[],[],asm1.B(),BLR.is_inst_default(this),Array,"asm1.t2000008");
@@ -337,14 +422,13 @@ var asm1; (function (asm)
             BLR.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
             BLR.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
         });
-    asm.Program = BLR.declare_type(
-        "Program",
+    asm.Program = BLR.declare_type("Program",
         [],
-        function ()
+        function () 
         {
             return new ((asm0)["System.Object"]())();
         },
-        function ()
+        function () 
         {
             this.init = BLR.nop;
             BLR.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),BLR.is_inst_default(this),Array,"asm1.t2000009");

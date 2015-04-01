@@ -11,42 +11,57 @@ namespace Braille.JSAst
         
         public bool Inline { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
             if (Values == null || Values.IsEmpty())
-                return "[]";
+            {
+                emitter.EmitString("[]");
+                return;
+            }
 
+            emitter.EmitString("[");
 
-            var sb = new StringBuilder();
-            sb.Append("[");
-
-            formatting.IncreaseIndentation();
+            emitter.Formatting.IncreaseIndentation();
 
             {
                 if (!Inline)
                 {
-                    sb.Append(formatting.NewLine);
-                    sb.Append(formatting.Indentation);   
+                    emitter.EmitNewLine();
+                    emitter.EmitIndentation();
                 }
 
-                var separatingWhitespace = Inline ? " " : formatting.NewLine + formatting.Indentation;
+                bool first = true;
 
-                sb.Append(string.Join("," + separatingWhitespace,
-                    GetChildren().Select(p => p.ToString(formatting))));
+                foreach (var c in GetChildren())
+                {
+                    if (!first)
+                    {
+                        emitter.EmitString(",");
+
+                        if (!Inline)
+                        {
+                            emitter.EmitNewLine();
+                            emitter.EmitIndentation();
+                        }
+                    }
+
+                    first = false;
+                        
+                    c.Emit(emitter);
+                }
 
                 if (!Inline)
                 {
-                    sb.Append(formatting.NewLine);   
+                    emitter.EmitNewLine();
                 }
             }
 
-            formatting.DecreaseIndentation();
+            emitter.Formatting.DecreaseIndentation();
 
-            if (Inline)
-                sb.Append("]");
-            else
-                sb.Append(formatting.Indentation + "]");
-            return sb.ToString();
+            if (!Inline)
+                emitter.EmitIndentation();
+
+            emitter.EmitString("]");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

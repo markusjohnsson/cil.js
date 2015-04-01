@@ -10,25 +10,24 @@ namespace Braille.JSAst
     {
         public List<JSStatement> Statements { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            var sb = new StringBuilder();
-            sb.Append(formatting.NewLine + formatting.Indentation + "try {");
-            formatting.IncreaseIndentation();
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("try {");
+            emitter.Formatting.IncreaseIndentation();
 
             if (Statements != null)
             {
                 foreach (var s in Statements)
                 {
-                    sb.Append(formatting.NewLine + formatting.Indentation);
-                    sb.Append(s.ToString(formatting));
+                    emitter.EmitNewLineAndIndentation();
+                    s.Emit(emitter);
                 }
             }
 
-            formatting.DecreaseIndentation();
-            sb.Append(formatting.NewLine + formatting.Indentation + "}");
-            
-            return sb.ToString();
+            emitter.Formatting.DecreaseIndentation();
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("}");
         }
 
         public override IEnumerable<JSExpression> GetChildren()
@@ -44,29 +43,26 @@ namespace Braille.JSAst
 
         public JSIdentifier Error { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("catch (");
+            Error.Emit(emitter);
+            emitter.EmitString(") {");
+            emitter.Formatting.IncreaseIndentation();
 
-            var sb = new StringBuilder();
-            sb.Append(formatting.NewLine + formatting.Indentation + "catch (");
-            sb.Append(Error.ToString(formatting));
-            sb.Append("){");
-
-            formatting.IncreaseIndentation();
-            
             if (Statements != null)
             {
                 foreach (var s in Statements)
                 {
-                    sb.Append(formatting.NewLine + formatting.Indentation);
-                    sb.Append(s.ToString(formatting));
+                    emitter.EmitNewLineAndIndentation();
+                    s.Emit(emitter);
                 }
             }
 
-            formatting.DecreaseIndentation();
-            sb.Append(formatting.NewLine + formatting.Indentation + "}");
-
-            return sb.ToString();
+            emitter.Formatting.DecreaseIndentation();
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("}");
         }
 
         public override IEnumerable<JSExpression> GetChildren()
@@ -83,25 +79,24 @@ namespace Braille.JSAst
     {
         public List<JSStatement> Statements { get; set; }
 
-        public override string ToString(Formatting formatting)
+        public override void Emit(Emitter emitter)
         {
-            var sb = new StringBuilder();
-            sb.Append(formatting.NewLine + formatting.Indentation + "finally {");
-            formatting.IncreaseIndentation();
-            
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("finally {");
+            emitter.Formatting.IncreaseIndentation();
+
             if (Statements != null)
             {
                 foreach (var s in Statements)
                 {
-                    sb.Append(formatting.NewLine + formatting.Indentation);
-                    sb.Append(s.ToString(formatting));
+                    emitter.EmitNewLineAndIndentation();
+                    s.Emit(emitter);
                 }
             }
 
-            formatting.DecreaseIndentation();
-            sb.Append(formatting.NewLine + formatting.Indentation + "}");
-
-            return sb.ToString();
+            emitter.Formatting.DecreaseIndentation();
+            emitter.EmitNewLineAndIndentation();
+            emitter.EmitString("}");
         }
 
         public override IEnumerable<JSExpression> GetChildren()
