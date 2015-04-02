@@ -43,11 +43,15 @@ namespace Braille.JSAst
                             emitter.EmitNewLine();
                             emitter.EmitIndentation();
                         }
+                        else
+                        {
+                            emitter.EmitString(" ");
+                        }
                     }
 
                     first = false;
-                        
-                    c.Emit(emitter);
+
+                    emitter.Emit(c);
                 }
 
                 if (!Inline)

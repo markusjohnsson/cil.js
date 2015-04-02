@@ -41,18 +41,17 @@ namespace Braille.JSAst
 
                     first = false;
 
-                    p.Emit(emitter);
+                    emitter.Emit(p);
                 }
             }
 
-            emitter.EmitString(") ");
+            emitter.EmitString(")");
 
 
             if (!Inline)
                 emitter.EmitNewLineAndIndentation();
 
             emitter.EmitString("{");
-
             emitter.Formatting.IncreaseIndentation();
 
             {
@@ -76,11 +75,23 @@ namespace Braille.JSAst
 
                 if (Body != null)
                 {
+                    var lastPos = 0L;
+
                     foreach (var p in Body)
                     {
-                        if (false == Inline)
+                        if (false == Inline && emitter.Position != lastPos)
+                        {
                             emitter.EmitNewLineAndIndentation();
-                        p.Emit(emitter);
+                        }
+
+                        if (Inline)
+                        {
+                            emitter.EmitString(" ");
+                        }
+
+                        lastPos = emitter.Position;
+
+                        emitter.Emit(p);
                     }
                 }
             }

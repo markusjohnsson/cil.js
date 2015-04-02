@@ -12,10 +12,15 @@ namespace Braille.JSAst
 
         public override void Emit(Emitter emitter)
         {
+            var first = true;
             foreach (var t in Text.Split('\n'))
             {
-                emitter.EmitNewLineAndIndentation();
-                emitter.EmitString("/*");
+                if (first == false)
+                    emitter.EmitNewLineAndIndentation();
+
+                first = false;
+
+                emitter.EmitString("/* ");
                 emitter.EmitString(t.Replace("*/", "* /"));
                 emitter.EmitString("*/");
             }

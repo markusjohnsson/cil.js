@@ -15,9 +15,9 @@ namespace Braille.JSAst
         {
             emitter.EmitString("(");
             emitter.EmitParenthesized(Condition);
-            emitter.EmitString("?");
+            emitter.EmitString(" ? ");
             emitter.EmitParenthesized(TrueValue);
-            emitter.EmitString(":");
+            emitter.EmitString(" : ");
             emitter.EmitParenthesized(FalseValue);
             emitter.EmitString(")");
         }

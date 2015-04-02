@@ -46,8 +46,11 @@ namespace Braille.JSAst
                 return;
             }
 
+            var loc = emitter.Position;
             Expression.Emit(emitter);
-            emitter.EmitString(";");
+
+            if (loc != emitter.Position)
+                emitter.EmitString(";");
         }
 
         public override IEnumerable<JSExpression> GetChildren()

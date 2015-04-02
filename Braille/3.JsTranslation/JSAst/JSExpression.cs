@@ -13,7 +13,7 @@ namespace Braille.JSAst
         public void IncreaseIndentation() { indentationLevel++; UpdateIndentation(); }
         public void DecreaseIndentation() { indentationLevel--; UpdateIndentation(); }
 
-        private string indent;
+        private string indent = string.Empty;
         
         private void UpdateIndentation()
         {

@@ -84,6 +84,7 @@ namespace Braille
                             var emitter = new Emitter(new Formatting(), writer);
                             foreach (var statement in translator.Translate(asms, asm))
                                 statement.Emit(emitter);
+                            writer.WriteLine();
                         }
                     }
 

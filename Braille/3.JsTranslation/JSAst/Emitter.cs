@@ -11,6 +11,9 @@ namespace Braille.JSAst
         public readonly Formatting Formatting;
         private TextWriter writer;
 
+        private long position;
+        public long Position { get { return position; } }
+
         public Emitter(Formatting formatting, TextWriter writer)
         {
             this.Formatting = formatting;
@@ -24,19 +27,34 @@ namespace Braille.JSAst
             EmitString(")");
         }
 
+        public void Emit(JSExpression node)
+        {
+            node.Emit(this);
+        }
+
+        public void EmitIfNotWhiteSpace(string s)
+        {
+            if (false == string.IsNullOrWhiteSpace(s))
+                EmitString(s);
+        }
+
         public void EmitString(string s)
         {
+            if (s == null)
+                throw new ArgumentNullException("s");
+            
+            position += s.Length;
             writer.Write(s);
         }
 
         public void EmitNewLine()
         {
-            writer.Write(Formatting.NewLine);
+            EmitString(Formatting.NewLine);
         }
 
         public void EmitIndentation()
         {
-            writer.Write(Formatting.Indentation);
+            EmitString(Formatting.Indentation);
         }
 
         public void EmitBracketed(JSExpression node)

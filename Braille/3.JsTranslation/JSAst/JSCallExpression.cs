@@ -33,17 +33,17 @@ namespace Braille.JSAst
                     if (false == first)
                     {
                         emitter.EmitString(",");
-
-                        if (Indent)
-                        {
-                            emitter.EmitNewLine();
-                            emitter.EmitIndentation();
-                        }
                     }
 
                     first = false;
 
-                    arg.Emit(emitter);
+                    if (Indent)
+                    {
+                        emitter.EmitNewLine();
+                        emitter.EmitIndentation();
+                    }
+
+                    emitter.Emit(arg);
                 }
             }
             emitter.EmitString(")");

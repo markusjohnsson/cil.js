@@ -23,7 +23,8 @@ namespace Braille.JSAst
         {
             if (IsHex)
             {
-                emitter.EmitString("0x" + ((ulong)Value).ToString("X"));
+                emitter.EmitString("0x");
+                emitter.EmitString(((ulong)Value).ToString("X"));
                 return;
             }
 
@@ -31,11 +32,15 @@ namespace Braille.JSAst
 
             if (TypeHint == TypeHint.Integer)
             {
-                emitter.EmitString("(" + value + "|0)");
+                emitter.EmitString("(");
+                emitter.EmitString(value);
+                emitter.EmitString("|0)");
             }
             else if (TypeHint == TypeHint.Float)
             {
-                emitter.EmitString("(" + value + ")");
+                emitter.EmitString("(+");
+                emitter.EmitString(value);
+                emitter.EmitString(")");
             }
             else
             {

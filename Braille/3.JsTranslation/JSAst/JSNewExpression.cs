@@ -32,7 +32,7 @@ namespace Braille.JSAst
                     }
 
                     first = false;
-                    arg.Emit(emitter);
+                    emitter.Emit(arg);
                 }
             }
 

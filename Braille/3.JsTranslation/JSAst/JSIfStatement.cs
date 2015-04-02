@@ -19,7 +19,7 @@ namespace Braille.JSAst
         public override void Emit(Emitter emitter)
         {
             emitter.EmitNewLineAndIndentation();
-            emitter.EmitString("if");
+            emitter.EmitString("if ");
             emitter.EmitParenthesized(Condition);
             emitter.EmitString("{");
 
@@ -30,7 +30,7 @@ namespace Braille.JSAst
                 foreach (var s in Statements)
                 {
                     emitter.EmitNewLineAndIndentation();
-                    s.Emit(emitter);
+                    emitter.Emit(s);
                 }
             }
 

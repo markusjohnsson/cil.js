@@ -45,7 +45,7 @@ namespace Braille.JSAst
                     emitter.EmitString(prop.Key);
                     emitter.EmitString("'");
                     emitter.EmitString(": ");
-                    prop.Value.Emit(emitter);
+                    emitter.Emit(prop.Value);
                 }
 
                 emitter.EmitNewLine();
