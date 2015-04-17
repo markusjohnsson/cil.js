@@ -1,7 +1,9 @@
 ﻿using Braille.Ast;
 using Braille.Loading.Model;
 using IKVM.Reflection;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace Braille.Loading
@@ -19,12 +21,48 @@ namespace Braille.Loading
         {
             var universe = new Universe();
 
-            var asms = settings
-                .Assemblies
-                .Select((p, i) => Process(universe, p, i))
+            var assemblySettings = settings.Assemblies.ToDictionary(a => a.Path);
+
+            var allPaths = new HashSet<string>(assemblySettings.Keys.Select(k => Path.GetFileNameWithoutExtension(k)));
+
+            var dependencyOrdered = assemblySettings
+                .SelectMany(p => AddReferencedAssemblies(universe, allPaths, p.Key))
+                .Distinct()
                 .ToList();
 
+            var asms = new List<CilAssembly>();
+            foreach (var p in dependencyOrdered)
+            {
+                AssemblySettings asmSettings;
+                if (false == assemblySettings.TryGetValue(p, out asmSettings))
+                {
+                    Console.WriteLine("Adding assembly: {0}", Path.GetFileName(p));
+                    asmSettings = new AssemblySettings { Path = p, Translate = true };
+                    assemblySettings.Add(p, asmSettings);
+                }
+
+                asms.Add(Process(universe, asmSettings, asms.Count));
+            }
+
             return new Context(universe, asms, settings);
+        }
+
+        private static IEnumerable<string> AddReferencedAssemblies(Universe universe, HashSet<string> allPaths, string p)
+        {
+            var asm = universe.LoadFile(p);
+            var dir = Path.GetDirectoryName(p);
+            foreach (var r in asm.GetReferencedAssemblies())
+            {
+                var path = Path.Combine(dir, r.Name + ".dll");
+
+                if (allPaths.Add(r.Name) && File.Exists(path))
+                {
+                    foreach (var sub in AddReferencedAssemblies(universe, allPaths, path))
+                        yield return sub;
+                }
+            }
+
+            yield return p;
         }
 
         private CilAssembly Process(Universe universe, AssemblySettings settings, int index)

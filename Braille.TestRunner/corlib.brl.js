@@ -4,6 +4,20 @@ var BLR;
 (function (blr) {
     blr.nop = function nop() { };
 
+    blr.entry_point = function () {
+        var a = 0;
+        var result = null;
+        while (window["asm" + a])
+        {
+            if (typeof window["asm" + a].entryPoint == 'function')
+                result = window["asm" + a].entryPoint;
+
+            a++;
+        }
+        if (result != null)
+            result.apply(null, arguments);
+    }
+
     blr.declare_type = function declare_type(name, genericArgs, baseType, init) {
         var isGeneric = genericArgs && genericArgs.length > 0;
         var ct = isGeneric ? {} : null;
