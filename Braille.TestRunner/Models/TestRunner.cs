@@ -245,7 +245,7 @@ namespace Braille.TestRunner.Models
                 settings.AddAssembly(mainAssemblyName, translate: true);
 
                 settings.OutputFileName = outputName;
-
+                
                 settings.OutputILComments = true;
 
                 var compiler = new Compiler(settings);
@@ -269,6 +269,7 @@ namespace Braille.TestRunner.Models
             var parameters = new CompilerParameters();
             parameters.GenerateExecutable = outputName.EndsWith("exe");
             parameters.OutputAssembly = outputName;
+            parameters.CompilerOptions = "/unsafe";
 
             if (forBraille)
                 parameters.CoreAssemblyFileName = GetCorlibPath();

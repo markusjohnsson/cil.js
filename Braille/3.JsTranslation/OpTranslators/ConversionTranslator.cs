@@ -46,6 +46,12 @@ namespace Braille.JsTranslation.OpTranslators
                 else
                     return JSFactory.Call(JSFactory.Identifier("BLR", "to_number_signed"), expr);
             }
+
+            if (arg.ResultType.IsGenericType && arg.ResultType.GetGenericTypeDefinition() == context.SystemTypes.ManagedPointer)
+            {
+                // conversion from managed pointer to unmanaged pointer... do nothing
+                return expr;
+            }
             
             if (IsIntegerType(node.ResultType))
                 return JSFactory.Truncate(expr);

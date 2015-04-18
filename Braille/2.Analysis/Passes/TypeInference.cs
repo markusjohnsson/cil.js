@@ -314,6 +314,8 @@ namespace Braille.Analysis
                 return a;
             else if (op.Instruction.OpCode.Name.StartsWith("sh"))
                 return a;
+            else if (a.IsPointer)
+                return a;
             else
                 throw new NotSupportedException();
         }
