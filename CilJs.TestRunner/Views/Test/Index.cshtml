@@ -1,0 +1,108 @@
+﻿@{
+    
+    Layout = null;
+}
+@model CilJs.TestRunner.Controllers.IndexViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+    <title>Index</title>
+    <style>
+        body {
+            background-color: #fafafa;
+            color: #222;
+        }
+
+        * {
+            /*font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;*/
+            font-family:Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+            font-size: 10pt;
+        }
+
+        pre {
+            font-family: 'Consolas', 'Courier New', Courier, 'Nimbus Mono L', monospace
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+    <script src="~/Scripts/jquery-2.1.0.js"></script>
+    <script src="~/Scripts/knockout-3.1.0.debug.js"></script>
+    <script src="~/Scripts/rx.js"></script>
+    <script src="~/Scripts/rx.jquery.js"></script>
+    <script>
+        var data = @Html.Raw((new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model)));;
+    </script>
+</head>
+<body>
+    <button data-bind="click: runAll">Run all</button>
+
+    <table data-bind="foreach: items">
+        <tr>
+            <td>
+                <a data-bind="attr: { href: '/Test/Run?name=/' + Name }, text: Name"></a>
+            </td>
+            <td>
+                <div data-bind="visible: testRunning()">
+                    <img style="position: absolute; margin-top: -10px;" src="/Images/throbber.gif" alt="Working..." />
+                </div>
+                <span style="color: green" data-bind="style: { display: testHasSucceeded() ? 'inline-block' : 'none' }">OK</span>
+                <span style="color: red" data-bind="style: { display: testHasFailed() ? 'inline-block' : 'none' }">FAILED</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" data-bind="visible: errors().length > 0"><pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre></td>
+        </tr>
+    </table>
+    
+    <script>
+        function createItem(e) { 
+            e.testHasSucceeded = ko.observable(false);
+            e.testHasFailed = ko.observable(false);
+            e.testRunning = ko.observable(false);
+            e.errors = ko.observable([]);
+            return e;
+        }
+
+        var vm = {
+            items: data.Items.map(createItem),
+            runAll: function() {
+
+                $.getJSON("/api/testrunner/removecorlib")
+                    .done(
+                        function() {
+                            vm.items
+                              .forEach(
+                                    function(item) {
+                                        item.testRunning(true);
+                                        $.getJSON("/api/testrunner?name=" + item.Name)
+                                            .done(
+                                                function(result) {
+                                                    if (result.TestSuccess)
+                                                        item.testHasSucceeded(true);
+                                                    else {
+                                                        item.testHasFailed(true);
+                                                        item.errors(result.Errors);
+                                                    }
+
+                                                    item.testRunning(false);
+                                                });
+                                    });
+                        });
+
+                
+            }
+        };
+
+        ko.applyBindings(vm);
+
+        if (data.AutoRun)
+            vm.runAll();
+    </script>
+</body>
+</html>
