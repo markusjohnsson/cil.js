@@ -1,7 +1,7 @@
 using IKVM.Reflection;
 using System.Collections.Generic;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class StackUseDefinition
     {

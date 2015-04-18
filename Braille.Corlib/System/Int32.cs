@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using Braille.Runtime.TranslatorServices;
+using CilJs.Runtime.TranslatorServices;
 
 namespace System
 {
@@ -13,7 +13,7 @@ namespace System
             return InternalFormatting.SignedPrimitiveToString(this);
         }
 
-        [JsReplace("BLR.new_string({0}.toString(16))")]
+        [JsReplace("CILJS.new_string({0}.toString(16))")]
         private static extern string toHex(int n);
 
         public string ToString(string p)

@@ -1,5 +1,5 @@
-﻿using Braille.Ast;
-using Braille.Loading.Model;
+﻿using CilJs.Ast;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Analysis.Passes
+namespace CilJs.Analysis.Passes
 {
     class StaticFieldUsageAnalysis : IAnalysisPass
     {

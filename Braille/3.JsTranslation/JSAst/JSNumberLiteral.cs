@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace Braille.JSAst
+namespace CilJs.JSAst
 {
     enum TypeHint
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille
+namespace CilJs
 {
     public static class TypeExtensions
     {

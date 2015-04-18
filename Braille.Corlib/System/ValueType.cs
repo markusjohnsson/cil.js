@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using Braille.Runtime.TranslatorServices;
+using CilJs.Runtime.TranslatorServices;
 
 namespace System
 {
@@ -10,7 +10,7 @@ namespace System
             return ValueTypeEquals(this, other);
         }
 
-        [JsReplace("BLR.value_equals({0}.r(), {1}.boxed)")]
+        [JsReplace("CILJS.value_equals({0}.r(), {1}.boxed)")]
         private static extern bool ValueTypeEquals(object a, object b);
     }
 }

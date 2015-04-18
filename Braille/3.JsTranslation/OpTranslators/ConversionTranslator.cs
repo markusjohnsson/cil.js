@@ -1,12 +1,12 @@
-﻿using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+﻿using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.JsTranslation.OpTranslators
+namespace CilJs.JsTranslation.OpTranslators
 {
     class ConversionTranslator: OpTranslator
     {
@@ -28,7 +28,7 @@ namespace Braille.JsTranslation.OpTranslators
                 if (argIsInt64)
                     return expr;
                 else
-                    return JSFactory.Call(JSFactory.Identifier("BLR", "conv_u8"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "conv_u8"), expr);
             }
 
             if (node.Instruction.OpCode.Name == "conv.i8")
@@ -36,15 +36,15 @@ namespace Braille.JsTranslation.OpTranslators
                 if (argIsInt64)
                     return expr;
                 else
-                    return JSFactory.Call(JSFactory.Identifier("BLR", "conv_i8"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "conv_i8"), expr);
             }
 
             if (argIsInt64)
             {
                 if (node.Instruction.OpCode.Name == "conv.r.un")
-                    return JSFactory.Call(JSFactory.Identifier("BLR", "to_number_unsigned"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "to_number_unsigned"), expr);
                 else
-                    return JSFactory.Call(JSFactory.Identifier("BLR", "to_number_signed"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "to_number_signed"), expr);
             }
 
             if (arg.ResultType.IsGenericType && arg.ResultType.GetGenericTypeDefinition() == context.SystemTypes.ManagedPointer)

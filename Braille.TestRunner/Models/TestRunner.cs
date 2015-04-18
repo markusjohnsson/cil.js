@@ -11,7 +11,7 @@ using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Runtime.CompilerServices;
 
-namespace Braille.TestRunner.Models
+namespace CilJs.TestRunner.Models
 {
     public class Tests
     {
@@ -52,10 +52,10 @@ namespace Braille.TestRunner.Models
             var errors = new List<string>();
 
             var clrRefs = new List<Ref>();
-            var brlRefs = new List<Ref>();
+            var ciljsRefs = new List<Ref>();
 
             var corlib = GetCorlibPath();
-            var corlibOutput = Path.Combine(workingDir, "corlib.brl.js");
+            var corlibOutput = Path.Combine(workingDir, "corlib.ciljs.js");
 
             if (false == translateCorlib)
             {
@@ -65,23 +65,23 @@ namespace Braille.TestRunner.Models
                     if (!File.Exists(corlibOutput) || 
                          File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
                     {
-                        CompileJs(corlib, corlibOutput, brlRefs, errors, outputRuntimeJs: true);
+                        CompileJs(corlib, corlibOutput, ciljsRefs, errors, outputRuntimeJs: true);
                     }
                 }
             }
 
-            brlRefs.Add(new Ref { path = corlib, translate = translateCorlib });
+            ciljsRefs.Add(new Ref { path = corlib, translate = translateCorlib });
 
             string clrProgramOutputName = null;
-            string brlProgramOutputName = null;
+            string ciljsProgramOutputName = null;
             string csProgramFile = null;
 
             if (csFiles.Length == 1)
             {
                 csProgramFile = Path.Combine(workingDir, csFiles[0]);
-                brlProgramOutputName = csProgramFile + ".brl.exe";
+                ciljsProgramOutputName = csProgramFile + ".ciljs.exe";
                 clrProgramOutputName = csProgramFile + ".clr.exe";
-                CompileAssembly(csProgramFile, brlProgramOutputName, true, clrRefs, errors);
+                CompileAssembly(csProgramFile, ciljsProgramOutputName, true, clrRefs, errors);
                 CompileAssembly(csProgramFile, clrProgramOutputName, false, clrRefs, errors);
             }
             else
@@ -91,19 +91,19 @@ namespace Braille.TestRunner.Models
                     if (Path.GetFileName(csFile) == "Program.cs")
                     {
                         csProgramFile = Path.Combine(workingDir, csFile);
-                        brlProgramOutputName = csProgramFile + ".brl.exe";
+                        ciljsProgramOutputName = csProgramFile + ".ciljs.exe";
                         clrProgramOutputName = csProgramFile + ".clr.exe";
-                        CompileAssembly(csProgramFile, brlProgramOutputName, true, clrRefs, errors);
+                        CompileAssembly(csProgramFile, ciljsProgramOutputName, true, clrRefs, errors);
                         CompileAssembly(csProgramFile, clrProgramOutputName, false, clrRefs, errors);
                     }
                     else
                     {
                         var file = Path.Combine(workingDir, csFile);
-                        var brlOutputName = file + ".brl.dll";
+                        var ciljsOutputName = file + ".ciljs.dll";
                         var clrOutputName = file + ".clr.dll";
-                        CompileAssembly(file, brlOutputName, true, clrRefs, errors);
+                        CompileAssembly(file, ciljsOutputName, true, clrRefs, errors);
                         CompileAssembly(file, clrOutputName, false, clrRefs, errors);
-                        brlRefs.Add(new Ref { path = brlOutputName });
+                        ciljsRefs.Add(new Ref { path = ciljsOutputName });
                         clrRefs.Add(new Ref { path = clrOutputName });
                     }
                 }
@@ -122,7 +122,7 @@ namespace Braille.TestRunner.Models
                 goto DONE;
             }
 
-            var entryPoint = CompileJs(brlProgramOutputName, brlProgramOutputName + ".js", brlRefs, errors);
+            var entryPoint = CompileJs(ciljsProgramOutputName, ciljsProgramOutputName + ".js", ciljsRefs, errors);
 
             if (errors.Any())
             {
@@ -134,7 +134,7 @@ namespace Braille.TestRunner.Models
             exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
 
             int jsExitCode;
-            jsOutput = ExecuteJs(brlProgramOutputName, translateCorlib ? null : corlibOutput, entryPoint, out jsExitCode, errors);
+            jsOutput = ExecuteJs(ciljsProgramOutputName, translateCorlib ? null : corlibOutput, entryPoint, out jsExitCode, errors);
 
             if (errors.Any())
             {
@@ -168,7 +168,7 @@ namespace Braille.TestRunner.Models
 
         private string GetCorlibPath()
         {
-            return Path.Combine(workingDir, @"..\Braille.Corlib\bin\Debug\mscorlib.dll");
+            return Path.Combine(workingDir, @"..\CilJs.Corlib\bin\Debug\mscorlib.dll");
         }
 
         private string ExecuteExe(string outputName, out int exitCode)
@@ -196,8 +196,8 @@ namespace Braille.TestRunner.Models
                 object exitCodeObj = null;
                 try
                 {
-                    jsEngine.Execute(@"var braille_testlib_output = """";");
-                    jsEngine.Execute(@"function braille_test_log(message) { braille_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
+                    jsEngine.Execute(@"var ciljs_testlib_output = """";");
+                    jsEngine.Execute(@"function ciljs_test_log(message) { ciljs_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
 
                     if (corlibPath != null)
                         jsEngine.ExecuteFile(corlibPath);
@@ -221,7 +221,7 @@ namespace Braille.TestRunner.Models
 
                 try
                 {
-                    jsOutput = (string)jsEngine.Evaluate("braille_testlib_output");
+                    jsOutput = (string)jsEngine.Evaluate("ciljs_testlib_output");
                 }
                 catch
                 {
@@ -261,7 +261,7 @@ namespace Braille.TestRunner.Models
             return null;
         }
 
-        private void CompileAssembly(string csFile, string outputName, bool forBraille, List<Ref> refs, List<string> errors)
+        private void CompileAssembly(string csFile, string outputName, bool forCilJs, List<Ref> refs, List<string> errors)
         {
             var codeProvider = new CSharpCodeProvider();
             var icc = codeProvider.CreateCompiler();
@@ -271,7 +271,7 @@ namespace Braille.TestRunner.Models
             parameters.OutputAssembly = outputName;
             parameters.CompilerOptions = "/unsafe";
 
-            if (forBraille)
+            if (forCilJs)
                 parameters.CoreAssemblyFileName = GetCorlibPath();
 
             if (refs != null)

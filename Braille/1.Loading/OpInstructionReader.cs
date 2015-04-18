@@ -1,10 +1,10 @@
-using Braille.Ast;
+using CilJs.Ast;
 using IKVM.Reflection;
 using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
 
-namespace Braille.Loading
+namespace CilJs.Loading
 {
     class OpInstructionReader
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace Braille.Loading
+namespace CilJs.Loading
 {
     public class ByteArrayReader
     {

@@ -1,10 +1,10 @@
-﻿using Braille.Ast;
+﻿using CilJs.Ast;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class LoadFunctionNode: OpExpression
     {

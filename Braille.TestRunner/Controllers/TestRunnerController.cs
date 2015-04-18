@@ -1,4 +1,4 @@
-﻿using Braille.TestRunner.Models;
+﻿using CilJs.TestRunner.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Web.Http;
 
-namespace Braille.TestRunner.Controllers
+namespace CilJs.TestRunner.Controllers
 {
     public class TestRunnerController : ApiController
     {
@@ -22,7 +22,7 @@ namespace Braille.TestRunner.Controllers
         [ActionName("RemoveCorlib")]
         public bool RemoveCorlib()
         {
-            File.Delete(Path.Combine(HostingEnvironment.MapPath("~"), "corlib.brl.js"));
+            File.Delete(Path.Combine(HostingEnvironment.MapPath("~"), "corlib.ciljs.js"));
             return true;
         }
     }

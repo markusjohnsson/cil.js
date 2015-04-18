@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-namespace Braille.JSAst
+namespace CilJs.JSAst
 {
     class JSPropertyAccessExpression : JSExpression
     {

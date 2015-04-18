@@ -1,6 +1,6 @@
-﻿using Braille.JSAst;
-using Braille.Loading;
-using Braille.JsTranslation;
+﻿using CilJs.JSAst;
+using CilJs.Loading;
+using CilJs.JsTranslation;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -8,10 +8,10 @@ using System.Linq;
 using System.Text;
 using Type = IKVM.Reflection.Type;
 using System.Diagnostics;
-using Braille.Ast;
-using Braille.Loading.Model;
+using CilJs.Ast;
+using CilJs.Loading.Model;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     enum ReplacementKind
     {

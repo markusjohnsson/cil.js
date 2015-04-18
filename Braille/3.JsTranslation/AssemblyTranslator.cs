@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 
-namespace Braille.JsTranslation
+namespace CilJs.JsTranslation
 {
     class AssemblyTranslator: AbstractTranslator
     {

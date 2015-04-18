@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Braille
+namespace CilJs
 {
     public class AssemblySettings
     {

@@ -1,10 +1,10 @@
-﻿using Braille.Analysis.Passes;
-using Braille.Ast;
+﻿using CilJs.Analysis.Passes;
+using CilJs.Ast;
 using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     class StackAnalyzer: IAnalysisPass
     {

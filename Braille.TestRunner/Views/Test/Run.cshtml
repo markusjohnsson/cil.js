@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model Braille.TestRunner.Controllers.RunJsViewModel
+@model CilJs.TestRunner.Controllers.RunJsViewModel
 
 <!DOCTYPE html>
 
@@ -33,7 +33,7 @@
     <script src="~/Scripts/knockout-3.1.0.debug.js"></script>
     <script src="~/Scripts/rx.js"></script>
     <script src="~/Scripts/rx.jquery.js"></script>
-    <script src="~/corlib.brl.js"></script>
+    <script src="~/corlib.ciljs.js"></script>
 
     <script>
         var item = {
@@ -47,16 +47,16 @@
 
         function runScript() {
 
-            braille_test_log_clear();
+            ciljs_test_log_clear();
             var result = "exitCode: " + asm1.entryPoint(); // do not remove "result" local.
             document.getElementById("output").innerHTML += result;
         }
 
-        function braille_test_log_clear() {
+        function ciljs_test_log_clear() {
             document.getElementById("output").innerHTML = "";
         }
 
-        function braille_test_log(message) {
+        function ciljs_test_log(message) {
             //if (typeof console != "undefined") console.log(message);
             document.getElementById("output").innerHTML += (asm0.ToJavaScriptString(message) + "<br/>");
         }

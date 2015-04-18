@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Routing;
 
-namespace Braille.TestRunner
+namespace CilJs.TestRunner
 {
     public static class WebApiConfig
     {

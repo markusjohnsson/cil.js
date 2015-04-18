@@ -1,6 +1,6 @@
-﻿using Braille.Analysis.Passes;
-using Braille.Ast;
-using Braille.Loading.Model;
+﻿using CilJs.Analysis.Passes;
+using CilJs.Ast;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     class TypeUsageAnalysis: IAnalysisPass
     {

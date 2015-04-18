@@ -1,10 +1,10 @@
 ﻿
-var BLR;
+var CILJS;
 
-(function (blr) {
-    blr.nop = function nop() { };
+(function (ciljs) {
+    ciljs.nop = function nop() { };
 
-    blr.entry_point = function () {
+    ciljs.entry_point = function () {
         var a = 0;
         var result = null;
         while (window["asm" + a])
@@ -18,19 +18,19 @@ var BLR;
             result.apply(null, arguments);
     }
 
-    blr.declare_type = function declare_type(name, genericArgs, baseType, init) {
+    ciljs.declare_type = function declare_type(name, genericArgs, baseType, init) {
         var isGeneric = genericArgs && genericArgs.length > 0;
         var ct = isGeneric ? {} : null;
         var gA = isGeneric ? genericArgs.join(",") : "";
         var gAmD = isGeneric ? genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; } ).join(",") : "";
         var s = "" +
             "function t(" + gA + ") {\n" +
-            "    var c = " + (isGeneric ? "blr.tree_get([" + gAmD + "], ct)" : "ct") + ";\n" +
+            "    var c = " + (isGeneric ? "ciljs.tree_get([" + gAmD + "], ct)" : "ct") + ";\n" +
             "    if (c) return c;\n" +
             "    \n" +
             "    eval('function '+name+'() { c.init();this.constructor = c; }');\n" +
             "    c = eval(name);\n" +
-            "    " + (isGeneric ? "blr.tree_set([" + gAmD + "], ct, c);" : "ct = c;") + "\n" +
+            "    " + (isGeneric ? "ciljs.tree_set([" + gAmD + "], ct, c);" : "ct = c;") + "\n" +
             "    \n" +
             "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
             "    if (baseType)\n" +
@@ -41,7 +41,7 @@ var BLR;
         return t;
     }
 
-    blr.init_base_types = function init_base_types()
+    ciljs.init_base_types = function init_base_types()
     {
         asm0['System.Object']().init();
         asm0['System.ValueType']().init();
@@ -65,7 +65,7 @@ var BLR;
         asm0['System.Double']().init();
     }
 
-    blr.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
+    ciljs.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
         type.FullName = fullname;
         type.Assembly = assembly;
         type.IsValueType = isValueType;
@@ -87,41 +87,41 @@ var BLR;
         type.prototype.ifacemap = {};
     }
 
-    blr.implement_interface = function implement_interface(type, iface, implementation) {
+    ciljs.implement_interface = function implement_interface(type, iface, implementation) {
         type.Interfaces.push(iface[0]);
         if (implementation !== null)
-            blr.tree_set(iface, type.prototype.ifacemap, implementation);
+            ciljs.tree_set(iface, type.prototype.ifacemap, implementation);
     }
 
-    blr.declare_virtual = function declare_virtual(type, slot, target) {
+    ciljs.declare_virtual = function declare_virtual(type, slot, target) {
         type.prototype.vtable[slot] = new Function("return " + target + ";");
     }
 
-    blr.is_inst_interface = function is_inst_interface(interfaceType) {
+    ciljs.is_inst_interface = function is_inst_interface(interfaceType) {
         return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return null; } };
     }
 
-    blr.is_inst_primitive = function is_inst_primitive(primitiveType) {
+    ciljs.is_inst_primitive = function is_inst_primitive(primitiveType) {
         return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return null; } }
     }
 
-    blr.is_inst_array = function is_inst_array(T) {
+    ciljs.is_inst_array = function is_inst_array(T) {
         return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || T === asm0['System.Object']() || t.etype.prototype instanceof T) ? t : null; };
     }
 
-    blr.is_inst_default = function is_inst_default(type) {
+    ciljs.is_inst_default = function is_inst_default(type) {
         return function (t) { return t instanceof type ? t : null; };
     }
 
-    blr.is_inst_value_type = function is_inst_value_type(type) {
+    ciljs.is_inst_value_type = function is_inst_value_type(type) {
         return function (t) { return t.boxed instanceof type ? t : t instanceof type ? t : null; };
     }
 
-    blr.is_inst_delegate = function is_inst_delegate(delegateType) {
+    ciljs.is_inst_delegate = function is_inst_delegate(delegateType) {
         return function (t) { return (t && typeof t._methodPtr === 'function') ? t : null; };
     }
 
-    blr.clone_value = function clone_value(v) {
+    ciljs.clone_value = function clone_value(v) {
         if (v === null) return v;
         if (typeof v === "number") return v;
         if (typeof v === "function") return v;
@@ -129,12 +129,12 @@ var BLR;
         var result = new v.constructor();
         for (var p in v) {
             if (v.hasOwnProperty(p))
-                result[p] = blr.clone_value(v[p]);
+                result[p] = ciljs.clone_value(v[p]);
         }
         return result;
     }
 
-    blr.value_equals = function value_equals(a, b) {
+    ciljs.value_equals = function value_equals(a, b) {
 
         if (typeof a !== typeof b)
             return 0;
@@ -148,7 +148,7 @@ var BLR;
                 var av = a[p];
                 var bv = b[p];
 
-                if (!blr.value_equals(av, bv))
+                if (!ciljs.value_equals(av, bv))
                     return 0;
             }
 
@@ -159,20 +159,20 @@ var BLR;
         }
     }
 
-    blr.unsigned_value = function unsigned_value(a) {
+    ciljs.unsigned_value = function unsigned_value(a) {
         if (a < 0)
             return 0xffffffff + a + 1;
         else
             return a;
     }
 
-    blr.box = function box(v, type) {
+    ciljs.box = function box(v, type) {
         if (v === null)
             return v;
 
         if (type.IsNullable) {
             if (v.has_value)
-                return blr.box(v.value, type.GenericArguments[type.MetadataName][0]);
+                return ciljs.box(v.value, type.GenericArguments[type.MetadataName][0]);
             else
                 return null;
         }
@@ -188,21 +188,21 @@ var BLR;
         };
     }
 
-    blr.unbox = function unbox(o, type) {
+    ciljs.unbox = function unbox(o, type) {
         if (o === null) {
             var t = asm0['System.InvalidCastException']();
             var e = new t();
             e.stack = new Error().stack;
             throw e;
         }
-        return blr.cast_class(o, type).boxed;
+        return ciljs.cast_class(o, type).boxed;
     }
 
-    blr.unbox_any = function unbox_any(o, type) {
+    ciljs.unbox_any = function unbox_any(o, type) {
         if (type.IsNullable) {
             var result = new type();
             if (o !== null) {
-                result.value = blr.cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]);
+                result.value = ciljs.cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]);
                 result.has_value = true;
             }
             return result;
@@ -215,22 +215,22 @@ var BLR;
                 throw new t();
             }
 
-            return blr.cast_class(o, type).boxed;
+            return ciljs.cast_class(o, type).boxed;
         }
         else
-            return blr.cast_class(o, type);
+            return ciljs.cast_class(o, type);
     }
 
-    blr.stelem_ref = function stelem_ref(array, index, element) {
-        var castedElement = blr.cast_class(element, array.etype);
+    ciljs.stelem_ref = function stelem_ref(array, index, element) {
+        var castedElement = ciljs.cast_class(element, array.etype);
         array.jsarr[index] = castedElement;
     }
 
-    blr.ldelem_ref = function ldelem_ref(array, index) {
-        return blr.box(array.jsarr[index], array.etype);
+    ciljs.ldelem_ref = function ldelem_ref(array, index) {
+        return ciljs.box(array.jsarr[index], array.etype);
     }
 
-    blr.convert_box_to_pointer_as_needed = function convert_box_to_pointer_as_needed(o) {
+    ciljs.convert_box_to_pointer_as_needed = function convert_box_to_pointer_as_needed(o) {
         if (typeof o.boxed !== "undefined" &&
             typeof o.type !== "undefined" &&
             o.type.IsValueType) {
@@ -244,7 +244,7 @@ var BLR;
         }
     }
 
-    blr.dereference_pointer_as_needed = function(p) {
+    ciljs.dereference_pointer_as_needed = function(p) {
         if (typeof p.r === "function" &&
             typeof p.w === "function") {
             var v = p.r();
@@ -256,37 +256,37 @@ var BLR;
         return p;
     }
 
-    blr.tree_get = function tree_get(a, s) {
+    ciljs.tree_get = function tree_get(a, s) {
         var c = s;
         for (var i = 0; c && i < a.length; i++)
             c = c[a[i]];
         return c;
     }
 
-    blr.tree_set = function tree_set(a, s, v) {
+    ciljs.tree_set = function tree_set(a, s, v) {
         if (a.length === 1) {
             s[a[0]] = v;
         }
         else {
             var c = s[a[0]];
             if (!c) s[a[0]] = c = {};
-            blr.tree_set(a.slice(1), c, v);
+            ciljs.tree_set(a.slice(1), c, v);
         }
     }
 
-    blr.new_string = function new_string(jsstr) {
+    ciljs.new_string = function new_string(jsstr) {
         var r = new (asm0['System.String']())();
         r.jsstr = jsstr;
         return r;
     }
 
-    blr.new_handle = function new_handle(type, value) {
+    ciljs.new_handle = function new_handle(type, value) {
         var r = new type();
         r.value = value;
         return r;
     }
 
-    blr.new_array = function new_array(type, length) {
+    ciljs.new_array = function new_array(type, length) {
         var ctor = type.ArrayType || Array;
         var r = new (asm0['System.Array`1'](type))();
         r.etype = type;
@@ -311,7 +311,7 @@ var BLR;
         return r;
     }
 
-    blr.newobj = function newobj(type, ctor, args) {
+    ciljs.newobj = function newobj(type, ctor, args) {
         var result = new type();
 
         if (type.IsValueType)
@@ -327,7 +327,7 @@ var BLR;
         return result;
     }
 
-    blr.cast_class = function cast_class(obj, type) {
+    ciljs.cast_class = function cast_class(obj, type) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
             return obj;
         }
@@ -348,26 +348,26 @@ var BLR;
             return obj;
         }
 
-        blr.throw_invalid_cast();
+        ciljs.throw_invalid_cast();
     }
 
-    blr.throw_invalid_cast = function throw_invalid_cast() {
+    ciljs.throw_invalid_cast = function throw_invalid_cast() {
         var t = asm0['System.InvalidCastException']();
         var e = new t();
         e.stack = new Error().stack;
         throw e;
     }
 
-    blr.conv_u8 = function conv_u8(n) {
+    ciljs.conv_u8 = function conv_u8(n) {
         if (n < 0) {
             /* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */
             n = 0x100000000 + n;
         }
 
-        return blr.make_uint64(n);
+        return ciljs.make_uint64(n);
     }
 
-    blr.conv_i8 = function conv_i8(n) {
+    ciljs.conv_i8 = function conv_i8(n) {
         if (n < 0) {
             /* signed 32 bit int */
             n = 0x100000000 + n;
@@ -376,10 +376,10 @@ var BLR;
             return new Uint32Array([n | 0, 0xffffffff]);
         }
 
-        return blr.make_uint64(n);
+        return ciljs.make_uint64(n);
     }
 
-    blr.make_uint64 = function make_uint64(n) {
+    ciljs.make_uint64 = function make_uint64(n) {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -392,20 +392,20 @@ var BLR;
         return new Uint32Array([low, high]);
     }
 
-    blr.to_number_signed = function to_number_signed(n) {
+    ciljs.to_number_signed = function to_number_signed(n) {
         if (asm0.Int64_isNegative(n)) {
             n = asm0.Int64_UnaryNegation(n);
-            return -blr.to_number_unsigned(n);
+            return -ciljs.to_number_unsigned(n);
         }
 
-        return blr.to_number_unsigned(n);
+        return ciljs.to_number_unsigned(n);
     }
 
-    blr.to_number_unsigned = function to_number_unsigned(n) {
+    ciljs.to_number_unsigned = function to_number_unsigned(n) {
         return n[1] * 4294967296 + n[0];
     }
 
-    blr.array_set_value = function array_set_value(dest, value, pos) {
+    ciljs.array_set_value = function array_set_value(dest, value, pos) {
 
         // value is either an object or a boxed value type.
         var etype = dest.etype;
@@ -437,7 +437,7 @@ var BLR;
             dest.jsarr[pos] = value;
         }
         else if (!etype.IsValueType) {
-            dest.jsarr[pos] = blr.cast_class(value, etype)
+            dest.jsarr[pos] = ciljs.cast_class(value, etype)
         }
         else {
 
@@ -446,7 +446,7 @@ var BLR;
             }
             else {
                 if (!etype.IsPrimitive || !vtype.IsPrimitive) {
-                    blr.throw_invalid_cast();
+                    ciljs.throw_invalid_cast();
                 }
 
                 dest.jsarr[pos] = value;
@@ -454,7 +454,7 @@ var BLR;
         }
     }
 
-    blr.delegate_invoke = function (self) {
+    ciljs.delegate_invoke = function (self) {
         var m = self._methodPtr;
         var t = self._target;
         if (t != null)
@@ -464,27 +464,27 @@ var BLR;
         return m.apply(null, arguments);
     }
 
-    blr.delegate_begin_invoke = function (self /* , [delegate arguments], callback, state */) {
+    ciljs.delegate_begin_invoke = function (self /* , [delegate arguments], callback, state */) {
         var asyncResult = asm0.CreateAsyncResult(self);
 
-        asyncResult.result = blr.delegate_invoke.apply(null, arguments);
+        asyncResult.result = ciljs.delegate_invoke.apply(null, arguments);
         asyncResult.asyncState = arguments[arguments.length - 1];
 
         var asyncCallback = arguments[arguments.length - 2];
         if (asyncCallback != null)
         {
-            blr.delegate_invoke(asyncCallback, asyncResult);
+            ciljs.delegate_invoke(asyncCallback, asyncResult);
         }
         
         return asyncResult;
     }
 
-    blr.delegate_end_invoke = function (self, asyncResult) {
+    ciljs.delegate_end_invoke = function (self, asyncResult) {
         return asyncResult.result;
     }
 
-    blr.delegate_ctor = function (self, target, methodPtr) {
+    ciljs.delegate_ctor = function (self, target, methodPtr) {
         self._methodPtr = methodPtr;
         self._target = target;
     }
-})(BLR || (BLR = {}));
+})(CILJS || (CILJS = {}));

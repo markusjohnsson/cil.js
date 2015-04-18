@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Braille.TestRunner.Tests
+namespace CilJs.TestRunner.Tests
 {
     class TestTest
     {

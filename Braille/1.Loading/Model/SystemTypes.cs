@@ -2,7 +2,7 @@ using IKVM.Reflection;
 using System.Collections.Generic;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Loading.Model
+namespace CilJs.Loading.Model
 {
     class SystemTypes
     {
@@ -54,8 +54,8 @@ namespace Braille.Loading.Model
             Double = universe.GetType("System.Double");
             Object = universe.GetType("System.Object");
             String = universe.GetType("System.String");
-            ManagedPointer = universe.GetType("Braille.Runtime.ManagedPointer`1");
-            UnboundGenericParameter = universe.GetType("Braille.Runtime.UnboundGenericParameter");
+            ManagedPointer = universe.GetType("CilJs.Runtime.ManagedPointer`1");
+            UnboundGenericParameter = universe.GetType("CilJs.Runtime.UnboundGenericParameter");
             Type = universe.GetType("System.Type");
             ValueType = universe.GetType("System.ValueType");
             Delegate = universe.GetType("System.Delegate");

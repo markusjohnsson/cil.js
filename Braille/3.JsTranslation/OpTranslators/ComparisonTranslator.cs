@@ -1,12 +1,12 @@
-﻿using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+﻿using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.JsTranslation.OpTranslators
+namespace CilJs.JsTranslation.OpTranslators
 {
     class ComparisonTranslator: OpTranslator
     {

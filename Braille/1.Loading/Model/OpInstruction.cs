@@ -1,7 +1,7 @@
 
 using IKVM.Reflection.Emit;
 using System;
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class OpInstruction
     { 

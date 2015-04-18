@@ -1,5 +1,5 @@
 
-namespace Braille
+namespace CilJs
 {
     public class CompileResult
     {

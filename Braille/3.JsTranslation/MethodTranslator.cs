@@ -1,13 +1,13 @@
-﻿using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+﻿using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.JsTranslation
+namespace CilJs.JsTranslation
 {
     class MethodTranslator : AbstractTranslator
     {
@@ -36,7 +36,7 @@ namespace Braille.JsTranslation
                 if (t.IsGenericParameter) 
                     continue;
 
-                // base types are initialized int BLR.init_base_types, called from entryPoint method
+                // base types are initialized int CILJS.init_base_types, called from entryPoint method
                 if (SystemTypes.BaseTypes.Contains(t.FullName))
                     continue;
 
@@ -109,7 +109,7 @@ namespace Braille.JsTranslation
 
             if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
             {
-                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("BLR", "init_base_types")).ToStatement());
+                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("CILJS", "init_base_types")).ToStatement());
             }
 
             JSExpression closedMethodInitializer;
@@ -209,13 +209,13 @@ namespace Braille.JsTranslation
             switch (method.Name)
             {
                 case "Invoke":
-                    return JSFactory.Identifier("BLR", "delegate_invoke");
+                    return JSFactory.Identifier("CILJS", "delegate_invoke");
                 case "BeginInvoke":
-                    return JSFactory.Identifier("BLR", "delegate_begin_invoke");
+                    return JSFactory.Identifier("CILJS", "delegate_begin_invoke");
                 case "EndInvoke":
-                    return JSFactory.Identifier("BLR", "delegate_end_invoke");
+                    return JSFactory.Identifier("CILJS", "delegate_end_invoke");
                 case ".ctor":
-                    return JSFactory.Identifier("BLR", "delegate_ctor");
+                    return JSFactory.Identifier("CILJS", "delegate_ctor");
                 default:
                     return JSFunctionDelcaration.Empty;
             }

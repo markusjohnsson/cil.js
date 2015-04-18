@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Braille.JSAst;
+using CilJs.JSAst;
 
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class CilType
     {

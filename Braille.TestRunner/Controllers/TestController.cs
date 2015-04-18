@@ -10,13 +10,13 @@ using System.Linq;
 using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Mvc;
-using Braille.TestRunner.Models;
+using CilJs.TestRunner.Models;
 
-namespace Braille.TestRunner.Controllers
+namespace CilJs.TestRunner.Controllers
 {
     public class RunJsViewModel
     {
-        public string ScriptPath { get { return TestName + ".brl.exe.js"; } }
+        public string ScriptPath { get { return TestName + ".ciljs.exe.js"; } }
 
         public string TestName { get; set; }
     }

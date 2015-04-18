@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Braille.TestRunner
+namespace CilJs.TestRunner
 {
     public class RouteConfig
     {

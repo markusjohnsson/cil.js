@@ -7,7 +7,7 @@
 // Copyright (C) 2004-2011 Novell, Inc (http://www.novell.com)
 // Copyright (C) 2011 Xamarin Inc (http://www.xamarin.com)
 
-using Braille.Runtime.TranslatorServices;
+using CilJs.Runtime.TranslatorServices;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -32,7 +32,7 @@ namespace System
         [JsImport("function(o) { return o.jsarr.length; }")]
         private extern static int GetLengthImpl(object s);
 
-        [JsImport("function(o, i) { return BLR.box(o.jsarr[i], o.etype); }")]
+        [JsImport("function(o, i) { return CILJS.box(o.jsarr[i], o.etype); }")]
         private extern static object GetValueImpl(object s, int i);
 
         [JsImport(@"
@@ -439,10 +439,10 @@ namespace System
             return ~iMin; 
         }
 
-        [JsImport("function (elementType, length) { return BLR.new_array(elementType.ctor, length); }")]
+        [JsImport("function (elementType, length) { return CILJS.new_array(elementType.ctor, length); }")]
         public extern static Array CreateInstance(Type elementType, int length);
 
-        [JsImport("BLR.array_set_value")]
+        [JsImport("CILJS.array_set_value")]
         public extern void SetValue(object value, int index);
 
     }

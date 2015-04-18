@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Braille.Analysis;
-using Braille.JsTranslation;
-using Braille.Loading;
+using CilJs.Analysis;
+using CilJs.JsTranslation;
+using CilJs.Loading;
 
-namespace Braille
+namespace CilJs
 {
     public sealed class Compiler
     {
@@ -126,7 +126,7 @@ namespace Braille
         private void WriteRuntimeJs()
         {
             using (var resourceStream = GetRuntimeJsResource())
-            using (var fileStream = File.Create("Braille.js"))
+            using (var fileStream = File.Create("CilJs.js"))
             {
                 resourceStream.CopyTo(fileStream);
             }
@@ -143,7 +143,7 @@ namespace Braille
 
         private static Stream GetRuntimeJsResource()
         {
-            return typeof(Compiler).Assembly.GetManifestResourceStream("Braille.Runtime.Runtime.js");
+            return typeof(Compiler).Assembly.GetManifestResourceStream("CilJs.Runtime.Runtime.js");
         }
     }
 }

@@ -1,15 +1,15 @@
-﻿using Braille.Runtime.TranslatorServices;
+﻿using CilJs.Runtime.TranslatorServices;
 using System.Reflection;
 
 namespace System.Reflection
 {
     public class MethodInfo : MemberInfo
     {
-        private Braille.JavaScript.Array mtd;
+        private CilJs.JavaScript.Array mtd;
 
         private MethodInfo() { }
 
-        internal static MethodInfo GetInstance(Braille.JavaScript.Array m)
+        internal static MethodInfo GetInstance(CilJs.JavaScript.Array m)
         {
             return new MethodInfo { mtd = m };
         }
@@ -33,7 +33,7 @@ namespace System.Reflection
         {
             get
             {
-                return (string)UnsafeCast<Braille.JavaScript.String>(mtd[2]);
+                return (string)UnsafeCast<CilJs.JavaScript.String>(mtd[2]);
             }
         }
 

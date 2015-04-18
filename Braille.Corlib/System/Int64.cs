@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
-using Braille.Runtime.TranslatorServices;
+using CilJs.Runtime.TranslatorServices;
 
-using JsString = Braille.JavaScript.String;
+using JsString = CilJs.JavaScript.String;
 
 namespace System
 {

@@ -1,7 +1,7 @@
 
 == Arrays ==
 
-Arrays are standard Braille objects (instances of System.Array). There are two fields: one for the type of the array, and one for a JavaScript array for the content.
+Arrays are standard CilJs objects (instances of System.Array). There are two fields: one for the type of the array, and one for a JavaScript array for the content.
 
 System.Array is an abstract class which implements IEnumerable:
 

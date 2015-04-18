@@ -1,6 +1,6 @@
 
 using IKVM.Reflection;
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     abstract class Node
     {

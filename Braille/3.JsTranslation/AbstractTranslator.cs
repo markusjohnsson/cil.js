@@ -1,7 +1,7 @@
-using Braille.Analysis;
-using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+using CilJs.Analysis;
+using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.JsTranslation
+namespace CilJs.JsTranslation
 {
     abstract class AbstractTranslator
     {

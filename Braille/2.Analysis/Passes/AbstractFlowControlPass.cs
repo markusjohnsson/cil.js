@@ -1,8 +1,8 @@
-using Braille.Ast;
+using CilJs.Ast;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     abstract class AbstractFlowControlPass
     {

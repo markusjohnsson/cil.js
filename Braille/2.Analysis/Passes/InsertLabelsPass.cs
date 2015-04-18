@@ -1,9 +1,9 @@
-using Braille.Ast;
+using CilJs.Ast;
 using System.Collections.Generic;
 using System.Linq;
-using Braille.Analysis.Passes;
+using CilJs.Analysis.Passes;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     class InsertLabelsPass: IAnalysisPass
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Braille
+namespace CilJs
 {
     class Program
     {
@@ -79,14 +79,14 @@ namespace Braille
 
         private static void PrintUsage()
         {
-            Console.WriteLine("Usage: Braille.exe [OPTIONS] INPUT_1 [INPUT_2 INPUT_3 ...] [--refs REF_1 [REF_2]]");
+            Console.WriteLine("Usage: CilJs.exe [OPTIONS] INPUT_1 [INPUT_2 INPUT_3 ...] [--refs REF_1 [REF_2]]");
             Console.WriteLine();
             Console.WriteLine("Options: ");
             Console.WriteLine("  --output-il-comments");
             Console.WriteLine("  --output-html-runner");
             Console.WriteLine("  --keep-flat-expressions");
             Console.WriteLine();
-            Console.WriteLine("Example: Braille.exe InputAssembly01.dll InputAssembly02.dll --out Output.js");
+            Console.WriteLine("Example: CilJs.exe InputAssembly01.dll InputAssembly02.dll --out Output.js");
 
         }
     }

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class ExceptionNode : Node
     {

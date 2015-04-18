@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Braille.TestRunner.Controllers
+namespace CilJs.TestRunner.Controllers
 {
     public class PlaygroundController: Controller
     {

@@ -1,13 +1,13 @@
-using Braille.Analysis.Passes;
-using Braille.Ast;
-using Braille.Loading;
+using CilJs.Analysis.Passes;
+using CilJs.Ast;
+using CilJs.Loading;
 using IKVM.Reflection;
 using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     class LocalInfo
     {

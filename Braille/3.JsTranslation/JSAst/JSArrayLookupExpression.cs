@@ -1,10 +1,10 @@
-﻿using Braille.JSAst;
+﻿using CilJs.JSAst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.JSAst
+namespace CilJs.JSAst
 {
     class JSArrayLookupExpression: JSExpression
     {

@@ -1,10 +1,10 @@
-﻿using Braille.Ast;
+﻿using CilJs.Ast;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Loading.Model
+namespace CilJs.Loading.Model
 {
     class Context: IDisposable
     {

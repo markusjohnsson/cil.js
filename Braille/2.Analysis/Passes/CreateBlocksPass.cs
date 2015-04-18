@@ -1,9 +1,9 @@
-﻿using Braille.Ast;
+﻿using CilJs.Ast;
 using IKVM.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Analysis.Passes
+namespace CilJs.Analysis.Passes
 {
     class CreateBlocksPass: IAnalysisPass
     {

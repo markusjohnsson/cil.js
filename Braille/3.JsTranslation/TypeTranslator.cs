@@ -1,6 +1,6 @@
-using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.JsTranslation
+namespace CilJs.JsTranslation
 {
     /// <summary>
     /// Translates CilTypes into JavaScript AST. 
@@ -24,7 +24,7 @@ namespace Braille.JsTranslation
 
         public JSExpression Translate(CilType type)
         {
-            var call = JSFactory.Call(JSFactory.Identifier("BLR", "declare_type"),
+            var call = JSFactory.Call(JSFactory.Identifier("CILJS", "declare_type"),
                 GetTypeDeclarationArguments(type).ToArray());
             call.Indent = true;
             return call;
@@ -117,12 +117,12 @@ namespace Braille.JsTranslation
             yield return JSFactory
                 .Assignment(
                     JSFactory.Identifier(n, "init"),
-                    JSFactory.Identifier("BLR", "nop"))
+                    JSFactory.Identifier("CILJS", "nop"))
                 .ToStatement();
 
             yield return JSFactory
                 .Call(
-                    JSFactory.Identifier("BLR", "init_type"),
+                    JSFactory.Identifier("CILJS", "init_type"),
 
                     JSFactory.Identifier(n),
                     JSFactory.Identifier("asm"),
@@ -176,7 +176,7 @@ namespace Braille.JsTranslation
             foreach (var f in GetVtable(type))
             {
                 yield return JSFactory.Call(
-                        JSFactory.Identifier("BLR", "declare_virtual"),
+                        JSFactory.Identifier("CILJS", "declare_virtual"),
                         JSFactory.Identifier(n),
                         JSFactory.Literal(f.Key),
                         JSFactory.Literal(f.Value))
@@ -187,7 +187,7 @@ namespace Braille.JsTranslation
             {
                 var call = JSFactory
                     .Call(
-                        JSFactory.Identifier("BLR", "implement_interface"),
+                        JSFactory.Identifier("CILJS", "implement_interface"),
                         JSFactory.Identifier(n),
                         JSFactory.Array(inline: true, exprs: iface.Key),
                         iface.Value);
@@ -292,7 +292,7 @@ namespace Braille.JsTranslation
                             .Select(
                                 arg =>
                                     arg.ArgumentType == context.SystemTypes.String ?
-                                        JSFactory.Call(JSFactory.Identifier("BLR", "new_string"), JSFactory.String((string)arg.Value)) :
+                                        JSFactory.Call(JSFactory.Identifier("CILJS", "new_string"), JSFactory.String((string)arg.Value)) :
                                     arg.ArgumentType == context.SystemTypes.Type ?
                                         GetTypeIdentifier((Type)arg.Value, typeScope: type) :
                                     JSFactory.Literal(arg.Value))
@@ -387,22 +387,22 @@ namespace Braille.JsTranslation
             var simpleName = JSFactory.Identifier("this");
 
             if (type.IsInterface)
-                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_interface"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_interface"), simpleName);
 
             if (type.ReflectionType.IsPrimitive)
-                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_primitive"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_primitive"), simpleName);
 
             if (type.ReflectionType.FullName == "System.Array`1")
-                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_array"), JSFactory.Identifier("T"));
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_array"), JSFactory.Identifier("T"));
 
             if (type.ReflectionType.IsValueType)
-                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_value_type"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_value_type"), simpleName);
 
             if (type.ReflectionType == context.SystemTypes.Delegate ||
                 type.ReflectionType.BaseType == context.SystemTypes.Delegate)
-                return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_delegate"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_delegate"), simpleName);
 
-            return JSFactory.Call(JSFactory.Identifier("BLR", "is_inst_default"), simpleName);
+            return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_default"), simpleName);
         }
 
         private IEnumerable<KeyValuePair<JSExpression[], JSExpression>> GetInterfaceMaps(CilType type)

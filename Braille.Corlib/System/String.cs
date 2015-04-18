@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
-using Braille.Runtime.TranslatorServices;
-using Braille.JavaScript;
+using CilJs.Runtime.TranslatorServices;
+using CilJs.JavaScript;
 
 namespace System
 {
     public class String: IEquatable<string>, IComparable<string>
     {
-        internal Braille.JavaScript.String jsstr;
+        internal CilJs.JavaScript.String jsstr;
 
         [JsImport("function(o) { return o.jsstr.length; }")]
         private extern static int GetLengthImpl(object s);
@@ -15,7 +15,7 @@ namespace System
         [JsImport("function(a, b) { return a.jsstr === b.jsstr ? 1 : 0; }")]
         private extern static bool EqualsImpl(string a, string b);
 
-        [JsImport("function (args) { return BLR.new_string(String.prototype.concat.apply('', args.jsarr)); }")]
+        [JsImport("function (args) { return CILJS.new_string(String.prototype.concat.apply('', args.jsarr)); }")]
         private extern static string ConcatImpl(params string[] args);
 
         [JsImport("function (s, i) { return s.jsstr.charCodeAt(i); }")]
@@ -25,14 +25,14 @@ namespace System
                         function escapeRegExp(s2) {
                             return s2.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, ""\\$1"");
                         }
-                      return BLR.new_string(s.jsstr.replace(new RegExp(escapeRegExp(find.jsstr), 'g'), replace.jsstr));
+                      return CILJS.new_string(s.jsstr.replace(new RegExp(escapeRegExp(find.jsstr), 'g'), replace.jsstr));
                     }")]
         private extern static string ReplaceImpl(string s, string find, string replace);
 
         [IndexerName("Chars")]
         public char this[int i] { get { return GetChar(this, i); } }
 
-        [JsReplace("BLR.new_string({0})")]
+        [JsReplace("CILJS.new_string({0})")]
         internal extern static string FromJsString(object other);
 
         public static readonly string Empty = "";
@@ -177,7 +177,7 @@ namespace System
             return formatString;
         }
 
-        [JsImport("function(v) { return BLR.new_string(v.jsstr.toLowerCase()); } ")]
+        [JsImport("function(v) { return CILJS.new_string(v.jsstr.toLowerCase()); } ")]
         internal static extern string ToLowerImpl(string v);
 
         public string ToLower()
@@ -185,7 +185,7 @@ namespace System
             return ToLowerImpl(this);
         }
 
-        [JsImport("function(v) { return BLR.new_string(v.jsstr.toUpperCase()); } ")]
+        [JsImport("function(v) { return CILJS.new_string(v.jsstr.toUpperCase()); } ")]
         internal static extern string ToUpperImpl(string v);
 
         public string ToUpper()

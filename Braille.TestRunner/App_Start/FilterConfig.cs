@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Braille.TestRunner
+namespace CilJs.TestRunner
 {
     public class FilterConfig
     {

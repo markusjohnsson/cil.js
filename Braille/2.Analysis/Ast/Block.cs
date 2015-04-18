@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     enum BlockKind { Normal, Try, Catch, Fault, Finally }
     

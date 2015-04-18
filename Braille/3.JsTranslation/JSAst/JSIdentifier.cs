@@ -1,10 +1,10 @@
-using Braille.JsTranslation;
+using CilJs.JsTranslation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.JSAst
+namespace CilJs.JSAst
 {
     class JSRaw : JSExpression
     {

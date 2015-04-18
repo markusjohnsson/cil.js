@@ -1,11 +1,11 @@
-using Braille.Ast;
-using Braille.Loading.Model;
+using CilJs.Ast;
+using CilJs.Loading.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Braille.Analysis.Passes
+namespace CilJs.Analysis.Passes
 {
     public static class StackExtensions
     {

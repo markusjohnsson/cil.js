@@ -1,8 +1,8 @@
-using Braille.JsTranslation;
+using CilJs.JsTranslation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class OpExpression : Node
     {

@@ -1,5 +1,5 @@
 using System.Runtime.CompilerServices;
-using Braille.Runtime.TranslatorServices;
+using CilJs.Runtime.TranslatorServices;
 
 namespace System
 {
@@ -25,7 +25,7 @@ namespace System
             return s;
         }
 
-        [JsReplace("BLR.new_string({0}[0].toString())")]
+        [JsReplace("CILJS.new_string({0}[0].toString())")]
         private static extern string GetLowString(ulong a);    
 
         [JsAssemblyStatic(Name = "UInt64_RightShift")]

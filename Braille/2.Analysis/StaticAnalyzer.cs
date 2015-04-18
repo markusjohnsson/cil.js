@@ -1,12 +1,12 @@
-﻿using Braille.Analysis.Passes;
-using Braille.Ast;
-using Braille.Loading.Model;
+﻿using CilJs.Analysis.Passes;
+using CilJs.Ast;
+using CilJs.Loading.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     class StaticAnalyzer
     {

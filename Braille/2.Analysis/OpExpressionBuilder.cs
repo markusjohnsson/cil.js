@@ -1,7 +1,7 @@
-﻿using Braille.Analysis.Passes;
-using Braille.Ast;
-using Braille.Loading;
-using Braille.Loading.Model;
+﻿using CilJs.Analysis.Passes;
+using CilJs.Ast;
+using CilJs.Loading;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using IKVM.Reflection.Emit;
 using System;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Type = IKVM.Reflection.Type;
 
-namespace Braille.Analysis
+namespace CilJs.Analysis
 {
     class OpExpressionBuilder: IRewriter
     {

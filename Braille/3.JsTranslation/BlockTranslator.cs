@@ -1,12 +1,12 @@
-using Braille.Ast;
-using Braille.JSAst;
-using Braille.Loading.Model;
+using CilJs.Ast;
+using CilJs.JSAst;
+using CilJs.Loading.Model;
 using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Braille.JsTranslation
+namespace CilJs.JsTranslation
 {
     /// <summary>
     /// Translates blocks (method bodies, try-catch-finally constructs) into JavaScript AST.

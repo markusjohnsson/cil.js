@@ -1,13 +1,13 @@
 
-using Braille.JSAst;
+using CilJs.JSAst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Braille.Analysis;
-using Braille.Ast;
+using CilJs.Analysis;
+using CilJs.Ast;
 
-namespace Braille.JsTranslation
+namespace CilJs.JsTranslation
 {
     class BlockBuilder
     {

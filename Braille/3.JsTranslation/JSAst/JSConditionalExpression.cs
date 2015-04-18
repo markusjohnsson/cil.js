@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Braille.JSAst
+namespace CilJs.JSAst
 {
     class JSConditionalExpression : JSExpression
     {

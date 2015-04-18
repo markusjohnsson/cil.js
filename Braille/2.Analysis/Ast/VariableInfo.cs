@@ -1,5 +1,5 @@
 
-namespace Braille.Ast
+namespace CilJs.Ast
 {
     class VariableInfo : Node
     {

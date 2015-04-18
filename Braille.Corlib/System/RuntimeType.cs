@@ -1,9 +1,9 @@
 using System.Runtime.CompilerServices;
-using Braille.Runtime.TranslatorServices;
-using Braille.JavaScript;
+using CilJs.Runtime.TranslatorServices;
+using CilJs.JavaScript;
 using System.Reflection;
-using Braille.Runtime.InteropServices;
-using Braille.Runtime;
+using CilJs.Runtime.InteropServices;
+using CilJs.Runtime;
 
 namespace System
 {
@@ -18,17 +18,17 @@ namespace System
             internal object FullName;
             internal constructor BaseType;
             internal Assembly.jsAsm Assembly;
-            internal Braille.JavaScript.Array CustomAttributes;
-            internal Braille.JavaScript.Array Methods;
+            internal CilJs.JavaScript.Array CustomAttributes;
+            internal CilJs.JavaScript.Array Methods;
             internal Type TypeInstance;
             internal int Hash;
-            internal Braille.JavaScript.Boolean IsGenericTypeDefinition;
-            internal Braille.JavaScript.Boolean IsInterface;
-            internal Braille.JavaScript.Boolean IsValueType;
-            internal Braille.JavaScript.Boolean IsPrimitive;
+            internal CilJs.JavaScript.Boolean IsGenericTypeDefinition;
+            internal CilJs.JavaScript.Boolean IsInterface;
+            internal CilJs.JavaScript.Boolean IsValueType;
+            internal CilJs.JavaScript.Boolean IsPrimitive;
             internal object GenericArguments;
             internal object Interfaces;
-            internal Braille.JavaScript.String MetadataName;
+            internal CilJs.JavaScript.String MetadataName;
         }
 
         internal constructor ctor;
@@ -149,7 +149,7 @@ namespace System
                 var l = Marshal.ArrayLookup(Marshal.ObjectLookup(ctor.GenericArguments, (string)ctor.MetadataName), 0);
                 var g = UnsafeCast<constructor>(l);
 
-                if (string.FromJsString(g.FullName) == "Braille.Runtime.UnboundGenericParameter")
+                if (string.FromJsString(g.FullName) == "CilJs.Runtime.UnboundGenericParameter")
                     return true;
                 else
                     return false;
@@ -161,7 +161,7 @@ namespace System
             if (!IsGenericTypeDefinition)
                 throw new InvalidOperationException();
 
-            var typeArgs = Braille.JavaScript.Array.New();
+            var typeArgs = CilJs.JavaScript.Array.New();
 
             for (var i = 0; i < args.Length; i++)
                 typeArgs[i] = ((RuntimeType)args[i]).ctor;
@@ -235,7 +235,7 @@ namespace System
         [JsImport(@"
             function (s) {
                 var idx = s.jsstr.lastIndexOf('.');
-                return BLR.new_string(s.jsstr.substring(idx + 1));
+                return CILJS.new_string(s.jsstr.substring(idx + 1));
             }
             ")]
         private static extern string GetName(string fullname);
@@ -292,7 +292,7 @@ namespace System
 
             for (var i = 0; i < currLen; i++)
             {
-                result[i] = MethodInfo.GetInstance(UnsafeCast<Braille.JavaScript.Array>(ctor.Methods[i]));
+                result[i] = MethodInfo.GetInstance(UnsafeCast<CilJs.JavaScript.Array>(ctor.Methods[i]));
             }
 
             for (var i = 0; i < baseLen; i++)
