@@ -1,24 +1,28 @@
 
+Primitives
+==========
+
 Booleans
-========
+--------
 bool is also represented by Number (true = 1, false = 0). 
 This simplifies compatibility with CLI operations which does not define a boolean type but instead uses 1 and 0.
 
 Less-than-64-bit ints
-=====================
-sbyte, byte, char, short, ushort, int and uint are modelled at runtime as JavaScript's Number.
+---------------------
+`sbyte`, `byte`, `char`, `short`, `ushort`, `int` and `uint` are modelled at runtime as JavaScript's Number.
 All values are stored as signed and if unsigned operations are needed, values need to be converted. 
-E.g. uint.MaxValue is actually stored as -1.
+E.g. `uint.MaxValue` is actually stored as -1.
 
 64-bit ints
-===========
+-----------
 int64 and uint64 are modelled at runtime as two-element Uint32Array. 
 Arithemetic operations are defined in the types System.Int64 and System.UInt64.
 
 Methods
+-------
 Instance methods of primitives, such as Equals, ToString and GetHashCode are implemented in corlib. 
 
-Number
-======
+Javascript Number
+-----------------
 
-The type CilJs.JavaScript.Number can be used when you want to have access to JavaScript's native Number values. 
+The type `CilJs.JavaScript.Number` can be used when you want to have access to JavaScript's native Number values. 
