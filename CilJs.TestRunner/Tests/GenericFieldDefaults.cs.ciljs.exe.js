@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "GenericFieldDefaults.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A`1..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -51,27 +51,30 @@ var asm1; (function (asm)
         t2 = (asm0)["System.Int32"]();
         t3 = (asm1)["A`1"](t2);
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stloc.0 */
+        /* IL_00: nop  GenericFieldDefaults.cs:11:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.newobj(t1,asm1.x600000a,[null]);
-        /* IL_06: ldloc.0 */
-        /* IL_07: ldfld IKVM.Reflection.GenericFieldInstance*/
-        /* IL_0C: call Void Log(System.Object)*/
+        /* IL_07: ldloc.0  */
+        /* IL_08: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_0D: call Void Log(System.Object) */
         asm1.x6000001(loc0.Value);
-        /* IL_11: newobj Void .ctor()*/
-        /* IL_16: stloc.1 */
+        /* IL_12: nop  */
+        /* IL_13: newobj Void .ctor() */
+        /* IL_18: stloc.1  */
         loc1 = CILJS.newobj(t3,asm1.x600000a,[null]);
-        /* IL_17: ldloc.1 */
-        /* IL_18: ldfld IKVM.Reflection.GenericFieldInstance*/
-        /* IL_1D: box System.Int32*/
-        /* IL_22: call Void Log(System.Object)*/
+        /* IL_19: ldloc.1  */
+        /* IL_1A: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_1F: box System.Int32 */
+        /* IL_24: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': loc1.Value,
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_27: ret */
+        /* IL_29: nop  */
+        /* IL_2A: ret  GenericFieldDefaults.cs:17:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -79,9 +82,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(

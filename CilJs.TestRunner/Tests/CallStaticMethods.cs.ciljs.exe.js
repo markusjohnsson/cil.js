@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "CallStaticMethods.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Callee()*/
@@ -19,10 +19,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr Called!*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  CallStaticMethods.cs:5:5*/
+        /* IL_01: ldstr Called! */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("Called!"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  CallStaticMethods.cs:7:5*/
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -40,9 +42,11 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: call Void Callee()*/
+        /* IL_00: nop  CallStaticMethods.cs:10:5*/
+        /* IL_01: call Void Callee() CallStaticMethods.cs:11:9*/
         asm1.x600000a();
-        /* IL_05: ret */
+        /* IL_06: nop  */
+        /* IL_07: ret  CallStaticMethods.cs:12:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -50,9 +54,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(

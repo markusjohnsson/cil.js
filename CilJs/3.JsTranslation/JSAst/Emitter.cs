@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Braille.JSAst
+namespace CilJs.JSAst
 {
     class Emitter
     {

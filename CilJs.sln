@@ -10,15 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{353958
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ElaborativeTests", "ElaborativeTests", "{D3295CE3-9667-4BE5-9E31-786C1A7E8F1E}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{50F62FB2-818C-411F-ABA6-30F5928528AC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeveloperDocs", "DeveloperDocs", "{50F62FB2-818C-411F-ABA6-30F5928528AC}"
 	ProjectSection(SolutionItems) = preProject
-		Docs\Arrays.txt = Docs\Arrays.txt
-		Docs\Boxing.txt = Docs\Boxing.txt
-		Docs\Corlib.txt = Docs\Corlib.txt
-		Docs\Interop.txt = Docs\Interop.txt
-		Docs\Primitives.txt = Docs\Primitives.txt
+		Docs\Arrays.md = Docs\Arrays.md
+		Docs\Boxing.md = Docs\Boxing.md
+		Docs\Corlib.md = Docs\Corlib.md
+		Docs\Interop.md = Docs\Interop.md
+		Docs\Primitives.md = Docs\Primitives.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockoutScatterPlot", "Samples\KnockoutScatterPlot\KnockoutScatterPlot.csproj", "{5A842DE0-B6B9-4D75-AA55-939360E86BE1}"
@@ -30,6 +28,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CilJs", "CilJs\CilJs.csproj", "{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CilJs.TestRunner", "CilJs.TestRunner\CilJs.TestRunner.csproj", "{1A9FF4E9-C674-46FC-AD7E-3154D7E981F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7058361D-EFE5-4325-8AEA-69F2FA716A0C}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{53CAC36C-7242-4AD5-9184-B33D9A2C57B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,7 +102,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5A842DE0-B6B9-4D75-AA55-939360E86BE1} = {D3295CE3-9667-4BE5-9E31-786C1A7E8F1E}
-		{6C34FD57-3FD2-4A59-8559-38B0A878138F} = {D3295CE3-9667-4BE5-9E31-786C1A7E8F1E}
+		{5A842DE0-B6B9-4D75-AA55-939360E86BE1} = {53CAC36C-7242-4AD5-9184-B33D9A2C57B2}
+		{6C34FD57-3FD2-4A59-8559-38B0A878138F} = {53CAC36C-7242-4AD5-9184-B33D9A2C57B2}
 	EndGlobalSection
 EndGlobal

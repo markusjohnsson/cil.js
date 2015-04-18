@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "nullable_boxing.2.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Int32 Program.Main()*/
@@ -32,18 +32,21 @@ var asm1; (function (asm)
         var t0;
         var t1;
         var t2;
-        var loc2;
-        var st_0B;
-        var st_0C;
+        var loc4;
+        var st_0D;
+        var st_0E;
+        var st_13;
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
+        var loc2;
         var loc1;
+        var loc3;
         var loc0;
         t0 = (asm1)["Program+Button"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.Nullable`1"](t1);
-        loc2 = new ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()))();
+        loc4 = new ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()))();
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -53,65 +56,84 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                asm1.x600000e();
-                /* IL_00: ldsfld Button TheButton*/
-                /* IL_05: ldc.i4.1 */
-                /* IL_06: newobj Void .ctor(System.Int32)*/
-                /* IL_0B: callvirt Int32 Counter(System.Nullable`1[System.Int32])*/
-                /* IL_10: ldc.i4.2 */
-                /* IL_11: beq.s IL_15*/
+                /* IL_00: nop  nullable_boxing.2.cs:19:5*/
                 
-                if (asm1.x600000c(t0.TheButton,CILJS.clone_value(CILJS.newobj(t2,asm0.x60001a6,[null, (1|0)]))) === (2|0)){
-                    __pos__ = 0x15;
+                asm1.x600000e();
+                /* IL_01: ldsfld Button TheButton */
+                /* IL_06: ldc.i4.1  */
+                /* IL_07: newobj Void .ctor(System.Int32) */
+                /* IL_0C: callvirt Int32 Counter(System.Nullable`1[System.Int32]) */
+                /* IL_11: ldc.i4.2  */
+                /* IL_13: ceq  */
+                /* IL_14: stloc.2  */
+                loc2 = ((asm1.x600000c(t0.TheButton,CILJS.clone_value(CILJS.newobj(t2,asm0.x60001a6,[null, (1|0)]))) === (2|0)) ? (1) : (0));
+                /* IL_15: ldloc.2  */
+                /* IL_16: brtrue.s IL_1C */
+                
+                if (loc2){
+                    __pos__ = 0x1C;
                     continue;
                 }
-                /* IL_13: ldc.i4.1 */
-                /* IL_14: ret */
-                return (1|0);
-                case 0x15:
-                /* IL_15: ldc.i4.1 */
-                /* IL_16: newarr System.Nullable`1[System.Int32]*/
-                /* IL_1B: stloc.1 */
-                loc1 = CILJS.new_array(t2,(1|0));
-                /* IL_1C: ldloc.1 */
-                /* IL_1D: ldc.i4.0 */
-                /* IL_1E: ldelema System.Nullable`1[System.Int32]*/
-                st_0B = {
+                /* IL_18: ldc.i4.1  */
+                /* IL_19: stloc.1  */
+                loc1 = (1|0);
+                /* IL_1A: br.s IL_4C */
+                __pos__ = 0x4C;
+                continue;
+                case 0x1C:
+                /* IL_1C: ldc.i4.1  */
+                /* IL_1D: newarr System.Nullable`1[System.Int32] */
+                /* IL_22: stloc.3  */
+                loc3 = CILJS.new_array(t2,(1|0));
+                /* IL_23: ldloc.3  */
+                /* IL_24: ldc.i4.0  */
+                /* IL_25: ldelema System.Nullable`1[System.Int32] */
+                st_0D = {
                     'w': function (v)
                     {
-                        (loc1.jsarr)[(0|0)] = v;
+                        (loc3.jsarr)[(0|0)] = v;
                     },
                     'r': function ()
                     {
-                        return (loc1.jsarr)[(0|0)];
+                        return (loc3.jsarr)[(0|0)];
                     }
                 };
-                /* IL_23: ldloca.s 2*/
-                /* IL_26: initobj System.Nullable`1[System.Int32]*/
-                loc2 = new t2();
-                /* IL_2B: ldloc.2 */
-                st_0C = loc2;
-                /* IL_2C: stobj System.Nullable`1[System.Int32]*/
-                st_0B.w(st_0C);
-                /* IL_31: ldloc.1 */
-                /* IL_32: stloc.0 */
-                loc0 = loc1;
-                /* IL_33: ldloc.0 */
-                /* IL_34: ldc.i4.0 */
-                /* IL_35: callvirt Object GetValue(System.Int32)*/
-                /* IL_3A: brfalse.s IL_3E*/
+                /* IL_2A: ldloca.s 4 */
+                /* IL_2D: initobj System.Nullable`1[System.Int32] */
+                loc4 = new t2();
+                /* IL_32: ldloc.s 4 */
+                st_0E = loc4;
+                /* IL_34: stobj System.Nullable`1[System.Int32] */
+                st_0D.w(st_0E);
+                /* IL_39: ldloc.3  */
+                /* IL_3A: stloc.0  */
+                loc0 = loc3;
+                /* IL_3B: ldloc.0  */
+                /* IL_3C: ldc.i4.0  */
+                /* IL_3D: callvirt Object GetValue(System.Int32) */
+                /* IL_42: brfalse.s IL_47 */
                 
                 if ((!(asm0.x6000172(loc0,(0|0))))){
-                    __pos__ = 0x3E;
+                    __pos__ = 0x47;
                     continue;
                 }
-                /* IL_3C: ldc.i4.2 */
-                /* IL_3D: ret */
-                return (2|0);
-                case 0x3E:
-                /* IL_3E: ldc.i4.0 */
-                /* IL_3F: ret */
-                return (0|0);
+                /* IL_44: ldc.i4.2  */
+                st_13 = (2|0);
+                /* IL_45: br.s IL_48 */
+                __pos__ = 0x48;
+                continue;
+                case 0x47:
+                /* IL_47: ldc.i4.0  */
+                st_13 = (0|0);
+                case 0x48:
+                /* IL_48: nop  */
+                
+                /* IL_49: stloc.1  */
+                loc1 = st_13;
+                case 0x4C:
+                /* IL_4C: ldloc.1  */
+                /* IL_4D: ret  */
+                return loc1;
             }
         }
     };
@@ -120,17 +142,19 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Int32 Button.Counter(Nullable`1)*/
-    asm.x600000c = function Counter(arg0,arg1)
+    asm.x600000c = function Counter(arg0, arg1)
     {
         var __pos__;
         var in_block_0;
         var __finally_continuation_0__;
+        var loc1;
+        var loc0;
         __pos__ = 0x0;
         in_block_0 = true;
         __finally_continuation_0__ = __pos__;
@@ -140,11 +164,12 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldarga.s 1*/
-                /* IL_02: call Boolean get_HasValue()*/
-                /* IL_07: brtrue.s IL_0B*/
+                /* IL_00: nop  nullable_boxing.2.cs:9:9*/
                 
-                if (asm0.x60001a7({
+                /* IL_01: ldarga.s 1 */
+                /* IL_03: call Boolean get_HasValue() */
+                /* IL_08: stloc.1  */
+                loc1 = asm0.x60001a7({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -153,20 +178,27 @@ var asm1; (function (asm)
                         {
                             return arg1;
                         }
-                    })){
-                    __pos__ = 0xB;
+                    });
+                /* IL_09: ldloc.1  */
+                /* IL_0A: brtrue.s IL_10 */
+                
+                if (loc1){
+                    __pos__ = 0x10;
                     continue;
                 }
-                /* IL_09: ldc.i4.0 */
-                /* IL_0A: ret */
-                return (0|0);
-                case 0xB:
-                /* IL_0B: ldarga.s 1*/
-                /* IL_0D: call Int32 get_Value()*/
-                /* IL_12: ldc.i4.1 */
-                /* IL_13: add */
-                /* IL_14: ret */
-                return (asm0.x60001a8({
+                /* IL_0C: ldc.i4.0  */
+                /* IL_0D: stloc.0  */
+                loc0 = (0|0);
+                /* IL_0E: br.s IL_1C */
+                __pos__ = 0x1C;
+                continue;
+                case 0x10:
+                /* IL_10: ldarga.s 1 */
+                /* IL_12: call Int32 get_Value() */
+                /* IL_17: ldc.i4.1  */
+                /* IL_18: add  */
+                /* IL_19: stloc.0  */
+                loc0 = (asm0.x60001a8({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -176,6 +208,10 @@ var asm1; (function (asm)
                             return arg1;
                         }
                     }) + (1|0)) | (0|0);
+                case 0x1C:
+                /* IL_1C: ldloc.0  */
+                /* IL_1D: ret  */
+                return loc0;
             }
         }
     };;
@@ -184,9 +220,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static  Button..cctor()*/
@@ -212,10 +248,10 @@ var asm1; (function (asm)
         t0 = (asm1)["Program+Button"]();
         __pos__ = 0x0;
         asm1.x600000e();
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stsfld Button TheButton*/
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: stsfld Button TheButton */
         (t0)["TheButton"] = CILJS.newobj(t0,asm1.x600000d,[null]);
-        /* IL_0A: ret */
+        /* IL_0A: ret  nullable_boxing.2.cs:16707566:0*/
         return ;
     };
     asm.TestLog = CILJS.declare_type(

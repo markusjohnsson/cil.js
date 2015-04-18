@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "IsInstGenericSubclass.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B..ctor()*/
@@ -29,9 +29,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  C..ctor()*/
@@ -39,9 +39,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  C`1..ctor()*/
@@ -49,10 +49,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000c(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /*  D..ctor()*/
@@ -60,10 +60,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000d(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /*  E..ctor()*/
@@ -71,10 +71,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000d(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -104,21 +104,27 @@ var asm1; (function (asm)
         t2 = asm1.E();
         t3 = asm1.B();
         __pos__ = 0x0;
-        /* IL_00: call Void TestCreate[A]()*/
+        /* IL_00: nop  IsInstGenericSubclass.cs:12:5*/
+        /* IL_01: call Void TestCreate[A]() IsInstGenericSubclass.cs:13:9*/
         (asm1.x6000011(asm1.A()))();
-        /* IL_05: newobj Void .ctor()*/
-        /* IL_0A: call Void Test1(C)*/
+        /* IL_06: nop  */
+        /* IL_07: newobj Void .ctor() */
+        /* IL_0C: call Void Test1(C) */
         asm1.x6000012(CILJS.newobj(t1,asm1.x600000e,[null]));
-        /* IL_0F: newobj Void .ctor()*/
-        /* IL_14: call Void Test1(C)*/
+        /* IL_11: nop  */
+        /* IL_12: newobj Void .ctor() */
+        /* IL_17: call Void Test1(C) */
         asm1.x6000012(CILJS.newobj(t2,asm1.x600000f,[null]));
-        /* IL_19: newobj Void .ctor()*/
-        /* IL_1E: call Void Test2[A](C`1[A])*/
+        /* IL_1C: nop  */
+        /* IL_1D: newobj Void .ctor() */
+        /* IL_22: call Void Test2[A](C`1[A]) */
         (asm1.x6000013(asm1.A()))(CILJS.newobj(t1,asm1.x600000e,[null]));
-        /* IL_23: newobj Void .ctor()*/
-        /* IL_28: call Void Test2[B](C`1[B])*/
+        /* IL_27: nop  */
+        /* IL_28: newobj Void .ctor() */
+        /* IL_2D: call Void Test2[B](C`1[B]) */
         (asm1.x6000013(asm1.B()))(CILJS.newobj(t2,asm1.x600000f,[null]));
-        /* IL_2D: ret */
+        /* IL_32: nop  */
+        /* IL_33: ret  IsInstGenericSubclass.cs:20:5*/
         return ;
     };
     /* static System.Void Program.TestCreate<T>()*/
@@ -151,17 +157,20 @@ var asm1; (function (asm)
             t1 = T;
             t2 = (asm1)["C`1"](t1);
             __pos__ = 0x0;
-            /* IL_00: newobj Void .ctor()*/
-            /* IL_05: castclass C`1[T]*/
-            /* IL_0A: stloc.0 */
+            /* IL_00: nop  IsInstGenericSubclass.cs:23:5*/
+            /* IL_01: newobj Void .ctor() */
+            /* IL_06: castclass C`1[T] */
+            /* IL_0B: stloc.0  */
             loc0 = CILJS.cast_class(CILJS.newobj(t0,asm1.x600000e,[null]),t2);
-            /* IL_0B: ldloc.0 */
-            /* IL_0C: call Void Test1(C)*/
+            /* IL_0C: ldloc.0  */
+            /* IL_0D: call Void Test1(C) */
             asm1.x6000012(loc0);
-            /* IL_11: ldloc.0 */
-            /* IL_12: call Void Test2[T](C`1[T])*/
+            /* IL_12: nop  */
+            /* IL_13: ldloc.0  */
+            /* IL_14: call Void Test2[T](C`1[T]) */
             (asm1.x6000013(T))(loc0);
-            /* IL_17: ret */
+            /* IL_19: nop  */
+            /* IL_1A: ret  IsInstGenericSubclass.cs:27:5*/
             return ;
         };
     };
@@ -193,44 +202,48 @@ var asm1; (function (asm)
         t3 = asm1.B();
         t4 = (asm1)["C`1"](t3);
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: isinst C`1[A]*/
-        /* IL_06: ldnull */
-        /* IL_08: cgt.un */
-        /* IL_09: box System.Boolean*/
-        /* IL_0E: call Void Log(System.Object)*/
+        /* IL_00: nop  IsInstGenericSubclass.cs:30:5*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: isinst C`1[A] */
+        /* IL_07: ldnull  */
+        /* IL_09: cgt.un  */
+        /* IL_0A: box System.Boolean */
+        /* IL_0F: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': ((t1.IsInst(arg0) !== null) ? (1) : (0)),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_13: ldarg.0 */
-        /* IL_14: isinst C`1[B]*/
-        /* IL_19: ldnull */
-        /* IL_1B: cgt.un */
-        /* IL_1C: box System.Boolean*/
-        /* IL_21: call Void Log(System.Object)*/
+        /* IL_14: nop  */
+        /* IL_15: ldarg.0  */
+        /* IL_16: isinst C`1[B] */
+        /* IL_1B: ldnull  */
+        /* IL_1D: cgt.un  */
+        /* IL_1E: box System.Boolean */
+        /* IL_23: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': ((t4.IsInst(arg0) !== null) ? (1) : (0)),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_26: ldarg.0 */
-        /* IL_27: ldnull */
-        /* IL_29: ceq */
-        /* IL_2A: ldc.i4.0 */
-        /* IL_2C: ceq */
-        /* IL_2D: box System.Boolean*/
-        /* IL_32: call Void Log(System.Object)*/
+        /* IL_28: nop  */
+        /* IL_29: ldarg.0  */
+        /* IL_2A: ldnull  */
+        /* IL_2C: ceq  */
+        /* IL_2D: ldc.i4.0  */
+        /* IL_2F: ceq  */
+        /* IL_30: box System.Boolean */
+        /* IL_35: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0)),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_37: ret */
+        /* IL_3A: nop  */
+        /* IL_3B: ret  IsInstGenericSubclass.cs:34:5*/
         return ;
     };
     /* static System.Void Program.Test2<T>(C`1)*/
@@ -269,57 +282,62 @@ var asm1; (function (asm)
             t3 = asm1.B();
             t4 = (asm1)["C`1"](t3);
             __pos__ = 0x0;
-            /* IL_00: ldarg.0 */
-            /* IL_01: isinst C`1[A]*/
-            /* IL_06: ldnull */
-            /* IL_08: cgt.un */
-            /* IL_09: box System.Boolean*/
-            /* IL_0E: call Void Log(System.Object)*/
+            /* IL_00: nop  IsInstGenericSubclass.cs:37:5*/
+            /* IL_01: ldarg.0  */
+            /* IL_02: isinst C`1[A] */
+            /* IL_07: ldnull  */
+            /* IL_09: cgt.un  */
+            /* IL_0A: box System.Boolean */
+            /* IL_0F: call Void Log(System.Object) */
             asm1.x6000001({
                     'boxed': ((t1.IsInst(arg0) !== null) ? (1) : (0)),
                     'type': t2,
                     'vtable': t2.prototype.vtable,
                     'ifacemap': t2.prototype.ifacemap
                 });
-            /* IL_13: ldarg.0 */
-            /* IL_14: isinst C`1[B]*/
-            /* IL_19: ldnull */
-            /* IL_1B: cgt.un */
-            /* IL_1C: box System.Boolean*/
-            /* IL_21: call Void Log(System.Object)*/
+            /* IL_14: nop  */
+            /* IL_15: ldarg.0  */
+            /* IL_16: isinst C`1[B] */
+            /* IL_1B: ldnull  */
+            /* IL_1D: cgt.un  */
+            /* IL_1E: box System.Boolean */
+            /* IL_23: call Void Log(System.Object) */
             asm1.x6000001({
                     'boxed': ((t4.IsInst(arg0) !== null) ? (1) : (0)),
                     'type': t2,
                     'vtable': t2.prototype.vtable,
                     'ifacemap': t2.prototype.ifacemap
                 });
-            /* IL_26: ldarg.0 */
-            /* IL_27: ldnull */
-            /* IL_29: ceq */
-            /* IL_2A: ldc.i4.0 */
-            /* IL_2C: ceq */
-            /* IL_2D: box System.Boolean*/
-            /* IL_32: call Void Log(System.Object)*/
+            /* IL_28: nop  */
+            /* IL_29: ldarg.0  */
+            /* IL_2A: ldnull  */
+            /* IL_2C: ceq  */
+            /* IL_2D: ldc.i4.0  */
+            /* IL_2F: ceq  */
+            /* IL_30: box System.Boolean */
+            /* IL_35: call Void Log(System.Object) */
             asm1.x6000001({
                     'boxed': ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0)),
                     'type': t2,
                     'vtable': t2.prototype.vtable,
                     'ifacemap': t2.prototype.ifacemap
                 });
-            /* IL_37: ldarg.0 */
-            /* IL_38: ldnull */
-            /* IL_3A: ceq */
-            /* IL_3B: ldc.i4.0 */
-            /* IL_3D: ceq */
-            /* IL_3E: box System.Boolean*/
-            /* IL_43: call Void Log(System.Object)*/
+            /* IL_3A: nop  */
+            /* IL_3B: ldarg.0  */
+            /* IL_3C: ldnull  */
+            /* IL_3E: ceq  */
+            /* IL_3F: ldc.i4.0  */
+            /* IL_41: ceq  */
+            /* IL_42: box System.Boolean */
+            /* IL_47: call Void Log(System.Object) */
             asm1.x6000001({
                     'boxed': ((((arg0 === null) ? (1) : (0)) === (0|0)) ? (1) : (0)),
                     'type': t2,
                     'vtable': t2.prototype.vtable,
                     'ifacemap': t2.prototype.ifacemap
                 });
-            /* IL_48: ret */
+            /* IL_4C: nop  */
+            /* IL_4D: ret  IsInstGenericSubclass.cs:42:5*/
             return ;
         };
     };
@@ -328,9 +346,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(

@@ -5,7 +5,7 @@ using System.Linq;
 using CilJs.Analysis;
 using CilJs.JsTranslation;
 using CilJs.Loading;
-using Braille.JSAst;
+using CilJs.JSAst;
 
 namespace CilJs
 {

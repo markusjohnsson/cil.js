@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "GenericDelegate.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* TResult MFunc`2.Invoke(T)*/
@@ -27,9 +27,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  StringWrapper..ctor()*/
@@ -37,9 +37,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -79,27 +79,31 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
-                /* IL_05: brtrue.s IL_18*/
+                /* IL_00: nop  GenericDelegate.cs:17:5*/
+                
+                /* IL_01: ldsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2 */
+                /* IL_06: brtrue.s IL_1B */
                 
                 if ((t0)["CS$<>9__CachedAnonymousMethodDelegate2"]){
-                    __pos__ = 0x18;
+                    __pos__ = 0x1B;
                     continue;
                 }
-                /* IL_07: ldnull */
-                /* IL_09: ldftn StringWrapper <Main>b__1(IntWrapper)*/
-                /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr)*/
-                /* IL_13: stsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
+                /* IL_08: ldnull  */
+                /* IL_0A: ldftn StringWrapper <Main>b__1(IntWrapper) */
+                /* IL_0F: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_14: stsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2 */
                 (t0)["CS$<>9__CachedAnonymousMethodDelegate2"] = CILJS.newobj(t3,asm1.x600000a,[null, null, (function ()
                         {
                             asm1.x6000013_init();
                             return asm1.x6000013;
                         })()]);
-                case 0x18:
-                /* IL_18: ldsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2*/
-                /* IL_1D: call Void CallDelegate(MFunc`2[IntWrapper,StringWrapper])*/
+                case 0x1B:
+                /* IL_1B: ldsfld MFunc`2 CS$<>9__CachedAnonymousMethodDelegate2 */
+                /* IL_20: call Void CallDelegate(MFunc`2[IntWrapper,StringWrapper]) */
                 asm1.x6000011((t0)["CS$<>9__CachedAnonymousMethodDelegate2"]);
-                /* IL_22: ret */
+                /* IL_25: nop  */
+                
+                /* IL_26: ret  GenericDelegate.cs:19:5*/
                 return ;
             }
         }
@@ -128,31 +132,33 @@ var asm1; (function (asm)
         var loc0;
         t0 = asm1.IntWrapper();
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
+        /* IL_00: nop  GenericDelegate.cs:22:5*/
+        /* IL_01: ldarg.0  GenericDelegate.cs:23:9*/
         st_03 = arg0;
-        /* IL_01: newobj Void .ctor()*/
-        /* IL_06: stloc.0 */
+        /* IL_02: newobj Void .ctor() */
+        /* IL_07: stloc.0  */
         loc0 = CILJS.newobj(t0,asm1.x600000e,[null]);
-        /* IL_07: ldloc.0 */
+        /* IL_08: ldloc.0  */
         st_01 = loc0;
-        /* IL_08: ldc.i4.s 123*/
+        /* IL_09: ldc.i4.s 123 */
         st_02 = (123|0);
-        /* IL_0A: stfld Int32 Value*/
+        /* IL_0B: stfld Int32 Value */
         st_01.Value = st_02;
-        /* IL_0F: ldloc.0 */
+        /* IL_10: ldloc.0  */
         st_04 = loc0;
-        /* IL_10: callvirt StringWrapper Invoke(IntWrapper)*/
+        /* IL_11: callvirt StringWrapper Invoke(IntWrapper) */
         st_05 = st_03._methodPtr.apply(null,((st_03._target) ? ([
                 st_03._target,
                 st_04
             ]) : ([
                 st_04
             ])));
-        /* IL_15: ldfld String Value*/
+        /* IL_16: ldfld String Value */
         st_06 = st_05.Value;
-        /* IL_1A: call Void Log(System.Object)*/
+        /* IL_1B: call Void Log(System.Object) */
         asm1.x6000001(st_06);
-        /* IL_1F: ret */
+        /* IL_20: nop  */
+        /* IL_21: ret  GenericDelegate.cs:24:5*/
         return ;
     };
     /* static StringWrapper Program.<Main>b__1(IntWrapper)*/
@@ -171,27 +177,31 @@ var asm1; (function (asm)
         var t0;
         var __pos__;
         var loc0;
+        var loc1;
         t0 = asm1.StringWrapper();
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stloc.0 */
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: stloc.0  */
         loc0 = CILJS.newobj(t0,asm1.x600000f,[null]);
-        /* IL_06: ldloc.0 */
-        /* IL_07: ldstr Result*/
-        /* IL_0C: stfld String Value*/
+        /* IL_06: ldloc.0  */
+        /* IL_07: ldstr Result */
+        /* IL_0C: stfld String Value */
         loc0.Value = CILJS.new_string("Result");
-        /* IL_11: ldloc.0 */
-        /* IL_12: ret */
-        return loc0;
+        /* IL_11: ldloc.0  */
+        /* IL_12: stloc.1  */
+        loc1 = loc0;
+        /* IL_15: ldloc.1  */
+        /* IL_16: ret  */
+        return loc1;
     };
     /*  Program..ctor()*/
     asm.x6000012 = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(
@@ -213,11 +223,11 @@ var asm1; (function (asm)
     (asm)["MFunc`2"] = CILJS.declare_type(
         "MFunc_2",
         ["T", "TResult"],
-        function (T,TResult)
+        function (T, TResult)
         {
             return {};
         },
-        function (T,TResult)
+        function (T, TResult)
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"MFunc`2",false,false,false,true,false,[],[

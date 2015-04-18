@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "interface.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,109 +9,130 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Double Obj.Area()*/
     asm.x600000b = function Area(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldc.r8 0*/
-        /* IL_09: ret */
-        return (+0);
+        /* IL_00: nop  interface.cs:12:9*/
+        /* IL_01: ldc.r8 0 */
+        /* IL_0A: stloc.0  */
+        loc0 = (+0);
+        /* IL_0D: ldloc.0  */
+        /* IL_0E: ret  */
+        return loc0;
     };;
     /*  Obj..ctor()*/
     asm.x600000c = function _ctor(arg0)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Double Rect.Area()*/
     asm.x600000e = function Area(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldfld Int32 w*/
-        /* IL_06: conv.r8 */
-        /* IL_07: ldarg.0 */
-        /* IL_08: ldfld Int32 h*/
-        /* IL_0D: conv.r8 */
-        /* IL_0E: mul */
-        /* IL_0F: ret */
-        return arg0.ObjRectw * arg0.ObjRecth;
+        /* IL_00: nop  interface.cs:27:9*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldfld Int32 w */
+        /* IL_07: conv.r8  */
+        /* IL_08: ldarg.0  */
+        /* IL_09: ldfld Int32 h */
+        /* IL_0E: conv.r8  */
+        /* IL_0F: mul  */
+        /* IL_10: stloc.0  */
+        loc0 = arg0.ObjRectw * arg0.ObjRecth;
+        /* IL_13: ldloc.0  */
+        /* IL_14: ret  */
+        return loc0;
     };;
     /*  Rect..ctor(Int32,Int32,Int32,Int32)*/
-    asm.x600000d = function _ctor(arg0,arg1,arg2,arg3,arg4)
+    asm.x600000d = function _ctor(arg0, arg1, arg2, arg3, arg4)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000c(arg0);
-        /* IL_06: ldarg.0 */
-        /* IL_07: ldarg.1 */
-        /* IL_08: stfld Int32 x*/
+        /* IL_06: nop  */
+        /* IL_07: nop  interface.cs:20:9*/
+        /* IL_08: ldarg.0  */
+        /* IL_09: ldarg.1  */
+        /* IL_0A: stfld Int32 x */
         arg0.ObjRectx = arg1;
-        /* IL_0D: ldarg.0 */
-        /* IL_0E: ldarg.2 */
-        /* IL_0F: stfld Int32 y*/
+        /* IL_0F: ldarg.0  */
+        /* IL_10: ldarg.2  */
+        /* IL_11: stfld Int32 y */
         arg0.ObjRecty = arg2;
-        /* IL_14: ldarg.0 */
-        /* IL_15: ldarg.3 */
-        /* IL_16: stfld Int32 w*/
+        /* IL_16: ldarg.0  */
+        /* IL_17: ldarg.3  */
+        /* IL_18: stfld Int32 w */
         arg0.ObjRectw = arg3;
-        /* IL_1B: ldarg.0 */
-        /* IL_1C: ldarg.s 4*/
-        /* IL_1E: stfld Int32 h*/
+        /* IL_1D: ldarg.0  */
+        /* IL_1E: ldarg.s 4 */
+        /* IL_20: stfld Int32 h */
         arg0.ObjRecth = arg4;
-        /* IL_23: ret */
+        /* IL_25: nop  interface.cs:25:9*/
+        /* IL_26: ret  */
         return ;
     };;
     /* System.Double Circle.Area()*/
     asm.x6000010 = function Area(arg0)
     {
         var __pos__;
+        var loc0;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldfld Int32 r*/
-        /* IL_06: ldarg.0 */
-        /* IL_07: ldfld Int32 r*/
-        /* IL_0C: mul */
-        /* IL_0D: conv.r8 */
-        /* IL_0E: ldc.r8 3,14159265359*/
-        /* IL_17: mul */
-        /* IL_18: ret */
-        return (arg0.ObjCircler * arg0.ObjCircler) * (+3.14159265359);
+        /* IL_00: nop  interface.cs:41:9*/
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldfld Int32 r */
+        /* IL_07: ldarg.0  */
+        /* IL_08: ldfld Int32 r */
+        /* IL_0D: mul  */
+        /* IL_0E: conv.r8  */
+        /* IL_0F: ldc.r8 3,14159265359 */
+        /* IL_18: mul  */
+        /* IL_19: stloc.0  */
+        loc0 = (arg0.ObjCircler * arg0.ObjCircler) * (+3.14159265359);
+        /* IL_1C: ldloc.0  */
+        /* IL_1D: ret  */
+        return loc0;
     };;
     /*  Circle..ctor(Int32,Int32,Int32)*/
-    asm.x600000f = function _ctor(arg0,arg1,arg2,arg3)
+    asm.x600000f = function _ctor(arg0, arg1, arg2, arg3)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000c(arg0);
-        /* IL_06: ldarg.0 */
-        /* IL_07: ldarg.1 */
-        /* IL_08: stfld Int32 x*/
+        /* IL_06: nop  */
+        /* IL_07: nop  interface.cs:35:9*/
+        /* IL_08: ldarg.0  */
+        /* IL_09: ldarg.1  */
+        /* IL_0A: stfld Int32 x */
         arg0.ObjCirclex = arg1;
-        /* IL_0D: ldarg.0 */
-        /* IL_0E: ldarg.2 */
-        /* IL_0F: stfld Int32 y*/
+        /* IL_0F: ldarg.0  */
+        /* IL_10: ldarg.2  */
+        /* IL_11: stfld Int32 y */
         arg0.ObjCircley = arg2;
-        /* IL_14: ldarg.0 */
-        /* IL_15: ldarg.3 */
-        /* IL_16: stfld Int32 r*/
+        /* IL_16: ldarg.0  */
+        /* IL_17: ldarg.3  */
+        /* IL_18: stfld Int32 r */
         arg0.ObjCircler = arg3;
-        /* IL_1B: ret */
+        /* IL_1D: nop  interface.cs:39:9*/
+        /* IL_1E: ret  */
         return ;
     };;
     /* static System.Int32 Test.Main()*/
@@ -139,6 +160,8 @@ var asm1; (function (asm)
         var loc0;
         var loc1;
         var loc2;
+        var loc4;
+        var loc3;
         t0 = (asm1)["Obj.Rect"]();
         t1 = (asm1)["Obj.Circle"]();
         t2 = (asm1)["Obj.Measurable"]();
@@ -151,83 +174,112 @@ var asm1; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.0 */
-                /* IL_01: ldc.i4.0 */
-                /* IL_02: ldc.i4.s 10*/
-                /* IL_04: ldc.i4.s 20*/
-                /* IL_06: newobj Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32)*/
-                /* IL_0B: stloc.0 */
+                /* IL_00: nop  interface.cs:48:9*/
+                
+                /* IL_01: ldc.i4.0  */
+                /* IL_02: ldc.i4.0  */
+                /* IL_03: ldc.i4.s 10 */
+                /* IL_05: ldc.i4.s 20 */
+                /* IL_07: newobj Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32) */
+                /* IL_0C: stloc.0  */
                 loc0 = CILJS.newobj(t0,asm1.x600000d,[null, (0|0), (0|0), (10|0), (20|0)]);
-                /* IL_0C: ldc.i4.0 */
-                /* IL_0D: ldc.i4.0 */
-                /* IL_0E: ldc.i4.s 20*/
-                /* IL_10: newobj Void .ctor(System.Int32, System.Int32, System.Int32)*/
-                /* IL_15: stloc.1 */
+                /* IL_0D: ldc.i4.0  */
+                /* IL_0E: ldc.i4.0  */
+                /* IL_0F: ldc.i4.s 20 */
+                /* IL_11: newobj Void .ctor(System.Int32, System.Int32, System.Int32) */
+                /* IL_16: stloc.1  */
                 loc1 = CILJS.newobj(t1,asm1.x600000f,[null, (0|0), (0|0), (20|0)]);
-                /* IL_16: ldloc.0 */
-                /* IL_17: callvirt Double Area()*/
-                /* IL_1C: ldloc.1 */
-                /* IL_1D: callvirt Double Area()*/
-                /* IL_22: add */
-                /* IL_23: stloc.2 */
+                /* IL_17: ldloc.0  */
+                /* IL_18: callvirt Double Area() */
+                /* IL_1D: ldloc.1  */
+                /* IL_1E: callvirt Double Area() */
+                /* IL_23: add  */
+                /* IL_24: stloc.2  */
                 loc2 = ((loc0.vtable)["asm1.x600000b"]())(loc0) + ((loc1.vtable)["asm1.x600000b"]())(loc1);
-                /* IL_24: ldloc.2 */
-                /* IL_25: ldc.r8 0*/
-                /* IL_2E: beq.s IL_32*/
+                /* IL_25: ldloc.2  */
+                /* IL_26: ldc.r8 0 */
+                /* IL_30: ceq  */
+                /* IL_31: stloc.s 4 */
+                loc4 = ((loc2 === (+0)) ? (1) : (0));
+                /* IL_33: ldloc.s 4 */
+                /* IL_35: brtrue.s IL_3B */
                 
-                if (loc2 === (+0)){
-                    __pos__ = 0x32;
+                if (loc4){
+                    __pos__ = 0x3B;
                     continue;
                 }
-                /* IL_30: ldc.i4.1 */
-                /* IL_31: ret */
-                return (1|0);
-                case 0x32:
-                /* IL_32: ldloc.0 */
-                /* IL_33: castclass Obj.Rect*/
-                /* IL_38: callvirt Double Area()*/
-                /* IL_3D: ldloc.1 */
-                /* IL_3E: castclass Obj.Circle*/
-                /* IL_43: callvirt Double Area()*/
-                /* IL_48: add */
-                /* IL_49: stloc.2 */
+                /* IL_37: ldc.i4.1  */
+                /* IL_38: stloc.3  */
+                loc3 = (1|0);
+                /* IL_39: br.s IL_9E */
+                __pos__ = 0x9E;
+                continue;
+                case 0x3B:
+                /* IL_3B: ldloc.0  */
+                /* IL_3C: castclass Obj.Rect */
+                /* IL_41: callvirt Double Area() */
+                /* IL_46: ldloc.1  */
+                /* IL_47: castclass Obj.Circle */
+                /* IL_4C: callvirt Double Area() */
+                /* IL_51: add  */
+                /* IL_52: stloc.2  */
                 loc2 = asm1.x600000e(CILJS.cast_class(loc0,t0)) + asm1.x6000010(CILJS.cast_class(loc1,t1));
-                /* IL_4A: ldloc.2 */
-                /* IL_4B: ldc.r8 1456,637061436*/
-                /* IL_54: sub */
-                /* IL_55: ldc.r8 1E-06*/
-                /* IL_5E: ble.un.s IL_62*/
+                /* IL_53: ldloc.2  */
+                /* IL_54: ldc.r8 1456,637061436 */
+                /* IL_5D: sub  */
+                /* IL_5E: ldc.r8 1E-06 */
+                /* IL_68: cgt  */
+                /* IL_69: ldc.i4.0  */
+                /* IL_6B: ceq  */
+                /* IL_6C: stloc.s 4 */
+                loc4 = (((((loc2 - (+1456.637061436)) > (+1E-06)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_6E: ldloc.s 4 */
+                /* IL_70: brtrue.s IL_76 */
                 
-                if (CILJS.unsigned_value(loc2 - (+1456.637061436)) <= CILJS.unsigned_value((+1E-06))){
-                    __pos__ = 0x62;
+                if (loc4){
+                    __pos__ = 0x76;
                     continue;
                 }
-                /* IL_60: ldc.i4.2 */
-                /* IL_61: ret */
-                return (2|0);
-                case 0x62:
-                /* IL_62: ldloc.0 */
-                /* IL_63: callvirt Double Area()*/
-                /* IL_68: ldloc.1 */
-                /* IL_69: callvirt Double Area()*/
-                /* IL_6E: add */
-                /* IL_6F: stloc.2 */
+                /* IL_72: ldc.i4.2  */
+                /* IL_73: stloc.3  */
+                loc3 = (2|0);
+                /* IL_74: br.s IL_9E */
+                __pos__ = 0x9E;
+                continue;
+                case 0x76:
+                /* IL_76: ldloc.0  */
+                /* IL_77: callvirt Double Area() */
+                /* IL_7C: ldloc.1  */
+                /* IL_7D: callvirt Double Area() */
+                /* IL_82: add  */
+                /* IL_83: stloc.2  */
                 loc2 = (((loc0.ifacemap)[t2].x600000a)())(loc0) + (((loc1.ifacemap)[t2].x600000a)())(loc1);
-                /* IL_70: ldloc.2 */
-                /* IL_71: ldc.r8 0*/
-                /* IL_7A: beq.s IL_7E*/
+                /* IL_84: ldloc.2  */
+                /* IL_85: ldc.r8 0 */
+                /* IL_8F: ceq  */
+                /* IL_90: stloc.s 4 */
+                loc4 = ((loc2 === (+0)) ? (1) : (0));
+                /* IL_92: ldloc.s 4 */
+                /* IL_94: brtrue.s IL_9A */
                 
-                if (loc2 === (+0)){
-                    __pos__ = 0x7E;
+                if (loc4){
+                    __pos__ = 0x9A;
                     continue;
                 }
-                /* IL_7C: ldc.i4.3 */
-                /* IL_7D: ret */
-                return (3|0);
-                case 0x7E:
-                /* IL_7E: ldc.i4.0 */
-                /* IL_7F: ret */
-                return (0|0);
+                /* IL_96: ldc.i4.3  */
+                /* IL_97: stloc.3  */
+                loc3 = (3|0);
+                /* IL_98: br.s IL_9E */
+                __pos__ = 0x9E;
+                continue;
+                case 0x9A:
+                /* IL_9A: ldc.i4.0  */
+                /* IL_9B: stloc.3  */
+                loc3 = (0|0);
+                case 0x9E:
+                /* IL_9E: ldloc.3  */
+                /* IL_9F: ret  */
+                return loc3;
             }
         }
     };
@@ -236,9 +288,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(

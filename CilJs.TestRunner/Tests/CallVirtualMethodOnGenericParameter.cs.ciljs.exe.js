@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "CallVirtualMethodOnGenericParameter.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void A.M()*/
@@ -19,10 +19,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr A*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  CallVirtualMethodOnGenericParameter.cs:5:5*/
+        /* IL_01: ldstr A */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("A"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  CallVirtualMethodOnGenericParameter.cs:7:5*/
         return ;
     };;
     /*  A..ctor()*/
@@ -30,9 +32,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void B.M()*/
@@ -40,10 +42,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr B*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  CallVirtualMethodOnGenericParameter.cs:13:5*/
+        /* IL_01: ldstr B */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("B"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  CallVirtualMethodOnGenericParameter.cs:15:5*/
         return ;
     };;
     /*  B..ctor()*/
@@ -51,10 +55,10 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm1.x600000b(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.X<T>(T)*/
@@ -64,8 +68,9 @@ var asm1; (function (asm)
         {
             var __pos__;
             __pos__ = 0x0;
-            /* IL_00: ldarga.s 0*/
-            /* IL_08: callvirt Void M()*/
+            /* IL_00: nop  CallVirtualMethodOnGenericParameter.cs:21:5*/
+            /* IL_01: ldarga.s 0 */
+            /* IL_09: callvirt Void M() */
             /* warning: ignoring prefixes constrained.*/
             (((arg0.vtable || T.prototype.vtable)["asm1.x600000a"])())(CILJS.dereference_pointer_as_needed({
                         'w': function (v)
@@ -77,7 +82,8 @@ var asm1; (function (asm)
                             return arg0;
                         }
                     }));
-            /* IL_0D: ret */
+            /* IL_0E: nop  */
+            /* IL_0F: ret  CallVirtualMethodOnGenericParameter.cs:23:5*/
             return ;
         };
     };;
@@ -102,16 +108,20 @@ var asm1; (function (asm)
         t0 = asm1.A();
         t1 = asm1.B();
         __pos__ = 0x0;
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: call Void X[A](A)*/
+        /* IL_00: nop  CallVirtualMethodOnGenericParameter.cs:26:5*/
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: call Void X[A](A) */
         (asm1.x600000e(asm1.A()))(CILJS.newobj(t0,asm1.x600000b,[null]));
-        /* IL_0A: newobj Void .ctor()*/
-        /* IL_0F: call Void X[B](B)*/
+        /* IL_0B: nop  */
+        /* IL_0C: newobj Void .ctor() */
+        /* IL_11: call Void X[B](B) */
         (asm1.x600000e(asm1.B()))(CILJS.newobj(t1,asm1.x600000d,[null]));
-        /* IL_14: newobj Void .ctor()*/
-        /* IL_19: call Void X[A](A)*/
+        /* IL_16: nop  */
+        /* IL_17: newobj Void .ctor() */
+        /* IL_1C: call Void X[A](A) */
         (asm1.x600000e(asm1.A()))(CILJS.newobj(t1,asm1.x600000d,[null]));
-        /* IL_1E: ret */
+        /* IL_21: nop  */
+        /* IL_22: ret  CallVirtualMethodOnGenericParameter.cs:30:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -119,9 +129,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(

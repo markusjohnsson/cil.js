@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "NestedClasses.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     asm.next_hash = (1|0);
@@ -9,9 +9,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  A..ctor()*/
@@ -19,9 +19,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void B.M()*/
@@ -29,10 +29,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr A.B.M*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  NestedClasses.cs:9:9*/
+        /* IL_01: ldstr A.B.M */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("A.B.M"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  NestedClasses.cs:11:9*/
         return ;
     };;
     /* System.Void B.X()*/
@@ -40,10 +42,12 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldstr A.B.X*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: nop  NestedClasses.cs:14:9*/
+        /* IL_01: ldstr A.B.X */
+        /* IL_06: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("A.B.X"));
-        /* IL_0A: ret */
+        /* IL_0B: nop  */
+        /* IL_0C: ret  NestedClasses.cs:16:9*/
         return ;
     };;
     /*  B..ctor()*/
@@ -51,9 +55,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  C..ctor()*/
@@ -61,9 +65,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  D..ctor()*/
@@ -71,9 +75,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void E.Y()*/
@@ -103,32 +107,34 @@ var asm1; (function (asm)
         t0 = (asm1)["C+D+E"]();
         t1 = (asm0)["System.Int32"]();
         __pos__ = 0x0;
-        /* IL_00: ldstr C.D.E.Y*/
+        /* IL_00: nop  NestedClasses.cs:29:13*/
+        /* IL_01: ldstr C.D.E.Y NestedClasses.cs:30:17*/
         st_05 = CILJS.new_string("C.D.E.Y");
         asm1.x6000012();
-        /* IL_05: ldsfld Int32 y*/
+        /* IL_06: ldsfld Int32 y */
         st_00 = t0.y;
-        /* IL_0A: dup */
+        /* IL_0B: dup  */
         st_04 = (st_01 = st_00);
-        /* IL_0B: ldc.i4.1 */
+        /* IL_0C: ldc.i4.1  */
         st_02 = (1|0);
-        /* IL_0C: add */
+        /* IL_0D: add  */
         st_03 = ((st_01 + st_02) | (0|0));
         asm1.x6000012();
-        /* IL_0D: stsfld Int32 y*/
+        /* IL_0E: stsfld Int32 y */
         (t0)["y"] = st_03;
-        /* IL_12: box System.Int32*/
+        /* IL_13: box System.Int32 */
         st_06 = {
             'boxed': st_04,
             'type': t1,
             'vtable': t1.prototype.vtable,
             'ifacemap': t1.prototype.ifacemap
         };
-        /* IL_17: call String Concat(System.Object, System.Object)*/
+        /* IL_18: call String Concat(System.Object, System.Object) */
         st_07 = asm0.x60001bf(st_05,st_06);
-        /* IL_1C: call Void Log(System.Object)*/
+        /* IL_1D: call Void Log(System.Object) */
         asm1.x6000001(st_07);
-        /* IL_21: ret */
+        /* IL_22: nop  */
+        /* IL_23: ret  NestedClasses.cs:31:13*/
         return ;
     };
     /*  E..ctor()*/
@@ -136,9 +142,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static  E..cctor()*/
@@ -163,10 +169,10 @@ var asm1; (function (asm)
         (asm1)["C+D+E"]().FieldsInitialized = true;
         t0 = (asm1)["C+D+E"]();
         __pos__ = 0x0;
-        /* IL_00: ldc.i4.s 123*/
-        /* IL_02: stsfld Int32 y*/
+        /* IL_00: ldc.i4.s 123 */
+        /* IL_02: stsfld Int32 y */
         (t0)["y"] = (123|0);
-        /* IL_07: ret */
+        /* IL_07: ret  NestedClasses.cs:16707566:0*/
         return ;
     };
     /* static System.Void Program.Main()*/
@@ -192,22 +198,26 @@ var asm1; (function (asm)
         t0 = (asm1)["A+B"]();
         t1 = (asm1)["C+D+E"]();
         __pos__ = 0x0;
-        /* IL_00: call Void M()*/
+        /* IL_00: nop  NestedClasses.cs:39:5*/
+        /* IL_01: call Void M() NestedClasses.cs:40:9*/
         asm1.x600000b();
-        /* IL_05: newobj Void .ctor()*/
-        /* IL_0A: stloc.0 */
+        /* IL_06: nop  */
+        /* IL_07: newobj Void .ctor() */
+        /* IL_0C: stloc.0  */
         loc0 = CILJS.newobj(t0,asm1.x600000d,[null]);
-        /* IL_0B: ldloc.0 */
-        /* IL_0C: callvirt Void X()*/
+        /* IL_0D: ldloc.0  */
+        /* IL_0E: callvirt Void X() */
         asm1.x600000c(loc0);
+        /* IL_13: nop  */
         asm1.x6000012();
-        /* IL_11: newobj Void .ctor()*/
-        /* IL_16: stloc.1 */
+        /* IL_14: newobj Void .ctor() */
+        /* IL_19: stloc.1  */
         loc1 = CILJS.newobj(t1,asm1.x6000011,[null]);
-        /* IL_17: ldloc.1 */
-        /* IL_18: callvirt Void Y()*/
+        /* IL_1A: ldloc.1  */
+        /* IL_1B: callvirt Void Y() */
         asm1.x6000010(loc1);
-        /* IL_1D: ret */
+        /* IL_20: nop  */
+        /* IL_21: ret  NestedClasses.cs:47:5*/
         return ;
     };
     /*  Program..ctor()*/
@@ -215,9 +225,9 @@ var asm1; (function (asm)
     {
         var __pos__;
         __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(
