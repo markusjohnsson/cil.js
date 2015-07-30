@@ -107,11 +107,6 @@ namespace CilJs.JsTranslation
 
             var functionBlock = new List<JSStatement>();
 
-            if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
-            {
-                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("CILJS", "init_base_types")).ToStatement());
-            }
-
             JSExpression closedMethodInitializer;
             JSExpression openMethodInitializer = JSFactory.Identifier("asm", GetMethodIdentifier(method.ReflectionMethod) + "_init");
 
@@ -225,6 +220,11 @@ namespace CilJs.JsTranslation
         {
             var functionBlock = new List<JSStatement>();
 
+            if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
+            {
+                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("CILJS", "init_base_types")).ToStatement());
+            }
+
             if (method.Name == ".cctor")
             {
                 var type_id = GetTypeIdentifier(type.ReflectionType, method.ReflectionMethod);
@@ -315,10 +315,7 @@ namespace CilJs.JsTranslation
                 blockTranslator
                     .Translate(method.Block)
                     .Where(s => !(s is JSSwitchCase) && !((s is JSExpressionStatement) && (
-                        ((JSExpressionStatement)s).Expression is JSBreakExpression)))
-                    .StartWith(
-                        new JSVariableDelcaration { Name = "__pos__", Value = JSFactory.Hex(0) }
-                            .ToStatement()));
+                        ((JSExpressionStatement)s).Expression is JSBreakExpression))));
 
             var ps = GetParameterCount(method);
 

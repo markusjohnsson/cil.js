@@ -3,6 +3,8 @@ var CILJS;
 
 (function (ciljs) {
     ciljs.nop = function nop() { };
+    
+    ciljs.next_hash = 1;
 
     ciljs.entry_point = function () {
         var a = 0;

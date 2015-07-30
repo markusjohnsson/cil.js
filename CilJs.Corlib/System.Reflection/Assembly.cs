@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace System.Reflection
 {
     public class Assembly
@@ -21,7 +18,7 @@ namespace System.Reflection
 
         internal static Assembly GetInstance(jsAsm ctor)
         {
-            if (!UnsafeCast<bool>(ctor.ManagedInstance))
+            if (CilJs.JavaScript.Object.IsUndefined(ctor.ManagedInstance))
                 ctor.ManagedInstance = new Assembly(ctor);
 
             return ctor.ManagedInstance;

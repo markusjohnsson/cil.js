@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="width: 100%; height: 100%;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>cil.js playground</title>
+    <script src="~/Scripts/jquery-2.1.0.js"></script>
+    <script src="~/Scripts/knockout-3.1.0.debug.js"></script>
+    <script src="~/Scripts/rx.js"></script>
+    <script src="~/Scripts/rx.jquery.js"></script>
+    <style>
+        body {
+            background-color: #fafafa;
+            color: #222;
+        }
+
+        * {
+            /*font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;*/
+            font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+            font-size: 10pt;
+        }
+
+        pre {
+            font-family: 'Consolas', 'Courier New', Courier, 'Nimbus Mono L', monospace;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var vm = {
+                code: ko.observable("class Program {\n    public static void Main() {}\n}"),
+                output: ko.observable(""),
+                errors: ko.observable([]),
+                jsOutput: ko.observable(""),
+                debugLink: ko.observable("")
+            };
+
+            vm.code
+                .subscribe(function (code) {
+                    $.ajax({
+                        url: '/api/playgroundrunner',
+                        method: 'post',
+                        data: { code: code }
+                    }).done(
+                        function (data) {
+                            vm.output(data.compiledCode);
+                            vm.errors(data.testResult.Errors);
+                            vm.jsOutput(data.testResult.jsOutput);
+                            vm.debugLink("/Test/Run?name=/" + data.testResult.File)
+                        })
+                });
+
+            ko.applyBindings(vm);
+        }
+    </script>
+
+</head>
+<body style="width: 100%; height: 100%; overflow: hidden; ">
+    <div style="width: calc(50% - 20px); height: 100%; float: left; ">
+        <textarea style="width: 100%; height: 50%;" data-bind="value: code"></textarea>
+        <div style="height: 50%">
+            <div style="width: 100%; height: 50px;">
+                <a data-bind="attr: { href: debugLink }">Debug</a>
+            </div>
+            <div style="width: 100%; height: calc(50% - 50px);" data-bind="foreach: errors"><span data-bind="text: $data"></span></div>
+            <div style="width: 100%; height: calc(50% - 50px);" data-bind="text: jsOutput"></div>
+        </div>
+    </div>
+    <div style="width: calc(50% - 20px); height: 100%; float: right; overflow: auto; ">
+        <pre style="width: 100%; height: 100%;" data-bind="text: output"></pre>
+    </div>
+    <div style="clear: both;"></div>
+</body>
+</html>

@@ -132,11 +132,6 @@ namespace CilJs.Ast
         {
             get
             {
-                if (ReflectionMethod == ReflectionMethod.DeclaringType.Assembly.EntryPoint)
-                {
-                    return true;
-                }
-
                 if (GetReplacement() != null || DeclaringType.IsInterface || ReflectionMethod.IsAbstract)
                 {
                     return false;

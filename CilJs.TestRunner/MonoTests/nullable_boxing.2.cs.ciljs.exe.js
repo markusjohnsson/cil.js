@@ -1,33 +1,19 @@
-var asm1; (function (asm)
+var asm2; (function (asm)
 {
     asm.FullName = "nullable_boxing.2.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
-    asm.next_hash = (1|0);
-    /* static System.Void TestLog.Log(Object)*/
-    asm.x6000001 = ciljs_test_log;;
-    /*  TestLog..ctor()*/
-    asm.x6000002 = function _ctor(arg0)
-    {
-        var __pos__;
-        __pos__ = 0x0;
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
-        return ;
-    };;
     /* static System.Int32 Program.Main()*/
-    asm.x600000a_init = function ()
+    asm.x6000001_init = function ()
     {
-        ((asm1)["Program+Button"]().init)();
+        ((asm2)["Program+Button"]().init)();
         ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()).init)();
-        asm.x600000a = asm.x600000a_;
+        asm.x6000001 = asm.x6000001_;
     };;
-    asm.x600000a = function ()
+    asm.x6000001 = function ()
     {
-        CILJS.init_base_types();
-        asm.x600000a_init.apply(this,arguments);
-        return asm.x600000a_.apply(this,arguments);
+        asm.x6000001_init.apply(this,arguments);
+        return asm.x6000001_.apply(this,arguments);
     };;
-    asm.x600000a_ = function Main()
+    asm.x6000001_ = function Main()
     {
         var t0;
         var t1;
@@ -35,25 +21,23 @@ var asm1; (function (asm)
         var loc2;
         var st_0B;
         var st_0C;
-        var __pos__;
         var in_block_0;
-        var __finally_continuation_0__;
+        var __pos__;
         var loc1;
         var loc0;
-        t0 = (asm1)["Program+Button"]();
+        CILJS.init_base_types();
+        t0 = (asm2)["Program+Button"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.Nullable`1"](t1);
         loc2 = new ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()))();
-        __pos__ = 0x0;
         in_block_0 = true;
-        __finally_continuation_0__ = __pos__;
         __pos__ = 0;
         
         while (in_block_0){
             
             switch (__pos__){
                 case 0x0:
-                asm1.x600000e();
+                asm2.x6000005();
                 /* IL_00: ldsfld Button TheButton*/
                 /* IL_05: ldc.i4.1 */
                 /* IL_06: newobj Void .ctor(System.Int32)*/
@@ -61,7 +45,7 @@ var asm1; (function (asm)
                 /* IL_10: ldc.i4.2 */
                 /* IL_11: beq.s IL_15*/
                 
-                if (asm1.x600000c(t0.TheButton,CILJS.clone_value(CILJS.newobj(t2,asm0.x60001a6,[null, (1|0)]))) === (2|0)){
+                if (asm2.x6000003(t0.TheButton,CILJS.clone_value(CILJS.newobj(t2,asm0.x60000db,[null, (1|0)]))) === (2|0)){
                     __pos__ = 0x15;
                     continue;
                 }
@@ -101,7 +85,7 @@ var asm1; (function (asm)
                 /* IL_35: callvirt Object GetValue(System.Int32)*/
                 /* IL_3A: brfalse.s IL_3E*/
                 
-                if ((!(asm0.x6000172(loc0,(0|0))))){
+                if ((!(asm0.x600000e(loc0,(0|0))))){
                     __pos__ = 0x3E;
                     continue;
                 }
@@ -116,24 +100,19 @@ var asm1; (function (asm)
         }
     };
     /*  Program..ctor()*/
-    asm.x600000b = function _ctor(arg0)
+    asm.x6000002 = function _ctor(arg0)
     {
-        var __pos__;
-        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
         return ;
     };;
     /* System.Int32 Button.Counter(Nullable`1)*/
-    asm.x600000c = function Counter(arg0,arg1)
+    asm.x6000003 = function Counter(arg0,arg1)
     {
-        var __pos__;
         var in_block_0;
-        var __finally_continuation_0__;
-        __pos__ = 0x0;
+        var __pos__;
         in_block_0 = true;
-        __finally_continuation_0__ = __pos__;
         __pos__ = 0;
         
         while (in_block_0){
@@ -144,7 +123,7 @@ var asm1; (function (asm)
                 /* IL_02: call Boolean get_HasValue()*/
                 /* IL_07: brtrue.s IL_0B*/
                 
-                if (asm0.x60001a7({
+                if (asm0.x60000dc({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -166,7 +145,7 @@ var asm1; (function (asm)
                 /* IL_12: ldc.i4.1 */
                 /* IL_13: add */
                 /* IL_14: ret */
-                return (asm0.x60001a8({
+                return (asm0.x60000dd({
                         'w': function (v)
                         {
                             arg1 = v;
@@ -180,60 +159,40 @@ var asm1; (function (asm)
         }
     };;
     /*  Button..ctor()*/
-    asm.x600000d = function _ctor(arg0)
+    asm.x6000004 = function _ctor(arg0)
     {
-        var __pos__;
-        __pos__ = 0x0;
         /* IL_00: ldarg.0 */
         /* IL_01: call Void .ctor()*/
         /* IL_06: ret */
         return ;
     };;
     /* static  Button..cctor()*/
-    asm.x600000e_init = function ()
+    asm.x6000005_init = function ()
     {
-        ((asm1)["Program+Button"]().init)();
-        asm.x600000e = asm.x600000e_;
+        ((asm2)["Program+Button"]().init)();
+        asm.x6000005 = asm.x6000005_;
     };;
-    asm.x600000e = function ()
+    asm.x6000005 = function ()
     {
-        asm.x600000e_init.apply(this,arguments);
-        return asm.x600000e_.apply(this,arguments);
+        asm.x6000005_init.apply(this,arguments);
+        return asm.x6000005_.apply(this,arguments);
     };;
-    asm.x600000e_ = function _cctor()
+    asm.x6000005_ = function _cctor()
     {
         var t0;
-        var __pos__;
         
-        if ((asm1)["Program+Button"]().FieldsInitialized){
+        if ((asm2)["Program+Button"]().FieldsInitialized){
             return;
         }
-        (asm1)["Program+Button"]().FieldsInitialized = true;
-        t0 = (asm1)["Program+Button"]();
-        __pos__ = 0x0;
-        asm1.x600000e();
+        (asm2)["Program+Button"]().FieldsInitialized = true;
+        t0 = (asm2)["Program+Button"]();
+        asm2.x6000005();
         /* IL_00: newobj Void .ctor()*/
         /* IL_05: stsfld Button TheButton*/
-        (t0)["TheButton"] = CILJS.newobj(t0,asm1.x600000d,[null]);
+        (t0)["TheButton"] = CILJS.newobj(t0,asm2.x6000004,[null]);
         /* IL_0A: ret */
         return ;
     };
-    asm.TestLog = CILJS.declare_type(
-        "TestLog",
-        [],
-        function ()
-        {
-            return new ((asm0)["System.Object"]())();
-        },
-        function ()
-        {
-            this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"TestLog",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
-            this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            CILJS.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            CILJS.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
-        });
     asm.Program = CILJS.declare_type(
         "Program",
         [],
@@ -244,11 +203,11 @@ var asm1; (function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000006");
-            this.GenericTypeMetadataName = "asm1.t2000006";
-            CILJS.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            CILJS.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            CILJS.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000002");
+            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
+            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     (asm)["Program+Button"] = CILJS.declare_type(
         "Button",
@@ -261,13 +220,13 @@ var asm1; (function (asm)
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program+Button",false,false,false,false,false,[],[
-                    [asm1, "x600000c", "Counter"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000007");
+                    [asm2, "x6000003", "Counter"]
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
             this.TheButton = null;
-            this.GenericTypeMetadataName = "asm1.t2000007";
-            CILJS.declare_virtual(this,"asm0.x6000005","asm0.x6000005");
-            CILJS.declare_virtual(this,"asm0.x6000008","asm0.x6000008");
-            CILJS.declare_virtual(this,"asm0.x6000009","asm0.x6000009");
+            this.GenericTypeMetadataName = "asm2.t2000003";
+            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
+            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
-    asm.entryPoint = asm.x600000a;
-})(asm1 || (asm1 = {}));
+    asm.entryPoint = asm.x6000001;
+})(asm2 || (asm2 = {}));

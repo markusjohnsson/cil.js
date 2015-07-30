@@ -22,6 +22,12 @@
     <IISExpressUseClassicPipelineMode />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -127,7 +133,9 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
-    <Compile Include="Tests\PrimitiveCompareTo.cs" />
+    <Compile Include="Controllers\PlaygroundRunnerController.cs" />
+    <None Include="Tests\GenericNesting2.cs" />
+    <None Include="Tests\PrimitiveCompareTo.cs" />
     <None Include="FailingTests\UnsafeArrayAccess.cs" />
     <None Include="Tests\UnsafePointerArgument.cs" />
     <None Include="Tests\GenericMethodOnInterfaceBug.cs" />
@@ -187,6 +195,7 @@
     <Content Include="Tests\Events.cs" />
     <None Include="Tests\Closure.cs" />
     <None Include="MonoTests\static-ctor.cs" />
+    <None Include="Tests\GenericValueTypeArgAsThis.cs" />
     <Content Include="Tests\YieldGenerators.cs" />
     <None Include="Tests\ArrayIteration.cs" />
     <Content Include="Tests\Negate.cs" />
@@ -214,7 +223,6 @@
     <None Include="MonoTests\string.cs" />
     <None Include="MonoTests\nullable_boxing.2.cs" />
     <None Include="MonoTests\array-cast.cs" />
-    <Compile Include="TestInclude.cs" />
     <None Include="Tests\CSStringConverter.cs" />
     <None Include="Tests\StringExtractor.cs" />
     <None Include="Tests\Structs.cs" />
@@ -261,6 +269,7 @@
     <Content Include="Scripts\rx.lite.min.js" />
     <Content Include="Scripts\rx.min.js" />
     <Content Include="Views\Test\Run.cshtml" />
+    <Content Include="Views\Playground\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -277,6 +286,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="JsTests\" />
+    <Folder Include="PlaygroundTemp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -306,7 +316,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>35791</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

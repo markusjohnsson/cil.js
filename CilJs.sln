@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{353958C4-5637-47B3-A48F-2926863D9498}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CilJs", "CilJs\CilJs.csproj", "{B1E517C4-7B7E-427A-B192-A85DFD5CEB65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CilJs.TestRunner", "CilJs.TestRunner\CilJs.TestRunner.csproj", "{1A9FF4E9-C674-46FC-AD7E-3154D7E981F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CilJs.TestLib", "CilJs.TestLib\CilJs.TestLib.csproj", "{D4EE4C35-635B-4177-93BA-1C41FE34F831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,16 @@ Global
 		{1A9FF4E9-C674-46FC-AD7E-3154D7E981F1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{1A9FF4E9-C674-46FC-AD7E-3154D7E981F1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1A9FF4E9-C674-46FC-AD7E-3154D7E981F1}.Release|x86.ActiveCfg = Release|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D4EE4C35-635B-4177-93BA-1C41FE34F831}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

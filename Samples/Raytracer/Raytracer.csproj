@@ -48,6 +48,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CilJs.Corlib\CilJs.Corlib.csproj">
+      <Project>{87dddbcc-5f8d-462d-b879-19f8fd13d18b}</Project>
+      <Name>CilJs.Corlib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\VsTemplate\CilJs.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

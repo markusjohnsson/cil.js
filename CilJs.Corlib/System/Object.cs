@@ -1,7 +1,4 @@
-﻿
-using System;
-using System.Runtime.CompilerServices;
-using CilJs.Runtime.TranslatorServices;
+﻿using CilJs.Runtime.TranslatorServices;
 
 namespace System
 {
@@ -10,7 +7,7 @@ namespace System
         [JsImport("function (a, b) { return Number(a === b); }")]
         private extern static bool ReferenceEqualsImpl(object a, object b);
 
-        [JsImport("function (o) { return o.hash || (o.hash = asm0.next_hash++); }")]
+        [JsImport("function (o) { return o.hash || (o.hash = CILJS.next_hash++); }")]
         private static extern int GetHashCode(object o);
 
         [JsReplace("{0}")]
@@ -30,7 +27,7 @@ namespace System
         internal static object ToJavaScriptString(Object o)
         {
             if (o == null)
-                return "".jsstr; 
+                return "".jsstr;
             else
             {
                 var str = o.ToString();
@@ -61,7 +58,7 @@ namespace System
             return RuntimeType.GetType(this);
         }
 
-        public static bool Equals(object a, object b) 
+        public static bool Equals(object a, object b)
         {
             if (ReferenceEquals(a, b))
                 return true;

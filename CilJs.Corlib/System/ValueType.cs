@@ -1,4 +1,4 @@
-using System.Runtime.CompilerServices;
+//using System.Runtime.CompilerServices;
 using CilJs.Runtime.TranslatorServices;
 
 namespace System
