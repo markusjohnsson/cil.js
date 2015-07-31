@@ -22,22 +22,22 @@ var CILJS;
 
     ciljs.declare_type = function declare_type(name, genericArgs, baseType, init) {
         var isGeneric = genericArgs && genericArgs.length > 0;
-        var ct = isGeneric ? {} : null;
+        var cacheTree = isGeneric ? {} : null;
         var gA = isGeneric ? genericArgs.join(",") : "";
         var gAmD = isGeneric ? genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; } ).join(",") : "";
         var s = "" +
             "function t(" + gA + ") {\n" +
-            "    var c = " + (isGeneric ? "ciljs.tree_get([" + gAmD + "], ct)" : "ct") + ";\n" +
-            "    if (c) return c;\n" +
+            "    var cachedType = " + (isGeneric ? "ciljs.tree_get([" + gAmD + "], cacheTree)" : "cacheTree") + ";\n" +
+            "    if (cachedType) return cachedType;\n" +
             "    \n" +
-            "    eval('function '+name+'() { c.init();this.constructor = c; }');\n" +
-            "    c = eval(name);\n" +
-            "    " + (isGeneric ? "ciljs.tree_set([" + gAmD + "], ct, c);" : "ct = c;") + "\n" +
+            "    eval('function " + name + "() { cachedType.init(); this.constructor = cachedType; }');\n" +
+            "    cachedType = " + name + ";\n" +
+            "    " + (isGeneric ? "ciljs.tree_set([" + gAmD + "], cacheTree, cachedType);" : "cacheTree = cachedType;") + "\n" +
             "    \n" +
-            "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
+            "    cachedType.init = init.bind(cachedType" + (isGeneric ? (", " + gA) : "") + ");\n" +
             "    var baseCtor = baseType(" + gA + ");\n" +
-            "    c.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-            "    return c;\n" +
+            "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
+            "    return cachedType;\n" +
             "}";
         eval(s);
         return t;
