@@ -341,7 +341,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -373,7 +373,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new (asm2.Base())();
+            return asm2.Base();
         },
         function ()
         {
@@ -402,7 +402,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new (asm2.Base())();
+            return asm2.Base();
         },
         function ()
         {
@@ -435,7 +435,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new (asm2.Derived1())();
+            return asm2.Derived1();
         },
         function ()
         {
@@ -468,7 +468,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {

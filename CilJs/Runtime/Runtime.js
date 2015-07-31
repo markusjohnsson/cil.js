@@ -35,8 +35,8 @@ var CILJS;
             "    " + (isGeneric ? "ciljs.tree_set([" + gAmD + "], ct, c);" : "ct = c;") + "\n" +
             "    \n" +
             "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
-            "    if (baseType)\n" +
-            "        c.prototype = baseType(" + gA + ");\n" +
+            "    var baseCtor = baseType(" + gA + ");\n" +
+            "    c.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
             "    return c;\n" +
             "}";
         eval(s);

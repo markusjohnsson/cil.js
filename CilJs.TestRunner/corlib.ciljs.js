@@ -35,8 +35,8 @@ var CILJS;
             "    " + (isGeneric ? "ciljs.tree_set([" + gAmD + "], ct, c);" : "ct = c;") + "\n" +
             "    \n" +
             "    c.init = init.bind(c" + (isGeneric ? (", " + gA) : "") + ");\n" +
-            "    if (baseType)\n" +
-            "        c.prototype = baseType(" + gA + ");\n" +
+            "    var baseCtor = baseType(" + gA + ");\n" +
+            "    c.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
             "    return c;\n" +
             "}";
         eval(s);
@@ -12494,7 +12494,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -12510,7 +12510,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -12555,7 +12555,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -12587,7 +12587,7 @@ var CILJS;
         ["T"],
         function (T)
         {
-            return new ((asm0)["System.Array"]())();
+            return (asm0)["System.Array"]();
         },
         function (T)
         {
@@ -12670,7 +12670,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -12694,7 +12694,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Enum"]())();
+            return (asm0)["System.Enum"]();
         },
         function ()
         {
@@ -12732,7 +12732,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -12910,7 +12910,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -12926,7 +12926,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -12949,7 +12949,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Exception"]())();
+            return (asm0)["System.Exception"]();
         },
         function ()
         {
@@ -13023,7 +13023,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13039,7 +13039,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13084,7 +13084,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13112,7 +13112,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -13171,7 +13171,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13209,7 +13209,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13464,7 +13464,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13498,7 +13498,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Exception"]())();
+            return (asm0)["System.Exception"]();
         },
         function ()
         {
@@ -13516,7 +13516,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Exception"]())();
+            return (asm0)["System.Exception"]();
         },
         function ()
         {
@@ -13534,7 +13534,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13552,7 +13552,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Delegate"]())();
+            return (asm0)["System.Delegate"]();
         },
         function ()
         {
@@ -13573,7 +13573,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Exception"]())();
+            return (asm0)["System.Exception"]();
         },
         function ()
         {
@@ -13591,7 +13591,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Exception"]())();
+            return (asm0)["System.Exception"]();
         },
         function ()
         {
@@ -13641,7 +13641,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.SystemException"]())();
+            return (asm0)["System.SystemException"]();
         },
         function ()
         {
@@ -13681,7 +13681,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -13716,7 +13716,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Type"]())();
+            return (asm0)["System.Type"]();
         },
         function ()
         {
@@ -13850,7 +13850,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -13920,7 +13920,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -13971,7 +13971,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Exception"]())();
+            return (asm0)["System.Exception"]();
         },
         function ()
         {
@@ -13990,7 +13990,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Reflection.MemberInfo"]())();
+            return (asm0)["System.Reflection.MemberInfo"]();
         },
         function ()
         {
@@ -14202,7 +14202,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14236,7 +14236,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14256,7 +14256,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14272,7 +14272,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14291,7 +14291,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14309,7 +14309,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14325,7 +14325,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14341,7 +14341,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14371,7 +14371,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14401,7 +14401,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14441,7 +14441,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Enum"]())();
+            return (asm0)["System.Enum"]();
         },
         function ()
         {
@@ -14462,7 +14462,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14496,7 +14496,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Enum"]())();
+            return (asm0)["System.Enum"]();
         },
         function ()
         {
@@ -14525,7 +14525,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14541,7 +14541,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14560,7 +14560,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14607,7 +14607,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14640,7 +14640,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Reflection.MemberInfo"]())();
+            return (asm0)["System.Reflection.MemberInfo"]();
         },
         function ()
         {
@@ -14675,7 +14675,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14691,7 +14691,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Attribute"]())();
+            return (asm0)["System.Attribute"]();
         },
         function ()
         {
@@ -14891,7 +14891,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14907,7 +14907,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14923,7 +14923,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -14998,7 +14998,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -15014,7 +15014,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -15031,7 +15031,7 @@ var CILJS;
         ["T"],
         function (T)
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function (T)
         {
@@ -15049,7 +15049,7 @@ var CILJS;
         ["T"],
         function (T)
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function (T)
         {
@@ -15099,7 +15099,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -15129,7 +15129,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -15147,7 +15147,7 @@ var CILJS;
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {

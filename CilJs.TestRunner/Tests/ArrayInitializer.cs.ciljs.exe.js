@@ -19,7 +19,7 @@ var asm2; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=36 $$method0x6000001-1*/
         st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                'type': (asm2)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}"](),
+                'type': (asm2)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}"](),
                 'field': "$$method0x6000001-1"
             });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -45,7 +45,7 @@ var asm2; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=36 $$method0x6000002-1*/
         st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                'type': (asm2)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}"](),
+                'type': (asm2)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}"](),
                 'field': "$$method0x6000002-1"
             });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -71,7 +71,7 @@ var asm2; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_07: ldtoken __StaticArrayInitTypeSize=7 $$method0x6000003-1*/
         st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                'type': (asm2)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}"](),
+                'type': (asm2)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}"](),
                 'field': "$$method0x6000003-1"
             });
         /* IL_0C: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -97,7 +97,7 @@ var asm2; (function (asm)
         st_04 = (st_02 = st_01);
         /* IL_08: ldtoken __StaticArrayInitTypeSize=72 $$method0x6000004-1*/
         st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                'type': (asm2)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}"](),
+                'type': (asm2)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}"](),
                 'field': "$$method0x6000004-1"
             });
         /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle)*/
@@ -197,7 +197,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -208,17 +208,17 @@ var asm2; (function (asm)
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
-    (asm)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}"] = CILJS.declare_type(
-        "_PrivateImplementationDetails__A15C9F22_B5FA_4C8F_A06B_24D599E8FCF8_",
+    (asm)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}"] = CILJS.declare_type(
+        "_PrivateImplementationDetails__4C1928EB_BE60_4E97_BF0F_5F28E10AE4CA_",
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
+            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
             (this)["$$method0x6000001-1"] = [0, 0, 0, 0, 8, 0, 0, 0, 252, 255, 255, 255, 5, 0, 0, 0, 255, 255, 255, 255, 6, 0, 0, 0, 244, 1, 0, 0, 255, 255, 255, 127, 0, 0, 0, 128];
             (this)["$$method0x6000002-1"] = [0, 0, 0, 0, 8, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0, 6, 0, 0, 0, 244, 1, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0];
             (this)["$$method0x6000003-1"] = [0, 8, 4, 5, 1, 255, 0];
@@ -228,7 +228,7 @@ var asm2; (function (asm)
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
-    (asm)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}+__StaticArrayInitTypeSize=36"] = CILJS.declare_type(
+    (asm)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}+__StaticArrayInitTypeSize=36"] = CILJS.declare_type(
         "__StaticArrayInitTypeSize_36",
         [],
         function ()
@@ -238,13 +238,13 @@ var asm2; (function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}+__StaticArrayInitTypeSize=36",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000004");
+            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}+__StaticArrayInitTypeSize=36",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000004");
             this.GenericTypeMetadataName = "asm2.t2000004";
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x6000176");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
-    (asm)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}+__StaticArrayInitTypeSize=7"] = CILJS.declare_type(
+    (asm)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}+__StaticArrayInitTypeSize=7"] = CILJS.declare_type(
         "__StaticArrayInitTypeSize_7",
         [],
         function ()
@@ -254,13 +254,13 @@ var asm2; (function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}+__StaticArrayInitTypeSize=7",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000005");
+            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}+__StaticArrayInitTypeSize=7",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000005");
             this.GenericTypeMetadataName = "asm2.t2000005";
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x6000176");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
-    (asm)["<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}+__StaticArrayInitTypeSize=72"] = CILJS.declare_type(
+    (asm)["<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}+__StaticArrayInitTypeSize=72"] = CILJS.declare_type(
         "__StaticArrayInitTypeSize_72",
         [],
         function ()
@@ -270,7 +270,7 @@ var asm2; (function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{A15C9F22-B5FA-4C8F-A06B-24D599E8FCF8}+__StaticArrayInitTypeSize=72",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000006");
+            CILJS.init_type(this,asm,"<PrivateImplementationDetails>{4C1928EB-BE60-4E97-BF0F-5F28E10AE4CA}+__StaticArrayInitTypeSize=72",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000006");
             this.GenericTypeMetadataName = "asm2.t2000006";
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x6000176");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");

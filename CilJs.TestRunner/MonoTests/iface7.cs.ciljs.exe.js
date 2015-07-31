@@ -188,7 +188,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
@@ -214,7 +214,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new ((asm2)["TestMono.Base"]())();
+            return (asm2)["TestMono.Base"]();
         },
         function ()
         {
@@ -241,7 +241,7 @@ var asm2; (function (asm)
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {
