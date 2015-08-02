@@ -1,4 +1,4 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "DefaultOnRefStructBug.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* System.Void A`1.Reset()*/
@@ -6,19 +6,19 @@ var asm2; (function (asm)
     {
         var t0;
         t0 = ((((arguments)[0].r)().constructor.GenericArguments)["asm2.t2000002"])[0];
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldflda T X*/
-        /* IL_07: initobj T*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldflda T X */
+        /* IL_07: initobj T */
         arg0.r().X = ((t0.IsValueType) ? (((t0.IsPrimitive) ? ((0|0)) : (new t0()))) : (null));
-        /* IL_0C: ret */
+        /* IL_0C: ret  */
         return ;
     };;
     /*  B..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -60,25 +60,25 @@ var asm2; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldloca.s 0*/
-                /* IL_03: initobj A`1[System.Int32]*/
+                /* IL_00: ldloca.s 0 */
+                /* IL_03: initobj A`1[System.Int32] */
                 loc0 = new t1();
-                /* IL_08: ldloca.s 0*/
-                /* IL_0A: ldc.i4.s 123*/
-                /* IL_0C: stfld IKVM.Reflection.GenericFieldInstance*/
+                /* IL_08: ldloca.s 0 */
+                /* IL_0A: ldc.i4.s 123 */
+                /* IL_0C: stfld IKVM.Reflection.GenericFieldInstance */
                 loc0.X = (123|0);
-                /* IL_11: ldloca.s 0*/
-                /* IL_13: ldfld IKVM.Reflection.GenericFieldInstance*/
-                /* IL_18: box System.Int32*/
-                /* IL_1D: call Void Log(System.Object)*/
+                /* IL_11: ldloca.s 0 */
+                /* IL_13: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_18: box System.Int32 */
+                /* IL_1D: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc0.X,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_22: ldloca.s 0*/
-                /* IL_24: call Void Reset()*/
+                /* IL_22: ldloca.s 0 */
+                /* IL_24: call Void Reset() */
                 asm2.x6000001({
                         'w': function (v)
                         {
@@ -89,44 +89,44 @@ var asm2; (function (asm)
                             return loc0;
                         }
                     });
-                /* IL_29: ldloca.s 0*/
-                /* IL_2B: ldfld IKVM.Reflection.GenericFieldInstance*/
-                /* IL_30: box System.Int32*/
-                /* IL_35: call Void Log(System.Object)*/
+                /* IL_29: ldloca.s 0 */
+                /* IL_2B: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_30: box System.Int32 */
+                /* IL_35: call Void Log(System.Object) */
                 asm1.x6000001({
                         'boxed': loc0.X,
                         'type': t0,
                         'vtable': t0.prototype.vtable,
                         'ifacemap': t0.prototype.ifacemap
                     });
-                /* IL_3A: ldloca.s 1*/
-                /* IL_3D: initobj A`1[B]*/
+                /* IL_3A: ldloca.s 1 */
+                /* IL_3D: initobj A`1[B] */
                 loc1 = new t3();
-                /* IL_42: ldloca.s 1*/
-                /* IL_44: newobj Void .ctor()*/
-                /* IL_49: stfld IKVM.Reflection.GenericFieldInstance*/
+                /* IL_42: ldloca.s 1 */
+                /* IL_44: newobj Void .ctor() */
+                /* IL_49: stfld IKVM.Reflection.GenericFieldInstance */
                 loc1.X = CILJS.newobj(t2,asm2.x6000002,[null]);
-                /* IL_4E: ldloca.s 1*/
-                /* IL_50: ldfld IKVM.Reflection.GenericFieldInstance*/
-                /* IL_55: brfalse.s IL_5E*/
+                /* IL_4E: ldloca.s 1 */
+                /* IL_50: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_55: brfalse.s IL_5E */
                 
                 if ((!(loc1.X))){
                     __pos__ = 0x5E;
                     continue;
                 }
-                /* IL_57: ldstr false*/
+                /* IL_57: ldstr false */
                 st_0F = CILJS.new_string("false");
-                /* IL_5C: br.s IL_63*/
+                /* IL_5C: br.s IL_63 */
                 __pos__ = 0x63;
                 continue;
                 case 0x5E:
-                /* IL_5E: ldstr true*/
+                /* IL_5E: ldstr true */
                 st_0F = CILJS.new_string("true");
                 case 0x63:
-                /* IL_63: call Void Log(System.Object)*/
+                /* IL_63: call Void Log(System.Object) */
                 asm1.x6000001(st_0F);
-                /* IL_68: ldloca.s 1*/
-                /* IL_6A: call Void Reset()*/
+                /* IL_68: ldloca.s 1 */
+                /* IL_6A: call Void Reset() */
                 asm2.x6000001({
                         'w': function (v)
                         {
@@ -137,26 +137,26 @@ var asm2; (function (asm)
                             return loc1;
                         }
                     });
-                /* IL_6F: ldloca.s 1*/
-                /* IL_71: ldfld IKVM.Reflection.GenericFieldInstance*/
-                /* IL_76: brfalse.s IL_7F*/
+                /* IL_6F: ldloca.s 1 */
+                /* IL_71: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_76: brfalse.s IL_7F */
                 
                 if ((!(loc1.X))){
                     __pos__ = 0x7F;
                     continue;
                 }
-                /* IL_78: ldstr false*/
+                /* IL_78: ldstr false */
                 st_13 = CILJS.new_string("false");
-                /* IL_7D: br.s IL_84*/
+                /* IL_7D: br.s IL_84 */
                 __pos__ = 0x84;
                 continue;
                 case 0x7F:
-                /* IL_7F: ldstr true*/
+                /* IL_7F: ldstr true */
                 st_13 = CILJS.new_string("true");
                 case 0x84:
-                /* IL_84: call Void Log(System.Object)*/
+                /* IL_84: call Void Log(System.Object) */
                 asm1.x6000001(st_13);
-                /* IL_89: ret */
+                /* IL_89: ret  */
                 return ;
             }
         }
@@ -164,9 +164,9 @@ var asm2; (function (asm)
     /*  Program..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["A`1"] = CILJS.declare_type(

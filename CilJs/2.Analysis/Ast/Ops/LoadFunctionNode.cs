@@ -1,7 +1,4 @@
-﻿using CilJs.Ast;
-using System;
-using Mono.Cecil.Cil;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CilJs.Ast
 {
@@ -9,8 +6,8 @@ namespace CilJs.Ast
     {
         public CilMethod Target { get; set; }
 
-        public LoadFunctionNode(OpInstruction op, List<OpInstruction> prefixes, Instruction cecilInstruction, int? popCount, int pushCount, CilMethod target) :
-            base(op, prefixes, cecilInstruction, popCount, pushCount)
+        public LoadFunctionNode(OpInstruction op, List<OpInstruction> prefixes, int? popCount, int pushCount, CilMethod target) :
+            base(op, prefixes, popCount, pushCount)
         {
             Target = target;
         }

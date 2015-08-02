@@ -1,48 +1,48 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "AbstractMethods.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /*  A..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void B.X()*/
     asm.x6000003 = function X(arg0)
     {
-        /* IL_00: ldstr B.X*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr B.X */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("B.X"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /*  B..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm2.x6000002(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void C.X()*/
     asm.x6000005 = function X(arg0)
     {
-        /* IL_00: ldstr C.X*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr C.X */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("C.X"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /*  C..ctor()*/
     asm.x6000006 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm2.x6000002(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -64,30 +64,30 @@ var asm2; (function (asm)
         CILJS.init_base_types();
         t0 = asm2.B();
         t1 = asm2.C();
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: call Void InvokeX(A)*/
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: call Void InvokeX(A) */
         asm2.x6000008(CILJS.newobj(t0,asm2.x6000004,[null]));
-        /* IL_0A: newobj Void .ctor()*/
-        /* IL_0F: call Void InvokeX(A)*/
+        /* IL_0A: newobj Void .ctor() */
+        /* IL_0F: call Void InvokeX(A) */
         asm2.x6000008(CILJS.newobj(t1,asm2.x6000006,[null]));
-        /* IL_14: ret */
+        /* IL_14: ret  */
         return ;
     };
     /* static System.Void Program.InvokeX(A)*/
     asm.x6000008 = function InvokeX(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: callvirt Void X()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: callvirt Void X() */
         ((arg0.vtable)["asm2.x6000001"]())(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /*  Program..ctor()*/
     asm.x6000009 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.A = CILJS.declare_type(

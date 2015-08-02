@@ -1,4 +1,4 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "Struct.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
@@ -21,38 +21,38 @@ var asm2; (function (asm)
         t0 = asm2.S();
         t1 = (asm0)["System.Int32"]();
         loc0 = new (asm2.S())();
-        /* IL_00: ldloca.s 0*/
-        /* IL_03: initobj S*/
+        /* IL_00: ldloca.s 0 */
+        /* IL_03: initobj S */
         loc0 = new t0();
-        /* IL_08: ldloca.s 0*/
-        /* IL_0A: ldfld Int32 X*/
-        /* IL_0F: box System.Int32*/
-        /* IL_14: call Void Log(System.Object)*/
+        /* IL_08: ldloca.s 0 */
+        /* IL_0A: ldfld Int32 X */
+        /* IL_0F: box System.Int32 */
+        /* IL_14: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': loc0.X,
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_19: ldloca.s 0*/
-        /* IL_1B: ldfld Int32 Y*/
-        /* IL_20: box System.Int32*/
-        /* IL_25: call Void Log(System.Object)*/
+        /* IL_19: ldloca.s 0 */
+        /* IL_1B: ldfld Int32 Y */
+        /* IL_20: box System.Int32 */
+        /* IL_25: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': loc0.Y,
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_2A: ret */
+        /* IL_2A: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.S = CILJS.declare_type(

@@ -1,30 +1,30 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "CallStaticMethods.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Callee()*/
     asm.x6000001 = function Callee()
     {
-        /* IL_00: ldstr Called!*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr Called! */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("Called!"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
     asm.x6000002 = function Main()
     {
         CILJS.init_base_types();
-        /* IL_00: call Void Callee()*/
+        /* IL_00: call Void Callee() */
         asm2.x6000001();
-        /* IL_05: ret */
+        /* IL_05: ret  */
         return ;
     };;
     /*  Program..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

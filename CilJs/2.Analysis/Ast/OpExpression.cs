@@ -1,7 +1,5 @@
-using CilJs.JsTranslation;
-using Mono.Cecil.Cil;
+
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace CilJs.Ast
@@ -47,9 +45,8 @@ namespace CilJs.Ast
             return InstructionPopCount ?? StackBefore.Count;
         }
 
-        public OpExpression(OpInstruction op, List<OpInstruction> prefixes, Instruction cecilInstruction, int? popCount, int pushCount)
+        public OpExpression(OpInstruction op, List<OpInstruction> prefixes, int? popCount, int pushCount)
         {
-            this.CecilInstruction = cecilInstruction;
             this.Instruction = op;
             this.Prefixes = prefixes;
             this.InstructionPopCount = popCount;
@@ -83,7 +80,5 @@ namespace CilJs.Ast
 
 
         public List<IKVM.Reflection.Type> RequireFieldInitTypes { get; set; }
-
-        public Instruction CecilInstruction { get; set; }
     }
 }

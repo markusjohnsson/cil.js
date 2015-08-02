@@ -1,8 +1,4 @@
-﻿using Mono.Cecil.Cil;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace CilJs.Ast
 {
@@ -10,8 +6,8 @@ namespace CilJs.Ast
     {
         public CilMethod Target { get; set; }
 
-        public CallNode(OpInstruction op, List<OpInstruction> prefixes, Instruction cecilInstruction, int? popCount, int pushCount, CilMethod target):
-            base(op, prefixes, cecilInstruction, popCount, pushCount)
+        public CallNode(OpInstruction op, List<OpInstruction> prefixes, int? popCount, int pushCount, CilMethod target):
+            base(op, prefixes, popCount, pushCount)
         {
             Target = target;
         }

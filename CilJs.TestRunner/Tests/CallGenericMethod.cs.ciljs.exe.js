@@ -1,30 +1,30 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "CallGenericMethod.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* T A`1.get_Prop()*/
     asm.x6000003 = function get_Prop(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldfld T <Prop>k__BackingField*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldfld T <Prop>k__BackingField */
+        /* IL_06: ret  */
         return (arg0)["A_1<Prop>k__BackingField"];
     };;
     /* System.Void A`1.set_Prop(T)*/
-    asm.x6000004 = function set_Prop(arg0,arg1)
+    asm.x6000004 = function set_Prop(arg0, arg1)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldarg.1 */
-        /* IL_02: stfld T <Prop>k__BackingField*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: stfld T <Prop>k__BackingField */
         (arg0)["A_1<Prop>k__BackingField"] = arg1;
-        /* IL_07: ret */
+        /* IL_07: ret  */
         return ;
     };;
     /*  A`1..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -35,13 +35,13 @@ var asm2; (function (asm)
         CILJS.init_base_types();
         t0 = (asm0)["System.Int32"]();
         t1 = (asm0)["System.String"]();
-        /* IL_00: ldc.i4.s 123*/
-        /* IL_02: call Void Y[System.Int32](System.Int32)*/
+        /* IL_00: ldc.i4.s 123 */
+        /* IL_02: call Void Y[System.Int32](System.Int32) */
         (asm2.x6000007((asm0)["System.Int32"]()))((123|0));
-        /* IL_07: ldstr Hello*/
-        /* IL_0C: call Void Y[System.String](System.String)*/
+        /* IL_07: ldstr Hello */
+        /* IL_0C: call Void Y[System.String](System.String) */
         (asm2.x6000007((asm0)["System.String"]()))(CILJS.new_string("Hello"));
-        /* IL_11: ret */
+        /* IL_11: ret  */
         return ;
     };;
     /* static System.Void Program.Y<T>(T)*/
@@ -69,17 +69,17 @@ var asm2; (function (asm)
             var loc0;
             t0 = T;
             t1 = (asm2)["A`1"](t0);
-            /* IL_00: newobj Void .ctor()*/
-            /* IL_05: stloc.0 */
+            /* IL_00: newobj Void .ctor() */
+            /* IL_05: stloc.0  */
             loc0 = CILJS.newobj(t1,asm2.x6000005,[null]);
-            /* IL_06: ldloc.0 */
-            /* IL_07: ldarg.0 */
-            /* IL_08: callvirt Void set_Prop(T)*/
+            /* IL_06: ldloc.0  */
+            /* IL_07: ldarg.0  */
+            /* IL_08: callvirt Void set_Prop(T) */
             ((loc0.vtable)["asm2.x6000004"]())(loc0,arg0);
-            /* IL_0D: ldloc.0 */
-            /* IL_0E: call Void X[T](I`1[T])*/
+            /* IL_0D: ldloc.0  */
+            /* IL_0E: call Void X[T](I`1[T]) */
             (asm2.x6000008(T))(loc0);
-            /* IL_13: ret */
+            /* IL_13: ret  */
             return ;
         };
     };
@@ -107,21 +107,21 @@ var asm2; (function (asm)
             var t1;
             t0 = T;
             t1 = (asm2)["I`1"](t0);
-            /* IL_00: ldarg.0 */
-            /* IL_01: callvirt T get_Prop()*/
-            /* IL_06: box T*/
-            /* IL_0B: call Void Log(System.Object)*/
+            /* IL_00: ldarg.0  */
+            /* IL_01: callvirt T get_Prop() */
+            /* IL_06: box T */
+            /* IL_0B: call Void Log(System.Object) */
             asm1.x6000001(CILJS.box(((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0)),t0));
-            /* IL_10: ret */
+            /* IL_10: ret  */
             return ;
         };
     };
     /*  Program..ctor()*/
     asm.x6000009 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["I`1"] = CILJS.declare_type(

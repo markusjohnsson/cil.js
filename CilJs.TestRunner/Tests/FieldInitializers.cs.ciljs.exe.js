@@ -1,4 +1,4 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "FieldInitializers.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
@@ -20,9 +20,9 @@ var asm2; (function (asm)
         t0 = asm2.Program();
         t1 = (asm0)["System.Int32"]();
         asm2.x6000003();
-        /* IL_00: ldsfld Int32 X*/
-        /* IL_05: box System.Int32*/
-        /* IL_0A: call Void Log(System.Object)*/
+        /* IL_00: ldsfld Int32 X */
+        /* IL_05: box System.Int32 */
+        /* IL_0A: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': t0.X,
                 'type': t1,
@@ -30,29 +30,29 @@ var asm2; (function (asm)
                 'ifacemap': t1.prototype.ifacemap
             });
         asm2.x6000003();
-        /* IL_0F: newobj Void .ctor()*/
-        /* IL_14: ldfld Int32 Y*/
-        /* IL_19: box System.Int32*/
-        /* IL_1E: call Void Log(System.Object)*/
+        /* IL_0F: newobj Void .ctor() */
+        /* IL_14: ldfld Int32 Y */
+        /* IL_19: box System.Int32 */
+        /* IL_1E: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': CILJS.newobj(t0,asm2.x6000002,[null]).Y,
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_23: ret */
+        /* IL_23: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: ldc.i4 321*/
-        /* IL_06: stfld Int32 Y*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldc.i4 321 */
+        /* IL_06: stfld Int32 Y */
         arg0.Y = (321|0);
-        /* IL_0B: ldarg.0 */
-        /* IL_0C: call Void .ctor()*/
-        /* IL_11: ret */
+        /* IL_0B: ldarg.0  */
+        /* IL_0C: call Void .ctor() */
+        /* IL_11: ret  */
         return ;
     };;
     /* static  Program..cctor()*/
@@ -75,10 +75,10 @@ var asm2; (function (asm)
         }
         asm2.Program().FieldsInitialized = true;
         t0 = asm2.Program();
-        /* IL_00: ldc.i4.s 123*/
-        /* IL_02: stsfld Int32 X*/
+        /* IL_00: ldc.i4.s 123 */
+        /* IL_02: stsfld Int32 X */
         (t0)["X"] = (123|0);
-        /* IL_07: ret */
+        /* IL_07: ret  */
         return ;
     };
     asm.Program = CILJS.declare_type(

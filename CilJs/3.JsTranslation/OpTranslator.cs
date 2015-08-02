@@ -271,11 +271,6 @@ namespace CilJs.JsTranslation
 
         private static string DebugInfo(OpExpression op)
         { 
-            var ci = op.CecilInstruction;
-            
-            if (ci != null && op.CecilInstruction.SequencePoint != null)
-                return string.Format("{0}:{1}:{2}", Path.GetFileName(ci.SequencePoint.Document.Url), ci.SequencePoint.StartLine, ci.SequencePoint.StartColumn);
-
             return string.Empty;
         }
 

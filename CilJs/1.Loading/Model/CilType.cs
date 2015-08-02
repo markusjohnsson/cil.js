@@ -40,7 +40,5 @@ namespace CilJs.Ast
                 return ReflectionType.IsInterface;
             }
         }
-
-        public Mono.Cecil.TypeDefinition CecilType { get; set; }
     }
 }

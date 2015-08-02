@@ -1,4 +1,4 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "array-cast.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Int32 Test.Main()*/
@@ -34,34 +34,34 @@ var asm2; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.1 */
-                /* IL_01: newarr System.Attribute*/
-                /* IL_06: stloc.0 */
+                /* IL_00: ldc.i4.1  */
+                /* IL_01: newarr System.Attribute */
+                /* IL_06: stloc.0  */
                 loc0 = CILJS.new_array(t0,(1|0));
-                /* IL_07: ldloc.0 */
-                /* IL_08: stloc.1 */
+                /* IL_07: ldloc.0  */
+                /* IL_08: stloc.1  */
                 loc1 = loc0;
-                /* IL_09: ldloc.1 */
-                /* IL_0A: castclass System.Object[]*/
-                /* IL_0F: stloc.2 */
+                /* IL_09: ldloc.1  */
+                /* IL_0A: castclass System.Object[] */
+                /* IL_0F: stloc.2  */
                 loc2 = CILJS.cast_class(loc1,t2);
-                /* IL_10: ldloc.1 */
-                /* IL_11: isinst System.Object[]*/
-                /* IL_16: stloc.2 */
+                /* IL_10: ldloc.1  */
+                /* IL_11: isinst System.Object[] */
+                /* IL_16: stloc.2  */
                 loc2 = t2.IsInst(loc1);
-                /* IL_17: ldloc.2 */
-                /* IL_18: brtrue.s IL_1C*/
+                /* IL_17: ldloc.2  */
+                /* IL_18: brtrue.s IL_1C */
                 
                 if (loc2){
                     __pos__ = 0x1C;
                     continue;
                 }
-                /* IL_1A: ldc.i4.1 */
-                /* IL_1B: ret */
+                /* IL_1A: ldc.i4.1  */
+                /* IL_1B: ret  */
                 return (1|0);
                 case 0x1C:
-                /* IL_1C: ldc.i4.0 */
-                /* IL_1D: ret */
+                /* IL_1C: ldc.i4.0  */
+                /* IL_1D: ret  */
                 return (0|0);
             }
         }
@@ -69,9 +69,9 @@ var asm2; (function (asm)
     /*  Test..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["Test.Test"] = CILJS.declare_type(

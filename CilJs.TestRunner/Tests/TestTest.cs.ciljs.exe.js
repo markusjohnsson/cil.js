@@ -1,22 +1,22 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "TestTest.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void TestTest.Main()*/
     asm.x6000001 = function Main()
     {
         CILJS.init_base_types();
-        /* IL_00: ldstr Hello World!*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr Hello World! */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("Hello World!"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /*  TestTest..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["CilJs.TestRunner.Tests.TestTest"] = CILJS.declare_type(

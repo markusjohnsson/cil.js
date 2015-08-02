@@ -37,14 +37,11 @@ namespace CilJs.Analysis
             var ilOps = new OpInstructionReader(method.MethodBody.GetILAsByteArray(), method.Resolver);
             var opInfos = new List<OpExpression>();
             var prefixes = new List<OpInstruction>();
-
-            var instructions = method.CeclilMethod.Body.Instructions;
+            
             var index = 0;
 
             foreach (var op in ilOps.Process())
             {
-                var cecilInstruction = instructions[index++];
-
                 if (op.OpCode.OpCodeType == OpCodeType.Prefix)
                 {
                     prefixes.Add(op);
@@ -56,17 +53,17 @@ namespace CilJs.Analysis
                 if (op.OpCode.Name.StartsWith("call"))
                 {
                     opx = new CallNode(
-                        op, prefixes, cecilInstruction, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
+                        op, prefixes, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
                 }
                 else if (op.OpCode.Name.StartsWith("ldftn"))
                 {
                     opx = new LoadFunctionNode(
-                        op, prefixes, cecilInstruction, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
+                        op, prefixes, GetPopCount(method, op), GetPushCount(method, op), context.LookupMethod((MethodBase)op.Data));
                 }
                 else
                 {
                     opx = new OpExpression(
-                        op, prefixes, cecilInstruction, GetPopCount(method, op), GetPushCount(method, op));
+                        op, prefixes, GetPopCount(method, op), GetPushCount(method, op));
                 }
 
                 opInfos.Add(opx);

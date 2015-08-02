@@ -1,19 +1,19 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "StringExtractor.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
     asm.x6000001 = function Main()
     {
         CILJS.init_base_types();
-        /* IL_00: ret */
+        /* IL_00: ret  */
         return ;
     };;
     /*  Program..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

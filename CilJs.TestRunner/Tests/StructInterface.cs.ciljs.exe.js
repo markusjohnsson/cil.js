@@ -1,13 +1,13 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "StructInterface.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* System.Void S.Foo()*/
     asm.x6000002 = function Foo(arg0)
     {
-        /* IL_00: ldstr Foo*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr Foo */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("Foo"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -29,22 +29,22 @@ var asm2; (function (asm)
         CILJS.init_base_types();
         t0 = asm2.S();
         loc0 = new (asm2.S())();
-        /* IL_00: ldloca.s 0*/
-        /* IL_03: initobj S*/
+        /* IL_00: ldloca.s 0 */
+        /* IL_03: initobj S */
         loc0 = new t0();
-        /* IL_08: ldloc.0 */
-        /* IL_09: box S*/
-        /* IL_0E: stloc.1 */
+        /* IL_08: ldloc.0  */
+        /* IL_09: box S */
+        /* IL_0E: stloc.1  */
         loc1 = {
             'boxed': CILJS.clone_value(loc0),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         };
-        /* IL_0F: ldloc.1 */
-        /* IL_10: call Void Run(I)*/
+        /* IL_0F: ldloc.1  */
+        /* IL_10: call Void Run(I) */
         asm2.x6000004(loc1);
-        /* IL_15: ret */
+        /* IL_15: ret  */
         return ;
     };
     /* static System.Void Program.Run(I)*/
@@ -62,18 +62,18 @@ var asm2; (function (asm)
     {
         var t0;
         t0 = asm2.I();
-        /* IL_00: ldarg.0 */
-        /* IL_01: callvirt Void Foo()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: callvirt Void Foo() */
         (((arg0.ifacemap)[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.I = CILJS.declare_type(

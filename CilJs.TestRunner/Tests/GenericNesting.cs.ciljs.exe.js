@@ -1,29 +1,29 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "GenericNesting.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /*  A..ctor()*/
     asm.x6000001 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B`1..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  C..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
         asm2.x6000002(arg0);
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -45,21 +45,21 @@ var asm2; (function (asm)
         CILJS.init_base_types();
         t0 = asm2.A();
         t1 = asm2.C();
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: pop */
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: pop  */
         CILJS.newobj(t0,asm2.x6000001,[null]);
-        /* IL_06: newobj Void .ctor()*/
-        /* IL_0B: pop */
+        /* IL_06: newobj Void .ctor() */
+        /* IL_0B: pop  */
         CILJS.newobj(t1,asm2.x6000003,[null]);
-        /* IL_0C: ret */
+        /* IL_0C: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["I`1"] = CILJS.declare_type(

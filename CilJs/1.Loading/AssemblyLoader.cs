@@ -1,8 +1,6 @@
 ﻿using CilJs.Ast;
 using CilJs.Loading.Model;
 using IKVM.Reflection;
-using Mono.Cecil;
-using Mono.Cecil.Pdb;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,18 +12,10 @@ namespace CilJs.Loading
     class AssemblyLoader
     {
         private CompileSettings settings;
-        private ReaderParameters readerParameters; // cecil.
 
         public AssemblyLoader(CompileSettings settings)
         {
             this.settings = settings;
-
-            // load using Cecil too so that we can do source maps
-            var assemblyResolver = new DefaultAssemblyResolver();
-            readerParameters = new ReaderParameters { AssemblyResolver = assemblyResolver };
-            var symbolReaderProvider = new PdbReaderProvider();
-            readerParameters.SymbolReaderProvider = symbolReaderProvider;
-            readerParameters.ReadSymbols = true;
         }
 
         public Context Load()
@@ -81,7 +71,7 @@ namespace CilJs.Loading
             var asm = universe.LoadFile(settings.Path);
 
             // load using Cecil too so that we can do source maps
-            var assemblyDefinition = AssemblyDefinition.ReadAssembly(settings.Path, readerParameters);
+            //var assemblyDefinition = AssemblyDefinition.ReadAssembly(settings.Path, readerParameters);
 
             var result = new CilAssembly
             {
@@ -95,17 +85,17 @@ namespace CilJs.Loading
             var types = new List<CilType>();
             result.Types = types;
 
-            var module = assemblyDefinition.MainModule;
+            //var module = assemblyDefinition.MainModule;
 
             foreach (var type in asm.GetTypes())
             {
-                types.Add(ProcessType(type, module.GetType(type.FullName.Replace("+","/"))));
+                types.Add(ProcessType(type));
             }
 
             return result;
         }
 
-        private CilType ProcessType(IKVM.Reflection.Type type, Mono.Cecil.TypeDefinition cecilType)
+        private CilType ProcessType(IKVM.Reflection.Type type)
         {
             var result = new CilType
             {
@@ -113,7 +103,7 @@ namespace CilJs.Loading
                 Namespace = type.Namespace,
                 BaseType = type.BaseType != null ? type.BaseType.FullName : null,
                 ReflectionType = type,
-                CecilType = cecilType
+                //CecilType = cecilType
             };
             var methods = new List<CilMethod>();
             result.Methods = methods;
@@ -124,11 +114,7 @@ namespace CilJs.Loading
             {
                 if (method.DeclaringType == type)
                 {
-                    var cecilMethod = cecilType
-                        .Methods
-                        .First(m => m.MetadataToken.ToInt32() == method.MetadataToken);
-
-                    methods.Add(ProcessMethod(result, method, cecilMethod));
+                    methods.Add(ProcessMethod(result, method));
                 }
             }
 
@@ -136,24 +122,19 @@ namespace CilJs.Loading
             {
                 if (ctor.DeclaringType == type)
                 {
-                    var cecilMethod = cecilType
-                        .Methods
-                        .First(m => m.MetadataToken.ToInt32() == ctor.MetadataToken);
-                    
-                    methods.Add(ProcessMethod(result, ctor, cecilMethod));
+                    methods.Add(ProcessMethod(result, ctor));
                 }
             }
 
             return result;
         }
 
-        private CilMethod ProcessMethod(CilType type, MethodBase method, MethodDefinition cecilMethod)
+        private CilMethod ProcessMethod(CilType type, MethodBase method)
         {
             return new CilMethod
             {
                 Name = method.Name,
                 ReflectionMethod = method,
-                CeclilMethod = cecilMethod,
                 IsHideBySig = method.IsHideBySig,
                 IsVirtual = method.IsVirtual,
                 MethodBody = method.GetMethodBody(),

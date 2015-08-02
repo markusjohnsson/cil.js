@@ -1,19 +1,19 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "iface.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* System.Int32 RealWriter.WriteIt()*/
     asm.x6000002 = function WriteIt(arg0)
     {
-        /* IL_00: ldc.i4.s 33*/
-        /* IL_02: ret */
+        /* IL_00: ldc.i4.s 33 */
+        /* IL_02: ret  */
         return (33|0);
     };;
     /*  RealWriter..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Int32 ProjectName.Main()*/
@@ -45,24 +45,24 @@ var asm2; (function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor()*/
-                /* IL_05: stloc.0 */
+                /* IL_00: newobj Void .ctor() */
+                /* IL_05: stloc.0  */
                 loc0 = CILJS.newobj(t0,asm2.x6000003,[null]);
-                /* IL_06: ldloc.0 */
-                /* IL_07: callvirt Int32 WriteIt()*/
-                /* IL_0C: ldc.i4.s 33*/
-                /* IL_0E: beq.s IL_12*/
+                /* IL_06: ldloc.0  */
+                /* IL_07: callvirt Int32 WriteIt() */
+                /* IL_0C: ldc.i4.s 33 */
+                /* IL_0E: beq.s IL_12 */
                 
                 if ((((loc0.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc0)) === (33|0)){
                     __pos__ = 0x12;
                     continue;
                 }
-                /* IL_10: ldc.i4.1 */
-                /* IL_11: ret */
+                /* IL_10: ldc.i4.1  */
+                /* IL_11: ret  */
                 return (1|0);
                 case 0x12:
-                /* IL_12: ldc.i4.0 */
-                /* IL_13: ret */
+                /* IL_12: ldc.i4.0  */
+                /* IL_13: ret  */
                 return (0|0);
             }
         }
@@ -70,9 +70,9 @@ var asm2; (function (asm)
     /*  ProjectName..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.IHelloWorldWriter = CILJS.declare_type(

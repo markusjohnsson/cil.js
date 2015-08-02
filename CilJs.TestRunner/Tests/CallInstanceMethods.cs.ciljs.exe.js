@@ -1,21 +1,21 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "CallInstanceMethods.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* System.Void A.Callee()*/
     asm.x6000001 = function Callee(arg0)
     {
-        /* IL_00: ldstr Called!*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr Called! */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("Called!"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /*  A..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -35,21 +35,21 @@ var asm2; (function (asm)
         var loc0;
         CILJS.init_base_types();
         t0 = asm2.A();
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stloc.0 */
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: stloc.0  */
         loc0 = CILJS.newobj(t0,asm2.x6000002,[null]);
-        /* IL_06: ldloc.0 */
-        /* IL_07: callvirt Void Callee()*/
+        /* IL_06: ldloc.0  */
+        /* IL_07: callvirt Void Callee() */
         asm2.x6000001(loc0);
-        /* IL_0C: ret */
+        /* IL_0C: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.A = CILJS.declare_type(

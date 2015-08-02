@@ -1,12 +1,12 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "ArrayVariance.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /*  B..ctor()*/
     asm.x6000001 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -32,22 +32,22 @@ var asm2; (function (asm)
         t0 = asm2.I();
         t1 = (asm0)["System.Array`1"](t0);
         t2 = asm2.B();
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: newarr I*/
-        /* IL_06: stloc.0 */
+        /* IL_00: ldc.i4.1  */
+        /* IL_01: newarr I */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.new_array(t0,(1|0));
-        /* IL_07: ldloc.0 */
-        /* IL_08: call Void M(System.Object)*/
+        /* IL_07: ldloc.0  */
+        /* IL_08: call Void M(System.Object) */
         asm2.x6000003(loc0);
-        /* IL_0D: ldloc.0 */
-        /* IL_0E: castclass I[]*/
-        /* IL_13: ldc.i4.0 */
-        /* IL_14: ldelem.ref */
-        /* IL_15: castclass B*/
-        /* IL_1A: ldfld String X*/
-        /* IL_1F: call Void Log(System.Object)*/
+        /* IL_0D: ldloc.0  */
+        /* IL_0E: castclass I[] */
+        /* IL_13: ldc.i4.0  */
+        /* IL_14: ldelem.ref  */
+        /* IL_15: castclass B */
+        /* IL_1A: ldfld String X */
+        /* IL_1F: call Void Log(System.Object) */
         asm1.x6000001(CILJS.cast_class(CILJS.ldelem_ref(CILJS.cast_class(loc0,t1),(0|0)),t2).X);
-        /* IL_24: ret */
+        /* IL_24: ret  */
         return ;
     };
     /* static System.Void Program.M(Object)*/
@@ -77,36 +77,36 @@ var asm2; (function (asm)
         t0 = (asm0)["System.Object"]();
         t1 = (asm0)["System.Array`1"](t0);
         t2 = asm2.B();
-        /* IL_00: ldarg.0 */
-        /* IL_01: castclass System.Object[]*/
-        /* IL_06: stloc.0 */
+        /* IL_00: ldarg.0  */
+        /* IL_01: castclass System.Object[] */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.cast_class(arg0,t1);
-        /* IL_07: ldloc.0 */
+        /* IL_07: ldloc.0  */
         st_05 = loc0;
-        /* IL_08: ldc.i4.0 */
+        /* IL_08: ldc.i4.0  */
         st_06 = (0|0);
-        /* IL_09: newobj Void .ctor()*/
-        /* IL_0E: stloc.1 */
+        /* IL_09: newobj Void .ctor() */
+        /* IL_0E: stloc.1  */
         loc1 = CILJS.newobj(t2,asm2.x6000001,[null]);
-        /* IL_0F: ldloc.1 */
+        /* IL_0F: ldloc.1  */
         st_03 = loc1;
-        /* IL_10: ldstr X*/
+        /* IL_10: ldstr X */
         st_04 = CILJS.new_string("X");
-        /* IL_15: stfld String X*/
+        /* IL_15: stfld String X */
         st_03.X = st_04;
-        /* IL_1A: ldloc.1 */
+        /* IL_1A: ldloc.1  */
         st_07 = loc1;
-        /* IL_1B: stelem.ref */
+        /* IL_1B: stelem.ref  */
         CILJS.stelem_ref(st_05,st_06,st_07);
-        /* IL_1C: ret */
+        /* IL_1C: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.I = CILJS.declare_type(

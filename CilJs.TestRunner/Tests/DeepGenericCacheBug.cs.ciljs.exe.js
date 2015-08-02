@@ -1,36 +1,36 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "DeepGenericCacheBug.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /*  A`1..ctor()*/
     asm.x6000001 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  K`1..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  X..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  Y..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -66,28 +66,28 @@ var asm2; (function (asm)
         t4 = (asm2)["K`1"](t3);
         t5 = (asm2)["A`1"](t4);
         t6 = (asm0)["System.Boolean"]();
-        /* IL_00: ldtoken A`1[K`1[X]]*/
-        /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_0A: ldtoken A`1[K`1[Y]]*/
-        /* IL_0F: call Type GetTypeFromHandle(System.RuntimeTypeHandle)*/
-        /* IL_15: ceq */
-        /* IL_16: box System.Boolean*/
-        /* IL_1B: call Void Log(System.Object)*/
+        /* IL_00: ldtoken A`1[K`1[X]] */
+        /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_0A: ldtoken A`1[K`1[Y]] */
+        /* IL_0F: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_15: ceq  */
+        /* IL_16: box System.Boolean */
+        /* IL_1B: call Void Log(System.Object) */
         asm1.x6000001({
                 'boxed': ((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? (1) : (0)),
                 'type': t6,
                 'vtable': t6.prototype.vtable,
                 'ifacemap': t6.prototype.ifacemap
             });
-        /* IL_20: ret */
+        /* IL_20: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x6000006 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["A`1"] = CILJS.declare_type(

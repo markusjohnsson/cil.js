@@ -1,46 +1,46 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "GenericInterface2.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /*  A..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /*  B..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* System.Void C.I<A>.Print()*/
     asm.x6000004 = function I_A__Print(arg0)
     {
-        /* IL_00: ldstr A*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr A */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("A"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /* System.Void C.I<B>.Print()*/
     asm.x6000005 = function I_B__Print(arg0)
     {
-        /* IL_00: ldstr B*/
-        /* IL_05: call Void Log(System.Object)*/
+        /* IL_00: ldstr B */
+        /* IL_05: call Void Log(System.Object) */
         asm1.x6000001(CILJS.new_string("B"));
-        /* IL_0A: ret */
+        /* IL_0A: ret  */
         return ;
     };;
     /*  C..ctor()*/
     asm.x6000006 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -60,16 +60,16 @@ var asm2; (function (asm)
         var loc0;
         CILJS.init_base_types();
         t0 = asm2.C();
-        /* IL_00: newobj Void .ctor()*/
-        /* IL_05: stloc.0 */
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: stloc.0  */
         loc0 = CILJS.newobj(t0,asm2.x6000006,[null]);
-        /* IL_06: ldloc.0 */
-        /* IL_07: call Void PrintA(I`1[A])*/
+        /* IL_06: ldloc.0  */
+        /* IL_07: call Void PrintA(I`1[A]) */
         asm2.x6000008(loc0);
-        /* IL_0C: ldloc.0 */
-        /* IL_0D: call Void PrintB(I`1[B])*/
+        /* IL_0C: ldloc.0  */
+        /* IL_0D: call Void PrintB(I`1[B]) */
         asm2.x6000009(loc0);
-        /* IL_12: ret */
+        /* IL_12: ret  */
         return ;
     };
     /* static System.Void Program.PrintA(I`1)*/
@@ -90,10 +90,10 @@ var asm2; (function (asm)
         var t1;
         t0 = asm2.A();
         t1 = (asm2)["I`1"](t0);
-        /* IL_00: ldarg.0 */
-        /* IL_01: callvirt Void Print()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: callvirt Void Print() */
         ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };
     /* static System.Void Program.PrintB(I`1)*/
@@ -114,18 +114,18 @@ var asm2; (function (asm)
         var t1;
         t0 = asm2.B();
         t1 = (asm2)["I`1"](t0);
-        /* IL_00: ldarg.0 */
-        /* IL_01: callvirt Void Print()*/
+        /* IL_00: ldarg.0  */
+        /* IL_01: callvirt Void Print() */
         ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-        /* IL_06: ret */
+        /* IL_06: ret  */
         return ;
     };
     /*  Program..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     (asm)["I`1"] = CILJS.declare_type(

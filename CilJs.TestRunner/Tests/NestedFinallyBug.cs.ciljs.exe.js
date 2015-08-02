@@ -1,4 +1,4 @@
-var asm2; (function (asm)
+var asm2;(function (asm)
 {
     asm.FullName = "NestedFinallyBug.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
@@ -32,19 +32,19 @@ var asm2; (function (asm)
                         
                         switch (__pos__){
                             case 0x0:
-                            /* IL_00: call Int32 Get()*/
-                            /* IL_05: brfalse.s IL_19*/
+                            /* IL_00: call Int32 Get() */
+                            /* IL_05: brfalse.s IL_19 */
                             
                             if ((!(asm2.x6000002()))){
                                 __pos__ = 0x19;
                                 continue;
                             }
-                            /* IL_07: call Int32 Get()*/
-                            /* IL_0C: stloc.0 */
+                            /* IL_07: call Int32 Get() */
+                            /* IL_0C: stloc.0  */
                             loc0 = asm2.x6000002();
-                            /* IL_0D: ldloca.s 0*/
-                            /* IL_0F: call String ToString()*/
-                            /* IL_14: call Void Log(System.Object)*/
+                            /* IL_0D: ldloca.s 0 */
+                            /* IL_0F: call String ToString() */
+                            /* IL_14: call Void Log(System.Object) */
                             asm1.x6000001(asm0.x600009d({
                                         'w': function (v)
                                         {
@@ -56,7 +56,7 @@ var asm2; (function (asm)
                                         }
                                     }));
                             case 0x19:
-                            /* IL_19: leave.s IL_6A*/
+                            /* IL_19: leave.s IL_6A */
                             in_block_1 = false;
                             __pos__ = 0x6A;
                             break;
@@ -83,19 +83,19 @@ var asm2; (function (asm)
                                     
                                     switch (__pos__){
                                         case 0x1B:
-                                        /* IL_1B: call Int32 Get()*/
-                                        /* IL_20: brfalse.s IL_34*/
+                                        /* IL_1B: call Int32 Get() */
+                                        /* IL_20: brfalse.s IL_34 */
                                         
                                         if ((!(asm2.x6000002()))){
                                             __pos__ = 0x34;
                                             continue;
                                         }
-                                        /* IL_22: call Int32 Get()*/
-                                        /* IL_27: stloc.1 */
+                                        /* IL_22: call Int32 Get() */
+                                        /* IL_27: stloc.1  */
                                         loc1 = asm2.x6000002();
-                                        /* IL_28: ldloca.s 1*/
-                                        /* IL_2A: call String ToString()*/
-                                        /* IL_2F: call Void Log(System.Object)*/
+                                        /* IL_28: ldloca.s 1 */
+                                        /* IL_2A: call String ToString() */
+                                        /* IL_2F: call Void Log(System.Object) */
                                         asm1.x6000001(asm0.x600009d({
                                                     'w': function (v)
                                                     {
@@ -107,7 +107,7 @@ var asm2; (function (asm)
                                                     }
                                                 }));
                                         case 0x34:
-                                        /* IL_34: leave.s IL_50*/
+                                        /* IL_34: leave.s IL_50 */
                                         in_block_2 = false;
                                         __pos__ = 0x50;
                                         break;
@@ -124,19 +124,19 @@ var asm2; (function (asm)
                                     
                                     switch (__pos__){
                                         case 0x36:
-                                        /* IL_36: call Int32 Get()*/
-                                        /* IL_3B: brfalse.s IL_4F*/
+                                        /* IL_36: call Int32 Get() */
+                                        /* IL_3B: brfalse.s IL_4F */
                                         
                                         if ((!(asm2.x6000002()))){
                                             __pos__ = 0x4F;
                                             continue;
                                         }
-                                        /* IL_3D: call Int32 Get()*/
-                                        /* IL_42: stloc.2 */
+                                        /* IL_3D: call Int32 Get() */
+                                        /* IL_42: stloc.2  */
                                         loc2 = asm2.x6000002();
-                                        /* IL_43: ldloca.s 2*/
-                                        /* IL_45: call String ToString()*/
-                                        /* IL_4A: call Void Log(System.Object)*/
+                                        /* IL_43: ldloca.s 2 */
+                                        /* IL_45: call String ToString() */
+                                        /* IL_4A: call Void Log(System.Object) */
                                         asm1.x6000001(asm0.x600009d({
                                                     'w': function (v)
                                                     {
@@ -148,7 +148,7 @@ var asm2; (function (asm)
                                                     }
                                                 }));
                                         case 0x4F:
-                                        /* IL_4F: endfinally */
+                                        /* IL_4F: endfinally  */
                                         in_block_2 = false;
                                         __pos__ = __finally_continuation_2__;
                                         break;
@@ -157,19 +157,19 @@ var asm2; (function (asm)
                             }
                             break;
                             case 0x50:
-                            /* IL_50: call Int32 Get()*/
-                            /* IL_55: brfalse.s IL_69*/
+                            /* IL_50: call Int32 Get() */
+                            /* IL_55: brfalse.s IL_69 */
                             
                             if ((!(asm2.x6000002()))){
                                 __pos__ = 0x69;
                                 continue;
                             }
-                            /* IL_57: call Int32 Get()*/
-                            /* IL_5C: stloc.3 */
+                            /* IL_57: call Int32 Get() */
+                            /* IL_5C: stloc.3  */
                             loc3 = asm2.x6000002();
-                            /* IL_5D: ldloca.s 3*/
-                            /* IL_5F: call String ToString()*/
-                            /* IL_64: call Void Log(System.Object)*/
+                            /* IL_5D: ldloca.s 3 */
+                            /* IL_5F: call String ToString() */
+                            /* IL_64: call Void Log(System.Object) */
                             asm1.x6000001(asm0.x600009d({
                                         'w': function (v)
                                         {
@@ -181,7 +181,7 @@ var asm2; (function (asm)
                                         }
                                     }));
                             case 0x69:
-                            /* IL_69: endfinally */
+                            /* IL_69: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
                             break;
@@ -190,7 +190,7 @@ var asm2; (function (asm)
                 }
                 break;
                 case 0x6A:
-                /* IL_6A: ret */
+                /* IL_6A: ret  */
                 return ;
             }
         }
@@ -198,16 +198,16 @@ var asm2; (function (asm)
     /* static System.Int32 Program.Get()*/
     asm.x6000002 = function Get()
     {
-        /* IL_00: ldc.i4.1 */
-        /* IL_01: ret */
+        /* IL_00: ldc.i4.1  */
+        /* IL_01: ret  */
         return (1|0);
     };;
     /*  Program..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

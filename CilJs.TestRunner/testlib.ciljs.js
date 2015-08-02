@@ -1,4 +1,4 @@
-var asm1; (function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "CilJs.TestLib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void TestLog.Log(Object)*/
@@ -6,10 +6,10 @@ var asm1; (function (asm)
     /*  TestLog..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0 */
-        /* IL_01: call Void .ctor()*/
-        /* IL_06: nop */
-        /* IL_07: ret */
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.TestLog = CILJS.declare_type(
@@ -17,7 +17,7 @@ var asm1; (function (asm)
         [],
         function ()
         {
-            return new ((asm0)["System.Object"]())();
+            return (asm0)["System.Object"]();
         },
         function ()
         {

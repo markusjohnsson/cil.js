@@ -290,7 +290,7 @@ namespace CilJs.TestRunner.Models
             var parameters = new CompilerParameters();
             parameters.GenerateExecutable = outputName.EndsWith("exe");
             parameters.OutputAssembly = outputName;
-            parameters.IncludeDebugInformation = true;
+            //parameters.IncludeDebugInformation = true;
             parameters.CompilerOptions = "/unsafe";
 
             if (forCilJs)
