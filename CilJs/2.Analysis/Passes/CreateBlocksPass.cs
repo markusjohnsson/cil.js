@@ -8,7 +8,7 @@ namespace CilJs.Analysis.Passes
     class CreateBlocksPass: IAnalysisPass
     {
         #region SubTypes
-        enum RegionKind { Try, Catch, CatchWrapper, Finally, Fault }
+        enum RegionKind { Try, Catch, Finally, Fault }
 
         class ProtectedRegionSpan
         {
@@ -41,23 +41,12 @@ namespace CilJs.Analysis.Passes
             public IEnumerable<ProtectedRegionSpan> GetSpans()
             {
                 yield return TrySpan;
-                //if (GetExceptionHandlers().Any())
-                //    yield return new ProtectedRegionSpan(GetExceptionHandlers().Min(c => c.From), GetExceptionHandlers().Max(c => c.To), RegionKind.CatchWrapper);
                 foreach (var span in CatchSpan)
                     yield return span;
                 if (FaultSpan != null)
                     yield return FaultSpan;
                 if (FinallySpan != null)
                     yield return FinallySpan;
-            }
-
-            private IEnumerable<ProtectedRegionSpan> GetExceptionHandlers()
-            {
-                foreach (var c in CatchSpan)
-                    yield return c;
-
-                if (FaultSpan != null)
-                    yield return FaultSpan;
             }
         }
         #endregion
@@ -145,8 +134,6 @@ namespace CilJs.Analysis.Passes
             {
                 case RegionKind.Try:
                     return new TryBlock(regionSpan.From, regionSpan.To);
-                //case RegionKind.CatchWrapper:
-                //    return BlockKind.CatchWrapper;
                 case RegionKind.Catch:
                     return new CatchBlock(regionSpan.CatchType, regionSpan.From, regionSpan.To);
                 case RegionKind.Finally:

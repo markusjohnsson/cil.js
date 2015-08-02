@@ -23,12 +23,14 @@ namespace CilJs.JsTranslation
         }
 
         private bool hasBranching;
+        private bool hasFinally;
         private int startPosition;
 
-        public BlockBuilder(int depth, int startPosition)
+        public BlockBuilder(int depth, int startPosition, bool hasFinally)
         {
             this.depth = depth;
             this.startPosition = startPosition;
+            this.hasFinally = hasFinally;
         }
 
         public IEnumerable<JSStatement> Build()
@@ -44,12 +46,15 @@ namespace CilJs.JsTranslation
                         Value = new JSBoolLiteral { Value = true }
                     });
 
-                yield return JSFactory.Statement(
-                    new JSVariableDelcaration
-                    {
-                        Name = "__finally_continuation_" + Depth + "__",
-                        Value = new JSIdentifier { Name = "__pos__" }
-                    });
+                if (hasFinally)
+                {
+                    yield return JSFactory.Statement(
+                        new JSVariableDelcaration
+                        {
+                            Name = "__finally_continuation_" + Depth + "__",
+                            Value = new JSIdentifier { Name = "__pos__" }
+                        });
+                }
 
                 yield return JSFactory.Statement(
                     new JSVariableDelcaration
@@ -96,7 +101,14 @@ namespace CilJs.JsTranslation
 
                     if (ifier != null && ifier.Name == "in_block")
                     {
-                        ifier.Name = "in_block_" + Depth;
+                        if (hasBranching)
+                        {
+                            ifier.Name = "in_block_" + Depth;
+                        }
+                        else
+                        {
+                            toRemove.Add(stmt);
+                        }
                     }
 
                     if (ifier != null && ifier.Name == "__finally_continuation__")

@@ -15,7 +15,7 @@ namespace CilJs.TestRunner.Controllers
         public TestResult Get([FromUri] string name)
         {
             var runner = new Tests(HostingEnvironment.MapPath("~"));
-            return runner.CompileAndRun(name.Replace("/", "\\"), translateCorlib: false);
+            return runner.CompileAndRun(name.Replace("/", "\\"));
         }
 
         [HttpGet]

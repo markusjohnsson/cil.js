@@ -22,21 +22,9 @@ namespace CilJs.TestRunner.Models
             this.workingDir = workingDir;
         }
 
-        public IObservable<TestResult> RunAll()
+        public TestResult CompileAndRun(string csFile)
         {
-            return Enumerable
-                .Concat(
-                    Directory.GetFiles(Path.Combine(workingDir, "Tests"), "*.cs"),
-                    Directory.GetFiles(Path.Combine(workingDir, "MonoTests"), "*.cs"))
-
-                // much faster than ToObservable
-                .Select(s => Observable.Defer(() => Observable.Start(() => CompileAndRun(s, translateCorlib: false))))
-                .Merge();
-        }
-
-        public TestResult CompileAndRun(string csFile, bool translateCorlib = true)
-        {
-            return CompileAndRun(new[] { csFile }, translateCorlib);
+            return CompileAndRun(new[] { csFile });
         }
 
         class Ref
@@ -47,7 +35,7 @@ namespace CilJs.TestRunner.Models
 
         private static readonly object corlibGate = new object();
 
-        public TestResult CompileAndRun(string[] csFiles, bool translateCorlib = true)
+        public TestResult CompileAndRun(string[] csFiles)
         {
             var errors = new List<string>();
 
@@ -57,20 +45,32 @@ namespace CilJs.TestRunner.Models
             var corlib = GetCorlibPath();
             var corlibOutput = Path.Combine(workingDir, "corlib.ciljs.js");
 
-            if (false == translateCorlib)
+            var testlib = GetTestlibPath();
+            var testlibOutput = Path.Combine(workingDir, "testlib.ciljs.js");
+            var copyTestlib = false;
+
+            lock (corlibGate)
             {
-                lock (corlibGate)
+                // translate corlib only if needed and do it to a separate file
+                if (!File.Exists(corlibOutput) ||
+                        File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
                 {
-                    // translate corlib only if needed and do it to a separate file
-                    if (!File.Exists(corlibOutput) || 
-                         File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput))
-                    {
-                        CompileJs(corlib, corlibOutput, ciljsRefs, errors, outputRuntimeJs: true);
-                    }
+                    CompileJs(corlib, corlibOutput, ciljsRefs, errors, outputRuntimeJs: true);
+                }
+
+                if (!File.Exists(testlibOutput) ||
+                        File.GetLastWriteTime(testlib) > File.GetLastWriteTime(testlibOutput))
+                {
+                    copyTestlib = true;
+                    CompileJs(testlib, testlibOutput, 
+                        new List<Ref> { new Ref { path = corlib, translate = false } }, errors, outputRuntimeJs: false);
                 }
             }
 
-            ciljsRefs.Add(new Ref { path = corlib, translate = translateCorlib });
+            ciljsRefs.Add(new Ref { path = corlib, translate = false });
+            ciljsRefs.Add(new Ref { path = testlib, translate = false });
+
+            clrRefs.Add(new Ref { path = testlib });
 
             string clrProgramOutputName = null;
             string ciljsProgramOutputName = null;
@@ -112,6 +112,17 @@ namespace CilJs.TestRunner.Models
             Debug.Assert(clrProgramOutputName != null);
             Debug.Assert(csProgramFile != null);
 
+            lock (corlibGate)
+            {
+                var testlibRuntimePath = Path.Combine(Path.GetDirectoryName(clrProgramOutputName), Path.GetFileName(testlib));
+                if (false == File.Exists(testlibRuntimePath) ||
+                    File.GetLastWriteTime(testlib) > File.GetLastWriteTime(testlibRuntimePath))
+                {
+                    File.Delete(testlibRuntimePath);
+                    File.Copy(testlib, testlibRuntimePath);
+                }
+            }
+
             string jsOutput = null, exeOutput = null;
 
             var success = true;
@@ -134,7 +145,12 @@ namespace CilJs.TestRunner.Models
             exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
 
             int jsExitCode;
-            jsOutput = ExecuteJs(ciljsProgramOutputName, translateCorlib ? null : corlibOutput, entryPoint, out jsExitCode, errors);
+            jsOutput = ExecuteJs(
+                ciljsProgramOutputName,
+                new List<string> { corlibOutput, testlibOutput },
+                entryPoint,
+                out jsExitCode,
+                errors);
 
             if (errors.Any())
             {
@@ -166,6 +182,11 @@ namespace CilJs.TestRunner.Models
             };
         }
 
+        private string GetTestlibPath()
+        {
+            return Path.Combine(workingDir, @"..\CilJs.TestLib\bin\Debug\CilJs.TestLib.dll");
+        }
+
         private string GetCorlibPath()
         {
             return Path.Combine(workingDir, @"..\CilJs.Corlib\bin\Debug\mscorlib.dll");
@@ -186,7 +207,7 @@ namespace CilJs.TestRunner.Models
             return output;
         }
 
-        private string ExecuteJs(string exeFilePath, string corlibPath, string entryPoint, out int exitCode, List<string> errors)
+        private string ExecuteJs(string exeFilePath, List<string> refPaths, string entryPoint, out int exitCode, List<string> errors)
         {
             string jsOutput = null;
             exitCode = -1;
@@ -199,8 +220,8 @@ namespace CilJs.TestRunner.Models
                     jsEngine.Execute(@"var ciljs_testlib_output = """";");
                     jsEngine.Execute(@"function ciljs_test_log(message) { ciljs_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
 
-                    if (corlibPath != null)
-                        jsEngine.ExecuteFile(corlibPath);
+                    foreach (var path in refPaths)
+                        jsEngine.ExecuteFile(path);
 
                     jsEngine.ExecuteFile(exeFilePath + ".js");
                     exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
@@ -245,7 +266,7 @@ namespace CilJs.TestRunner.Models
                 settings.AddAssembly(mainAssemblyName, translate: true);
 
                 settings.OutputFileName = outputName;
-                
+
                 settings.OutputILComments = true;
 
                 var compiler = new Compiler(settings);
@@ -280,7 +301,7 @@ namespace CilJs.TestRunner.Models
                 parameters.ReferencedAssemblies.AddRange(refs.Select(r => r.path).ToArray());
             }
 
-            var results = icc.CompileAssemblyFromFileBatch(parameters, new[] { Path.Combine(workingDir, "TestInclude.cs"), csFile });
+            var results = icc.CompileAssemblyFromFileBatch(parameters, new[] { csFile });
 
             if (results.Errors.Count > 0)
             {

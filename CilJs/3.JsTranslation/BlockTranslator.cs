@@ -29,14 +29,14 @@ namespace CilJs.JsTranslation
 
         public List<JSStatement> Translate(Block block)
         {
-            return CreateJsBlock(block, 0).Build().ToList();
+            return CreateJsBlock(null, block, 0).Build().ToList();
         }
 
-        private BlockBuilder CreateJsBlock(Block block, int depth)
+        private BlockBuilder CreateJsBlock(ProtectedRegion region, Block block, int depth)
         {
             var opTranslator = new OpTranslator(context, assembly, type, method, block);
 
-            var builder = new BlockBuilder(depth, GetPosition(block));
+            var builder = new BlockBuilder(depth, GetPosition(block), region != null && region.FinallyBlock != null);
 
             foreach (var node in block.Ast)
             {
@@ -50,17 +50,17 @@ namespace CilJs.JsTranslation
                         protectedRegion.FaultBlock == null &&
                         protectedRegion.FinallyBlock == null)
                     {
-                        builder.InsertStatements(CreateJsBlock(protectedRegion.TryBlock, depth + 1).Build());
+                        builder.InsertStatements(CreateJsBlock(protectedRegion, protectedRegion.TryBlock, depth + 1).Build());
                     }
                     else
                     {
-                        builder.InsertStatements(CreateJsTryBlock(protectedRegion.TryBlock, depth + 1));
+                        builder.InsertStatements(CreateJsTryBlock(protectedRegion, protectedRegion.TryBlock, depth + 1));
 
                         if (protectedRegion.CatchBlocks.Any() || protectedRegion.FaultBlock != null)
-                            builder.InsertStatements(CreateJsCatchBlock(protectedRegion.CatchBlocks, protectedRegion.FaultBlock, depth + 1));
+                            builder.InsertStatements(CreateJsCatchBlock(protectedRegion, protectedRegion.CatchBlocks, protectedRegion.FaultBlock, depth + 1));
 
                         if (protectedRegion.FinallyBlock != null)
-                            builder.InsertStatements(CreateJsFinallyBlock(protectedRegion.FinallyBlock, depth + 1));
+                            builder.InsertStatements(CreateJsFinallyBlock(protectedRegion, protectedRegion.FinallyBlock, depth + 1));
 
                         builder.InsertStatements(new [] { new JSBreakExpression().ToStatement() });
                     }
@@ -94,12 +94,12 @@ namespace CilJs.JsTranslation
             throw new NotSupportedException();
         }
 
-        private IEnumerable<JSStatement> CreateJsTryBlock(TryBlock tryBlock, int depth)
+        private IEnumerable<JSStatement> CreateJsTryBlock(ProtectedRegion region, TryBlock tryBlock, int depth)
         {
-            yield return new JSTryBlock { Statements = CreateJsBlock(tryBlock, depth).Build().ToList() };
+            yield return new JSTryBlock { Statements = CreateJsBlock(region, tryBlock, depth).Build().ToList() };
         }
 
-        private IEnumerable<JSStatement> CreateJsCatchBlock(IEnumerable<CatchBlock> catchBlocks, FaultBlock faultBlock, int p)
+        private IEnumerable<JSStatement> CreateJsCatchBlock(ProtectedRegion region, IEnumerable<CatchBlock> catchBlocks, FaultBlock faultBlock, int p)
         {
             if (catchBlocks.Count() == 1 && catchBlocks.First().CatchType == null)
             {
@@ -123,7 +123,7 @@ namespace CilJs.JsTranslation
 
             foreach (var catchBlock in catchBlocks)
             {
-                var block = CreateJsBlock(catchBlock, p);
+                var block = CreateJsBlock(region, catchBlock, p);
 
                 int index;
                 for (index = 0; index < block.Statements.Count; index++)
@@ -186,7 +186,7 @@ namespace CilJs.JsTranslation
 
             if (faultBlock != null)
             {
-                statements.AddRange(CreateJsFaultBlock(faultBlock, p));
+                statements.AddRange(CreateJsFaultBlock(region, faultBlock, p));
             }
 
             yield return new JSCatchBlock
@@ -196,9 +196,9 @@ namespace CilJs.JsTranslation
             };
         }
 
-        private IEnumerable<JSStatement> CreateJsFaultBlock(FaultBlock faultBlock, int p)
+        private IEnumerable<JSStatement> CreateJsFaultBlock(ProtectedRegion region, FaultBlock faultBlock, int p)
         {
-            var block = CreateJsBlock(faultBlock, p);
+            var block = CreateJsBlock(region, faultBlock, p);
 
             block.Statements.Add(JSFactory.Statement(new JSThrowExpression { Expression = new JSIdentifier { Name = "__error__" } }));
 
@@ -214,11 +214,11 @@ namespace CilJs.JsTranslation
             };
         }
 
-        private IEnumerable<JSStatement> CreateJsFinallyBlock(FinallyBlock finallyBlock, int p)
+        private IEnumerable<JSStatement> CreateJsFinallyBlock(ProtectedRegion region, FinallyBlock finallyBlock, int p)
         {
             yield return new JSFinallyBlock
             {
-                Statements = CreateJsBlock(finallyBlock, p).Build().ToList()
+                Statements = CreateJsBlock(region, finallyBlock, p).Build().ToList()
             };
             
         }

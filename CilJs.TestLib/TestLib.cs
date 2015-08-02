@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-class TestLog
+public class TestLog
 {
     [JsImport("ciljs_test_log")]
     public static void Log(object o)
@@ -11,12 +11,12 @@ class TestLog
 }
 
 [JsIgnore]
-class JsIgnoreAttribute : Attribute
-{ 
+public class JsIgnoreAttribute : Attribute
+{
 }
 
 [JsIgnore]
-class JsImportAttribute : Attribute
+public class JsImportAttribute : Attribute
 {
     public JsImportAttribute(string function)
     {
@@ -27,7 +27,7 @@ class JsImportAttribute : Attribute
 }
 
 [JsIgnore]
-class JsReplaceAttribute : Attribute
+public class JsReplaceAttribute : Attribute
 {
     public JsReplaceAttribute(string replacement)
     {

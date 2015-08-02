@@ -64,13 +64,12 @@ namespace CilJs.JsTranslation.OpTranslators
                     }
                     else
                     {
-                        if (IsUInt64Operation(node))
+                        if (IsUInt64Operation(node) || IsInt64Operation(node))
                         {
-                            return CreateXInt64BinaryOperation(node, "UInt64_GreaterThan");
-                        }
-                        else if (IsInt64Operation(node))
-                        {
-                            return CreateXInt64BinaryOperation(node, "Int64_GreaterThan");
+                            if (opc == "cgt.un")
+                                return CreateXInt64BinaryOperation(node, "UInt64_GreaterThan");
+                            else
+                                return CreateXInt64BinaryOperation(node, "Int64_GreaterThan");
                         }
                         else
                         {

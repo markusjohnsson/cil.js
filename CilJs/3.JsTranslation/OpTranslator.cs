@@ -338,7 +338,7 @@ namespace CilJs.JsTranslation
                     case ">=": opFunction = isUnsigned ? "UInt64_LessThan" : "Int64_LessThan"; reverse = true; break;
                     default: throw new NotSupportedException();
                 }
-                
+
                 var left = reverse ? ProcessInternal(node.Arguments.Last()) : ProcessInternal(node.Arguments.First());
                 var right = reverse ? ProcessInternal(node.Arguments.First()) : ProcessInternal(node.Arguments.Last());
 
@@ -352,8 +352,8 @@ namespace CilJs.JsTranslation
                     Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
                     Operator = op
                 };
-            } 
-            
+            }
+
             return new JSIfStatement
             {
                 Condition = condition,
@@ -543,11 +543,11 @@ namespace CilJs.JsTranslation
 
                         var firstArgNode = node.Arguments.First();
 
-                        if (mi.IsVirtual &&
-                            firstArgNode.ResultType != null)
+                        if (firstArgNode.ResultType != null)
                         {
-                            if (firstArgNode.ResultType.IsInterface ||
-                                firstArgNode.ResultType == context.SystemTypes.Object)
+                            if (mi.IsVirtual &&(
+                                firstArgNode.ResultType.IsInterface ||
+                                firstArgNode.ResultType == context.SystemTypes.Object))
                             {
                                 // from: II.13.3 Methods of value types
                                 //
@@ -563,14 +563,25 @@ namespace CilJs.JsTranslation
                             {
                                 var pointerTargetType = firstArgNode.ResultType.GetGenericArguments().First();
 
-                                thisArg = UnwrapReader(thisArg);
-                                alternateThisArg = JSFactory.Identifier(
-                                    GetTypeAccessor(pointerTargetType, thisScope),
-                                    "prototype");
-
-                                if (pointerTargetType.IsGenericParameter)
+                                if (mi.IsVirtual)
                                 {
-                                    arglist[0] = JSFactory.Call(JSFactory.Identifier("CILJS", "dereference_pointer_as_needed"), arglist[0]);
+                                    thisArg = UnwrapReader(thisArg);
+                                    alternateThisArg = JSFactory.Identifier(
+                                        GetTypeAccessor(pointerTargetType, thisScope),
+                                        "prototype");
+
+                                    if (pointerTargetType.IsGenericParameter)
+                                    {
+                                        arglist[0] = JSFactory.Call(JSFactory.Identifier("CILJS", "dereference_pointer_as_needed"), arglist[0]);
+                                    }
+                                }
+                                else
+                                {
+                                    thisArg = UnwrapReader(thisArg);
+                                    arglist[0] = JSFactory.Call(
+                                        JSFactory.Identifier("CILJS", "box"), 
+                                        thisArg, 
+                                        GetTypeAccessor(pointerTargetType, thisScope));
                                 }
                             }
                         }
@@ -1233,7 +1244,7 @@ namespace CilJs.JsTranslation
             //  }
             //
             // The references are wrapped in functions because the value of asm0.xAAAAAAAA might 
-            // be updated by the method initialization function, which types that the method depends on. 
+            // be updated by the method initialization function, which initialize types that the method depends on. 
             //
             // We might be able to change this later and just store the reference to the actual method implementation.
             // To accomplish this, we need to call the init function when the vtable or interface map is created.

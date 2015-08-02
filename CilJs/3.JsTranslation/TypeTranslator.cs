@@ -89,10 +89,7 @@ namespace CilJs.JsTranslation
 
             if (shouldHaveBasePrototype)
             {
-                basePrototype = new JSNewExpression
-                {
-                    Constructor = GetTypeIdentifier(baseType, typeScope: type.ReflectionType)
-                };
+                basePrototype = GetTypeIdentifier(baseType, typeScope: type.ReflectionType);
 
                 if (baseType.IsGenericType)
                 {

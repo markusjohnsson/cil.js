@@ -45,7 +45,7 @@ namespace System
         [JsAssemblyStatic(Name = "GetReflectionType")]
         internal static Type GetInstance(constructor ctor)
         {
-            if (!UnsafeCast<bool>(ctor.TypeInstance))
+            if (CilJs.JavaScript.Object.IsUndefined(ctor.TypeInstance))
                 ctor.TypeInstance = new RuntimeType(ctor);
 
             return ctor.TypeInstance;
@@ -187,7 +187,7 @@ namespace System
         {
             get
             {
-                if (!UnsafeCast<bool>(ctor.BaseType))
+                if (CilJs.JavaScript.Object.IsUndefined(ctor.BaseType) || ctor.BaseType == null)
                     return null;
                 else
                     return GetInstance(ctor.BaseType);

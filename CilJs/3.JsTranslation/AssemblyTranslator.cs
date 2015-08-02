@@ -52,10 +52,6 @@ namespace CilJs.JsTranslation
                     JSFactory.Identifier("asm", "FullName"), 
                     JSFactory.Literal(asm.ReflectionAssembly.FullName));
 
-            yield return JSFactory.Assignment(
-                JSFactory.Identifier("asm", "next_hash"),
-                JSFactory.Literal(1));
-
             foreach (var type in asm.Types)
             {
                 if (type.IsIgnored || type.IsInterface)

@@ -1,3 +1,5 @@
+CilJs.TestLib.dll
+
 .DS_Store
 
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
@@ -14,6 +16,7 @@ TestResults
 *.suo
 *.user
 *.sln.docstates
+.vs/
 
 # Build results
 [Dd]ebug/

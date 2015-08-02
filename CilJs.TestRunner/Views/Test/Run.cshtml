@@ -48,7 +48,7 @@
         function runScript() {
 
             ciljs_test_log_clear();
-            var result = "exitCode: " + asm1.entryPoint(); // do not remove "result" local.
+            var result = "exitCode: " + CILJS.entry_point(); // do not remove "result" local.
             document.getElementById("output").innerHTML += result;
         }
 
@@ -85,6 +85,8 @@
             ko.applyBindings(item);
         }
     </script>
+
+    <script src="~/testlib.ciljs.js"></script>
 
     <script src="@Model.ScriptPath" type="text/javascript">
     </script>
