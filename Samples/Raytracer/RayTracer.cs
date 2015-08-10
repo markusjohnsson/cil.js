@@ -207,7 +207,7 @@ namespace RayTracer
             return new Color(n * v.R, n * v.G, n * v.B);
         }
         public static Color Times(Color v1, Color v2)
-        {
+        { 
             return new Color(v1.R * v2.R, v1.G * v2.G, v1.B * v2.B);
         }
 

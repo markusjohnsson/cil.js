@@ -142,16 +142,41 @@ namespace CilJs.Ast
                     return false;
                 }
 
-                if (ReferencedTypes
-                    .Where(t => !t.IsGenericParameter)
-                    .Where(t => !SystemTypes.BaseTypes.Contains(t.FullName))
-                    .IsEmpty())
+                var typesThatNeedInitialization = ReferencedTypes
+                    // Generic parameters should already have been initialized when the call to this method is made
+                    .Unless(t => t.IsGenericParameter)
+                    // Base types (int, string, object etc) are initialized in the runtime
+                    .Unless(t => SystemTypes.BaseTypes.Contains(t.FullName))
+                    .Unless(t => IsInitializedByType(t))
+                    ;
+
+                if (typesThatNeedInitialization.IsEmpty())
                 {
                     return false;
                 }
 
                 return true;
             }
+        }
+
+        private bool IsInitializedByType(Type t)
+        {
+            if (ReflectionMethod.IsConstructor || ReflectionMethod.IsStatic)
+                return false;
+
+            var ctorReferences = DeclaringType
+                .Methods
+                .Where(m => m.ReflectionMethod.IsConstructor)
+                .Take(1)
+                .SelectMany(m => m.ReferencedTypes);
+
+            foreach (var ctor in  DeclaringType.Methods.Skip(1).Where(m => m.ReflectionMethod.IsConstructor))
+            {
+                ctorReferences = ctorReferences.Intersect(ctor.ReferencedTypes);
+            }
+
+            return DeclaringType.ReflectionType.GetInterfaces().Any(iface => iface == t) ||
+                ctorReferences.Any(r => r == t);
         }
 
         public bool NeedTranslation

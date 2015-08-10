@@ -1078,17 +1078,7 @@ var asm2;(function (asm)
         return CILJS.box((arg0)["_Select_d__0_2<>2__current"],t0);
     };;
     /* System.Void <Select>d__0`2.<>m__Finally3()*/
-    asm.x6000015_init = function ()
-    {
-        ((asm0)["System.IDisposable"]().init)();
-        asm.x6000015 = asm.x6000015_;
-    };;
-    asm.x6000015 = function (arg0)
-    {
-        asm.x6000015_init.apply(this,arguments);
-        return asm.x6000015_.apply(this,arguments);
-    };;
-    asm.x6000015_ = function __m__Finally3(arg0)
+    asm.x6000015 = function __m__Finally3(arg0)
     {
         var t0;
         var in_block_0;
@@ -1122,7 +1112,7 @@ var asm2;(function (asm)
                 return ;
             }
         }
-    };
+    };;
     /*  <Select>d__0`2..ctor(Int32)*/
     asm.x6000014 = function _ctor(arg0, arg1)
     {
@@ -1227,18 +1217,7 @@ var asm2;(function (asm)
         return asm2.x6000016(arg0);
     };;
     /* System.Boolean <Where>d__6`1.MoveNext()*/
-    asm.x6000018_init = function ()
-    {
-        ((asm0)["System.Collections.Generic.IEnumerable`1"]((((arguments)[0].constructor.GenericArguments)["asm2.t2000006"])[0]).init)();
-        ((asm0)["System.Collections.Generic.IEnumerator`1"]((((arguments)[0].constructor.GenericArguments)["asm2.t2000006"])[0]).init)();
-        ((asm0)["System.Collections.IEnumerator"]().init)();
-    };;
-    asm.x6000018 = function (arg0)
-    {
-        asm.x6000018_init.apply(this,arguments);
-        return asm.x6000018_.apply(this,arguments);
-    };;
-    asm.x6000018_ = function MoveNext(arg0)
+    asm.x6000018 = function MoveNext(arg0)
     {
         var t0;
         var t1;
@@ -1404,7 +1383,7 @@ var asm2;(function (asm)
                 return loc0;
             }
         }
-    };
+    };;
     /* T <Where>d__6`1.System.Collections.Generic.IEnumerator<T>.get_Current()*/
     asm.x6000019 = function System_Collections_Generic_IEnumerator_T__get_Current(arg0)
     {
@@ -1502,17 +1481,7 @@ var asm2;(function (asm)
         return CILJS.box((arg0)["_Where_d__6_1<>2__current"],t0);
     };;
     /* System.Void <Where>d__6`1.<>m__Finally9()*/
-    asm.x600001e_init = function ()
-    {
-        ((asm0)["System.IDisposable"]().init)();
-        asm.x600001e = asm.x600001e_;
-    };;
-    asm.x600001e = function (arg0)
-    {
-        asm.x600001e_init.apply(this,arguments);
-        return asm.x600001e_.apply(this,arguments);
-    };;
-    asm.x600001e_ = function __m__Finally9(arg0)
+    asm.x600001e = function __m__Finally9(arg0)
     {
         var t0;
         var in_block_0;
@@ -1546,7 +1515,7 @@ var asm2;(function (asm)
                 return ;
             }
         }
-    };
+    };;
     /*  <Where>d__6`1..ctor(Int32)*/
     asm.x600001d = function _ctor(arg0, arg1)
     {

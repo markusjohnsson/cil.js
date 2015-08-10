@@ -57,6 +57,9 @@ namespace CilJs
             }
         }
 
-
+        public static IEnumerable<T> Unless<T>(this IEnumerable<T> source, Predicate<T> predicate)
+        {
+            return source.Where(s => !predicate(s));
+        }
     }
 }
