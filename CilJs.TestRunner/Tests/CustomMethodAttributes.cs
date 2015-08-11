@@ -35,10 +35,10 @@ class Program
         var m = bms[0].GetCustomAttributes(true);
         var n = bms[1].GetCustomAttributes(true);
 
-        TestLog.Log(m.Length);
-        TestLog.Log(m[0].GetType().Name);
+        System.Console.WriteLine(m.Length);
+        System.Console.WriteLine(m[0].GetType().Name);
 
-        TestLog.Log(n.Length);
-        TestLog.Log(((B)n[0]).T.Name);
+        System.Console.WriteLine(n.Length);
+        System.Console.WriteLine(((B)n[0]).T.Name);
     } 
 }

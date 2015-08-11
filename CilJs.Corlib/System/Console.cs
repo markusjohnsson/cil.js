@@ -18,7 +18,10 @@ namespace System
 
         public static void WriteLine(string format, params object[] parameters)
         {
-            WriteLineImpl(string.Format(format, parameters));
+            if (format == null)
+                WriteLineImpl(string.Empty);
+            else
+                WriteLineImpl(string.Format(format, parameters));
         }
     }
 }

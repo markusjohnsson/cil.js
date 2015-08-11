@@ -3,7 +3,7 @@ class Program
 {
     public static void Callee()
     {
-        TestLog.Log("Called!");
+        System.Console.WriteLine("Called!");
     }
 
     public static void Main()

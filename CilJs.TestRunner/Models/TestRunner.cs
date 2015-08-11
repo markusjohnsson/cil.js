@@ -44,11 +44,7 @@ namespace CilJs.TestRunner.Models
 
             var corlib = GetCorlibPath();
             var corlibOutput = Path.Combine(workingDir, "corlib.ciljs.js");
-
-            var testlib = GetTestlibPath();
-            var testlibOutput = Path.Combine(workingDir, "testlib.ciljs.js");
-            var copyTestlib = false;
-
+            
             lock (corlibGate)
             {
                 // translate corlib only if needed and do it to a separate file
@@ -57,21 +53,10 @@ namespace CilJs.TestRunner.Models
                 {
                     CompileJs(corlib, corlibOutput, ciljsRefs, errors, outputRuntimeJs: true);
                 }
-
-                if (!File.Exists(testlibOutput) ||
-                        File.GetLastWriteTime(testlib) > File.GetLastWriteTime(testlibOutput))
-                {
-                    copyTestlib = true;
-                    CompileJs(testlib, testlibOutput, 
-                        new List<Ref> { new Ref { path = corlib, translate = false } }, errors, outputRuntimeJs: false);
-                }
             }
 
             ciljsRefs.Add(new Ref { path = corlib, translate = false });
-            ciljsRefs.Add(new Ref { path = testlib, translate = false });
-
-            clrRefs.Add(new Ref { path = testlib });
-
+            
             string clrProgramOutputName = null;
             string ciljsProgramOutputName = null;
             string csProgramFile = null;
@@ -111,18 +96,7 @@ namespace CilJs.TestRunner.Models
 
             Debug.Assert(clrProgramOutputName != null);
             Debug.Assert(csProgramFile != null);
-
-            lock (corlibGate)
-            {
-                var testlibRuntimePath = Path.Combine(Path.GetDirectoryName(clrProgramOutputName), Path.GetFileName(testlib));
-                if (false == File.Exists(testlibRuntimePath) ||
-                    File.GetLastWriteTime(testlib) > File.GetLastWriteTime(testlibRuntimePath))
-                {
-                    File.Delete(testlibRuntimePath);
-                    File.Copy(testlib, testlibRuntimePath);
-                }
-            }
-
+            
             string jsOutput = null, exeOutput = null;
 
             var success = true;
@@ -147,7 +121,7 @@ namespace CilJs.TestRunner.Models
             int jsExitCode;
             jsOutput = ExecuteJs(
                 ciljsProgramOutputName,
-                new List<string> { corlibOutput, testlibOutput },
+                new List<string> { corlibOutput },
                 entryPoint,
                 out jsExitCode,
                 errors);
@@ -181,12 +155,7 @@ namespace CilJs.TestRunner.Models
                 ClrOutput = !success ? exeOutput : ""
             };
         }
-
-        private string GetTestlibPath()
-        {
-            return Path.Combine(workingDir, @"..\CilJs.TestLib\bin\Debug\CilJs.TestLib.dll");
-        }
-
+        
         private string GetCorlibPath()
         {
             return Path.Combine(workingDir, @"..\CilJs.Corlib\bin\Debug\mscorlib.dll");
@@ -218,7 +187,13 @@ namespace CilJs.TestRunner.Models
                 try
                 {
                     jsEngine.Execute(@"var ciljs_testlib_output = """";");
-                    jsEngine.Execute(@"function ciljs_test_log(message) { ciljs_testlib_output += asm0.ToJavaScriptString(message) + ""\r\n""; }");
+                    jsEngine.Execute(@"
+                        var console = { 
+                            log: function ciljs_test_log(message) { 
+                                ciljs_testlib_output += message + ""\r\n""; 
+                            } 
+                        }");
+
 
                     foreach (var path in refPaths)
                         jsEngine.ExecuteFile(path);

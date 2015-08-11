@@ -19,8 +19,8 @@ public class Program
 
     public static void TestImpl(object o)
     {
-        TestLog.Log(o is I1 ? "true" : "false");
-        TestLog.Log(o is I2 ? "true" : "false");
-        TestLog.Log(o is I3 ? "true" : "false");
+        System.Console.WriteLine(o is I1 ? "true" : "false");
+        System.Console.WriteLine(o is I2 ? "true" : "false");
+        System.Console.WriteLine(o is I3 ? "true" : "false");
     }
 }

@@ -20,12 +20,12 @@ public class Program
 
     private static void PrintAsObject(object o)
     {
-        TestLog.Log(((A) ((A[]) o)[0]).X);
+        System.Console.WriteLine(((A) ((A[]) o)[0]).X);
     }
 
     private static void Print(A[] a)
     {
-        TestLog.Log(a[0].X);
+        System.Console.WriteLine(a[0].X);
     }
 
     private static void Populate(A[] a)

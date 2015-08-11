@@ -14,7 +14,7 @@ public class E
 
     private static void Log<T>(object o)
     {
-        TestLog.Log(o is T);
+        System.Console.WriteLine(o is T);
     }
 }
 

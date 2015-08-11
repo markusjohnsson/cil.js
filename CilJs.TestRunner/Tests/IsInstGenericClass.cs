@@ -15,7 +15,7 @@ class D<T>
 {
     public static void Test(object o)
     {
-        TestLog.Log(o is T ? "true" : "false");
+        System.Console.WriteLine(o is T ? "true" : "false");
     }
 }
 

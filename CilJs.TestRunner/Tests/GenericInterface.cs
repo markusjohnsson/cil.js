@@ -9,20 +9,20 @@ class A : I<int>
 {
     public void NonGeneric()
     {
-        TestLog.Log("A.NonGeneric");
+        System.Console.WriteLine("A.NonGeneric");
     }
 
     int field;
 
     public void GenericArg(int t)
     {
-        TestLog.Log("A.GenericArg");
+        System.Console.WriteLine("A.GenericArg");
         field = t;
     }
 
     public int GenericReturn()
     {
-        TestLog.Log("A.GenericReturn");
+        System.Console.WriteLine("A.GenericReturn");
         return field;
     }
 }
@@ -31,20 +31,20 @@ class B<T> : I<T>
 {
     public void NonGeneric()
     {
-        TestLog.Log("B.NonGeneric");   
+        System.Console.WriteLine("B.NonGeneric");   
     }
 
     T field;
 
     public void GenericArg(T t)
     {
-        TestLog.Log("B.NonGeneric");
+        System.Console.WriteLine("B.NonGeneric");
         field = t;
     }
 
     public T GenericReturn()
     {
-        TestLog.Log("B.GenericReturn");
+        System.Console.WriteLine("B.GenericReturn");
         return field;
     }
 }
@@ -61,6 +61,6 @@ class Program
     {
         it.NonGeneric();
         it.GenericArg(t);
-        TestLog.Log(it.GenericReturn());
+        System.Console.WriteLine(it.GenericReturn());
     }
 }

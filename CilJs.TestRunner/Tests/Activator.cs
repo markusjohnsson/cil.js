@@ -10,7 +10,7 @@ class Program
     public static void Main() 
     {
         A a = (A)Activator.CreateInstance(typeof(A));
-        TestLog.Log(typeof(A).Equals(a.GetType()));
-        TestLog.Log(a.X());
+        System.Console.WriteLine(typeof(A).Equals(a.GetType()));
+        System.Console.WriteLine(a.X());
     }
 }

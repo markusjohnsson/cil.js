@@ -1,4 +1,4 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "array-cast.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Int32 Test.Main()*/
@@ -84,11 +84,11 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Test.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.init_type(this,asm,"Test.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000001;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));

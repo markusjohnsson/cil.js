@@ -8,13 +8,13 @@ public static class Program
     public static void Main(string[] args)
     {
         FuncX<object, object> lambda = i => null;
-        TestLog.Log("Lambda:");
+        System.Console.WriteLine("Lambda:");
         WriteType(lambda);
-        TestLog.Log("Method (object):");
+        System.Console.WriteLine("Method (object):");
         WriteType((FuncX<object, object>)MethodObj);
-        TestLog.Log("Method (object):");
+        System.Console.WriteLine("Method (object):");
         WriteType((FuncX<int, object>)MethodInt);
-        TestLog.Log("Method (object):");
+        System.Console.WriteLine("Method (object):");
         WriteType((FuncX<string, object>)MethodString);
     }
 
@@ -37,19 +37,19 @@ public static class Program
     {
         if (d as FuncX<object> != null)
         {
-            TestLog.Log("FuncX<object>");
+            System.Console.WriteLine("FuncX<object>");
         }
         if (d as FuncX<object, object> != null)
         {
-            TestLog.Log("FuncX<object, object>");
+            System.Console.WriteLine("FuncX<object, object>");
         }
         if (d as FuncX<string, object> != null)
         {
-            TestLog.Log("FuncX<string, object>");
+            System.Console.WriteLine("FuncX<string, object>");
         }
         if (d as FuncX<int, object> != null)
         {
-            TestLog.Log("FuncX<int, object>");
+            System.Console.WriteLine("FuncX<int, object>");
         }
     }
 }

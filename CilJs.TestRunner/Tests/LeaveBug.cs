@@ -20,7 +20,7 @@ class Program
     public static void Main()
     {
         string[] s = new[] { "asd" };
-        TestLog.Log(FirstOrDefault(s, x => true));
+        System.Console.WriteLine(FirstOrDefault(s, x => true));
     }
 }
 

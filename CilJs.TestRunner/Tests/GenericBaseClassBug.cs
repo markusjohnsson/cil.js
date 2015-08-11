@@ -20,6 +20,6 @@ public class Program
     public static void Main()
     {
         var b = new B();
-        TestLog.Log(b.X(new C()));
+        System.Console.WriteLine(b.X(new C()));
     }
 }

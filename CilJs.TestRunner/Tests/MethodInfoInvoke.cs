@@ -10,7 +10,7 @@ class A
 
     public string X(string a)
     {
-        TestLog.Log(a);
+        System.Console.WriteLine(a);
         return Y + a;
     }
 }
@@ -22,6 +22,6 @@ class Program
     public static void Main()
     {
         var m = typeof(A).GetMethods()[0];
-        TestLog.Log(m.Invoke(new A("Hello"), new object[] { "World" }));
+        System.Console.WriteLine(m.Invoke(new A("Hello"), new object[] { "World" }));
     }
 }

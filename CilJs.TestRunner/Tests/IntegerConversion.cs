@@ -12,8 +12,8 @@ class Program
 
     private static void Test(double p)
     {
-        TestLog.Log((int)Math.Sqrt(p) == 1);
-        TestLog.Log((int)Math.Sqrt(p) == 2);
-        TestLog.Log((int)Math.Sqrt(p) == 3);
+        System.Console.WriteLine((int)Math.Sqrt(p) == 1);
+        System.Console.WriteLine((int)Math.Sqrt(p) == 2);
+        System.Console.WriteLine((int)Math.Sqrt(p) == 3);
     }
 }

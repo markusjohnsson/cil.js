@@ -489,6 +489,10 @@ var CILJS;
         self._methodPtr = methodPtr;
         self._target = target;
     }
+
+    ciljs.console_write_line = function (managedStr) {
+        console.log(managedStr.jsstr);
+    }
 })(CILJS || (CILJS = {}));var asm0;(function (asm)
 {
     asm.FullName = "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
@@ -3505,15 +3509,54 @@ var CILJS;
     /* static System.Void Console.WriteLine(String,Object[])*/
     asm.x600005b = function WriteLine(arg0, arg1)
     {
-        /* IL_00: nop  */
-        /* IL_01: ldarg.0  */
-        /* IL_02: ldarg.1  */
-        /* IL_03: call String Format(System.String, System.Object[]) */
-        /* IL_08: call Void WriteLineImpl(System.String) */
-        asm0.x6000059(asm0.x6000139(arg0,arg1));
-        /* IL_0D: nop  */
-        /* IL_0E: ret  */
-        return ;
+        var t0;
+        var in_block_0;
+        var __pos__;
+        var loc0;
+        t0 = (asm0)["System.String"]();
+        in_block_0 = true;
+        __pos__ = 0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.0  */
+                /* IL_02: ldnull  */
+                /* IL_04: ceq  */
+                /* IL_05: stloc.0  */
+                loc0 = ((arg0 === null) ? (1) : (0));
+                /* IL_06: ldloc.0  */
+                /* IL_07: brfalse.s IL_16 */
+                
+                if ((!(loc0))){
+                    __pos__ = 0x16;
+                    continue;
+                }
+                asm0.x6000142();
+                /* IL_09: ldsfld String Empty */
+                /* IL_0E: call Void WriteLineImpl(System.String) */
+                asm0.x6000059(t0.Empty);
+                /* IL_13: nop  */
+                
+                /* IL_14: br.s IL_23 */
+                __pos__ = 0x23;
+                continue;
+                case 0x16:
+                /* IL_16: ldarg.0  */
+                /* IL_17: ldarg.1  */
+                /* IL_18: call String Format(System.String, System.Object[]) */
+                /* IL_1D: call Void WriteLineImpl(System.String) */
+                asm0.x6000059(asm0.x6000139(arg0,arg1));
+                /* IL_22: nop  */
+                
+                case 0x23:
+                /* IL_23: ret  */
+                return ;
+            }
+        }
     };;
     /*  Console..ctor()*/
     asm.x600005c = function _ctor(arg0)

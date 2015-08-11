@@ -17,6 +17,6 @@ class Program
 
     public static void Isa(object o)
     {
-        TestLog.Log(o is A ? "true" : "false");
+        System.Console.WriteLine(o is A ? "true" : "false");
     }
 }

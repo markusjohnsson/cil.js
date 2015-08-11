@@ -6,23 +6,23 @@ class Program
         try
         {
             if (Get() != 0)
-                TestLog.Log(Get().ToString());
+                System.Console.WriteLine(Get().ToString());
         }
         finally
         {
             try
             {
                 if (Get() != 0)
-                    TestLog.Log(Get().ToString());
+                    System.Console.WriteLine(Get().ToString());
             }
             finally
             {
                 if (Get() != 0)
-                    TestLog.Log(Get().ToString());
+                    System.Console.WriteLine(Get().ToString());
             }
 
             if (Get() != 0)
-                TestLog.Log(Get().ToString());
+                System.Console.WriteLine(Get().ToString());
         }
     }
 

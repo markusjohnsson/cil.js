@@ -5,27 +5,27 @@ class Program
     {
         try
         {
-            TestLog.Log("Try 1");
+            System.Console.WriteLine("Try 1");
 
             try
             {
-                TestLog.Log("Try 2");
+                System.Console.WriteLine("Try 2");
                 throw new Exception();
             }
             finally
             {
-                TestLog.Log("Finally with branching");
+                System.Console.WriteLine("Finally with branching");
 
                 if (What())
-                    TestLog.Log("In branch");
+                    System.Console.WriteLine("In branch");
 
-                TestLog.Log("After branch");
+                System.Console.WriteLine("After branch");
             }
-            TestLog.Log("After Finally");
+            System.Console.WriteLine("After Finally");
         }
         catch (Exception e)
         {
-            TestLog.Log("Catch");
+            System.Console.WriteLine("Catch");
         }
     }
 

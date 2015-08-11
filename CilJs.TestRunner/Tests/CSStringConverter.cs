@@ -10,11 +10,11 @@ class S
 {
     public void Append(string p)
     {
-        TestLog.Log(p);
+        System.Console.WriteLine(p);
     }
     public void Append(char p)
     {
-        TestLog.Log(p);
+        System.Console.WriteLine(p);
     }
 }
 

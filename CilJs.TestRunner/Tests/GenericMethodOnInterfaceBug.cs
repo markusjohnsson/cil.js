@@ -8,8 +8,8 @@ class A<T>: I<T>
 {
     public void X<T2>(string param)
     {
-        TestLog.Log(typeof(T2).FullName);
-        TestLog.Log(param);
+        System.Console.WriteLine(typeof(T2).FullName);
+        System.Console.WriteLine(param);
     }
 }
 

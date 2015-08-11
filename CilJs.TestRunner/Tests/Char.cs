@@ -10,9 +10,9 @@ class Program
 
     private static void Log(string str)
     {
-        TestLog.Log(str[0]);
-        TestLog.Log(str[1]);
-        TestLog.Log(str[2]);
-        TestLog.Log(str[3]);
+        System.Console.WriteLine(str[0]);
+        System.Console.WriteLine(str[1]);
+        System.Console.WriteLine(str[2]);
+        System.Console.WriteLine(str[3]);
     }
 }

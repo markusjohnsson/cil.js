@@ -3,7 +3,7 @@ public class A
 {
     public virtual void M()
     {
-        TestLog.Log("A");
+        System.Console.WriteLine("A");
     }
 }
 
@@ -11,7 +11,7 @@ public class B: A
 {
     public override void M()
     {
-        TestLog.Log("B");
+        System.Console.WriteLine("B");
     }
 }
 

@@ -20,6 +20,6 @@ class Program
 
     public static void CallDelegate(MFunc<IntWrapper, StringWrapper> a)
     {
-        TestLog.Log(a(new IntWrapper { Value = 123 }).Value);
+        System.Console.WriteLine(a(new IntWrapper { Value = 123 }).Value);
     }
 }

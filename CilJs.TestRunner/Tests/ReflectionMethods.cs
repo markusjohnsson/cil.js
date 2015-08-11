@@ -14,7 +14,7 @@ public class Program
         var ms = a.GetMethods();
 
         foreach (var m in ms)
-            TestLog.Log(m.Name);
+            System.Console.WriteLine(m.Name);
     }
 }
 

@@ -1,4 +1,4 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "ArrayIteration.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
@@ -39,7 +39,7 @@ var asm2;(function (asm)
         (loc0.jsarr)[(4|0)] = (40|0);
         /* IL_20: ldloc.0  */
         /* IL_21: call Void PrintArray(System.Collections.IEnumerable) */
-        asm2.x6000002(loc0);
+        asm1.x6000002(loc0);
         /* IL_26: ret  */
         return ;
     };;
@@ -101,8 +101,8 @@ var asm2;(function (asm)
                             /* IL_0F: stloc.0  */
                             loc0 = (((loc1.ifacemap)[t1].x60001b3)())(CILJS.convert_box_to_pointer_as_needed(loc1));
                             /* IL_10: ldloc.0  */
-                            /* IL_11: call Void Log(System.Object) */
-                            asm1.x6000001(loc0);
+                            /* IL_11: call Void WriteLine(System.Object) */
+                            asm0.x600005a(loc0);
                             case 0x16:
                             /* IL_16: ldloc.1  */
                             /* IL_17: callvirt Boolean MoveNext() */
@@ -176,11 +176,11 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000001;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));

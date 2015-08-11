@@ -15,7 +15,7 @@ class Program
 {
     public static void Test<T>(object o)
     {
-        TestLog.Log(o is T ? "true" : "false");
+        System.Console.WriteLine(o is T ? "true" : "false");
     }
 
     public static void Main()

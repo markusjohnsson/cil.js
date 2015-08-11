@@ -1,4 +1,4 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "OutParameters.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /*  C..ctor()*/
@@ -22,7 +22,7 @@ var asm2;(function (asm)
     /* static System.Void Program.Y(A&)*/
     asm.x6000003_init = function ()
     {
-        (asm2.A().init)();
+        (asm1.A().init)();
         asm.x6000003 = asm.x6000003_;
     };;
     asm.x6000003 = function (arg0)
@@ -38,8 +38,8 @@ var asm2;(function (asm)
         var st_02;
         var st_03;
         var st_04;
-        t0 = asm2.A();
-        loc0 = new (asm2.A())();
+        t0 = asm1.A();
+        loc0 = new (asm1.A())();
         /* IL_00: ldarg.0  */
         st_03 = arg0;
         /* IL_01: ldloca.s 0 */
@@ -70,7 +70,7 @@ var asm2;(function (asm)
     /* static System.Void Program.Z(C&)*/
     asm.x6000004_init = function ()
     {
-        (asm2.C().init)();
+        (asm1.C().init)();
         asm.x6000004 = asm.x6000004_;
     };;
     asm.x6000004 = function (arg0)
@@ -86,12 +86,12 @@ var asm2;(function (asm)
         var st_03;
         var st_04;
         var loc0;
-        t0 = asm2.C();
+        t0 = asm1.C();
         /* IL_00: ldarg.0  */
         st_03 = arg0;
         /* IL_01: newobj Void .ctor() */
         /* IL_06: stloc.0  */
-        loc0 = CILJS.newobj(t0,asm2.x6000001,[null]);
+        loc0 = CILJS.newobj(t0,asm1.x6000001,[null]);
         /* IL_07: ldloc.0  */
         st_01 = loc0;
         /* IL_08: ldc.i4.4  */
@@ -115,11 +115,11 @@ var asm2;(function (asm)
         CILJS.init_base_types();
         t0 = (asm0)["System.Int32"]();
         loc0 = 0;
-        loc1 = new (asm2.A())();
+        loc1 = new (asm1.A())();
         loc2 = null;
         /* IL_00: ldloca.s 0 */
         /* IL_02: call Void X(System.Int32&) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'w': function (v)
                 {
                     loc0 = v;
@@ -131,7 +131,7 @@ var asm2;(function (asm)
             });
         /* IL_07: ldloca.s 1 */
         /* IL_09: call Void Y(A&) */
-        asm2.x6000003({
+        asm1.x6000003({
                 'w': function (v)
                 {
                     loc1 = v;
@@ -143,7 +143,7 @@ var asm2;(function (asm)
             });
         /* IL_0E: ldloca.s 2 */
         /* IL_10: call Void Z(C&) */
-        asm2.x6000004({
+        asm1.x6000004({
                 'w': function (v)
                 {
                     loc2 = v;
@@ -155,8 +155,8 @@ var asm2;(function (asm)
             });
         /* IL_15: ldloc.0  */
         /* IL_16: box System.Int32 */
-        /* IL_1B: call Void Log(System.Object) */
-        asm1.x6000001({
+        /* IL_1B: call Void WriteLine(System.Object) */
+        asm0.x600005a({
                 'boxed': loc0,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -165,8 +165,8 @@ var asm2;(function (asm)
         /* IL_20: ldloca.s 1 */
         /* IL_22: ldfld Int32 U */
         /* IL_27: box System.Int32 */
-        /* IL_2C: call Void Log(System.Object) */
-        asm1.x6000001({
+        /* IL_2C: call Void WriteLine(System.Object) */
+        asm0.x600005a({
                 'boxed': loc1.U,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -175,8 +175,8 @@ var asm2;(function (asm)
         /* IL_31: ldloc.2  */
         /* IL_32: ldfld Int32 V */
         /* IL_37: box System.Int32 */
-        /* IL_3C: call Void Log(System.Object) */
-        asm1.x6000001({
+        /* IL_3C: call Void WriteLine(System.Object) */
+        asm0.x600005a({
                 'boxed': loc2.V,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -203,8 +203,8 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"A",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.init_type(this,asm,"A",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x6000176");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
@@ -220,8 +220,8 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"C",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
-            this.GenericTypeMetadataName = "asm2.t2000003";
+            CILJS.init_type(this,asm,"C",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+            this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
@@ -237,11 +237,11 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000004");
-            this.GenericTypeMetadataName = "asm2.t2000004";
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004");
+            this.GenericTypeMetadataName = "asm1.t2000004";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000005;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));

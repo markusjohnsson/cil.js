@@ -14,7 +14,7 @@ class C<T> : I where T: I2
 {
     public void X(T i2) 
     {
-        TestLog.Log(i2.Get());
+        System.Console.WriteLine(i2.Get());
     }
 }
 

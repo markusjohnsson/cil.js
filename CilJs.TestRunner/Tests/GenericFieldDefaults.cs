@@ -10,9 +10,9 @@ public class Program
     public static void Main()
     {
         var a = new A<object>();
-        TestLog.Log(a.Value);
+        System.Console.WriteLine(a.Value);
 
         var b = new A<int>();
-        TestLog.Log(b.Value);
+        System.Console.WriteLine(b.Value);
     }
 }

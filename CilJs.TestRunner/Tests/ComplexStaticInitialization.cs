@@ -25,10 +25,10 @@ class Program
 
     public static void Main()
     {
-        TestLog.Log(IsA<D>(A<D>.Instance));
+        System.Console.WriteLine(IsA<D>(A<D>.Instance));
 
-        TestLog.Log(A<E>.Instance.GetType().Name);
-        TestLog.Log(A<D>.Instance.GetType().Name);
+        System.Console.WriteLine(A<E>.Instance.GetType().Name);
+        System.Console.WriteLine(A<D>.Instance.GetType().Name);
 
         
     }

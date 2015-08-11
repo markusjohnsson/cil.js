@@ -29,10 +29,10 @@ class test
 
         if (global != 1)
         {
-            TestLog.Log("Error");
+            System.Console.WriteLine("Error");
             return 1;
         }
-        TestLog.Log("Ok");
+        System.Console.WriteLine("Ok");
         return 0;
     }
 }

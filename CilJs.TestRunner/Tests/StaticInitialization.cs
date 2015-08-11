@@ -38,14 +38,14 @@ class Program
         Is(Y<object>.Prop);
         Is(Y<A>.Prop);
         Is(Y<B>.Prop);
-        TestLog.Log(Q.Always(null));
-        TestLog.Log(Q.Always(null));
+        System.Console.WriteLine(Q.Always(null));
+        System.Console.WriteLine(Q.Always(null));
     }
 
     public static void Is(object o)
     {
-        TestLog.Log(o.ToString());
-        TestLog.Log(o is A);
-        TestLog.Log(o is B);
+        System.Console.WriteLine(o.ToString());
+        System.Console.WriteLine(o is A);
+        System.Console.WriteLine(o is B);
     }
 }

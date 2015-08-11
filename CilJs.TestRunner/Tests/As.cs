@@ -29,11 +29,11 @@ class Program
 
     private static void AsA(object o)
     {
-        TestLog.Log((o as A) == null ? "null" : "not null");
+        System.Console.WriteLine((o as A) == null ? "null" : "not null");
     }
 
     private static void As<T>(object o) where T: class
     {
-        TestLog.Log((o as T) == null ? "null" : "not null");
+        System.Console.WriteLine((o as T) == null ? "null" : "not null");
     }
 }

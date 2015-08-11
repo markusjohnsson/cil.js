@@ -19,30 +19,30 @@ class Program
 
         CallDelegate(f);
 
-        TestLog.Log("f, f");
+        System.Console.WriteLine("f, f");
         TestEquality(f, f);
         
-        TestLog.Log("f, X");
+        System.Console.WriteLine("f, X");
         TestEquality(f, X);
 
-        TestLog.Log("f, Y");
+        System.Console.WriteLine("f, Y");
         TestEquality(f, Y);
 
-        TestLog.Log("f, null");
+        System.Console.WriteLine("f, null");
         TestEquality(f, null);
 
-        TestLog.Log("null, null");
+        System.Console.WriteLine("null, null");
         TestEquality(null, null);
     }
 
     private static void CallDelegate(Foo f)
     {
-        TestLog.Log(f(123));
+        System.Console.WriteLine(f(123));
     }
 
     private static void TestEquality(Foo f, Foo g)
     {
-        TestLog.Log(f == g);
-        TestLog.Log(f != g);
+        System.Console.WriteLine(f == g);
+        System.Console.WriteLine(f != g);
     }
 }

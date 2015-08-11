@@ -20,17 +20,17 @@ public class Program
     public static void Main(string[] args)
     {
         var a0 = typeof(B).GetCustomAttributes(true);
-        TestLog.Log(a0.Length);
+        System.Console.WriteLine(a0.Length);
         for (var i = 0; i < a0.Length; i++)
         {
-            TestLog.Log(typeof(A).Equals(a0[i].GetType()));
-            TestLog.Log(a0[i].GetType().FullName);
+            System.Console.WriteLine(typeof(A).Equals(a0[i].GetType()));
+            System.Console.WriteLine(a0[i].GetType().FullName);
         }
 
         var a1 = typeof(C).GetCustomAttributes(true);
-        TestLog.Log(((A2)a1[0]).P);
+        System.Console.WriteLine(((A2)a1[0]).P);
 
         var a2 = typeof(D).GetCustomAttributes(true);
-        TestLog.Log(a2.Length);
+        System.Console.WriteLine(a2.Length);
     }
 }

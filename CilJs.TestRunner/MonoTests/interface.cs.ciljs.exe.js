@@ -1,4 +1,4 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "interface.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* System.Double Obj.Area()*/
@@ -34,7 +34,7 @@ var asm2;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        asm2.x6000003(arg0);
+        asm1.x6000003(arg0);
         /* IL_06: ldarg.0  */
         /* IL_07: ldarg.1  */
         /* IL_08: stfld Int32 x */
@@ -73,7 +73,7 @@ var asm2;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        asm2.x6000003(arg0);
+        asm1.x6000003(arg0);
         /* IL_06: ldarg.0  */
         /* IL_07: ldarg.1  */
         /* IL_08: stfld Int32 x */
@@ -92,9 +92,9 @@ var asm2;(function (asm)
     /* static System.Int32 Test.Main()*/
     asm.x6000008_init = function ()
     {
-        ((asm2)["Obj.Rect"]().init)();
-        ((asm2)["Obj.Circle"]().init)();
-        ((asm2)["Obj.Measurable"]().init)();
+        ((asm1)["Obj.Rect"]().init)();
+        ((asm1)["Obj.Circle"]().init)();
+        ((asm1)["Obj.Measurable"]().init)();
         asm.x6000008 = asm.x6000008_;
     };;
     asm.x6000008 = function ()
@@ -113,9 +113,9 @@ var asm2;(function (asm)
         var loc1;
         var loc2;
         CILJS.init_base_types();
-        t0 = (asm2)["Obj.Rect"]();
-        t1 = (asm2)["Obj.Circle"]();
-        t2 = (asm2)["Obj.Measurable"]();
+        t0 = (asm1)["Obj.Rect"]();
+        t1 = (asm1)["Obj.Circle"]();
+        t2 = (asm1)["Obj.Measurable"]();
         in_block_0 = true;
         __pos__ = 0;
         
@@ -129,20 +129,20 @@ var asm2;(function (asm)
                 /* IL_04: ldc.i4.s 20 */
                 /* IL_06: newobj Void .ctor(System.Int32, System.Int32, System.Int32, System.Int32) */
                 /* IL_0B: stloc.0  */
-                loc0 = CILJS.newobj(t0,asm2.x6000004,[null, (0|0), (0|0), (10|0), (20|0)]);
+                loc0 = CILJS.newobj(t0,asm1.x6000004,[null, (0|0), (0|0), (10|0), (20|0)]);
                 /* IL_0C: ldc.i4.0  */
                 /* IL_0D: ldc.i4.0  */
                 /* IL_0E: ldc.i4.s 20 */
                 /* IL_10: newobj Void .ctor(System.Int32, System.Int32, System.Int32) */
                 /* IL_15: stloc.1  */
-                loc1 = CILJS.newobj(t1,asm2.x6000006,[null, (0|0), (0|0), (20|0)]);
+                loc1 = CILJS.newobj(t1,asm1.x6000006,[null, (0|0), (0|0), (20|0)]);
                 /* IL_16: ldloc.0  */
                 /* IL_17: callvirt Double Area() */
                 /* IL_1C: ldloc.1  */
                 /* IL_1D: callvirt Double Area() */
                 /* IL_22: add  */
                 /* IL_23: stloc.2  */
-                loc2 = ((loc0.vtable)["asm2.x6000002"]())(loc0) + ((loc1.vtable)["asm2.x6000002"]())(loc1);
+                loc2 = ((loc0.vtable)["asm1.x6000002"]())(loc0) + ((loc1.vtable)["asm1.x6000002"]())(loc1);
                 /* IL_24: ldloc.2  */
                 /* IL_25: ldc.r8 0 */
                 /* IL_2E: beq.s IL_32 */
@@ -163,7 +163,7 @@ var asm2;(function (asm)
                 /* IL_43: callvirt Double Area() */
                 /* IL_48: add  */
                 /* IL_49: stloc.2  */
-                loc2 = asm2.x6000005(CILJS.cast_class(loc0,t0)) + asm2.x6000007(CILJS.cast_class(loc1,t1));
+                loc2 = asm1.x6000005(CILJS.cast_class(loc0,t0)) + asm1.x6000007(CILJS.cast_class(loc1,t1));
                 /* IL_4A: ldloc.2  */
                 /* IL_4B: ldc.r8 1456,637061436 */
                 /* IL_54: sub  */
@@ -222,10 +222,10 @@ var asm2;(function (asm)
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Measurable",false,false,true,false,false,[],[
-                    [asm2, "x6000001", "Area"]
-                ],null,CILJS.is_inst_interface(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
-            CILJS.declare_virtual(this,"asm2.x6000001","asm2.x6000001");
+                    [asm1, "x6000001", "Area"]
+                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
+            CILJS.declare_virtual(this,"asm1.x6000001","asm1.x6000001");
         });
     (asm)["Obj.Obj"] = CILJS.declare_type(
         "Obj",
@@ -238,18 +238,18 @@ var asm2;(function (asm)
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Obj",false,false,false,false,false,[],[
-                    [asm2, "x6000002", "Area"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
-            this.GenericTypeMetadataName = "asm2.t2000003";
-            CILJS.declare_virtual(this,"asm2.x6000002","asm2.x6000002");
+                    [asm1, "x6000002", "Area"]
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+            this.GenericTypeMetadataName = "asm1.t2000003";
+            CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
             CILJS.implement_interface(
                 this,
-                [(asm2)["Obj.Measurable"]()],
+                [(asm1)["Obj.Measurable"]()],
                 {
-                    'x6000001': function (){ return asm2.x6000002;}
+                    'x6000001': function (){ return asm1.x6000002;}
                 });
         });
     (asm)["Obj.Rect"] = CILJS.declare_type(
@@ -257,24 +257,24 @@ var asm2;(function (asm)
         [],
         function ()
         {
-            return (asm2)["Obj.Obj"]();
+            return (asm1)["Obj.Obj"]();
         },
         function ()
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Rect",false,false,false,false,false,[],[
-                    [asm2, "x6000005", "Area"]
-                ],(asm2)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm2.t2000004");
-            this.GenericTypeMetadataName = "asm2.t2000004";
-            CILJS.declare_virtual(this,"asm2.x6000002","asm2.x6000002");
+                    [asm1, "x6000005", "Area"]
+                ],(asm1)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm1.t2000004");
+            this.GenericTypeMetadataName = "asm1.t2000004";
+            CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
             CILJS.implement_interface(
                 this,
-                [(asm2)["Obj.Measurable"]()],
+                [(asm1)["Obj.Measurable"]()],
                 {
-                    'x6000001': function (){ return asm2.x6000002;}
+                    'x6000001': function (){ return asm1.x6000002;}
                 });
             this.prototype.ObjRectx = 0;
             this.prototype.ObjRecty = 0;
@@ -286,24 +286,24 @@ var asm2;(function (asm)
         [],
         function ()
         {
-            return (asm2)["Obj.Obj"]();
+            return (asm1)["Obj.Obj"]();
         },
         function ()
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Circle",false,false,false,false,false,[],[
-                    [asm2, "x6000007", "Area"]
-                ],(asm2)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm2.t2000005");
-            this.GenericTypeMetadataName = "asm2.t2000005";
-            CILJS.declare_virtual(this,"asm2.x6000002","asm2.x6000002");
+                    [asm1, "x6000007", "Area"]
+                ],(asm1)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm1.t2000005");
+            this.GenericTypeMetadataName = "asm1.t2000005";
+            CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
             CILJS.implement_interface(
                 this,
-                [(asm2)["Obj.Measurable"]()],
+                [(asm1)["Obj.Measurable"]()],
                 {
-                    'x6000001': function (){ return asm2.x6000002;}
+                    'x6000001': function (){ return asm1.x6000002;}
                 });
             this.prototype.ObjCirclex = 0;
             this.prototype.ObjCircley = 0;
@@ -319,11 +319,11 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Obj.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000006");
-            this.GenericTypeMetadataName = "asm2.t2000006";
+            CILJS.init_type(this,asm,"Obj.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000006");
+            this.GenericTypeMetadataName = "asm1.t2000006";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000008;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));

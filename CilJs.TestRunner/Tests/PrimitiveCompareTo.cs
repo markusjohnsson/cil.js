@@ -29,11 +29,11 @@ public class Program
     {
         try
         {
-            TestLog.Log(a.CompareTo(b));
+            System.Console.WriteLine(a.CompareTo(b));
         }
         catch
         {
-            TestLog.Log("threw");
+            System.Console.WriteLine("threw");
         }
     }
 }

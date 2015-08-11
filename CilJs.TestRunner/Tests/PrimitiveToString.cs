@@ -50,13 +50,13 @@
 
     public static void PrintObject(object o)
     {
-        TestLog.Log(o);
+        System.Console.WriteLine(o);
 
         PrintArray(new object[] { o });
     }
 
     public static void PrintArray(object[] a)
     {
-        TestLog.Log(a[0].ToString());
+        System.Console.WriteLine(a[0].ToString());
     }
 }

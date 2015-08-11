@@ -17,7 +17,7 @@ public class Program
 
         x();
 
-        TestLog.Log(b.Prop);
+        System.Console.WriteLine(b.Prop);
     }
 }
 

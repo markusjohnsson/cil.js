@@ -13,6 +13,6 @@ class Program
     {
         I i = Get();
 
-        TestLog.Log(i is A);
+        System.Console.WriteLine(i is A);
     }
 }

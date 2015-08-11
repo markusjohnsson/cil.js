@@ -7,12 +7,12 @@ public class A
     {
         public static void M()
         {
-            TestLog.Log("A.B.M");
+            System.Console.WriteLine("A.B.M");
         }
 
         public void X()
         {
-            TestLog.Log("A.B.X");
+            System.Console.WriteLine("A.B.X");
         }
     }
 }
@@ -27,7 +27,7 @@ public class C
 
             public void Y()
             {
-                TestLog.Log("C.D.E.Y" + y++);
+                System.Console.WriteLine("C.D.E.Y" + y++);
             }
         }
     }

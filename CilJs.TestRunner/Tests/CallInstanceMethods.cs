@@ -4,7 +4,7 @@ class A
 {
     public void Callee()
     {
-        TestLog.Log("Called!");
+        System.Console.WriteLine("Called!");
     }
 }
 

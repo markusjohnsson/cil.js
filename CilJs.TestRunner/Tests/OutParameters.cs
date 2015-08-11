@@ -29,9 +29,9 @@ public class Program
         Y(out b);
         Z(out c);
 
-        TestLog.Log(a);
-        TestLog.Log(b.U);
-        TestLog.Log(c.V);
+        System.Console.WriteLine(a);
+        System.Console.WriteLine(b.U);
+        System.Console.WriteLine(c.V);
     }
 
 }

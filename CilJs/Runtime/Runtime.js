@@ -489,4 +489,8 @@ var CILJS;
         self._methodPtr = methodPtr;
         self._target = target;
     }
+
+    ciljs.console_write_line = function (managedStr) {
+        console.log(managedStr.jsstr);
+    }
 })(CILJS || (CILJS = {}));

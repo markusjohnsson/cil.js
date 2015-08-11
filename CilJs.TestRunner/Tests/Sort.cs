@@ -81,22 +81,22 @@ public class Program
     }
     public static void Main()
     {
-        TestLog.Log("Ascending");
+        System.Console.WriteLine("Ascending");
         var b = CreateBazCollection();
         Array.Sort(b, new ByName());
 
         for (int i = 0; i < b.Length; i++)
         {
-            TestLog.Log(b[i]);
+            System.Console.WriteLine(b[i]);
         }
 
-        TestLog.Log("Descending");
+        System.Console.WriteLine("Descending");
         var a = CreateBazCollection();
         Array.Sort(a, new ByNameDescending());
 
         for (int i = 0; i < a.Length; i++)
         {
-            TestLog.Log(a[i]);
+            System.Console.WriteLine(a[i]);
         }
     }
 }

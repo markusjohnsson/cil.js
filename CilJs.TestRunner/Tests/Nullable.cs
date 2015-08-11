@@ -27,9 +27,9 @@ public class Program
 
     private static void Print(A? a)
     {
-        TestLog.Log(a.HasValue ? "true" : "false");
+        System.Console.WriteLine(a.HasValue ? "true" : "false");
 
         if (a != null)
-            TestLog.Log(a.Value.X);
+            System.Console.WriteLine(a.Value.X);
     }
 }

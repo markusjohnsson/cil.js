@@ -22,7 +22,7 @@ class Program
         a.AX = 123;
         a.BX = 321;
 
-        TestLog.Log(a.AX);
-        TestLog.Log(a.BX);
+        System.Console.WriteLine(a.AX);
+        System.Console.WriteLine(a.BX);
     }
 }

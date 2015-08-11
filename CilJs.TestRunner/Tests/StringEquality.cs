@@ -3,9 +3,9 @@ internal class Program
 {
     public static void Cmp(string s)
     {
-        TestLog.Log(s == "Hello World");
-        TestLog.Log(s.Equals("Hello World"));
-        TestLog.Log("Hello World".Equals(s));
+        System.Console.WriteLine(s == "Hello World");
+        System.Console.WriteLine(s.Equals("Hello World"));
+        System.Console.WriteLine("Hello World".Equals(s));
     }
 
     public static void Main()

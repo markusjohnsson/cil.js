@@ -32,6 +32,6 @@ class Program
     public static void Print<T>(T[] arr) 
     {
         for (var i = 0; i < arr.Length; i++)
-            TestLog.Log(arr[i]);
+            System.Console.WriteLine(arr[i]);
     }
 }

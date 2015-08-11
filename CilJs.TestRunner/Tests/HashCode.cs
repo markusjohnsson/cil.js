@@ -7,12 +7,12 @@ class Program
     {
         var x = new A();
         var hc = x.GetHashCode();
-        TestLog.Log(hc != 0);
-        TestLog.Log(hc == x.GetHashCode());
+        System.Console.WriteLine(hc != 0);
+        System.Console.WriteLine(hc == x.GetHashCode());
 
         var y = new A();
-        TestLog.Log(y.GetHashCode() == y.GetHashCode());
-        TestLog.Log(y.GetHashCode() != x.GetHashCode());
+        System.Console.WriteLine(y.GetHashCode() == y.GetHashCode());
+        System.Console.WriteLine(y.GetHashCode() != x.GetHashCode());
 
         TestString("hello");
     }
@@ -22,7 +22,7 @@ class Program
         var a = s + " world";
         var b = "hello world";
 
-        TestLog.Log(a.GetHashCode() == b.GetHashCode());
-        TestLog.Log(a.GetHashCode() == s.GetHashCode());
+        System.Console.WriteLine(a.GetHashCode() == b.GetHashCode());
+        System.Console.WriteLine(a.GetHashCode() == s.GetHashCode());
     }
 }

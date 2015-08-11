@@ -11,12 +11,12 @@ class C : I<A>, I<B>
 {
     void I<A>.Print()
     {
-        TestLog.Log("A");
+        System.Console.WriteLine("A");
     }
 
     void I<B>.Print()
     {
-        TestLog.Log("B");
+        System.Console.WriteLine("B");
     }
 }
 

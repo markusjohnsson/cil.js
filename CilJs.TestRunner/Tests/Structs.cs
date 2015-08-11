@@ -24,6 +24,6 @@ class Program
 
     private static void Print(A a)
     {
-        TestLog.Log(a.Value);
+        System.Console.WriteLine(a.Value);
     }
 }

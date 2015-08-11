@@ -34,19 +34,19 @@ public class Program
         }
         catch (C c)
         {
-            TestLog.Log(c.Message);
+            System.Console.WriteLine(c.Message);
         }
         catch (B b)
         {
-            TestLog.Log(b.Message);
+            System.Console.WriteLine(b.Message);
         }
         catch (A a)
         {
-            TestLog.Log(a.Message);
+            System.Console.WriteLine(a.Message);
         }
         finally
         {
-            TestLog.Log("Finally");
+            System.Console.WriteLine("Finally");
         }
     }
 }

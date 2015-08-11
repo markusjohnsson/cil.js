@@ -18,7 +18,7 @@ class Program
     {
         IAsyncResult result;
         var state = 0;
-        A a = () => { TestLog.Log("A"); };
+        A a = () => { System.Console.WriteLine("A"); };
         result = null;
         result = a.BeginInvoke((r) => { state = 1; }, " state ");
 
@@ -26,23 +26,23 @@ class Program
 
         a.EndInvoke(result);
 
-        TestLog.Log(state);
-        TestLog.Log(result.AsyncState);
+        System.Console.WriteLine(state);
+        System.Console.WriteLine(result.AsyncState);
     }
 
     public static void Simple()
     {
         IAsyncResult result;
 
-        A a = () => { TestLog.Log("A"); };
+        A a = () => { System.Console.WriteLine("A"); };
         result = null;
         result = a.BeginInvoke(null, null);
         a.EndInvoke(result);
 
-        B b = () => { TestLog.Log("B"); return 123; };
+        B b = () => { System.Console.WriteLine("B"); return 123; };
         result = null;
         result = b.BeginInvoke(null, null);
-        TestLog.Log(b.EndInvoke(result));
+        System.Console.WriteLine(b.EndInvoke(result));
 
         IAsyncResult r1, r2;
         int i = 0;
@@ -52,8 +52,8 @@ class Program
         r2 = c.BeginInvoke(456, null, null);
         c.EndInvoke(r1);
         c.EndInvoke(r2);
-        TestLog.Log(arr[0] == 123 || arr[0] == 456);
-        TestLog.Log(arr[1] == 123 || arr[1] == 456);
+        System.Console.WriteLine(arr[0] == 123 || arr[0] == 456);
+        System.Console.WriteLine(arr[1] == 123 || arr[1] == 456);
 
     }
 }

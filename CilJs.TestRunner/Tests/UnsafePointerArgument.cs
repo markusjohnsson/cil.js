@@ -13,7 +13,7 @@ class Program
         int i = 5;
         // Unsafe method: uses address-of operator (&):
         SquarePtrParam(&i);
-        TestLog.Log(i);
+        System.Console.WriteLine(i);
     }
 }
 

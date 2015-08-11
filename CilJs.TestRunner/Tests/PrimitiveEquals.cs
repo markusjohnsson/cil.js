@@ -27,6 +27,6 @@ public class Program
 
     public static void Test(object a, object b)
     {
-        TestLog.Log(a.Equals(b));
+        System.Console.WriteLine(a.Equals(b));
     }
 }

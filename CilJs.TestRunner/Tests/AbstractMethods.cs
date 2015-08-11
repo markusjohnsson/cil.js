@@ -8,7 +8,7 @@ class B : A
 {
     public override void X()
     {
-        TestLog.Log("B.X");
+        System.Console.WriteLine("B.X");
     }
 }
 
@@ -16,7 +16,7 @@ class C : A
 {
     public override void X()
     {
-        TestLog.Log("C.X");
+        System.Console.WriteLine("C.X");
     }
 }
 

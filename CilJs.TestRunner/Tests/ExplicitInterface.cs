@@ -13,12 +13,12 @@
     {
         void I<int>.M()
         {
-            TestLog.Log("int");
+            System.Console.WriteLine("int");
         }
 
         void I<string>.M()
         {
-            TestLog.Log("string");
+            System.Console.WriteLine("string");
         }
     }
 

@@ -3,29 +3,29 @@ class Program
 {
     public static void Test(long l)
     {
-        TestLog.Log((int)l);
-        TestLog.Log((uint)l);
-        TestLog.Log((long)l);
-        TestLog.Log((ulong)l);
-        TestLog.Log((double)l);
+        System.Console.WriteLine((int)l);
+        System.Console.WriteLine((uint)l);
+        System.Console.WriteLine((long)l);
+        System.Console.WriteLine((ulong)l);
+        System.Console.WriteLine((double)l);
     }
 
     public static void Test(ulong l)
     {
-        TestLog.Log((int)l);
-        TestLog.Log((uint)l);
-        TestLog.Log((long)l);
-        TestLog.Log((ulong)l);
-        TestLog.Log((double)l);
+        System.Console.WriteLine((int)l);
+        System.Console.WriteLine((uint)l);
+        System.Console.WriteLine((long)l);
+        System.Console.WriteLine((ulong)l);
+        System.Console.WriteLine((double)l);
     }
 
     public static void Test(int i)
     {
-        TestLog.Log((int)i);
-        TestLog.Log((uint)i);
-        TestLog.Log((long)i);
-        TestLog.Log((ulong)i);
-        TestLog.Log((double)i);
+        System.Console.WriteLine((int)i);
+        System.Console.WriteLine((uint)i);
+        System.Console.WriteLine((long)i);
+        System.Console.WriteLine((ulong)i);
+        System.Console.WriteLine((double)i);
     }
 
     public static void Main()

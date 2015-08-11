@@ -35,7 +35,7 @@ class Program
         var a = new A();
         foreach (var x in a)
         {
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
         }
     }
 }

@@ -11,8 +11,8 @@ public class Program
 
     public static void Main()
     {
-        TestLog.Log(default(int));
-        TestLog.Log(default(string));
-        TestLog.Log(default(A));
+        System.Console.WriteLine(default(int));
+        System.Console.WriteLine(default(string));
+        System.Console.WriteLine(default(A));
     }
 }

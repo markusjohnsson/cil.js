@@ -1,10 +1,10 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "nullable_boxing.2.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Int32 Program.Main()*/
     asm.x6000001_init = function ()
     {
-        ((asm2)["Program+Button"]().init)();
+        ((asm1)["Program+Button"]().init)();
         ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()).init)();
         asm.x6000001 = asm.x6000001_;
     };;
@@ -26,7 +26,7 @@ var asm2;(function (asm)
         var loc1;
         var loc0;
         CILJS.init_base_types();
-        t0 = (asm2)["Program+Button"]();
+        t0 = (asm1)["Program+Button"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.Nullable`1"](t1);
         loc2 = new ((asm0)["System.Nullable`1"]((asm0)["System.Int32"]()))();
@@ -37,7 +37,7 @@ var asm2;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                asm2.x6000005();
+                asm1.x6000005();
                 /* IL_00: ldsfld Button TheButton */
                 /* IL_05: ldc.i4.1  */
                 /* IL_06: newobj Void .ctor(System.Int32) */
@@ -45,7 +45,7 @@ var asm2;(function (asm)
                 /* IL_10: ldc.i4.2  */
                 /* IL_11: beq.s IL_15 */
                 
-                if (asm2.x6000003(t0.TheButton,CILJS.clone_value(CILJS.newobj(t2,asm0.x60000db,[null, (1|0)]))) === (2|0)){
+                if (asm1.x6000003(t0.TheButton,CILJS.clone_value(CILJS.newobj(t2,asm0.x60000db,[null, (1|0)]))) === (2|0)){
                     __pos__ = 0x15;
                     continue;
                 }
@@ -169,7 +169,7 @@ var asm2;(function (asm)
     /* static  Button..cctor()*/
     asm.x6000005_init = function ()
     {
-        ((asm2)["Program+Button"]().init)();
+        ((asm1)["Program+Button"]().init)();
         asm.x6000005 = asm.x6000005_;
     };;
     asm.x6000005 = function ()
@@ -181,15 +181,15 @@ var asm2;(function (asm)
     {
         var t0;
         
-        if ((asm2)["Program+Button"]().FieldsInitialized){
+        if ((asm1)["Program+Button"]().FieldsInitialized){
             return;
         }
-        (asm2)["Program+Button"]().FieldsInitialized = true;
-        t0 = (asm2)["Program+Button"]();
-        asm2.x6000005();
+        (asm1)["Program+Button"]().FieldsInitialized = true;
+        t0 = (asm1)["Program+Button"]();
+        asm1.x6000005();
         /* IL_00: newobj Void .ctor() */
         /* IL_05: stsfld Button TheButton */
-        (t0)["TheButton"] = CILJS.newobj(t0,asm2.x6000004,[null]);
+        (t0)["TheButton"] = CILJS.newobj(t0,asm1.x6000004,[null]);
         /* IL_0A: ret  */
         return ;
     };
@@ -203,8 +203,8 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
@@ -220,13 +220,13 @@ var asm2;(function (asm)
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program+Button",false,false,false,false,false,[],[
-                    [asm2, "x6000003", "Counter"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
+                    [asm1, "x6000003", "Counter"]
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
             this.TheButton = null;
-            this.GenericTypeMetadataName = "asm2.t2000003";
+            this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000001;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));

@@ -14,6 +14,6 @@ class Program
         }
 
         foreach (var i in ints)
-            TestLog.Log(i);
+            System.Console.WriteLine(i);
     }
 }

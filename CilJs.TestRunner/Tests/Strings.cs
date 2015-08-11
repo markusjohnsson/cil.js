@@ -9,16 +9,16 @@ class Program
 {
     public static void Main()
     {
-        TestLog.Log(GetString());
+        System.Console.WriteLine(GetString());
 
         var a = new A();
         a.X = "300";
 
-        TestLog.Log(a.X);
+        System.Console.WriteLine(a.X);
 
-        TestLog.Log(IsString(a.X));
+        System.Console.WriteLine(IsString(a.X));
 
-        TestLog.Log("123456789".Length);
+        System.Console.WriteLine("123456789".Length);
     }
 
     public static string IsString(object o)

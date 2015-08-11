@@ -24,11 +24,11 @@ class Program
         try
         {
             object result = (T)a;
-            TestLog.Log("Success");
+            System.Console.WriteLine("Success");
         }
         catch
         {
-            TestLog.Log("Failure");
+            System.Console.WriteLine("Failure");
         }
     }
 }

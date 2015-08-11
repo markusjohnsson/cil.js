@@ -9,13 +9,13 @@ public class Program
     public static void Main()
     {
         X x = default(X);
-        TestLog.Log((int)x);
+        System.Console.WriteLine((int)x);
         x = X.A;
-        TestLog.Log((int)x);
+        System.Console.WriteLine((int)x);
         x = X.B;
-        TestLog.Log((int)x);
+        System.Console.WriteLine((int)x);
         x = X.C;
-        TestLog.Log((int)x);
+        System.Console.WriteLine((int)x);
 
     }
 }

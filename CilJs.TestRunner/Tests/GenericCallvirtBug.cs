@@ -18,7 +18,7 @@ class A<T>
 
     void Y<TResult>()
     {
-        TestLog.Log(typeof(TResult).Name);
+        System.Console.WriteLine(typeof(TResult).Name);
     }
 }
 

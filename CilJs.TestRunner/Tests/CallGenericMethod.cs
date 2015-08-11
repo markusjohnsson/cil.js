@@ -24,6 +24,6 @@ public class Program
 
     public static void X<T>(I<T> t)
     {
-        TestLog.Log(t.Prop);
+        System.Console.WriteLine(t.Prop);
     }
 }

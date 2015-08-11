@@ -9,7 +9,7 @@ class C<T>
 
     public static void CheckEquals(T t2)
     {
-        TestLog.Log(ReferenceEquals(t, t2));
+        System.Console.WriteLine(ReferenceEquals(t, t2));
     }
 }
 
@@ -21,12 +21,12 @@ public class Program
 
     public static void Main()
     {
-        TestLog.Log(ReferenceEquals(a, null));
-        TestLog.Log(ReferenceEquals(b, null));
-        TestLog.Log(ReferenceEquals(b4, null));
-        TestLog.Log(ReferenceEquals(null, a));
-        TestLog.Log(ReferenceEquals(null, b));
-        TestLog.Log(ReferenceEquals(null, b4));
+        System.Console.WriteLine(ReferenceEquals(a, null));
+        System.Console.WriteLine(ReferenceEquals(b, null));
+        System.Console.WriteLine(ReferenceEquals(b4, null));
+        System.Console.WriteLine(ReferenceEquals(null, a));
+        System.Console.WriteLine(ReferenceEquals(null, b));
+        System.Console.WriteLine(ReferenceEquals(null, b4));
 
         var a2 = new A();
         a = a2;
@@ -41,9 +41,9 @@ public class Program
         CheckEquals(b5, b5);
 
         object b6 = b4;
-        TestLog.Log(ReferenceEquals(b6, b4));
-        TestLog.Log(ReferenceEquals(b2, b2));
-        TestLog.Log(ReferenceEquals(b2, null));
+        System.Console.WriteLine(ReferenceEquals(b6, b4));
+        System.Console.WriteLine(ReferenceEquals(b2, b2));
+        System.Console.WriteLine(ReferenceEquals(b2, null));
 
         C<A>.t = a2;
         C<A>.CheckEquals(a2);
@@ -56,24 +56,24 @@ public class Program
 
     private static void CheckEquals(A a2)
     {
-        TestLog.Log(ReferenceEquals(a, a2));
-        TestLog.Log(ReferenceEquals(a2, a));
-        TestLog.Log(ReferenceEquals(a2, null));
-        TestLog.Log(ReferenceEquals(null, a2));
+        System.Console.WriteLine(ReferenceEquals(a, a2));
+        System.Console.WriteLine(ReferenceEquals(a2, a));
+        System.Console.WriteLine(ReferenceEquals(a2, null));
+        System.Console.WriteLine(ReferenceEquals(null, a2));
     }
 
     private static void CheckEquals(B b2, object b3)
     {
-        TestLog.Log(ReferenceEquals(b, b2));
-        TestLog.Log(ReferenceEquals(b, b3));
-        TestLog.Log(ReferenceEquals(b4, b2));
-        TestLog.Log(ReferenceEquals(b4, b3));
+        System.Console.WriteLine(ReferenceEquals(b, b2));
+        System.Console.WriteLine(ReferenceEquals(b, b3));
+        System.Console.WriteLine(ReferenceEquals(b4, b2));
+        System.Console.WriteLine(ReferenceEquals(b4, b3));
 
-        TestLog.Log(ReferenceEquals(null, b2));
-        TestLog.Log(ReferenceEquals(null, b3));
-        TestLog.Log(ReferenceEquals(b2, null));
-        TestLog.Log(ReferenceEquals(b3, null));
-        TestLog.Log(ReferenceEquals(b4, b2));
-        TestLog.Log(ReferenceEquals(b4, b3));
+        System.Console.WriteLine(ReferenceEquals(null, b2));
+        System.Console.WriteLine(ReferenceEquals(null, b3));
+        System.Console.WriteLine(ReferenceEquals(b2, null));
+        System.Console.WriteLine(ReferenceEquals(b3, null));
+        System.Console.WriteLine(ReferenceEquals(b4, b2));
+        System.Console.WriteLine(ReferenceEquals(b4, b3));
     }
 }

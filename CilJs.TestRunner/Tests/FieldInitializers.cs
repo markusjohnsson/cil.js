@@ -6,7 +6,7 @@ class Program
 
     public static void Main()
     {
-        TestLog.Log(X);
-        TestLog.Log(new Program().Y);
+        System.Console.WriteLine(X);
+        System.Console.WriteLine(new Program().Y);
     }
 }

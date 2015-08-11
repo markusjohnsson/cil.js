@@ -10,6 +10,6 @@ class Program
     {
         var x = new X();
         x.Y = 123;
-        TestLog.Log(x.Y);
+        System.Console.WriteLine(x.Y);
     }
 }

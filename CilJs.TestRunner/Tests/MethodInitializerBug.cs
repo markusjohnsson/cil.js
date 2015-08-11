@@ -19,7 +19,7 @@ class Program
 {
     public static void Main()
     {
-        TestLog.Log(new B<C>().Value.GetType().FullName);
-        TestLog.Log(new B<D>().Value.GetType().FullName);
+        System.Console.WriteLine(new B<C>().Value.GetType().FullName);
+        System.Console.WriteLine(new B<D>().Value.GetType().FullName);
     }
 }

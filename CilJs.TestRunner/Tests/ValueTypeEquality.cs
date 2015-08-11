@@ -48,12 +48,12 @@ public class Program
         A a2 = new A { x = 321 };
         A a3 = default(A);
         A a4 = new A();
-        TestLog.Log(a.Equals(a2));
-        TestLog.Log(a.Equals(a3));
-        TestLog.Log(a.Equals(a4));
-        TestLog.Log(Object.ReferenceEquals(a, a2));
-        TestLog.Log(Object.ReferenceEquals(a, a3));
-        TestLog.Log(Object.ReferenceEquals(a, a4));
+        System.Console.WriteLine(a.Equals(a2));
+        System.Console.WriteLine(a.Equals(a3));
+        System.Console.WriteLine(a.Equals(a4));
+        System.Console.WriteLine(Object.ReferenceEquals(a, a2));
+        System.Console.WriteLine(Object.ReferenceEquals(a, a3));
+        System.Console.WriteLine(Object.ReferenceEquals(a, a4));
     }
 
     public static void TestB(B b)
@@ -61,12 +61,12 @@ public class Program
         var b2 = new B {a = new A {x = 123}};
         var b3 = default(B);
         var b4 = new B {a = new A {x = 22}, c = c1};
-        TestLog.Log(b.Equals(b2));
-        TestLog.Log(b.Equals(b3));
-        TestLog.Log(b.Equals(b4));
-        TestLog.Log(Object.ReferenceEquals(b, b2));
-        TestLog.Log(Object.ReferenceEquals(b, b3));
-        TestLog.Log(Object.ReferenceEquals(b, b4));
+        System.Console.WriteLine(b.Equals(b2));
+        System.Console.WriteLine(b.Equals(b3));
+        System.Console.WriteLine(b.Equals(b4));
+        System.Console.WriteLine(Object.ReferenceEquals(b, b2));
+        System.Console.WriteLine(Object.ReferenceEquals(b, b3));
+        System.Console.WriteLine(Object.ReferenceEquals(b, b4));
 
     }
 }

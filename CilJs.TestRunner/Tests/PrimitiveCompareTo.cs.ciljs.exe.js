@@ -1,4 +1,4 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "PrimitiveCompareTo.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
@@ -18,7 +18,7 @@ var asm2;(function (asm)
         /* IL_06: ldc.i4.0  */
         /* IL_07: box System.Byte */
         /* IL_0C: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -34,7 +34,7 @@ var asm2;(function (asm)
         /* IL_17: ldc.i4.1  */
         /* IL_18: box System.Byte */
         /* IL_1D: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -50,7 +50,7 @@ var asm2;(function (asm)
         /* IL_28: ldc.i4.1  */
         /* IL_29: box System.Int32 */
         /* IL_2E: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (1|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -66,7 +66,7 @@ var asm2;(function (asm)
         /* IL_39: ldc.i4.0  */
         /* IL_3A: box System.SByte */
         /* IL_3F: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -82,7 +82,7 @@ var asm2;(function (asm)
         /* IL_4A: ldc.i4.0  */
         /* IL_4B: box System.Byte */
         /* IL_50: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -98,7 +98,7 @@ var asm2;(function (asm)
         /* IL_5B: ldc.i4.1  */
         /* IL_5C: box System.Byte */
         /* IL_61: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -114,7 +114,7 @@ var asm2;(function (asm)
         /* IL_6C: ldc.i4 1000 */
         /* IL_71: box System.Int32 */
         /* IL_76: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (1|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -130,7 +130,7 @@ var asm2;(function (asm)
         /* IL_81: ldc.i4.0  */
         /* IL_82: box System.SByte */
         /* IL_87: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -146,7 +146,7 @@ var asm2;(function (asm)
         /* IL_96: ldc.i4.m1  */
         /* IL_97: box System.SByte */
         /* IL_9C: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (255|0),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -162,7 +162,7 @@ var asm2;(function (asm)
         /* IL_A7: ldc.i4.1  */
         /* IL_A8: box System.Byte */
         /* IL_AD: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -178,7 +178,7 @@ var asm2;(function (asm)
         /* IL_B8: ldc.i4 1000 */
         /* IL_BD: box System.Int32 */
         /* IL_C2: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (1|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -194,7 +194,7 @@ var asm2;(function (asm)
         /* IL_CD: ldc.i4.0  */
         /* IL_CE: box System.SByte */
         /* IL_D3: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t2,
                 'vtable': t2.prototype.vtable,
@@ -210,7 +210,7 @@ var asm2;(function (asm)
         /* IL_DE: ldc.i4.1  */
         /* IL_DF: box System.Boolean */
         /* IL_E4: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (1|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -226,7 +226,7 @@ var asm2;(function (asm)
         /* IL_EF: ldc.i4.0  */
         /* IL_F0: box System.Boolean */
         /* IL_F5: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (1|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -242,7 +242,7 @@ var asm2;(function (asm)
         /* IL_100: ldc.i4.1  */
         /* IL_101: box System.Boolean */
         /* IL_106: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -258,7 +258,7 @@ var asm2;(function (asm)
         /* IL_111: ldc.i4.0  */
         /* IL_112: box System.Boolean */
         /* IL_117: call Void Test(System.IComparable, System.IComparable) */
-        asm2.x6000002({
+        asm1.x6000002({
                 'boxed': (0|0),
                 'type': t3,
                 'vtable': t3.prototype.vtable,
@@ -287,11 +287,13 @@ var asm2;(function (asm)
     {
         var t0;
         var t1;
+        var t2;
         var in_block_0;
         var __pos__;
         var __error_handled_1__;
         t0 = (asm0)["System.IComparable"]();
         t1 = (asm0)["System.Int32"]();
+        t2 = (asm0)["System.Object"]();
         in_block_0 = true;
         __pos__ = 0;
         
@@ -305,15 +307,15 @@ var asm2;(function (asm)
                     /* IL_01: ldarg.1  */
                     /* IL_02: callvirt Int32 CompareTo(System.Object) */
                     /* IL_07: box System.Int32 */
-                    /* IL_0C: call Void Log(System.Object) */
-                    asm1.x6000001({
+                    /* IL_0C: call Void WriteLine(System.Object) */
+                    asm0.x600005a({
                             'boxed': (((arg0.ifacemap)[t0].x6000093)())(CILJS.convert_box_to_pointer_as_needed(arg0),arg1),
                             'type': t1,
                             'vtable': t1.prototype.vtable,
                             'ifacemap': t1.prototype.ifacemap
                         });
-                    /* IL_11: leave.s IL_20 */
-                    __pos__ = 0x20;
+                    /* IL_11: leave.s IL_26 */
+                    __pos__ = 0x26;
                 }
                 
                 catch (__error__) {
@@ -325,10 +327,12 @@ var asm2;(function (asm)
                         /* IL_13: pop  */
                         
                         /* IL_14: ldstr threw */
-                        /* IL_19: call Void Log(System.Object) */
-                        asm1.x6000001(CILJS.new_string("threw"));
-                        /* IL_1E: leave.s IL_20 */
-                        __pos__ = 0x20;
+                        /* IL_19: ldc.i4.0  */
+                        /* IL_1A: newarr System.Object */
+                        /* IL_1F: call Void WriteLine(System.String, System.Object[]) */
+                        asm0.x600005b(CILJS.new_string("threw"),CILJS.new_array(t2,(0|0)));
+                        /* IL_24: leave.s IL_26 */
+                        __pos__ = 0x26;
                     }
                     
                     if ((!(__error_handled_1__))){
@@ -336,8 +340,8 @@ var asm2;(function (asm)
                     }
                 }
                 break;
-                case 0x20:
-                /* IL_20: ret  */
+                case 0x26:
+                /* IL_26: ret  */
                 return ;
             }
         }
@@ -360,11 +364,11 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000001;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));

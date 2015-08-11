@@ -25,12 +25,12 @@ class Program
     {
         var b0 = new B<C>();
         b0.Foo(null);
-        TestLog.Log(b0.Value == null);
-        TestLog.Log(b0.Array == null);
+        System.Console.WriteLine(b0.Value == null);
+        System.Console.WriteLine(b0.Array == null);
 
         var b1 = new B<D>();
         b1.Foo(null);
-        TestLog.Log(b1.Value == null);
-        TestLog.Log(b1.Array == null);
+        System.Console.WriteLine(b1.Value == null);
+        System.Console.WriteLine(b1.Array == null);
     }
 }

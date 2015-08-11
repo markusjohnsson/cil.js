@@ -6,30 +6,30 @@
         {
             public void Foo(T x)
             {
-                TestLog.Log(x);
-                TestLog.Log(x.GetType().FullName);
+                System.Console.WriteLine(x);
+                System.Console.WriteLine(x.GetType().FullName);
             }
 
             public static void Bar(T x)
             {
-                TestLog.Log(x);
-                TestLog.Log(x.GetType().FullName);
+                System.Console.WriteLine(x);
+                System.Console.WriteLine(x.GetType().FullName);
             }
 
             public static void Baz<T2>(T x, T2 y)
             {
-                TestLog.Log(x);
-                TestLog.Log(y);
-                TestLog.Log(x.GetType().FullName);
-                TestLog.Log(y.GetType().FullName);
+                System.Console.WriteLine(x);
+                System.Console.WriteLine(y);
+                System.Console.WriteLine(x.GetType().FullName);
+                System.Console.WriteLine(y.GetType().FullName);
             }
 
             public void Buz<T2>(T x, T2 y)
             {
-                TestLog.Log(x);
-                TestLog.Log(y);
-                TestLog.Log(x.GetType().FullName);
-                TestLog.Log(y.GetType().FullName);
+                System.Console.WriteLine(x);
+                System.Console.WriteLine(y);
+                System.Console.WriteLine(x.GetType().FullName);
+                System.Console.WriteLine(y.GetType().FullName);
             }
         }
     }

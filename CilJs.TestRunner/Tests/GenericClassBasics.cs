@@ -27,7 +27,7 @@ class Program
         var s = new A<StringWrapper>();
         s.Prop = new StringWrapper { Value = "Hello" };
 
-        TestLog.Log(i.Prop.Value);
-        TestLog.Log(s.Prop.Value);
+        System.Console.WriteLine(i.Prop.Value);
+        System.Console.WriteLine(s.Prop.Value);
     }
 }

@@ -18,7 +18,7 @@
         a[1] = 6;
         a[2] = 7;
         foreach (var x in a)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 
     private static void TestUInt8()
@@ -28,7 +28,7 @@
         a[1] = 6;
         a[2] = 7;
         foreach (var x in a)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 
     private static void TestInt16()
@@ -38,7 +38,7 @@
         a[1] = 6;
         a[2] = 7;
         foreach (var x in a)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 
     private static void TestUInt16()
@@ -48,7 +48,7 @@
         a[1] = 6;
         a[2] = 7;
         foreach (var x in a)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 
     private static void TestInt32()
@@ -58,7 +58,7 @@
         a[1] = 6;
         a[2] = 7;
         foreach (var x in a)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 
     private static void TestUInt32()
@@ -68,7 +68,7 @@
         a[1] = 6;
         a[2] = 7;
         foreach (var x in a)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 
 

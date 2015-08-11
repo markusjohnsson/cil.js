@@ -15,59 +15,59 @@ class Program
     public static void Main()
     {
 
-        TestLog.Log(typeof(A).Name);
-        TestLog.Log(typeof(int).Name);
-        TestLog.Log(typeof(string).Name);
-        TestLog.Log(typeof(bool).Name);
+        System.Console.WriteLine(typeof(A).Name);
+        System.Console.WriteLine(typeof(int).Name);
+        System.Console.WriteLine(typeof(string).Name);
+        System.Console.WriteLine(typeof(bool).Name);
 
-        TestLog.Log(typeof(A).FullName);
-        TestLog.Log(typeof(int).FullName);
-        TestLog.Log(typeof(string).FullName);
-        TestLog.Log(typeof(bool).FullName);
+        System.Console.WriteLine(typeof(A).FullName);
+        System.Console.WriteLine(typeof(int).FullName);
+        System.Console.WriteLine(typeof(string).FullName);
+        System.Console.WriteLine(typeof(bool).FullName);
 
-        TestLog.Log(typeof(A).FullName);
-        TestLog.Log(new A().GetType().FullName);
-        TestLog.Log(new A().GetType().Equals(typeof(A)));
-        TestLog.Log(new A().GetType().Equals(typeof(string)));
-        TestLog.Log("".GetType().Equals(typeof(string)));
-        TestLog.Log("".GetType().Equals(typeof(A)));
-        TestLog.Log(1.GetType().Equals(typeof(A)));
-        TestLog.Log(1.GetType().Equals(typeof(int)));
-        TestLog.Log(1.GetType().FullName);
+        System.Console.WriteLine(typeof(A).FullName);
+        System.Console.WriteLine(new A().GetType().FullName);
+        System.Console.WriteLine(new A().GetType().Equals(typeof(A)));
+        System.Console.WriteLine(new A().GetType().Equals(typeof(string)));
+        System.Console.WriteLine("".GetType().Equals(typeof(string)));
+        System.Console.WriteLine("".GetType().Equals(typeof(A)));
+        System.Console.WriteLine(1.GetType().Equals(typeof(A)));
+        System.Console.WriteLine(1.GetType().Equals(typeof(int)));
+        System.Console.WriteLine(1.GetType().FullName);
 
-        TestLog.Log(typeof(A).AssemblyQualifiedName.Replace(".clr", ".ciljs"));
-        TestLog.Log(typeof(X<A>).FullName.Replace(".clr", ".ciljs"));
-        TestLog.Log(new X<A>().GetType().FullName.Replace(".clr", ".ciljs"));
-        TestLog.Log(new X<A>().GetType().Equals(typeof(X<>)));
-        TestLog.Log(new X<A>().GetType().Equals(typeof(X<B>)));
-        TestLog.Log("".GetType().Equals(typeof(X<>)));
+        System.Console.WriteLine(typeof(A).AssemblyQualifiedName.Replace(".clr", ".ciljs"));
+        System.Console.WriteLine(typeof(X<A>).FullName.Replace(".clr", ".ciljs"));
+        System.Console.WriteLine(new X<A>().GetType().FullName.Replace(".clr", ".ciljs"));
+        System.Console.WriteLine(new X<A>().GetType().Equals(typeof(X<>)));
+        System.Console.WriteLine(new X<A>().GetType().Equals(typeof(X<B>)));
+        System.Console.WriteLine("".GetType().Equals(typeof(X<>)));
 
-        TestLog.Log(typeof(X<>).MakeGenericType(new[] { typeof(A) }).Equals(typeof(X<A>)));
+        System.Console.WriteLine(typeof(X<>).MakeGenericType(new[] { typeof(A) }).Equals(typeof(X<A>)));
 
-        TestLog.Log(typeof(object).BaseType == null);
-        TestLog.Log(typeof(A).BaseType.Equals(typeof(object)));
-        TestLog.Log(typeof(A).BaseType.Equals(typeof(B)));
-        TestLog.Log(typeof(B).BaseType.Equals(typeof(A)));
+        System.Console.WriteLine(typeof(object).BaseType == null);
+        System.Console.WriteLine(typeof(A).BaseType.Equals(typeof(object)));
+        System.Console.WriteLine(typeof(A).BaseType.Equals(typeof(B)));
+        System.Console.WriteLine(typeof(B).BaseType.Equals(typeof(A)));
 
-        TestLog.Log(IsAssignableFrom(typeof(B), typeof(A)));
-        TestLog.Log(IsAssignableFrom(typeof(B), typeof(B)));
-        TestLog.Log(IsAssignableFrom(typeof(A), typeof(B)));
-        TestLog.Log(IsAssignableFrom(typeof(A), typeof(A)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(B), typeof(A)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(B), typeof(B)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(A), typeof(B)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(A), typeof(A)));
 
-        TestLog.Log(IsAssignableFrom(typeof(A), typeof(I2)));
-        TestLog.Log(IsAssignableFrom(typeof(B), typeof(I2)));
-        TestLog.Log(IsAssignableFrom(typeof(A), typeof(I)));
-        TestLog.Log(IsAssignableFrom(typeof(B), typeof(I)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(A), typeof(I2)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(B), typeof(I2)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(A), typeof(I)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(B), typeof(I)));
 
-        TestLog.Log(IsAssignableFrom(typeof(I2), typeof(I2)));
-        TestLog.Log(IsAssignableFrom(typeof(I), typeof(I2)));
-        TestLog.Log(IsAssignableFrom(typeof(I2), typeof(B)));
-        TestLog.Log(IsAssignableFrom(typeof(I), typeof(B)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I2), typeof(I2)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I), typeof(I2)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I2), typeof(B)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I), typeof(B)));
 
-        TestLog.Log(IsAssignableFrom(typeof(I3<int>), typeof(X<int>)));
-        TestLog.Log(IsAssignableFrom(typeof(I), typeof(X<int>)));
-        TestLog.Log(IsAssignableFrom(typeof(I2), typeof(X<int>)));
-        TestLog.Log(IsAssignableFrom(typeof(I), typeof(I3<int>)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I3<int>), typeof(X<int>)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I), typeof(X<int>)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I2), typeof(X<int>)));
+        System.Console.WriteLine(IsAssignableFrom(typeof(I), typeof(I3<int>)));
 
     }
 

@@ -9,6 +9,6 @@ class Program
 {
     public static void Main()
     {
-        TestLog.Log(typeof(A<K<X>>) == typeof(A<K<Y>>));
+        System.Console.WriteLine(typeof(A<K<X>>) == typeof(A<K<Y>>));
     }
 }

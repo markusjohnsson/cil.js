@@ -14,7 +14,7 @@ class Program
     {
         object b = new I[1];
         M(b);
-        TestLog.Log(((B) ((I[]) b)[0]).X);
+        System.Console.WriteLine(((B) ((I[]) b)[0]).X);
     }
 
     private static void M(object b) 

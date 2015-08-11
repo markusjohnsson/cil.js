@@ -7,8 +7,8 @@ class C<T>
 {
     public void X<T2>() 
     {
-        TestLog.Log(typeof(T).Name);
-        TestLog.Log(typeof(T2).Name);
+        System.Console.WriteLine(typeof(T).Name);
+        System.Console.WriteLine(typeof(T2).Name);
     }
 }
 

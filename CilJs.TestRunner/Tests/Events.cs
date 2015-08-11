@@ -6,7 +6,7 @@ public class Program
 
     public static void Main()
     {
-        MyEvent += (s, e) => TestLog.Log("First");
+        MyEvent += (s, e) => System.Console.WriteLine("First");
         MyEvent += Handler;
 
         MyEvent(new object(), new EventArgs());
@@ -18,7 +18,7 @@ public class Program
 
     private static void Handler(object s, EventArgs e)
     {
-        TestLog.Log("Second");
+        System.Console.WriteLine("Second");
     }
 }
 

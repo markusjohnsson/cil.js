@@ -17,6 +17,6 @@ public class Program
     private static void PrintArray(IEnumerable xs)
     {
         foreach (var x in xs)
-            TestLog.Log(x);
+            System.Console.WriteLine(x);
     }
 }

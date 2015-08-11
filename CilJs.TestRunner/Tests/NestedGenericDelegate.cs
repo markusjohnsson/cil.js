@@ -17,7 +17,7 @@ class A<T>
 
     void Z(D<Type> callback)
     {
-        TestLog.Log(callback(default(T)).Name);
+        System.Console.WriteLine(callback(default(T)).Name);
     }
 }
 

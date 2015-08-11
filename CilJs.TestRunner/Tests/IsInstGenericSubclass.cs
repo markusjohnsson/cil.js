@@ -28,16 +28,16 @@ class Program
 
     private static void Test1(C c)
     {
-        TestLog.Log(c is C<A>);
-        TestLog.Log(c is C<B>);
-        TestLog.Log(c is C);
+        System.Console.WriteLine(c is C<A>);
+        System.Console.WriteLine(c is C<B>);
+        System.Console.WriteLine(c is C);
     }
 
     private static void Test2<T>(C<T> c)
     {
-        TestLog.Log(c is C<A>);
-        TestLog.Log(c is C<B>);
-        TestLog.Log(c is C<T>);
-        TestLog.Log(c is C);
+        System.Console.WriteLine(c is C<A>);
+        System.Console.WriteLine(c is C<B>);
+        System.Console.WriteLine(c is C<T>);
+        System.Console.WriteLine(c is C);
     }
 }

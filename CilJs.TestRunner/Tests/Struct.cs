@@ -10,7 +10,7 @@ public class Program
     public static void Main()
     {
         var s = new S();
-        TestLog.Log(s.X);
-        TestLog.Log(s.Y);
+        System.Console.WriteLine(s.X);
+        System.Console.WriteLine(s.Y);
     }
 }

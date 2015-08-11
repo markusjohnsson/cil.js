@@ -6,7 +6,7 @@ interface I
 
 struct S : I
 {
-    public void Foo() { TestLog.Log("Foo"); }
+    public void Foo() { System.Console.WriteLine("Foo"); }
 }
 
 public class Program

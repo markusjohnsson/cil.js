@@ -12,8 +12,8 @@ class Program
 
     public static void X(int n)
     {
-        TestLog.Log(n / 1);
-        TestLog.Log(n / 2);
-        TestLog.Log(n / 3); 
+        System.Console.WriteLine(n / 1);
+        System.Console.WriteLine(n / 2);
+        System.Console.WriteLine(n / 3); 
     }
 }

@@ -15,11 +15,11 @@ public class Program
 
     private static void Neg(int p)
     {
-        TestLog.Log(-p);
+        System.Console.WriteLine(-p);
     }
 
     private static void Neg(double p)
     {
-        TestLog.Log(-p);
+        System.Console.WriteLine(-p);
     }
 }

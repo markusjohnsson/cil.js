@@ -7,7 +7,7 @@ namespace CilJs.TestRunner.Tests
     {
         public static void Main()
         {
-            TestLog.Log("Hello World!");
+            System.Console.WriteLine("Hello World!");
         }
     }
 }

@@ -1,4 +1,4 @@
-var asm2;(function (asm)
+var asm1;(function (asm)
 {
     asm.FullName = "CSStringConverter.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.Void Program.Main()*/
@@ -19,10 +19,14 @@ var asm2;(function (asm)
     /* System.Void S.Append(String)*/
     asm.x6000003 = function Append(arg0, arg1)
     {
+        var t0;
+        t0 = (asm0)["System.Object"]();
         /* IL_00: ldarg.1  */
-        /* IL_01: call Void Log(System.Object) */
-        asm1.x6000001(arg1);
-        /* IL_06: ret  */
+        /* IL_01: ldc.i4.0  */
+        /* IL_02: newarr System.Object */
+        /* IL_07: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(arg1,CILJS.new_array(t0,(0|0)));
+        /* IL_0C: ret  */
         return ;
     };;
     /* System.Void S.Append(Char)*/
@@ -32,8 +36,8 @@ var asm2;(function (asm)
         t0 = (asm0)["System.Char"]();
         /* IL_00: ldarg.1  */
         /* IL_01: box System.Char */
-        /* IL_06: call Void Log(System.Object) */
-        asm1.x6000001({
+        /* IL_06: call Void WriteLine(System.Object) */
+        asm0.x600005a({
                 'boxed': arg1,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
@@ -53,7 +57,7 @@ var asm2;(function (asm)
     /* static System.String CSStringConverter.Convert(String)*/
     asm.x6000006_init = function ()
     {
-        (asm2.S().init)();
+        (asm1.S().init)();
         asm.x6000006 = asm.x6000006_;
     };;
     asm.x6000006 = function (arg0)
@@ -71,7 +75,7 @@ var asm2;(function (asm)
         var loc2;
         var __switch_value__;
         var __jmp__;
-        t0 = asm2.S();
+        t0 = asm1.S();
         in_block_0 = true;
         __pos__ = 0;
         
@@ -81,11 +85,11 @@ var asm2;(function (asm)
                 case 0x0:
                 /* IL_00: newobj Void .ctor() */
                 /* IL_05: stloc.0  */
-                loc0 = CILJS.newobj(t0,asm2.x6000005,[null]);
+                loc0 = CILJS.newobj(t0,asm1.x6000005,[null]);
                 /* IL_06: ldloc.0  */
                 /* IL_07: ldc.i4.s 34 */
                 /* IL_09: callvirt Void Append(System.Char) */
-                asm2.x6000004(loc0,(34|0));
+                asm1.x6000004(loc0,(34|0));
                 /* IL_0E: ldc.i4.0  */
                 /* IL_0F: stloc.1  */
                 loc1 = (0|0);
@@ -178,7 +182,7 @@ var asm2;(function (asm)
                 /* IL_68: ldloc.0  */
                 /* IL_69: ldstr \\ */
                 /* IL_6E: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,CILJS.new_string("\\\\"));
+                asm1.x6000003(loc0,CILJS.new_string("\\\\"));
                 /* IL_73: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -189,7 +193,7 @@ var asm2;(function (asm)
                 /* IL_78: callvirt Char get_Chars(System.Int32) */
                 /* IL_7D: call String EscapeChar(System.Char) */
                 /* IL_82: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,asm2.x6000007(asm0.x6000125(arg0,loc1)));
+                asm1.x6000003(loc0,asm1.x6000007(asm0.x6000125(arg0,loc1)));
                 /* IL_87: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -197,7 +201,7 @@ var asm2;(function (asm)
                 /* IL_89: ldloc.0  */
                 /* IL_8A: ldstr \0 */
                 /* IL_8F: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,CILJS.new_string("\\0"));
+                asm1.x6000003(loc0,CILJS.new_string("\\0"));
                 /* IL_94: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -205,7 +209,7 @@ var asm2;(function (asm)
                 /* IL_96: ldloc.0  */
                 /* IL_97: ldstr \t */
                 /* IL_9C: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,CILJS.new_string("\\t"));
+                asm1.x6000003(loc0,CILJS.new_string("\\t"));
                 /* IL_A1: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -213,7 +217,7 @@ var asm2;(function (asm)
                 /* IL_A3: ldloc.0  */
                 /* IL_A4: ldstr \n */
                 /* IL_A9: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,CILJS.new_string("\\n"));
+                asm1.x6000003(loc0,CILJS.new_string("\\n"));
                 /* IL_AE: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -221,7 +225,7 @@ var asm2;(function (asm)
                 /* IL_B0: ldloc.0  */
                 /* IL_B1: ldstr \r */
                 /* IL_B6: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,CILJS.new_string("\\r"));
+                asm1.x6000003(loc0,CILJS.new_string("\\r"));
                 /* IL_BB: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -229,7 +233,7 @@ var asm2;(function (asm)
                 /* IL_BD: ldloc.0  */
                 /* IL_BE: ldstr \" */
                 /* IL_C3: callvirt Void Append(System.String) */
-                asm2.x6000003(loc0,CILJS.new_string("\\\""));
+                asm1.x6000003(loc0,CILJS.new_string("\\\""));
                 /* IL_C8: br.s IL_D7 */
                 __pos__ = 0xD7;
                 continue;
@@ -239,7 +243,7 @@ var asm2;(function (asm)
                 /* IL_CC: ldloc.1  */
                 /* IL_CD: callvirt Char get_Chars(System.Int32) */
                 /* IL_D2: callvirt Void Append(System.Char) */
-                asm2.x6000004(loc0,asm0.x6000125(arg0,loc1));
+                asm1.x6000004(loc0,asm0.x6000125(arg0,loc1));
                 case 0xD7:
                 /* IL_D7: ldloc.1  */
                 /* IL_D8: ldc.i4.1  */
@@ -259,7 +263,7 @@ var asm2;(function (asm)
                 /* IL_E7: ldloc.0  */
                 /* IL_E8: ldc.i4.s 34 */
                 /* IL_EA: callvirt Void Append(System.Char) */
-                asm2.x6000004(loc0,(34|0));
+                asm1.x6000004(loc0,(34|0));
                 /* IL_EF: ldloc.0  */
                 /* IL_F0: callvirt String ToString() */
                 /* IL_F5: ret  */
@@ -294,8 +298,8 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000002");
-            this.GenericTypeMetadataName = "asm2.t2000002";
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+            this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
@@ -311,10 +315,10 @@ var asm2;(function (asm)
         {
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"S",false,false,false,false,false,[],[
-                    [asm2, "x6000003", "Append"],
-                    [asm2, "x6000004", "Append"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000003");
-            this.GenericTypeMetadataName = "asm2.t2000003";
+                    [asm1, "x6000003", "Append"],
+                    [asm1, "x6000004", "Append"]
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+            this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
@@ -329,11 +333,11 @@ var asm2;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"CSStringConverter",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm2.t2000004");
-            this.GenericTypeMetadataName = "asm2.t2000004";
+            CILJS.init_type(this,asm,"CSStringConverter",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004");
+            this.GenericTypeMetadataName = "asm1.t2000004";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         });
     asm.entryPoint = asm.x6000001;
-})(asm2 || (asm2 = {}));
+})(asm1 || (asm1 = {}));
