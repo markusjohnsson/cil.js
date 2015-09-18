@@ -395,7 +395,6 @@ class Program
         System.Console.WriteLine(Div(0xffffffffffffffL, -2L));
 
         System.Console.WriteLine("Div 0x1, 0x010, 0x0101 etc");
-        //Console.WriteLine(Div(0xfL, 0x0L));
         System.Console.WriteLine(Div(0xffL, 0x01L));
         System.Console.WriteLine(Div(0xfffL, 0x010L));
         System.Console.WriteLine(Div(0xffffL, 0x0101L));
@@ -411,7 +410,6 @@ class Program
         System.Console.WriteLine(Div(0xffffffffffffffL, 0x01010101010101L));
 
         System.Console.WriteLine("Div -0x1, -0x010, -0x0101 etc");
-        //Console.WriteLine(Div(0xfL, -0x0L));
         System.Console.WriteLine(Div(0xffL, -0x01L));
         System.Console.WriteLine(Div(0xfffL, -0x010L));
         System.Console.WriteLine(Div(0xffffL, -0x0101L));
@@ -492,7 +490,6 @@ class Program
         System.Console.WriteLine(Mod(0xffffffffffffffL, -2L));
 
         System.Console.WriteLine("Mod 0x1, 0x010, 0x0101 etc");
-        //Console.WriteLine(Mod(0xfL, 0x0L));
         System.Console.WriteLine(Mod(0xffL, 0x01L));
         System.Console.WriteLine(Mod(0xfffL, 0x010L));
         System.Console.WriteLine(Mod(0xffffL, 0x0101L));
@@ -508,7 +505,6 @@ class Program
         System.Console.WriteLine(Mod(0xffffffffffffffL, 0x01010101010101L));
 
         System.Console.WriteLine("Mod -0x1, -0x010, -0x0101 etc");
-        //Console.WriteLine(Mod(0xfL, -0x0L));
         System.Console.WriteLine(Mod(0xffL, -0x01L));
         System.Console.WriteLine(Mod(0xfffL, -0x010L));
         System.Console.WriteLine(Mod(0xffffL, -0x0101L));

@@ -24,7 +24,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -46,24 +47,27 @@ var asm1;(function (asm)
         CILJS.init_base_types();
         t0 = asm1.X();
         t1 = (asm0)["System.Int32"]();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: stloc.0  */
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.newobj(t0,asm1.x6000003,[null]);
-        /* IL_06: ldloc.0  */
-        /* IL_07: ldc.i4.s 123 */
-        /* IL_09: callvirt Void set_Y(System.Int32) */
+        /* IL_07: ldloc.0  */
+        /* IL_08: ldc.i4.s 123 */
+        /* IL_0A: callvirt Void set_Y(System.Int32) */
         asm1.x6000002(loc0,(123|0));
-        /* IL_0E: ldloc.0  */
-        /* IL_0F: callvirt Int32 get_Y() */
-        /* IL_14: box System.Int32 */
-        /* IL_19: call Void WriteLine(System.Object) */
+        /* IL_0F: nop  */
+        /* IL_10: ldloc.0  */
+        /* IL_11: callvirt Int32 get_Y() */
+        /* IL_16: box System.Int32 */
+        /* IL_1B: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': asm1.x6000001(loc0),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_1E: ret  */
+        /* IL_20: nop  */
+        /* IL_21: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -71,7 +75,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.X = CILJS.declare_type(

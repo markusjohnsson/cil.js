@@ -6,12 +6,14 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr A.NonGeneric */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr A.NonGeneric */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("A.NonGeneric"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
     /* System.Void A.GenericArg(Int32)*/
@@ -19,39 +21,48 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr A.GenericArg */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr A.GenericArg */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("A.GenericArg"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ldarg.0  */
-        /* IL_11: ldarg.1  */
-        /* IL_12: stfld Int32 field */
+        /* IL_11: nop  */
+        /* IL_12: ldarg.0  */
+        /* IL_13: ldarg.1  */
+        /* IL_14: stfld Int32 field */
         arg0.Afield = arg1;
-        /* IL_17: ret  */
+        /* IL_19: ret  */
         return ;
     };;
     /* System.Int32 A.GenericReturn()*/
     asm.x6000006 = function GenericReturn(arg0)
     {
         var t0;
+        var loc0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr A.GenericReturn */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr A.GenericReturn */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("A.GenericReturn"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ldarg.0  */
-        /* IL_11: ldfld Int32 field */
-        /* IL_16: ret  */
-        return arg0.Afield;
+        /* IL_11: nop  */
+        /* IL_12: ldarg.0  */
+        /* IL_13: ldfld Int32 field */
+        /* IL_18: stloc.0  */
+        loc0 = arg0.Afield;
+        /* IL_1B: ldloc.0  */
+        /* IL_1C: ret  */
+        return loc0;
     };;
     /*  A..ctor()*/
     asm.x6000007 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* System.Void B`1.NonGeneric()*/
@@ -59,12 +70,14 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr B.NonGeneric */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr B.NonGeneric */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("B.NonGeneric"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
     /* System.Void B`1.GenericArg(T)*/
@@ -72,39 +85,48 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr B.NonGeneric */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr B.NonGeneric */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("B.NonGeneric"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ldarg.0  */
-        /* IL_11: ldarg.1  */
-        /* IL_12: stfld T field */
+        /* IL_11: nop  */
+        /* IL_12: ldarg.0  */
+        /* IL_13: ldarg.1  */
+        /* IL_14: stfld T field */
         arg0.B_1field = arg1;
-        /* IL_17: ret  */
+        /* IL_19: ret  */
         return ;
     };;
     /* T B`1.GenericReturn()*/
     asm.x600000a = function GenericReturn(arg0)
     {
         var t0;
+        var loc0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr B.GenericReturn */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr B.GenericReturn */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("B.GenericReturn"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ldarg.0  */
-        /* IL_11: ldfld T field */
-        /* IL_16: ret  */
-        return arg0.B_1field;
+        /* IL_11: nop  */
+        /* IL_12: ldarg.0  */
+        /* IL_13: ldfld T field */
+        /* IL_18: stloc.0  */
+        loc0 = arg0.B_1field;
+        /* IL_1B: ldloc.0  */
+        /* IL_1C: ret  */
+        return loc0;
     };;
     /*  B`1..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -130,15 +152,18 @@ var asm1;(function (asm)
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.String"]();
         t3 = (asm1)["B`1"](t2);
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: ldc.i4 12345 */
-        /* IL_0A: call Void Run[System.Int32](I`1[System.Int32], System.Int32) */
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: ldc.i4 12345 */
+        /* IL_0B: call Void Run[System.Int32](I`1[System.Int32], System.Int32) */
         (asm1.x600000d((asm0)["System.Int32"]()))(CILJS.newobj(t0,asm1.x6000007,[null]),(12345|0));
-        /* IL_0F: newobj Void .ctor() */
-        /* IL_14: ldstr Hello */
-        /* IL_19: call Void Run[System.String](I`1[System.String], System.String) */
+        /* IL_10: nop  */
+        /* IL_11: newobj Void .ctor() */
+        /* IL_16: ldstr Hello */
+        /* IL_1B: call Void Run[System.String](I`1[System.String], System.String) */
         (asm1.x600000d((asm0)["System.String"]()))(CILJS.newobj(t3,asm1.x600000b,[null]),CILJS.new_string("Hello"));
-        /* IL_1E: ret  */
+        /* IL_20: nop  */
+        /* IL_21: ret  */
         return ;
     };
     /* static System.Void Program.Run<T>(I`1,T)*/
@@ -165,19 +190,23 @@ var asm1;(function (asm)
             var t1;
             t0 = T;
             t1 = (asm1)["I`1"](t0);
-            /* IL_00: ldarg.0  */
-            /* IL_01: callvirt Void NonGeneric() */
+            /* IL_00: nop  */
+            /* IL_01: ldarg.0  */
+            /* IL_02: callvirt Void NonGeneric() */
             ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-            /* IL_06: ldarg.0  */
-            /* IL_07: ldarg.1  */
-            /* IL_08: callvirt Void GenericArg(T) */
+            /* IL_07: nop  */
+            /* IL_08: ldarg.0  */
+            /* IL_09: ldarg.1  */
+            /* IL_0A: callvirt Void GenericArg(T) */
             ((((arg0.ifacemap)[t1])[t0].x6000002)())(CILJS.convert_box_to_pointer_as_needed(arg0),arg1);
-            /* IL_0D: ldarg.0  */
-            /* IL_0E: callvirt T GenericReturn() */
-            /* IL_13: box T */
-            /* IL_18: call Void WriteLine(System.Object) */
+            /* IL_0F: nop  */
+            /* IL_10: ldarg.0  */
+            /* IL_11: callvirt T GenericReturn() */
+            /* IL_16: box T */
+            /* IL_1B: call Void WriteLine(System.Object) */
             asm0.x600005a(CILJS.box(((((arg0.ifacemap)[t1])[t0].x6000003)())(CILJS.convert_box_to_pointer_as_needed(arg0)),t0));
-            /* IL_1D: ret  */
+            /* IL_20: nop  */
+            /* IL_21: ret  */
             return ;
         };
     };
@@ -186,7 +215,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["I`1"] = CILJS.declare_type(

@@ -5,31 +5,40 @@ var asm1;(function (asm)
     asm.x6000001 = function Main()
     {
         CILJS.init_base_types();
-        /* IL_00: ldc.i4.s 123 */
-        /* IL_02: call Void Neg(System.Int32) */
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.s 123 */
+        /* IL_03: call Void Neg(System.Int32) */
         asm1.x6000002((123|0));
-        /* IL_07: ldc.i4.s 133 */
-        /* IL_09: call Void Neg(System.Int32) */
+        /* IL_08: nop  */
+        /* IL_09: ldc.i4.s 133 */
+        /* IL_0B: call Void Neg(System.Int32) */
         asm1.x6000002((-123|0));
-        /* IL_0E: ldc.i4 444123 */
-        /* IL_13: call Void Neg(System.Int32) */
+        /* IL_10: nop  */
+        /* IL_11: ldc.i4 444123 */
+        /* IL_16: call Void Neg(System.Int32) */
         asm1.x6000002((444123|0));
-        /* IL_18: ldc.i4 -518495 */
-        /* IL_1D: call Void Neg(System.Int32) */
+        /* IL_1B: nop  */
+        /* IL_1C: ldc.i4 -518495 */
+        /* IL_21: call Void Neg(System.Int32) */
         asm1.x6000002((-518495|0));
-        /* IL_22: ldc.r8 123 */
-        /* IL_2B: call Void Neg(System.Double) */
+        /* IL_26: nop  */
+        /* IL_27: ldc.r8 123 */
+        /* IL_30: call Void Neg(System.Double) */
         asm1.x6000003((+123));
-        /* IL_30: ldc.r8 -123 */
-        /* IL_39: call Void Neg(System.Double) */
+        /* IL_35: nop  */
+        /* IL_36: ldc.r8 -123 */
+        /* IL_3F: call Void Neg(System.Double) */
         asm1.x6000003((+-123));
-        /* IL_3E: ldc.r8 444123 */
-        /* IL_47: call Void Neg(System.Double) */
+        /* IL_44: nop  */
+        /* IL_45: ldc.r8 444123 */
+        /* IL_4E: call Void Neg(System.Double) */
         asm1.x6000003((+444123));
-        /* IL_4C: ldc.r8 -518495 */
-        /* IL_55: call Void Neg(System.Double) */
+        /* IL_53: nop  */
+        /* IL_54: ldc.r8 -518495 */
+        /* IL_5D: call Void Neg(System.Double) */
         asm1.x6000003((+-518495));
-        /* IL_5A: ret  */
+        /* IL_62: nop  */
+        /* IL_63: ret  */
         return ;
     };;
     /* static System.Void Program.Neg(Int32)*/
@@ -37,17 +46,19 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Int32"]();
-        /* IL_00: ldarg.0  */
-        /* IL_01: neg  */
-        /* IL_02: box System.Int32 */
-        /* IL_07: call Void WriteLine(System.Object) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: neg  */
+        /* IL_03: box System.Int32 */
+        /* IL_08: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': (-(arg0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_0C: ret  */
+        /* IL_0D: nop  */
+        /* IL_0E: ret  */
         return ;
     };;
     /* static System.Void Program.Neg(Double)*/
@@ -55,17 +66,19 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Double"]();
-        /* IL_00: ldarg.0  */
-        /* IL_01: neg  */
-        /* IL_02: box System.Double */
-        /* IL_07: call Void WriteLine(System.Object) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: neg  */
+        /* IL_03: box System.Double */
+        /* IL_08: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': (-(arg0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_0C: ret  */
+        /* IL_0D: nop  */
+        /* IL_0E: ret  */
         return ;
     };;
     /*  Program..ctor()*/
@@ -73,7 +86,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

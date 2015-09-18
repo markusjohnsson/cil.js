@@ -23,6 +23,8 @@ var asm1;(function (asm)
         var loc0;
         var loc1;
         var loc2;
+        var loc3;
+        var loc4;
         CILJS.init_base_types();
         t0 = (asm0)["System.Attribute"]();
         t1 = (asm0)["System.Object"]();
@@ -34,35 +36,49 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldc.i4.1  */
-                /* IL_01: newarr System.Attribute */
-                /* IL_06: stloc.0  */
-                loc0 = CILJS.new_array(t0,(1|0));
-                /* IL_07: ldloc.0  */
-                /* IL_08: stloc.1  */
-                loc1 = loc0;
-                /* IL_09: ldloc.1  */
-                /* IL_0A: castclass System.Object[] */
-                /* IL_0F: stloc.2  */
-                loc2 = CILJS.cast_class(loc1,t2);
-                /* IL_10: ldloc.1  */
-                /* IL_11: isinst System.Object[] */
-                /* IL_16: stloc.2  */
-                loc2 = t2.IsInst(loc1);
-                /* IL_17: ldloc.2  */
-                /* IL_18: brtrue.s IL_1C */
+                /* IL_00: nop  */
                 
-                if (loc2){
-                    __pos__ = 0x1C;
+                /* IL_01: ldc.i4.1  */
+                /* IL_02: newarr System.Attribute */
+                /* IL_07: stloc.0  */
+                loc0 = CILJS.new_array(t0,(1|0));
+                /* IL_08: ldloc.0  */
+                /* IL_09: stloc.1  */
+                loc1 = loc0;
+                /* IL_0A: ldloc.1  */
+                /* IL_0B: castclass System.Object[] */
+                /* IL_10: stloc.2  */
+                loc2 = CILJS.cast_class(loc1,t2);
+                /* IL_11: ldloc.1  */
+                /* IL_12: isinst System.Object[] */
+                /* IL_17: stloc.2  */
+                loc2 = t2.IsInst(loc1);
+                /* IL_18: ldloc.2  */
+                /* IL_19: ldnull  */
+                /* IL_1B: ceq  */
+                /* IL_1C: stloc.3  */
+                loc3 = ((loc2 === null) ? (1) : (0));
+                /* IL_1D: ldloc.3  */
+                /* IL_1E: brfalse.s IL_25 */
+                
+                if ((!(loc3))){
+                    __pos__ = 0x25;
                     continue;
                 }
-                /* IL_1A: ldc.i4.1  */
-                /* IL_1B: ret  */
-                return (1|0);
-                case 0x1C:
-                /* IL_1C: ldc.i4.0  */
-                /* IL_1D: ret  */
-                return (0|0);
+                /* IL_20: ldc.i4.1  */
+                /* IL_21: stloc.s 4 */
+                loc4 = (1|0);
+                /* IL_23: br.s IL_2A */
+                __pos__ = 0x2A;
+                continue;
+                case 0x25:
+                /* IL_25: ldc.i4.0  */
+                /* IL_26: stloc.s 4 */
+                loc4 = (0|0);
+                case 0x2A:
+                /* IL_2A: ldloc.s 4 */
+                /* IL_2C: ret  */
+                return loc4;
             }
         }
     };
@@ -71,7 +87,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["Test.Test"] = CILJS.declare_type(

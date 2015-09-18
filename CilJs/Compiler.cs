@@ -62,32 +62,14 @@ namespace CilJs
                 {
                     if (!asm.Settings.Translate)
                         continue;
-
-                    string outputFileName;
-
-                    if (settings.OutputFileName != null)
-                        outputFileName = settings.OutputFileName;
-                    else
+                    
+                    using (var writer = GetTextWriter(outputNames, asm))
                     {
-                        outputFileName = asm.ReflectionAssembly.GetName().Name + ".js";
-                        File.Delete(outputFileName);
-
-                        outputNames.Add(outputFileName);
+                        var emitter = new Emitter(new Formatting(), writer);
+                        foreach (var statement in translator.Translate(asms, asm))
+                            statement.Emit(emitter);
+                        writer.WriteLine();
                     }
-
-                    using (var stream = File.Open(outputFileName, FileMode.OpenOrCreate, FileAccess.Write))
-                    {
-                        stream.Seek(0, SeekOrigin.End);
-
-                        using (var writer = new StreamWriter(stream))
-                        {
-                            var emitter = new Emitter(new Formatting(), writer);
-                            foreach (var statement in translator.Translate(asms, asm))
-                                statement.Emit(emitter);
-                            writer.WriteLine();
-                        }
-                    }
-
                 }
 
                 var entrypointAssembly = ctx
@@ -129,6 +111,30 @@ namespace CilJs
                     EntryPointAssembly = entrypointAssembly == null ? null : entrypointAssembly.Identifier
                 };
             }
+        }
+
+        private TextWriter GetTextWriter(List<string> outputNames, Ast.CilAssembly asm)
+        {
+            if (settings.TextWriter != null)
+                return settings.TextWriter;
+
+            string outputFileName;
+
+            if (settings.OutputFileName != null)
+                outputFileName = settings.OutputFileName;
+            else
+            {
+                outputFileName = asm.ReflectionAssembly.GetName().Name + ".js";
+                File.Delete(outputFileName);
+
+                outputNames.Add(outputFileName);
+            }
+
+            var stream = File.Open(outputFileName, FileMode.OpenOrCreate, FileAccess.Write);
+
+            stream.Seek(0, SeekOrigin.End);
+            
+            return new StreamWriter(stream);
         }
 
         private void WriteRuntimeJs()

@@ -4,16 +4,22 @@ var asm1;(function (asm)
     /* System.Int32 RealWriter.WriteIt()*/
     asm.x6000002 = function WriteIt(arg0)
     {
-        /* IL_00: ldc.i4.s 33 */
-        /* IL_02: ret  */
-        return (33|0);
+        var loc0;
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.s 33 */
+        /* IL_03: stloc.0  */
+        loc0 = (33|0);
+        /* IL_06: ldloc.0  */
+        /* IL_07: ret  */
+        return loc0;
     };;
     /*  RealWriter..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Int32 ProjectName.Main()*/
@@ -35,6 +41,8 @@ var asm1;(function (asm)
         var in_block_0;
         var __pos__;
         var loc0;
+        var loc1;
+        var loc2;
         CILJS.init_base_types();
         t0 = asm1.RealWriter();
         t1 = asm1.IHelloWorldWriter();
@@ -45,25 +53,40 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor() */
-                /* IL_05: stloc.0  */
-                loc0 = CILJS.newobj(t0,asm1.x6000003,[null]);
-                /* IL_06: ldloc.0  */
-                /* IL_07: callvirt Int32 WriteIt() */
-                /* IL_0C: ldc.i4.s 33 */
-                /* IL_0E: beq.s IL_12 */
+                /* IL_00: nop  */
                 
-                if ((((loc0.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc0)) === (33|0)){
-                    __pos__ = 0x12;
+                /* IL_01: newobj Void .ctor() */
+                /* IL_06: stloc.0  */
+                loc0 = CILJS.newobj(t0,asm1.x6000003,[null]);
+                /* IL_07: ldloc.0  */
+                /* IL_08: callvirt Int32 WriteIt() */
+                /* IL_0D: ldc.i4.s 33 */
+                /* IL_10: ceq  */
+                /* IL_11: ldc.i4.0  */
+                /* IL_13: ceq  */
+                /* IL_14: stloc.1  */
+                loc1 = (((((((loc0.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc0)) === (33|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_15: ldloc.1  */
+                /* IL_16: brfalse.s IL_1C */
+                
+                if ((!(loc1))){
+                    __pos__ = 0x1C;
                     continue;
                 }
-                /* IL_10: ldc.i4.1  */
-                /* IL_11: ret  */
-                return (1|0);
-                case 0x12:
-                /* IL_12: ldc.i4.0  */
-                /* IL_13: ret  */
-                return (0|0);
+                /* IL_18: ldc.i4.1  */
+                /* IL_19: stloc.2  */
+                loc2 = (1|0);
+                /* IL_1A: br.s IL_20 */
+                __pos__ = 0x20;
+                continue;
+                case 0x1C:
+                /* IL_1C: ldc.i4.0  */
+                /* IL_1D: stloc.2  */
+                loc2 = (0|0);
+                case 0x20:
+                /* IL_20: ldloc.2  */
+                /* IL_21: ret  */
+                return loc2;
             }
         }
     };
@@ -72,7 +95,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.IHelloWorldWriter = CILJS.declare_type(

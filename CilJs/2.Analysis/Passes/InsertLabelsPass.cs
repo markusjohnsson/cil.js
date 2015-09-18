@@ -60,7 +60,7 @@ namespace CilJs.Analysis
                         var i = f.Instruction;
                         var switchEndPosition = 1 + i.Position + i.Size;
 
-                        var frameAfterSwitch = opExpressions.Where(f2 => f2.Position == switchEndPosition).First();
+                        var frameAfterSwitch = opExpressions.Where(f2 => f2.Position >= switchEndPosition).First();
                         frameAfterSwitch.IsLabel = true;
 
                         foreach (var targetOffset in (int[])f.Instruction.Data)

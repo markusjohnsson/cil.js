@@ -1,10 +1,5 @@
 ﻿using CilJs.TestRunner.Models;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Web.Hosting;
 using System.Web.Http;
 
@@ -12,10 +7,11 @@ namespace CilJs.TestRunner.Controllers
 {
     public class TestRunnerController : ApiController
     {
-        public TestResult Get([FromUri] string name)
+        [HttpGet]
+        public TestResult Get([FromUri] string name, [FromUri] string writeToFile)
         {
             var runner = new Tests(HostingEnvironment.MapPath("~"));
-            return runner.CompileAndRun(name.Replace("/", "\\"));
+            return runner.CompileAndRun(name.Replace("/", "\\"), writeToFile == "true");
         }
 
         [HttpGet]

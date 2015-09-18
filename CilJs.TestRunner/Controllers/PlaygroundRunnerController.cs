@@ -31,7 +31,7 @@ namespace CilJs.TestRunner.Controllers
             var test = new Tests(HostingEnvironment.MapPath("~"));
             return new PlaygroundRunnerResult
             {
-                testResult = test.CompileAndRun(csFile),
+                testResult = test.CompileAndRun(csFile, true),
                 compiledCode = File.Exists(csFile+".ciljs.exe.js") ? File.ReadAllText(csFile + ".ciljs.exe.js") : ""
             };
         }

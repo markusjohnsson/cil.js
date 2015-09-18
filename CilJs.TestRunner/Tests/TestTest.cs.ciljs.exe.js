@@ -7,12 +7,14 @@ var asm1;(function (asm)
         var t0;
         CILJS.init_base_types();
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr Hello World! */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr Hello World! */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("Hello World!"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
     /*  TestTest..ctor()*/
@@ -20,7 +22,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["CilJs.TestRunner.Tests.TestTest"] = CILJS.declare_type(

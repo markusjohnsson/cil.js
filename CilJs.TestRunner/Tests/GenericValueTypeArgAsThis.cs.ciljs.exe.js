@@ -8,14 +8,16 @@ var asm1;(function (asm)
         {
             var t0;
             t0 = (asm0)["System.Object"]();
-            /* IL_00: ldarga.s 0 */
-            /* IL_08: callvirt Type GetType() */
-            /* IL_0D: callvirt String get_FullName() */
-            /* IL_12: ldc.i4.0  */
-            /* IL_13: newarr System.Object */
-            /* IL_18: call Void WriteLine(System.String, System.Object[]) */
+            /* IL_00: nop  */
+            /* IL_01: ldarga.s 0 */
+            /* IL_09: callvirt Type GetType() */
+            /* IL_0E: callvirt String get_FullName() */
+            /* IL_13: ldc.i4.0  */
+            /* IL_14: newarr System.Object */
+            /* IL_19: call Void WriteLine(System.String, System.Object[]) */
             asm0.x600005b((((asm0.x60000f2(CILJS.box(arg0,T)).vtable)["asm0.x6000146"])())(asm0.x60000f2(CILJS.box(arg0,T))),CILJS.new_array(t0,(0|0)));
-            /* IL_1D: ret  */
+            /* IL_1E: nop  */
+            /* IL_1F: ret  */
             return ;
         };
     };;
@@ -25,10 +27,12 @@ var asm1;(function (asm)
         var t0;
         CILJS.init_base_types();
         t0 = (asm0)["System.Int32"]();
-        /* IL_00: ldc.i4.s 123 */
-        /* IL_02: call Void M[System.Int32](System.Int32) */
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.s 123 */
+        /* IL_03: call Void M[System.Int32](System.Int32) */
         (asm1.x6000001((asm0)["System.Int32"]()))((123|0));
-        /* IL_07: ret  */
+        /* IL_08: nop  */
+        /* IL_09: ret  */
         return ;
     };;
     /*  Program..ctor()*/
@@ -36,7 +40,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

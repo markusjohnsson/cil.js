@@ -487,13 +487,13 @@ namespace CilJs.JsTranslation
                 f.__GetDataFromRVA(array, 0, size);
 
                 return new KeyValuePair<string, JSExpression>(
-                    GetTranslatedFieldName(type, f),
+                    GetTranslatedFieldName(f),
                     new JSArrayLiteral { Inline = true, Values = array.Select(b => new JSNumberLiteral { Value = b }) });
             }
             else
             {
                 return new KeyValuePair<string, JSExpression>(
-                    GetTranslatedFieldName(type, f),
+                    GetTranslatedFieldName(f),
                     GetDefaultValue(f.FieldType, typeScope: type.ReflectionType));
             }
         }

@@ -5,7 +5,8 @@ var asm1;(function (asm)
     asm.x6000001 = function Main()
     {
         CILJS.init_base_types();
-        /* IL_00: ret  */
+        /* IL_00: nop  */
+        /* IL_01: ret  */
         return ;
     };;
     /*  Program..ctor()*/
@@ -13,7 +14,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* System.Void S.Append(String)*/
@@ -21,12 +23,14 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldarg.1  */
-        /* IL_01: ldc.i4.0  */
-        /* IL_02: newarr System.Object */
-        /* IL_07: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: ldc.i4.0  */
+        /* IL_03: newarr System.Object */
+        /* IL_08: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(arg1,CILJS.new_array(t0,(0|0)));
-        /* IL_0C: ret  */
+        /* IL_0D: nop  */
+        /* IL_0E: ret  */
         return ;
     };;
     /* System.Void S.Append(Char)*/
@@ -34,16 +38,18 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Char"]();
-        /* IL_00: ldarg.1  */
-        /* IL_01: box System.Char */
-        /* IL_06: call Void WriteLine(System.Object) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: box System.Char */
+        /* IL_07: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': arg1,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_0B: ret  */
+        /* IL_0C: nop  */
+        /* IL_0D: ret  */
         return ;
     };;
     /*  S..ctor()*/
@@ -51,7 +57,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.String CSStringConverter.Convert(String)*/
@@ -75,6 +82,9 @@ var asm1;(function (asm)
         var loc2;
         var __switch_value__;
         var __jmp__;
+        var loc3;
+        var loc4;
+        var loc5;
         t0 = asm1.S();
         in_block_0 = true;
         __pos__ = 0;
@@ -83,191 +93,225 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor() */
-                /* IL_05: stloc.0  */
+                /* IL_00: nop  */
+                
+                /* IL_01: newobj Void .ctor() */
+                /* IL_06: stloc.0  */
                 loc0 = CILJS.newobj(t0,asm1.x6000005,[null]);
-                /* IL_06: ldloc.0  */
-                /* IL_07: ldc.i4.s 34 */
-                /* IL_09: callvirt Void Append(System.Char) */
+                /* IL_07: ldloc.0  */
+                /* IL_08: ldc.i4.s 34 */
+                /* IL_0A: callvirt Void Append(System.Char) */
                 asm1.x6000004(loc0,(34|0));
-                /* IL_0E: ldc.i4.0  */
-                /* IL_0F: stloc.1  */
+                /* IL_0F: nop  */
+                
+                /* IL_10: ldc.i4.0  */
+                /* IL_11: stloc.1  */
                 loc1 = (0|0);
-                /* IL_10: br IL_DB */
-                __pos__ = 0xDB;
+                /* IL_12: br IL_EE */
+                __pos__ = 0xEE;
                 continue;
-                case 0x15:
-                /* IL_15: ldarg.0  */
-                /* IL_16: ldloc.1  */
-                /* IL_17: callvirt Char get_Chars(System.Int32) */
-                /* IL_1C: stloc.2  */
+                case 0x17:
+                /* IL_17: nop  */
+                
+                /* IL_18: ldarg.0  */
+                /* IL_19: ldloc.1  */
+                /* IL_1A: callvirt Char get_Chars(System.Int32) */
+                /* IL_1F: stloc.2  */
                 loc2 = asm0.x6000125(arg0,loc1);
-                /* IL_1D: ldloc.2  */
-                /* IL_1E: ldc.i4.s 13 */
-                /* IL_20: bgt.s IL_48 */
+                /* IL_20: ldloc.2  */
+                /* IL_21: ldc.i4.s 34 */
+                /* IL_23: bgt.un.s IL_53 */
                 
-                if (loc2 > (13|0)){
-                    __pos__ = 0x48;
+                if (CILJS.unsigned_value(loc2) > CILJS.unsigned_value((34|0))){
+                    __pos__ = 0x53;
                     continue;
                 }
-                /* IL_22: ldloc.2  */
-                /* IL_23: ldc.i4.0  */
-                /* IL_24: beq.s IL_89 */
+                /* IL_25: ldloc.2  */
+                /* IL_26: brfalse.s IL_91 */
                 
-                if (loc2 === (0|0)){
-                    __pos__ = 0x89;
+                if ((!(loc2))){
+                    __pos__ = 0x91;
                     continue;
                 }
-                /* IL_26: ldloc.2  */
-                /* IL_27: ldc.i4.s 9 */
-                /* IL_29: sub  */
-                /* IL_2A: switch System.Int32[] */
+                /* IL_2A: ldloc.2  */
+                /* IL_2B: ldc.i4.s 9 */
+                /* IL_2D: sub  */
+                /* IL_2E: switch System.Int32[] */
                 __switch_value__ = CILJS.unsigned_value((loc2 - (9|0)) | (0|0));
                 
                 if (__switch_value__ >= 0x5){
-                    __pos__ = 0x43;
+                    __pos__ = 0x47;
                     continue;
                 }
                 __jmp__ = [
-                    0x53,
-                    0x60,
-                    0x87,
-                    0x87,
-                    0x6D
+                    0x58,
+                    0x66,
+                    0x90,
+                    0x90,
+                    0x74
                 ];
-                __pos__ = (0x43 + (__jmp__)[__switch_value__]);
+                __pos__ = (0x47 + (__jmp__)[__switch_value__]);
                 continue;
-                case 0x43:
-                /* IL_43: br IL_CA */
-                __pos__ = 0xCA;
-                continue;
-                case 0x48:
-                /* IL_48: ldloc.2  */
-                /* IL_49: ldc.i4.s 34 */
-                /* IL_4B: beq.s IL_BD */
+                case 0x49:
+                /* IL_49: ldloc.2  */
+                /* IL_4A: ldc.i4.s 34 */
+                /* IL_4C: beq.s IL_C9 */
                 
                 if (loc2 === (34|0)){
-                    __pos__ = 0xBD;
+                    __pos__ = 0xC9;
                     continue;
                 }
-                /* IL_4D: ldloc.2  */
-                /* IL_4E: ldc.i4.s 92 */
-                /* IL_50: beq.s IL_68 */
+                /* IL_4E: br IL_D7 */
+                __pos__ = 0xD7;
+                continue;
+                case 0x53:
+                /* IL_53: ldloc.2  */
+                /* IL_54: ldc.i4.s 92 */
+                /* IL_56: beq.s IL_6E */
                 
                 if (loc2 === (92|0)){
-                    __pos__ = 0x68;
+                    __pos__ = 0x6E;
                     continue;
                 }
-                /* IL_52: ldloc.2  */
-                /* IL_53: ldc.i4 8232 */
-                /* IL_58: sub  */
-                /* IL_59: switch System.Int32[] */
-                __switch_value__ = CILJS.unsigned_value((loc2 - (8232|0)) | (0|0));
+                /* IL_5A: ldloc.2  */
+                /* IL_5B: ldc.i4 8232 */
+                /* IL_60: beq.s IL_7C */
                 
-                if (__switch_value__ >= 0x2){
-                    __pos__ = 0x66;
+                if (loc2 === (8232|0)){
+                    __pos__ = 0x7C;
                     continue;
                 }
-                __jmp__ = [
-                    0xF,
-                    0xF
-                ];
-                __pos__ = (0x66 + (__jmp__)[__switch_value__]);
+                /* IL_64: ldloc.2  */
+                /* IL_65: ldc.i4 8233 */
+                /* IL_6A: beq.s IL_7C */
+                
+                if (loc2 === (8233|0)){
+                    __pos__ = 0x7C;
+                    continue;
+                }
+                /* IL_6C: br.s IL_D7 */
+                __pos__ = 0xD7;
                 continue;
-                case 0x66:
-                /* IL_66: br.s IL_CA */
-                __pos__ = 0xCA;
-                continue;
-                case 0x68:
-                /* IL_68: ldloc.0  */
-                /* IL_69: ldstr \\ */
-                /* IL_6E: callvirt Void Append(System.String) */
+                case 0x6E:
+                /* IL_6E: ldloc.0  */
+                /* IL_6F: ldstr \\ */
+                /* IL_74: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\\\"));
-                /* IL_73: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0x75:
-                /* IL_75: ldloc.0  */
-                /* IL_76: ldarg.0  */
-                /* IL_77: ldloc.1  */
-                /* IL_78: callvirt Char get_Chars(System.Int32) */
-                /* IL_7D: call String EscapeChar(System.Char) */
-                /* IL_82: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,asm1.x6000007(asm0.x6000125(arg0,loc1)));
-                /* IL_87: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0x89:
-                /* IL_89: ldloc.0  */
-                /* IL_8A: ldstr \0 */
-                /* IL_8F: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,CILJS.new_string("\\0"));
-                /* IL_94: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0x96:
-                /* IL_96: ldloc.0  */
-                /* IL_97: ldstr \t */
-                /* IL_9C: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,CILJS.new_string("\\t"));
-                /* IL_A1: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0xA3:
-                /* IL_A3: ldloc.0  */
-                /* IL_A4: ldstr \n */
-                /* IL_A9: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,CILJS.new_string("\\n"));
-                /* IL_AE: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0xB0:
-                /* IL_B0: ldloc.0  */
-                /* IL_B1: ldstr \r */
-                /* IL_B6: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,CILJS.new_string("\\r"));
-                /* IL_BB: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0xBD:
-                /* IL_BD: ldloc.0  */
-                /* IL_BE: ldstr \" */
-                /* IL_C3: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,CILJS.new_string("\\\""));
-                /* IL_C8: br.s IL_D7 */
-                __pos__ = 0xD7;
-                continue;
-                case 0xCA:
-                /* IL_CA: ldloc.0  */
-                /* IL_CB: ldarg.0  */
-                /* IL_CC: ldloc.1  */
-                /* IL_CD: callvirt Char get_Chars(System.Int32) */
-                /* IL_D2: callvirt Void Append(System.Char) */
-                asm1.x6000004(loc0,asm0.x6000125(arg0,loc1));
-                case 0xD7:
-                /* IL_D7: ldloc.1  */
-                /* IL_D8: ldc.i4.1  */
-                /* IL_D9: add  */
-                /* IL_DA: stloc.1  */
-                loc1 = (loc1 + (1|0)) | (0|0);
-                case 0xDB:
-                /* IL_DB: ldloc.1  */
-                /* IL_DC: ldarg.0  */
-                /* IL_DD: callvirt Int32 get_Length() */
-                /* IL_E2: blt IL_15 */
+                /* IL_79: nop  */
                 
-                if (loc1 < asm0.x600012f(arg0)){
-                    __pos__ = 0x15;
+                /* IL_7A: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0x7C:
+                /* IL_7C: ldloc.0  */
+                /* IL_7D: ldarg.0  */
+                /* IL_7E: ldloc.1  */
+                /* IL_7F: callvirt Char get_Chars(System.Int32) */
+                /* IL_84: call String EscapeChar(System.Char) */
+                /* IL_89: callvirt Void Append(System.String) */
+                asm1.x6000003(loc0,asm1.x6000007(asm0.x6000125(arg0,loc1)));
+                /* IL_8E: nop  */
+                
+                /* IL_8F: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0x91:
+                /* IL_91: ldloc.0  */
+                /* IL_92: ldstr \0 */
+                /* IL_97: callvirt Void Append(System.String) */
+                asm1.x6000003(loc0,CILJS.new_string("\\0"));
+                /* IL_9C: nop  */
+                
+                /* IL_9D: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0x9F:
+                /* IL_9F: ldloc.0  */
+                /* IL_A0: ldstr \t */
+                /* IL_A5: callvirt Void Append(System.String) */
+                asm1.x6000003(loc0,CILJS.new_string("\\t"));
+                /* IL_AA: nop  */
+                
+                /* IL_AB: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0xAD:
+                /* IL_AD: ldloc.0  */
+                /* IL_AE: ldstr \n */
+                /* IL_B3: callvirt Void Append(System.String) */
+                asm1.x6000003(loc0,CILJS.new_string("\\n"));
+                /* IL_B8: nop  */
+                
+                /* IL_B9: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0xBB:
+                /* IL_BB: ldloc.0  */
+                /* IL_BC: ldstr \r */
+                /* IL_C1: callvirt Void Append(System.String) */
+                asm1.x6000003(loc0,CILJS.new_string("\\r"));
+                /* IL_C6: nop  */
+                
+                /* IL_C7: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0xC9:
+                /* IL_C9: ldloc.0  */
+                /* IL_CA: ldstr \" */
+                /* IL_CF: callvirt Void Append(System.String) */
+                asm1.x6000003(loc0,CILJS.new_string("\\\""));
+                /* IL_D4: nop  */
+                
+                /* IL_D5: br.s IL_E7 */
+                __pos__ = 0xE7;
+                continue;
+                case 0xD7:
+                /* IL_D7: ldloc.0  */
+                /* IL_D8: ldarg.0  */
+                /* IL_D9: ldloc.1  */
+                /* IL_DA: callvirt Char get_Chars(System.Int32) */
+                /* IL_DF: callvirt Void Append(System.Char) */
+                asm1.x6000004(loc0,asm0.x6000125(arg0,loc1));
+                /* IL_E4: nop  */
+                
+                case 0xE7:
+                /* IL_E7: nop  */
+                
+                /* IL_E8: ldloc.1  */
+                /* IL_E9: stloc.3  */
+                loc3 = loc1;
+                /* IL_EA: ldloc.3  */
+                /* IL_EB: ldc.i4.1  */
+                /* IL_EC: add  */
+                /* IL_ED: stloc.1  */
+                loc1 = (loc3 + (1|0)) | (0|0);
+                case 0xEE:
+                /* IL_EE: ldloc.1  */
+                /* IL_EF: ldarg.0  */
+                /* IL_F0: callvirt Int32 get_Length() */
+                /* IL_F6: clt  */
+                /* IL_F7: stloc.s 4 */
+                loc4 = ((loc1 < asm0.x600012f(arg0)) ? (1) : (0));
+                /* IL_F9: ldloc.s 4 */
+                /* IL_FB: brtrue IL_17 */
+                
+                if (loc4){
+                    __pos__ = 0x17;
                     continue;
                 }
-                /* IL_E7: ldloc.0  */
-                /* IL_E8: ldc.i4.s 34 */
-                /* IL_EA: callvirt Void Append(System.Char) */
+                /* IL_100: ldloc.0  */
+                /* IL_101: ldc.i4.s 34 */
+                /* IL_103: callvirt Void Append(System.Char) */
                 asm1.x6000004(loc0,(34|0));
-                /* IL_EF: ldloc.0  */
-                /* IL_F0: callvirt String ToString() */
-                /* IL_F5: ret  */
-                return ((loc0.vtable)["asm0.x60000ed"]())(loc0);
+                /* IL_108: nop  */
+                
+                /* IL_109: ldloc.0  */
+                /* IL_10A: callvirt String ToString() */
+                /* IL_10F: stloc.s 5 */
+                loc5 = ((loc0.vtable)["asm0.x60000ed"]())(loc0);
+                /* IL_113: ldloc.s 5 */
+                /* IL_115: ret  */
+                return loc5;
             }
         }
     };
@@ -275,18 +319,23 @@ var asm1;(function (asm)
     asm.x6000007 = function EscapeChar(arg0)
     {
         var t0;
+        var loc0;
         t0 = (asm0)["System.Int32"]();
-        /* IL_00: ldstr \u */
-        /* IL_05: ldarg.0  */
-        /* IL_06: box System.Int32 */
-        /* IL_0B: call String Concat(System.Object, System.Object) */
-        /* IL_10: ret  */
-        return asm0.x600012b(CILJS.new_string("\\u"),{
+        /* IL_00: nop  */
+        /* IL_01: ldstr \u */
+        /* IL_06: ldarg.0  */
+        /* IL_07: box System.Int32 */
+        /* IL_0C: call String Concat(System.Object, System.Object) */
+        /* IL_11: stloc.0  */
+        loc0 = asm0.x600012b(CILJS.new_string("\\u"),{
                 'boxed': arg0,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
+        /* IL_14: ldloc.0  */
+        /* IL_15: ret  */
+        return loc0;
     };;
     asm.Program = CILJS.declare_type(
         "Program",

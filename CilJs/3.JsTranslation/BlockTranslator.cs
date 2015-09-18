@@ -67,7 +67,7 @@ namespace CilJs.JsTranslation
                 }
                 else if (label != null)
                 {
-                    builder.InsertLabel(label.Position, label.IntruducesBranching);
+                    builder.InsertLabel(label);
                 }
                 else if (expr != null)
                 {

@@ -58,8 +58,9 @@ var asm1;(function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000003_init = function ()
     {
-        (asm1.Program().init)();
+        ((asm1)["Program+<>c"]().init)();
         ((asm0)["System.EventHandler"]().init)();
+        (asm1.Program().init)();
         ((asm0)["System.EventArgs"]().init)();
         asm.x6000003 = asm.x6000003_;
     };;
@@ -74,13 +75,23 @@ var asm1;(function (asm)
         var t1;
         var t2;
         var t3;
+        var t4;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var st_06;
+        var st_07;
         var in_block_0;
         var __pos__;
         CILJS.init_base_types();
-        t0 = asm1.Program();
+        t0 = (asm1)["Program+<>c"]();
         t1 = (asm0)["System.EventHandler"]();
-        t2 = (asm0)["System.Object"]();
-        t3 = (asm0)["System.EventArgs"]();
+        t2 = asm1.Program();
+        t3 = (asm0)["System.Object"]();
+        t4 = (asm0)["System.EventArgs"]();
         in_block_0 = true;
         __pos__ = 0;
         
@@ -88,59 +99,83 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1 */
-                /* IL_05: brtrue.s IL_18 */
+                /* IL_00: nop  */
                 
-                if ((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]){
-                    __pos__ = 0x18;
+                asm1.x6000006();
+                /* IL_01: ldsfld EventHandler <>9__3_0 */
+                st_00 = (t0)["<>9__3_0"];
+                /* IL_06: dup  */
+                st_07 = (st_02 = (st_01 = st_00));
+                /* IL_07: brtrue.s IL_20 */
+                
+                if (st_01){
+                    __pos__ = 0x20;
                     continue;
                 }
-                /* IL_07: ldnull  */
-                /* IL_09: ldftn Void <Main>b__0(System.Object, System.EventArgs) */
-                /* IL_0E: newobj Void .ctor(System.Object, System.IntPtr) */
-                /* IL_13: stsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1 */
-                (t0)["CS$<>9__CachedAnonymousMethodDelegate1"] = CILJS.newobj(t1,asm0.x6000072,[null, null, asm1.x6000006]);
-                case 0x18:
-                /* IL_18: ldsfld EventHandler CS$<>9__CachedAnonymousMethodDelegate1 */
-                /* IL_1D: call Void add_MyEvent(System.EventHandler) */
-                asm1.x6000001((t0)["CS$<>9__CachedAnonymousMethodDelegate1"]);
-                /* IL_22: ldnull  */
-                /* IL_24: ldftn Void Handler(System.Object, System.EventArgs) */
-                /* IL_29: newobj Void .ctor(System.Object, System.IntPtr) */
-                /* IL_2E: call Void add_MyEvent(System.EventHandler) */
+                /* IL_09: pop  */
+                
+                asm1.x6000006();
+                /* IL_0A: ldsfld <>c <>9 */
+                st_03 = (t0)["<>9"];
+                /* IL_10: ldftn Void <Main>b__3_0(System.Object, System.EventArgs) */
+                st_04 = asm1.x6000008;
+                /* IL_15: newobj Void .ctor(System.Object, System.IntPtr) */
+                st_05 = CILJS.newobj(t1,asm0.x6000072,[null, st_03, st_04]);
+                /* IL_1A: dup  */
+                st_07 = (st_06 = st_05);
+                asm1.x6000006();
+                /* IL_1B: stsfld EventHandler <>9__3_0 */
+                (t0)["<>9__3_0"] = st_06;
+                case 0x20:
+                /* IL_20: call Void add_MyEvent(System.EventHandler) */
+                asm1.x6000001(st_07);
+                /* IL_25: nop  */
+                
+                /* IL_26: ldnull  */
+                /* IL_28: ldftn Void Handler(System.Object, System.EventArgs) */
+                /* IL_2D: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_32: call Void add_MyEvent(System.EventHandler) */
                 asm1.x6000001(CILJS.newobj(t1,asm0.x6000072,[null, null, asm1.x6000004]));
+                /* IL_37: nop  */
+                
                 asm0.x6000071();
-                /* IL_33: ldsfld EventHandler MyEvent */
-                /* IL_38: newobj Void .ctor() */
+                /* IL_38: ldsfld EventHandler MyEvent */
                 /* IL_3D: newobj Void .ctor() */
-                /* IL_42: callvirt Void Invoke(System.Object, System.EventArgs) */
-                t0.MyEvent._methodPtr.apply(null,((t0.MyEvent._target) ? ([
-                        t0.MyEvent._target,
-                        CILJS.newobj(t2,asm0.x60000f4,[null]),
-                        CILJS.newobj(t3,asm0.x6000070,[null])
+                /* IL_42: newobj Void .ctor() */
+                /* IL_47: callvirt Void Invoke(System.Object, System.EventArgs) */
+                t2.MyEvent._methodPtr.apply(null,((t2.MyEvent._target) ? ([
+                        t2.MyEvent._target,
+                        CILJS.newobj(t3,asm0.x60000f4,[null]),
+                        CILJS.newobj(t4,asm0.x6000070,[null])
                     ]) : ([
-                        CILJS.newobj(t2,asm0.x60000f4,[null]),
-                        CILJS.newobj(t3,asm0.x6000070,[null])
+                        CILJS.newobj(t3,asm0.x60000f4,[null]),
+                        CILJS.newobj(t4,asm0.x6000070,[null])
                     ])));
-                /* IL_47: ldnull  */
-                /* IL_49: ldftn Void Handler(System.Object, System.EventArgs) */
-                /* IL_4E: newobj Void .ctor(System.Object, System.IntPtr) */
-                /* IL_53: call Void remove_MyEvent(System.EventHandler) */
+                /* IL_4C: nop  */
+                
+                /* IL_4D: ldnull  */
+                /* IL_4F: ldftn Void Handler(System.Object, System.EventArgs) */
+                /* IL_54: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_59: call Void remove_MyEvent(System.EventHandler) */
                 asm1.x6000002(CILJS.newobj(t1,asm0.x6000072,[null, null, asm1.x6000004]));
+                /* IL_5E: nop  */
+                
                 asm0.x6000071();
-                /* IL_58: ldsfld EventHandler MyEvent */
-                /* IL_5D: newobj Void .ctor() */
-                /* IL_62: newobj Void .ctor() */
-                /* IL_67: callvirt Void Invoke(System.Object, System.EventArgs) */
-                t0.MyEvent._methodPtr.apply(null,((t0.MyEvent._target) ? ([
-                        t0.MyEvent._target,
-                        CILJS.newobj(t2,asm0.x60000f4,[null]),
-                        CILJS.newobj(t3,asm0.x6000070,[null])
+                /* IL_5F: ldsfld EventHandler MyEvent */
+                /* IL_64: newobj Void .ctor() */
+                /* IL_69: newobj Void .ctor() */
+                /* IL_6E: callvirt Void Invoke(System.Object, System.EventArgs) */
+                t2.MyEvent._methodPtr.apply(null,((t2.MyEvent._target) ? ([
+                        t2.MyEvent._target,
+                        CILJS.newobj(t3,asm0.x60000f4,[null]),
+                        CILJS.newobj(t4,asm0.x6000070,[null])
                     ]) : ([
-                        CILJS.newobj(t2,asm0.x60000f4,[null]),
-                        CILJS.newobj(t3,asm0.x6000070,[null])
+                        CILJS.newobj(t3,asm0.x60000f4,[null]),
+                        CILJS.newobj(t4,asm0.x6000070,[null])
                     ])));
-                /* IL_6C: ret  */
+                /* IL_73: nop  */
+                
+                /* IL_74: ret  */
                 return ;
             }
         }
@@ -150,16 +185,27 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr Second */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr Second */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("Second"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
-    /* static System.Void Program.<Main>b__0(Object,EventArgs)*/
-    asm.x6000006 = function _Main_b__0(arg0, arg1)
+    /*  Program..ctor()*/
+    asm.x6000005 = function _ctor(arg0)
+    {
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
+    };;
+    /* System.Void <>c.<Main>b__3_0(Object,EventArgs)*/
+    asm.x6000008 = function _Main_b__3_0(arg0, arg1, arg2)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
@@ -168,15 +214,44 @@ var asm1;(function (asm)
         /* IL_06: newarr System.Object */
         /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("First"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_10: nop  */
+        /* IL_11: ret  */
         return ;
     };;
-    /*  Program..ctor()*/
-    asm.x6000005 = function _ctor(arg0)
+    /* static  <>c..cctor()*/
+    asm.x6000006_init = function ()
+    {
+        ((asm1)["Program+<>c"]().init)();
+        asm.x6000006 = asm.x6000006_;
+    };;
+    asm.x6000006 = function ()
+    {
+        asm.x6000006_init.apply(this,arguments);
+        return asm.x6000006_.apply(this,arguments);
+    };;
+    asm.x6000006_ = function _cctor()
+    {
+        var t0;
+        
+        if ((asm1)["Program+<>c"]().FieldsInitialized){
+            return;
+        }
+        (asm1)["Program+<>c"]().FieldsInitialized = true;
+        t0 = (asm1)["Program+<>c"]();
+        asm1.x6000006();
+        /* IL_00: newobj Void .ctor() */
+        /* IL_05: stsfld <>c <>9 */
+        (t0)["<>9"] = CILJS.newobj(t0,asm1.x6000007,[null]);
+        /* IL_0A: ret  */
+        return ;
+    };
+    /*  <>c..ctor()*/
+    asm.x6000007 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(
@@ -191,8 +266,25 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
             this.MyEvent = null;
-            (this)["CS$<>9__CachedAnonymousMethodDelegate1"] = null;
             this.GenericTypeMetadataName = "asm1.t2000002";
+            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
+            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+        });
+    (asm)["Program+<>c"] = CILJS.declare_type(
+        "__c",
+        [],
+        function ()
+        {
+            return (asm0)["System.Object"]();
+        },
+        function ()
+        {
+            this.init = CILJS.nop;
+            CILJS.init_type(this,asm,"Program+<>c",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+            (this)["<>9"] = null;
+            (this)["<>9__3_0"] = null;
+            this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");

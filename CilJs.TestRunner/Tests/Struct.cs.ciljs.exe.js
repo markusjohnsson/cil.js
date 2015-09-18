@@ -21,10 +21,11 @@ var asm1;(function (asm)
         t0 = asm1.S();
         t1 = (asm0)["System.Int32"]();
         loc0 = new (asm1.S())();
-        /* IL_00: ldloca.s 0 */
-        /* IL_03: initobj S */
+        /* IL_00: nop  */
+        /* IL_01: ldloca.s 0 */
+        /* IL_04: initobj S */
         loc0 = new t0();
-        /* IL_08: ldloca.s 0 */
+        /* IL_09: ldloc.0  */
         /* IL_0A: ldfld Int32 X */
         /* IL_0F: box System.Int32 */
         /* IL_14: call Void WriteLine(System.Object) */
@@ -34,7 +35,8 @@ var asm1;(function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_19: ldloca.s 0 */
+        /* IL_19: nop  */
+        /* IL_1A: ldloc.0  */
         /* IL_1B: ldfld Int32 Y */
         /* IL_20: box System.Int32 */
         /* IL_25: call Void WriteLine(System.Object) */
@@ -44,7 +46,8 @@ var asm1;(function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_2A: ret  */
+        /* IL_2A: nop  */
+        /* IL_2B: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -52,7 +55,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.S = CILJS.declare_type(

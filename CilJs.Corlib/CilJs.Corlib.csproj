@@ -32,9 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="CilJs.JavaScript\Array.cs" />
     <Compile Include="CilJs.JavaScript\Boolean.cs" />
@@ -51,6 +49,7 @@
     <Compile Include="CilJs.Runtime\Locale.cs" />
     <Compile Include="CilJs.Runtime\ManagedPointer.cs" />
     <Compile Include="CilJs.Runtime\UnboundGenericParameter.cs" />
+    <Compile Include="Properties\Properties.cs" />
     <Compile Include="System.Collections.Generic\ICollection.cs" />
     <Compile Include="System.Collections.Generic\IComparer.cs" />
     <Compile Include="System.Collections.Generic\IEnumerable.cs" />

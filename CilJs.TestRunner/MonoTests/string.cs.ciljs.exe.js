@@ -9,6 +9,10 @@ var asm1;(function (asm)
         var loc0;
         var loc1;
         var loc2;
+        var loc3;
+        var loc4;
+        var loc5;
+        var loc6;
         CILJS.init_base_types();
         in_block_0 = true;
         __pos__ = 0;
@@ -17,61 +21,85 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: ldstr ddd */
-                /* IL_05: stloc.0  */
+                /* IL_00: nop  */
+                
+                /* IL_01: ldstr ddd */
+                /* IL_06: stloc.0  */
                 loc0 = CILJS.new_string("ddd");
-                /* IL_06: ldstr ddd */
-                /* IL_0B: stloc.1  */
+                /* IL_07: ldstr ddd */
+                /* IL_0C: stloc.1  */
                 loc1 = CILJS.new_string("ddd");
-                /* IL_0C: ldstr ddda */
-                /* IL_11: stloc.2  */
+                /* IL_0D: ldstr ddda */
+                /* IL_12: stloc.2  */
                 loc2 = CILJS.new_string("ddda");
-                /* IL_12: ldloc.0  */
-                /* IL_13: ldloc.1  */
-                /* IL_14: call Boolean op_Inequality(System.String, System.String) */
-                /* IL_19: brfalse.s IL_1D */
+                /* IL_13: ldloc.0  */
+                /* IL_14: ldloc.1  */
+                /* IL_15: call Boolean op_Inequality(System.String, System.String) */
+                /* IL_1A: stloc.3  */
+                loc3 = asm0.x6000131(loc0,loc1);
+                /* IL_1B: ldloc.3  */
+                /* IL_1C: brfalse.s IL_23 */
                 
-                if ((!(asm0.x6000131(loc0,loc1)))){
-                    __pos__ = 0x1D;
+                if ((!(loc3))){
+                    __pos__ = 0x23;
                     continue;
                 }
-                /* IL_1B: ldc.i4.1  */
-                /* IL_1C: ret  */
-                return (1|0);
-                case 0x1D:
-                /* IL_1D: ldloc.2  */
-                /* IL_1E: ldloc.1  */
-                /* IL_1F: ldstr a */
-                /* IL_24: call String Concat(System.String, System.String) */
-                /* IL_29: call Boolean op_Inequality(System.String, System.String) */
-                /* IL_2E: brfalse.s IL_32 */
+                /* IL_1E: ldc.i4.1  */
+                /* IL_1F: stloc.s 4 */
+                loc4 = (1|0);
+                /* IL_21: br.s IL_5D */
+                __pos__ = 0x5D;
+                continue;
+                case 0x23:
+                /* IL_23: ldloc.2  */
+                /* IL_24: ldloc.1  */
+                /* IL_25: ldstr a */
+                /* IL_2A: call String Concat(System.String, System.String) */
+                /* IL_2F: call Boolean op_Inequality(System.String, System.String) */
+                /* IL_34: stloc.s 5 */
+                loc5 = asm0.x6000131(loc2,asm0.x6000127(loc1,CILJS.new_string("a")));
+                /* IL_36: ldloc.s 5 */
+                /* IL_38: brfalse.s IL_3F */
                 
-                if ((!(asm0.x6000131(loc2,asm0.x6000127(loc1,CILJS.new_string("a")))))){
-                    __pos__ = 0x32;
+                if ((!(loc5))){
+                    __pos__ = 0x3F;
                     continue;
                 }
-                /* IL_30: ldc.i4.2  */
-                /* IL_31: ret  */
-                return (2|0);
-                case 0x32:
-                /* IL_32: ldloc.2  */
-                /* IL_33: ldloc.1  */
-                /* IL_34: ldstr a */
-                /* IL_39: call String Concat(System.String, System.String) */
-                /* IL_3E: call Boolean ReferenceEquals(System.Object, System.Object) */
-                /* IL_43: brfalse.s IL_47 */
+                /* IL_3A: ldc.i4.2  */
+                /* IL_3B: stloc.s 4 */
+                loc4 = (2|0);
+                /* IL_3D: br.s IL_5D */
+                __pos__ = 0x5D;
+                continue;
+                case 0x3F:
+                /* IL_3F: ldloc.2  */
+                /* IL_40: ldloc.1  */
+                /* IL_41: ldstr a */
+                /* IL_46: call String Concat(System.String, System.String) */
+                /* IL_4C: ceq  */
+                /* IL_4D: stloc.s 6 */
+                loc6 = ((loc2 === asm0.x6000127(loc1,CILJS.new_string("a"))) ? (1) : (0));
+                /* IL_4F: ldloc.s 6 */
+                /* IL_51: brfalse.s IL_58 */
                 
-                if ((!(asm0.x60000ef(loc2,asm0.x6000127(loc1,CILJS.new_string("a")))))){
-                    __pos__ = 0x47;
+                if ((!(loc6))){
+                    __pos__ = 0x58;
                     continue;
                 }
-                /* IL_45: ldc.i4.4  */
-                /* IL_46: ret  */
-                return (4|0);
-                case 0x47:
-                /* IL_47: ldc.i4.0  */
-                /* IL_48: ret  */
-                return (0|0);
+                /* IL_53: ldc.i4.4  */
+                /* IL_54: stloc.s 4 */
+                loc4 = (4|0);
+                /* IL_56: br.s IL_5D */
+                __pos__ = 0x5D;
+                continue;
+                case 0x58:
+                /* IL_58: ldc.i4.0  */
+                /* IL_59: stloc.s 4 */
+                loc4 = (0|0);
+                case 0x5D:
+                /* IL_5D: ldloc.s 4 */
+                /* IL_5F: ret  */
+                return loc4;
             }
         }
     };;
@@ -80,7 +108,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.TestString = CILJS.declare_type(

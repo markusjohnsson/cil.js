@@ -4,26 +4,37 @@ var asm1;(function (asm)
     /* System.Int32 Base.TestMono.IBase.Do()*/
     asm.x6000002 = function TestMono_IBase_Do(arg0)
     {
-        /* IL_00: ldc.i4.1  */
-        /* IL_01: ldarg.0  */
-        /* IL_02: callvirt Int32 Do() */
-        /* IL_07: add  */
-        /* IL_08: ret  */
-        return ((1|0) + ((arg0.vtable)["asm1.x6000003"]())(arg0)) | (0|0);
+        var loc0;
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: ldarg.0  */
+        /* IL_03: callvirt Int32 Do() */
+        /* IL_08: add  */
+        /* IL_09: stloc.0  */
+        loc0 = ((1|0) + ((arg0.vtable)["asm1.x6000003"]())(arg0)) | (0|0);
+        /* IL_0C: ldloc.0  */
+        /* IL_0D: ret  */
+        return loc0;
     };;
     /* System.Int32 Base.Do()*/
     asm.x6000003 = function Do(arg0)
     {
-        /* IL_00: ldc.i4.1  */
-        /* IL_01: ret  */
-        return (1|0);
+        var loc0;
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Base..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /*  Derived..ctor()*/
@@ -32,7 +43,8 @@ var asm1;(function (asm)
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
         asm1.x6000004(arg0);
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Int32 Class1.Main(String[])*/
@@ -56,9 +68,14 @@ var asm1;(function (asm)
         var in_block_0;
         var __pos__;
         var loc0;
+        var loc4;
+        var loc5;
         var loc1;
+        var loc6;
         var loc2;
+        var loc7;
         var loc3;
+        var loc8;
         CILJS.init_base_types();
         t0 = (asm1)["TestMono.Derived"]();
         t1 = (asm1)["TestMono.IBase"]();
@@ -70,75 +87,117 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
-                /* IL_00: newobj Void .ctor() */
-                /* IL_05: stloc.0  */
+                /* IL_00: nop  */
+                
+                /* IL_01: newobj Void .ctor() */
+                /* IL_06: stloc.0  */
                 loc0 = CILJS.newobj(t0,asm1.x6000005,[null]);
-                /* IL_06: ldloc.0  */
-                /* IL_07: callvirt Int32 Do() */
-                /* IL_0C: ldc.i4.2  */
-                /* IL_0D: beq.s IL_11 */
+                /* IL_07: ldloc.0  */
+                /* IL_08: callvirt Int32 Do() */
+                /* IL_0D: ldc.i4.2  */
+                /* IL_0F: ceq  */
+                /* IL_10: ldc.i4.0  */
+                /* IL_12: ceq  */
+                /* IL_13: stloc.s 4 */
+                loc4 = (((((((loc0.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc0)) === (2|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_15: ldloc.s 4 */
+                /* IL_17: brfalse.s IL_1E */
                 
-                if ((((loc0.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc0)) === (2|0)){
-                    __pos__ = 0x11;
-                    continue;
-                }
-                /* IL_0F: ldc.i4.1  */
-                /* IL_10: ret  */
-                return (1|0);
-                case 0x11:
-                /* IL_11: ldloc.0  */
-                /* IL_12: stloc.1  */
-                loc1 = loc0;
-                /* IL_13: ldloc.1  */
-                /* IL_14: callvirt Int32 Do() */
-                /* IL_19: ldc.i4.2  */
-                /* IL_1A: beq.s IL_1E */
-                
-                if ((((loc1.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc1)) === (2|0)){
+                if ((!(loc4))){
                     __pos__ = 0x1E;
                     continue;
                 }
-                /* IL_1C: ldc.i4.2  */
-                /* IL_1D: ret  */
-                return (2|0);
+                /* IL_19: ldc.i4.1  */
+                /* IL_1A: stloc.s 5 */
+                loc5 = (1|0);
+                /* IL_1C: br.s IL_78 */
+                __pos__ = 0x78;
+                continue;
                 case 0x1E:
                 /* IL_1E: ldloc.0  */
-                /* IL_1F: castclass TestMono.Derived */
-                /* IL_24: stloc.2  */
+                /* IL_1F: stloc.1  */
+                loc1 = loc0;
+                /* IL_20: ldloc.1  */
+                /* IL_21: callvirt Int32 Do() */
+                /* IL_26: ldc.i4.2  */
+                /* IL_28: ceq  */
+                /* IL_29: ldc.i4.0  */
+                /* IL_2B: ceq  */
+                /* IL_2C: stloc.s 6 */
+                loc6 = (((((((loc1.ifacemap)[t1].x6000001)())(CILJS.convert_box_to_pointer_as_needed(loc1)) === (2|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_2E: ldloc.s 6 */
+                /* IL_30: brfalse.s IL_37 */
+                
+                if ((!(loc6))){
+                    __pos__ = 0x37;
+                    continue;
+                }
+                /* IL_32: ldc.i4.2  */
+                /* IL_33: stloc.s 5 */
+                loc5 = (2|0);
+                /* IL_35: br.s IL_78 */
+                __pos__ = 0x78;
+                continue;
+                case 0x37:
+                /* IL_37: ldloc.0  */
+                /* IL_38: castclass TestMono.Derived */
+                /* IL_3D: stloc.2  */
                 loc2 = CILJS.cast_class(loc0,t0);
-                /* IL_25: ldloc.2  */
-                /* IL_26: callvirt Int32 Do() */
-                /* IL_2B: ldc.i4.1  */
-                /* IL_2C: beq.s IL_30 */
+                /* IL_3E: ldloc.2  */
+                /* IL_3F: callvirt Int32 Do() */
+                /* IL_44: ldc.i4.1  */
+                /* IL_46: ceq  */
+                /* IL_47: ldc.i4.0  */
+                /* IL_49: ceq  */
+                /* IL_4A: stloc.s 7 */
+                loc7 = ((((((loc2.vtable)["asm1.x6000003"]())(loc2) === (1|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_4C: ldloc.s 7 */
+                /* IL_4E: brfalse.s IL_55 */
                 
-                if (((loc2.vtable)["asm1.x6000003"]())(loc2) === (1|0)){
-                    __pos__ = 0x30;
+                if ((!(loc7))){
+                    __pos__ = 0x55;
                     continue;
                 }
-                /* IL_2E: ldc.i4.3  */
-                /* IL_2F: ret  */
-                return (3|0);
-                case 0x30:
-                /* IL_30: ldloc.0  */
-                /* IL_31: castclass TestMono.Base */
-                /* IL_36: stloc.3  */
+                /* IL_50: ldc.i4.3  */
+                /* IL_51: stloc.s 5 */
+                loc5 = (3|0);
+                /* IL_53: br.s IL_78 */
+                __pos__ = 0x78;
+                continue;
+                case 0x55:
+                /* IL_55: ldloc.0  */
+                /* IL_56: castclass TestMono.Base */
+                /* IL_5B: stloc.3  */
                 loc3 = CILJS.cast_class(loc0,t2);
-                /* IL_37: ldloc.3  */
-                /* IL_38: callvirt Int32 Do() */
-                /* IL_3D: ldc.i4.1  */
-                /* IL_3E: beq.s IL_42 */
+                /* IL_5C: ldloc.3  */
+                /* IL_5D: callvirt Int32 Do() */
+                /* IL_62: ldc.i4.1  */
+                /* IL_64: ceq  */
+                /* IL_65: ldc.i4.0  */
+                /* IL_67: ceq  */
+                /* IL_68: stloc.s 8 */
+                loc8 = ((((((loc3.vtable)["asm1.x6000003"]())(loc3) === (1|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                /* IL_6A: ldloc.s 8 */
+                /* IL_6C: brfalse.s IL_73 */
                 
-                if (((loc3.vtable)["asm1.x6000003"]())(loc3) === (1|0)){
-                    __pos__ = 0x42;
+                if ((!(loc8))){
+                    __pos__ = 0x73;
                     continue;
                 }
-                /* IL_40: ldc.i4.4  */
-                /* IL_41: ret  */
-                return (4|0);
-                case 0x42:
-                /* IL_42: ldc.i4.0  */
-                /* IL_43: ret  */
-                return (0|0);
+                /* IL_6E: ldc.i4.4  */
+                /* IL_6F: stloc.s 5 */
+                loc5 = (4|0);
+                /* IL_71: br.s IL_78 */
+                __pos__ = 0x78;
+                continue;
+                case 0x73:
+                /* IL_73: ldc.i4.0  */
+                /* IL_74: stloc.s 5 */
+                loc5 = (0|0);
+                case 0x78:
+                /* IL_78: ldloc.s 5 */
+                /* IL_7A: ret  */
+                return loc5;
             }
         }
     };
@@ -147,7 +206,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["TestMono.IBase"] = CILJS.declare_type(

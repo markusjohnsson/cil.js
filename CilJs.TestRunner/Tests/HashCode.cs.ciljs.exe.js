@@ -6,7 +6,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -30,38 +31,39 @@ var asm1;(function (asm)
         CILJS.init_base_types();
         t0 = asm1.A();
         t1 = (asm0)["System.Boolean"]();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: stloc.0  */
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.newobj(t0,asm1.x6000001,[null]);
-        /* IL_06: ldloc.0  */
-        /* IL_07: callvirt Int32 GetHashCode() */
-        /* IL_0C: stloc.1  */
+        /* IL_07: ldloc.0  */
+        /* IL_08: callvirt Int32 GetHashCode() */
+        /* IL_0D: stloc.1  */
         loc1 = ((loc0.vtable)["asm0.x60000f1"]())(loc0);
-        /* IL_0D: ldloc.1  */
-        /* IL_0E: ldc.i4.0  */
-        /* IL_10: ceq  */
-        /* IL_11: ldc.i4.0  */
-        /* IL_13: ceq  */
-        /* IL_14: box System.Boolean */
-        /* IL_19: call Void WriteLine(System.Object) */
+        /* IL_0E: ldloc.1  */
+        /* IL_0F: ldc.i4.0  */
+        /* IL_11: cgt.un  */
+        /* IL_12: box System.Boolean */
+        /* IL_17: call Void WriteLine(System.Object) */
         asm0.x600005a({
-                'boxed': ((((loc1 === (0|0)) ? (1) : (0)) === (0|0)) ? (1) : (0)),
+                'boxed': ((CILJS.unsigned_value(loc1) > CILJS.unsigned_value((0|0))) ? (1) : (0)),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_1E: ldloc.1  */
-        /* IL_1F: ldloc.0  */
-        /* IL_20: callvirt Int32 GetHashCode() */
-        /* IL_26: ceq  */
-        /* IL_27: box System.Boolean */
-        /* IL_2C: call Void WriteLine(System.Object) */
+        /* IL_1C: nop  */
+        /* IL_1D: ldloc.1  */
+        /* IL_1E: ldloc.0  */
+        /* IL_1F: callvirt Int32 GetHashCode() */
+        /* IL_25: ceq  */
+        /* IL_26: box System.Boolean */
+        /* IL_2B: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': ((loc1 === ((loc0.vtable)["asm0.x60000f1"]())(loc0)) ? (1) : (0)),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
+        /* IL_30: nop  */
         /* IL_31: newobj Void .ctor() */
         /* IL_36: stloc.2  */
         loc2 = CILJS.newobj(t0,asm1.x6000001,[null]);
@@ -78,25 +80,28 @@ var asm1;(function (asm)
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_4F: ldloc.2  */
-        /* IL_50: callvirt Int32 GetHashCode() */
-        /* IL_55: ldloc.0  */
-        /* IL_56: callvirt Int32 GetHashCode() */
-        /* IL_5C: ceq  */
-        /* IL_5D: ldc.i4.0  */
-        /* IL_5F: ceq  */
-        /* IL_60: box System.Boolean */
-        /* IL_65: call Void WriteLine(System.Object) */
+        /* IL_4F: nop  */
+        /* IL_50: ldloc.2  */
+        /* IL_51: callvirt Int32 GetHashCode() */
+        /* IL_56: ldloc.0  */
+        /* IL_57: callvirt Int32 GetHashCode() */
+        /* IL_5D: ceq  */
+        /* IL_5E: ldc.i4.0  */
+        /* IL_60: ceq  */
+        /* IL_61: box System.Boolean */
+        /* IL_66: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': ((((((loc2.vtable)["asm0.x60000f1"]())(loc2) === ((loc0.vtable)["asm0.x60000f1"]())(loc0)) ? (1) : (0)) === (0|0)) ? (1) : (0)),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_6A: ldstr hello */
-        /* IL_6F: call Void TestString(System.String) */
+        /* IL_6B: nop  */
+        /* IL_6C: ldstr hello */
+        /* IL_71: call Void TestString(System.String) */
         asm1.x6000003(CILJS.new_string("hello"));
-        /* IL_74: ret  */
+        /* IL_76: nop  */
+        /* IL_77: ret  */
         return ;
     };
     /* static System.Void Program.TestString(String)*/
@@ -106,41 +111,44 @@ var asm1;(function (asm)
         var loc0;
         var loc1;
         t0 = (asm0)["System.Boolean"]();
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldstr  world */
-        /* IL_06: call String Concat(System.String, System.String) */
-        /* IL_0B: stloc.0  */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldstr  world */
+        /* IL_07: call String Concat(System.String, System.String) */
+        /* IL_0C: stloc.0  */
         loc0 = asm0.x6000127(arg0,CILJS.new_string(" world"));
-        /* IL_0C: ldstr hello world */
-        /* IL_11: stloc.1  */
+        /* IL_0D: ldstr hello world */
+        /* IL_12: stloc.1  */
         loc1 = CILJS.new_string("hello world");
-        /* IL_12: ldloc.0  */
-        /* IL_13: callvirt Int32 GetHashCode() */
-        /* IL_18: ldloc.1  */
-        /* IL_19: callvirt Int32 GetHashCode() */
-        /* IL_1F: ceq  */
-        /* IL_20: box System.Boolean */
-        /* IL_25: call Void WriteLine(System.Object) */
+        /* IL_13: ldloc.0  */
+        /* IL_14: callvirt Int32 GetHashCode() */
+        /* IL_19: ldloc.1  */
+        /* IL_1A: callvirt Int32 GetHashCode() */
+        /* IL_20: ceq  */
+        /* IL_21: box System.Boolean */
+        /* IL_26: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': ((((loc0.vtable)["asm0.x60000f1"]())(loc0) === ((loc1.vtable)["asm0.x60000f1"]())(loc1)) ? (1) : (0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_2A: ldloc.0  */
-        /* IL_2B: callvirt Int32 GetHashCode() */
-        /* IL_30: ldarg.0  */
-        /* IL_31: callvirt Int32 GetHashCode() */
-        /* IL_37: ceq  */
-        /* IL_38: box System.Boolean */
-        /* IL_3D: call Void WriteLine(System.Object) */
+        /* IL_2B: nop  */
+        /* IL_2C: ldloc.0  */
+        /* IL_2D: callvirt Int32 GetHashCode() */
+        /* IL_32: ldarg.0  */
+        /* IL_33: callvirt Int32 GetHashCode() */
+        /* IL_39: ceq  */
+        /* IL_3A: box System.Boolean */
+        /* IL_3F: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': ((((loc0.vtable)["asm0.x60000f1"]())(loc0) === ((arg0.vtable)["asm0.x60000f1"]())(arg0)) ? (1) : (0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_42: ret  */
+        /* IL_44: nop  */
+        /* IL_45: ret  */
         return ;
     };;
     /*  Program..ctor()*/
@@ -148,7 +156,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.A = CILJS.declare_type(

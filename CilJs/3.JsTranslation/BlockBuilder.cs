@@ -128,14 +128,14 @@ namespace CilJs.JsTranslation
             Statements.RemoveAll(toRemove.Contains);
         }
 
-        public void InsertLabel(int p, bool introducesBranching)
+        public void InsertLabel(JumpLabel label)
         {
             //if (false == hasBranching)
             //    Statements.Insert(0, new JSSwitchCase { Value = new JSNumberLiteral { Value = 0, IsHex = true } });
 
-            hasBranching = hasBranching || introducesBranching;
+            hasBranching = hasBranching || label.IntruducesBranching;
 
-            Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = p, IsHex = true } });
+            Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = label.Position, IsHex = true } });
         }
 
         public void InsertStatements(IEnumerable<JSStatement> statements)

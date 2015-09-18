@@ -104,7 +104,7 @@ namespace CilJs.Analysis
                 case "div.un":
                     return InferBinaryArithmeticType(op);
                 case "dup":
-                    return op.Targeting.First().ResultType;
+                    return op.Arguments.First().ResultType;
                 case "endfinally":
                     return null;
                 case "initobj":

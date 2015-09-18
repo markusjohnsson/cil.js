@@ -6,7 +6,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /*  B..ctor()*/
@@ -14,7 +15,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* System.Void C.I<A>.Print()*/
@@ -22,12 +24,14 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr A */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr A */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("A"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
     /* System.Void C.I<B>.Print()*/
@@ -35,12 +39,14 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr B */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr B */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("B"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
     /*  C..ctor()*/
@@ -48,7 +54,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -68,16 +75,19 @@ var asm1;(function (asm)
         var loc0;
         CILJS.init_base_types();
         t0 = asm1.C();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: stloc.0  */
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.newobj(t0,asm1.x6000006,[null]);
-        /* IL_06: ldloc.0  */
-        /* IL_07: call Void PrintA(I`1[A]) */
+        /* IL_07: ldloc.0  */
+        /* IL_08: call Void PrintA(I`1[A]) */
         asm1.x6000008(loc0);
-        /* IL_0C: ldloc.0  */
-        /* IL_0D: call Void PrintB(I`1[B]) */
+        /* IL_0D: nop  */
+        /* IL_0E: ldloc.0  */
+        /* IL_0F: call Void PrintB(I`1[B]) */
         asm1.x6000009(loc0);
-        /* IL_12: ret  */
+        /* IL_14: nop  */
+        /* IL_15: ret  */
         return ;
     };
     /* static System.Void Program.PrintA(I`1)*/
@@ -98,10 +108,12 @@ var asm1;(function (asm)
         var t1;
         t0 = asm1.A();
         t1 = (asm1)["I`1"](t0);
-        /* IL_00: ldarg.0  */
-        /* IL_01: callvirt Void Print() */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: callvirt Void Print() */
         ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-        /* IL_06: ret  */
+        /* IL_07: nop  */
+        /* IL_08: ret  */
         return ;
     };
     /* static System.Void Program.PrintB(I`1)*/
@@ -122,10 +134,12 @@ var asm1;(function (asm)
         var t1;
         t0 = asm1.B();
         t1 = (asm1)["I`1"](t0);
-        /* IL_00: ldarg.0  */
-        /* IL_01: callvirt Void Print() */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: callvirt Void Print() */
         ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-        /* IL_06: ret  */
+        /* IL_07: nop  */
+        /* IL_08: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -133,7 +147,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["I`1"] = CILJS.declare_type(

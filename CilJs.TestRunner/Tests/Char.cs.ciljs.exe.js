@@ -5,16 +5,20 @@ var asm1;(function (asm)
     asm.x6000001 = function Main()
     {
         CILJS.init_base_types();
-        /* IL_00: ldstr hello world */
-        /* IL_05: call Void Log(System.String) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr hello world */
+        /* IL_06: call Void Log(System.String) */
         asm1.x6000002(CILJS.new_string("hello world"));
-        /* IL_0A: ldstr xyzw */
-        /* IL_0F: call Void Log(System.String) */
+        /* IL_0B: nop  */
+        /* IL_0C: ldstr xyzw */
+        /* IL_11: call Void Log(System.String) */
         asm1.x6000002(CILJS.new_string("xyzw"));
-        /* IL_14: ldstr 1234 */
-        /* IL_19: call Void Log(System.String) */
+        /* IL_16: nop  */
+        /* IL_17: ldstr 1234 */
+        /* IL_1C: call Void Log(System.String) */
         asm1.x6000002(CILJS.new_string("1234"));
-        /* IL_1E: ret  */
+        /* IL_21: nop  */
+        /* IL_22: ret  */
         return ;
     };;
     /* static System.Void Program.Log(String)*/
@@ -22,51 +26,56 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Char"]();
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldc.i4.0  */
-        /* IL_02: callvirt Char get_Chars(System.Int32) */
-        /* IL_07: box System.Char */
-        /* IL_0C: call Void WriteLine(System.Object) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldc.i4.0  */
+        /* IL_03: callvirt Char get_Chars(System.Int32) */
+        /* IL_08: box System.Char */
+        /* IL_0D: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': asm0.x6000125(arg0,(0|0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_11: ldarg.0  */
-        /* IL_12: ldc.i4.1  */
-        /* IL_13: callvirt Char get_Chars(System.Int32) */
-        /* IL_18: box System.Char */
-        /* IL_1D: call Void WriteLine(System.Object) */
+        /* IL_12: nop  */
+        /* IL_13: ldarg.0  */
+        /* IL_14: ldc.i4.1  */
+        /* IL_15: callvirt Char get_Chars(System.Int32) */
+        /* IL_1A: box System.Char */
+        /* IL_1F: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': asm0.x6000125(arg0,(1|0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_22: ldarg.0  */
-        /* IL_23: ldc.i4.2  */
-        /* IL_24: callvirt Char get_Chars(System.Int32) */
-        /* IL_29: box System.Char */
-        /* IL_2E: call Void WriteLine(System.Object) */
+        /* IL_24: nop  */
+        /* IL_25: ldarg.0  */
+        /* IL_26: ldc.i4.2  */
+        /* IL_27: callvirt Char get_Chars(System.Int32) */
+        /* IL_2C: box System.Char */
+        /* IL_31: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': asm0.x6000125(arg0,(2|0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_33: ldarg.0  */
-        /* IL_34: ldc.i4.3  */
-        /* IL_35: callvirt Char get_Chars(System.Int32) */
-        /* IL_3A: box System.Char */
-        /* IL_3F: call Void WriteLine(System.Object) */
+        /* IL_36: nop  */
+        /* IL_37: ldarg.0  */
+        /* IL_38: ldc.i4.3  */
+        /* IL_39: callvirt Char get_Chars(System.Int32) */
+        /* IL_3E: box System.Char */
+        /* IL_43: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': asm0.x6000125(arg0,(3|0)),
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_44: ret  */
+        /* IL_48: nop  */
+        /* IL_49: ret  */
         return ;
     };;
     /*  Program..ctor()*/
@@ -74,7 +83,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

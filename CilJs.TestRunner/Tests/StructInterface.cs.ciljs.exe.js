@@ -6,12 +6,14 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Object"]();
-        /* IL_00: ldstr Foo */
-        /* IL_05: ldc.i4.0  */
-        /* IL_06: newarr System.Object */
-        /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_00: nop  */
+        /* IL_01: ldstr Foo */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(CILJS.new_string("Foo"),CILJS.new_array(t0,(0|0)));
-        /* IL_10: ret  */
+        /* IL_11: nop  */
+        /* IL_12: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -33,22 +35,24 @@ var asm1;(function (asm)
         CILJS.init_base_types();
         t0 = asm1.S();
         loc0 = new (asm1.S())();
-        /* IL_00: ldloca.s 0 */
-        /* IL_03: initobj S */
+        /* IL_00: nop  */
+        /* IL_01: ldloca.s 0 */
+        /* IL_04: initobj S */
         loc0 = new t0();
-        /* IL_08: ldloc.0  */
-        /* IL_09: box S */
-        /* IL_0E: stloc.1  */
+        /* IL_09: ldloc.0  */
+        /* IL_0A: box S */
+        /* IL_0F: stloc.1  */
         loc1 = {
             'boxed': CILJS.clone_value(loc0),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         };
-        /* IL_0F: ldloc.1  */
-        /* IL_10: call Void Run(I) */
+        /* IL_10: ldloc.1  */
+        /* IL_11: call Void Run(I) */
         asm1.x6000004(loc1);
-        /* IL_15: ret  */
+        /* IL_16: nop  */
+        /* IL_17: ret  */
         return ;
     };
     /* static System.Void Program.Run(I)*/
@@ -66,10 +70,12 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = asm1.I();
-        /* IL_00: ldarg.0  */
-        /* IL_01: callvirt Void Foo() */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: callvirt Void Foo() */
         (((arg0.ifacemap)[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
-        /* IL_06: ret  */
+        /* IL_07: nop  */
+        /* IL_08: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -77,7 +83,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.I = CILJS.declare_type(

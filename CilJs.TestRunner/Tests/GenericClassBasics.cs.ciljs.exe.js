@@ -24,7 +24,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /*  IntWrapper..ctor()*/
@@ -32,7 +33,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /*  StringWrapper..ctor()*/
@@ -40,7 +42,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -84,61 +87,66 @@ var asm1;(function (asm)
         t3 = (asm1)["A`1"](t2);
         t4 = (asm0)["System.Int32"]();
         t5 = (asm0)["System.Object"]();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: stloc.0  */
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
         loc0 = CILJS.newobj(t1,asm1.x6000003,[null]);
-        /* IL_06: ldloc.0  */
+        /* IL_07: ldloc.0  */
         st_04 = loc0;
-        /* IL_07: newobj Void .ctor() */
-        /* IL_0C: stloc.2  */
+        /* IL_08: newobj Void .ctor() */
+        /* IL_0D: stloc.2  */
         loc2 = CILJS.newobj(t0,asm1.x6000004,[null]);
-        /* IL_0D: ldloc.2  */
+        /* IL_0E: ldloc.2  */
         st_02 = loc2;
-        /* IL_0E: ldc.i4.s 123 */
+        /* IL_0F: ldc.i4.s 123 */
         st_03 = (123|0);
-        /* IL_10: stfld Int32 Value */
+        /* IL_11: stfld Int32 Value */
         st_02.Value = st_03;
-        /* IL_15: ldloc.2  */
+        /* IL_16: ldloc.2  */
         st_05 = loc2;
-        /* IL_16: callvirt Void set_Prop(IntWrapper) */
+        /* IL_17: callvirt Void set_Prop(IntWrapper) */
         asm1.x6000002(st_04,st_05);
-        /* IL_1B: newobj Void .ctor() */
-        /* IL_20: stloc.1  */
+        /* IL_1C: nop  */
+        /* IL_1D: newobj Void .ctor() */
+        /* IL_22: stloc.1  */
         loc1 = CILJS.newobj(t3,asm1.x6000003,[null]);
-        /* IL_21: ldloc.1  */
+        /* IL_23: ldloc.1  */
         st_0A = loc1;
-        /* IL_22: newobj Void .ctor() */
-        /* IL_27: stloc.3  */
+        /* IL_24: newobj Void .ctor() */
+        /* IL_29: stloc.3  */
         loc3 = CILJS.newobj(t2,asm1.x6000005,[null]);
-        /* IL_28: ldloc.3  */
+        /* IL_2A: ldloc.3  */
         st_08 = loc3;
-        /* IL_29: ldstr Hello */
+        /* IL_2B: ldstr Hello */
         st_09 = CILJS.new_string("Hello");
-        /* IL_2E: stfld String Value */
+        /* IL_30: stfld String Value */
         st_08.Value = st_09;
-        /* IL_33: ldloc.3  */
+        /* IL_35: ldloc.3  */
         st_0B = loc3;
-        /* IL_34: callvirt Void set_Prop(StringWrapper) */
+        /* IL_36: callvirt Void set_Prop(StringWrapper) */
         asm1.x6000002(st_0A,st_0B);
-        /* IL_39: ldloc.0  */
-        /* IL_3A: callvirt IntWrapper get_Prop() */
-        /* IL_3F: ldfld Int32 Value */
-        /* IL_44: box System.Int32 */
-        /* IL_49: call Void WriteLine(System.Object) */
+        /* IL_3B: nop  */
+        /* IL_3C: ldloc.0  */
+        /* IL_3D: callvirt IntWrapper get_Prop() */
+        /* IL_42: ldfld Int32 Value */
+        /* IL_47: box System.Int32 */
+        /* IL_4C: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': asm1.x6000001(loc0).Value,
                 'type': t4,
                 'vtable': t4.prototype.vtable,
                 'ifacemap': t4.prototype.ifacemap
             });
-        /* IL_4E: ldloc.1  */
-        /* IL_4F: callvirt StringWrapper get_Prop() */
-        /* IL_54: ldfld String Value */
-        /* IL_59: ldc.i4.0  */
-        /* IL_5A: newarr System.Object */
-        /* IL_5F: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_51: nop  */
+        /* IL_52: ldloc.1  */
+        /* IL_53: callvirt StringWrapper get_Prop() */
+        /* IL_58: ldfld String Value */
+        /* IL_5D: ldc.i4.0  */
+        /* IL_5E: newarr System.Object */
+        /* IL_63: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(asm1.x6000001(loc1).Value,CILJS.new_array(t5,(0|0)));
-        /* IL_64: ret  */
+        /* IL_68: nop  */
+        /* IL_69: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -146,7 +154,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["A`1"] = CILJS.declare_type(

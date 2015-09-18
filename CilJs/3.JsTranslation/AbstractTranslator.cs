@@ -157,7 +157,7 @@ namespace CilJs.JsTranslation
             return method.Name.Replace("<", "_").Replace(">", "_").Replace("`", "_").Replace(".", "_").Replace(",", "_");
         }
 
-        protected string GetTranslatedFieldName(CilType type, FieldInfo f)
+        protected string GetTranslatedFieldName(FieldInfo f)
         {
             if (f.IsStatic == false && f.IsPrivate && f.DeclaringType.IsValueType == false)
             {

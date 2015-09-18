@@ -1,5 +1,5 @@
 ﻿@{
-    
+
     Layout = null;
 }
 @model CilJs.TestRunner.Controllers.IndexViewModel
@@ -19,12 +19,12 @@
 
         * {
             /*font-family: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;*/
-            font-family:Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+            font-family: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
             font-size: 10pt;
         }
 
         pre {
-            font-family: 'Consolas', 'Courier New', Courier, 'Nimbus Mono L', monospace
+            font-family: 'Consolas', 'Courier New', Courier, 'Nimbus Mono L', monospace;
         }
 
         a {
@@ -42,60 +42,120 @@
 <body>
     <button data-bind="click: runAll">Run all</button>
 
-    <table data-bind="foreach: items">
-        <tr>
-            <td>
-                <a data-bind="attr: { href: '/Test/Run?name=/' + Name }, text: Name"></a>
-            </td>
-            <td>
-                <div data-bind="visible: testRunning()">
-                    <img style="position: absolute; margin-top: -10px;" src="/Images/throbber.gif" alt="Working..." />
-                </div>
-                <span style="color: green" data-bind="style: { display: testHasSucceeded() ? 'inline-block' : 'none' }">OK</span>
-                <span style="color: red" data-bind="style: { display: testHasFailed() ? 'inline-block' : 'none' }">FAILED</span>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="3" data-bind="visible: errors().length > 0"><pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre></td>
-        </tr>
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <!-- ko foreach: timingHeaders -->
+                <td data-bind="text: $data"></td>
+                <!-- /ko -->
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: items">
+            <tr>
+                <td>
+                    <a data-bind="attr: { href: '/Test/Run?name=/' + Name }, text: Name"></a>
+                </td>
+                <td>
+                    <div data-bind="visible: testRunning()">
+                        <img style="position: absolute; margin-top: -10px;" src="/Images/throbber.gif" alt="Working..." />
+                    </div>
+                    <span style="color: green" data-bind="style: { display: testHasSucceeded() ? 'inline-block' : 'none' }">OK</span>
+                    <span style="color: red" data-bind="style: { display: testHasFailed() ? 'inline-block' : 'none' }">FAILED</span>
+                </td>
+                <!-- ko foreach: timings -->
+                <td data-bind="text: Time"></td>
+                <!-- /ko -->
+            </tr>
+            <tr>
+                <td data-bind="visible: errors().length > 0"><pre data-bind="foreach: errors"><!-- ko text: $data --><!-- /ko --><br /></pre></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <!-- ko foreach: timings -->
+                <td data-bind="text: $data"></td>
+                <!-- /ko -->
+            </tr>
+        </tfoot>
     </table>
-    
+
+    <p data-bind="text: totalTime"></p>
+
     <script>
-        function createItem(e) { 
+        function createItem(e) {
             e.testHasSucceeded = ko.observable(false);
             e.testHasFailed = ko.observable(false);
             e.testRunning = ko.observable(false);
             e.errors = ko.observable([]);
+            e.timings = ko.observable([]);
             return e;
         }
 
         var vm = {
             items: data.Items.map(createItem),
+            totalTime: ko.observable(""),
+            timings: ko.observable([]),
+            timingHeaders: ko.observable([]),
             runAll: function() {
+                
+                var removeCorlib = window.location.href.indexOf("removeCorlib=true") !== -1;
+                var writeToFile = window.location.href.indexOf("writeToFile=true") !== -1;
+                var start = new Date().getTime();
 
-                $.getJSON("/api/testrunner/removecorlib")
-                    .done(
-                        function() {
-                            vm.items
-                              .forEach(
-                                    function(item) {
-                                        item.testRunning(true);
-                                        $.getJSON("/api/testrunner?name=" + item.Name)
-                                            .done(
-                                                function(result) {
-                                                    if (result.TestSuccess)
-                                                        item.testHasSucceeded(true);
-                                                    else {
-                                                        item.testHasFailed(true);
-                                                        item.errors(result.Errors);
-                                                    }
+                var startObs = removeCorlib ? 
+                    $.getJSONAsObservable("/api/testrunner/removecorlib") : 
+                    Rx.Observable.return(1);
 
-                                                    item.testRunning(false);
-                                                });
-                                    });
+                startObs
+                    .selectMany(
+                        function (d) {
+                            return Rx.Observable.fromArray(vm.items);
+                        })
+                    .selectMany(
+                        function (item) {
+
+                            item.testRunning(true);
+
+                            return $.getAsObservable("/api/testrunner?name=" + item.Name + "&writeToFile=" + writeToFile)
+                                .do(
+                                    function (d) {
+                                        var result = d.data;
+                                        if (result.TestSuccess)
+                                            item.testHasSucceeded(true);
+                                        else {
+                                            item.testHasFailed(true);
+                                            item.errors(result.Errors);
+                                        }
+
+                                        item.timings(result.Timings);
+                                        item.testRunning(false);
+                                    })
+                        })
+                    .subscribe(
+                        function (next) {},
+                        function (error) {},
+                        function () {
+                            var end = new Date().getTime();
+                            vm.totalTime(((end-start)/1000).toFixed(2));
+
+                            var timings = [];
+
+                            vm.items.forEach(
+                                function (item) {
+                                    var ts = item.timings() || [];
+                                    for (var i=0; i<ts.length; i++)
+                                        timings[i] = (timings[i] || 0) + ts[i].Time;
+                                });
+
+                            vm.timingHeaders(vm.items[0].timings().map(function(t){ return t.Key; }));
+
+                            vm.timings(timings);
                         });
 
-                
             }
         };
 

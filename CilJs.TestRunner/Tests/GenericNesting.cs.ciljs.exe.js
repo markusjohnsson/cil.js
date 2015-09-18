@@ -6,7 +6,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /*  B`1..ctor()*/
@@ -14,7 +15,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /*  C..ctor()*/
@@ -23,7 +25,8 @@ var asm1;(function (asm)
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
         asm1.x6000002(arg0);
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -42,16 +45,19 @@ var asm1;(function (asm)
     {
         var t0;
         var t1;
+        var loc0;
+        var loc1;
         CILJS.init_base_types();
         t0 = asm1.A();
         t1 = asm1.C();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: pop  */
-        CILJS.newobj(t0,asm1.x6000001,[null]);
-        /* IL_06: newobj Void .ctor() */
-        /* IL_0B: pop  */
-        CILJS.newobj(t1,asm1.x6000003,[null]);
-        /* IL_0C: ret  */
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        /* IL_06: stloc.0  */
+        loc0 = CILJS.newobj(t0,asm1.x6000001,[null]);
+        /* IL_07: newobj Void .ctor() */
+        /* IL_0C: stloc.1  */
+        loc1 = CILJS.newobj(t1,asm1.x6000003,[null]);
+        /* IL_0D: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -59,7 +65,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     (asm)["I`1"] = CILJS.declare_type(

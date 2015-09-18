@@ -826,7 +826,7 @@ namespace CilJs.JsTranslation
                         return new JSPropertyAccessExpression
                         {
                             Host = source,
-                            Property = GetTranslatedFieldName(type, fieldInfo)
+                            Property = GetTranslatedFieldName(fieldInfo)
                         };
                     }
                 case "ldflda":
@@ -839,7 +839,7 @@ namespace CilJs.JsTranslation
                         return WrapInReaderWriter(new JSPropertyAccessExpression
                         {
                             Host = source,
-                            Property = GetTranslatedFieldName(type, fieldInfo)
+                            Property = GetTranslatedFieldName(fieldInfo)
                         });
                     }
                 case "ldind":
@@ -954,7 +954,7 @@ namespace CilJs.JsTranslation
                                 Properties = new Dictionary<string, JSExpression> 
                                 { 
                                     { "type", GetTypeAccessor(fieldInfo.DeclaringType, thisScope) }, 
-                                    { "field", new JSStringLiteral { Value = fieldInfo.Name } }
+                                    { "field", new JSStringLiteral { Value = GetTranslatedFieldName(fieldInfo) } }
                                 }
                             };
                         }
@@ -1122,7 +1122,7 @@ namespace CilJs.JsTranslation
                                 new JSPropertyAccessExpression
                                 {
                                     Host = host,
-                                    Property = GetTranslatedFieldName(type, fieldInfo)
+                                    Property = GetTranslatedFieldName(fieldInfo)
                                 },
                                 ProcessInternal(node.Arguments.Last()));
                     }

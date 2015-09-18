@@ -10,7 +10,9 @@ var asm1;(function (asm)
         var __pos__;
         var in_block_2;
         var __finally_continuation_2__;
+        var loc0;
         var __error_handled_1__;
+        var loc1;
         CILJS.init_base_types();
         t0 = (asm0)["System.Object"]();
         t1 = (asm0)["System.Exception"]();
@@ -21,58 +23,81 @@ var asm1;(function (asm)
             
             switch (__pos__){
                 case 0x0:
+                /* IL_00: nop  */
+                
                 
                 try {
-                    /* IL_00: ldstr Try 1 */
-                    /* IL_05: ldc.i4.0  */
-                    /* IL_06: newarr System.Object */
-                    /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
+                    /* IL_01: nop  */
+                    
+                    /* IL_02: ldstr Try 1 */
+                    /* IL_07: ldc.i4.0  */
+                    /* IL_08: newarr System.Object */
+                    /* IL_0D: call Void WriteLine(System.String, System.Object[]) */
                     asm0.x600005b(CILJS.new_string("Try 1"),CILJS.new_array(t0,(0|0)));
+                    /* IL_12: nop  */
+                    
                     
                     try {
-                        /* IL_10: ldstr Try 2 */
-                        /* IL_15: ldc.i4.0  */
-                        /* IL_16: newarr System.Object */
-                        /* IL_1B: call Void WriteLine(System.String, System.Object[]) */
+                        /* IL_13: nop  */
+                        
+                        /* IL_14: ldstr Try 2 */
+                        /* IL_19: ldc.i4.0  */
+                        /* IL_1A: newarr System.Object */
+                        /* IL_1F: call Void WriteLine(System.String, System.Object[]) */
                         asm0.x600005b(CILJS.new_string("Try 2"),CILJS.new_array(t0,(0|0)));
-                        /* IL_20: newobj Void .ctor() */
-                        /* IL_25: throw  */
+                        /* IL_24: nop  */
+                        
+                        /* IL_25: newobj Void .ctor() */
+                        /* IL_2A: throw  */
                         throw CILJS.newobj(t1,asm0.x6000076,[null]);
                     }
                     
                     finally {
                         in_block_2 = true;
                         __finally_continuation_2__ = __pos__;
-                        __pos__ = 38;
+                        __pos__ = 43;
                         
                         while (in_block_2){
                             
                             switch (__pos__){
-                                case 0x26:
-                                /* IL_26: ldstr Finally with branching */
-                                /* IL_2B: ldc.i4.0  */
-                                /* IL_2C: newarr System.Object */
-                                /* IL_31: call Void WriteLine(System.String, System.Object[]) */
-                                asm0.x600005b(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,(0|0)));
-                                /* IL_36: call Boolean What() */
-                                /* IL_3B: brfalse.s IL_4D */
+                                case 0x2B:
+                                /* IL_2B: nop  */
                                 
-                                if ((!(asm1.x6000002()))){
-                                    __pos__ = 0x4D;
+                                /* IL_2C: ldstr Finally with branching */
+                                /* IL_31: ldc.i4.0  */
+                                /* IL_32: newarr System.Object */
+                                /* IL_37: call Void WriteLine(System.String, System.Object[]) */
+                                asm0.x600005b(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,(0|0)));
+                                /* IL_3C: nop  */
+                                
+                                /* IL_3D: call Boolean What() */
+                                /* IL_42: stloc.0  */
+                                loc0 = asm1.x6000002();
+                                /* IL_43: ldloc.0  */
+                                /* IL_44: brfalse.s IL_57 */
+                                
+                                if ((!(loc0))){
+                                    __pos__ = 0x57;
                                     continue;
                                 }
-                                /* IL_3D: ldstr In branch */
-                                /* IL_42: ldc.i4.0  */
-                                /* IL_43: newarr System.Object */
-                                /* IL_48: call Void WriteLine(System.String, System.Object[]) */
+                                /* IL_46: ldstr In branch */
+                                /* IL_4B: ldc.i4.0  */
+                                /* IL_4C: newarr System.Object */
+                                /* IL_51: call Void WriteLine(System.String, System.Object[]) */
                                 asm0.x600005b(CILJS.new_string("In branch"),CILJS.new_array(t0,(0|0)));
-                                case 0x4D:
-                                /* IL_4D: ldstr After branch */
-                                /* IL_52: ldc.i4.0  */
-                                /* IL_53: newarr System.Object */
-                                /* IL_58: call Void WriteLine(System.String, System.Object[]) */
+                                /* IL_56: nop  */
+                                
+                                case 0x57:
+                                /* IL_57: ldstr After branch */
+                                /* IL_5C: ldc.i4.0  */
+                                /* IL_5D: newarr System.Object */
+                                /* IL_62: call Void WriteLine(System.String, System.Object[]) */
                                 asm0.x600005b(CILJS.new_string("After branch"),CILJS.new_array(t0,(0|0)));
-                                /* IL_5D: endfinally  */
+                                /* IL_67: nop  */
+                                
+                                /* IL_68: nop  */
+                                
+                                /* IL_69: endfinally  */
                                 in_block_2 = false;
                                 __pos__ = __finally_continuation_2__;
                                 break;
@@ -85,18 +110,24 @@ var asm1;(function (asm)
                     __error_handled_1__ = false;
                     
                     if ((!(__error_handled_1__)) && (__error__ instanceof (asm0)["System.Exception"]())){
-                        st_11 = __error__;
-                        st_11 = __error__;
+                        st_12 = __error__;
+                        st_12 = __error__;
                         __error_handled_1__ = true;
-                        /* IL_5E: pop  */
+                        /* IL_6A: stloc.1  */
+                        loc1 = st_12;
+                        /* IL_6B: nop  */
                         
-                        /* IL_5F: ldstr Catch */
-                        /* IL_64: ldc.i4.0  */
-                        /* IL_65: newarr System.Object */
-                        /* IL_6A: call Void WriteLine(System.String, System.Object[]) */
+                        /* IL_6C: ldstr Catch */
+                        /* IL_71: ldc.i4.0  */
+                        /* IL_72: newarr System.Object */
+                        /* IL_77: call Void WriteLine(System.String, System.Object[]) */
                         asm0.x600005b(CILJS.new_string("Catch"),CILJS.new_array(t0,(0|0)));
-                        /* IL_6F: leave.s IL_71 */
-                        __pos__ = 0x71;
+                        /* IL_7C: nop  */
+                        
+                        /* IL_7D: nop  */
+                        
+                        /* IL_7E: leave.s IL_80 */
+                        __pos__ = 0x80;
                     }
                     
                     if ((!(__error_handled_1__))){
@@ -104,8 +135,8 @@ var asm1;(function (asm)
                     }
                 }
                 break;
-                case 0x71:
-                /* IL_71: ret  */
+                case 0x80:
+                /* IL_80: ret  */
                 return ;
             }
         }
@@ -113,16 +144,22 @@ var asm1;(function (asm)
     /* static System.Boolean Program.What()*/
     asm.x6000002 = function What()
     {
-        /* IL_00: ldc.i4.1  */
-        /* IL_01: ret  */
-        return (1|0);
+        var loc0;
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Program..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.Program = CILJS.declare_type(

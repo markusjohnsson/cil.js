@@ -21,57 +21,53 @@ namespace CilJs.Loading
         public Context Load()
         {
             var universe = new Universe();
+            
+            var allPaths = new HashSet<string>(settings.Assemblies.Select(k => Path.GetFileNameWithoutExtension(k.Path)));
 
-            var assemblySettings = settings.Assemblies.ToDictionary(a => a.Path);
-
-            var allPaths = new HashSet<string>(assemblySettings.Keys.Select(k => Path.GetFileNameWithoutExtension(k)));
-
-            var dependencyOrdered = assemblySettings
-                .SelectMany(p => AddReferencedAssemblies(universe, allPaths, p.Key))
-                .Distinct()
-                .ToList();
+            var dependencyOrdered = settings.Assemblies
+                .SelectMany(asmSettings => AddReferencedAssemblies(universe, allPaths, asmSettings))
+                ;
 
             var asms = new List<CilAssembly>();
             foreach (var p in dependencyOrdered)
             {
-                AssemblySettings asmSettings;
-                if (false == assemblySettings.TryGetValue(p, out asmSettings))
-                {
-                    Console.WriteLine("Adding assembly: {0}", Path.GetFileName(p));
-                    asmSettings = new AssemblySettings { Path = p, Translate = true };
-                    assemblySettings.Add(p, asmSettings);
-                }
-
-                asms.Add(Process(universe, asmSettings, asms.Count));
+                asms.Add(Process(universe, p, asms.Count));
             }
 
             return new Context(universe, asms, settings);
         }
 
-        private static IEnumerable<string> AddReferencedAssemblies(Universe universe, HashSet<string> allPaths, string p)
+        class AssemblyData
         {
-            var asm = universe.LoadFile(p);
-            var dir = Path.GetDirectoryName(p);
+            public AssemblySettings Settings;
+            public Assembly Assembly;
+        }
+
+        private static IEnumerable<AssemblyData> AddReferencedAssemblies(
+            Universe universe, HashSet<string> allPaths, AssemblySettings p)
+        {
+            var asm = GetAssembly(universe, p);
+            var dir = Path.GetDirectoryName(p.Path);
             foreach (var r in asm.GetReferencedAssemblies())
             {
                 var path = Path.Combine(dir, r.Name + ".dll");
 
                 if (allPaths.Add(r.Name) && File.Exists(path))
                 {
-                    foreach (var sub in AddReferencedAssemblies(universe, allPaths, path))
+                    var asmSettings = new AssemblySettings { Path = path, Translate = true };
+
+                    foreach (var sub in AddReferencedAssemblies(universe, allPaths, asmSettings))
                         yield return sub;
                 }
             }
 
-            yield return p;
+            yield return new AssemblyData { Settings = p, Assembly = asm };
         }
 
-        private CilAssembly Process(Universe universe, AssemblySettings settings, int index)
+        private CilAssembly Process(Universe universe, AssemblyData data, int index)
         {
-            var asm = universe.LoadFile(settings.Path);
-
-            // load using Cecil too so that we can do source maps
-            //var assemblyDefinition = AssemblyDefinition.ReadAssembly(settings.Path, readerParameters);
+            var asm = data.Assembly;
+            var settings = data.Settings;
 
             var result = new CilAssembly
             {
@@ -93,6 +89,16 @@ namespace CilJs.Loading
             }
 
             return result;
+        }
+
+        private static Assembly GetAssembly(Universe universe, AssemblySettings settings)
+        {
+            Assembly asm;
+            if (settings.Stream == null)
+                asm = universe.LoadFile(settings.Path);
+            else
+                asm = universe.LoadAssembly(universe.OpenRawModule(settings.Stream, null));
+            return asm;
         }
 
         private CilType ProcessType(IKVM.Reflection.Type type)

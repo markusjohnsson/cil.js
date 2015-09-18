@@ -56,6 +56,10 @@
             document.getElementById("output").innerHTML = "";
         }
 
+        CILJS.console_write_line = function (managedString) {
+            document.getElementById("output").innerHTML += managedString.jsstr + "<br/>";
+        }
+
         function ciljs_test_log(message) {
             //if (typeof console != "undefined") console.log(message);
             document.getElementById("output").innerHTML += (asm0.ToJavaScriptString(message) + "<br/>");
@@ -65,7 +69,7 @@
 
         function runTest() {
             item.testRunning(true);
-            $.getJSONAsObservable("/api/testrunner?name=" + testName)
+            $.getJSONAsObservable("/api/testrunner?name=" + testName + "&writeToFile=true")
              .subscribe(
                 function (result) {
                     if (result.data.TestSuccess)

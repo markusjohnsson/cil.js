@@ -18,20 +18,24 @@ var asm1;(function (asm)
         var loc0;
         CILJS.init_base_types();
         t0 = asm1.A();
-        /* IL_00: ldc.i4.1  */
-        /* IL_01: newarr A */
-        /* IL_06: stloc.0  */
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: newarr A */
+        /* IL_07: stloc.0  */
         loc0 = CILJS.new_array(t0,(1|0));
-        /* IL_07: ldloc.0  */
-        /* IL_08: call Void Populate(A[]) */
+        /* IL_08: ldloc.0  */
+        /* IL_09: call Void Populate(A[]) */
         asm1.x6000004(loc0);
-        /* IL_0D: ldloc.0  */
-        /* IL_0E: call Void Print(A[]) */
+        /* IL_0E: nop  */
+        /* IL_0F: ldloc.0  */
+        /* IL_10: call Void Print(A[]) */
         asm1.x6000003(loc0);
-        /* IL_13: ldloc.0  */
-        /* IL_14: call Void PrintAsObject(System.Object) */
+        /* IL_15: nop  */
+        /* IL_16: ldloc.0  */
+        /* IL_17: call Void PrintAsObject(System.Object) */
         asm1.x6000002(loc0);
-        /* IL_19: ret  */
+        /* IL_1C: nop  */
+        /* IL_1D: ret  */
         return ;
     };
     /* static System.Void Program.PrintAsObject(Object)*/
@@ -54,21 +58,22 @@ var asm1;(function (asm)
         t0 = asm1.A();
         t1 = (asm0)["System.Array`1"](t0);
         t2 = (asm0)["System.Int32"]();
-        /* IL_00: ldarg.0  */
-        /* IL_01: castclass A[] */
-        /* IL_06: ldc.i4.0  */
-        /* IL_07: ldelema A */
-        /* IL_0C: ldobj A */
-        /* IL_11: ldfld Int32 X */
-        /* IL_16: box System.Int32 */
-        /* IL_1B: call Void WriteLine(System.Object) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: castclass A[] */
+        /* IL_07: ldc.i4.0  */
+        /* IL_08: ldelema A */
+        /* IL_0D: ldfld Int32 X */
+        /* IL_12: box System.Int32 */
+        /* IL_17: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': (CILJS.cast_class(arg0,t1).jsarr)[(0|0)].X,
                 'type': t2,
                 'vtable': t2.prototype.vtable,
                 'ifacemap': t2.prototype.ifacemap
             });
-        /* IL_20: ret  */
+        /* IL_1C: nop  */
+        /* IL_1D: ret  */
         return ;
     };
     /* static System.Void Program.Print(A[])*/
@@ -76,19 +81,21 @@ var asm1;(function (asm)
     {
         var t0;
         t0 = (asm0)["System.Int32"]();
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldc.i4.0  */
-        /* IL_02: ldelema A */
-        /* IL_07: ldfld Int32 X */
-        /* IL_0C: box System.Int32 */
-        /* IL_11: call Void WriteLine(System.Object) */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldc.i4.0  */
+        /* IL_03: ldelema A */
+        /* IL_08: ldfld Int32 X */
+        /* IL_0D: box System.Int32 */
+        /* IL_12: call Void WriteLine(System.Object) */
         asm0.x600005a({
                 'boxed': (arg0.jsarr)[(0|0)].X,
                 'type': t0,
                 'vtable': t0.prototype.vtable,
                 'ifacemap': t0.prototype.ifacemap
             });
-        /* IL_16: ret  */
+        /* IL_17: nop  */
+        /* IL_18: ret  */
         return ;
     };;
     /* static System.Void Program.Populate(A[])*/
@@ -106,30 +113,23 @@ var asm1;(function (asm)
     {
         var t0;
         var loc0;
+        var st_01;
+        var st_02;
         var st_03;
         var st_04;
         var st_05;
-        var st_06;
         t0 = asm1.A();
         loc0 = new (asm1.A())();
-        /* IL_00: ldarg.0  */
-        /* IL_01: ldc.i4.0  */
-        /* IL_02: ldelema A */
-        st_05 = {
-            'w': function (v)
-            {
-                (arg0.jsarr)[(0|0)] = v;
-            },
-            'r': function ()
-            {
-                return (arg0.jsarr)[(0|0)];
-            }
-        };
-        /* IL_07: ldloca.s 0 */
-        /* IL_0A: initobj A */
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        st_03 = arg0;
+        /* IL_02: ldc.i4.0  */
+        st_04 = (0|0);
+        /* IL_03: ldloca.s 0 */
+        /* IL_06: initobj A */
         loc0 = new t0();
-        /* IL_0F: ldloca.s 0 */
-        st_03 = {
+        /* IL_0B: ldloca.s 0 */
+        st_01 = {
             'w': function (v)
             {
                 loc0 = v;
@@ -139,15 +139,15 @@ var asm1;(function (asm)
                 return loc0;
             }
         };
-        /* IL_11: ldc.i4.s 123 */
-        st_04 = (123|0);
-        /* IL_13: stfld Int32 X */
-        st_03.r().X = st_04;
-        /* IL_18: ldloc.0  */
-        st_06 = loc0;
-        /* IL_19: stobj A */
-        st_05.w(st_06);
-        /* IL_1E: ret  */
+        /* IL_0D: ldc.i4.s 123 */
+        st_02 = (123|0);
+        /* IL_0F: stfld Int32 X */
+        st_01.r().X = st_02;
+        /* IL_14: ldloc.0  */
+        st_05 = loc0;
+        /* IL_15: stelem A */
+        (st_03.jsarr)[st_04] = st_05;
+        /* IL_1A: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -155,7 +155,8 @@ var asm1;(function (asm)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */
-        /* IL_06: ret  */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
         return ;
     };;
     asm.A = CILJS.declare_type(

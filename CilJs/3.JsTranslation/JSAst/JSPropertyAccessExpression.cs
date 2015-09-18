@@ -7,6 +7,7 @@ namespace CilJs.JSAst
     class JSPropertyAccessExpression : JSExpression
     {
         public static Regex SafeChars = new Regex(@"^[\da-zA-Z_\$]+$");
+        public static Regex SafeFirstChars = new Regex(@"^[a-zA-Z_\$]+$");
 
         public JSPropertyAccessExpression(JSExpression host, string property)
         {
@@ -21,7 +22,7 @@ namespace CilJs.JSAst
 
         public override void Emit(Emitter emitter)
         {
-            if (SafeChars.IsMatch(Property))
+            if (SafeChars.IsMatch(Property) && SafeFirstChars.IsMatch(Property.Substring(0,1)))
             {
                 Host.Emit(emitter);
                 emitter.EmitString(".");

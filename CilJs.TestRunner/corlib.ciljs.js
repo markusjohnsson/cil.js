@@ -3453,8 +3453,6 @@ var CILJS;
     asm.x6000058 = CILJS.delegate_end_invoke;;
     /*  Comparison`1..ctor(Object,IntPtr)*/
     asm.x6000055 = CILJS.delegate_ctor;;
-    /* static System.Void Console.WriteLineImpl(String)*/
-    asm.x6000059 = (function (o) { console.log(o.jsstr); });;
     /* static System.Void Console.WriteLine(Object)*/
     asm.x600005a = function WriteLine(arg0)
     {
@@ -3487,7 +3485,7 @@ var CILJS;
                 asm0.x6000142();
                 /* IL_09: ldsfld String Empty */
                 /* IL_0E: call Void WriteLineImpl(System.String) */
-                asm0.x6000059(t0.Empty);
+                CILJS.console_write_line(t0.Empty);
                 /* IL_13: nop  */
                 
                 /* IL_14: br.s IL_22 */
@@ -3497,7 +3495,7 @@ var CILJS;
                 /* IL_16: ldarg.0  */
                 /* IL_17: callvirt String ToString() */
                 /* IL_1C: call Void WriteLineImpl(System.String) */
-                asm0.x6000059(((arg0.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(arg0)));
+                CILJS.console_write_line(((arg0.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(arg0)));
                 /* IL_21: nop  */
                 
                 case 0x22:
@@ -3538,7 +3536,7 @@ var CILJS;
                 asm0.x6000142();
                 /* IL_09: ldsfld String Empty */
                 /* IL_0E: call Void WriteLineImpl(System.String) */
-                asm0.x6000059(t0.Empty);
+                CILJS.console_write_line(t0.Empty);
                 /* IL_13: nop  */
                 
                 /* IL_14: br.s IL_23 */
@@ -3549,7 +3547,7 @@ var CILJS;
                 /* IL_17: ldarg.1  */
                 /* IL_18: call String Format(System.String, System.Object[]) */
                 /* IL_1D: call Void WriteLineImpl(System.String) */
-                asm0.x6000059(asm0.x6000139(arg0,arg1));
+                CILJS.console_write_line(asm0.x6000139(arg0,arg1));
                 /* IL_22: nop  */
                 
                 case 0x23:
