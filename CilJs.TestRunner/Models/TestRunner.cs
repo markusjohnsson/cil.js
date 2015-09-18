@@ -192,9 +192,9 @@ namespace CilJs.TestRunner.Models
                     RedirectStandardOutput = true,
                     UseShellExecute = false
                 });
+            var output = process.StandardOutput.ReadToEnd();
             if (false == process.WaitForExit(2000))
                 Debug.WriteLine("FAILED");
-            var output = process.StandardOutput.ReadToEnd();
             exitCode = process.ExitCode;
             return output;
         }
