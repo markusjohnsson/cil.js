@@ -84,26 +84,34 @@ var asm1;(function (asm)
         t2 = asm1.E();
         t3 = asm1.B();
         /* IL_00: nop  */
-        /* IL_01: call Void TestCreate[A]() */
+        /* IL_01: ldnull  */
+        /* IL_02: call Void Test1(C) */
+        asm1.x6000009(null);
+        /* IL_07: nop  */
+        /* IL_08: ldnull  */
+        /* IL_09: call Void Test2[A](C`1[A]) */
+        (asm1.x600000a(asm1.A()))(null);
+        /* IL_0E: nop  */
+        /* IL_0F: call Void TestCreate[A]() */
         (asm1.x6000008(asm1.A()))();
-        /* IL_06: nop  */
-        /* IL_07: newobj Void .ctor() */
-        /* IL_0C: call Void Test1(C) */
+        /* IL_14: nop  */
+        /* IL_15: newobj Void .ctor() */
+        /* IL_1A: call Void Test1(C) */
         asm1.x6000009(CILJS.newobj(t1,asm1.x6000005,[null]));
-        /* IL_11: nop  */
-        /* IL_12: newobj Void .ctor() */
-        /* IL_17: call Void Test1(C) */
+        /* IL_1F: nop  */
+        /* IL_20: newobj Void .ctor() */
+        /* IL_25: call Void Test1(C) */
         asm1.x6000009(CILJS.newobj(t2,asm1.x6000006,[null]));
-        /* IL_1C: nop  */
-        /* IL_1D: newobj Void .ctor() */
-        /* IL_22: call Void Test2[A](C`1[A]) */
+        /* IL_2A: nop  */
+        /* IL_2B: newobj Void .ctor() */
+        /* IL_30: call Void Test2[A](C`1[A]) */
         (asm1.x600000a(asm1.A()))(CILJS.newobj(t1,asm1.x6000005,[null]));
-        /* IL_27: nop  */
-        /* IL_28: newobj Void .ctor() */
-        /* IL_2D: call Void Test2[B](C`1[B]) */
+        /* IL_35: nop  */
+        /* IL_36: newobj Void .ctor() */
+        /* IL_3B: call Void Test2[B](C`1[B]) */
         (asm1.x600000a(asm1.B()))(CILJS.newobj(t2,asm1.x6000006,[null]));
-        /* IL_32: nop  */
-        /* IL_33: ret  */
+        /* IL_40: nop  */
+        /* IL_41: ret  */
         return ;
     };
     /* static System.Void Program.TestCreate<T>()*/

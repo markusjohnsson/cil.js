@@ -10,6 +10,9 @@ class Program
 {
     public static void Main()
     {
+        Test1(null);
+        Test2<A>(null);
+
         TestCreate<A>();
 
         Test1(new D());
