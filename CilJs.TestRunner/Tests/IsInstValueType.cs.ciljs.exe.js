@@ -1,7 +1,7 @@
 var asm1;(function (asm)
 {
     asm.FullName = "IsInstValueType.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
-    /* static A Program.Get()*/
+    /* static I Program.Get()*/
     asm.x6000001_init = function ()
     {
         (asm1.A().init)();
@@ -24,59 +24,70 @@ var asm1;(function (asm)
         /* IL_04: initobj A */
         loc0 = new t0();
         /* IL_09: ldloc.0  */
-        /* IL_0A: stloc.1  */
-        loc1 = loc0;
-        /* IL_0D: ldloc.1  */
-        /* IL_0E: ret  */
-        return loc1;
-    };
-    /* static System.Void Program.Main()*/
-    asm.x6000002_init = function ()
-    {
-        (asm1.A().init)();
-        asm.x6000002 = asm.x6000002_;
-    };;
-    asm.x6000002 = function ()
-    {
-        asm.x6000002_init.apply(this,arguments);
-        return asm.x6000002_.apply(this,arguments);
-    };;
-    asm.x6000002_ = function Main()
-    {
-        var t0;
-        var t1;
-        var loc0;
-        CILJS.init_base_types();
-        t0 = asm1.A();
-        t1 = (asm0)["System.Boolean"]();
-        /* IL_00: nop  */
-        /* IL_01: call A Get() */
-        /* IL_06: box A */
-        /* IL_0B: stloc.0  */
-        loc0 = {
-            'boxed': CILJS.clone_value(asm1.x6000001()),
+        /* IL_0A: box A */
+        /* IL_0F: stloc.1  */
+        loc1 = {
+            'boxed': CILJS.clone_value(loc0),
             'type': t0,
             'vtable': t0.prototype.vtable,
             'ifacemap': t0.prototype.ifacemap
         };
-        /* IL_0C: ldloc.0  */
-        /* IL_0D: isinst A */
-        /* IL_12: ldnull  */
-        /* IL_14: cgt.un  */
-        /* IL_15: box System.Boolean */
-        /* IL_1A: call Void WriteLine(System.Object) */
+        /* IL_12: ldloc.1  */
+        /* IL_13: ret  */
+        return loc1;
+    };
+    /* static System.Void Program.Main()*/
+    asm.x6000002 = function Main()
+    {
+        CILJS.init_base_types();
+        /* IL_00: nop  */
+        /* IL_01: call I Get() */
+        /* IL_06: call Void Test(I) */
+        asm1.x6000003(asm1.x6000001());
+        /* IL_0B: nop  */
+        /* IL_0C: ldnull  */
+        /* IL_0D: call Void Test(I) */
+        asm1.x6000003(null);
+        /* IL_12: nop  */
+        /* IL_13: ret  */
+        return ;
+    };;
+    /* static System.Void Program.Test(I)*/
+    asm.x6000003_init = function ()
+    {
+        (asm1.A().init)();
+        asm.x6000003 = asm.x6000003_;
+    };;
+    asm.x6000003 = function (arg0)
+    {
+        asm.x6000003_init.apply(this,arguments);
+        return asm.x6000003_.apply(this,arguments);
+    };;
+    asm.x6000003_ = function Test(arg0)
+    {
+        var t0;
+        var t1;
+        t0 = asm1.A();
+        t1 = (asm0)["System.Boolean"]();
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: isinst A */
+        /* IL_07: ldnull  */
+        /* IL_09: cgt.un  */
+        /* IL_0A: box System.Boolean */
+        /* IL_0F: call Void WriteLine(System.Object) */
         asm0.x600005a({
-                'boxed': ((t0.IsInst(loc0) !== null) ? (1) : (0)),
+                'boxed': ((t0.IsInst(arg0) !== null) ? (1) : (0)),
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap
             });
-        /* IL_1F: nop  */
-        /* IL_20: ret  */
+        /* IL_14: nop  */
+        /* IL_15: ret  */
         return ;
     };
     /*  Program..ctor()*/
-    asm.x6000003 = function _ctor(arg0)
+    asm.x6000004 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
         /* IL_01: call Void .ctor() */

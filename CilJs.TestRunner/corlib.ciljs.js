@@ -116,7 +116,7 @@ var CILJS;
     }
 
     ciljs.is_inst_value_type = function is_inst_value_type(type) {
-        return function (t) { return t.boxed instanceof type ? t : t instanceof type ? t : null; };
+        return function (t) { return (t != null && t.boxed instanceof type) ? t : t instanceof type ? t : null; };
     }
 
     ciljs.is_inst_delegate = function is_inst_delegate(delegateType) {
