@@ -15,7 +15,7 @@ namespace CilJs.JsTranslation.OpTranslators
         {
         }
 
-        public JSExpression Translate(OpExpression node)
+        public JSExpression Translate(OpExpression node, List<JSExpression> inlineArgs)
         {
             var opc = node.Instruction.OpCode.Name;
 
@@ -29,7 +29,7 @@ namespace CilJs.JsTranslation.OpTranslators
                 case "ceq":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Equality");
+                        return CreateXInt64BinaryOperation(node, "XInt64_Equality", inlineArgs);
                     }
                     else
                     {
@@ -37,8 +37,8 @@ namespace CilJs.JsTranslation.OpTranslators
                         {
                             Condition = new JSBinaryExpression
                             {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
+                                Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                                Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                                 Operator = "==="
                             },
                             TrueValue = new JSNumberLiteral { Value = 1 },
@@ -54,8 +54,8 @@ namespace CilJs.JsTranslation.OpTranslators
                         {
                             Condition = new JSBinaryExpression
                             {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
+                                Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                                Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                                 Operator = "!=="
                             },
                             TrueValue = new JSNumberLiteral { Value = 1 },
@@ -67,9 +67,9 @@ namespace CilJs.JsTranslation.OpTranslators
                         if (IsUInt64Operation(node) || IsInt64Operation(node))
                         {
                             if (opc == "cgt.un")
-                                return CreateXInt64BinaryOperation(node, "UInt64_GreaterThan");
+                                return CreateXInt64BinaryOperation(node, "UInt64_GreaterThan", inlineArgs);
                             else
-                                return CreateXInt64BinaryOperation(node, "Int64_GreaterThan");
+                                return CreateXInt64BinaryOperation(node, "Int64_GreaterThan", inlineArgs);
                         }
                         else
                         {
@@ -77,8 +77,8 @@ namespace CilJs.JsTranslation.OpTranslators
                             {
                                 Condition = new JSBinaryExpression
                                 {
-                                    Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First())),
-                                    Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
+                                    Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First(), inlineArgs)),
+                                    Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last(), inlineArgs)),
                                     Operator = ">"
                                 },
                                 TrueValue = new JSNumberLiteral { Value = 1 },
@@ -90,11 +90,11 @@ namespace CilJs.JsTranslation.OpTranslators
                 case "clt":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "UInt64_LessThan");
+                        return CreateXInt64BinaryOperation(node, "UInt64_LessThan", inlineArgs);
                     }
                     else if (IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "Int64_LessThan");
+                        return CreateXInt64BinaryOperation(node, "Int64_LessThan", inlineArgs);
                     }
                     else
                     {
@@ -102,8 +102,8 @@ namespace CilJs.JsTranslation.OpTranslators
                         {
                             Condition = new JSBinaryExpression
                             {
-                                Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First())),
-                                Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last())),
+                                Left = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.First(), inlineArgs)),
+                                Right = WrapInUnsigned(isUnsigned, ProcessInternal(node.Arguments.Last(), inlineArgs)),
                                 Operator = "<"
                             },
                             TrueValue = new JSNumberLiteral { Value = 1 },

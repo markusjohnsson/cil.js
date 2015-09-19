@@ -166,7 +166,7 @@ var asm1;(function (asm)
         /* IL_6C: ldc.i4.0  */
         /* IL_6D: newarr System.Object */
         /* IL_72: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b((((asm1.x6000002(CILJS.cast_class(CILJS.ldelem_ref(loc2,(0|0)),t3)).vtable)["asm0.x60001a4"])())(asm1.x6000002(CILJS.cast_class(CILJS.ldelem_ref(loc2,(0|0)),t3))),CILJS.new_array(t2,(0|0)));
+        asm0.x600005b(((((CILJS.cast_class(CILJS.ldelem_ref(loc2,(0|0)),t3))["B<T>k__BackingField"].vtable)["asm0.x60001a4"])())((CILJS.cast_class(CILJS.ldelem_ref(loc2,(0|0)),t3))["B<T>k__BackingField"]),CILJS.new_array(t2,(0|0)));
         /* IL_77: nop  */
         /* IL_78: ret  */
         return ;

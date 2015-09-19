@@ -69,7 +69,7 @@ var asm1;(function (asm)
         /* IL_2A: ldc.i4.0  */
         /* IL_2B: newarr System.Object */
         /* IL_30: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(asm1.x6000001(loc0),CILJS.new_array(t0,(0|0)));
+        asm0.x600005b((loc0)["A<X>k__BackingField"],CILJS.new_array(t0,(0|0)));
         /* IL_35: nop  */
         /* IL_36: ldloc.0  */
         /* IL_37: callvirt String get_X() */
@@ -77,7 +77,7 @@ var asm1;(function (asm)
         /* IL_41: ldc.i4.0  */
         /* IL_42: newarr System.Object */
         /* IL_47: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(asm1.x6000005(asm1.x6000001(loc0)),CILJS.new_array(t0,(0|0)));
+        asm0.x600005b(asm1.x6000005((loc0)["A<X>k__BackingField"]),CILJS.new_array(t0,(0|0)));
         /* IL_4C: nop  */
         /* IL_4D: ldstr 123456789 */
         /* IL_52: call Int32 get_Length() */

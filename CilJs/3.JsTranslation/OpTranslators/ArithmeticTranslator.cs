@@ -15,7 +15,7 @@ namespace CilJs.JsTranslation.OpTranslators
         {
         }
 
-        public JSExpression Translate(OpExpression node)
+        public JSExpression Translate(OpExpression node, List<JSExpression> inlineArgs)
         {
             var opc = node.Instruction.OpCode.Name;
 
@@ -30,15 +30,15 @@ namespace CilJs.JsTranslation.OpTranslators
                     {
                         return JSFactory.Call(
                             JSFactory.Identifier("asm0", "XInt64_Addition"),
-                            ProcessInternal(node.Arguments.First()),
-                            ProcessInternal(node.Arguments.Last()));
+                            ProcessInternal(node.Arguments.First(), inlineArgs),
+                            ProcessInternal(node.Arguments.Last(), inlineArgs));
                     }
                     else
                     {
                         var expr = new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "+"
                         } as JSExpression;
 
@@ -53,15 +53,15 @@ namespace CilJs.JsTranslation.OpTranslators
                     {
                         return JSFactory.Call(
                             JSFactory.Identifier("asm0", "XInt64_BitwiseAnd"),
-                            ProcessInternal(node.Arguments.First()),
-                            ProcessInternal(node.Arguments.Last()));
+                            ProcessInternal(node.Arguments.First(), inlineArgs),
+                            ProcessInternal(node.Arguments.Last(), inlineArgs));
                     }
                     else
                     {
                         return new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "&"
                         };
                     }
@@ -69,19 +69,19 @@ namespace CilJs.JsTranslation.OpTranslators
                 case "div.un":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "UInt64_Division");
+                        return CreateXInt64BinaryOperation(node, "UInt64_Division", inlineArgs);
                     }
                     else if (IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "Int64_Division");
+                        return CreateXInt64BinaryOperation(node, "Int64_Division", inlineArgs);
                     }
                     else
                     {
                         var divExpression =
                             new JSBinaryExpression
                             {
-                                Left = ProcessInternal(node.Arguments.First()),
-                                Right = ProcessInternal(node.Arguments.Last()),
+                                Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                                Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                                 Operator = "/"
                             };
                         if (IsIntegerType(node.ResultType))
@@ -96,14 +96,14 @@ namespace CilJs.JsTranslation.OpTranslators
                 case "mul":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Multiplication");
+                        return CreateXInt64BinaryOperation(node, "XInt64_Multiplication", inlineArgs);
                     }
                     else
                     {
                         return new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "*"
                         };
                     }
@@ -112,14 +112,14 @@ namespace CilJs.JsTranslation.OpTranslators
                     {
                         return JSFactory.Call(
                             JSFactory.Identifier("asm0", "Int64_UnaryNegation"),
-                            ProcessInternal(node.Arguments.First()));
+                            ProcessInternal(node.Arguments.First(), inlineArgs));
                     }
                     else
                     {
                         return new JSUnaryExpression
                         {
                             Operator = "-",
-                            Operand = ProcessInternal(node.Arguments.Single())
+                            Operand = ProcessInternal(node.Arguments.Single(), inlineArgs)
                         };
                     }
                 case "not":
@@ -127,27 +127,27 @@ namespace CilJs.JsTranslation.OpTranslators
                     {
                         return JSFactory.Call(
                             JSFactory.Identifier("asm0", "XInt64_OnesComplement"),
-                            ProcessInternal(node.Arguments.First()));
+                            ProcessInternal(node.Arguments.First(), inlineArgs));
                     }
                     else
                     {
                         return new JSUnaryExpression
                         {
                             Operator = "~",
-                            Operand = ProcessInternal(node.Arguments.Single())
+                            Operand = ProcessInternal(node.Arguments.Single(), inlineArgs)
                         };
                     }
                 case "or":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_BitwiseOr");
+                        return CreateXInt64BinaryOperation(node, "XInt64_BitwiseOr", inlineArgs);
                     }
                     else
                     {
                         return new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "|"
                         };
                     }
@@ -155,71 +155,71 @@ namespace CilJs.JsTranslation.OpTranslators
                 case "rem.un":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "UInt64_Modulus");
+                        return CreateXInt64BinaryOperation(node, "UInt64_Modulus", inlineArgs);
                     }
                     else if (IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "Int64_Modulus");
+                        return CreateXInt64BinaryOperation(node, "Int64_Modulus", inlineArgs);
                     }
                     else
                     {
                         return new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "%"
                         };
                     }
                 case "shl":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_LeftShift");
+                        return CreateXInt64BinaryOperation(node, "XInt64_LeftShift", inlineArgs);
                     }
                     else
                     {
                         return new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "<<"
                         };
                     }
                 case "shr":
                     if (IsUInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "UInt64_RightShift");
+                        return CreateXInt64BinaryOperation(node, "UInt64_RightShift", inlineArgs);
                     }
                     else if (IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "Int64_RightShift");
+                        return CreateXInt64BinaryOperation(node, "Int64_RightShift", inlineArgs);
                     }
                     else
                     {
                         return new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = ">>"
                         };
                     }
                 case "shr.un":
                     return new JSBinaryExpression
                     {
-                        Left = ProcessInternal(node.Arguments.First()),
-                        Right = ProcessInternal(node.Arguments.Last()),
+                        Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                        Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                         Operator = ">>>"
                     };
                 case "sub":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_Subtraction");
+                        return CreateXInt64BinaryOperation(node, "XInt64_Subtraction", inlineArgs);
                     }
                     else
                     {
                         var expr = new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "-"
                         } as JSExpression;
 
@@ -231,14 +231,14 @@ namespace CilJs.JsTranslation.OpTranslators
                 case "xor":
                     if (IsUInt64Operation(node) || IsInt64Operation(node))
                     {
-                        return CreateXInt64BinaryOperation(node, "XInt64_ExclusiveOr");
+                        return CreateXInt64BinaryOperation(node, "XInt64_ExclusiveOr", inlineArgs);
                     }
                     else
                     {
                         var expr = new JSBinaryExpression
                         {
-                            Left = ProcessInternal(node.Arguments.First()),
-                            Right = ProcessInternal(node.Arguments.Last()),
+                            Left = ProcessInternal(node.Arguments.First(), inlineArgs),
+                            Right = ProcessInternal(node.Arguments.Last(), inlineArgs),
                             Operator = "^"
                         } as JSExpression;
                         

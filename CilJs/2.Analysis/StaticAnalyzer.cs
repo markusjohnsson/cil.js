@@ -59,6 +59,8 @@ namespace CilJs.Analysis
                 yield return new AggregateExpressionsPass(ctx);
 
             yield return new StaticFieldUsageAnalysis(ctx);
+
+            yield return new GetterInliner();
         }
 
     }

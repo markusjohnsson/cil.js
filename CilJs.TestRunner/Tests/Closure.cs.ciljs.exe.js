@@ -108,7 +108,7 @@ var asm1;(function (asm)
         /* IL_46: ldc.i4.0  */
         /* IL_47: newarr System.Object */
         /* IL_4C: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(asm1.x6000001(loc0.b),CILJS.new_array(t3,(0|0)));
+        asm0.x600005b((loc0.b)["A<Prop>k__BackingField"],CILJS.new_array(t3,(0|0)));
         /* IL_51: nop  */
         /* IL_52: ret  */
         return ;

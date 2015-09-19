@@ -61,7 +61,7 @@ var asm1;(function (asm)
         /* IL_16: box System.Int32 */
         /* IL_1B: call Void WriteLine(System.Object) */
         asm0.x600005a({
-                'boxed': asm1.x6000001(loc0),
+                'boxed': (loc0)["X<Y>k__BackingField"],
                 'type': t1,
                 'vtable': t1.prototype.vtable,
                 'ifacemap': t1.prototype.ifacemap

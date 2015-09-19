@@ -132,7 +132,7 @@ var asm1;(function (asm)
         /* IL_47: box System.Int32 */
         /* IL_4C: call Void WriteLine(System.Object) */
         asm0.x600005a({
-                'boxed': asm1.x6000001(loc0).Value,
+                'boxed': (loc0)["A_1<Prop>k__BackingField"].Value,
                 'type': t4,
                 'vtable': t4.prototype.vtable,
                 'ifacemap': t4.prototype.ifacemap
@@ -144,7 +144,7 @@ var asm1;(function (asm)
         /* IL_5D: ldc.i4.0  */
         /* IL_5E: newarr System.Object */
         /* IL_63: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(asm1.x6000001(loc1).Value,CILJS.new_array(t5,(0|0)));
+        asm0.x600005b((loc1)["A_1<Prop>k__BackingField"].Value,CILJS.new_array(t5,(0|0)));
         /* IL_68: nop  */
         /* IL_69: ret  */
         return ;

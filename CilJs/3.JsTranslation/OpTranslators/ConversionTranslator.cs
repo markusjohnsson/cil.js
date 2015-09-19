@@ -15,10 +15,10 @@ namespace CilJs.JsTranslation.OpTranslators
         {
         }
 
-        public JSExpression Translate(OpExpression node)
+        public JSExpression Translate(OpExpression node, List<JSExpression> inlineArgs)
         {
             var arg = node.Arguments.Single();
-            var expr = ProcessInternal(arg);
+            var expr = ProcessInternal(arg, inlineArgs);
 
             var argIsInt64 = arg.ResultType == context.SystemTypes.Int64 ||
                              arg.ResultType == context.SystemTypes.UInt64;

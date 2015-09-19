@@ -629,7 +629,7 @@ var asm1;(function (asm)
                 /* IL_72: box System.Int32 */
                 /* IL_77: call Void WriteLine(System.Object) */
                 asm0.x600005a({
-                        'boxed': asm1.x6000005((asm1.x6000003(asm1.P()))(loc0)),
+                        'boxed': ((asm1.x6000003(asm1.P()))(loc0))["P<Prop>k__BackingField"],
                         'type': t1,
                         'vtable': t1.prototype.vtable,
                         'ifacemap': t1.prototype.ifacemap
@@ -724,7 +724,7 @@ var asm1;(function (asm)
                 /* IL_E8: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
                 st_3D = (asm1.x6000003(asm1.P()))(st_3C);
                 /* IL_ED: callvirt Int32 get_Prop() */
-                st_3E = asm1.x6000005(st_3D);
+                st_3E = (st_3D)["P<Prop>k__BackingField"];
                 /* IL_F2: box System.Int32 */
                 st_3F = {
                     'boxed': st_3E,
@@ -1678,7 +1678,7 @@ var asm1;(function (asm)
         /* IL_00: ldarg.1  */
         /* IL_01: callvirt Int32 get_Prop() */
         /* IL_06: ret  */
-        return asm1.x6000005(arg1);
+        return (arg1)["P<Prop>k__BackingField"];
     };;
     /* System.Boolean <>c.<Main>b__0_1(P)*/
     asm.x600001f = function _Main_b__0_1(arg0, arg1)
@@ -1688,7 +1688,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.s 22 */
         /* IL_09: ceq  */
         /* IL_0A: ret  */
-        return ((asm1.x6000005(arg1) === (22|0)) ? (1) : (0));
+        return (((arg1)["P<Prop>k__BackingField"] === (22|0)) ? (1) : (0));
     };;
     /* System.Boolean <>c.<Main>b__0_2(P)*/
     asm.x6000020 = function _Main_b__0_2(arg0, arg1)
@@ -1698,7 +1698,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.s 99 */
         /* IL_09: ceq  */
         /* IL_0A: ret  */
-        return ((asm1.x6000005(arg1) === (99|0)) ? (1) : (0));
+        return (((arg1)["P<Prop>k__BackingField"] === (99|0)) ? (1) : (0));
     };;
     /* static  <>c..cctor()*/
     asm.x600001c_init = function ()

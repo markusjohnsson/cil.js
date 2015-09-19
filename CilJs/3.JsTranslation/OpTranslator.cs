@@ -286,12 +286,12 @@ namespace CilJs.JsTranslation
                     });
         }
 
-        protected JSExpression CreateXInt64BinaryOperation(OpExpression node, string functionName)
+        protected JSExpression CreateXInt64BinaryOperation(OpExpression node, string functionName, List<JSExpression> inlineArgs)
         {
             return JSFactory.Call(
                 JSFactory.Identifier("asm0", functionName),
-                ProcessInternal(node.Arguments.First()),
-                ProcessInternal(node.Arguments.Last()));
+                ProcessInternal(node.Arguments.First(), inlineArgs),
+                ProcessInternal(node.Arguments.Last(), inlineArgs));
         }
 
         protected bool IsUInt64Operation(OpExpression frame)
@@ -377,7 +377,7 @@ namespace CilJs.JsTranslation
             return 1 + i.Position + i.Size + data;
         }
 
-        protected JSExpression ProcessInternal(Node innode)
+        protected JSExpression ProcessInternal(Node innode, List<JSExpression> inlineArgs = null)
         {
             var varInfo = innode as VariableInfo;
 
@@ -415,12 +415,12 @@ namespace CilJs.JsTranslation
                 case "shr.un":
                 case "sub":
                 case "xor":
-                    return new ArithmeticTranslator(context, assembly, type, method, block).Translate(node);
+                    return new ArithmeticTranslator(context, assembly, type, method, block).Translate(node, inlineArgs);
 
                 case "box":
                     {
                         var d = (Type)node.Instruction.Data;
-                        var value = ProcessInternal(node.Arguments.Single());
+                        var value = ProcessInternal(node.Arguments.Single(), inlineArgs);
                         var originalValue = value;
 
                         if (d.IsGenericParameter)
@@ -480,7 +480,7 @@ namespace CilJs.JsTranslation
                             return new JSEmptyExpression();
                         }
 
-                        var args = ProcessList(node.Arguments).ToList();
+                        var args = ProcessList(node.Arguments, inlineArgs).ToList();
 
                         var replacement = CilMethod.GetReplacement(mi);
 
@@ -503,7 +503,7 @@ namespace CilJs.JsTranslation
                     {
                         var mi = ((MethodBase)node.Instruction.Data);
 
-                        var arglist = ProcessList(node.Arguments).ToList();
+                        var arglist = ProcessList(node.Arguments, inlineArgs).ToList();
 
                         var replacement = CilMethod.GetReplacement(mi);
 
@@ -531,6 +531,20 @@ namespace CilJs.JsTranslation
                                     }
                                 }
                             };
+                        }
+
+                        var cilMethod = context.LookupMethod(mi);
+                        if (cilMethod != null && cilMethod.CanInline)
+                        {
+                            return ProcessInternal(cilMethod
+                                .Block
+                                .Ast
+                                .OfType<OpExpression>()
+                                .Single()
+                                .Arguments
+                                .Single(), 
+                                arglist);
+                            //break;
                         }
 
                         var thisArg = arglist[0];
@@ -597,7 +611,7 @@ namespace CilJs.JsTranslation
                     }
                 case "castclass":
                     {
-                        var expr = ProcessInternal(node.Arguments.Single());
+                        var expr = ProcessInternal(node.Arguments.Single(), inlineArgs);
                         var targetType = (Type)node.Instruction.Data;
 
                         if (targetType.FullName == "System.MulticastDelegate")
@@ -609,19 +623,19 @@ namespace CilJs.JsTranslation
                 case "ceq":
                 case "cgt":
                 case "clt":
-                    return new ComparisonTranslator(context, assembly, type, method, block).Translate(node);
+                    return new ComparisonTranslator(context, assembly, type, method, block).Translate(node, inlineArgs);
 
                 case "conv":
-                    return new ConversionTranslator(context, assembly, type, method, block).Translate(node);
+                    return new ConversionTranslator(context, assembly, type, method, block).Translate(node, inlineArgs);
 
                 case "dup":
-                    return ProcessInternal(node.Arguments.Single());
+                    return ProcessInternal(node.Arguments.Single(), inlineArgs);
                 case "initobj":
                     {
                         var typeTok = (Type)node.Instruction.Data;
                         var typeExpr = GetTypeAccessor(typeTok, thisScope);
 
-                        var target = ProcessInternal(node.Arguments.Single());
+                        var target = ProcessInternal(node.Arguments.Single(), inlineArgs);
 
                         JSExpression value;
 
@@ -657,7 +671,7 @@ namespace CilJs.JsTranslation
                         return new JSCallExpression
                         {
                             Function = new JSPropertyAccessExpression { Host = GetTypeAccessor(targetType, thisScope), Property = "IsInst" },
-                            Arguments = new List<JSExpression> { ProcessInternal(node.Arguments.Single()) }
+                            Arguments = new List<JSExpression> { ProcessInternal(node.Arguments.Single(), inlineArgs) }
                         };
                     }
                 case "ldarg":
@@ -667,6 +681,12 @@ namespace CilJs.JsTranslation
                             id = node.Instruction.Data.ToString();
 
                         var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id;
+                        
+                        if (inlineArgs != null)
+                        {
+                            return inlineArgs[int.Parse(idx)];
+                        }
+                        
                         var result = new JSIdentifier
                         {
                             Name = "arg" + idx //"__args__[" + idx + "]"
@@ -681,6 +701,11 @@ namespace CilJs.JsTranslation
                             id = node.Instruction.Data.ToString();
 
                         var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarga".Length) + id;
+
+                        if (inlineArgs != null)
+                        {
+                            return WrapInReaderWriter(inlineArgs[int.Parse(idx)]);
+                        }
 
                         return WrapInReaderWriter(new JSIdentifier
                         {
@@ -793,8 +818,8 @@ namespace CilJs.JsTranslation
                     }
                 case "ldelem":
                     {
-                        var array = ProcessInternal(node.Arguments.First());
-                        var index = ProcessInternal(node.Arguments.Last());
+                        var array = ProcessInternal(node.Arguments.First(), inlineArgs);
+                        var index = ProcessInternal(node.Arguments.Last(), inlineArgs);
 
                         if (opc == "ldelem.ref")
                         {
@@ -812,14 +837,14 @@ namespace CilJs.JsTranslation
                 case "ldelema":
                     return WrapInReaderWriter(new JSArrayLookupExpression
                     {
-                        Array = new JSPropertyAccessExpression { Host = ProcessInternal(node.Arguments.First()), Property = "jsarr" },
-                        Indexer = ProcessInternal(node.Arguments.Last())
+                        Array = new JSPropertyAccessExpression { Host = ProcessInternal(node.Arguments.First(), inlineArgs), Property = "jsarr" },
+                        Indexer = ProcessInternal(node.Arguments.Last(), inlineArgs)
                     });
                 case "ldfld":
                     {
                         var fieldInfo = (FieldInfo)node.Instruction.Data;
                         var argument = node.Arguments.Single();
-                        var argExpression = ProcessInternal(argument);
+                        var argExpression = ProcessInternal(argument, inlineArgs);
 
                         var source = DereferenceIfNeeded(argument, argExpression);
 
@@ -833,7 +858,7 @@ namespace CilJs.JsTranslation
                     {
                         var fieldInfo = (FieldInfo)node.Instruction.Data;
                         var argument = node.Arguments.Single();
-                        var argExpression = ProcessInternal(argument);
+                        var argExpression = ProcessInternal(argument, inlineArgs);
 
                         var source = DereferenceIfNeeded(argument, argExpression);
                         return WrapInReaderWriter(new JSPropertyAccessExpression
@@ -843,7 +868,7 @@ namespace CilJs.JsTranslation
                         });
                     }
                 case "ldind":
-                    return UnwrapReader(ProcessInternal(node.Arguments.Single()));
+                    return UnwrapReader(ProcessInternal(node.Arguments.Single(), inlineArgs));
 
                 case "ldftn":
                     {
@@ -882,13 +907,13 @@ namespace CilJs.JsTranslation
                     }
                 case "ldvirtftn":
                     {
-                        var thisArg = ProcessInternal(node.Arguments.Single());
+                        var thisArg = ProcessInternal(node.Arguments.Single(), inlineArgs);
                         var mi = (MethodInfo)node.Instruction.Data;
                         var acc = GetVirtualMethodAccessor(thisArg, null, mi);
                         return BindGenericMethodArguments(acc, mi, method.ReflectionMethod, type.ReflectionType, thisScope);
                     }
                 case "ldlen":
-                    return JSFactory.Identifier(ProcessInternal(node.Arguments.Single()), "jsarr", "length");
+                    return JSFactory.Identifier(ProcessInternal(node.Arguments.Single(), inlineArgs), "jsarr", "length");
                 case "ldloc":
                     {
                         var id = "";
@@ -916,7 +941,7 @@ namespace CilJs.JsTranslation
                 case "ldnull":
                     return new JSNullLiteral();
                 case "ldobj":
-                    return UnwrapReader(ProcessInternal(node.Arguments.Single()));
+                    return UnwrapReader(ProcessInternal(node.Arguments.Single(), inlineArgs));
                 case "ldsfld":
                     {
                         var field = (FieldInfo)node.Instruction.Data;
@@ -998,7 +1023,7 @@ namespace CilJs.JsTranslation
                         };
                     }
                 case "newarr":
-                    var length = ProcessInternal(node.Arguments.First());
+                    var length = ProcessInternal(node.Arguments.First(), inlineArgs);
                     var elementType = (Type)node.Instruction.Data;
 
                     return new JSCallExpression
@@ -1028,14 +1053,14 @@ namespace CilJs.JsTranslation
 
                 case "pop":
                     if (node.Arguments.OfType<OpExpression>().Any())
-                        return ProcessInternal(node.Arguments.Single());
+                        return ProcessInternal(node.Arguments.Single(), inlineArgs);
                     else
                         return new JSEmptyExpression();
 
                 case "ret":
                     return new JSReturnExpression
                     {
-                        Expression = ProcessInternal(node.Arguments.SingleOrDefault())
+                        Expression = ProcessInternal(node.Arguments.SingleOrDefault(), inlineArgs)
                     };
                 case "starg":
                     {
@@ -1049,13 +1074,13 @@ namespace CilJs.JsTranslation
                             Name = "arg" + idx //"__args__[" + idx + "]"
                         } as JSExpression;
 
-                        return JSFactory.Assignment(result, ProcessInternal(node.Arguments.SingleOrDefault()));
+                        return JSFactory.Assignment(result, ProcessInternal(node.Arguments.SingleOrDefault(), inlineArgs));
                     }
                 case "stelem":
                     {
-                        var array = ProcessInternal(node.Arguments.First());
-                        var index = ProcessInternal(node.Arguments.Skip(1).First());
-                        var element = ProcessInternal(node.Arguments.Last());
+                        var array = ProcessInternal(node.Arguments.First(), inlineArgs);
+                        var index = ProcessInternal(node.Arguments.Skip(1).First(), inlineArgs);
+                        var element = ProcessInternal(node.Arguments.Last(), inlineArgs);
 
                         if (opc == "stelem.ref")
                         {
@@ -1076,12 +1101,12 @@ namespace CilJs.JsTranslation
                     {
                         Function = new JSPropertyAccessExpression
                         {
-                            Host = ProcessInternal(node.Arguments.First()),
+                            Host = ProcessInternal(node.Arguments.First(), inlineArgs),
                             Property = "w"
                         },
                         Arguments = new List<JSExpression>
                         {
-                            ProcessInternal(node.Arguments.Last())
+                            ProcessInternal(node.Arguments.Last(), inlineArgs)
                         }
                     };
                 case "stobj":
@@ -1089,12 +1114,12 @@ namespace CilJs.JsTranslation
                     {
                         Function = new JSPropertyAccessExpression
                         {
-                            Host = ProcessInternal(node.Arguments.First()),
+                            Host = ProcessInternal(node.Arguments.First(), inlineArgs),
                             Property = "w"
                         },
                         Arguments = new List<JSExpression>
                         {
-                            ProcessInternal(node.Arguments.Last())
+                            ProcessInternal(node.Arguments.Last(), inlineArgs)
                         }
                     };
                 case "stloc":
@@ -1106,12 +1131,12 @@ namespace CilJs.JsTranslation
                         return new JSVariableDelcaration
                         {
                             Name = opc.Substring(2).Replace(".s", ".").Replace(".", "") + id,
-                            Value = ProcessInternal(node.Arguments.Single())
+                            Value = ProcessInternal(node.Arguments.Single(), inlineArgs)
                         };
                     }
                 case "stfld":
                     {
-                        var target = ProcessInternal(node.Arguments.First());
+                        var target = ProcessInternal(node.Arguments.First(), inlineArgs);
                         var fieldInfo = (FieldInfo)node.Instruction.Data;
                         var host = (fieldInfo.DeclaringType.IsValueType) ?
                             UnwrapReader(target) :
@@ -1124,7 +1149,7 @@ namespace CilJs.JsTranslation
                                     Host = host,
                                     Property = GetTranslatedFieldName(fieldInfo)
                                 },
-                                ProcessInternal(node.Arguments.Last()));
+                                ProcessInternal(node.Arguments.Last(), inlineArgs));
                     }
                 case "stsfld":
                     {
@@ -1139,16 +1164,16 @@ namespace CilJs.JsTranslation
                                         Value = (string)field.Name
                                     }
                                 },
-                                ProcessInternal(node.Arguments.Last()));
+                                ProcessInternal(node.Arguments.Last(), inlineArgs));
                     }
                 case "throw":
                     return new JSThrowExpression
                     {
-                        Expression = ProcessInternal(node.Arguments.Single())
+                        Expression = ProcessInternal(node.Arguments.Single(), inlineArgs)
                     };
                 case "unbox":
                     var ttype = (Type)node.Instruction.Data;
-                    var prop = ProcessInternal(node.Arguments.Single());
+                    var prop = ProcessInternal(node.Arguments.Single(), inlineArgs);
                     if (opc == "unbox.any")
                         return new JSCallExpression
                         {
@@ -1423,11 +1448,11 @@ namespace CilJs.JsTranslation
             return new ReaderWriter(ifier);
         }
 
-        private IEnumerable<JSExpression> ProcessList(IEnumerable<Node> list)
+        private IEnumerable<JSExpression> ProcessList(IEnumerable<Node> list, List<JSExpression> inlineArgs = null)
         {
             foreach (var i in list)
             {
-                yield return CloneValueTypeIfNeeded(ProcessInternal(i), i.ResultType);
+                yield return CloneValueTypeIfNeeded(ProcessInternal(i, inlineArgs), i.ResultType);
             }
         }
 

@@ -59,6 +59,7 @@
     <Compile Include="2.Analysis\Ast\JumpLabel.cs" />
     <Compile Include="2.Analysis\Passes\AggregateBlocksPass.cs" />
     <Compile Include="2.Analysis\Passes\AggregateExpressionsPass.cs" />
+    <Compile Include="2.Analysis\Passes\GetterInliner.cs" />
     <Compile Include="2.Analysis\Passes\LocalsAnalyzer.cs" />
     <Compile Include="2.Analysis\Passes\AbstractFlowControlPass.cs" />
     <Compile Include="2.Analysis\Passes\IRewriter.cs" />

@@ -218,7 +218,7 @@ var asm1;(function (asm)
                 /* IL_93: ldc.i4.0  */
                 /* IL_94: newarr System.Object */
                 /* IL_99: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(asm1.x6000003(CILJS.cast_class(CILJS.ldelem_ref(loc1,(0|0)),t6)),CILJS.new_array(t4,(0|0)));
+                asm0.x600005b((CILJS.cast_class(CILJS.ldelem_ref(loc1,(0|0)),t6))["A2<P>k__BackingField"],CILJS.new_array(t4,(0|0)));
                 /* IL_9E: nop  */
                 
                 /* IL_9F: ldtoken D */
