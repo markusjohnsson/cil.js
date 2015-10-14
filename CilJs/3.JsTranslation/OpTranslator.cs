@@ -227,11 +227,11 @@ namespace CilJs.JsTranslation
 
                 default:
 
-                    var expressions = ProcessInternal(node);
+                    var expression = ProcessInternal(node);
 
                     yield return new JSExpressionStatement
                     {
-                        Expression = WrapInStore(node.StoreLocations, expressions)
+                        Expression = WrapInStore(node.StoreLocations, expression)
                     };
                     break;
             }
@@ -294,6 +294,13 @@ namespace CilJs.JsTranslation
                 ProcessInternal(node.Arguments.Last(), inlineArgs));
         }
 
+        protected bool IsFloatingPointOperation(OpExpression frame)
+        {
+            return 
+                frame.Arguments.First().ResultType == context.SystemTypes.Single ||
+                frame.Arguments.First().ResultType == context.SystemTypes.Double;
+        }
+
         protected bool IsUInt64Operation(OpExpression frame)
         {
             return frame.Arguments.First().ResultType == context.SystemTypes.UInt64;
@@ -319,7 +326,8 @@ namespace CilJs.JsTranslation
         private JSIfStatement CreateComparisonBranch(OpExpression node, string op)
         {
             JSExpression condition;
-            var isUnsigned = node.Instruction.OpCode.Name.Contains(".un");
+            var isUnsigned = node.Instruction.OpCode.Name.Contains(".un") &&
+                false == IsFloatingPointOperation(node);
 
             if (IsInt64Operation(node) || IsUInt64Operation(node))
             {
