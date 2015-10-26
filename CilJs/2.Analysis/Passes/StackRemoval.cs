@@ -1,13 +1,10 @@
 ﻿using CilJs.Ast;
-using IKVM.Reflection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CilJs.Analysis.Passes
 {
-    class StackRemovalPass: IRewriter
+    class StackRemovalPass: IAnalysisPass
     {
         public void Run(CilMethod method)
         {

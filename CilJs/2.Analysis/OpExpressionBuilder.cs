@@ -12,7 +12,7 @@ using Type = IKVM.Reflection.Type;
 
 namespace CilJs.Analysis
 {
-    class OpExpressionBuilder: IRewriter
+    class OpExpressionBuilder: IAnalysisPass
     {
         private Universe universe;
 

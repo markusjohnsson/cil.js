@@ -62,7 +62,7 @@
     <Compile Include="2.Analysis\Passes\GetterInliner.cs" />
     <Compile Include="2.Analysis\Passes\LocalsAnalyzer.cs" />
     <Compile Include="2.Analysis\Passes\AbstractFlowControlPass.cs" />
-    <Compile Include="2.Analysis\Passes\IRewriter.cs" />
+    <Compile Include="2.Analysis\Passes\IAnalysisPass.cs" />
     <Compile Include="2.Analysis\Passes\CreateBlocksPass.cs" />
     <Compile Include="2.Analysis\Passes\StaticFieldUsageAnalysis.cs" />
     <Compile Include="2.Analysis\Passes\UnreachableRemoval.cs" />

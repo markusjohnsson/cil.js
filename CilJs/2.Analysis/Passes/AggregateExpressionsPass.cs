@@ -56,7 +56,7 @@ namespace CilJs.Analysis.Passes
             {
                 if (item is Block)
                     yield return item as Block;
-
+                
                 var pr = item as ProtectedRegion;
                 if (pr != null)
                 {
