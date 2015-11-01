@@ -108,12 +108,7 @@ var asm1;(function (asm)
                 /* IL_3B: call Int32 get_Age() */
                 st_14 = asm1.x6000002(st_13);
                 /* IL_40: box System.Int32 */
-                st_17 = {
-                    'boxed': st_14,
-                    'type': t1,
-                    'vtable': t1.prototype.vtable,
-                    'ifacemap': t1.prototype.ifacemap
-                };
+                st_17 = CILJS.make_box(st_14,t1);
                 /* IL_45: stelem.ref  */
                 CILJS.stelem_ref(st_15,st_16,st_17);
                 /* IL_46: dup  */

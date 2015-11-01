@@ -157,24 +157,14 @@ var asm1;(function (asm)
         /* IL_03: call Boolean op_Equality(System.Delegate, System.Delegate) */
         /* IL_08: box System.Boolean */
         /* IL_0D: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm0.x6000062(arg0,arg1),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm0.x6000062(arg0,arg1),t0));
         /* IL_12: nop  */
         /* IL_13: ldarg.0  */
         /* IL_14: ldarg.1  */
         /* IL_15: call Boolean op_Inequality(System.Delegate, System.Delegate) */
         /* IL_1A: box System.Boolean */
         /* IL_1F: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm0.x6000063(arg0,arg1),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm0.x6000063(arg0,arg1),t0));
         /* IL_24: nop  */
         /* IL_25: ret  */
         return ;

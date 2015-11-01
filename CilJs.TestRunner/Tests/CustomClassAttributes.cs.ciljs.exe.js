@@ -134,12 +134,7 @@ var asm1;(function (asm)
                 /* IL_14: conv.i4  */
                 /* IL_15: box System.Int32 */
                 /* IL_1A: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc0.jsarr.length | (0|0),
-                        'type': t1,
-                        'vtable': t1.prototype.vtable,
-                        'ifacemap': t1.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc0.jsarr.length | (0|0),t1));
                 /* IL_1F: nop  */
                 
                 /* IL_20: ldc.i4.0  */
@@ -160,12 +155,7 @@ var asm1;(function (asm)
                 /* IL_37: callvirt Boolean Equals(System.Object) */
                 /* IL_3C: box System.Boolean */
                 /* IL_41: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': (((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)),asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3))),
-                        'type': t3,
-                        'vtable': t3.prototype.vtable,
-                        'ifacemap': t3.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box((((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)),asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3))),t3));
                 /* IL_46: nop  */
                 
                 /* IL_47: ldloc.0  */
@@ -232,12 +222,7 @@ var asm1;(function (asm)
                 /* IL_B2: conv.i4  */
                 /* IL_B3: box System.Int32 */
                 /* IL_B8: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc2.jsarr.length | (0|0),
-                        'type': t1,
-                        'vtable': t1.prototype.vtable,
-                        'ifacemap': t1.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc2.jsarr.length | (0|0),t1));
                 /* IL_BD: nop  */
                 
                 /* IL_BE: ret  */

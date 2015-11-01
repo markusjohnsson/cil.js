@@ -163,16 +163,11 @@ var asm1;(function (asm)
         st_03 = ((st_01 + st_02) | (0|0));
         asm1.x600000b();
         /* IL_0F: stsfld Int32 y */
-        (t0)["y"] = st_03;
+        t0.y = st_03;
         /* IL_14: ldloc.0  */
         st_04 = loc0;
         /* IL_15: box System.Int32 */
-        st_06 = {
-            'boxed': st_04,
-            'type': t1,
-            'vtable': t1.prototype.vtable,
-            'ifacemap': t1.prototype.ifacemap
-        };
+        st_06 = CILJS.make_box(st_04,t1);
         /* IL_1A: call String Concat(System.Object, System.Object) */
         st_08 = asm0.x600012b(st_05,st_06);
         /* IL_1F: ldc.i4.0  */
@@ -216,7 +211,7 @@ var asm1;(function (asm)
         t0 = (asm1)["C+D+E"]();
         /* IL_00: ldc.i4.s 123 */
         /* IL_02: stsfld Int32 y */
-        (t0)["y"] = (123|0);
+        t0.y = (123|0);
         /* IL_07: ret  */
         return ;
     };

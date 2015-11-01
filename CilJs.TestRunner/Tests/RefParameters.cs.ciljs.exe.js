@@ -149,7 +149,7 @@ var asm1;(function (asm)
         loc3.U = (1|0);
         /* IL_13: ldloc.3  */
         /* IL_14: stloc.1  */
-        loc1 = loc3;
+        loc1 = CILJS.clone_value(loc3);
         /* IL_15: newobj Void .ctor() */
         /* IL_1A: stloc.s 4 */
         loc4 = CILJS.newobj(t1,asm1.x6000001,[null]);
@@ -202,34 +202,19 @@ var asm1;(function (asm)
         /* IL_3F: ldloc.0  */
         /* IL_40: box System.Int32 */
         /* IL_45: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': loc0,
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(loc0,t2));
         /* IL_4A: nop  */
         /* IL_4B: ldloc.1  */
         /* IL_4C: ldfld Int32 U */
         /* IL_51: box System.Int32 */
         /* IL_56: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': loc1.U,
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(loc1.U,t2));
         /* IL_5B: nop  */
         /* IL_5C: ldloc.2  */
         /* IL_5D: ldfld Int32 V */
         /* IL_62: box System.Int32 */
         /* IL_67: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': loc2.V,
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(loc2.V,t2));
         /* IL_6C: nop  */
         /* IL_6D: ret  */
         return ;

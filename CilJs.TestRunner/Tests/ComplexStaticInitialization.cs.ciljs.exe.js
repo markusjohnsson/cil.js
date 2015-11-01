@@ -121,7 +121,7 @@ var asm1;(function (asm)
                     case 0x4E:
                     (asm1.x6000002(T))();
                     /* IL_4E: stsfld A`1 Instance */
-                    (t7)["Instance"] = st_10;
+                    t7.Instance = st_10;
                     /* IL_53: ret  */
                     return ;
                 }
@@ -238,12 +238,7 @@ var asm1;(function (asm)
         /* IL_06: call Boolean IsA[D](System.Object) */
         /* IL_0B: box System.Boolean */
         /* IL_10: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (asm1.x6000007(asm1.D()))(t1.Instance),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box((asm1.x6000007(asm1.D()))(t1.Instance),t2));
         /* IL_15: nop  */
         (asm1.x6000002(asm1.E()))();
         /* IL_16: ldsfld IKVM.Reflection.GenericFieldInstance */

@@ -44,12 +44,7 @@ var asm1;(function (asm)
         /* IL_11: cgt.un  */
         /* IL_12: box System.Boolean */
         /* IL_17: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((CILJS.unsigned_value(loc1) > CILJS.unsigned_value((0|0))) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.unsigned_value(loc1) > CILJS.unsigned_value((0|0))) ? (1) : (0)),t1));
         /* IL_1C: nop  */
         /* IL_1D: ldloc.1  */
         /* IL_1E: ldloc.0  */
@@ -57,12 +52,7 @@ var asm1;(function (asm)
         /* IL_25: ceq  */
         /* IL_26: box System.Boolean */
         /* IL_2B: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((loc1 === ((loc0.vtable)["asm0.x60000f1"]())(loc0)) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((loc1 === ((loc0.vtable)["asm0.x60000f1"]())(loc0)) ? (1) : (0)),t1));
         /* IL_30: nop  */
         /* IL_31: newobj Void .ctor() */
         /* IL_36: stloc.2  */
@@ -74,12 +64,7 @@ var asm1;(function (asm)
         /* IL_44: ceq  */
         /* IL_45: box System.Boolean */
         /* IL_4A: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((((loc2.vtable)["asm0.x60000f1"]())(loc2) === ((loc2.vtable)["asm0.x60000f1"]())(loc2)) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((((loc2.vtable)["asm0.x60000f1"]())(loc2) === ((loc2.vtable)["asm0.x60000f1"]())(loc2)) ? (1) : (0)),t1));
         /* IL_4F: nop  */
         /* IL_50: ldloc.2  */
         /* IL_51: callvirt Int32 GetHashCode() */
@@ -90,12 +75,7 @@ var asm1;(function (asm)
         /* IL_60: ceq  */
         /* IL_61: box System.Boolean */
         /* IL_66: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((((((loc2.vtable)["asm0.x60000f1"]())(loc2) === ((loc0.vtable)["asm0.x60000f1"]())(loc0)) ? (1) : (0)) === (0|0)) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((((((loc2.vtable)["asm0.x60000f1"]())(loc2) === ((loc0.vtable)["asm0.x60000f1"]())(loc0)) ? (1) : (0)) === (0|0)) ? (1) : (0)),t1));
         /* IL_6B: nop  */
         /* IL_6C: ldstr hello */
         /* IL_71: call Void TestString(System.String) */
@@ -127,12 +107,7 @@ var asm1;(function (asm)
         /* IL_20: ceq  */
         /* IL_21: box System.Boolean */
         /* IL_26: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((((loc0.vtable)["asm0.x60000f1"]())(loc0) === ((loc1.vtable)["asm0.x60000f1"]())(loc1)) ? (1) : (0)),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((((loc0.vtable)["asm0.x60000f1"]())(loc0) === ((loc1.vtable)["asm0.x60000f1"]())(loc1)) ? (1) : (0)),t0));
         /* IL_2B: nop  */
         /* IL_2C: ldloc.0  */
         /* IL_2D: callvirt Int32 GetHashCode() */
@@ -141,12 +116,7 @@ var asm1;(function (asm)
         /* IL_39: ceq  */
         /* IL_3A: box System.Boolean */
         /* IL_3F: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((((loc0.vtable)["asm0.x60000f1"]())(loc0) === ((arg0.vtable)["asm0.x60000f1"]())(arg0)) ? (1) : (0)),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((((loc0.vtable)["asm0.x60000f1"]())(loc0) === ((arg0.vtable)["asm0.x60000f1"]())(arg0)) ? (1) : (0)),t0));
         /* IL_44: nop  */
         /* IL_45: ret  */
         return ;

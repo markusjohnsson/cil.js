@@ -131,12 +131,7 @@ var asm1;(function (asm)
         /* IL_42: ldfld Int32 Value */
         /* IL_47: box System.Int32 */
         /* IL_4C: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (loc0)["A_1<Prop>k__BackingField"].Value,
-                'type': t4,
-                'vtable': t4.prototype.vtable,
-                'ifacemap': t4.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box((loc0)["A_1<Prop>k__BackingField"].Value,t4));
         /* IL_51: nop  */
         /* IL_52: ldloc.1  */
         /* IL_53: callvirt StringWrapper get_Prop() */

@@ -56,12 +56,7 @@ var asm1;(function (asm)
             /* IL_09: cgt.un  */
             /* IL_0A: box System.Boolean */
             /* IL_0F: call Void WriteLine(System.Object) */
-            asm0.x600005a({
-                    'boxed': ((t0.IsInst(arg0) !== null) ? (1) : (0)),
-                    'type': t1,
-                    'vtable': t1.prototype.vtable,
-                    'ifacemap': t1.prototype.ifacemap
-                });
+            asm0.x600005a(CILJS.make_box(((t0.IsInst(arg0) !== null) ? (1) : (0)),t1));
             /* IL_14: nop  */
             /* IL_15: ret  */
             return ;

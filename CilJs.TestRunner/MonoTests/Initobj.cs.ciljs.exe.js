@@ -44,12 +44,7 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.0  */
         /* IL_02: box System.Int32 */
         /* IL_07: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (0|0),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box((0|0),t0));
         /* IL_0C: nop  */
         /* IL_0D: ldnull  */
         /* IL_0E: ldc.i4.0  */

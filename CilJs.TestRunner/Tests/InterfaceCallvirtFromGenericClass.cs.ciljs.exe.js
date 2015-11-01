@@ -45,8 +45,7 @@ var asm1;(function (asm)
         /* IL_09: callvirt Int32 Get() */
         /* IL_0E: box System.Int32 */
         /* IL_13: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg1.ifacemap || (((arguments)[0].constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)())(CILJS.dereference_pointer_as_needed({
+        asm0.x600005a(CILJS.make_box((((arg1.ifacemap || (((arguments)[0].constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)())(CILJS.dereference_pointer_as_needed({
                             'w': function (v)
                             {
                                 arg1 = v;
@@ -55,11 +54,7 @@ var asm1;(function (asm)
                             {
                                 return arg1;
                             }
-                        })),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+                        })),t1));
         /* IL_18: nop  */
         /* IL_19: ret  */
         return ;

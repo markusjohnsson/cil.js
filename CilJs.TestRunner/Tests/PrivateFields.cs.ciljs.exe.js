@@ -105,23 +105,13 @@ var asm1;(function (asm)
         /* IL_1D: callvirt Int32 get_AX() */
         /* IL_22: box System.Int32 */
         /* IL_27: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm1.x6000001(loc0),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm1.x6000001(loc0),t1));
         /* IL_2C: nop  */
         /* IL_2D: ldloc.0  */
         /* IL_2E: callvirt Int32 get_BX() */
         /* IL_33: box System.Int32 */
         /* IL_38: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm1.x6000004(loc0),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm1.x6000004(loc0),t1));
         /* IL_3D: nop  */
         /* IL_3E: ret  */
         return ;

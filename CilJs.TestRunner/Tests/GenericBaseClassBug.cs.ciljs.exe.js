@@ -77,12 +77,7 @@ var asm1;(function (asm)
         /* IL_0D: callvirt Boolean X(System.Object) */
         /* IL_12: box System.Boolean */
         /* IL_17: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm1.x6000001(loc0,CILJS.newobj(t1,asm1.x6000004,[null])),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm1.x6000001(loc0,CILJS.newobj(t1,asm1.x6000004,[null])),t2));
         /* IL_1C: nop  */
         /* IL_1D: ret  */
         return ;

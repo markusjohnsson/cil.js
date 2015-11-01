@@ -171,12 +171,7 @@ var asm1;(function (asm)
                 /* IL_68: ldfld Int32 state */
                 /* IL_6D: box System.Int32 */
                 /* IL_72: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc0.state,
-                        'type': t4,
-                        'vtable': t4.prototype.vtable,
-                        'ifacemap': t4.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc0.state,t4));
                 /* IL_77: nop  */
                 
                 /* IL_78: ldloc.1  */
@@ -347,12 +342,7 @@ var asm1;(function (asm)
                 /* IL_67: callvirt Int32 EndInvoke(System.IAsyncResult) */
                 /* IL_6C: box System.Int32 */
                 /* IL_71: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': ((loc3.vtable)["asm1.x6000008"]())(loc3,loc1),
-                        'type': t4,
-                        'vtable': t4.prototype.vtable,
-                        'ifacemap': t4.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(((loc3.vtable)["asm1.x6000008"]())(loc3,loc1),t4));
                 /* IL_76: nop  */
                 
                 /* IL_77: ldloc.0  */
@@ -421,12 +411,7 @@ var asm1;(function (asm)
                 st_41 = (1|0);
                 case 0xE7:
                 /* IL_E7: box System.Boolean */
-                st_42 = {
-                    'boxed': st_41,
-                    'type': t6,
-                    'vtable': t6.prototype.vtable,
-                    'ifacemap': t6.prototype.ifacemap
-                };
+                st_42 = CILJS.make_box(st_41,t6);
                 /* IL_EC: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_42);
                 /* IL_F1: nop  */
@@ -457,12 +442,7 @@ var asm1;(function (asm)
                 st_4D = (1|0);
                 case 0x110:
                 /* IL_110: box System.Boolean */
-                st_4E = {
-                    'boxed': st_4D,
-                    'type': t6,
-                    'vtable': t6.prototype.vtable,
-                    'ifacemap': t6.prototype.ifacemap
-                };
+                st_4E = CILJS.make_box(st_4D,t6);
                 /* IL_115: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_4E);
                 /* IL_11A: nop  */

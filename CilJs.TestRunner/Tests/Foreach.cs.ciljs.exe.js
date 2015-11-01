@@ -203,12 +203,7 @@ var asm1;(function (asm)
                             /* IL_19: ldloc.2  */
                             /* IL_1A: box System.Int32 */
                             /* IL_1F: call Void WriteLine(System.Object) */
-                            asm0.x600005a({
-                                    'boxed': loc2,
-                                    'type': t1,
-                                    'vtable': t1.prototype.vtable,
-                                    'ifacemap': t1.prototype.ifacemap
-                                });
+                            asm0.x600005a(CILJS.make_box(loc2,t1));
                             /* IL_24: nop  */
                             
                             /* IL_25: nop  */

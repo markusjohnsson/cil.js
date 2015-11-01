@@ -201,7 +201,7 @@ var asm1;(function (asm)
         asm1.x6000005();
         /* IL_00: newobj Void .ctor() */
         /* IL_05: stsfld Button TheButton */
-        (t0)["TheButton"] = CILJS.newobj(t0,asm1.x6000004,[null]);
+        t0.TheButton = CILJS.newobj(t0,asm1.x6000004,[null]);
         /* IL_0A: ret  */
         return ;
     };

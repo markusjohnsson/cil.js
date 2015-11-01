@@ -24,7 +24,7 @@ var asm1;(function (asm)
         /* IL_06: call Delegate Combine(System.Delegate, System.Delegate) */
         /* IL_0B: castclass System.EventHandler */
         /* IL_10: stsfld EventHandler MyEvent */
-        (t0)["MyEvent"] = CILJS.cast_class(asm0.x600005d(t0.MyEvent,arg0),t1);
+        t0.MyEvent = CILJS.cast_class(asm0.x600005d(t0.MyEvent,arg0),t1);
         /* IL_15: ret  */
         return ;
     };
@@ -51,7 +51,7 @@ var asm1;(function (asm)
         /* IL_06: call Delegate Remove(System.Delegate, System.Delegate) */
         /* IL_0B: castclass System.EventHandler */
         /* IL_10: stsfld EventHandler MyEvent */
-        (t0)["MyEvent"] = CILJS.cast_class(asm0.x600005e(t0.MyEvent,arg0),t1);
+        t0.MyEvent = CILJS.cast_class(asm0.x600005e(t0.MyEvent,arg0),t1);
         /* IL_15: ret  */
         return ;
     };

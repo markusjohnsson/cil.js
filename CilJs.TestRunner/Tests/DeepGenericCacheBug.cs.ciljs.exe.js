@@ -78,12 +78,7 @@ var asm1;(function (asm)
         /* IL_16: ceq  */
         /* IL_17: box System.Boolean */
         /* IL_1C: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? (1) : (0)),
-                'type': t6,
-                'vtable': t6.prototype.vtable,
-                'ifacemap': t6.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? (1) : (0)),t6));
         /* IL_21: nop  */
         /* IL_22: ret  */
         return ;

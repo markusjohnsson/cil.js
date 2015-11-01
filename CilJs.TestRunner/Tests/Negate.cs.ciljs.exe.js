@@ -51,12 +51,7 @@ var asm1;(function (asm)
         /* IL_02: neg  */
         /* IL_03: box System.Int32 */
         /* IL_08: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (-(arg0)),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box((-(arg0)),t0));
         /* IL_0D: nop  */
         /* IL_0E: ret  */
         return ;
@@ -71,12 +66,7 @@ var asm1;(function (asm)
         /* IL_02: neg  */
         /* IL_03: box System.Double */
         /* IL_08: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (-(arg0)),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box((-(arg0)),t0));
         /* IL_0D: nop  */
         /* IL_0E: ret  */
         return ;

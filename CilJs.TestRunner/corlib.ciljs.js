@@ -182,6 +182,13 @@ var CILJS;
         if (!type.IsValueType)
             return v;
 
+        if (!type.IsPrimitive)
+            v = ciljs.clone_value(v);
+
+        return ciljs.make_box(v, type);
+    }
+
+    ciljs.make_box = function (v, type) {
         return {
             'boxed': v,
             'type': type,
@@ -3235,12 +3242,7 @@ var CILJS;
         /* IL_08: ldc.i4.8  */
         /* IL_09: call String UnsignedPrimitiveToString(System.Object, System.Int32) */
         /* IL_0E: stloc.0  */
-        loc0 = asm0.x60000c1({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            },(8|0));
+        loc0 = asm0.x60000c1(CILJS.make_box(arg0.r(),t0),(8|0));
         /* IL_11: ldloc.0  */
         /* IL_12: ret  */
         return loc0;
@@ -3431,12 +3433,7 @@ var CILJS;
         /* IL_03: box System.Char */
         /* IL_08: call String ToStringImpl(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x6000053({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x6000053(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -4221,12 +4218,7 @@ var CILJS;
         /* IL_03: box System.Double */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -4441,7 +4433,7 @@ var CILJS;
         asm0.x6000071();
         /* IL_00: newobj Void .ctor() */
         /* IL_05: stsfld EventArgs Empty */
-        (t0)["Empty"] = CILJS.newobj(t0,asm0.x6000070,[null]);
+        t0.Empty = CILJS.newobj(t0,asm0.x6000070,[null]);
         /* IL_0A: ret  */
         return ;
     };
@@ -4698,12 +4690,7 @@ var CILJS;
         /* IL_03: box System.Int16 */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -4894,12 +4881,7 @@ var CILJS;
         /* IL_03: box System.Int32 */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -5741,12 +5723,7 @@ var CILJS;
         /* IL_03: box System.IntPtr */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -6488,7 +6465,7 @@ var CILJS;
                 /* IL_19: ldarg.0  */
                 /* IL_1A: ldfld T value */
                 /* IL_1F: stloc.1  */
-                loc1 = arg0.r().value;
+                loc1 = CILJS.clone_value(arg0.r().value);
                 /* IL_22: ldloc.1  */
                 /* IL_23: ret  */
                 return loc1;
@@ -6736,7 +6713,7 @@ var CILJS;
         /* IL_01: ldarg.0  */
         /* IL_02: ldfld T value */
         /* IL_07: stloc.0  */
-        loc0 = arg0.r().value;
+        loc0 = CILJS.clone_value(arg0.r().value);
         /* IL_0A: ldloc.0  */
         /* IL_0B: ret  */
         return loc0;
@@ -6778,7 +6755,7 @@ var CILJS;
                 st_03 = st_02.r().value;
                 case 0x12:
                 /* IL_12: stloc.0  */
-                loc0 = st_03;
+                loc0 = CILJS.clone_value(st_03);
                 /* IL_15: ldloc.0  */
                 /* IL_16: ret  */
                 return loc0;
@@ -6875,7 +6852,7 @@ var CILJS;
             /* IL_01: ldarg.0  */
             /* IL_02: newobj Void .ctor(T) */
             /* IL_07: stloc.0  */
-            loc0 = CILJS.newobj(t2,asm0.x60000db,[null, CILJS.clone_value(arg0)]);
+            loc0 = CILJS.clone_value(CILJS.newobj(t2,asm0.x60000db,[null, CILJS.clone_value(arg0)]));
             /* IL_0A: ldloc.0  */
             /* IL_0B: ret  */
             return loc0;
@@ -6891,16 +6868,16 @@ var CILJS;
             /* IL_01: ldarga.s 0 */
             /* IL_03: call T get_Value() */
             /* IL_08: stloc.0  */
-            loc0 = asm0.x60000dd({
-                    'w': function (v)
-                    {
-                        arg0 = v;
-                    },
-                    'r': function ()
-                    {
-                        return arg0;
-                    }
-                });
+            loc0 = CILJS.clone_value(asm0.x60000dd({
+                        'w': function (v)
+                        {
+                            arg0 = v;
+                        },
+                        'r': function ()
+                        {
+                            return arg0;
+                        }
+                    }));
             /* IL_0B: ldloc.0  */
             /* IL_0C: ret  */
             return loc0;
@@ -7018,7 +6995,7 @@ var CILJS;
                     loc1 = new t2();
                     /* IL_11: ldloc.1  */
                     /* IL_12: stloc.2  */
-                    loc2 = loc1;
+                    loc2 = CILJS.clone_value(loc1);
                     /* IL_13: br.s IL_23 */
                     __pos__ = 0x23;
                     continue;
@@ -7027,7 +7004,7 @@ var CILJS;
                     /* IL_16: unbox.any T */
                     /* IL_1B: newobj Void .ctor(T) */
                     /* IL_20: stloc.2  */
-                    loc2 = CILJS.newobj(t2,asm0.x60000db,[null, CILJS.clone_value(CILJS.unbox_any(arg0,t1))]);
+                    loc2 = CILJS.clone_value(CILJS.newobj(t2,asm0.x60000db,[null, CILJS.clone_value(CILJS.unbox_any(arg0,t1))]));
                     case 0x23:
                     /* IL_23: ldloc.2  */
                     /* IL_24: ret  */
@@ -7653,12 +7630,7 @@ var CILJS;
                 /* IL_16: ldc.i4.0  */
                 /* IL_18: ceq  */
                 /* IL_19: stloc.0  */
-                loc0 = (({
-                    'boxed': arg0.ctor.Hash,
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === (0|0)) ? (1) : (0));
+                loc0 = ((CILJS.make_box(arg0.ctor.Hash,t0) === (0|0)) ? (1) : (0));
                 /* IL_1A: ldloc.0  */
                 /* IL_1B: brfalse.s IL_2E */
                 
@@ -8852,12 +8824,7 @@ var CILJS;
         /* IL_03: box System.SByte */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -9058,12 +9025,7 @@ var CILJS;
         /* IL_03: box System.Single */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -10031,12 +9993,7 @@ var CILJS;
                 /* IL_2F: callvirt String ToString() */
                 /* IL_34: callvirt String Replace(System.String, System.String) */
                 /* IL_39: starg.s 0 */
-                arg0 = asm0.x600012e(arg0,asm0.x6000128(CILJS.new_string("{"),{
-                            'boxed': loc0,
-                            'type': t1,
-                            'vtable': t1.prototype.vtable,
-                            'ifacemap': t1.prototype.ifacemap
-                        },CILJS.new_string("}")),((loc1.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(loc1)));
+                arg0 = asm0.x600012e(arg0,asm0.x6000128(CILJS.new_string("{"),CILJS.make_box(loc0,t1),CILJS.new_string("}")),((loc1.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(loc1)));
                 /* IL_3B: nop  */
                 
                 /* IL_3C: ldloc.0  */
@@ -10214,7 +10171,7 @@ var CILJS;
         t0 = (asm0)["System.String"]();
         /* IL_00: ldstr  */
         /* IL_05: stsfld String Empty */
-        (t0)["Empty"] = CILJS.new_string("");
+        t0.Empty = CILJS.new_string("");
         /* IL_0A: ret  */
         return ;
     };;
@@ -10432,12 +10389,7 @@ var CILJS;
         /* IL_08: ldc.i4.s 16 */
         /* IL_0A: call String UnsignedPrimitiveToString(System.Object, System.Int32) */
         /* IL_0F: stloc.0  */
-        loc0 = asm0.x60000c1({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            },(16|0));
+        loc0 = asm0.x60000c1(CILJS.make_box(arg0.r(),t0),(16|0));
         /* IL_12: ldloc.0  */
         /* IL_13: ret  */
         return loc0;
@@ -10628,12 +10580,7 @@ var CILJS;
         /* IL_08: ldc.i4.s 32 */
         /* IL_0A: call String UnsignedPrimitiveToString(System.Object, System.Int32) */
         /* IL_0F: stloc.0  */
-        loc0 = asm0.x60000c1({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            },(32|0));
+        loc0 = asm0.x60000c1(CILJS.make_box(arg0.r(),t0),(32|0));
         /* IL_12: ldloc.0  */
         /* IL_13: ret  */
         return loc0;
@@ -11228,12 +11175,7 @@ var CILJS;
         /* IL_03: box System.UIntPtr */
         /* IL_08: call String SignedPrimitiveToString(System.Object) */
         /* IL_0D: stloc.0  */
-        loc0 = asm0.x60000c0({
-                'boxed': arg0.r(),
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x60000c0(CILJS.make_box(arg0.r(),t0));
         /* IL_10: ldloc.0  */
         /* IL_11: ret  */
         return loc0;
@@ -11382,7 +11324,7 @@ var CILJS;
         asm0.x6000183();
         /* IL_00: newobj Void .ctor() */
         /* IL_05: stsfld Thread currentThread */
-        (t0)["currentThread"] = CILJS.newobj(t0,asm0.x6000182,[null]);
+        t0.currentThread = CILJS.newobj(t0,asm0.x6000182,[null]);
         /* IL_0A: ret  */
         return ;
     };
@@ -11512,7 +11454,7 @@ var CILJS;
         /* IL_01: ldarg.0  */
         /* IL_02: ldfld MethodImplOptions _val */
         /* IL_07: stloc.0  */
-        loc0 = arg0.System_Runtime_CompilerServicesMethodImplAttribute_val;
+        loc0 = CILJS.clone_value(arg0.System_Runtime_CompilerServicesMethodImplAttribute_val);
         /* IL_0A: ldloc.0  */
         /* IL_0B: ret  */
         return loc0;
@@ -12188,7 +12130,7 @@ var CILJS;
         t0 = (asm0)["CilJs.JavaScript.String"]();
         /* IL_00: call String GetEmpty() */
         /* IL_05: stsfld String Emtpy */
-        (t0)["Emtpy"] = "";
+        t0.Emtpy = "";
         /* IL_0A: ret  */
         return ;
     };

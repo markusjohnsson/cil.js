@@ -45,7 +45,7 @@ var asm1;(function (asm)
             /* IL_00: ldc.i4.0  */
             /* IL_01: newarr T */
             /* IL_06: stsfld T[] Value */
-            (t2)["Value"] = CILJS.new_array(t0,(0|0));
+            t2.Value = CILJS.new_array(t0,(0|0));
             /* IL_0B: ret  */
             return ;
         };

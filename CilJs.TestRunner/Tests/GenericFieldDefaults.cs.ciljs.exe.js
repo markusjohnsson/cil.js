@@ -51,12 +51,7 @@ var asm1;(function (asm)
         /* IL_1A: ldfld IKVM.Reflection.GenericFieldInstance */
         /* IL_1F: box System.Int32 */
         /* IL_24: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': loc1.Value,
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(loc1.Value,t2));
         /* IL_29: nop  */
         /* IL_2A: ret  */
         return ;

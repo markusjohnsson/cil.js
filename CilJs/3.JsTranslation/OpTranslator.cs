@@ -447,17 +447,11 @@ namespace CilJs.JsTranslation
                             d = d.GetGenericArguments()[0];
                             value = JSFactory.Identifier(value, "value");
                         }
-
-                        var boxed = new JSObjectLiteral
-                        {
-                            Properties = new Dictionary<string, JSExpression>
-                            {
-                                { "boxed", CloneValueTypeIfNeeded(value, d) },
-                                { "type",  GetTypeAccessor(d, thisScope) },
-                                { "vtable",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "vtable") },
-                                { "ifacemap",  JSFactory.Identifier(GetTypeAccessor(d, thisScope), "prototype", "ifacemap") }
-                            }
-                        };
+                        
+                        var boxed = JSFactory.Call(
+                            JSFactory.Identifier("CILJS", "make_box"),
+                            CloneValueTypeIfNeeded(value, d),
+                            GetTypeAccessor(d, thisScope));
 
                         if (isNullable)
                         {
@@ -856,11 +850,7 @@ namespace CilJs.JsTranslation
 
                         var source = DereferenceIfNeeded(argument, argExpression);
 
-                        return new JSPropertyAccessExpression
-                        {
-                            Host = source,
-                            Property = GetTranslatedFieldName(fieldInfo)
-                        };
+                        return JSFactory.Identifier(source, GetTranslatedFieldName(fieldInfo));
                     }
                 case "ldflda":
                     {
@@ -869,11 +859,7 @@ namespace CilJs.JsTranslation
                         var argExpression = ProcessInternal(argument, inlineArgs);
 
                         var source = DereferenceIfNeeded(argument, argExpression);
-                        return WrapInReaderWriter(new JSPropertyAccessExpression
-                        {
-                            Host = source,
-                            Property = GetTranslatedFieldName(fieldInfo)
-                        });
+                        return WrapInReaderWriter(JSFactory.Identifier(source, GetTranslatedFieldName(fieldInfo)));
                     }
                 case "ldind":
                     return UnwrapReader(ProcessInternal(node.Arguments.Single(), inlineArgs));
@@ -953,11 +939,15 @@ namespace CilJs.JsTranslation
                 case "ldsfld":
                     {
                         var field = (FieldInfo)node.Instruction.Data;
-                        return new JSPropertyAccessExpression
-                        {
-                            Host = GetTypeAccessor(field.DeclaringType, thisScope),
-                            Property = (string)field.Name
-                        };
+                        return JSFactory
+                            .Identifier(GetTypeAccessor(field.DeclaringType, thisScope), field.Name);
+                    }
+                case "ldsflda":
+                    {
+                        var field = (FieldInfo)node.Instruction.Data;
+                        var jsprop = JSFactory
+                            .Identifier(GetTypeAccessor(field.DeclaringType, thisScope), field.Name);
+                        return WrapInReaderWriter(jsprop);
                     }
                 case "ldstr":
                     return new JSCallExpression
@@ -1139,7 +1129,7 @@ namespace CilJs.JsTranslation
                         return new JSVariableDelcaration
                         {
                             Name = opc.Substring(2).Replace(".s", ".").Replace(".", "") + id,
-                            Value = ProcessInternal(node.Arguments.Single(), inlineArgs)
+                            Value = CloneValueTypeIfNeeded(ProcessInternal(node.Arguments.Single(), inlineArgs), node.Arguments.Single().ResultType)
                         };
                     }
                 case "stfld":
@@ -1163,15 +1153,10 @@ namespace CilJs.JsTranslation
                     {
                         var field = (FieldInfo)node.Instruction.Data;
                         return JSFactory
-                            .Assignment(
-                                new JSArrayLookupExpression
-                                {
-                                    Array = GetTypeAccessor(field.DeclaringType, thisScope),
-                                    Indexer = new JSStringLiteral
-                                    {
-                                        Value = (string)field.Name
-                                    }
-                                },
+                            .Assignment(JSFactory
+                                .Identifier(
+                                    GetTypeAccessor(field.DeclaringType, thisScope),
+                                    field.Name),
                                 ProcessInternal(node.Arguments.Last(), inlineArgs));
                     }
                 case "throw":

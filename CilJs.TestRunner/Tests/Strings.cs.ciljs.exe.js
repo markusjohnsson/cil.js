@@ -83,12 +83,7 @@ var asm1;(function (asm)
         /* IL_52: call Int32 get_Length() */
         /* IL_57: box System.Int32 */
         /* IL_5C: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm0.x600012f(CILJS.new_string("123456789")),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm0.x600012f(CILJS.new_string("123456789")),t2));
         /* IL_61: nop  */
         /* IL_62: ret  */
         return ;

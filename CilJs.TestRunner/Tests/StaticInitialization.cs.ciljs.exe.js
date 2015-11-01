@@ -77,7 +77,7 @@ var asm1;(function (asm)
         t1 = asm1.X();
         /* IL_00: newobj Void .ctor() */
         /* IL_05: stsfld A Prop */
-        (t1)["Prop"] = CILJS.newobj(t0,asm1.x6000002,[null]);
+        t1.Prop = CILJS.newobj(t0,asm1.x6000002,[null]);
         /* IL_0A: ret  */
         return ;
     };
@@ -125,7 +125,7 @@ var asm1;(function (asm)
             /* IL_00: call T CreateInstance[T]() */
             /* IL_05: box T */
             /* IL_0A: stsfld Object Prop */
-            (t2)["Prop"] = CILJS.box((asm0.x6000003(T))(),t0);
+            t2.Prop = CILJS.box((asm0.x6000003(T))(),t0);
             /* IL_0F: ret  */
             return ;
         };
@@ -192,7 +192,7 @@ var asm1;(function (asm)
             /* IL_06: ldftn Boolean <.cctor>b__2_0(T) */
             /* IL_0B: newobj Void .ctor(System.Object, System.IntPtr) */
             /* IL_10: stsfld Func`2 Always */
-            (t5)["Always"] = CILJS.newobj(t3,asm1.x6000009,[null, (t1)["<>9"], asm1.x600001a]);
+            t5.Always = CILJS.newobj(t3,asm1.x6000009,[null, (t1)["<>9"], asm1.x600001a]);
             /* IL_15: ret  */
             return ;
         };
@@ -245,7 +245,7 @@ var asm1;(function (asm)
         /* IL_06: ldftn Boolean <.cctor>b__2_0(System.Object) */
         /* IL_0B: newobj Void .ctor(System.Object, System.IntPtr) */
         /* IL_10: stsfld Func Always */
-        (t2)["Always"] = CILJS.newobj(t1,asm1.x600000f,[null, (t0)["<>9"], asm1.x600001d]);
+        t2.Always = CILJS.newobj(t1,asm1.x600000f,[null, (t0)["<>9"], asm1.x600001d]);
         /* IL_15: ret  */
         return ;
     };
@@ -314,17 +314,12 @@ var asm1;(function (asm)
         /* IL_33: callvirt Boolean Invoke(System.Object) */
         /* IL_38: box System.Boolean */
         /* IL_3D: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': t7.Always._methodPtr.apply(null,((t7.Always._target) ? ([
+        asm0.x600005a(CILJS.make_box(t7.Always._methodPtr.apply(null,((t7.Always._target) ? ([
                         t7.Always._target,
                         null
                     ]) : ([
                         null
-                    ]))),
-                'type': t8,
-                'vtable': t8.prototype.vtable,
-                'ifacemap': t8.prototype.ifacemap
-            });
+                    ]))),t8));
         /* IL_42: nop  */
         asm1.x6000014();
         /* IL_43: ldsfld Func Always */
@@ -332,17 +327,12 @@ var asm1;(function (asm)
         /* IL_49: callvirt Boolean Invoke(System.Object) */
         /* IL_4E: box System.Boolean */
         /* IL_53: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': t7.Always._methodPtr.apply(null,((t7.Always._target) ? ([
+        asm0.x600005a(CILJS.make_box(t7.Always._methodPtr.apply(null,((t7.Always._target) ? ([
                         t7.Always._target,
                         null
                     ]) : ([
                         null
-                    ]))),
-                'type': t8,
-                'vtable': t8.prototype.vtable,
-                'ifacemap': t8.prototype.ifacemap
-            });
+                    ]))),t8));
         /* IL_58: nop  */
         /* IL_59: ret  */
         return ;
@@ -383,12 +373,7 @@ var asm1;(function (asm)
         /* IL_1B: cgt.un  */
         /* IL_1C: box System.Boolean */
         /* IL_21: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((t1.IsInst(arg0) !== null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((t1.IsInst(arg0) !== null) ? (1) : (0)),t2));
         /* IL_26: nop  */
         /* IL_27: ldarg.0  */
         /* IL_28: isinst B */
@@ -396,12 +381,7 @@ var asm1;(function (asm)
         /* IL_2F: cgt.un  */
         /* IL_30: box System.Boolean */
         /* IL_35: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((t3.IsInst(arg0) !== null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((t3.IsInst(arg0) !== null) ? (1) : (0)),t2));
         /* IL_3A: nop  */
         /* IL_3B: ret  */
         return ;

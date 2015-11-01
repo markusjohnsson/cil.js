@@ -42,12 +42,7 @@ var asm1;(function (asm)
         /* IL_01: ldarg.1  */
         /* IL_02: box System.Char */
         /* IL_07: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': arg1,
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(arg1,t0));
         /* IL_0C: nop  */
         /* IL_0D: ret  */
         return ;
@@ -327,12 +322,7 @@ var asm1;(function (asm)
         /* IL_07: box System.Int32 */
         /* IL_0C: call String Concat(System.Object, System.Object) */
         /* IL_11: stloc.0  */
-        loc0 = asm0.x600012b(CILJS.new_string("\\u"),{
-                'boxed': arg0,
-                'type': t0,
-                'vtable': t0.prototype.vtable,
-                'ifacemap': t0.prototype.ifacemap
-            });
+        loc0 = asm0.x600012b(CILJS.new_string("\\u"),CILJS.make_box(arg0,t0));
         /* IL_14: ldloc.0  */
         /* IL_15: ret  */
         return loc0;

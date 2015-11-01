@@ -29,23 +29,13 @@ var asm1;(function (asm)
         /* IL_0A: ldfld Int32 X */
         /* IL_0F: box System.Int32 */
         /* IL_14: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': loc0.X,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(loc0.X,t1));
         /* IL_19: nop  */
         /* IL_1A: ldloc.0  */
         /* IL_1B: ldfld Int32 Y */
         /* IL_20: box System.Int32 */
         /* IL_25: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': loc0.Y,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(loc0.Y,t1));
         /* IL_2A: nop  */
         /* IL_2B: ret  */
         return ;

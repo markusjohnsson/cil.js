@@ -628,24 +628,14 @@ var asm1;(function (asm)
                 /* IL_6D: callvirt Int32 get_Prop() */
                 /* IL_72: box System.Int32 */
                 /* IL_77: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': ((asm1.x6000003(asm1.P()))(loc0))["P<Prop>k__BackingField"],
-                        'type': t1,
-                        'vtable': t1.prototype.vtable,
-                        'ifacemap': t1.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(((asm1.x6000003(asm1.P()))(loc0))["P<Prop>k__BackingField"],t1));
                 /* IL_7C: nop  */
                 
                 /* IL_7D: ldloc.0  */
                 /* IL_7E: call Boolean Any[P](System.Collections.Generic.IEnumerable`1[P]) */
                 /* IL_83: box System.Boolean */
                 /* IL_88: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': (asm1.x6000004(asm1.P()))(loc0),
-                        'type': t2,
-                        'vtable': t2.prototype.vtable,
-                        'ifacemap': t2.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box((asm1.x6000004(asm1.P()))(loc0),t2));
                 /* IL_8D: nop  */
                 
                 /* IL_8E: ldloc.0  */
@@ -681,12 +671,7 @@ var asm1;(function (asm)
                 /* IL_B3: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32]) */
                 st_31 = (asm1.x6000003((asm0)["System.Int32"]()))(st_30);
                 /* IL_B8: box System.Int32 */
-                st_32 = {
-                    'boxed': st_31,
-                    'type': t1,
-                    'vtable': t1.prototype.vtable,
-                    'ifacemap': t1.prototype.ifacemap
-                };
+                st_32 = CILJS.make_box(st_31,t1);
                 /* IL_BD: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_32);
                 /* IL_C2: nop  */
@@ -726,12 +711,7 @@ var asm1;(function (asm)
                 /* IL_ED: callvirt Int32 get_Prop() */
                 st_3E = (st_3D)["P<Prop>k__BackingField"];
                 /* IL_F2: box System.Int32 */
-                st_3F = {
-                    'boxed': st_3E,
-                    'type': t1,
-                    'vtable': t1.prototype.vtable,
-                    'ifacemap': t1.prototype.ifacemap
-                };
+                st_3F = CILJS.make_box(st_3E,t1);
                 /* IL_F7: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_3F);
                 /* IL_FC: nop  */

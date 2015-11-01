@@ -24,7 +24,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.1  */
         /* IL_02: stsfld Int32 global */
-        (t0)["global"] = (1|0);
+        t0.global = (1|0);
         /* IL_07: ret  */
         return ;
     };

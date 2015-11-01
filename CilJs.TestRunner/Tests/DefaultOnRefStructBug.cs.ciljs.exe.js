@@ -81,12 +81,7 @@ var asm1;(function (asm)
                 /* IL_13: ldfld IKVM.Reflection.GenericFieldInstance */
                 /* IL_18: box System.Int32 */
                 /* IL_1D: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc0.X,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc0.X,t0));
                 /* IL_22: nop  */
                 
                 /* IL_23: ldloca.s 0 */
@@ -107,12 +102,7 @@ var asm1;(function (asm)
                 /* IL_2C: ldfld IKVM.Reflection.GenericFieldInstance */
                 /* IL_31: box System.Int32 */
                 /* IL_36: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc0.X,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc0.X,t0));
                 /* IL_3B: nop  */
                 
                 /* IL_3C: ldloca.s 1 */

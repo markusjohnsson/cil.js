@@ -192,12 +192,7 @@ var asm1;(function (asm)
         /* IL_09: cgt.un  */
         /* IL_0A: box System.Boolean */
         /* IL_0F: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((t1.IsInst(arg0) !== null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((t1.IsInst(arg0) !== null) ? (1) : (0)),t2));
         /* IL_14: nop  */
         /* IL_15: ldarg.0  */
         /* IL_16: isinst C`1[B] */
@@ -205,24 +200,14 @@ var asm1;(function (asm)
         /* IL_1D: cgt.un  */
         /* IL_1E: box System.Boolean */
         /* IL_23: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((t4.IsInst(arg0) !== null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((t4.IsInst(arg0) !== null) ? (1) : (0)),t2));
         /* IL_28: nop  */
         /* IL_29: ldarg.0  */
         /* IL_2A: ldnull  */
         /* IL_2C: cgt.un  */
         /* IL_2D: box System.Boolean */
         /* IL_32: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((arg0 !== null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((arg0 !== null) ? (1) : (0)),t2));
         /* IL_37: nop  */
         /* IL_38: ret  */
         return ;
@@ -268,12 +253,7 @@ var asm1;(function (asm)
             /* IL_09: cgt.un  */
             /* IL_0A: box System.Boolean */
             /* IL_0F: call Void WriteLine(System.Object) */
-            asm0.x600005a({
-                    'boxed': ((t1.IsInst(arg0) !== null) ? (1) : (0)),
-                    'type': t2,
-                    'vtable': t2.prototype.vtable,
-                    'ifacemap': t2.prototype.ifacemap
-                });
+            asm0.x600005a(CILJS.make_box(((t1.IsInst(arg0) !== null) ? (1) : (0)),t2));
             /* IL_14: nop  */
             /* IL_15: ldarg.0  */
             /* IL_16: isinst C`1[B] */
@@ -281,36 +261,21 @@ var asm1;(function (asm)
             /* IL_1D: cgt.un  */
             /* IL_1E: box System.Boolean */
             /* IL_23: call Void WriteLine(System.Object) */
-            asm0.x600005a({
-                    'boxed': ((t4.IsInst(arg0) !== null) ? (1) : (0)),
-                    'type': t2,
-                    'vtable': t2.prototype.vtable,
-                    'ifacemap': t2.prototype.ifacemap
-                });
+            asm0.x600005a(CILJS.make_box(((t4.IsInst(arg0) !== null) ? (1) : (0)),t2));
             /* IL_28: nop  */
             /* IL_29: ldarg.0  */
             /* IL_2A: ldnull  */
             /* IL_2C: cgt.un  */
             /* IL_2D: box System.Boolean */
             /* IL_32: call Void WriteLine(System.Object) */
-            asm0.x600005a({
-                    'boxed': ((arg0 !== null) ? (1) : (0)),
-                    'type': t2,
-                    'vtable': t2.prototype.vtable,
-                    'ifacemap': t2.prototype.ifacemap
-                });
+            asm0.x600005a(CILJS.make_box(((arg0 !== null) ? (1) : (0)),t2));
             /* IL_37: nop  */
             /* IL_38: ldarg.0  */
             /* IL_39: ldnull  */
             /* IL_3B: cgt.un  */
             /* IL_3C: box System.Boolean */
             /* IL_41: call Void WriteLine(System.Object) */
-            asm0.x600005a({
-                    'boxed': ((arg0 !== null) ? (1) : (0)),
-                    'type': t2,
-                    'vtable': t2.prototype.vtable,
-                    'ifacemap': t2.prototype.ifacemap
-                });
+            asm0.x600005a(CILJS.make_box(((arg0 !== null) ? (1) : (0)),t2));
             /* IL_46: nop  */
             /* IL_47: ret  */
             return ;

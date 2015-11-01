@@ -26,12 +26,7 @@ var asm1;(function (asm)
         /* IL_09: ldloc.0  */
         /* IL_0A: box A */
         /* IL_0F: stloc.1  */
-        loc1 = {
-            'boxed': CILJS.clone_value(loc0),
-            'type': t0,
-            'vtable': t0.prototype.vtable,
-            'ifacemap': t0.prototype.ifacemap
-        };
+        loc1 = CILJS.make_box(CILJS.clone_value(loc0),t0);
         /* IL_12: ldloc.1  */
         /* IL_13: ret  */
         return loc1;
@@ -76,12 +71,7 @@ var asm1;(function (asm)
         /* IL_09: cgt.un  */
         /* IL_0A: box System.Boolean */
         /* IL_0F: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((t0.IsInst(arg0) !== null) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((t0.IsInst(arg0) !== null) ? (1) : (0)),t1));
         /* IL_14: nop  */
         /* IL_15: ret  */
         return ;

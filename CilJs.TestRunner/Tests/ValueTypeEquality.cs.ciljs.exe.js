@@ -137,7 +137,7 @@ var asm1;(function (asm)
         /* IL_7C: nop  */
         /* IL_7D: newobj Void .ctor() */
         /* IL_82: stsfld C c1 */
-        (t3)["c1"] = CILJS.newobj(t2,asm1.x6000001,[null]);
+        t3.c1 = CILJS.newobj(t2,asm1.x6000001,[null]);
         /* IL_87: ldloca.s 1 */
         /* IL_8A: initobj B */
         loc1 = new t1();
@@ -614,7 +614,7 @@ var asm1;(function (asm)
         loc3.x = (321|0);
         /* IL_15: ldloc.3  */
         /* IL_16: stloc.0  */
-        loc0 = loc3;
+        loc0 = CILJS.clone_value(loc3);
         /* IL_17: ldloca.s 1 */
         /* IL_1A: initobj A */
         loc1 = new t0();
@@ -627,8 +627,7 @@ var asm1;(function (asm)
         /* IL_35: callvirt Boolean Equals(System.Object) */
         /* IL_3A: box System.Boolean */
         /* IL_3F: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
+        asm0.x600005a(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -637,16 +636,7 @@ var asm1;(function (asm)
                         {
                             return arg0;
                         }
-                    },{
-                        'boxed': CILJS.clone_value(loc0),
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    }),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+                    },CILJS.make_box(CILJS.clone_value(loc0),t0)),t1));
         /* IL_44: nop  */
         /* IL_45: ldarga.s 0 */
         /* IL_47: ldloc.1  */
@@ -654,8 +644,7 @@ var asm1;(function (asm)
         /* IL_53: callvirt Boolean Equals(System.Object) */
         /* IL_58: box System.Boolean */
         /* IL_5D: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
+        asm0.x600005a(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -664,16 +653,7 @@ var asm1;(function (asm)
                         {
                             return arg0;
                         }
-                    },{
-                        'boxed': CILJS.clone_value(loc1),
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    }),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+                    },CILJS.make_box(CILJS.clone_value(loc1),t0)),t1));
         /* IL_62: nop  */
         /* IL_63: ldarga.s 0 */
         /* IL_65: ldloc.2  */
@@ -681,8 +661,7 @@ var asm1;(function (asm)
         /* IL_71: callvirt Boolean Equals(System.Object) */
         /* IL_76: box System.Boolean */
         /* IL_7B: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
+        asm0.x600005a(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -691,16 +670,7 @@ var asm1;(function (asm)
                         {
                             return arg0;
                         }
-                    },{
-                        'boxed': CILJS.clone_value(loc2),
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    }),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+                    },CILJS.make_box(CILJS.clone_value(loc2),t0)),t1));
         /* IL_80: nop  */
         /* IL_81: ldarg.0  */
         /* IL_82: box A */
@@ -709,22 +679,7 @@ var asm1;(function (asm)
         /* IL_8E: ceq  */
         /* IL_8F: box System.Boolean */
         /* IL_94: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (({
-                    'boxed': CILJS.clone_value(arg0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === {
-                    'boxed': CILJS.clone_value(loc0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                }) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(arg0),t0) === CILJS.make_box(CILJS.clone_value(loc0),t0)) ? (1) : (0)),t1));
         /* IL_99: nop  */
         /* IL_9A: ldarg.0  */
         /* IL_9B: box A */
@@ -733,22 +688,7 @@ var asm1;(function (asm)
         /* IL_A7: ceq  */
         /* IL_A8: box System.Boolean */
         /* IL_AD: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (({
-                    'boxed': CILJS.clone_value(arg0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === {
-                    'boxed': CILJS.clone_value(loc1),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                }) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(arg0),t0) === CILJS.make_box(CILJS.clone_value(loc1),t0)) ? (1) : (0)),t1));
         /* IL_B2: nop  */
         /* IL_B3: ldarg.0  */
         /* IL_B4: box A */
@@ -757,22 +697,7 @@ var asm1;(function (asm)
         /* IL_C0: ceq  */
         /* IL_C1: box System.Boolean */
         /* IL_C6: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (({
-                    'boxed': CILJS.clone_value(arg0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === {
-                    'boxed': CILJS.clone_value(loc2),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                }) ? (1) : (0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(arg0),t0) === CILJS.make_box(CILJS.clone_value(loc2),t0)) ? (1) : (0)),t1));
         /* IL_CB: nop  */
         /* IL_CC: ret  */
         return ;
@@ -855,7 +780,7 @@ var asm1;(function (asm)
         st_04.r().a = st_05;
         /* IL_23: ldloc.3  */
         /* IL_24: stloc.0  */
-        loc0 = loc3;
+        loc0 = CILJS.clone_value(loc3);
         /* IL_25: ldloca.s 1 */
         /* IL_28: initobj B */
         loc1 = new t0();
@@ -901,15 +826,14 @@ var asm1;(function (asm)
         loc3.c = t2.c1;
         /* IL_5B: ldloc.3  */
         /* IL_5C: stloc.2  */
-        loc2 = loc3;
+        loc2 = CILJS.clone_value(loc3);
         /* IL_5D: ldarga.s 0 */
         /* IL_5F: ldloc.0  */
         /* IL_60: box B */
         /* IL_6B: callvirt Boolean Equals(System.Object) */
         /* IL_70: box System.Boolean */
         /* IL_75: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
+        asm0.x600005a(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -918,16 +842,7 @@ var asm1;(function (asm)
                         {
                             return arg0;
                         }
-                    },{
-                        'boxed': CILJS.clone_value(loc0),
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    }),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
-            });
+                    },CILJS.make_box(CILJS.clone_value(loc0),t0)),t3));
         /* IL_7A: nop  */
         /* IL_7B: ldarga.s 0 */
         /* IL_7D: ldloc.1  */
@@ -935,8 +850,7 @@ var asm1;(function (asm)
         /* IL_89: callvirt Boolean Equals(System.Object) */
         /* IL_8E: box System.Boolean */
         /* IL_93: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
+        asm0.x600005a(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -945,16 +859,7 @@ var asm1;(function (asm)
                         {
                             return arg0;
                         }
-                    },{
-                        'boxed': CILJS.clone_value(loc1),
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    }),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
-            });
+                    },CILJS.make_box(CILJS.clone_value(loc1),t0)),t3));
         /* IL_98: nop  */
         /* IL_99: ldarga.s 0 */
         /* IL_9B: ldloc.2  */
@@ -962,8 +867,7 @@ var asm1;(function (asm)
         /* IL_A7: callvirt Boolean Equals(System.Object) */
         /* IL_AC: box System.Boolean */
         /* IL_B1: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
+        asm0.x600005a(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000f0"])())({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -972,16 +876,7 @@ var asm1;(function (asm)
                         {
                             return arg0;
                         }
-                    },{
-                        'boxed': CILJS.clone_value(loc2),
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    }),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
-            });
+                    },CILJS.make_box(CILJS.clone_value(loc2),t0)),t3));
         /* IL_B6: nop  */
         /* IL_B7: ldarg.0  */
         /* IL_B8: box B */
@@ -990,22 +885,7 @@ var asm1;(function (asm)
         /* IL_C4: ceq  */
         /* IL_C5: box System.Boolean */
         /* IL_CA: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (({
-                    'boxed': CILJS.clone_value(arg0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === {
-                    'boxed': CILJS.clone_value(loc0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                }) ? (1) : (0)),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(arg0),t0) === CILJS.make_box(CILJS.clone_value(loc0),t0)) ? (1) : (0)),t3));
         /* IL_CF: nop  */
         /* IL_D0: ldarg.0  */
         /* IL_D1: box B */
@@ -1014,22 +894,7 @@ var asm1;(function (asm)
         /* IL_DD: ceq  */
         /* IL_DE: box System.Boolean */
         /* IL_E3: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (({
-                    'boxed': CILJS.clone_value(arg0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === {
-                    'boxed': CILJS.clone_value(loc1),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                }) ? (1) : (0)),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(arg0),t0) === CILJS.make_box(CILJS.clone_value(loc1),t0)) ? (1) : (0)),t3));
         /* IL_E8: nop  */
         /* IL_E9: ldarg.0  */
         /* IL_EA: box B */
@@ -1038,22 +903,7 @@ var asm1;(function (asm)
         /* IL_F6: ceq  */
         /* IL_F7: box System.Boolean */
         /* IL_FC: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (({
-                    'boxed': CILJS.clone_value(arg0),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                } === {
-                    'boxed': CILJS.clone_value(loc2),
-                    'type': t0,
-                    'vtable': t0.prototype.vtable,
-                    'ifacemap': t0.prototype.ifacemap
-                }) ? (1) : (0)),
-                'type': t3,
-                'vtable': t3.prototype.vtable,
-                'ifacemap': t3.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(arg0),t0) === CILJS.make_box(CILJS.clone_value(loc2),t0)) ? (1) : (0)),t3));
         /* IL_101: nop  */
         /* IL_102: ret  */
         return ;

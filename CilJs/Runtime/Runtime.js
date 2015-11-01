@@ -182,6 +182,13 @@ var CILJS;
         if (!type.IsValueType)
             return v;
 
+        if (!type.IsPrimitive)
+            v = ciljs.clone_value(v);
+
+        return ciljs.make_box(v, type);
+    }
+
+    ciljs.make_box = function (v, type) {
         return {
             'boxed': v,
             'type': type,

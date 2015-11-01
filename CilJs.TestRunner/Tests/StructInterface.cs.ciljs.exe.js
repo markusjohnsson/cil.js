@@ -42,12 +42,7 @@ var asm1;(function (asm)
         /* IL_09: ldloc.0  */
         /* IL_0A: box S */
         /* IL_0F: stloc.1  */
-        loc1 = {
-            'boxed': CILJS.clone_value(loc0),
-            'type': t0,
-            'vtable': t0.prototype.vtable,
-            'ifacemap': t0.prototype.ifacemap
-        };
+        loc1 = CILJS.make_box(CILJS.clone_value(loc0),t0);
         /* IL_10: ldloc.1  */
         /* IL_11: call Void Run(I) */
         asm1.x6000004(loc1);

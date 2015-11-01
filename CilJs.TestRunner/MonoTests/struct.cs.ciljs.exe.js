@@ -28,7 +28,7 @@ var asm1;(function (asm)
         loc0.z = (0|0);
         /* IL_12: ldloc.0  */
         /* IL_13: stloc.1  */
-        loc1 = loc0;
+        loc1 = CILJS.clone_value(loc0);
         /* IL_16: ldloc.1  */
         /* IL_17: ret  */
         return loc1;
@@ -188,7 +188,7 @@ var asm1;(function (asm)
                     },(10|0),(20|0));
                 /* IL_0C: ldloc.0  */
                 /* IL_0D: stloc.1  */
-                loc1 = loc0;
+                loc1 = CILJS.clone_value(loc0);
                 /* IL_0E: ldloc.1  */
                 /* IL_0F: ldfld Int32 x */
                 /* IL_14: ldc.i4.s 10 */
@@ -371,7 +371,7 @@ var asm1;(function (asm)
                 case 0xE9:
                 /* IL_E9: call Point get_zerop() */
                 /* IL_EE: stloc.2  */
-                loc2 = asm1.x6000002();
+                loc2 = CILJS.clone_value(asm1.x6000002());
                 /* IL_EF: ldloc.2  */
                 /* IL_F0: ldfld Int32 x */
                 /* IL_F5: ldloc.2  */

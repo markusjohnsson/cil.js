@@ -156,12 +156,7 @@ var asm1;(function (asm)
         /* IL_17: ceq  */
         /* IL_18: box System.Boolean */
         /* IL_1D: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((loc0.Value === null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((loc0.Value === null) ? (1) : (0)),t2));
         /* IL_22: nop  */
         /* IL_23: ldloc.0  */
         /* IL_24: ldfld IKVM.Reflection.GenericFieldInstance */
@@ -169,12 +164,7 @@ var asm1;(function (asm)
         /* IL_2B: ceq  */
         /* IL_2C: box System.Boolean */
         /* IL_31: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((loc0.Array === null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((loc0.Array === null) ? (1) : (0)),t2));
         /* IL_36: nop  */
         /* IL_37: newobj Void .ctor() */
         /* IL_3C: stloc.1  */
@@ -190,12 +180,7 @@ var asm1;(function (asm)
         /* IL_4D: ceq  */
         /* IL_4E: box System.Boolean */
         /* IL_53: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((loc1.Value === null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((loc1.Value === null) ? (1) : (0)),t2));
         /* IL_58: nop  */
         /* IL_59: ldloc.1  */
         /* IL_5A: ldfld IKVM.Reflection.GenericFieldInstance */
@@ -203,12 +188,7 @@ var asm1;(function (asm)
         /* IL_61: ceq  */
         /* IL_62: box System.Boolean */
         /* IL_67: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': ((loc1.Array === null) ? (1) : (0)),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(((loc1.Array === null) ? (1) : (0)),t2));
         /* IL_6C: nop  */
         /* IL_6D: ret  */
         return ;

@@ -24,24 +24,14 @@ var asm1;(function (asm)
         /* IL_01: ldsfld Int32 X */
         /* IL_06: box System.Int32 */
         /* IL_0B: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': t0.X,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(t0.X,t1));
         /* IL_10: nop  */
         asm1.x6000003();
         /* IL_11: newobj Void .ctor() */
         /* IL_16: ldfld Int32 Y */
         /* IL_1B: box System.Int32 */
         /* IL_20: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': CILJS.newobj(t0,asm1.x6000002,[null]).Y,
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(CILJS.newobj(t0,asm1.x6000002,[null]).Y,t1));
         /* IL_25: nop  */
         /* IL_26: ret  */
         return ;
@@ -81,7 +71,7 @@ var asm1;(function (asm)
         t0 = asm1.Program();
         /* IL_00: ldc.i4.s 123 */
         /* IL_02: stsfld Int32 X */
-        (t0)["X"] = (123|0);
+        t0.X = (123|0);
         /* IL_07: ret  */
         return ;
     };

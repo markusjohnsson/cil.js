@@ -57,23 +57,13 @@ var asm1;(function (asm)
         /* IL_26: callvirt Boolean Equals(System.Object) */
         /* IL_2B: box System.Boolean */
         /* IL_30: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': (((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),asm0.x60000f2(loc0)),
-                'type': t1,
-                'vtable': t1.prototype.vtable,
-                'ifacemap': t1.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box((((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),asm0.x60000f2(loc0)),t1));
         /* IL_35: nop  */
         /* IL_36: ldloc.0  */
         /* IL_37: callvirt Int32 X() */
         /* IL_3C: box System.Int32 */
         /* IL_41: call Void WriteLine(System.Object) */
-        asm0.x600005a({
-                'boxed': asm1.x6000001(loc0),
-                'type': t2,
-                'vtable': t2.prototype.vtable,
-                'ifacemap': t2.prototype.ifacemap
-            });
+        asm0.x600005a(CILJS.make_box(asm1.x6000001(loc0),t2));
         /* IL_46: nop  */
         /* IL_47: ret  */
         return ;

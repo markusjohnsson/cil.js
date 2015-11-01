@@ -86,12 +86,7 @@ var asm1;(function (asm)
                 /* IL_20: ldloc.3  */
                 /* IL_21: box System.SByte */
                 /* IL_26: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc3,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc3,t0));
                 /* IL_2B: nop  */
                 
                 /* IL_2C: ldloc.2  */
@@ -174,12 +169,7 @@ var asm1;(function (asm)
                 /* IL_1F: ldloc.3  */
                 /* IL_20: box System.Byte */
                 /* IL_25: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc3,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc3,t0));
                 /* IL_2A: nop  */
                 
                 /* IL_2B: ldloc.2  */
@@ -262,12 +252,7 @@ var asm1;(function (asm)
                 /* IL_20: ldloc.3  */
                 /* IL_21: box System.Int16 */
                 /* IL_26: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc3,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc3,t0));
                 /* IL_2B: nop  */
                 
                 /* IL_2C: ldloc.2  */
@@ -350,12 +335,7 @@ var asm1;(function (asm)
                 /* IL_1F: ldloc.3  */
                 /* IL_20: box System.UInt16 */
                 /* IL_25: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc3,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc3,t0));
                 /* IL_2A: nop  */
                 
                 /* IL_2B: ldloc.2  */
@@ -438,12 +418,7 @@ var asm1;(function (asm)
                 /* IL_20: ldloc.3  */
                 /* IL_21: box System.Int32 */
                 /* IL_26: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc3,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc3,t0));
                 /* IL_2B: nop  */
                 
                 /* IL_2C: ldloc.2  */
@@ -526,12 +501,7 @@ var asm1;(function (asm)
                 /* IL_1F: ldloc.3  */
                 /* IL_20: box System.UInt32 */
                 /* IL_25: call Void WriteLine(System.Object) */
-                asm0.x600005a({
-                        'boxed': loc3,
-                        'type': t0,
-                        'vtable': t0.prototype.vtable,
-                        'ifacemap': t0.prototype.ifacemap
-                    });
+                asm0.x600005a(CILJS.make_box(loc3,t0));
                 /* IL_2A: nop  */
                 
                 /* IL_2B: ldloc.2  */
