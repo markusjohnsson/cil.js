@@ -43,12 +43,12 @@ var asm1;(function (asm)
                             /* IL_07: ldc.i4.0  */
                             /* IL_09: cgt.un  */
                             /* IL_0A: stloc.0  */
-                            loc0 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? (1) : (0));
+                            loc0 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
                             /* IL_0B: ldloc.0  */
-                            /* IL_0C: brfalse.s IL_27 */
+                            /* IL_0C: brfalse.s IL_A5 */
                             
                             if ((!(loc0))){
-                                __pos__ = 0x27;
+                                __pos__ = 0xA5;
                                 continue;
                             }
                             /* IL_0E: call Int32 Get() */
@@ -109,12 +109,12 @@ var asm1;(function (asm)
                                         /* IL_31: ldc.i4.0  */
                                         /* IL_33: cgt.un  */
                                         /* IL_34: stloc.2  */
-                                        loc2 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? (1) : (0));
+                                        loc2 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
                                         /* IL_35: ldloc.2  */
-                                        /* IL_36: brfalse.s IL_51 */
+                                        /* IL_36: brfalse.s IL_7C */
                                         
                                         if ((!(loc2))){
-                                            __pos__ = 0x51;
+                                            __pos__ = 0x7C;
                                             continue;
                                         }
                                         /* IL_38: call Int32 Get() */
@@ -163,7 +163,7 @@ var asm1;(function (asm)
                                         /* IL_5A: ldc.i4.0  */
                                         /* IL_5C: cgt.un  */
                                         /* IL_5D: stloc.3  */
-                                        loc3 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? (1) : (0));
+                                        loc3 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
                                         /* IL_5E: ldloc.3  */
                                         /* IL_5F: brfalse.s IL_7A */
                                         
@@ -207,7 +207,7 @@ var asm1;(function (asm)
                             /* IL_81: ldc.i4.0  */
                             /* IL_83: cgt.un  */
                             /* IL_84: stloc.s 4 */
-                            loc4 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? (1) : (0));
+                            loc4 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
                             /* IL_86: ldloc.s 4 */
                             /* IL_88: brfalse.s IL_A3 */
                             
@@ -283,11 +283,12 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-        });
+        },
+        "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));

@@ -241,7 +241,7 @@ namespace CilJs.JsTranslation
         {
             return
                 fieldType.IsGenericParameter ?
-                    GetGenericFieldInitializer(fieldType, methodScope, typeScope, thisScope) :
+                    GetGenericDefaultValue(fieldType, methodScope, typeScope, thisScope) :
                 fieldType.IsPrimitive ?
                     new JSNumberLiteral { Value = 0 } as JSExpression :
                 fieldType.IsValueType ?
@@ -251,32 +251,34 @@ namespace CilJs.JsTranslation
                     } as JSExpression :
                     new JSNullLiteral();
         }
-
-        private JSExpression GetGenericFieldInitializer(Type fieldType, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
+        
+        private JSExpression GetGenericDefaultValue(Type fieldType, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
         {
             var t = GetTypeIdentifier(fieldType, methodScope, typeScope, thisScope);
-            return new JSConditionalExpression
-            {
-                Condition = JSFactory.Identifier(t, "IsValueType"),
-                TrueValue = new JSConditionalExpression
-                {
-                    Condition = JSFactory.Identifier(t, "IsPrimitive"),
-                    TrueValue = new JSNumberLiteral { Value = 0 },
-                    FalseValue = new JSNewExpression { Constructor = t }
-                },
-                FalseValue = new JSNullLiteral()
-            };
+            return JSFactory.Identifier(t, "Default");
         }
+
+        //private JSExpression GetGenericDefaultValue(Type fieldType, MethodBase methodScope = null, Type typeScope = null, JSExpression thisScope = null)
+        //{
+        //    var t = GetTypeIdentifier(fieldType, methodScope, typeScope, thisScope);
+        //    return new JSConditionalExpression
+        //    {
+        //        Condition = JSFactory.Identifier(t, "IsValueType"),
+        //        TrueValue = new JSConditionalExpression
+        //        {
+        //            Condition = JSFactory.Identifier(t, "IsPrimitive"),
+        //            TrueValue = new JSNumberLiteral { Value = 0 },
+        //            FalseValue = new JSNewExpression { Constructor = t }
+        //        },
+        //        FalseValue = new JSNullLiteral()
+        //    };
+        //}
 
         protected JSExpression GetThisScope(MethodBase methodScope, Type typeScope)
         {
             var thisScope = methodScope.IsStatic
                 ? null
-                : new JSArrayLookupExpression
-                {
-                    Array = JSFactory.Identifier("arguments"),
-                    Indexer = new JSNumberLiteral { Value = 0 }
-                } as JSExpression;
+                : JSFactory.Identifier("arg0");
 
             if (thisScope != null && typeScope.IsValueType)
                 thisScope = new JSCallExpression { Function = JSFactory.Identifier(thisScope, "r") };

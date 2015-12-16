@@ -101,9 +101,9 @@ namespace Raytracer
             end = Now();
         }
 
-        public int TotalSeconds
+        public double TotalSeconds
         {
-            get { return (end - start) / 1000; }
+            get { return (end - start) / 1000d; }
         }
     }
 

@@ -36,8 +36,8 @@ var asm1;(function (asm)
     };;
     asm.x6000004 = function ()
     {
-        asm.x6000004_init.apply(this,arguments);
-        return asm.x6000004_.apply(this,arguments);
+        asm.x6000004_init();
+        return asm.x6000004_();
     };;
     asm.x6000004_ = function Main()
     {
@@ -165,13 +165,13 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"A",false,false,false,false,false,[],[
                     [asm1, "x6000001", "get_X"],
                     [asm1, "x6000002", "set_X"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002");
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-            (this.prototype)["A<X>k__BackingField"] = null;
-        });
+        },
+        "function A() { c.init();(this)[\"A<X>k__BackingField\"] = null }");
     asm.Program = CILJS.declare_type(
         "Program",
         [],
@@ -182,11 +182,12 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-        });
+        },
+        "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;
 })(asm1 || (asm1 = {}));

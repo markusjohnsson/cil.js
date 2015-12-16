@@ -1,4 +1,6 @@
 ﻿
+"use strict";
+
 var CILJS;
 
 (function (ciljs) {
@@ -20,27 +22,56 @@ var CILJS;
             result.apply(null, arguments);
     }
 
-    ciljs.declare_type = function declare_type(name, genericArgs, baseType, init) {
+    ciljs.declare_type = function declare_type(name, genericArgs, baseType, init, ctortext) {
         var isGeneric = genericArgs && genericArgs.length > 0;
-        var cacheTree = isGeneric ? {} : null;
-        var gA = isGeneric ? genericArgs.join(",") : "";
-        var gAmD = isGeneric ? genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; } ).join(",") : "";
-        var s = "" +
-            "function t(" + gA + ") {\n" +
-            "    var cachedType = " + (isGeneric ? "ciljs.tree_get([" + gAmD + "], cacheTree)" : "cacheTree") + ";\n" +
-            "    if (cachedType) return cachedType;\n" +
-            "    \n" +
-            "    eval('function " + name + "() { cachedType.init(); this.constructor = cachedType; }');\n" +
-            "    cachedType = " + name + ";\n" +
-            "    " + (isGeneric ? "ciljs.tree_set([" + gAmD + "], cacheTree, cachedType);" : "cacheTree = cachedType;") + "\n" +
-            "    \n" +
-            "    cachedType.init = init.bind(cachedType" + (isGeneric ? (", " + gA) : "") + ");\n" +
-            "    var baseCtor = baseType(" + gA + ");\n" +
-            "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-            "    return cachedType;\n" +
-            "}";
-        eval(s);
-        return t;
+
+        var ctor = ctortext; //"function " + name + "() { c.init(); }";
+
+        if (isGeneric) {
+            var cacheTree = {};
+            var gA = genericArgs.join(",");
+            var gAmD = genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; }).join(",");
+            var s = "" +
+                "return function t(" + gA + ") {\n" +
+                "    var cachedType = ciljs.tree_get([" + gAmD + "], cacheTree);\n" +
+                "    if (cachedType) return cachedType;\n" +
+                "    \n" +
+                "    cachedType = new Function('" + genericArgs.join("','") + "', 'var c = " + ctor + "; return c;')(" + gA + ");\n" +
+                "    ciljs.tree_set([" + gAmD + "], cacheTree, cachedType);\n" +
+                "    \n" +
+                "    cachedType.init = init.bind(cachedType, " + gA + ");\n" +
+                "    var baseCtor = baseType(" + gA + ");\n" +
+                "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
+                "    cachedType.prototype.constructor = cachedType;\n" + 
+                "    return cachedType;\n" +
+                "}";
+
+            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(ciljs, cacheTree, baseType, init);
+
+            return t;
+        }
+        else {
+
+            var cacheTree = null;
+            var s = "" +
+                "return function t() {\n" +
+                "    var cachedType = cacheTree;\n" +
+                "    if (cachedType) return cachedType;\n" +
+                "    \n" +
+                "    cachedType = new Function('var c = "+ctor+"; return c;')();\n" +
+                "    cacheTree = cachedType;\n" +
+                "    \n" +
+                "    cachedType.init = init.bind(cachedType);\n" +
+                "    var baseCtor = baseType();\n" +
+                "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
+                "    cachedType.prototype.constructor = cachedType;\n" +
+                "    return cachedType;\n" +
+                "}";
+
+            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(ciljs, cacheTree, baseType, init);
+
+            return t;
+        }
     }
 
     ciljs.init_base_types = function init_base_types()
@@ -67,7 +98,7 @@ var CILJS;
         asm0['System.Double']().init();
     }
 
-    ciljs.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName) {
+    ciljs.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName, defaultValue) {
         type.FullName = fullname;
         type.Assembly = assembly;
         type.IsValueType = isValueType;
@@ -87,6 +118,8 @@ var CILJS;
         type.GenericArguments = {};
         type.prototype.vtable = {};
         type.prototype.ifacemap = {};
+
+        type.Default = defaultValue;
     }
 
     ciljs.implement_interface = function implement_interface(type, iface, implementation) {
@@ -466,11 +499,18 @@ var CILJS;
     ciljs.delegate_invoke = function (self) {
         var m = self._methodPtr;
         var t = self._target;
+
+        var args = new Array(arguments.length);
+
+        for (var i = 0; i < arguments.length; i++)
+            args[i] = arguments[i];
+
         if (t != null)
-            arguments[0] = t;
+            args[0] = t;
         else
-            arguments = Array.prototype.slice.call(arguments, 1);
-        return m.apply(null, arguments);
+            args = Array.prototype.slice.call(args, 1);
+
+        return m.apply(null, args);
     }
 
     ciljs.delegate_begin_invoke = function (self /* , [delegate arguments], callback, state */) {

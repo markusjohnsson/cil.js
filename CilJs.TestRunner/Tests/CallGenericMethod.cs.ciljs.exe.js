@@ -51,7 +51,7 @@ var asm1;(function (asm)
     /* static System.Void Program.Y<T>(T)*/
     asm.x6000007_init = function (T)
     {
-        return function ()
+        return function (arg0)
         {
             ((asm1)["A`1"](T).init)();
         };
@@ -60,8 +60,8 @@ var asm1;(function (asm)
     {
         return function (arg0)
         {
-            (asm.x6000007_init(T).apply)(this,arguments);
-            return (asm.x6000007_(T).apply)(this,arguments);
+            (asm.x6000007_init(T))(arg0);
+            return (asm.x6000007_(T))(arg0);
         };
     };;
     asm.x6000007_ = function (T)
@@ -93,7 +93,7 @@ var asm1;(function (asm)
     /* static System.Void Program.X<T>(I`1)*/
     asm.x6000008_init = function (T)
     {
-        return function ()
+        return function (arg0)
         {
             ((asm1)["I`1"](T).init)();
         };
@@ -102,8 +102,8 @@ var asm1;(function (asm)
     {
         return function (arg0)
         {
-            (asm.x6000008_init(T).apply)(this,arguments);
-            return (asm.x6000008_(T).apply)(this,arguments);
+            (asm.x6000008_init(T))(arg0);
+            return (asm.x6000008_(T))(arg0);
         };
     };;
     asm.x6000008_ = function (T)
@@ -147,12 +147,13 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"I`1",false,false,true,true,false,[],[
                     [asm1, "x6000001", "get_Prop"],
                     [asm1, "x6000002", "set_Prop"]
-                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002");
+                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002",null);
             (this.GenericArguments)["asm1.t2000002"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000002<" + (T.GenericTypeMetadataName + ">"));
             CILJS.declare_virtual(this,"asm1.x6000001","asm1.x6000001");
             CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
-        });
+        },
+        "function I_1() { c.init(); }");
     (asm)["A`1"] = CILJS.declare_type(
         "A_1",
         ["T"],
@@ -166,7 +167,7 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"A`1",false,false,false,true,false,[],[
                     [asm1, "x6000003", "get_Prop"],
                     [asm1, "x6000004", "set_Prop"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             (this.GenericArguments)["asm1.t2000003"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000003<" + (T.GenericTypeMetadataName + ">"));
             CILJS.declare_virtual(this,"asm1.x6000003","asm1.x6000003");
@@ -181,8 +182,8 @@ var asm1;(function (asm)
                     'x6000001': function (){ return asm1.x6000003;},
                     'x6000002': function (){ return asm1.x6000004;}
                 });
-            (this.prototype)["A_1<Prop>k__BackingField"] = ((T.IsValueType) ? (((T.IsPrimitive) ? (0) : (new T()))) : (null));
-        });
+        },
+        "function A_1() { c.init();(this)[\"A_1<Prop>k__BackingField\"] = T.Default }");
     asm.Program = CILJS.declare_type(
         "Program",
         [],
@@ -193,11 +194,12 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004");
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-        });
+        },
+        "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));

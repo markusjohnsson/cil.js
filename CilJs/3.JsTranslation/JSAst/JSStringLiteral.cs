@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CilJs.JSAst
 {
-    class JSStringLiteral: JSExpression
+    class JSStringLiteral: JSAbstractLiteral
     {
         private string _Value;
         public string Value

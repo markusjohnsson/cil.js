@@ -21,6 +21,10 @@ namespace CilJs.JSAst
         {
             return Assignment(Identifier(identifier), value);
         }
+        public static JSExpression LocalVariableAssignment(string identifier, JSExpression value)
+        {
+            return new JSVariableDelcaration { Name = identifier, Value = value };
+        }
         #endregion
 
         public static JSExpression Array(params JSExpression[] exprs)

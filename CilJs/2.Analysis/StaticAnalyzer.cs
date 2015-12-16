@@ -51,7 +51,9 @@ namespace CilJs.Analysis
             yield return new TypeInference(ctx);
             yield return new TypeUsageAnalysis(ctx);
             yield return new InsertLabelsPass();
-            
+
+            yield return new BranchingShortcutsPass();
+
             yield return new CreateBlocksPass();
             yield return new AggregateBlocksPass();
 

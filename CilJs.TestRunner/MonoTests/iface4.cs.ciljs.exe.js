@@ -160,8 +160,8 @@ var asm1;(function (asm)
     };;
     asm.x6000012 = function ()
     {
-        asm.x6000012_init.apply(this,arguments);
-        return asm.x6000012_.apply(this,arguments);
+        asm.x6000012_init();
+        return asm.x6000012_();
     };;
     asm.x6000012_ = function Main()
     {
@@ -229,7 +229,7 @@ var asm1;(function (asm)
                 /* IL_28: ldc.i4.0  */
                 /* IL_2A: ceq  */
                 /* IL_2B: stloc.s 6 */
-                loc6 = ((((((loc0.vtable)["asm1.x6000007"]())(loc0) === (4|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc6 = ((((((loc0.vtable)["asm1.x6000007"]())(loc0) === (4|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_2D: ldloc.s 6 */
                 /* IL_2F: brfalse.s IL_39 */
                 
@@ -251,7 +251,7 @@ var asm1;(function (asm)
                 /* IL_42: ldc.i4.0  */
                 /* IL_44: ceq  */
                 /* IL_45: stloc.s 8 */
-                loc8 = (((((((loc0.ifacemap)[t4].x6000003)())(loc0) === (4|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc8 = (((((((loc0.ifacemap)[t4].x6000003)())(loc0) === (4|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_47: ldloc.s 8 */
                 /* IL_49: brfalse.s IL_53 */
                 
@@ -273,7 +273,7 @@ var asm1;(function (asm)
                 /* IL_5C: ldc.i4.0  */
                 /* IL_5E: ceq  */
                 /* IL_5F: stloc.s 9 */
-                loc9 = ((((((loc1.vtable)["asm1.x6000007"]())(loc1) === (8|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc9 = ((((((loc1.vtable)["asm1.x6000007"]())(loc1) === (8|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_61: ldloc.s 9 */
                 /* IL_63: brfalse.s IL_6E */
                 
@@ -295,7 +295,7 @@ var asm1;(function (asm)
                 /* IL_77: ldc.i4.0  */
                 /* IL_79: ceq  */
                 /* IL_7A: stloc.s 10 */
-                loc10 = (((((((loc1.ifacemap)[t4].x6000003)())(loc1) === (7|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc10 = (((((((loc1.ifacemap)[t4].x6000003)())(loc1) === (7|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_7C: ldloc.s 10 */
                 /* IL_7E: brfalse.s IL_88 */
                 
@@ -317,7 +317,7 @@ var asm1;(function (asm)
                 /* IL_92: ldc.i4.0  */
                 /* IL_94: ceq  */
                 /* IL_95: stloc.s 11 */
-                loc11 = ((((((loc4.vtable)["asm1.x6000007"]())(loc4) === (8|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc11 = ((((((loc4.vtable)["asm1.x6000007"]())(loc4) === (8|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_97: ldloc.s 11 */
                 /* IL_99: brfalse.s IL_A0 */
                 
@@ -339,7 +339,7 @@ var asm1;(function (asm)
                 /* IL_AA: ldc.i4.0  */
                 /* IL_AC: ceq  */
                 /* IL_AD: stloc.s 12 */
-                loc12 = (((((((loc4.ifacemap)[t4].x6000003)())(loc4) === (7|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc12 = (((((((loc4.ifacemap)[t4].x6000003)())(loc4) === (7|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_AF: ldloc.s 12 */
                 /* IL_B1: brfalse.s IL_B8 */
                 
@@ -361,7 +361,7 @@ var asm1;(function (asm)
                 /* IL_C2: ldc.i4.0  */
                 /* IL_C4: ceq  */
                 /* IL_C5: stloc.s 13 */
-                loc13 = (((((((loc5.ifacemap)[t4].x6000002)())(loc5) === (2|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc13 = (((((((loc5.ifacemap)[t4].x6000002)())(loc5) === (2|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_C7: ldloc.s 13 */
                 /* IL_C9: brfalse.s IL_D0 */
                 
@@ -383,7 +383,7 @@ var asm1;(function (asm)
                 /* IL_D9: ldc.i4.0  */
                 /* IL_DB: ceq  */
                 /* IL_DC: stloc.s 14 */
-                loc14 = (((((((loc0.ifacemap)[t4].x6000002)())(loc0) === (2|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc14 = (((((((loc0.ifacemap)[t4].x6000002)())(loc0) === (2|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_DE: ldloc.s 14 */
                 /* IL_E0: brfalse.s IL_E7 */
                 
@@ -405,7 +405,7 @@ var asm1;(function (asm)
                 /* IL_F0: ldc.i4.0  */
                 /* IL_F2: ceq  */
                 /* IL_F3: stloc.s 15 */
-                loc15 = (((((((loc1.ifacemap)[t4].x6000002)())(loc1) === (6|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc15 = (((((((loc1.ifacemap)[t4].x6000002)())(loc1) === (6|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_F5: ldloc.s 15 */
                 /* IL_F7: brfalse.s IL_FE */
                 
@@ -427,7 +427,7 @@ var asm1;(function (asm)
                 /* IL_107: ldc.i4.0  */
                 /* IL_109: ceq  */
                 /* IL_10A: stloc.s 16 */
-                loc16 = ((((((loc2.vtable)["asm1.x6000008"]())(loc2) === (1|0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc16 = ((((((loc2.vtable)["asm1.x6000008"]())(loc2) === (1|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_10C: ldloc.s 16 */
                 /* IL_10E: brfalse.s IL_116 */
                 
@@ -475,12 +475,13 @@ var asm1;(function (asm)
                     [asm1, "x6000001", "Start"],
                     [asm1, "x6000002", "Stop"],
                     [asm1, "x6000003", "Turn"]
-                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002");
+                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm1.x6000001","asm1.x6000001");
             CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm1.x6000003","asm1.x6000003");
-        });
+        },
+        "function IVehicle() { c.init(); }");
     asm.IWalker = CILJS.declare_type(
         "IWalker",
         [],
@@ -493,10 +494,11 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"IWalker",false,false,true,false,false,[],[
                     [asm1, "x6000004", "Walk"]
-                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000003");
+                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm1.x6000004","asm1.x6000004");
-        });
+        },
+        "function IWalker() { c.init(); }");
     asm.Base = CILJS.declare_type(
         "Base",
         [],
@@ -511,7 +513,7 @@ var asm1;(function (asm)
                     [asm1, "x6000006", "Stop"],
                     [asm1, "x6000007", "Turn"],
                     [asm1, "x6000008", "Walk"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004");
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
             CILJS.declare_virtual(this,"asm1.x6000005","asm1.x6000005");
             CILJS.declare_virtual(this,"asm1.x6000006","asm1.x6000006");
@@ -528,7 +530,8 @@ var asm1;(function (asm)
                     'x6000002': function (){ return asm1.x6000006;},
                     'x6000003': function (){ return asm1.x6000007;}
                 });
-        });
+        },
+        "function Base() { c.init(); }");
     asm.Derived1 = CILJS.declare_type(
         "Derived1",
         [],
@@ -541,7 +544,7 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Derived1",false,false,false,false,false,[],[
                     [asm1, "x600000a", "Turn"]
-                ],asm1.Base(),CILJS.is_inst_default(this),Array,"asm1.t2000005");
+                ],asm1.Base(),CILJS.is_inst_default(this),Array,"asm1.t2000005",null);
             this.GenericTypeMetadataName = "asm1.t2000005";
             CILJS.declare_virtual(this,"asm1.x6000007","asm1.x600000a");
             CILJS.declare_virtual(this,"asm1.x6000006","asm1.x6000006");
@@ -557,7 +560,8 @@ var asm1;(function (asm)
                     'x6000002': function (){ return asm1.x6000006;},
                     'x6000003': function (){ return asm1.x600000a;}
                 });
-        });
+        },
+        "function Derived1() { c.init(); }");
     asm.Derived2 = CILJS.declare_type(
         "Derived2",
         [],
@@ -571,7 +575,7 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"Derived2",false,false,false,false,false,[],[
                     [asm1, "x600000c", "Stop"],
                     [asm1, "x600000f", "Turn"]
-                ],asm1.Base(),CILJS.is_inst_default(this),Array,"asm1.t2000006");
+                ],asm1.Base(),CILJS.is_inst_default(this),Array,"asm1.t2000006",null);
             this.GenericTypeMetadataName = "asm1.t2000006";
             CILJS.declare_virtual(this,"asm1.x600000c","asm1.x600000c");
             CILJS.declare_virtual(this,"asm1.x600000d","asm1.x600000d");
@@ -590,7 +594,8 @@ var asm1;(function (asm)
                     'x6000002': function (){ return asm1.x600000c;},
                     'x6000003': function (){ return asm1.x600000e;}
                 });
-        });
+        },
+        "function Derived2() { c.init(); }");
     asm.Derived3 = CILJS.declare_type(
         "Derived3",
         [],
@@ -601,7 +606,7 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Derived3",false,false,false,false,false,[],[],asm1.Derived1(),CILJS.is_inst_default(this),Array,"asm1.t2000007");
+            CILJS.init_type(this,asm,"Derived3",false,false,false,false,false,[],[],asm1.Derived1(),CILJS.is_inst_default(this),Array,"asm1.t2000007",null);
             this.GenericTypeMetadataName = "asm1.t2000007";
             CILJS.declare_virtual(this,"asm1.x6000007","asm1.x600000a");
             CILJS.declare_virtual(this,"asm1.x6000006","asm1.x6000006");
@@ -623,7 +628,8 @@ var asm1;(function (asm)
                     'x6000002': function (){ return asm1.x6000006;},
                     'x6000003': function (){ return asm1.x600000a;}
                 });
-        });
+        },
+        "function Derived3() { c.init(); }");
     asm.Test = CILJS.declare_type(
         "Test",
         [],
@@ -634,11 +640,12 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000008");
+            CILJS.init_type(this,asm,"Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000008",null);
             this.GenericTypeMetadataName = "asm1.t2000008";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-        });
+        },
+        "function Test() { c.init(); }");
     asm.entryPoint = asm.x6000012;
 })(asm1 || (asm1 = {}));

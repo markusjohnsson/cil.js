@@ -13,7 +13,11 @@ namespace CilJs.JSAst
         Float
     }
 
-    class JSNumberLiteral : JSExpression
+    abstract class JSAbstractLiteral: JSExpression
+    {
+    }
+
+    class JSNumberLiteral : JSAbstractLiteral
     {
         public bool IsHex { get; set; }
 

@@ -87,7 +87,8 @@ namespace CilJs.JsTranslation
 
             var f = new JSFunctionDelcaration
             {
-                Body = functionBlock
+                Body = functionBlock,
+                Parameters = Enumerable.Range(0, GetParameterCount(method)).Select(i => new JSFunctionParameter { Name = "arg" + i }).ToList()
             };
 
             return HasGenericParameters(method) ? CreateGenericFunction(method, f) : f;
@@ -123,11 +124,14 @@ namespace CilJs.JsTranslation
             else
                 closedMethodInitializer = openMethodInitializer;
 
+            var ps = GetParameterCount(method);
+            var parameters = Enumerable.Range(0, ps).Select(i => new JSIdentifier { Name = "arg" + i } as JSExpression).ToList();
+
             functionBlock.Add(
                 new JSCallExpression
                 {
-                    Function = JSFactory.Identifier(closedMethodInitializer, "apply"),
-                    Arguments = { JSFactory.Identifier("this"), JSFactory.Identifier("arguments") }
+                    Function = closedMethodInitializer,
+                    Arguments = parameters
 
                 }.ToStatement());
 
@@ -152,12 +156,10 @@ namespace CilJs.JsTranslation
                 {
                     Expression = new JSCallExpression
                     {
-                        Function = JSFactory.Identifier(closedMethodImplementation, "apply"),
-                        Arguments = { JSFactory.Identifier("this"), JSFactory.Identifier("arguments") }
+                        Function = closedMethodImplementation,
+                        Arguments = parameters
                     }
                 }.ToStatement());
-
-            var ps = GetParameterCount(method);
 
             var f = new JSFunctionDelcaration
             {

@@ -16,9 +16,9 @@ namespace CilJs.JSAst
             emitter.EmitString("(");
             emitter.EmitParenthesized(Condition);
             emitter.EmitString(" ? ");
-            emitter.EmitParenthesized(TrueValue);
+            emitter.EmitParenthesizedIf(TrueValue, !(TrueValue is JSAbstractLiteral));
             emitter.EmitString(" : ");
-            emitter.EmitParenthesized(FalseValue);
+            emitter.EmitParenthesizedIf(FalseValue, !(FalseValue is JSAbstractLiteral));
             emitter.EmitString(")");
         }
 

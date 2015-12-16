@@ -61,6 +61,23 @@ namespace CilJs.JsTranslation
                 Body = GetInitialization("this", type).ToList(),
                 Parameters = genericParameters
             };
+
+            yield return GetConstructor(type);
+        }
+
+        private JSStringLiteral GetConstructor(CilType type)
+        {
+            return new JSStringLiteral
+            {
+                Value = "function " + GetSimpleName(type.ReflectionType) +
+                    "() { c.init();" +
+                    string.Join(";", GetFieldInitializers(type)
+                        .Select(
+                            f => JSFactory
+                                .Assignment(JSFactory.Identifier("this", f.Key), f.Value)
+                                .ToString())) +
+                " }"
+            };
         }
 
         private JSArrayLiteral GetGenericArgumentsArray(Type type, Type typeScope)
@@ -100,7 +117,7 @@ namespace CilJs.JsTranslation
                         .Select(g => JSFactory.Call(JSFactory.Identifier(g, "init")).ToStatement()));
                 }
             }
-            else 
+            else
             {
                 basePrototype = new JSObjectLiteral();
             }
@@ -136,7 +153,8 @@ namespace CilJs.JsTranslation
                     GetBaseType(type),
                     GetIsInst(type),
                     GetArrayType(type),
-                    JSFactory.Literal(GetTypeMetadataName(type.ReflectionType))
+                    JSFactory.Literal(GetTypeMetadataName(type.ReflectionType)),
+                    GetDefaultValue(type.ReflectionType)
                     )
                 .ToStatement();
 
@@ -194,8 +212,8 @@ namespace CilJs.JsTranslation
                 yield return call.ToStatement();
             }
 
-            var prototypeProperties = GetFieldInitializers(type)
-                .Concat(GetPrototypeMethods(type));
+            var prototypeProperties = GetPrototypeMethods(type); // GetFieldInitializers(type)
+                                                                 //.Concat();
 
             foreach (var f in prototypeProperties)
             {
@@ -245,8 +263,8 @@ namespace CilJs.JsTranslation
 
         private JSExpression GetMethodInfo(CilType type, MethodInfo m)
         {
-            var parts = new List<JSExpression> 
-            { 
+            var parts = new List<JSExpression>
+            {
                 GetAssemblyIdentifier(type.ReflectionType),
                 JSFactory.Literal(GetMethodIdentifier(m)),
                 JSFactory.Literal(m.Name)
@@ -426,7 +444,7 @@ namespace CilJs.JsTranslation
                     .Where(m => m.IsVirtual)
                     .ToDictionary(
                         m => GetVirtualMethodIdentifier(m),
-                        m => GetUnboundMethodAccessor(m).ToString()) 
+                        m => GetUnboundMethodAccessor(m).ToString())
             ;
         }
 

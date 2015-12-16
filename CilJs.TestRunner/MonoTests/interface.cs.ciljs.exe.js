@@ -119,8 +119,8 @@ var asm1;(function (asm)
     };;
     asm.x6000008 = function ()
     {
-        asm.x6000008_init.apply(this,arguments);
-        return asm.x6000008_.apply(this,arguments);
+        asm.x6000008_init();
+        return asm.x6000008_();
     };;
     asm.x6000008_ = function Main()
     {
@@ -175,7 +175,7 @@ var asm1;(function (asm)
                 /* IL_31: ldc.i4.0  */
                 /* IL_33: ceq  */
                 /* IL_34: stloc.3  */
-                loc3 = ((((loc2 === (+0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc3 = ((((loc2 === (+0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_35: ldloc.3  */
                 /* IL_36: brfalse.s IL_3D */
                 
@@ -205,7 +205,7 @@ var asm1;(function (asm)
                 /* IL_60: ldc.r8 1E-06 */
                 /* IL_6A: cgt  */
                 /* IL_6B: stloc.s 5 */
-                loc5 = (((loc2 - (+1456.637061436)) > (+1E-06)) ? (1) : (0));
+                loc5 = (((loc2 - (+1456.637061436)) > (+1E-06)) ? 1 : 0);
                 /* IL_6D: ldloc.s 5 */
                 /* IL_6F: brfalse.s IL_76 */
                 
@@ -233,7 +233,7 @@ var asm1;(function (asm)
                 /* IL_90: ldc.i4.0  */
                 /* IL_92: ceq  */
                 /* IL_93: stloc.s 6 */
-                loc6 = ((((loc2 === (+0)) ? (1) : (0)) === (0|0)) ? (1) : (0));
+                loc6 = ((((loc2 === (+0)) ? 1 : 0) === (0|0)) ? 1 : 0);
                 /* IL_95: ldloc.s 6 */
                 /* IL_97: brfalse.s IL_9E */
                 
@@ -279,10 +279,11 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Measurable",false,false,true,false,false,[],[
                     [asm1, "x6000001", "Area"]
-                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002");
+                ],null,CILJS.is_inst_interface(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm1.x6000001","asm1.x6000001");
-        });
+        },
+        "function Measurable() { c.init(); }");
     (asm)["Obj.Obj"] = CILJS.declare_type(
         "Obj",
         [],
@@ -295,7 +296,7 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Obj",false,false,false,false,false,[],[
                     [asm1, "x6000002", "Area"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003");
+                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
@@ -307,7 +308,8 @@ var asm1;(function (asm)
                 {
                     'x6000001': function (){ return asm1.x6000002;}
                 });
-        });
+        },
+        "function Obj() { c.init(); }");
     (asm)["Obj.Rect"] = CILJS.declare_type(
         "Rect",
         [],
@@ -320,7 +322,7 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Rect",false,false,false,false,false,[],[
                     [asm1, "x6000005", "Area"]
-                ],(asm1)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm1.t2000004");
+                ],(asm1)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
             CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
@@ -332,11 +334,8 @@ var asm1;(function (asm)
                 {
                     'x6000001': function (){ return asm1.x6000002;}
                 });
-            this.prototype.ObjRectx = 0;
-            this.prototype.ObjRecty = 0;
-            this.prototype.ObjRectw = 0;
-            this.prototype.ObjRecth = 0;
-        });
+        },
+        "function Rect() { c.init();this.ObjRectx = 0;this.ObjRecty = 0;this.ObjRectw = 0;this.ObjRecth = 0 }");
     (asm)["Obj.Circle"] = CILJS.declare_type(
         "Circle",
         [],
@@ -349,7 +348,7 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Obj.Circle",false,false,false,false,false,[],[
                     [asm1, "x6000007", "Area"]
-                ],(asm1)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm1.t2000005");
+                ],(asm1)["Obj.Obj"](),CILJS.is_inst_default(this),Array,"asm1.t2000005",null);
             this.GenericTypeMetadataName = "asm1.t2000005";
             CILJS.declare_virtual(this,"asm1.x6000002","asm1.x6000002");
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
@@ -361,10 +360,8 @@ var asm1;(function (asm)
                 {
                     'x6000001': function (){ return asm1.x6000002;}
                 });
-            this.prototype.ObjCirclex = 0;
-            this.prototype.ObjCircley = 0;
-            this.prototype.ObjCircler = 0;
-        });
+        },
+        "function Circle() { c.init();this.ObjCirclex = 0;this.ObjCircley = 0;this.ObjCircler = 0 }");
     (asm)["Obj.Test"] = CILJS.declare_type(
         "Test",
         [],
@@ -375,11 +372,12 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Obj.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000006");
+            CILJS.init_type(this,asm,"Obj.Test",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000006",null);
             this.GenericTypeMetadataName = "asm1.t2000006";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-        });
+        },
+        "function Test() { c.init(); }");
     asm.entryPoint = asm.x6000008;
 })(asm1 || (asm1 = {}));

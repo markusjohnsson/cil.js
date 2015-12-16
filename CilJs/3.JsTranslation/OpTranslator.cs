@@ -317,7 +317,7 @@ namespace CilJs.JsTranslation
 
             foreach (var storeTo in storeTos)
             {
-                expression = JSFactory.Assignment(storeTo.Name, expression);
+                expression = JSFactory.LocalVariableAssignment(storeTo.Name, expression);
             }
 
             return expression;
@@ -520,18 +520,21 @@ namespace CilJs.JsTranslation
 
                         if (mi.Name == "Invoke" && mi.DeclaringType.BaseType.FullName == "System.MulticastDelegate")
                         {
-                            return new JSCallExpression
+                            return new JSConditionalExpression
                             {
-                                Function = JSFactory.Identifier(arglist.First(), "_methodPtr", "apply"),
-                                Arguments = {
-                                    new JSNullLiteral(),
-                                    new JSConditionalExpression
-                                    {   
-                                        Condition = JSFactory.Identifier(arglist.First(), "_target"),
-                                        TrueValue = new JSArrayLiteral { Values = arglist.Skip(1).StartWith(JSFactory.Identifier(arglist.First(), "_target")).ToList() },
-                                        FalseValue = new JSArrayLiteral { Values = arglist.Skip(1).ToList() }
+                                Condition = JSFactory.Identifier(arglist.First(), "_target"),
+                                TrueValue =
+                                    new JSCallExpression
+                                    {
+                                        Function = JSFactory.Identifier(arglist.First(), "_methodPtr"),
+                                        Arguments = arglist.Skip(1).StartWith(JSFactory.Identifier(arglist.First(), "_target")).ToList()
+                                    },
+                                FalseValue = 
+                                    new JSCallExpression
+                                    {
+                                        Function = JSFactory.Identifier(arglist.First(), "_methodPtr"),
+                                        Arguments = arglist.Skip(1).ToList()
                                     }
-                                }
                             };
                         }
 
