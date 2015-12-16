@@ -24,28 +24,34 @@ namespace CilJs.Analysis.Passes
 
                     if (op.Instruction.OpCode.Name == "switch")
                         continue; // TODO: handle this too..
-
-                    var targetPosition = GetTargetPosition(op.Instruction);
-                    var target = method
-                        .OpTree
-                        .Where(p => p.Instruction != null)
-                        .SkipWhile(p => p.Instruction.Position != targetPosition)
-                        .SkipWhile(p => p.Instruction.OpCode.Name == "nop")
-                        .First()
-                        ;
-
-                    if (op.Instruction.OpCode.Name.StartsWith("leave"))
-                        continue; 
                     
-                    if (target.Instruction.OpCode.FlowControl == FlowControl.Branch)
+                    var targetPosition = GetTargetPosition(op.Instruction);
+
+                    while (true)
                     {
-                        var pos = GetTargetPosition(target.Instruction);
-                        op.Instruction.Data = CalculateData(op.Instruction, pos);
+                        var target = method
+                            .OpTree
+                            .Where(p => p.Instruction != null)
+                            .SkipWhile(p => p.Instruction.Position != targetPosition)
+                            .SkipWhile(p => p.Instruction.OpCode.Name == "nop")
+                            .First()
+                            ;
+
+                        if (target.Instruction.OpCode.FlowControl == FlowControl.Branch)
+                        {
+                            targetPosition = GetTargetPosition(target.Instruction);
+                            op.Instruction.Data = CalculateData(op.Instruction, targetPosition);
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
+
                 }
             }
         }
-        
+
         private int CalculateData(OpInstruction i, int pos)
         {
             return pos - 1 - i.Position - i.Size;
