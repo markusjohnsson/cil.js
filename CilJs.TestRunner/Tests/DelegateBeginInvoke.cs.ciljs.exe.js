@@ -75,7 +75,6 @@ var asm1;(function (asm)
         var loc0;
         var loc2;
         var loc1;
-        var in_block_1;
         var loc3;
         t0 = (asm1)["Program+<>c__DisplayClass1_0"]();
         t1 = (asm1)["Program+<>c"]();
@@ -142,46 +141,24 @@ var asm1;(function (asm)
                 __pos__ = 0x52;
                 continue;
                 case 0x4A:
+                /* IL_4A: ldc.i4.0  */
+                /* IL_4B: conv.i8  */
+                /* IL_4C: call Void Sleep(System.Int64) */
+                asm0.x6000181(CILJS.conv_i8((0|0)));
+                /* IL_51: nop  */
+                
                 case 0x52:
-                in_block_1 = true;
+                /* IL_52: ldloc.0  */
+                /* IL_53: ldfld Int32 state */
+                /* IL_58: ldc.i4.0  */
+                /* IL_5A: ceq  */
+                /* IL_5B: stloc.3  */
+                loc3 = ((loc0.state === (0|0)) ? 1 : 0);
+                /* IL_5C: ldloc.3  */
+                /* IL_5D: brtrue.s IL_4A */
                 
-                if (__pos__ > 0x5D){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x4A){
+                if (loc3){
                     __pos__ = 0x4A;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x4A:
-                        /* IL_4A: ldc.i4.0  */
-                        /* IL_4B: conv.i8  */
-                        /* IL_4C: call Void Sleep(System.Int64) */
-                        asm0.x6000181(CILJS.conv_i8((0|0)));
-                        /* IL_51: nop  */
-                        
-                        case 0x52:
-                        /* IL_52: ldloc.0  */
-                        /* IL_53: ldfld Int32 state */
-                        /* IL_58: ldc.i4.0  */
-                        /* IL_5A: ceq  */
-                        /* IL_5B: stloc.3  */
-                        loc3 = ((loc0.state === (0|0)) ? 1 : 0);
-                        /* IL_5C: ldloc.3  */
-                        /* IL_5D: brtrue.s IL_4A */
-                        
-                        if (loc3){
-                            __pos__ = 0x4A;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x52) || (__pos__ < 0x4A)){
                     continue;
                 }
                 /* IL_5F: ldloc.2  */

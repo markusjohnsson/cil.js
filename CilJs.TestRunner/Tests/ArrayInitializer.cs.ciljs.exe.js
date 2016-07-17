@@ -166,7 +166,6 @@ var asm1;(function (asm)
             var in_block_0;
             var __pos__;
             var loc0;
-            var in_block_1;
             var loc1;
             var loc2;
             t0 = T;
@@ -186,57 +185,35 @@ var asm1;(function (asm)
                     __pos__ = 0x1D;
                     continue;
                     case 0x5:
+                    /* IL_05: ldarg.0  */
+                    /* IL_06: ldloc.0  */
+                    /* IL_07: ldelem T */
+                    /* IL_0C: box T */
+                    /* IL_11: call Void WriteLine(System.Object) */
+                    asm0.x600005a(CILJS.box((arg0.jsarr)[loc0],t0));
+                    /* IL_16: nop  */
+                    
+                    /* IL_17: ldloc.0  */
+                    /* IL_18: stloc.1  */
+                    loc1 = loc0;
+                    /* IL_19: ldloc.1  */
+                    /* IL_1A: ldc.i4.1  */
+                    /* IL_1B: add  */
+                    /* IL_1C: stloc.0  */
+                    loc0 = (loc1 + (1|0)) | (0|0);
                     case 0x1D:
-                    in_block_1 = true;
+                    /* IL_1D: ldloc.0  */
+                    /* IL_1E: ldarg.0  */
+                    /* IL_1F: ldlen  */
+                    /* IL_20: conv.i4  */
+                    /* IL_22: clt  */
+                    /* IL_23: stloc.2  */
+                    loc2 = ((loc0 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
+                    /* IL_24: ldloc.2  */
+                    /* IL_25: brtrue.s IL_05 */
                     
-                    if (__pos__ > 0x25){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x5){
+                    if (loc2){
                         __pos__ = 0x5;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x5:
-                            /* IL_05: ldarg.0  */
-                            /* IL_06: ldloc.0  */
-                            /* IL_07: ldelem T */
-                            /* IL_0C: box T */
-                            /* IL_11: call Void WriteLine(System.Object) */
-                            asm0.x600005a(CILJS.box((arg0.jsarr)[loc0],t0));
-                            /* IL_16: nop  */
-                            
-                            /* IL_17: ldloc.0  */
-                            /* IL_18: stloc.1  */
-                            loc1 = loc0;
-                            /* IL_19: ldloc.1  */
-                            /* IL_1A: ldc.i4.1  */
-                            /* IL_1B: add  */
-                            /* IL_1C: stloc.0  */
-                            loc0 = (loc1 + (1|0)) | (0|0);
-                            case 0x1D:
-                            /* IL_1D: ldloc.0  */
-                            /* IL_1E: ldarg.0  */
-                            /* IL_1F: ldlen  */
-                            /* IL_20: conv.i4  */
-                            /* IL_22: clt  */
-                            /* IL_23: stloc.2  */
-                            loc2 = ((loc0 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
-                            /* IL_24: ldloc.2  */
-                            /* IL_25: brtrue.s IL_05 */
-                            
-                            if (loc2){
-                                __pos__ = 0x5;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x1D) || (__pos__ < 0x5)){
                         continue;
                     }
                     /* IL_27: ret  */

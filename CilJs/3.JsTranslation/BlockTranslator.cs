@@ -42,8 +42,11 @@ namespace CilJs.JsTranslation
             var builder = new BlockBuilder(
                 depth, GetStartPosition(block), GetEndPosition(block), hasFinally, hasBranching, isSubBlock, isFinally);
 
-            foreach (var node in block.Ast)
+            foreach (var nodes in block.Ast.Zip(block.Ast.Skip(1).EndWith(null), (current, next) => new { current, next }))
             {
+                var node = nodes.current;
+                var peek = nodes.next;
+
                 var subblock = node as Block;
                 var protectedRegion = node as ProtectedRegion;
                 var label = node as JumpLabel;
@@ -76,33 +79,40 @@ namespace CilJs.JsTranslation
                 }
                 else if (subblock != null)
                 {
+                    // todo: check which labels can _actually_ be targets from outside loop
                     foreach (var lbl in subblock.GetAllLabels())
                         builder.InsertLabel(lbl);
 
                     builder.InsertStatements(CreateJsBlock(null, subblock, depth + 1, isSubBlock: true).Build());
 
-                    var positions = subblock.GetAllLabels().Select(l => l.Position).ToArray();
+                    if (!(peek is JumpLabel)) // trims a few unneeded checks, but is not necessary, remove if there is problem
+                    {
 
-                    var start = positions.Min();
-                    var end = positions.Max();
+                        var positions = subblock.GetAllLabels().Select(l => l.Position).ToArray();
 
-                    builder.InsertStatements(
-                        new[]
-                        {
-                            // this is in case we jumped out of the loop rather than "fell" out
-                            new JSIfStatement
+                        var start = positions.Min();
+                        var end = positions.Max();
+
+                        // this is in case we jumped out of the loop rather than "fell" out.. 
+                        // we need to yield to the while-switch to end up at the right position
+
+                        builder.InsertStatements(
+                            new[]
                             {
-                                Condition = JSFactory.Binary(
-                                    JSFactory.Binary(JSFactory.Identifier("__pos__"), ">", JSFactory.HexLiteral(end)),
-                                    "||",
-                                    JSFactory.Binary(JSFactory.Identifier("__pos__"), "<", JSFactory.HexLiteral(start))),
-                                Statements =
+                                new JSIfStatement
                                 {
-                                    new JSContinueExpression().ToStatement()
+                                    Condition = JSFactory.Binary(
+                                        JSFactory.Binary(JSFactory.Identifier("__pos__"), ">", JSFactory.HexLiteral(end)),
+                                        "||",
+                                        JSFactory.Binary(JSFactory.Identifier("__pos__"), "<", JSFactory.HexLiteral(start))),
+                                    Statements =
+                                    {
+                                        new JSContinueExpression().ToStatement()
+                                    }
                                 }
-                            }
-                        });
-                    
+                            });
+
+                    }
                 }
                 else if (expr != null)
                 {

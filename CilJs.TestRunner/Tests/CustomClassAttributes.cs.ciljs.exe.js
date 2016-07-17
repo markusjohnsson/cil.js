@@ -101,7 +101,6 @@ var asm1;(function (asm)
         var __pos__;
         var loc0;
         var loc3;
-        var in_block_1;
         var loc4;
         var loc5;
         var loc1;
@@ -145,76 +144,54 @@ var asm1;(function (asm)
                 __pos__ = 0x69;
                 continue;
                 case 0x24:
+                /* IL_24: nop  */
+                
+                /* IL_25: ldtoken A */
+                /* IL_2A: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+                /* IL_2F: ldloc.0  */
+                /* IL_30: ldloc.3  */
+                /* IL_31: ldelem.ref  */
+                /* IL_32: callvirt Type GetType() */
+                /* IL_37: callvirt Boolean Equals(System.Object) */
+                /* IL_3C: box System.Boolean */
+                /* IL_41: call Void WriteLine(System.Object) */
+                asm0.x600005a(CILJS.make_box((((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)),asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3))),t3));
+                /* IL_46: nop  */
+                
+                /* IL_47: ldloc.0  */
+                /* IL_48: ldloc.3  */
+                /* IL_49: ldelem.ref  */
+                /* IL_4A: callvirt Type GetType() */
+                /* IL_4F: callvirt String get_FullName() */
+                /* IL_54: ldc.i4.0  */
+                /* IL_55: newarr System.Object */
+                /* IL_5A: call Void WriteLine(System.String, System.Object[]) */
+                asm0.x600005b((((asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3)).vtable)["asm0.x6000146"])())(asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3))),CILJS.new_array(t4,(0|0)));
+                /* IL_5F: nop  */
+                
+                /* IL_60: nop  */
+                
+                /* IL_61: ldloc.3  */
+                /* IL_62: stloc.s 4 */
+                loc4 = loc3;
+                /* IL_64: ldloc.s 4 */
+                /* IL_66: ldc.i4.1  */
+                /* IL_67: add  */
+                /* IL_68: stloc.3  */
+                loc3 = (loc4 + (1|0)) | (0|0);
                 case 0x69:
-                in_block_1 = true;
+                /* IL_69: ldloc.3  */
+                /* IL_6A: ldloc.0  */
+                /* IL_6B: ldlen  */
+                /* IL_6C: conv.i4  */
+                /* IL_6E: clt  */
+                /* IL_6F: stloc.s 5 */
+                loc5 = ((loc3 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_71: ldloc.s 5 */
+                /* IL_73: brtrue.s IL_24 */
                 
-                if (__pos__ > 0x73){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x24){
+                if (loc5){
                     __pos__ = 0x24;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x24:
-                        /* IL_24: nop  */
-                        
-                        /* IL_25: ldtoken A */
-                        /* IL_2A: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                        /* IL_2F: ldloc.0  */
-                        /* IL_30: ldloc.3  */
-                        /* IL_31: ldelem.ref  */
-                        /* IL_32: callvirt Type GetType() */
-                        /* IL_37: callvirt Boolean Equals(System.Object) */
-                        /* IL_3C: box System.Boolean */
-                        /* IL_41: call Void WriteLine(System.Object) */
-                        asm0.x600005a(CILJS.make_box((((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)),asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3))),t3));
-                        /* IL_46: nop  */
-                        
-                        /* IL_47: ldloc.0  */
-                        /* IL_48: ldloc.3  */
-                        /* IL_49: ldelem.ref  */
-                        /* IL_4A: callvirt Type GetType() */
-                        /* IL_4F: callvirt String get_FullName() */
-                        /* IL_54: ldc.i4.0  */
-                        /* IL_55: newarr System.Object */
-                        /* IL_5A: call Void WriteLine(System.String, System.Object[]) */
-                        asm0.x600005b((((asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3)).vtable)["asm0.x6000146"])())(asm0.x60000f2(CILJS.ldelem_ref(loc0,loc3))),CILJS.new_array(t4,(0|0)));
-                        /* IL_5F: nop  */
-                        
-                        /* IL_60: nop  */
-                        
-                        /* IL_61: ldloc.3  */
-                        /* IL_62: stloc.s 4 */
-                        loc4 = loc3;
-                        /* IL_64: ldloc.s 4 */
-                        /* IL_66: ldc.i4.1  */
-                        /* IL_67: add  */
-                        /* IL_68: stloc.3  */
-                        loc3 = (loc4 + (1|0)) | (0|0);
-                        case 0x69:
-                        /* IL_69: ldloc.3  */
-                        /* IL_6A: ldloc.0  */
-                        /* IL_6B: ldlen  */
-                        /* IL_6C: conv.i4  */
-                        /* IL_6E: clt  */
-                        /* IL_6F: stloc.s 5 */
-                        loc5 = ((loc3 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_71: ldloc.s 5 */
-                        /* IL_73: brtrue.s IL_24 */
-                        
-                        if (loc5){
-                            __pos__ = 0x24;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x69) || (__pos__ < 0x24)){
                     continue;
                 }
                 /* IL_75: ldtoken C */
