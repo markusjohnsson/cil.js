@@ -81,23 +81,28 @@ namespace CilJs.JsTranslation
 
                     builder.InsertStatements(CreateJsBlock(null, subblock, depth + 1, isSubBlock: true).Build());
 
-                    var posisions = JSFactory.Array(true, subblock.GetAllLabels().Select(l => JSFactory.HexLiteral(l.Position)).Cast<JSExpression>().ToArray());
+                    var positions = subblock.GetAllLabels().Select(l => l.Position).ToArray();
+
+                    var start = positions.Min();
+                    var end = positions.Max();
 
                     builder.InsertStatements(
-                        new[] 
+                        new[]
                         {
+                            // this is in case we jumped out of the loop rather than "fell" out
                             new JSIfStatement
                             {
-                                Condition = JSFactory.Binary( 
-                                    JSFactory.Call(JSFactory.Identifier(posisions, "indexOf"), JSFactory.Identifier("__pos__")),
-                                    "==",
-                                    JSFactory.Literal(-1)),
+                                Condition = JSFactory.Binary(
+                                    JSFactory.Binary(JSFactory.Identifier("__pos__"), ">", JSFactory.HexLiteral(end)),
+                                    "||",
+                                    JSFactory.Binary(JSFactory.Identifier("__pos__"), "<", JSFactory.HexLiteral(start))),
                                 Statements =
                                 {
                                     new JSContinueExpression().ToStatement()
                                 }
                             }
                         });
+                    
                 }
                 else if (expr != null)
                 {

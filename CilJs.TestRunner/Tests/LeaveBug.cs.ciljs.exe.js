@@ -103,7 +103,7 @@ var asm1;(function (asm)
                         break;
                     }
                     
-                    if (([0x8, 0x21, 0x26].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x26) || (__pos__ < 0x8)){
                         continue;
                     }
                     /* IL_2C: ldloca.s 5 */

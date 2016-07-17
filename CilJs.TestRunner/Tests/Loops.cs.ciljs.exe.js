@@ -120,7 +120,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x5, 0x10, 0x1A, 0x21].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x21) || (__pos__ < 0x5)){
                     continue;
                 }
                 case 0x26:
@@ -228,7 +228,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x5, 0x10, 0x1A, 0x21].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x21) || (__pos__ < 0x5)){
                     continue;
                 }
             }

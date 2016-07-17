@@ -759,8 +759,8 @@ namespace CilJs.JsTranslation
                             value = long.Parse(opc.Substring("ldc.i8.".Length));
 
                         var uvalue = (ulong)value;
-                        var high = JSFactory.Hex((uint)((uvalue & 0xffffffff00000000UL) >> 32));
-                        var low = JSFactory.Hex((uint)(uvalue & 0xffffffffUL));
+                        var high = JSFactory.HexLiteral((uint)((uvalue & 0xffffffff00000000UL) >> 32));
+                        var low = JSFactory.HexLiteral((uint)(uvalue & 0xffffffffUL));
 
                         return MakeLongValue(low, high);
                     }

@@ -687,7 +687,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x28, 0x39].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x39) || (__pos__ < 0x28)){
                     continue;
                 }
                 /* IL_45: ldstr Descending */
@@ -766,7 +766,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x6D, 0x81].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x81) || (__pos__ < 0x6D)){
                     continue;
                 }
                 /* IL_8E: ret  */

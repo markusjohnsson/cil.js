@@ -195,7 +195,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x4A, 0x52].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x52) || (__pos__ < 0x4A)){
                     continue;
                 }
                 /* IL_5F: ldloc.2  */

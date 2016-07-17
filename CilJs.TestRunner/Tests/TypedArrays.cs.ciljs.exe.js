@@ -143,7 +143,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x1C, 0x30].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x30) || (__pos__ < 0x1C)){
                     continue;
                 }
                 /* IL_36: ret  */
@@ -249,7 +249,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x1B, 0x2F].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x2F) || (__pos__ < 0x1B)){
                     continue;
                 }
                 /* IL_35: ret  */
@@ -355,7 +355,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x1C, 0x30].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x30) || (__pos__ < 0x1C)){
                     continue;
                 }
                 /* IL_36: ret  */
@@ -461,7 +461,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x1B, 0x2F].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x2F) || (__pos__ < 0x1B)){
                     continue;
                 }
                 /* IL_35: ret  */
@@ -567,7 +567,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x1C, 0x30].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x30) || (__pos__ < 0x1C)){
                     continue;
                 }
                 /* IL_36: ret  */
@@ -673,7 +673,7 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if (([0x1B, 0x2F].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x2F) || (__pos__ < 0x1B)){
                     continue;
                 }
                 /* IL_35: ret  */

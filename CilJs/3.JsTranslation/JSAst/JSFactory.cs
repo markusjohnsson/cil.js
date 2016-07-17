@@ -130,7 +130,7 @@ namespace CilJs.JSAst
             return new JSNumberLiteral { Value = p, IsHex = true };
         }
 
-        public static JSExpression Hex(uint p)
+        public static JSExpression HexLiteral(uint p)
         {
             return new JSNumberLiteral { Value = p, IsHex = true };
         }

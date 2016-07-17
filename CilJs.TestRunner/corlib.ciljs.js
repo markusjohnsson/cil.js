@@ -825,7 +825,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0xD, 0x19].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x19) || (__pos__ < 0xD)){
                         continue;
                     }
                     /* IL_23: ret  */
@@ -1030,7 +1030,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0x4E, 0x74, 0x7B].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x7B) || (__pos__ < 0x4E)){
                         continue;
                     }
                     /* IL_86: ldc.i4.m1  */
@@ -1278,7 +1278,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x9F, 0xBC].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xBC) || (__pos__ < 0x9F)){
                     continue;
                 }
                 /* IL_C8: nop  */
@@ -1354,7 +1354,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0xD4, 0xF1].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xF1) || (__pos__ < 0xD4)){
                     continue;
                 }
                 /* IL_FF: nop  */
@@ -1462,7 +1462,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0x9, 0x1F, 0x24].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x24) || (__pos__ < 0x9)){
                         continue;
                     }
                     /* IL_2E: ldc.i4.m1  */
@@ -1588,7 +1588,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0x7, 0x21, 0x22].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x22) || (__pos__ < 0x7)){
                         continue;
                     }
                     /* IL_2D: ldc.i4.m1  */
@@ -1809,7 +1809,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0x5E, 0x82, 0x87].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x87) || (__pos__ < 0x5E)){
                         continue;
                     }
                     /* IL_98: ldc.i4.m1  */
@@ -2324,7 +2324,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x1F, 0x4D].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x4D) || (__pos__ < 0x1F)){
                     continue;
                 }
                 /* IL_57: nop  */
@@ -2422,7 +2422,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0x5, 0x19].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x19) || (__pos__ < 0x5)){
                         continue;
                     }
                     /* IL_21: ret  */
@@ -2636,7 +2636,7 @@ var CILJS;
                         break;
                     }
                     
-                    if (([0x53, 0x6A].indexOf)(__pos__) == (-1|0)){
+                    if ((__pos__ > 0x6A) || (__pos__ < 0x53)){
                         continue;
                     }
                     /* IL_75: ldarg.0  */
@@ -3375,7 +3375,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x32, 0x4D].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x4D) || (__pos__ < 0x32)){
                     continue;
                 }
                 /* IL_57: ret  */
@@ -4847,7 +4847,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0xAD, 0xDA, 0xE1].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xE1) || (__pos__ < 0xAD)){
                     continue;
                 }
                 /* IL_F3: ldc.i4.1  */
@@ -6512,7 +6512,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x29, 0x40].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x40) || (__pos__ < 0x29)){
                     continue;
                 }
                 /* IL_5E: ldloc.3  */
@@ -7427,7 +7427,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x23, 0x32].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x32) || (__pos__ < 0x23)){
                     continue;
                 }
                 /* IL_41: ldloc.0  */
@@ -7633,7 +7633,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x30, 0x49, 0x4F].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x4F) || (__pos__ < 0x30)){
                     continue;
                 }
                 /* IL_61: ldloc.3  */
@@ -7740,7 +7740,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x81, 0xA2, 0xA8].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xA8) || (__pos__ < 0x81)){
                     continue;
                 }
                 case 0xBA:
@@ -7837,7 +7837,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0xCA, 0xF2, 0xF8].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xF8) || (__pos__ < 0xCA)){
                     continue;
                 }
                 /* IL_10A: ldloc.s 4 */
@@ -9294,7 +9294,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x74, 0x95].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x95) || (__pos__ < 0x74)){
                     continue;
                 }
                 /* IL_A3: ldloc.0  */
@@ -9806,7 +9806,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x1F, 0x3C].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x3C) || (__pos__ < 0x1F)){
                     continue;
                 }
                 /* IL_49: ldarg.0  */
@@ -9939,7 +9939,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x34, 0x43].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x43) || (__pos__ < 0x34)){
                     continue;
                 }
                 /* IL_4D: ldloc.1  */
@@ -10120,7 +10120,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x1F, 0x2E].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x2E) || (__pos__ < 0x1F)){
                     continue;
                 }
                 /* IL_38: ldloc.1  */
@@ -10338,7 +10338,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x6D, 0x82, 0x88].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x88) || (__pos__ < 0x6D)){
                     continue;
                 }
                 /* IL_96: nop  */
@@ -10680,7 +10680,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x54, 0x7D].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x7D) || (__pos__ < 0x54)){
                     continue;
                 }
                 /* IL_88: ldc.i4.0  */
@@ -10740,7 +10740,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x8D, 0xA0].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xA0) || (__pos__ < 0x8D)){
                     continue;
                 }
                 /* IL_AB: ldloc.s 4 */
@@ -11866,7 +11866,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0xE, 0x1B, 0x2A].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x2A) || (__pos__ < 0xE)){
                     continue;
                 }
                 /* IL_34: ldloc.0  */
@@ -12309,7 +12309,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x5, 0x18, 0x40].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x40) || (__pos__ < 0x5)){
                     continue;
                 }
                 /* IL_4A: ldarg.0  */
@@ -12755,7 +12755,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x1C, 0x28, 0x2F].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x2F) || (__pos__ < 0x1C)){
                     continue;
                 }
                 /* IL_39: ldc.i4.0  */
@@ -13356,7 +13356,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0xE].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0xE) || (__pos__ < 0xE)){
                     continue;
                 }
                 /* IL_30: ldloc.2  */
@@ -14592,7 +14592,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x37, 0x53].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x53) || (__pos__ < 0x37)){
                     continue;
                 }
                 /* IL_62: nop  */
@@ -15801,7 +15801,7 @@ var CILJS;
                     break;
                 }
                 
-                if (([0x35, 0x56, 0x6E].indexOf)(__pos__) == (-1|0)){
+                if ((__pos__ > 0x6E) || (__pos__ < 0x35)){
                     continue;
                 }
                 /* IL_85: ldc.i4.0  */
