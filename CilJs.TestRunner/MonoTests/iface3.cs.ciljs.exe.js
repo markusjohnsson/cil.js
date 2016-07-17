@@ -4,91 +4,188 @@ var asm1;(function (asm)
     /* System.Int32 Base.ICommon.DoIt()*/
     asm.x6000002 = function ICommon_DoIt(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.1  */
-        /* IL_02: stloc.0  */
-        loc0 = (1|0);
-        /* IL_05: ldloc.0  */
-        /* IL_06: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.1  */
+                /* IL_02: stloc.0  */
+                loc0 = (1|0);
+                /* IL_05: ldloc.0  */
+                /* IL_06: ret  */
+                return loc0;
+            }
+        }
     };;
     /* System.Int32 Base.DoIt()*/
     asm.x6000003 = function DoIt(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.2  */
-        /* IL_02: stloc.0  */
-        loc0 = (2|0);
-        /* IL_05: ldloc.0  */
-        /* IL_06: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.2  */
+                /* IL_02: stloc.0  */
+                loc0 = (2|0);
+                /* IL_05: ldloc.0  */
+                /* IL_06: ret  */
+                return loc0;
+            }
+        }
     };;
     /*  Base..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* System.Int32 Derived.ICommon.DoIt()*/
     asm.x6000005 = function ICommon_DoIt(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.3  */
-        /* IL_02: stloc.0  */
-        loc0 = (3|0);
-        /* IL_05: ldloc.0  */
-        /* IL_06: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.3  */
+                /* IL_02: stloc.0  */
+                loc0 = (3|0);
+                /* IL_05: ldloc.0  */
+                /* IL_06: ret  */
+                return loc0;
+            }
+        }
     };;
     /* System.Int32 Derived.DoIt()*/
     asm.x6000006 = function DoIt(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.4  */
-        /* IL_02: stloc.0  */
-        loc0 = (4|0);
-        /* IL_05: ldloc.0  */
-        /* IL_06: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.4  */
+                /* IL_02: stloc.0  */
+                loc0 = (4|0);
+                /* IL_05: ldloc.0  */
+                /* IL_06: ret  */
+                return loc0;
+            }
+        }
     };;
     /*  Derived..ctor()*/
     asm.x6000007 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        asm1.x6000004(arg0);
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                asm1.x6000004(arg0);
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* System.Int32 ReallyDerived.DoIt()*/
     asm.x6000008 = function DoIt(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.5  */
-        /* IL_02: stloc.0  */
-        loc0 = (5|0);
-        /* IL_05: ldloc.0  */
-        /* IL_06: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.5  */
+                /* IL_02: stloc.0  */
+                loc0 = (5|0);
+                /* IL_05: ldloc.0  */
+                /* IL_06: ret  */
+                return loc0;
+            }
+        }
     };;
     /*  ReallyDerived..ctor()*/
     asm.x6000009 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        asm1.x6000007(arg0);
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                asm1.x6000007(arg0);
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* static System.Int32 Test.Main()*/
     asm.x600000a_init = function ()
@@ -123,7 +220,7 @@ var asm1;(function (asm)
         t0 = asm1.ReallyDerived();
         t1 = asm1.ICommon();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -269,11 +366,24 @@ var asm1;(function (asm)
     /*  Test..ctor()*/
     asm.x600000b = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     asm.ICommon = CILJS.declare_type(
         "ICommon",

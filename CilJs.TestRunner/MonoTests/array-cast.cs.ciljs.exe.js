@@ -30,7 +30,7 @@ var asm1;(function (asm)
         t1 = (asm0)["System.Object"]();
         t2 = (asm0)["System.Array`1"](t1);
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -85,11 +85,24 @@ var asm1;(function (asm)
     /*  Test..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     (asm)["Test.Test"] = CILJS.declare_type(
         "Test",

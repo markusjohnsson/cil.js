@@ -1,6 +1,6 @@
 
 using IKVM.Reflection.Emit;
-using System;
+
 namespace CilJs.Ast
 {
     class OpInstruction
@@ -8,9 +8,14 @@ namespace CilJs.Ast
         public OpInstruction()
         {
         }
+
         public OpCode OpCode { get; set; }
 
         public object Data { get; set; }
+
+        public int Position { get; set; }
+
+        public int Size { get; set; }
 
         public override string ToString()
         {
@@ -35,11 +40,6 @@ namespace CilJs.Ast
             else
                 return 1 + Position + Size + (int)Data;
         }
-
-
-        public int Position { get; set; }
-
-        public int Size { get; set; }
-
+        
     }
 }

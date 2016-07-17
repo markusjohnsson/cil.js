@@ -5,26 +5,52 @@ var asm1;(function (asm)
     asm.x6000001 = function Main()
     {
         var t0;
+        var in_block_0;
+        var __pos__;
         CILJS.init_base_types();
         t0 = (asm0)["System.Object"]();
-        /* IL_00: nop  */
-        /* IL_01: ldstr Hello World! */
-        /* IL_06: ldc.i4.0  */
-        /* IL_07: newarr System.Object */
-        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(CILJS.new_string("Hello World!"),CILJS.new_array(t0,(0|0)));
-        /* IL_11: nop  */
-        /* IL_12: ret  */
-        return ;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldstr Hello World! */
+                /* IL_06: ldc.i4.0  */
+                /* IL_07: newarr System.Object */
+                /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
+                asm0.x600005b(CILJS.new_string("Hello World!"),CILJS.new_array(t0,(0|0)));
+                /* IL_11: nop  */
+                
+                /* IL_12: ret  */
+                return ;
+            }
+        }
     };;
     /*  TestTest..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     (asm)["CilJs.TestRunner.Tests.TestTest"] = CILJS.declare_type(
         "TestTest",

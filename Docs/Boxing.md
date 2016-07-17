@@ -5,7 +5,7 @@ Boxing
 Values (instances of structs and primitives (ints of various sizes, bool, char, float and double)) contains no type information at runtime. 
 
 However, *boxed* values *does* contain type information. When they are boxed with the CLI 'box' instruction they are 
-wrapped in a classless JavScript object:
+wrapped in a classless JavaScript object:
 
 ```
 var x = {

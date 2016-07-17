@@ -62,13 +62,13 @@ namespace CilJs.Analysis.Passes
 
             var regionQueue = new Queue<ProtectedRegionSpan>(spans);
 
-            ProtectedRegionSpan awaitedRegion = null;
+            ProtectedRegionSpan nextRegion = null;
             ProtectedRegionSpan currentRegion = null;
 
             var regionStack = new Stack<ProtectedRegionSpan>();
 
             if (regionQueue.Any())
-                awaitedRegion = regionQueue.Dequeue();
+                nextRegion = regionQueue.Dequeue();
 
             var block = new Block(BlockKind.Normal, 0, 0);
             block.Ast.Add(new JumpLabel(0, false));
@@ -96,23 +96,23 @@ namespace CilJs.Analysis.Passes
                     block.Ast.Add(new JumpLabel(op.Position, true));
                 }
 
-                while (awaitedRegion != null && awaitedRegion.Contains(op))
+                while (nextRegion != null && nextRegion.Contains(op))
                 {
-                    // we've entered awaitedRegion
+                    // we've entered nextRegion
 
                     blockStack.Push(block);
 
-                    block = CreateBlock(awaitedRegion);
+                    block = CreateBlock(nextRegion);
 
                     block.Ast.Add(new JumpLabel(op.Position, false));
 
                     regionStack.Push(currentRegion);
-                    currentRegion = awaitedRegion;
+                    currentRegion = nextRegion;
 
                     if (regionQueue.Any())
-                        awaitedRegion = regionQueue.Dequeue();
+                        nextRegion = regionQueue.Dequeue();
                     else
-                        awaitedRegion = null;
+                        nextRegion = null;
                 }
 
                 block.Ast.Add(op);

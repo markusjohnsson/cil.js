@@ -221,7 +221,7 @@ namespace CilJs.TestRunner.Models
 
                     jsEngine.Execute(jsCorlib);
                     jsEngine.Execute(jsProgram);
-
+                    
                     exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
                 }
                 catch (JsEngineLoadException e)

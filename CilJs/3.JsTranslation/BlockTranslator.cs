@@ -32,19 +32,28 @@ namespace CilJs.JsTranslation
             return CreateJsBlock(null, block, 0).Build().ToList();
         }
 
-        private BlockBuilder CreateJsBlock(ProtectedRegion region, Block block, int depth)
+        private BlockBuilder CreateJsBlock(ProtectedRegion region, Block block, int depth, bool isSubBlock = false, bool isFinally = false)
         {
             var opTranslator = new OpTranslator(context, assembly, type, method, block);
 
-            var builder = new BlockBuilder(depth, GetPosition(block), region != null && region.FinallyBlock != null);
+            var hasFinally = region != null && region.FinallyBlock != null;
+            var hasBranching = block.GetAllLabels().Any();
 
+            var builder = new BlockBuilder(
+                depth, GetStartPosition(block), GetEndPosition(block), hasFinally, hasBranching, isSubBlock, isFinally);
+            
             foreach (var node in block.Ast)
             {
+                var subblock = node as Block;
                 var protectedRegion = node as ProtectedRegion;
                 var label = node as JumpLabel;
                 var expr = node as OpExpression;
 
-                if (protectedRegion != null)
+                if (label != null)
+                {
+                    builder.InsertLabel(label);
+                }
+                else if (protectedRegion != null)
                 {
                     if (protectedRegion.CatchBlocks.Count == 0 &&
                         protectedRegion.FaultBlock == null &&
@@ -62,12 +71,14 @@ namespace CilJs.JsTranslation
                         if (protectedRegion.FinallyBlock != null)
                             builder.InsertStatements(CreateJsFinallyBlock(protectedRegion, protectedRegion.FinallyBlock, depth + 1));
 
-                        builder.InsertStatements(new [] { new JSBreakExpression().ToStatement() });
+                        builder.InsertStatements(new[] { new JSContinueExpression().ToStatement() });
                     }
                 }
-                else if (label != null)
+                else if (subblock != null)
                 {
-                    builder.InsertLabel(label);
+                    foreach (var lbl in subblock.GetAllLabels())
+                        builder.InsertLabel(lbl);
+                    builder.InsertStatements(CreateJsBlock(null, subblock, depth + 1, isSubBlock: true).Build());
                 }
                 else if (expr != null)
                 {
@@ -78,7 +89,7 @@ namespace CilJs.JsTranslation
             return builder;
         }
 
-        private int GetPosition(Block block)
+        private int GetStartPosition(Block block)
         {
             foreach (var node in block.Ast)
             {
@@ -88,8 +99,30 @@ namespace CilJs.JsTranslation
 
                 var b = node as ProtectedRegion;
                 if (b != null)
-                    return GetPosition(b.TryBlock);
+                    return GetStartPosition(b.TryBlock);
             }
+
+            throw new NotSupportedException();
+        }
+
+        private int GetEndPosition(Block block)
+        {
+            return block.Ast
+                .Select(
+                    node =>
+                    {
+                        var op = node as OpExpression;
+                        if (op != null)
+                            return op.PrefixTraversal().Max(o => o.Position);
+
+                        var b = node as ProtectedRegion;
+                        if (b != null)
+                            return GetEndPosition(b.TryBlock);
+
+                        return -1;
+                    })
+                .Max()
+                ;
 
             throw new NotSupportedException();
         }
@@ -218,7 +251,7 @@ namespace CilJs.JsTranslation
         {
             yield return new JSFinallyBlock
             {
-                Statements = CreateJsBlock(region, finallyBlock, p).Build().ToList()
+                Statements = CreateJsBlock(region, finallyBlock, p, isFinally: true).Build().ToList()
             };
             
         }

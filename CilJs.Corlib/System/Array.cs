@@ -18,7 +18,7 @@ namespace System
     public abstract class Array : IEnumerable
     {
 #pragma warning disable 649
-        internal object type;
+        internal object etype;
 #pragma warning restore 649
 
 #pragma warning disable 649

@@ -19,6 +19,8 @@ namespace CilJs.Analysis
         
         public void Analyze(CilAssembly asm)
         {
+            var passes = GetPasses();
+
             foreach (var t in asm.Types)
             {
                 if (t.IsIgnored || t.IsUserDelegate)
@@ -28,7 +30,7 @@ namespace CilJs.Analysis
                 {
                     if (method.NeedTranslation && method.GetReplacement() == null)
                     {
-                        foreach (var rewriter in GetPasses())
+                        foreach (var rewriter in passes)
                         {
                             rewriter.Run(method);
                         }
@@ -59,6 +61,8 @@ namespace CilJs.Analysis
 
             if (ctx.Settings.KeepFlatExpressions == false)
                 yield return new AggregateExpressionsPass(ctx);
+
+            yield return new ReloopPass();
 
             yield return new StaticFieldUsageAnalysis(ctx);
 

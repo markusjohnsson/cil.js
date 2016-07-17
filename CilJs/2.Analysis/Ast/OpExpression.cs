@@ -16,6 +16,8 @@ namespace CilJs.Ast
         public int? InstructionPopCount;
         public int PushCount;
         public int Position;
+        public bool IsLabel { get; set; }
+        public bool IsHandlerStart { get; set; }
 
         public List<VariableInfo> StoreLocations = new List<VariableInfo>();
 
@@ -58,18 +60,14 @@ namespace CilJs.Ast
         public override string ToString()
         {
             return Instruction.ToString() +
-                (StackBefore != null ?
-                    "  (" + string.Join(",", StackBefore.Select(l => l.Variable == null ? "*" : l.Variable.Name)) + ") " :
-                    "  ()") +
-                (StoreLocations.Any() ?
-                    " -> (" + string.Join(",", StoreLocations.Select(l => l.Name)) + ")" :
-                    "");
+                "(" + string.Join(",", Arguments) + ")";
+                //(StackBefore != null ?
+                //    "  (" + string.Join(",", StackBefore.Select(l => l.Variable == null ? "*" : l.Variable.Name)) + ") " :
+                //    "  ()") +
+                //(StoreLocations.Any() ?
+                //    " -> (" + string.Join(",", StoreLocations.Select(l => l.Name)) + ")" :
+                //    "");
         }
-
-        public bool IsLabel { get; set; }
-
-        public bool IsHandlerStart { get; set; }
-
 
         public IEnumerable<OpExpression> PrefixTraversal()
         {
@@ -77,8 +75,7 @@ namespace CilJs.Ast
             foreach (var subnode in Arguments.OfType<OpExpression>().SelectMany(n => n.PrefixTraversal()))
                 yield return subnode;
         }
-
-
+        
         public List<IKVM.Reflection.Type> RequireFieldInitTypes { get; set; }
     }
 }

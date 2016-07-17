@@ -120,7 +120,7 @@ namespace CilJs.JSAst
             return new JSNumberLiteral { Value = p, TypeHint = TypeHint.Float };
         }
 
-        public static JSExpression Hex(int p)
+        public static JSExpression HexLiteral(int p)
         {
             return new JSNumberLiteral { Value = p, IsHex = true };
         }

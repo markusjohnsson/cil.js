@@ -36,7 +36,7 @@ var asm1;(function (asm)
         t0 = (asm0)["System.Object"]();
         t1 = (asm0)["System.Int32"]();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -133,34 +133,58 @@ var asm1;(function (asm)
     /* System.Int32 Baz.get_Age()*/
     asm.x6000002 = function get_Age(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldarg.0  */
-        /* IL_02: ldfld Int32 age */
-        /* IL_07: ldc.i4.1  */
-        /* IL_08: add  */
-        /* IL_09: stloc.0  */
-        loc0 = (arg0.Bazage + (1|0)) | (0|0);
-        /* IL_0C: ldloc.0  */
-        /* IL_0D: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.0  */
+                /* IL_02: ldfld Int32 age */
+                /* IL_07: ldc.i4.1  */
+                /* IL_08: add  */
+                /* IL_09: stloc.0  */
+                loc0 = (arg0.Bazage + (1|0)) | (0|0);
+                /* IL_0C: ldloc.0  */
+                /* IL_0D: ret  */
+                return loc0;
+            }
+        }
     };;
     /* System.Int32 Baz.GetHashCode()*/
     asm.x6000004 = function GetHashCode(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldarg.0  */
-        /* IL_02: call Int32 get_Age() */
-        /* IL_07: ldarg.0  */
-        /* IL_08: call String get_Name() */
-        /* IL_0D: callvirt Int32 GetHashCode() */
-        /* IL_12: xor  */
-        /* IL_13: stloc.0  */
-        loc0 = asm1.x6000002(arg0) ^ (((asm1.x6000001(arg0).vtable)["asm0.x60000f1"])())(asm1.x6000001(arg0));
-        /* IL_16: ldloc.0  */
-        /* IL_17: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.0  */
+                /* IL_02: call Int32 get_Age() */
+                /* IL_07: ldarg.0  */
+                /* IL_08: call String get_Name() */
+                /* IL_0D: callvirt Int32 GetHashCode() */
+                /* IL_12: xor  */
+                /* IL_13: stloc.0  */
+                loc0 = asm1.x6000002(arg0) ^ (((asm1.x6000001(arg0).vtable)["asm0.x60000f1"])())(asm1.x6000001(arg0));
+                /* IL_16: ldloc.0  */
+                /* IL_17: ret  */
+                return loc0;
+            }
+        }
     };;
     /* System.Boolean Baz.Equals(Object)*/
     asm.x6000005_init = function (arg0, arg1)
@@ -184,7 +208,7 @@ var asm1;(function (asm)
         var loc2;
         t0 = asm1.Baz();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -250,92 +274,168 @@ var asm1;(function (asm)
     /* System.String Baz.ToString()*/
     asm.x6000006 = function ToString(arg0)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
-        /* IL_00: nop  */
-        /* IL_01: ldarg.0  */
-        /* IL_02: call String get_Name() */
-        /* IL_07: stloc.0  */
-        loc0 = asm1.x6000001(arg0);
-        /* IL_0A: ldloc.0  */
-        /* IL_0B: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.0  */
+                /* IL_02: call String get_Name() */
+                /* IL_07: stloc.0  */
+                loc0 = asm1.x6000001(arg0);
+                /* IL_0A: ldloc.0  */
+                /* IL_0B: ret  */
+                return loc0;
+            }
+        }
     };;
     /*  Baz..ctor(String,Int32)*/
     asm.x6000003 = function _ctor(arg0, arg1, arg2)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: nop  */
-        /* IL_08: ldarg.0  */
-        /* IL_09: ldarg.1  */
-        /* IL_0A: stfld String name */
-        arg0.Bazname = arg1;
-        /* IL_0F: ldarg.0  */
-        /* IL_10: ldarg.2  */
-        /* IL_11: stfld Int32 age */
-        arg0.Bazage = arg2;
-        /* IL_16: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: nop  */
+                
+                /* IL_08: ldarg.0  */
+                /* IL_09: ldarg.1  */
+                /* IL_0A: stfld String name */
+                arg0.Bazname = arg1;
+                /* IL_0F: ldarg.0  */
+                /* IL_10: ldarg.2  */
+                /* IL_11: stfld Int32 age */
+                arg0.Bazage = arg2;
+                /* IL_16: ret  */
+                return ;
+            }
+        }
     };;
     /* System.Int32 ByNameDescending.Compare(Baz,Baz)*/
     asm.x6000007 = function Compare(arg0, arg1, arg2)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
         var loc1;
-        /* IL_00: nop  */
-        /* IL_01: ldarg.1  */
-        /* IL_02: callvirt String get_Name() */
-        /* IL_07: ldarg.2  */
-        /* IL_08: callvirt String get_Name() */
-        /* IL_0D: callvirt Int32 CompareTo(System.String) */
-        /* IL_12: stloc.0  */
-        loc0 = (((asm1.x6000001(arg1).vtable)["asm0.x600013f"])())(asm1.x6000001(arg1),asm1.x6000001(arg2));
-        /* IL_13: ldloc.0  */
-        /* IL_14: neg  */
-        /* IL_15: stloc.1  */
-        loc1 = (-(loc0));
-        /* IL_18: ldloc.1  */
-        /* IL_19: ret  */
-        return loc1;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.1  */
+                /* IL_02: callvirt String get_Name() */
+                /* IL_07: ldarg.2  */
+                /* IL_08: callvirt String get_Name() */
+                /* IL_0D: callvirt Int32 CompareTo(System.String) */
+                /* IL_12: stloc.0  */
+                loc0 = (((asm1.x6000001(arg1).vtable)["asm0.x600013f"])())(asm1.x6000001(arg1),asm1.x6000001(arg2));
+                /* IL_13: ldloc.0  */
+                /* IL_14: neg  */
+                /* IL_15: stloc.1  */
+                loc1 = (-(loc0));
+                /* IL_18: ldloc.1  */
+                /* IL_19: ret  */
+                return loc1;
+            }
+        }
     };;
     /*  ByNameDescending..ctor()*/
     asm.x6000008 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* System.Int32 ByName.Compare(Baz,Baz)*/
     asm.x6000009 = function Compare(arg0, arg1, arg2)
     {
+        var in_block_0;
+        var __pos__;
         var loc0;
         var loc1;
-        /* IL_00: nop  */
-        /* IL_01: ldarg.1  */
-        /* IL_02: callvirt String get_Name() */
-        /* IL_07: ldarg.2  */
-        /* IL_08: callvirt String get_Name() */
-        /* IL_0D: callvirt Int32 CompareTo(System.String) */
-        /* IL_12: stloc.0  */
-        loc0 = (((asm1.x6000001(arg1).vtable)["asm0.x600013f"])())(asm1.x6000001(arg1),asm1.x6000001(arg2));
-        /* IL_13: ldloc.0  */
-        /* IL_14: stloc.1  */
-        loc1 = loc0;
-        /* IL_17: ldloc.1  */
-        /* IL_18: ret  */
-        return loc1;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.1  */
+                /* IL_02: callvirt String get_Name() */
+                /* IL_07: ldarg.2  */
+                /* IL_08: callvirt String get_Name() */
+                /* IL_0D: callvirt Int32 CompareTo(System.String) */
+                /* IL_12: stloc.0  */
+                loc0 = (((asm1.x6000001(arg1).vtable)["asm0.x600013f"])())(asm1.x6000001(arg1),asm1.x6000001(arg2));
+                /* IL_13: ldloc.0  */
+                /* IL_14: stloc.1  */
+                loc1 = loc0;
+                /* IL_17: ldloc.1  */
+                /* IL_18: ret  */
+                return loc1;
+            }
+        }
     };;
     /*  ByName..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* static Baz[] Program.CreateBazCollection()*/
     asm.x600000b_init = function ()
@@ -383,78 +483,90 @@ var asm1;(function (asm)
         var st_1D;
         var st_1E;
         var st_1F;
+        var in_block_0;
+        var __pos__;
         var loc0;
         t0 = asm1.Baz();
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.5  */
-        st_00 = (5|0);
-        /* IL_02: newarr Baz */
-        st_01 = CILJS.new_array(t0,st_00);
-        /* IL_07: dup  */
-        st_07 = st_04 = st_01;
-        /* IL_08: ldc.i4.0  */
-        st_05 = (0|0);
-        /* IL_09: ldstr jb */
-        st_02 = CILJS.new_string("jb");
-        /* IL_0E: ldc.i4.s 25 */
-        st_03 = (25|0);
-        /* IL_10: newobj Void .ctor(System.String, System.Int32) */
-        st_06 = CILJS.newobj(t0,asm1.x6000003,[null, st_02, st_03]);
-        /* IL_15: stelem.ref  */
-        CILJS.stelem_ref(st_04,st_05,st_06);
-        /* IL_16: dup  */
-        st_0D = st_0A = st_07;
-        /* IL_17: ldc.i4.1  */
-        st_0B = (1|0);
-        /* IL_18: ldstr ana */
-        st_08 = CILJS.new_string("ana");
-        /* IL_1D: ldc.i4.s 20 */
-        st_09 = (20|0);
-        /* IL_1F: newobj Void .ctor(System.String, System.Int32) */
-        st_0C = CILJS.newobj(t0,asm1.x6000003,[null, st_08, st_09]);
-        /* IL_24: stelem.ref  */
-        CILJS.stelem_ref(st_0A,st_0B,st_0C);
-        /* IL_25: dup  */
-        st_13 = st_10 = st_0D;
-        /* IL_26: ldc.i4.2  */
-        st_11 = (2|0);
-        /* IL_27: ldstr reg */
-        st_0E = CILJS.new_string("reg");
-        /* IL_2C: ldc.i4.s 28 */
-        st_0F = (28|0);
-        /* IL_2E: newobj Void .ctor(System.String, System.Int32) */
-        st_12 = CILJS.newobj(t0,asm1.x6000003,[null, st_0E, st_0F]);
-        /* IL_33: stelem.ref  */
-        CILJS.stelem_ref(st_10,st_11,st_12);
-        /* IL_34: dup  */
-        st_19 = st_16 = st_13;
-        /* IL_35: ldc.i4.3  */
-        st_17 = (3|0);
-        /* IL_36: ldstr ro */
-        st_14 = CILJS.new_string("ro");
-        /* IL_3B: ldc.i4.s 25 */
-        st_15 = (25|0);
-        /* IL_3D: newobj Void .ctor(System.String, System.Int32) */
-        st_18 = CILJS.newobj(t0,asm1.x6000003,[null, st_14, st_15]);
-        /* IL_42: stelem.ref  */
-        CILJS.stelem_ref(st_16,st_17,st_18);
-        /* IL_43: dup  */
-        st_1F = st_1C = st_19;
-        /* IL_44: ldc.i4.4  */
-        st_1D = (4|0);
-        /* IL_45: ldstr jb */
-        st_1A = CILJS.new_string("jb");
-        /* IL_4A: ldc.i4.7  */
-        st_1B = (7|0);
-        /* IL_4B: newobj Void .ctor(System.String, System.Int32) */
-        st_1E = CILJS.newobj(t0,asm1.x6000003,[null, st_1A, st_1B]);
-        /* IL_50: stelem.ref  */
-        CILJS.stelem_ref(st_1C,st_1D,st_1E);
-        /* IL_51: stloc.0  */
-        loc0 = st_1F;
-        /* IL_54: ldloc.0  */
-        /* IL_55: ret  */
-        return loc0;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.5  */
+                st_00 = (5|0);
+                /* IL_02: newarr Baz */
+                st_01 = CILJS.new_array(t0,st_00);
+                /* IL_07: dup  */
+                st_07 = st_04 = st_01;
+                /* IL_08: ldc.i4.0  */
+                st_05 = (0|0);
+                /* IL_09: ldstr jb */
+                st_02 = CILJS.new_string("jb");
+                /* IL_0E: ldc.i4.s 25 */
+                st_03 = (25|0);
+                /* IL_10: newobj Void .ctor(System.String, System.Int32) */
+                st_06 = CILJS.newobj(t0,asm1.x6000003,[null, st_02, st_03]);
+                /* IL_15: stelem.ref  */
+                CILJS.stelem_ref(st_04,st_05,st_06);
+                /* IL_16: dup  */
+                st_0D = st_0A = st_07;
+                /* IL_17: ldc.i4.1  */
+                st_0B = (1|0);
+                /* IL_18: ldstr ana */
+                st_08 = CILJS.new_string("ana");
+                /* IL_1D: ldc.i4.s 20 */
+                st_09 = (20|0);
+                /* IL_1F: newobj Void .ctor(System.String, System.Int32) */
+                st_0C = CILJS.newobj(t0,asm1.x6000003,[null, st_08, st_09]);
+                /* IL_24: stelem.ref  */
+                CILJS.stelem_ref(st_0A,st_0B,st_0C);
+                /* IL_25: dup  */
+                st_13 = st_10 = st_0D;
+                /* IL_26: ldc.i4.2  */
+                st_11 = (2|0);
+                /* IL_27: ldstr reg */
+                st_0E = CILJS.new_string("reg");
+                /* IL_2C: ldc.i4.s 28 */
+                st_0F = (28|0);
+                /* IL_2E: newobj Void .ctor(System.String, System.Int32) */
+                st_12 = CILJS.newobj(t0,asm1.x6000003,[null, st_0E, st_0F]);
+                /* IL_33: stelem.ref  */
+                CILJS.stelem_ref(st_10,st_11,st_12);
+                /* IL_34: dup  */
+                st_19 = st_16 = st_13;
+                /* IL_35: ldc.i4.3  */
+                st_17 = (3|0);
+                /* IL_36: ldstr ro */
+                st_14 = CILJS.new_string("ro");
+                /* IL_3B: ldc.i4.s 25 */
+                st_15 = (25|0);
+                /* IL_3D: newobj Void .ctor(System.String, System.Int32) */
+                st_18 = CILJS.newobj(t0,asm1.x6000003,[null, st_14, st_15]);
+                /* IL_42: stelem.ref  */
+                CILJS.stelem_ref(st_16,st_17,st_18);
+                /* IL_43: dup  */
+                st_1F = st_1C = st_19;
+                /* IL_44: ldc.i4.4  */
+                st_1D = (4|0);
+                /* IL_45: ldstr jb */
+                st_1A = CILJS.new_string("jb");
+                /* IL_4A: ldc.i4.7  */
+                st_1B = (7|0);
+                /* IL_4B: newobj Void .ctor(System.String, System.Int32) */
+                st_1E = CILJS.newobj(t0,asm1.x6000003,[null, st_1A, st_1B]);
+                /* IL_50: stelem.ref  */
+                CILJS.stelem_ref(st_1C,st_1D,st_1E);
+                /* IL_51: stloc.0  */
+                loc0 = st_1F;
+                /* IL_54: ldloc.0  */
+                /* IL_55: ret  */
+                return loc0;
+            }
+        }
     };
     /* static System.Void Program.Main()*/
     asm.x600000c_init = function ()
@@ -479,6 +591,7 @@ var asm1;(function (asm)
         var __pos__;
         var loc0;
         var loc2;
+        var in_block_1;
         var loc3;
         var loc4;
         var loc1;
@@ -490,7 +603,7 @@ var asm1;(function (asm)
         t2 = asm1.Baz();
         t3 = asm1.ByNameDescending();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -521,39 +634,57 @@ var asm1;(function (asm)
                 __pos__ = 0x39;
                 continue;
                 case 0x28:
-                /* IL_28: nop  */
-                
-                /* IL_29: ldloc.0  */
-                /* IL_2A: ldloc.2  */
-                /* IL_2B: ldelem.ref  */
-                /* IL_2C: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.ldelem_ref(loc0,loc2));
-                /* IL_31: nop  */
-                
-                /* IL_32: nop  */
-                
-                /* IL_33: ldloc.2  */
-                /* IL_34: stloc.3  */
-                loc3 = loc2;
-                /* IL_35: ldloc.3  */
-                /* IL_36: ldc.i4.1  */
-                /* IL_37: add  */
-                /* IL_38: stloc.2  */
-                loc2 = (loc3 + (1|0)) | (0|0);
                 case 0x39:
-                /* IL_39: ldloc.2  */
-                /* IL_3A: ldloc.0  */
-                /* IL_3B: ldlen  */
-                /* IL_3C: conv.i4  */
-                /* IL_3E: clt  */
-                /* IL_3F: stloc.s 4 */
-                loc4 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
-                /* IL_41: ldloc.s 4 */
-                /* IL_43: brtrue.s IL_28 */
+                in_block_1 = true;
                 
-                if (loc4){
+                if (__pos__ > 0x43){
+                    in_block_1 = false;
+                }
+                
+                if (__pos__ < 0x28){
                     __pos__ = 0x28;
-                    continue;
+                }
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x28:
+                        /* IL_28: nop  */
+                        
+                        /* IL_29: ldloc.0  */
+                        /* IL_2A: ldloc.2  */
+                        /* IL_2B: ldelem.ref  */
+                        /* IL_2C: call Void WriteLine(System.Object) */
+                        asm0.x600005a(CILJS.ldelem_ref(loc0,loc2));
+                        /* IL_31: nop  */
+                        
+                        /* IL_32: nop  */
+                        
+                        /* IL_33: ldloc.2  */
+                        /* IL_34: stloc.3  */
+                        loc3 = loc2;
+                        /* IL_35: ldloc.3  */
+                        /* IL_36: ldc.i4.1  */
+                        /* IL_37: add  */
+                        /* IL_38: stloc.2  */
+                        loc2 = (loc3 + (1|0)) | (0|0);
+                        case 0x39:
+                        /* IL_39: ldloc.2  */
+                        /* IL_3A: ldloc.0  */
+                        /* IL_3B: ldlen  */
+                        /* IL_3C: conv.i4  */
+                        /* IL_3E: clt  */
+                        /* IL_3F: stloc.s 4 */
+                        loc4 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
+                        /* IL_41: ldloc.s 4 */
+                        /* IL_43: brtrue.s IL_28 */
+                        
+                        if (loc4){
+                            __pos__ = 0x28;
+                            continue;
+                        }
+                    }
+                    break;
                 }
                 /* IL_45: ldstr Descending */
                 /* IL_4A: ldc.i4.0  */
@@ -578,39 +709,57 @@ var asm1;(function (asm)
                 __pos__ = 0x81;
                 continue;
                 case 0x6D:
-                /* IL_6D: nop  */
-                
-                /* IL_6E: ldloc.1  */
-                /* IL_6F: ldloc.s 5 */
-                /* IL_71: ldelem.ref  */
-                /* IL_72: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.ldelem_ref(loc1,loc5));
-                /* IL_77: nop  */
-                
-                /* IL_78: nop  */
-                
-                /* IL_79: ldloc.s 5 */
-                /* IL_7B: stloc.3  */
-                loc3 = loc5;
-                /* IL_7C: ldloc.3  */
-                /* IL_7D: ldc.i4.1  */
-                /* IL_7E: add  */
-                /* IL_7F: stloc.s 5 */
-                loc5 = (loc3 + (1|0)) | (0|0);
                 case 0x81:
-                /* IL_81: ldloc.s 5 */
-                /* IL_83: ldloc.1  */
-                /* IL_84: ldlen  */
-                /* IL_85: conv.i4  */
-                /* IL_87: clt  */
-                /* IL_88: stloc.s 6 */
-                loc6 = ((loc5 < (loc1.jsarr.length | (0|0))) ? 1 : 0);
-                /* IL_8A: ldloc.s 6 */
-                /* IL_8C: brtrue.s IL_6D */
+                in_block_1 = true;
                 
-                if (loc6){
+                if (__pos__ > 0x8C){
+                    in_block_1 = false;
+                }
+                
+                if (__pos__ < 0x6D){
                     __pos__ = 0x6D;
-                    continue;
+                }
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x6D:
+                        /* IL_6D: nop  */
+                        
+                        /* IL_6E: ldloc.1  */
+                        /* IL_6F: ldloc.s 5 */
+                        /* IL_71: ldelem.ref  */
+                        /* IL_72: call Void WriteLine(System.Object) */
+                        asm0.x600005a(CILJS.ldelem_ref(loc1,loc5));
+                        /* IL_77: nop  */
+                        
+                        /* IL_78: nop  */
+                        
+                        /* IL_79: ldloc.s 5 */
+                        /* IL_7B: stloc.3  */
+                        loc3 = loc5;
+                        /* IL_7C: ldloc.3  */
+                        /* IL_7D: ldc.i4.1  */
+                        /* IL_7E: add  */
+                        /* IL_7F: stloc.s 5 */
+                        loc5 = (loc3 + (1|0)) | (0|0);
+                        case 0x81:
+                        /* IL_81: ldloc.s 5 */
+                        /* IL_83: ldloc.1  */
+                        /* IL_84: ldlen  */
+                        /* IL_85: conv.i4  */
+                        /* IL_87: clt  */
+                        /* IL_88: stloc.s 6 */
+                        loc6 = ((loc5 < (loc1.jsarr.length | (0|0))) ? 1 : 0);
+                        /* IL_8A: ldloc.s 6 */
+                        /* IL_8C: brtrue.s IL_6D */
+                        
+                        if (loc6){
+                            __pos__ = 0x6D;
+                            continue;
+                        }
+                    }
+                    break;
                 }
                 /* IL_8E: ret  */
                 return ;
@@ -620,11 +769,24 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x600000d = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     asm.Baz = CILJS.declare_type(
         "Baz",

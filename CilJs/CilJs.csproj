@@ -68,6 +68,7 @@
     <Compile Include="2.Analysis\Passes\StaticFieldUsageAnalysis.cs" />
     <Compile Include="2.Analysis\Passes\UnreachableRemoval.cs" />
     <Compile Include="2.Analysis\Passes\StackAnalyzer.cs" />
+    <Compile Include="2.Analysis\Passes\ReloopPass.cs" />
     <Compile Include="2.Analysis\StaticAnalyzer.cs" />
     <Compile Include="2.Analysis\Passes\TypeInference.cs" />
     <Compile Include="2.Analysis\Passes\TypeUsageAnalysis.cs" />

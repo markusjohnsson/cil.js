@@ -12,13 +12,14 @@ var asm1;(function (asm)
             var __pos__;
             var loc0;
             var loc1;
+            var in_block_1;
             var loc2;
             var loc3;
             var loc4;
             t0 = T;
             loc5 = T.Default;
             in_block_0 = true;
-            __pos__ = 0;
+            __pos__ = 0x0;
             
             while (in_block_0){
                 
@@ -38,49 +39,68 @@ var asm1;(function (asm)
                     __pos__ = 0x26;
                     continue;
                     case 0x8:
-                    /* IL_08: ldloc.0  */
-                    /* IL_09: ldloc.1  */
-                    /* IL_0A: ldelem T */
-                    /* IL_0F: stloc.2  */
-                    loc2 = (loc0.jsarr)[loc1];
-                    /* IL_10: nop  */
-                    
-                    /* IL_11: ldarg.1  */
-                    /* IL_12: ldloc.2  */
-                    /* IL_13: callvirt Boolean Invoke(T) */
-                    /* IL_18: stloc.3  */
-                    loc3 = ((arg1._target) ? (arg1._methodPtr(arg1._target,loc2)) : (arg1._methodPtr(loc2)));
-                    /* IL_19: ldloc.3  */
-                    /* IL_1A: brfalse.s IL_21 */
-                    
-                    if ((!(loc3))){
-                        __pos__ = 0x21;
-                        continue;
-                    }
-                    /* IL_1C: ldloc.2  */
-                    /* IL_1D: stloc.s 4 */
-                    loc4 = loc2;
-                    /* IL_1F: br.s IL_3A */
-                    __pos__ = 0x3A;
-                    continue;
                     case 0x21:
-                    /* IL_21: nop  */
-                    
-                    /* IL_22: ldloc.1  */
-                    /* IL_23: ldc.i4.1  */
-                    /* IL_24: add  */
-                    /* IL_25: stloc.1  */
-                    loc1 = (loc1 + (1|0)) | (0|0);
                     case 0x26:
-                    /* IL_26: ldloc.1  */
-                    /* IL_27: ldloc.0  */
-                    /* IL_28: ldlen  */
-                    /* IL_29: conv.i4  */
-                    /* IL_2A: blt.s IL_08 */
+                    in_block_1 = true;
                     
-                    if (loc1 < (loc0.jsarr.length | (0|0))){
+                    if (__pos__ > 0x2A){
+                        in_block_1 = false;
+                    }
+                    
+                    if (__pos__ < 0x8){
                         __pos__ = 0x8;
-                        continue;
+                    }
+                    
+                    while (in_block_1){
+                        
+                        switch (__pos__){
+                            case 0x8:
+                            /* IL_08: ldloc.0  */
+                            /* IL_09: ldloc.1  */
+                            /* IL_0A: ldelem T */
+                            /* IL_0F: stloc.2  */
+                            loc2 = (loc0.jsarr)[loc1];
+                            /* IL_10: nop  */
+                            
+                            /* IL_11: ldarg.1  */
+                            /* IL_12: ldloc.2  */
+                            /* IL_13: callvirt Boolean Invoke(T) */
+                            /* IL_18: stloc.3  */
+                            loc3 = ((arg1._target) ? (arg1._methodPtr(arg1._target,loc2)) : (arg1._methodPtr(loc2)));
+                            /* IL_19: ldloc.3  */
+                            /* IL_1A: brfalse.s IL_21 */
+                            
+                            if ((!(loc3))){
+                                __pos__ = 0x21;
+                                continue;
+                            }
+                            /* IL_1C: ldloc.2  */
+                            /* IL_1D: stloc.s 4 */
+                            loc4 = loc2;
+                            /* IL_1F: br.s IL_3A */
+                            __pos__ = 0x3A;
+                            continue;
+                            case 0x21:
+                            /* IL_21: nop  */
+                            
+                            /* IL_22: ldloc.1  */
+                            /* IL_23: ldc.i4.1  */
+                            /* IL_24: add  */
+                            /* IL_25: stloc.1  */
+                            loc1 = (loc1 + (1|0)) | (0|0);
+                            case 0x26:
+                            /* IL_26: ldloc.1  */
+                            /* IL_27: ldloc.0  */
+                            /* IL_28: ldlen  */
+                            /* IL_29: conv.i4  */
+                            /* IL_2A: blt.s IL_08 */
+                            
+                            if (loc1 < (loc0.jsarr.length | (0|0))){
+                                __pos__ = 0x8;
+                                continue;
+                            }
+                        }
+                        break;
                     }
                     /* IL_2C: ldloca.s 5 */
                     /* IL_2F: initobj T */
@@ -141,7 +161,7 @@ var asm1;(function (asm)
         t2 = (asm1)["Program+pred`1"](t0);
         t3 = (asm0)["System.Object"]();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -209,11 +229,24 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* System.Boolean pred`1.Invoke(T)*/
     asm.x6000005 = CILJS.delegate_invoke;;
@@ -226,9 +259,20 @@ var asm1;(function (asm)
     /* System.Boolean <>c.<Main>b__2_0(String)*/
     asm.x600000a = function _Main_b__2_0(arg0, arg1)
     {
-        /* IL_00: ldc.i4.1  */
-        /* IL_01: ret  */
-        return (1|0);
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldc.i4.1  */
+                /* IL_01: ret  */
+                return (1|0);
+            }
+        }
     };;
     /* static  <>c..cctor()*/
     asm.x6000008_init = function ()
@@ -244,27 +288,51 @@ var asm1;(function (asm)
     asm.x6000008_ = function _cctor()
     {
         var t0;
+        var in_block_0;
+        var __pos__;
         
         if ((asm1)["Program+<>c"]().FieldsInitialized){
             return;
         }
         (asm1)["Program+<>c"]().FieldsInitialized = true;
         t0 = (asm1)["Program+<>c"]();
-        asm1.x6000008();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: stsfld <>c <>9 */
-        (t0)["<>9"] = CILJS.newobj(t0,asm1.x6000009,[null]);
-        /* IL_0A: ret  */
-        return ;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                asm1.x6000008();
+                /* IL_00: newobj Void .ctor() */
+                /* IL_05: stsfld <>c <>9 */
+                (t0)["<>9"] = CILJS.newobj(t0,asm1.x6000009,[null]);
+                /* IL_0A: ret  */
+                return ;
+            }
+        }
     };
     /*  <>c..ctor()*/
     asm.x6000009 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     asm.Program = CILJS.declare_type(
         "Program",

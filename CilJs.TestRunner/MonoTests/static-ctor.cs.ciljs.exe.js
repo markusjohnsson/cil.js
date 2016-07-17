@@ -15,48 +15,98 @@ var asm1;(function (asm)
     asm.x6000001_ = function _cctor()
     {
         var t0;
+        var in_block_0;
+        var __pos__;
         
         if (asm1.X().FieldsInitialized){
             return;
         }
         asm1.X().FieldsInitialized = true;
         t0 = asm1.test();
-        /* IL_00: nop  */
-        /* IL_01: ldc.i4.1  */
-        /* IL_02: stsfld Int32 global */
-        t0.global = (1|0);
-        /* IL_07: ret  */
-        return ;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldc.i4.1  */
+                /* IL_02: stsfld Int32 global */
+                t0.global = (1|0);
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };
     /*  X..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /*  Y..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        asm1.x6000002(arg0);
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                asm1.x6000002(arg0);
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /*  Z..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        asm1.x6000003(arg0);
-        /* IL_06: nop  */
-        /* IL_07: nop  */
-        /* IL_08: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                asm1.x6000003(arg0);
+                /* IL_06: nop  */
+                
+                /* IL_07: nop  */
+                
+                /* IL_08: ret  */
+                return ;
+            }
+        }
     };;
     /* static System.Int32 test.Main()*/
     asm.x6000005_init = function ()
@@ -85,7 +135,7 @@ var asm1;(function (asm)
         t1 = asm1.test();
         t2 = (asm0)["System.Object"]();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -147,11 +197,24 @@ var asm1;(function (asm)
     /*  test..ctor()*/
     asm.x6000006 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     asm.X = CILJS.declare_type(
         "X",

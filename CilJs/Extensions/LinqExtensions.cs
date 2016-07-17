@@ -47,6 +47,12 @@ namespace CilJs
             source.InsertRange(fromIndex, replacement);
         }
 
+        public static void Replace<T>(this List<T> source, T from, T replacement)
+        {
+            var fromIndex = source.IndexOf(from);
+            source[fromIndex] = replacement;
+        }
+
         public static IEnumerable<T> GetRange<T>(this List<T> source, T from, T to)
         {
             var fromIndex = source.IndexOf(from);

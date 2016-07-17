@@ -19,88 +19,121 @@ var asm1;(function (asm)
         var t1;
         var loc0;
         var loc1;
+        var in_block_0;
+        var __pos__;
         CILJS.init_base_types();
         t0 = asm1.A();
         t1 = (asm0)["System.Nullable`1"](t0);
         loc0 = new ((asm0)["System.Nullable`1"](asm1.A()))();
         loc1 = new (asm1.A())();
-        /* IL_00: nop  */
-        /* IL_01: ldloca.s 0 */
-        /* IL_04: initobj System.Nullable`1[A] */
-        loc0 = new t1();
-        /* IL_09: ldloc.0  */
-        /* IL_0A: call Void Print(System.Nullable`1[A]) */
-        asm1.x6000003(CILJS.clone_value(loc0));
-        /* IL_0F: nop  */
-        /* IL_10: ldloca.s 0 */
-        /* IL_13: initobj System.Nullable`1[A] */
-        loc0 = new t1();
-        /* IL_18: ldloc.0  */
-        /* IL_19: call Void Print(System.Nullable`1[A]) */
-        asm1.x6000003(CILJS.clone_value(loc0));
-        /* IL_1E: nop  */
-        /* IL_1F: ldloca.s 1 */
-        /* IL_22: initobj A */
-        loc1 = new t0();
-        /* IL_27: ldloca.s 1 */
-        /* IL_29: ldc.i4.s 33 */
-        /* IL_2B: stfld Int32 X */
-        loc1.X = (33|0);
-        /* IL_30: ldloc.1  */
-        /* IL_31: newobj Void .ctor(A) */
-        /* IL_36: call Void Print(System.Nullable`1[A]) */
-        asm1.x6000003(CILJS.clone_value(CILJS.newobj(t1,asm0.x60000db,[null, CILJS.clone_value(loc1)])));
-        /* IL_3B: nop  */
-        /* IL_3C: ldloca.s 1 */
-        /* IL_3F: initobj A */
-        loc1 = new t0();
-        /* IL_44: ldloc.1  */
-        /* IL_45: newobj Void .ctor(A) */
-        /* IL_4A: call Void Print(System.Nullable`1[A]) */
-        asm1.x6000003(CILJS.clone_value(CILJS.newobj(t1,asm0.x60000db,[null, CILJS.clone_value(loc1)])));
-        /* IL_4F: nop  */
-        /* IL_50: ldnull  */
-        /* IL_51: call Void PrintObject(System.Object) */
-        asm1.x6000002(null);
-        /* IL_56: nop  */
-        /* IL_57: ldnull  */
-        /* IL_58: call Void PrintObject(System.Object) */
-        asm1.x6000002(null);
-        /* IL_5D: nop  */
-        /* IL_5E: ldloca.s 1 */
-        /* IL_61: initobj A */
-        loc1 = new t0();
-        /* IL_66: ldloca.s 1 */
-        /* IL_68: ldc.i4.s 33 */
-        /* IL_6A: stfld Int32 X */
-        loc1.X = (33|0);
-        /* IL_6F: ldloc.1  */
-        /* IL_70: box A */
-        /* IL_75: call Void PrintObject(System.Object) */
-        asm1.x6000002(CILJS.make_box(CILJS.clone_value(loc1),t0));
-        /* IL_7A: nop  */
-        /* IL_7B: ldloca.s 1 */
-        /* IL_7E: initobj A */
-        loc1 = new t0();
-        /* IL_83: ldloc.1  */
-        /* IL_84: box A */
-        /* IL_89: call Void PrintObject(System.Object) */
-        asm1.x6000002(CILJS.make_box(CILJS.clone_value(loc1),t0));
-        /* IL_8E: nop  */
-        /* IL_8F: ret  */
-        return ;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldloca.s 0 */
+                /* IL_04: initobj System.Nullable`1[A] */
+                loc0 = new t1();
+                /* IL_09: ldloc.0  */
+                /* IL_0A: call Void Print(System.Nullable`1[A]) */
+                asm1.x6000003(CILJS.clone_value(loc0));
+                /* IL_0F: nop  */
+                
+                /* IL_10: ldloca.s 0 */
+                /* IL_13: initobj System.Nullable`1[A] */
+                loc0 = new t1();
+                /* IL_18: ldloc.0  */
+                /* IL_19: call Void Print(System.Nullable`1[A]) */
+                asm1.x6000003(CILJS.clone_value(loc0));
+                /* IL_1E: nop  */
+                
+                /* IL_1F: ldloca.s 1 */
+                /* IL_22: initobj A */
+                loc1 = new t0();
+                /* IL_27: ldloca.s 1 */
+                /* IL_29: ldc.i4.s 33 */
+                /* IL_2B: stfld Int32 X */
+                loc1.X = (33|0);
+                /* IL_30: ldloc.1  */
+                /* IL_31: newobj Void .ctor(A) */
+                /* IL_36: call Void Print(System.Nullable`1[A]) */
+                asm1.x6000003(CILJS.clone_value(CILJS.newobj(t1,asm0.x60000db,[null, CILJS.clone_value(loc1)])));
+                /* IL_3B: nop  */
+                
+                /* IL_3C: ldloca.s 1 */
+                /* IL_3F: initobj A */
+                loc1 = new t0();
+                /* IL_44: ldloc.1  */
+                /* IL_45: newobj Void .ctor(A) */
+                /* IL_4A: call Void Print(System.Nullable`1[A]) */
+                asm1.x6000003(CILJS.clone_value(CILJS.newobj(t1,asm0.x60000db,[null, CILJS.clone_value(loc1)])));
+                /* IL_4F: nop  */
+                
+                /* IL_50: ldnull  */
+                /* IL_51: call Void PrintObject(System.Object) */
+                asm1.x6000002(null);
+                /* IL_56: nop  */
+                
+                /* IL_57: ldnull  */
+                /* IL_58: call Void PrintObject(System.Object) */
+                asm1.x6000002(null);
+                /* IL_5D: nop  */
+                
+                /* IL_5E: ldloca.s 1 */
+                /* IL_61: initobj A */
+                loc1 = new t0();
+                /* IL_66: ldloca.s 1 */
+                /* IL_68: ldc.i4.s 33 */
+                /* IL_6A: stfld Int32 X */
+                loc1.X = (33|0);
+                /* IL_6F: ldloc.1  */
+                /* IL_70: box A */
+                /* IL_75: call Void PrintObject(System.Object) */
+                asm1.x6000002(CILJS.make_box(CILJS.clone_value(loc1),t0));
+                /* IL_7A: nop  */
+                
+                /* IL_7B: ldloca.s 1 */
+                /* IL_7E: initobj A */
+                loc1 = new t0();
+                /* IL_83: ldloc.1  */
+                /* IL_84: box A */
+                /* IL_89: call Void PrintObject(System.Object) */
+                asm1.x6000002(CILJS.make_box(CILJS.clone_value(loc1),t0));
+                /* IL_8E: nop  */
+                
+                /* IL_8F: ret  */
+                return ;
+            }
+        }
     };
     /* static System.Void Program.PrintObject(Object)*/
     asm.x6000002 = function PrintObject(arg0)
     {
-        /* IL_00: nop  */
-        /* IL_01: ldarg.0  */
-        /* IL_02: unbox.any System.Nullable`1[A] */
-        /* IL_07: call Void Print(System.Nullable`1[A]) */
-        asm1.x6000003(CILJS.clone_value(CILJS.unbox_any(arg0,(asm0)["System.Nullable`1"](asm1.A()))));
-        /* IL_0C: nop  */
-        /* IL_0D: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: nop  */
+                
+                /* IL_01: ldarg.0  */
+                /* IL_02: unbox.any System.Nullable`1[A] */
+                /* IL_07: call Void Print(System.Nullable`1[A]) */
+                asm1.x6000003(CILJS.clone_value(CILJS.unbox_any(arg0,(asm0)["System.Nullable`1"](asm1.A()))));
+                /* IL_0C: nop  */
+                
+                /* IL_0D: ret  */
+                return ;
+            }
+        }
     };;
     /* static System.Void Program.Print(Nullable`1)*/
     asm.x6000003 = function Print(arg0)
@@ -116,7 +149,7 @@ var asm1;(function (asm)
         t0 = (asm0)["System.Object"]();
         t1 = (asm0)["System.Int32"]();
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -204,11 +237,24 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     asm.A = CILJS.declare_type(
         "A",

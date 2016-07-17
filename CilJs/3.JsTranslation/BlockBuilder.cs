@@ -22,15 +22,23 @@ namespace CilJs.JsTranslation
             }
         }
 
-        private bool hasBranching;
-        private bool hasFinally;
-        private int startPosition;
+        private bool hasBranching; // mutable, refactor?
 
-        public BlockBuilder(int depth, int startPosition, bool hasFinally)
+        private readonly int startPosition;
+        private readonly int endPosition;
+        private readonly bool hasFinally;
+        private readonly bool isSubBlock;
+        private readonly bool isFinally;
+
+        public BlockBuilder(int depth, int startPosition, int endPosition, bool hasFinally, bool hasBranching, bool isSubBlock, bool isFinally)
         {
             this.depth = depth;
             this.startPosition = startPosition;
+            this.endPosition = endPosition;
             this.hasFinally = hasFinally;
+            this.hasBranching = hasBranching;
+            this.isSubBlock = isSubBlock;
+            this.isFinally = isFinally;
         }
 
         public IEnumerable<JSStatement> Build()
@@ -40,11 +48,11 @@ namespace CilJs.JsTranslation
             if (hasBranching)
             {
                 yield return JSFactory.Statement(
-                    new JSVariableDelcaration
-                    {
-                        Name = "in_block_" + Depth,
-                        Value = new JSBoolLiteral { Value = true }
-                    });
+                new JSVariableDelcaration
+                {
+                    Name = "in_block_" + Depth,
+                    Value = new JSBoolLiteral { Value = true }
+                });
 
                 if (hasFinally)
                 {
@@ -56,26 +64,93 @@ namespace CilJs.JsTranslation
                         });
                 }
 
-                yield return JSFactory.Statement(
-                    new JSVariableDelcaration
+                if (depth == 0)
+                {
+                    yield return JSFactory.Statement(
+                        new JSVariableDelcaration
+                        {
+                            Name = "__pos__",
+                            Value = JSFactory.HexLiteral(0)
+                        });
+                }
+                else
+                {
+                    // When control falls into the loop, __pos__ must be updated.
+                    // We cannot do this unconditionally, however, b/c a jump could have occurred 
+                    // that transferred control into the loop, not at the start position
+
+
+                    if (isSubBlock)
                     {
-                        Name = "__pos__",
-                        Value = new JSNumberLiteral { Value = startPosition }
-                    });
+                        yield return new JSIfStatement
+                        {
+                            Condition = new JSBinaryExpression
+                            {
+                                Left = JSFactory.Identifier("__pos__"),
+                                Operator = ">",
+                                Right = JSFactory.HexLiteral(endPosition)
+                            },
+                            Statements =
+                            {
+                                JSFactory.Statement(
+                                    new JSVariableDelcaration
+                                    {
+                                        Name = "in_block_" + Depth,
+                                        Value = new JSBoolLiteral { Value = false }
+                                    })
+                            }
+                        };
+                    }
+
+                    if (isFinally)
+                    {
+                        yield return JSFactory.Statement(
+                            new JSVariableDelcaration
+                            {
+                                Name = "__pos__",
+                                Value = JSFactory.HexLiteral(startPosition)
+                            });
+                    }
+                    else
+                    {
+                        yield return new JSIfStatement
+                        {
+                            Condition = new JSBinaryExpression
+                            {
+                                Left = JSFactory.Identifier("__pos__"),
+                                Operator = "<",
+                                Right = JSFactory.HexLiteral(startPosition)
+                            },
+                            Statements =
+                            {
+                                JSFactory.Statement(
+                                    new JSVariableDelcaration
+                                    {
+                                        Name = "__pos__",
+                                        Value = JSFactory.HexLiteral(startPosition)
+                                    })
+                            }
+                        };
+                    }
+                }
+
+                var body = new List<JSStatement>
+                {
+                    new JSSwitchStatement
+                    {
+                        Value = new JSIdentifier { Name = "__pos__" },
+                        Statements = Statements
+                    }
+                };
+
+                if (isFinally || isSubBlock)
+                    body.Add(new JSBreakExpression().ToStatement());
 
                 yield return new JSWhileLoopStatement
                 {
                     Condition = new JSIdentifier { Name = "in_block_" + Depth },
-                    Statements = new List<JSStatement> 
-                    {
-                        new JSSwitchStatement
-                        {
-                            Value = new JSIdentifier { Name = "__pos__" },
-                            Statements = Statements
-                        }
-                    }
+                    Statements = body
                 };
-
             }
             else
             {
@@ -130,9 +205,6 @@ namespace CilJs.JsTranslation
 
         public void InsertLabel(JumpLabel label)
         {
-            //if (false == hasBranching)
-            //    Statements.Insert(0, new JSSwitchCase { Value = new JSNumberLiteral { Value = 0, IsHex = true } });
-
             hasBranching = hasBranching || label.IntruducesBranching;
 
             Statements.Add(new JSSwitchCase { Value = new JSNumberLiteral { Value = label.Position, IsHex = true } });

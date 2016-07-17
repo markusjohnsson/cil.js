@@ -13,7 +13,8 @@ namespace CilJs.Analysis.Passes
                     o => false == (
                         o.Instruction.OpCode.Name == "br.s" &&
                         ((o.Targeting.Count == 1 && o.Targeting[0] == o.Prev) || o.Targeting.Count == 0) &&
-                        o.Targets.Count == 1 && o.Targets[0] == o.Next))
+                        o.Targets.Count == 1 && 
+                        o.Targets[0] == o.Next))
                 .ToList();
         }
     }

@@ -151,6 +151,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
     <Compile Include="Controllers\PlaygroundRunnerController.cs" />
+    <Compile Include="Tests\Loops.cs" />
     <None Include="Tests\GenericNesting2.cs" />
     <None Include="Tests\PrimitiveCompareTo.cs" />
     <None Include="FailingTests\UnsafeArrayAccess.cs" />

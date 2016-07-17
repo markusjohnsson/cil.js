@@ -24,8 +24,17 @@ namespace CilJs.Ast
         public ReplacementKind Kind { get; set; } 
     }
 
+    [DebuggerDisplay("{DebugString}")]
     class CilMethod
     {
+        internal string DebugString
+        {
+            get
+            {
+                return $"{DeclaringType.Name} :: {Name} ({ReflectionMethod.GetParameters().Length})";
+            }
+        }
+
         public string Name { get; set; }
 
         public bool IsHideBySig { get; set; }

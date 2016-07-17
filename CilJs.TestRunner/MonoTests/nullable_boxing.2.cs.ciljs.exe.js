@@ -29,7 +29,7 @@ var asm1;(function (asm)
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.Nullable`1"](t1);
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -96,11 +96,24 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* System.Int32 Button.Counter(Nullable`1)*/
     asm.x6000003 = function Counter(arg0, arg1)
@@ -110,7 +123,7 @@ var asm1;(function (asm)
         var loc0;
         var loc1;
         in_block_0 = true;
-        __pos__ = 0;
+        __pos__ = 0x0;
         
         while (in_block_0){
             
@@ -172,11 +185,24 @@ var asm1;(function (asm)
     /*  Button..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        /* IL_00: ldarg.0  */
-        /* IL_01: call Void .ctor() */
-        /* IL_06: nop  */
-        /* IL_07: ret  */
-        return ;
+        var in_block_0;
+        var __pos__;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                /* IL_00: ldarg.0  */
+                /* IL_01: call Void .ctor() */
+                
+                /* IL_06: nop  */
+                
+                /* IL_07: ret  */
+                return ;
+            }
+        }
     };;
     /* static  Button..cctor()*/
     asm.x6000005_init = function ()
@@ -192,18 +218,29 @@ var asm1;(function (asm)
     asm.x6000005_ = function _cctor()
     {
         var t0;
+        var in_block_0;
+        var __pos__;
         
         if ((asm1)["Program+Button"]().FieldsInitialized){
             return;
         }
         (asm1)["Program+Button"]().FieldsInitialized = true;
         t0 = (asm1)["Program+Button"]();
-        asm1.x6000005();
-        /* IL_00: newobj Void .ctor() */
-        /* IL_05: stsfld Button TheButton */
-        t0.TheButton = CILJS.newobj(t0,asm1.x6000004,[null]);
-        /* IL_0A: ret  */
-        return ;
+        in_block_0 = true;
+        __pos__ = 0x0;
+        
+        while (in_block_0){
+            
+            switch (__pos__){
+                case 0x0:
+                asm1.x6000005();
+                /* IL_00: newobj Void .ctor() */
+                /* IL_05: stsfld Button TheButton */
+                t0.TheButton = CILJS.newobj(t0,asm1.x6000004,[null]);
+                /* IL_0A: ret  */
+                return ;
+            }
+        }
     };
     asm.Program = CILJS.declare_type(
         "Program",

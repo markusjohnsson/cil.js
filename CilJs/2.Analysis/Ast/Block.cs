@@ -52,6 +52,21 @@ namespace CilJs.Ast
                 }
             }
         }
+
+        public IEnumerable<JumpLabel> GetAllLabels()
+        {
+            foreach (var n in Ast)
+            {
+                if (n is JumpLabel)
+                    yield return (JumpLabel)n;
+
+                if (n is Block)
+                {
+                    foreach (var l in ((Block)n).GetAllLabels())
+                        yield return l;
+                }
+            }
+        }
     }
 
     class CatchBlock : Block

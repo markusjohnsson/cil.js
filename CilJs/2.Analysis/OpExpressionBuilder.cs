@@ -21,15 +21,12 @@ namespace CilJs.Analysis
         public OpExpressionBuilder(Context context)
         {
             this.context = context;
-            universe = context.ReflectionUniverse;
-
+            this.universe = context.ReflectionUniverse;
         }
 
         public void Run(CilMethod method)
         {
-            var opInfos = CreateOpInfos(method);
-
-            method.OpTree = opInfos;
+            method.OpTree = CreateOpInfos(method);
         }
 
         private List<OpExpression> CreateOpInfos(CilMethod method)
@@ -38,8 +35,6 @@ namespace CilJs.Analysis
             var opInfos = new List<OpExpression>();
             var prefixes = new List<OpInstruction>();
             
-            var index = 0;
-
             foreach (var op in ilOps.Process())
             {
                 if (op.OpCode.OpCodeType == OpCodeType.Prefix)

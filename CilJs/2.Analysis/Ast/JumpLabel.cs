@@ -1,7 +1,9 @@
 ﻿
+using System.Diagnostics;
+
 namespace CilJs.Ast
 {
-    class JumpLabel: Node
+    class JumpLabel : Node
     {
         public int Position;
 
@@ -11,6 +13,11 @@ namespace CilJs.Ast
         {
             Position = position;
             IntruducesBranching = intruducesBranching;
+        }
+
+        public override string ToString()
+        {
+            return $"{string.Format("IL_{0:X2}", Position)}: Label";
         }
     }
 }
