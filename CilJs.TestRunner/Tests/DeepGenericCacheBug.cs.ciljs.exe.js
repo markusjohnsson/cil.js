@@ -4,90 +4,38 @@ var asm1;(function (asm)
     /*  A`1..ctor()*/
     asm.x6000001 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  K`1..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  X..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  Y..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* static System.Void Program.Main()*/
     asm.x6000005_init = function ()
@@ -114,8 +62,6 @@ var asm1;(function (asm)
         var t4;
         var t5;
         var t6;
-        var in_block_0;
-        var __pos__;
         CILJS.init_base_types();
         t0 = asm1.X();
         t1 = (asm1)["K`1"](t0);
@@ -124,51 +70,27 @@ var asm1;(function (asm)
         t4 = (asm1)["K`1"](t3);
         t5 = (asm1)["A`1"](t4);
         t6 = (asm0)["System.Boolean"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldtoken A`1[K`1[X]] */
-                /* IL_06: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                /* IL_0B: ldtoken A`1[K`1[Y]] */
-                /* IL_10: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                /* IL_16: ceq  */
-                /* IL_17: box System.Boolean */
-                /* IL_1C: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.make_box(((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? 1 : 0),t6));
-                /* IL_21: nop  */
-                
-                /* IL_22: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldtoken A`1[K`1[X]] */
+        /* IL_06: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_0B: ldtoken A`1[K`1[Y]] */
+        /* IL_10: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_16: ceq  */
+        /* IL_17: box System.Boolean */
+        /* IL_1C: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box(((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t2)) === asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))) ? 1 : 0),t6));
+        /* IL_21: nop  */
+        /* IL_22: ret  */
+        return ;
     };
     /*  Program..ctor()*/
     asm.x6000006 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     (asm)["A`1"] = CILJS.declare_type(
         "A_1",

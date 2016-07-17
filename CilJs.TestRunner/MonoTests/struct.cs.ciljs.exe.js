@@ -5,45 +5,33 @@ var asm1;(function (asm)
     asm.x6000002 = function get_zerop()
     {
         var loc0;
-        var in_block_0;
-        var __pos__;
         var loc1;
         loc0 = new (asm1.Point())();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldloca.s 0 */
-                /* IL_03: ldc.i4.0  */
-                /* IL_04: ldc.i4.0  */
-                /* IL_05: call Void .ctor(System.Int32, System.Int32) */
-                asm1.x6000001({
-                        'w': function (v)
-                        {
-                            loc0 = v;
-                        },
-                        'r': function ()
-                        {
-                            return loc0;
-                        }
-                    },(0|0),(0|0));
-                /* IL_0A: ldloca.s 0 */
-                /* IL_0C: ldc.i4.0  */
-                /* IL_0D: stfld Int32 z */
-                loc0.z = (0|0);
-                /* IL_12: ldloc.0  */
-                /* IL_13: stloc.1  */
-                loc1 = CILJS.clone_value(loc0);
-                /* IL_16: ldloc.1  */
-                /* IL_17: ret  */
-                return loc1;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldloca.s 0 */
+        /* IL_03: ldc.i4.0  */
+        /* IL_04: ldc.i4.0  */
+        /* IL_05: call Void .ctor(System.Int32, System.Int32) */
+        asm1.x6000001({
+                'w': function (v)
+                {
+                    loc0 = v;
+                },
+                'r': function ()
+                {
+                    return loc0;
+                }
+            },(0|0),(0|0));
+        /* IL_0A: ldloca.s 0 */
+        /* IL_0C: ldc.i4.0  */
+        /* IL_0D: stfld Int32 z */
+        loc0.z = (0|0);
+        /* IL_12: ldloc.0  */
+        /* IL_13: stloc.1  */
+        loc1 = CILJS.clone_value(loc0);
+        /* IL_16: ldloc.1  */
+        /* IL_17: ret  */
+        return loc1;
     };;
     /* static System.Int32 Point.struct_param(Point)*/
     asm.x6000003 = function struct_param(arg0)
@@ -135,33 +123,21 @@ var asm1;(function (asm)
     /*  Point..ctor(Int32,Int32)*/
     asm.x6000001 = function _ctor(arg0, arg1, arg2)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarg.0  */
-                /* IL_02: ldarg.1  */
-                /* IL_03: stfld Int32 x */
-                arg0.r().x = arg1;
-                /* IL_08: ldarg.0  */
-                /* IL_09: ldarg.2  */
-                /* IL_0A: stfld Int32 y */
-                arg0.r().y = arg2;
-                /* IL_0F: ldarg.0  */
-                /* IL_10: ldc.i4.5  */
-                /* IL_11: stfld Int32 z */
-                arg0.r().z = (5|0);
-                /* IL_16: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldarg.1  */
+        /* IL_03: stfld Int32 x */
+        arg0.r().x = arg1;
+        /* IL_08: ldarg.0  */
+        /* IL_09: ldarg.2  */
+        /* IL_0A: stfld Int32 y */
+        arg0.r().y = arg2;
+        /* IL_0F: ldarg.0  */
+        /* IL_10: ldc.i4.5  */
+        /* IL_11: stfld Int32 z */
+        arg0.r().z = (5|0);
+        /* IL_16: ret  */
+        return ;
     };;
     /* static System.Int32 test.Main()*/
     asm.x6000004 = function Main()
@@ -525,24 +501,11 @@ var asm1;(function (asm)
     /*  test..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.Point = CILJS.declare_type(
         "Point",

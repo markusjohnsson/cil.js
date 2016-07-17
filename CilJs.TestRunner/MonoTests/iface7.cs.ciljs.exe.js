@@ -4,97 +4,48 @@ var asm1;(function (asm)
     /* System.Int32 Base.TestMono.IBase.Do()*/
     asm.x6000002 = function TestMono_IBase_Do(arg0)
     {
-        var in_block_0;
-        var __pos__;
         var loc0;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldc.i4.1  */
-                /* IL_02: ldarg.0  */
-                /* IL_03: callvirt Int32 Do() */
-                /* IL_08: add  */
-                /* IL_09: stloc.0  */
-                loc0 = ((1|0) + ((arg0.vtable)["asm1.x6000003"]())(arg0)) | (0|0);
-                /* IL_0C: ldloc.0  */
-                /* IL_0D: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: ldarg.0  */
+        /* IL_03: callvirt Int32 Do() */
+        /* IL_08: add  */
+        /* IL_09: stloc.0  */
+        loc0 = ((1|0) + ((arg0.vtable)["asm1.x6000003"]())(arg0)) | (0|0);
+        /* IL_0C: ldloc.0  */
+        /* IL_0D: ret  */
+        return loc0;
     };;
     /* System.Int32 Base.Do()*/
     asm.x6000003 = function Do(arg0)
     {
-        var in_block_0;
-        var __pos__;
         var loc0;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldc.i4.1  */
-                /* IL_02: stloc.0  */
-                loc0 = (1|0);
-                /* IL_05: ldloc.0  */
-                /* IL_06: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.1  */
+        /* IL_02: stloc.0  */
+        loc0 = (1|0);
+        /* IL_05: ldloc.0  */
+        /* IL_06: ret  */
+        return loc0;
     };;
     /*  Base..ctor()*/
     asm.x6000004 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  Derived..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                asm1.x6000004(arg0);
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        asm1.x6000004(arg0);
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* static System.Int32 Class1.Main(String[])*/
     asm.x6000006_init = function (arg0)
@@ -253,24 +204,11 @@ var asm1;(function (asm)
     /*  Class1..ctor()*/
     asm.x6000007 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     (asm)["TestMono.IBase"] = CILJS.declare_type(
         "IBase",

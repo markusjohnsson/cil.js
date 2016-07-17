@@ -12,50 +12,26 @@ var asm1;(function (asm)
     /* static System.String Program.X(Int32)*/
     asm.x6000005 = function X(arg0)
     {
-        var in_block_0;
-        var __pos__;
         var loc0;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldstr RESULT! */
-                /* IL_06: stloc.0  */
-                loc0 = CILJS.new_string("RESULT!");
-                /* IL_09: ldloc.0  */
-                /* IL_0A: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldstr RESULT! */
+        /* IL_06: stloc.0  */
+        loc0 = CILJS.new_string("RESULT!");
+        /* IL_09: ldloc.0  */
+        /* IL_0A: ret  */
+        return loc0;
     };;
     /* static System.String Program.Y(Int32)*/
     asm.x6000006 = function Y(arg0)
     {
-        var in_block_0;
-        var __pos__;
         var loc0;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldstr FOO! */
-                /* IL_06: stloc.0  */
-                loc0 = CILJS.new_string("FOO!");
-                /* IL_09: ldloc.0  */
-                /* IL_0A: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldstr FOO! */
+        /* IL_06: stloc.0  */
+        loc0 = CILJS.new_string("FOO!");
+        /* IL_09: ldloc.0  */
+        /* IL_0A: ret  */
+        return loc0;
     };;
     /* static System.Void Program.Main()*/
     asm.x6000007_init = function ()
@@ -72,193 +48,130 @@ var asm1;(function (asm)
     {
         var t0;
         var t1;
-        var in_block_0;
-        var __pos__;
         var loc0;
         CILJS.init_base_types();
         t0 = asm1.Foo();
         t1 = (asm0)["System.Object"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldnull  */
-                /* IL_03: ldftn String X(System.Int32) */
-                /* IL_08: newobj Void .ctor(System.Object, System.IntPtr) */
-                /* IL_0D: stloc.0  */
-                loc0 = CILJS.newobj(t0,asm1.x6000001,[null, null, asm1.x6000005]);
-                /* IL_0E: ldloc.0  */
-                /* IL_0F: call Void CallDelegate(Foo) */
-                asm1.x6000008(loc0);
-                /* IL_14: nop  */
-                
-                /* IL_15: ldstr f, f */
-                /* IL_1A: ldc.i4.0  */
-                /* IL_1B: newarr System.Object */
-                /* IL_20: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(CILJS.new_string("f, f"),CILJS.new_array(t1,(0|0)));
-                /* IL_25: nop  */
-                
-                /* IL_26: ldloc.0  */
-                /* IL_27: ldloc.0  */
-                /* IL_28: call Void TestEquality(Foo, Foo) */
-                asm1.x6000009(loc0,loc0);
-                /* IL_2D: nop  */
-                
-                /* IL_2E: ldstr f, X */
-                /* IL_33: ldc.i4.0  */
-                /* IL_34: newarr System.Object */
-                /* IL_39: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(CILJS.new_string("f, X"),CILJS.new_array(t1,(0|0)));
-                /* IL_3E: nop  */
-                
-                /* IL_3F: ldloc.0  */
-                /* IL_40: ldnull  */
-                /* IL_42: ldftn String X(System.Int32) */
-                /* IL_47: newobj Void .ctor(System.Object, System.IntPtr) */
-                /* IL_4C: call Void TestEquality(Foo, Foo) */
-                asm1.x6000009(loc0,CILJS.newobj(t0,asm1.x6000001,[null, null, asm1.x6000005]));
-                /* IL_51: nop  */
-                
-                /* IL_52: ldstr f, Y */
-                /* IL_57: ldc.i4.0  */
-                /* IL_58: newarr System.Object */
-                /* IL_5D: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(CILJS.new_string("f, Y"),CILJS.new_array(t1,(0|0)));
-                /* IL_62: nop  */
-                
-                /* IL_63: ldloc.0  */
-                /* IL_64: ldnull  */
-                /* IL_66: ldftn String Y(System.Int32) */
-                /* IL_6B: newobj Void .ctor(System.Object, System.IntPtr) */
-                /* IL_70: call Void TestEquality(Foo, Foo) */
-                asm1.x6000009(loc0,CILJS.newobj(t0,asm1.x6000001,[null, null, asm1.x6000006]));
-                /* IL_75: nop  */
-                
-                /* IL_76: ldstr f, null */
-                /* IL_7B: ldc.i4.0  */
-                /* IL_7C: newarr System.Object */
-                /* IL_81: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(CILJS.new_string("f, null"),CILJS.new_array(t1,(0|0)));
-                /* IL_86: nop  */
-                
-                /* IL_87: ldloc.0  */
-                /* IL_88: ldnull  */
-                /* IL_89: call Void TestEquality(Foo, Foo) */
-                asm1.x6000009(loc0,null);
-                /* IL_8E: nop  */
-                
-                /* IL_8F: ldstr null, null */
-                /* IL_94: ldc.i4.0  */
-                /* IL_95: newarr System.Object */
-                /* IL_9A: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(CILJS.new_string("null, null"),CILJS.new_array(t1,(0|0)));
-                /* IL_9F: nop  */
-                
-                /* IL_A0: ldnull  */
-                /* IL_A1: ldnull  */
-                /* IL_A2: call Void TestEquality(Foo, Foo) */
-                asm1.x6000009(null,null);
-                /* IL_A7: nop  */
-                
-                /* IL_A8: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldnull  */
+        /* IL_03: ldftn String X(System.Int32) */
+        /* IL_08: newobj Void .ctor(System.Object, System.IntPtr) */
+        /* IL_0D: stloc.0  */
+        loc0 = CILJS.newobj(t0,asm1.x6000001,[null, null, asm1.x6000005]);
+        /* IL_0E: ldloc.0  */
+        /* IL_0F: call Void CallDelegate(Foo) */
+        asm1.x6000008(loc0);
+        /* IL_14: nop  */
+        /* IL_15: ldstr f, f */
+        /* IL_1A: ldc.i4.0  */
+        /* IL_1B: newarr System.Object */
+        /* IL_20: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(CILJS.new_string("f, f"),CILJS.new_array(t1,(0|0)));
+        /* IL_25: nop  */
+        /* IL_26: ldloc.0  */
+        /* IL_27: ldloc.0  */
+        /* IL_28: call Void TestEquality(Foo, Foo) */
+        asm1.x6000009(loc0,loc0);
+        /* IL_2D: nop  */
+        /* IL_2E: ldstr f, X */
+        /* IL_33: ldc.i4.0  */
+        /* IL_34: newarr System.Object */
+        /* IL_39: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(CILJS.new_string("f, X"),CILJS.new_array(t1,(0|0)));
+        /* IL_3E: nop  */
+        /* IL_3F: ldloc.0  */
+        /* IL_40: ldnull  */
+        /* IL_42: ldftn String X(System.Int32) */
+        /* IL_47: newobj Void .ctor(System.Object, System.IntPtr) */
+        /* IL_4C: call Void TestEquality(Foo, Foo) */
+        asm1.x6000009(loc0,CILJS.newobj(t0,asm1.x6000001,[null, null, asm1.x6000005]));
+        /* IL_51: nop  */
+        /* IL_52: ldstr f, Y */
+        /* IL_57: ldc.i4.0  */
+        /* IL_58: newarr System.Object */
+        /* IL_5D: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(CILJS.new_string("f, Y"),CILJS.new_array(t1,(0|0)));
+        /* IL_62: nop  */
+        /* IL_63: ldloc.0  */
+        /* IL_64: ldnull  */
+        /* IL_66: ldftn String Y(System.Int32) */
+        /* IL_6B: newobj Void .ctor(System.Object, System.IntPtr) */
+        /* IL_70: call Void TestEquality(Foo, Foo) */
+        asm1.x6000009(loc0,CILJS.newobj(t0,asm1.x6000001,[null, null, asm1.x6000006]));
+        /* IL_75: nop  */
+        /* IL_76: ldstr f, null */
+        /* IL_7B: ldc.i4.0  */
+        /* IL_7C: newarr System.Object */
+        /* IL_81: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(CILJS.new_string("f, null"),CILJS.new_array(t1,(0|0)));
+        /* IL_86: nop  */
+        /* IL_87: ldloc.0  */
+        /* IL_88: ldnull  */
+        /* IL_89: call Void TestEquality(Foo, Foo) */
+        asm1.x6000009(loc0,null);
+        /* IL_8E: nop  */
+        /* IL_8F: ldstr null, null */
+        /* IL_94: ldc.i4.0  */
+        /* IL_95: newarr System.Object */
+        /* IL_9A: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(CILJS.new_string("null, null"),CILJS.new_array(t1,(0|0)));
+        /* IL_9F: nop  */
+        /* IL_A0: ldnull  */
+        /* IL_A1: ldnull  */
+        /* IL_A2: call Void TestEquality(Foo, Foo) */
+        asm1.x6000009(null,null);
+        /* IL_A7: nop  */
+        /* IL_A8: ret  */
+        return ;
     };
     /* static System.Void Program.CallDelegate(Foo)*/
     asm.x6000008 = function CallDelegate(arg0)
     {
         var t0;
-        var in_block_0;
-        var __pos__;
         t0 = (asm0)["System.Object"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarg.0  */
-                /* IL_02: ldc.i4.s 123 */
-                /* IL_04: callvirt String Invoke(System.Int32) */
-                /* IL_09: ldc.i4.0  */
-                /* IL_0A: newarr System.Object */
-                /* IL_0F: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(((arg0._target) ? (arg0._methodPtr(arg0._target,(123|0))) : (arg0._methodPtr((123|0)))),CILJS.new_array(t0,(0|0)));
-                /* IL_14: nop  */
-                
-                /* IL_15: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldc.i4.s 123 */
+        /* IL_04: callvirt String Invoke(System.Int32) */
+        /* IL_09: ldc.i4.0  */
+        /* IL_0A: newarr System.Object */
+        /* IL_0F: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(((arg0._target) ? (arg0._methodPtr(arg0._target,(123|0))) : (arg0._methodPtr((123|0)))),CILJS.new_array(t0,(0|0)));
+        /* IL_14: nop  */
+        /* IL_15: ret  */
+        return ;
     };;
     /* static System.Void Program.TestEquality(Foo,Foo)*/
     asm.x6000009 = function TestEquality(arg0, arg1)
     {
         var t0;
-        var in_block_0;
-        var __pos__;
         t0 = (asm0)["System.Boolean"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarg.0  */
-                /* IL_02: ldarg.1  */
-                /* IL_03: call Boolean op_Equality(System.Delegate, System.Delegate) */
-                /* IL_08: box System.Boolean */
-                /* IL_0D: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.make_box(asm0.x6000062(arg0,arg1),t0));
-                /* IL_12: nop  */
-                
-                /* IL_13: ldarg.0  */
-                /* IL_14: ldarg.1  */
-                /* IL_15: call Boolean op_Inequality(System.Delegate, System.Delegate) */
-                /* IL_1A: box System.Boolean */
-                /* IL_1F: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.make_box(asm0.x6000063(arg0,arg1),t0));
-                /* IL_24: nop  */
-                
-                /* IL_25: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldarg.1  */
+        /* IL_03: call Boolean op_Equality(System.Delegate, System.Delegate) */
+        /* IL_08: box System.Boolean */
+        /* IL_0D: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box(asm0.x6000062(arg0,arg1),t0));
+        /* IL_12: nop  */
+        /* IL_13: ldarg.0  */
+        /* IL_14: ldarg.1  */
+        /* IL_15: call Boolean op_Inequality(System.Delegate, System.Delegate) */
+        /* IL_1A: box System.Boolean */
+        /* IL_1F: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box(asm0.x6000063(arg0,arg1),t0));
+        /* IL_24: nop  */
+        /* IL_25: ret  */
+        return ;
     };;
     /*  Program..ctor()*/
     asm.x600000a = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.Foo = CILJS.declare_type(
         "Foo",

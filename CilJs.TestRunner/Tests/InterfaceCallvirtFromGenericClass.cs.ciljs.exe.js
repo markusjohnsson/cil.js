@@ -4,49 +4,24 @@ var asm1;(function (asm)
     /* System.Int32 D.Get()*/
     asm.x6000002 = function Get(arg0)
     {
-        var in_block_0;
-        var __pos__;
         var loc0;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarg.0  */
-                /* IL_02: ldfld Int32 x */
-                /* IL_07: stloc.0  */
-                loc0 = arg0.x;
-                /* IL_0A: ldloc.0  */
-                /* IL_0B: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarg.0  */
+        /* IL_02: ldfld Int32 x */
+        /* IL_07: stloc.0  */
+        loc0 = arg0.x;
+        /* IL_0A: ldloc.0  */
+        /* IL_0B: ret  */
+        return loc0;
     };;
     /*  D..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* System.Void C`1.X(T)*/
     asm.x6000004_init = function (arg0, arg1)
@@ -63,61 +38,35 @@ var asm1;(function (asm)
     {
         var t0;
         var t1;
-        var in_block_0;
-        var __pos__;
         t0 = asm1.I2();
         t1 = (asm0)["System.Int32"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarga.s 1 */
-                /* IL_09: callvirt Int32 Get() */
-                /* IL_0E: box System.Int32 */
-                /* IL_13: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.make_box((((arg1.ifacemap || ((arg0.constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)())(CILJS.dereference_pointer_as_needed({
-                                    'w': function (v)
-                                    {
-                                        arg1 = v;
-                                    },
-                                    'r': function ()
-                                    {
-                                        return arg1;
-                                    }
-                                })),t1));
-                /* IL_18: nop  */
-                
-                /* IL_19: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarga.s 1 */
+        /* IL_09: callvirt Int32 Get() */
+        /* IL_0E: box System.Int32 */
+        /* IL_13: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((arg1.ifacemap || ((arg0.constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)())(CILJS.dereference_pointer_as_needed({
+                            'w': function (v)
+                            {
+                                arg1 = v;
+                            },
+                            'r': function ()
+                            {
+                                return arg1;
+                            }
+                        })),t1));
+        /* IL_18: nop  */
+        /* IL_19: ret  */
+        return ;
     };
     /*  C`1..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* static System.Void Program.Main()*/
     asm.x6000006_init = function ()
@@ -139,64 +88,38 @@ var asm1;(function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var in_block_0;
-        var __pos__;
         var loc0;
         CILJS.init_base_types();
         t0 = asm1.D();
         t1 = (asm1)["C`1"](t0);
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: newobj Void .ctor() */
-                st_03 = CILJS.newobj(t1,asm1.x6000005,[null]);
-                /* IL_06: newobj Void .ctor() */
-                /* IL_0B: stloc.0  */
-                loc0 = CILJS.newobj(t0,asm1.x6000003,[null]);
-                /* IL_0C: ldloc.0  */
-                st_01 = loc0;
-                /* IL_0D: ldc.i4.s 101 */
-                st_02 = (101|0);
-                /* IL_0F: stfld Int32 x */
-                st_01.x = st_02;
-                /* IL_14: ldloc.0  */
-                st_04 = loc0;
-                /* IL_15: call Void X(D) */
-                asm1.x6000004(st_03,st_04);
-                /* IL_1A: nop  */
-                
-                /* IL_1B: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: newobj Void .ctor() */
+        st_03 = CILJS.newobj(t1,asm1.x6000005,[null]);
+        /* IL_06: newobj Void .ctor() */
+        /* IL_0B: stloc.0  */
+        loc0 = CILJS.newobj(t0,asm1.x6000003,[null]);
+        /* IL_0C: ldloc.0  */
+        st_01 = loc0;
+        /* IL_0D: ldc.i4.s 101 */
+        st_02 = (101|0);
+        /* IL_0F: stfld Int32 x */
+        st_01.x = st_02;
+        /* IL_14: ldloc.0  */
+        st_04 = loc0;
+        /* IL_15: call Void X(D) */
+        asm1.x6000004(st_03,st_04);
+        /* IL_1A: nop  */
+        /* IL_1B: ret  */
+        return ;
     };
     /*  Program..ctor()*/
     asm.x6000007 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.I = CILJS.declare_type(
         "I",

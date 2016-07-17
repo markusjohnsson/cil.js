@@ -5,75 +5,36 @@ var asm1;(function (asm)
     asm.x6000001 = function Callee()
     {
         var t0;
-        var in_block_0;
-        var __pos__;
         t0 = (asm0)["System.Object"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldstr Called! */
-                /* IL_06: ldc.i4.0  */
-                /* IL_07: newarr System.Object */
-                /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(CILJS.new_string("Called!"),CILJS.new_array(t0,(0|0)));
-                /* IL_11: nop  */
-                
-                /* IL_12: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldstr Called! */
+        /* IL_06: ldc.i4.0  */
+        /* IL_07: newarr System.Object */
+        /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(CILJS.new_string("Called!"),CILJS.new_array(t0,(0|0)));
+        /* IL_11: nop  */
+        /* IL_12: ret  */
+        return ;
     };;
     /* static System.Void Program.Main()*/
     asm.x6000002 = function Main()
     {
-        var in_block_0;
-        var __pos__;
         CILJS.init_base_types();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: call Void Callee() */
-                asm1.x6000001();
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: call Void Callee() */
+        asm1.x6000001();
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  Program..ctor()*/
     asm.x6000003 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.Program = CILJS.declare_type(
         "Program",

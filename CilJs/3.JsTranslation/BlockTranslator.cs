@@ -37,7 +37,7 @@ namespace CilJs.JsTranslation
             var opTranslator = new OpTranslator(context, assembly, type, method, block);
 
             var hasFinally = region != null && region.FinallyBlock != null;
-            var hasBranching = block.GetAllLabels().Any();
+            var hasBranching = block.GetAllLabels().Any(l => l.Position != 0);
 
             var builder = new BlockBuilder(
                 depth, GetStartPosition(block), GetEndPosition(block), hasFinally, hasBranching, isSubBlock, isFinally);

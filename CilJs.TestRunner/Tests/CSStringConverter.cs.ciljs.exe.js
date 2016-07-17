@@ -4,121 +4,57 @@ var asm1;(function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000001 = function Main()
     {
-        var in_block_0;
-        var __pos__;
         CILJS.init_base_types();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ret  */
+        return ;
     };;
     /*  Program..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* System.Void S.Append(String)*/
     asm.x6000003 = function Append(arg0, arg1)
     {
         var t0;
-        var in_block_0;
-        var __pos__;
         t0 = (asm0)["System.Object"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarg.1  */
-                /* IL_02: ldc.i4.0  */
-                /* IL_03: newarr System.Object */
-                /* IL_08: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x600005b(arg1,CILJS.new_array(t0,(0|0)));
-                /* IL_0D: nop  */
-                
-                /* IL_0E: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: ldc.i4.0  */
+        /* IL_03: newarr System.Object */
+        /* IL_08: call Void WriteLine(System.String, System.Object[]) */
+        asm0.x600005b(arg1,CILJS.new_array(t0,(0|0)));
+        /* IL_0D: nop  */
+        /* IL_0E: ret  */
+        return ;
     };;
     /* System.Void S.Append(Char)*/
     asm.x6000004 = function Append(arg0, arg1)
     {
         var t0;
-        var in_block_0;
-        var __pos__;
         t0 = (asm0)["System.Char"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldarg.1  */
-                /* IL_02: box System.Char */
-                /* IL_07: call Void WriteLine(System.Object) */
-                asm0.x600005a(CILJS.make_box(arg1,t0));
-                /* IL_0C: nop  */
-                
-                /* IL_0D: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: box System.Char */
+        /* IL_07: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box(arg1,t0));
+        /* IL_0C: nop  */
+        /* IL_0D: ret  */
+        return ;
     };;
     /*  S..ctor()*/
     asm.x6000005 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* static System.String CSStringConverter.Convert(String)*/
     asm.x6000006_init = function (arg0)
@@ -378,30 +314,18 @@ var asm1;(function (asm)
     asm.x6000007 = function EscapeChar(arg0)
     {
         var t0;
-        var in_block_0;
-        var __pos__;
         var loc0;
         t0 = (asm0)["System.Int32"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldstr \u */
-                /* IL_06: ldarg.0  */
-                /* IL_07: box System.Int32 */
-                /* IL_0C: call String Concat(System.Object, System.Object) */
-                /* IL_11: stloc.0  */
-                loc0 = asm0.x600012b(CILJS.new_string("\\u"),CILJS.make_box(arg0,t0));
-                /* IL_14: ldloc.0  */
-                /* IL_15: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldstr \u */
+        /* IL_06: ldarg.0  */
+        /* IL_07: box System.Int32 */
+        /* IL_0C: call String Concat(System.Object, System.Object) */
+        /* IL_11: stloc.0  */
+        loc0 = asm0.x600012b(CILJS.new_string("\\u"),CILJS.make_box(arg0,t0));
+        /* IL_14: ldloc.0  */
+        /* IL_15: ret  */
+        return loc0;
     };;
     asm.Program = CILJS.declare_type(
         "Program",

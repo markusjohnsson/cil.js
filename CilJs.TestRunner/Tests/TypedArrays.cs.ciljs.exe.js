@@ -4,46 +4,28 @@ var asm1;(function (asm)
     /* static System.Void Program.Main()*/
     asm.x6000001 = function Main()
     {
-        var in_block_0;
-        var __pos__;
         CILJS.init_base_types();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: call Void TestUInt8() */
-                asm1.x6000003();
-                /* IL_06: nop  */
-                
-                /* IL_07: call Void TestInt8() */
-                asm1.x6000002();
-                /* IL_0C: nop  */
-                
-                /* IL_0D: call Void TestUInt16() */
-                asm1.x6000005();
-                /* IL_12: nop  */
-                
-                /* IL_13: call Void TestInt16() */
-                asm1.x6000004();
-                /* IL_18: nop  */
-                
-                /* IL_19: call Void TestUInt32() */
-                asm1.x6000007();
-                /* IL_1E: nop  */
-                
-                /* IL_1F: call Void TestInt32() */
-                asm1.x6000006();
-                /* IL_24: nop  */
-                
-                /* IL_25: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: call Void TestUInt8() */
+        asm1.x6000003();
+        /* IL_06: nop  */
+        /* IL_07: call Void TestInt8() */
+        asm1.x6000002();
+        /* IL_0C: nop  */
+        /* IL_0D: call Void TestUInt16() */
+        asm1.x6000005();
+        /* IL_12: nop  */
+        /* IL_13: call Void TestInt16() */
+        asm1.x6000004();
+        /* IL_18: nop  */
+        /* IL_19: call Void TestUInt32() */
+        asm1.x6000007();
+        /* IL_1E: nop  */
+        /* IL_1F: call Void TestInt32() */
+        asm1.x6000006();
+        /* IL_24: nop  */
+        /* IL_25: ret  */
+        return ;
     };;
     /* static System.Void Program.TestInt8()*/
     asm.x6000002 = function TestInt8()
@@ -684,24 +666,11 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x6000008 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.Program = CILJS.declare_type(
         "Program",

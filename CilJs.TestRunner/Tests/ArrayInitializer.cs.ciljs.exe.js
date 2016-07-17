@@ -10,39 +10,27 @@ var asm1;(function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var in_block_0;
-        var __pos__;
         var loc0;
         t0 = (asm0)["System.Int32"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldc.i4.s 9 */
-                st_00 = (9|0);
-                /* IL_03: newarr System.Int32 */
-                st_01 = CILJS.new_array(t0,st_00);
-                /* IL_08: dup  */
-                st_04 = st_02 = st_01;
-                /* IL_09: ldtoken __StaticArrayInitTypeSize=36 F9B1568FE79B0488527D985DE5FF2A8E9CF0B9D0 */
-                st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                        'type': (asm1)["<PrivateImplementationDetails>"](),
-                        'field': "F9B1568FE79B0488527D985DE5FF2A8E9CF0B9D0"
-                    });
-                /* IL_0E: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
-                asm0.x6000196(st_02,st_03);
-                /* IL_13: stloc.0  */
-                loc0 = st_04;
-                /* IL_16: ldloc.0  */
-                /* IL_17: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.s 9 */
+        st_00 = (9|0);
+        /* IL_03: newarr System.Int32 */
+        st_01 = CILJS.new_array(t0,st_00);
+        /* IL_08: dup  */
+        st_04 = st_02 = st_01;
+        /* IL_09: ldtoken __StaticArrayInitTypeSize=36 F9B1568FE79B0488527D985DE5FF2A8E9CF0B9D0 */
+        st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
+                'type': (asm1)["<PrivateImplementationDetails>"](),
+                'field': "F9B1568FE79B0488527D985DE5FF2A8E9CF0B9D0"
+            });
+        /* IL_0E: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
+        asm0.x6000196(st_02,st_03);
+        /* IL_13: stloc.0  */
+        loc0 = st_04;
+        /* IL_16: ldloc.0  */
+        /* IL_17: ret  */
+        return loc0;
     };;
     /* static System.UInt32[] Program.GetUIntArray()*/
     asm.x6000002 = function GetUIntArray()
@@ -53,39 +41,27 @@ var asm1;(function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var in_block_0;
-        var __pos__;
         var loc0;
         t0 = (asm0)["System.UInt32"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldc.i4.s 9 */
-                st_00 = (9|0);
-                /* IL_03: newarr System.UInt32 */
-                st_01 = CILJS.new_array(t0,st_00);
-                /* IL_08: dup  */
-                st_04 = st_02 = st_01;
-                /* IL_09: ldtoken __StaticArrayInitTypeSize=36 A76BEC1B9479B9E910C8CE8D84FFF8345F6EC5B5 */
-                st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                        'type': (asm1)["<PrivateImplementationDetails>"](),
-                        'field': "A76BEC1B9479B9E910C8CE8D84FFF8345F6EC5B5"
-                    });
-                /* IL_0E: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
-                asm0.x6000196(st_02,st_03);
-                /* IL_13: stloc.0  */
-                loc0 = st_04;
-                /* IL_16: ldloc.0  */
-                /* IL_17: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.s 9 */
+        st_00 = (9|0);
+        /* IL_03: newarr System.UInt32 */
+        st_01 = CILJS.new_array(t0,st_00);
+        /* IL_08: dup  */
+        st_04 = st_02 = st_01;
+        /* IL_09: ldtoken __StaticArrayInitTypeSize=36 A76BEC1B9479B9E910C8CE8D84FFF8345F6EC5B5 */
+        st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
+                'type': (asm1)["<PrivateImplementationDetails>"](),
+                'field': "A76BEC1B9479B9E910C8CE8D84FFF8345F6EC5B5"
+            });
+        /* IL_0E: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
+        asm0.x6000196(st_02,st_03);
+        /* IL_13: stloc.0  */
+        loc0 = st_04;
+        /* IL_16: ldloc.0  */
+        /* IL_17: ret  */
+        return loc0;
     };;
     /* static System.Byte[] Program.GetByteArray()*/
     asm.x6000003 = function GetByteArray()
@@ -96,39 +72,27 @@ var asm1;(function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var in_block_0;
-        var __pos__;
         var loc0;
         t0 = (asm0)["System.Byte"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldc.i4.7  */
-                st_00 = (7|0);
-                /* IL_02: newarr System.Byte */
-                st_01 = CILJS.new_array(t0,st_00);
-                /* IL_07: dup  */
-                st_04 = st_02 = st_01;
-                /* IL_08: ldtoken __StaticArrayInitTypeSize=7 62A74763762F66F6206022431BFD7DB5CDA6A815 */
-                st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                        'type': (asm1)["<PrivateImplementationDetails>"](),
-                        'field': "62A74763762F66F6206022431BFD7DB5CDA6A815"
-                    });
-                /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
-                asm0.x6000196(st_02,st_03);
-                /* IL_12: stloc.0  */
-                loc0 = st_04;
-                /* IL_15: ldloc.0  */
-                /* IL_16: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.7  */
+        st_00 = (7|0);
+        /* IL_02: newarr System.Byte */
+        st_01 = CILJS.new_array(t0,st_00);
+        /* IL_07: dup  */
+        st_04 = st_02 = st_01;
+        /* IL_08: ldtoken __StaticArrayInitTypeSize=7 62A74763762F66F6206022431BFD7DB5CDA6A815 */
+        st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
+                'type': (asm1)["<PrivateImplementationDetails>"](),
+                'field': "62A74763762F66F6206022431BFD7DB5CDA6A815"
+            });
+        /* IL_0D: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
+        asm0.x6000196(st_02,st_03);
+        /* IL_12: stloc.0  */
+        loc0 = st_04;
+        /* IL_15: ldloc.0  */
+        /* IL_16: ret  */
+        return loc0;
     };;
     /* static System.Int64[] Program.GetLongArray()*/
     asm.x6000004 = function GetLongArray()
@@ -139,39 +103,27 @@ var asm1;(function (asm)
         var st_02;
         var st_03;
         var st_04;
-        var in_block_0;
-        var __pos__;
         var loc0;
         t0 = (asm0)["System.Int64"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: ldc.i4.s 9 */
-                st_00 = (9|0);
-                /* IL_03: newarr System.Int64 */
-                st_01 = CILJS.new_array(t0,st_00);
-                /* IL_08: dup  */
-                st_04 = st_02 = st_01;
-                /* IL_09: ldtoken __StaticArrayInitTypeSize=72 445907C2EF4F26A3A6554D214D569220C5EC1808 */
-                st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
-                        'type': (asm1)["<PrivateImplementationDetails>"](),
-                        'field': "445907C2EF4F26A3A6554D214D569220C5EC1808"
-                    });
-                /* IL_0E: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
-                asm0.x6000196(st_02,st_03);
-                /* IL_13: stloc.0  */
-                loc0 = st_04;
-                /* IL_16: ldloc.0  */
-                /* IL_17: ret  */
-                return loc0;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: ldc.i4.s 9 */
+        st_00 = (9|0);
+        /* IL_03: newarr System.Int64 */
+        st_01 = CILJS.new_array(t0,st_00);
+        /* IL_08: dup  */
+        st_04 = st_02 = st_01;
+        /* IL_09: ldtoken __StaticArrayInitTypeSize=72 445907C2EF4F26A3A6554D214D569220C5EC1808 */
+        st_03 = CILJS.new_handle((asm0)["System.RuntimeFieldHandle"](),{
+                'type': (asm1)["<PrivateImplementationDetails>"](),
+                'field': "445907C2EF4F26A3A6554D214D569220C5EC1808"
+            });
+        /* IL_0E: call Void InitializeArray(System.Array, System.RuntimeFieldHandle) */
+        asm0.x6000196(st_02,st_03);
+        /* IL_13: stloc.0  */
+        loc0 = st_04;
+        /* IL_16: ldloc.0  */
+        /* IL_17: ret  */
+        return loc0;
     };;
     /* static System.Void Program.Main()*/
     asm.x6000005 = function Main()
@@ -180,46 +132,30 @@ var asm1;(function (asm)
         var t1;
         var t2;
         var t3;
-        var in_block_0;
-        var __pos__;
         CILJS.init_base_types();
         t0 = (asm0)["System.Int32"]();
         t1 = (asm0)["System.UInt32"]();
         t2 = (asm0)["System.Byte"]();
         t3 = (asm0)["System.Int64"]();
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: nop  */
-                
-                /* IL_01: call Int32[] GetIntArray() */
-                /* IL_06: call Void Print[System.Int32](System.Int32[]) */
-                (asm1.x6000006((asm0)["System.Int32"]()))(asm1.x6000001());
-                /* IL_0B: nop  */
-                
-                /* IL_0C: call UInt32[] GetUIntArray() */
-                /* IL_11: call Void Print[System.UInt32](System.UInt32[]) */
-                (asm1.x6000006((asm0)["System.UInt32"]()))(asm1.x6000002());
-                /* IL_16: nop  */
-                
-                /* IL_17: call Byte[] GetByteArray() */
-                /* IL_1C: call Void Print[System.Byte](System.Byte[]) */
-                (asm1.x6000006((asm0)["System.Byte"]()))(asm1.x6000003());
-                /* IL_21: nop  */
-                
-                /* IL_22: call Int64[] GetLongArray() */
-                /* IL_27: call Void Print[System.Int64](System.Int64[]) */
-                (asm1.x6000006((asm0)["System.Int64"]()))(asm1.x6000004());
-                /* IL_2C: nop  */
-                
-                /* IL_2D: ret  */
-                return ;
-            }
-        }
+        /* IL_00: nop  */
+        /* IL_01: call Int32[] GetIntArray() */
+        /* IL_06: call Void Print[System.Int32](System.Int32[]) */
+        (asm1.x6000006((asm0)["System.Int32"]()))(asm1.x6000001());
+        /* IL_0B: nop  */
+        /* IL_0C: call UInt32[] GetUIntArray() */
+        /* IL_11: call Void Print[System.UInt32](System.UInt32[]) */
+        (asm1.x6000006((asm0)["System.UInt32"]()))(asm1.x6000002());
+        /* IL_16: nop  */
+        /* IL_17: call Byte[] GetByteArray() */
+        /* IL_1C: call Void Print[System.Byte](System.Byte[]) */
+        (asm1.x6000006((asm0)["System.Byte"]()))(asm1.x6000003());
+        /* IL_21: nop  */
+        /* IL_22: call Int64[] GetLongArray() */
+        /* IL_27: call Void Print[System.Int64](System.Int64[]) */
+        (asm1.x6000006((asm0)["System.Int64"]()))(asm1.x6000004());
+        /* IL_2C: nop  */
+        /* IL_2D: ret  */
+        return ;
     };;
     /* static System.Void Program.Print<T>(T[])*/
     asm.x6000006 = function (T)
@@ -312,24 +248,11 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x6000007 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.Program = CILJS.declare_type(
         "Program",

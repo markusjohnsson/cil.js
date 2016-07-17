@@ -4,160 +4,73 @@ var asm1;(function (asm)
     /*  A..ctor()*/
     asm.x6000001 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                asm0.x600003e(arg0);
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        asm0.x600003e(arg0);
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  B..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* System.String A2.get_P()*/
     asm.x6000003 = function get_P(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: ldfld String <P>k__BackingField */
-                /* IL_06: ret  */
-                return (arg0)["A2<P>k__BackingField"];
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldfld String <P>k__BackingField */
+        /* IL_06: ret  */
+        return (arg0)["A2<P>k__BackingField"];
     };;
     /* System.Void A2.set_P(String)*/
     asm.x6000004 = function set_P(arg0, arg1)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: ldarg.1  */
-                /* IL_02: stfld String <P>k__BackingField */
-                (arg0)["A2<P>k__BackingField"] = arg1;
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: ldarg.1  */
+        /* IL_02: stfld String <P>k__BackingField */
+        (arg0)["A2<P>k__BackingField"] = arg1;
+        /* IL_07: ret  */
+        return ;
     };;
     /*  A2..ctor(String)*/
     asm.x6000005 = function _ctor(arg0, arg1)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                asm0.x600003e(arg0);
-                /* IL_06: nop  */
-                
-                /* IL_07: nop  */
-                
-                /* IL_08: ldarg.0  */
-                /* IL_09: ldarg.1  */
-                /* IL_0A: call Void set_P(System.String) */
-                asm1.x6000004(arg0,arg1);
-                /* IL_0F: nop  */
-                
-                /* IL_10: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        asm0.x600003e(arg0);
+        /* IL_06: nop  */
+        /* IL_07: nop  */
+        /* IL_08: ldarg.0  */
+        /* IL_09: ldarg.1  */
+        /* IL_0A: call Void set_P(System.String) */
+        asm1.x6000004(arg0,arg1);
+        /* IL_0F: nop  */
+        /* IL_10: ret  */
+        return ;
     };;
     /*  C..ctor()*/
     asm.x6000006 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /*  D..ctor()*/
     asm.x6000007 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     /* static System.Void Program.Main(String[])*/
     asm.x6000008_init = function (arg0)
@@ -343,24 +256,11 @@ var asm1;(function (asm)
     /*  Program..ctor()*/
     asm.x6000009 = function _ctor(arg0)
     {
-        var in_block_0;
-        var __pos__;
-        in_block_0 = true;
-        __pos__ = 0x0;
-        
-        while (in_block_0){
-            
-            switch (__pos__){
-                case 0x0:
-                /* IL_00: ldarg.0  */
-                /* IL_01: call Void .ctor() */
-                
-                /* IL_06: nop  */
-                
-                /* IL_07: ret  */
-                return ;
-            }
-        }
+        /* IL_00: ldarg.0  */
+        /* IL_01: call Void .ctor() */
+        /* IL_06: nop  */
+        /* IL_07: ret  */
+        return ;
     };;
     asm.A = CILJS.declare_type(
         "A",
