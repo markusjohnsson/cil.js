@@ -244,7 +244,7 @@ var asm1;(function (asm)
                                             /* IL_19: leave.s IL_49 */
                                             in_block_2 = false;
                                             __pos__ = 0x49;
-                                            break;
+                                            continue;
                                         }
                                     }
                                 }
@@ -279,7 +279,7 @@ var asm1;(function (asm)
                                             /* IL_30: leave.s IL_49 */
                                             in_block_2 = false;
                                             __pos__ = 0x49;
-                                            break;
+                                            continue;
                                         }
                                     }
                                 }
@@ -314,7 +314,7 @@ var asm1;(function (asm)
                                             /* IL_47: leave.s IL_49 */
                                             in_block_2 = false;
                                             __pos__ = 0x49;
-                                            break;
+                                            continue;
                                         }
                                     }
                                 }
@@ -328,7 +328,7 @@ var asm1;(function (asm)
                             /* IL_49: leave.s IL_5F */
                             in_block_1 = false;
                             __pos__ = 0x5F;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -356,7 +356,7 @@ var asm1;(function (asm)
                             /* IL_5E: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
-                            break;
+                            continue;
                         }
                         break;
                     }

@@ -686,6 +686,10 @@ var asm1;(function (asm)
                     }
                     break;
                 }
+                
+                if (([0x28, 0x39].indexOf)(__pos__) == (-1|0)){
+                    continue;
+                }
                 /* IL_45: ldstr Descending */
                 /* IL_4A: ldc.i4.0  */
                 /* IL_4B: newarr System.Object */
@@ -760,6 +764,10 @@ var asm1;(function (asm)
                         }
                     }
                     break;
+                }
+                
+                if (([0x6D, 0x81].indexOf)(__pos__) == (-1|0)){
+                    continue;
                 }
                 /* IL_8E: ret  */
                 return ;

@@ -110,6 +110,11 @@ namespace CilJs.JSAst
             return new JSBinaryExpression { Left = expr, Operator = "|", Right = Number(0) };
         }
 
+        public static JSExpression Binary(JSExpression left, string op, JSExpression right)
+        {
+            return new JSBinaryExpression { Left = left, Operator = op, Right = right };
+        }
+
         public static JSExpression Number(int p)
         {
             return new JSNumberLiteral { Value = p, TypeHint = TypeHint.Integer };

@@ -119,6 +119,10 @@ var asm1;(function (asm)
                     }
                     break;
                 }
+                
+                if (([0x5, 0x10, 0x1A, 0x21].indexOf)(__pos__) == (-1|0)){
+                    continue;
+                }
                 case 0x26:
                 /* IL_26: ret  */
                 return ;
@@ -222,6 +226,10 @@ var asm1;(function (asm)
                         continue;
                     }
                     break;
+                }
+                
+                if (([0x5, 0x10, 0x1A, 0x21].indexOf)(__pos__) == (-1|0)){
+                    continue;
                 }
             }
         }

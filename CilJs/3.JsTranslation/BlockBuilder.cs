@@ -133,7 +133,7 @@ namespace CilJs.JsTranslation
                         };
                     }
                 }
-
+                
                 var body = new List<JSStatement>
                 {
                     new JSSwitchStatement
@@ -145,12 +145,13 @@ namespace CilJs.JsTranslation
 
                 if (isFinally || isSubBlock)
                     body.Add(new JSBreakExpression().ToStatement());
-
+                
                 yield return new JSWhileLoopStatement
                 {
                     Condition = new JSIdentifier { Name = "in_block_" + Depth },
                     Statements = body
                 };
+                
             }
             else
             {

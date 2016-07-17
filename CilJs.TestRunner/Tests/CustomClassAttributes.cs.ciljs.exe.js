@@ -300,6 +300,10 @@ var asm1;(function (asm)
                     }
                     break;
                 }
+                
+                if (([0x24, 0x69].indexOf)(__pos__) == (-1|0)){
+                    continue;
+                }
                 /* IL_75: ldtoken C */
                 /* IL_7A: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
                 /* IL_7F: ldc.i4.1  */

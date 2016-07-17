@@ -16,6 +16,8 @@ namespace CilJs.JSAst
 
         public List<JSStatement> Statements { get; set; }
 
+        public string Name { get; set; }
+
         public override void Emit(Emitter emitter)
         {
             emitter.EmitNewLineAndIndentation();

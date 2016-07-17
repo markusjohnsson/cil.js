@@ -102,6 +102,10 @@ var asm1;(function (asm)
                         }
                         break;
                     }
+                    
+                    if (([0x8, 0x21, 0x26].indexOf)(__pos__) == (-1|0)){
+                        continue;
+                    }
                     /* IL_2C: ldloca.s 5 */
                     /* IL_2F: initobj T */
                     loc5 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));

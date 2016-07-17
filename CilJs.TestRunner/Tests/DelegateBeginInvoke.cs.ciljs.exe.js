@@ -194,6 +194,10 @@ var asm1;(function (asm)
                     }
                     break;
                 }
+                
+                if (([0x4A, 0x52].indexOf)(__pos__) == (-1|0)){
+                    continue;
+                }
                 /* IL_5F: ldloc.2  */
                 /* IL_60: ldloc.1  */
                 /* IL_61: callvirt Void EndInvoke(System.IAsyncResult) */
@@ -778,7 +782,7 @@ var asm1;(function (asm)
                             /* IL_2A: leave.s IL_34 */
                             in_block_1 = false;
                             __pos__ = 0x34;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -800,7 +804,7 @@ var asm1;(function (asm)
                             /* IL_33: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
-                            break;
+                            continue;
                         }
                         break;
                     }

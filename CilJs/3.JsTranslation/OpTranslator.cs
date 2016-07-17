@@ -150,7 +150,7 @@ namespace CilJs.JsTranslation
                             new JSIdentifier { Name = "__pos__" },
                             new JSIdentifier { Name = "__finally_continuation__" })
                         .ToStatement();
-                    yield return new JSBreakExpression().ToStatement();
+                    yield return new JSContinueExpression().ToStatement();
                     break;
                 case "leave":
                 case "leave.s":
@@ -168,7 +168,7 @@ namespace CilJs.JsTranslation
                             new JSIdentifier { Name = "__pos__" },
                             new JSNumberLiteral { Value = target, IsHex = true })
                         .ToStatement();
-                    yield return new JSBreakExpression().ToStatement();
+                    yield return new JSContinueExpression().ToStatement();
                     break;
                 case "switch":
 

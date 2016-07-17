@@ -215,7 +215,7 @@ var asm1;(function (asm)
                                 /* IL_15: leave.s IL_38 */
                                 in_block_1 = false;
                                 __pos__ = 0x38;
-                                break;
+                                continue;
                                 case 0x17:
                                 /* IL_17: ldloc.0  */
                                 /* IL_18: callvirt Boolean MoveNext() */
@@ -228,7 +228,7 @@ var asm1;(function (asm)
                                 /* IL_1F: leave.s IL_2C */
                                 in_block_1 = false;
                                 __pos__ = 0x2C;
-                                break;
+                                continue;
                             }
                         }
                     }
@@ -258,7 +258,7 @@ var asm1;(function (asm)
                                 /* IL_2B: endfinally  */
                                 in_block_1 = false;
                                 __pos__ = __finally_continuation_1__;
-                                break;
+                                continue;
                             }
                             break;
                         }
@@ -363,7 +363,7 @@ var asm1;(function (asm)
                                 /* IL_15: leave.s IL_30 */
                                 in_block_1 = false;
                                 __pos__ = 0x30;
-                                break;
+                                continue;
                                 case 0x17:
                                 /* IL_17: ldloc.0  */
                                 /* IL_18: callvirt Boolean MoveNext() */
@@ -376,7 +376,7 @@ var asm1;(function (asm)
                                 /* IL_1F: leave.s IL_2C */
                                 in_block_1 = false;
                                 __pos__ = 0x2C;
-                                break;
+                                continue;
                             }
                         }
                     }
@@ -406,7 +406,7 @@ var asm1;(function (asm)
                                 /* IL_2B: endfinally  */
                                 in_block_1 = false;
                                 __pos__ = __finally_continuation_1__;
-                                break;
+                                continue;
                             }
                             break;
                         }
@@ -901,7 +901,7 @@ var asm1;(function (asm)
                             /* IL_15: leave.s IL_1E */
                             in_block_1 = false;
                             __pos__ = 0x1E;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -921,7 +921,7 @@ var asm1;(function (asm)
                             /* IL_1D: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
-                            break;
+                            continue;
                         }
                         break;
                     }
@@ -1021,7 +1021,7 @@ var asm1;(function (asm)
                             /* IL_18: leave IL_AF */
                             in_block_1 = false;
                             __pos__ = 0xAF;
-                            break;
+                            continue;
                             case 0x1D:
                             /* IL_1D: ldarg.0  */
                             /* IL_1E: ldc.i4.m1  */
@@ -1069,7 +1069,7 @@ var asm1;(function (asm)
                             /* IL_72: leave.s IL_AF */
                             in_block_1 = false;
                             __pos__ = 0xAF;
-                            break;
+                            continue;
                             case 0x74:
                             /* IL_74: ldarg.0  */
                             /* IL_75: ldc.i4.s 253 */
@@ -1104,7 +1104,7 @@ var asm1;(function (asm)
                             /* IL_A5: leave.s IL_AF */
                             in_block_1 = false;
                             __pos__ = 0xAF;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -1135,7 +1135,7 @@ var asm1;(function (asm)
                                 /* IL_AE: endfinally  */
                                 in_block_1 = false;
                                 __pos__ = __finally_continuation_1__;
-                                break;
+                                continue;
                                 throw __error__;
                             }
                         }
@@ -1445,7 +1445,7 @@ var asm1;(function (asm)
                             /* IL_15: leave.s IL_1E */
                             in_block_1 = false;
                             __pos__ = 0x1E;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -1465,7 +1465,7 @@ var asm1;(function (asm)
                             /* IL_1D: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
-                            break;
+                            continue;
                         }
                         break;
                     }
@@ -1555,7 +1555,7 @@ var asm1;(function (asm)
                             /* IL_18: leave IL_B9 */
                             in_block_1 = false;
                             __pos__ = 0xB9;
-                            break;
+                            continue;
                             case 0x1D:
                             /* IL_1D: ldarg.0  */
                             /* IL_1E: ldc.i4.m1  */
@@ -1614,7 +1614,7 @@ var asm1;(function (asm)
                             /* IL_7C: leave.s IL_B9 */
                             in_block_1 = false;
                             __pos__ = 0xB9;
-                            break;
+                            continue;
                             case 0x7E:
                             /* IL_7E: ldarg.0  */
                             /* IL_7F: ldc.i4.s 253 */
@@ -1650,7 +1650,7 @@ var asm1;(function (asm)
                             /* IL_AF: leave.s IL_B9 */
                             in_block_1 = false;
                             __pos__ = 0xB9;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -1681,7 +1681,7 @@ var asm1;(function (asm)
                                 /* IL_B8: endfinally  */
                                 in_block_1 = false;
                                 __pos__ = __finally_continuation_1__;
-                                break;
+                                continue;
                                 throw __error__;
                             }
                         }

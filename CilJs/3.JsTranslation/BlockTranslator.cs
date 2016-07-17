@@ -41,7 +41,7 @@ namespace CilJs.JsTranslation
 
             var builder = new BlockBuilder(
                 depth, GetStartPosition(block), GetEndPosition(block), hasFinally, hasBranching, isSubBlock, isFinally);
-            
+
             foreach (var node in block.Ast)
             {
                 var subblock = node as Block;
@@ -78,7 +78,26 @@ namespace CilJs.JsTranslation
                 {
                     foreach (var lbl in subblock.GetAllLabels())
                         builder.InsertLabel(lbl);
+
                     builder.InsertStatements(CreateJsBlock(null, subblock, depth + 1, isSubBlock: true).Build());
+
+                    var posisions = JSFactory.Array(true, subblock.GetAllLabels().Select(l => JSFactory.HexLiteral(l.Position)).Cast<JSExpression>().ToArray());
+
+                    builder.InsertStatements(
+                        new[] 
+                        {
+                            new JSIfStatement
+                            {
+                                Condition = JSFactory.Binary( 
+                                    JSFactory.Call(JSFactory.Identifier(posisions, "indexOf"), JSFactory.Identifier("__pos__")),
+                                    "==",
+                                    JSFactory.Literal(-1)),
+                                Statements =
+                                {
+                                    new JSContinueExpression().ToStatement()
+                                }
+                            }
+                        });
                 }
                 else if (expr != null)
                 {
@@ -142,7 +161,7 @@ namespace CilJs.JsTranslation
 
             var handledFlag = new JSIdentifier { Name = "__error_handled_" + p + "__" };
 
-            var statements = new List<JSStatement> 
+            var statements = new List<JSStatement>
             {
                 JSFactory.Statement(
                     new JSVariableDelcaration
@@ -253,7 +272,7 @@ namespace CilJs.JsTranslation
             {
                 Statements = CreateJsBlock(region, finallyBlock, p, isFinally: true).Build().ToList()
             };
-            
+
         }
     }
 }

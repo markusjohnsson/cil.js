@@ -234,7 +234,7 @@ var asm1;(function (asm)
                                 /* IL_20: leave.s IL_38 */
                                 in_block_1 = false;
                                 __pos__ = 0x38;
-                                break;
+                                continue;
                             }
                         }
                     }
@@ -271,7 +271,7 @@ var asm1;(function (asm)
                                     /* IL_36: leave.s IL_38 */
                                     in_block_1 = false;
                                     __pos__ = 0x38;
-                                    break;
+                                    continue;
                                 }
                             }
                         }

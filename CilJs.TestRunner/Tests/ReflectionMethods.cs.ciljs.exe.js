@@ -182,6 +182,10 @@ var asm1;(function (asm)
                     }
                     break;
                 }
+                
+                if (([0x1A, 0x36].indexOf)(__pos__) == (-1|0)){
+                    continue;
+                }
                 /* IL_3C: ret  */
                 return ;
             }

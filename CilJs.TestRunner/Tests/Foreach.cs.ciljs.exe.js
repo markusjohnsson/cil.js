@@ -286,7 +286,7 @@ var asm1;(function (asm)
                             /* IL_2E: leave.s IL_42 */
                             in_block_1 = false;
                             __pos__ = 0x42;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -320,7 +320,7 @@ var asm1;(function (asm)
                             /* IL_41: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
-                            break;
+                            continue;
                         }
                         break;
                     }

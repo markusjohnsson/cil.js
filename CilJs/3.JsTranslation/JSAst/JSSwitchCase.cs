@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CilJs.JSAst
 {
-    class JSSwitchCase: JSStatement
+    class JSSwitchCase : JSStatement
     {
         public JSExpression Value { get; set; }
 
@@ -19,6 +19,20 @@ namespace CilJs.JSAst
         public override IEnumerable<JSExpression> GetChildren()
         {
             yield return Value;
+        }
+
+    }
+
+    class JSSwitchDefaultCase : JSStatement
+    {
+        public override void Emit(Emitter emitter)
+        {
+            emitter.EmitString("default:");
+        }
+
+        public override IEnumerable<JSExpression> GetChildren()
+        {
+            yield break;
         }
 
     }

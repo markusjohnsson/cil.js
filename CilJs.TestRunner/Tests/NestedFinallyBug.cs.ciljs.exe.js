@@ -80,7 +80,7 @@ var asm1;(function (asm)
                             /* IL_28: leave.s IL_A5 */
                             in_block_1 = false;
                             __pos__ = 0xA5;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -149,7 +149,7 @@ var asm1;(function (asm)
                                         /* IL_52: leave.s IL_7C */
                                         in_block_2 = false;
                                         __pos__ = 0x7C;
-                                        break;
+                                        continue;
                                     }
                                 }
                             }
@@ -203,7 +203,7 @@ var asm1;(function (asm)
                                         /* IL_7B: endfinally  */
                                         in_block_2 = false;
                                         __pos__ = __finally_continuation_2__;
-                                        break;
+                                        continue;
                                     }
                                     break;
                                 }
@@ -248,7 +248,7 @@ var asm1;(function (asm)
                             /* IL_A4: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
-                            break;
+                            continue;
                         }
                         break;
                     }

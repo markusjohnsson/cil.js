@@ -216,7 +216,7 @@ var asm1;(function (asm)
                             /* IL_15: leave.s IL_2D */
                             in_block_1 = false;
                             __pos__ = 0x2D;
-                            break;
+                            continue;
                         }
                     }
                 }
@@ -253,7 +253,7 @@ var asm1;(function (asm)
                                 /* IL_2B: leave.s IL_2D */
                                 in_block_1 = false;
                                 __pos__ = 0x2D;
-                                break;
+                                continue;
                             }
                         }
                     }
