@@ -1,12 +1,11 @@
 ﻿using CilJs.Analysis.Passes;
 using CilJs.Ast;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
+using Managed.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Type = IKVM.Reflection.Type;
+using Type = Managed.Reflection.Type;
 
 namespace CilJs.Analysis
 {
@@ -49,7 +48,7 @@ namespace CilJs.Analysis
             UpdateVariables(opAst);
         }
 
-        private IKVM.Reflection.Type InferType(CilMethod method, OpExpression op)
+        private Managed.Reflection.Type InferType(CilMethod method, OpExpression op)
         {
             var opc = op.Instruction.OpCode.Name;
 
@@ -78,7 +77,7 @@ namespace CilJs.Analysis
                         return null;
                     }
                 case "castclass":
-                    return (IKVM.Reflection.Type)op.Instruction.Data;
+                    return (Managed.Reflection.Type)op.Instruction.Data;
                 case "ceq":
                 case "cgt":
                 case "clt":
@@ -290,7 +289,7 @@ namespace CilJs.Analysis
             }
         }
 
-        private IKVM.Reflection.Type InferBinaryArithmeticType(OpExpression op)
+        private Managed.Reflection.Type InferBinaryArithmeticType(OpExpression op)
         {
             var int32s = new[] { types.Char, types.Sbyte, types.Int32, types.Byte, types.UInt32 };
             var int64s = new[] { types.Int64, types.UInt64 };

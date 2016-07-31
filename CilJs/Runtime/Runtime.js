@@ -19,7 +19,7 @@ var CILJS;
             a++;
         }
         if (result != null)
-            result.apply(null, arguments);
+            return result.apply(null, arguments);
     }
 
     ciljs.declare_type = function declare_type(name, genericArgs, baseType, init, ctortext) {
@@ -541,3 +541,7 @@ var CILJS;
         console.log(managedStr.jsstr);
     }
 })(CILJS || (CILJS = {}));
+
+if (module) {
+    module.exports = CILJS;
+}

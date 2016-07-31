@@ -1,5 +1,5 @@
 
-using IKVM.Reflection;
+using Managed.Reflection;
 namespace CilJs.Ast
 {
     abstract class Node

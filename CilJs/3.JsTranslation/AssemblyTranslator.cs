@@ -4,7 +4,7 @@ using System.Linq;
 using CilJs.Ast;
 using CilJs.JSAst;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
+using Managed.Reflection;
 
 namespace CilJs.JsTranslation
 {

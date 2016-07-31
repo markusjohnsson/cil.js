@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace CilJs.JSAst
+﻿namespace CilJs.JSAst
 {
     class JSConditionalExpression : JSExpression
     {

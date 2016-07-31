@@ -1,8 +1,6 @@
 using CilJs.Ast;
 using CilJs.Loading.Model;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace CilJs.Analysis.Passes

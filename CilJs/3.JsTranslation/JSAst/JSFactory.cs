@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Reflection;
 
 namespace CilJs.JSAst
 {
@@ -151,7 +150,8 @@ namespace CilJs.JSAst
             {
                 Properties = o
                     .GetType()
-                    .GetProperties()
+                    .GetTypeInfo()
+                    .DeclaredProperties
                     .Select(p => new { key = p.Name, val = p.GetValue(o, null) })
                     .Where(p => p.val is JSExpression)
                     .ToDictionary(k => k.key, v => (JSExpression)v.val)

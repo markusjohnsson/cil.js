@@ -1,6 +1,6 @@
 ﻿using CilJs.Ast;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
+using Managed.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -101,7 +101,7 @@ namespace CilJs.Loading
             return asm;
         }
 
-        private CilType ProcessType(IKVM.Reflection.Type type)
+        private CilType ProcessType(Managed.Reflection.Type type)
         {
             var result = new CilType
             {

@@ -1,8 +1,9 @@
 using CilJs.Ast;
-using IKVM.Reflection;
-using IKVM.Reflection.Emit;
 using System;
 using System.Collections.Generic;
+using Managed.Reflection;
+using Managed.Reflection.Emit;
+using static System.Reflection.IntrospectionExtensions;
 
 namespace CilJs.Loading
 {
@@ -14,8 +15,13 @@ namespace CilJs.Loading
 
         static OpInstructionReader()
         {
-            foreach (var fi in typeof(OpCodes).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static))
+            // typeof(OpCodes).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
+            
+            foreach (var fi in typeof(OpCodes).GetTypeInfo().DeclaredFields)
             {
+                if (fi.IsStatic == false)
+                    continue;
+                
                 var opCode = (OpCode)fi.GetValue(null);
                 var value = (UInt16)opCode.Value;
 
@@ -188,7 +194,7 @@ namespace CilJs.Loading
     internal class ModuleILResolver
     {
         private Module module;
-        private IKVM.Reflection.Type type;
+        private Managed.Reflection.Type type;
         private MethodBase method;
 
         public ModuleILResolver(MethodBase method)
@@ -232,7 +238,7 @@ namespace CilJs.Loading
             }
         }
 
-        public IKVM.Reflection.Type ResolveType(int metadataToken)
+        public Managed.Reflection.Type ResolveType(int metadataToken)
         {
             return this.module.ResolveType(metadataToken,
                 type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);

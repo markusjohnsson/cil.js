@@ -1,546 +1,6 @@
 
 "use strict";
-
-var CILJS;
-
-(function (ciljs) {
-    ciljs.nop = function nop() { };
-    
-    ciljs.next_hash = 1;
-
-    ciljs.entry_point = function () {
-        var a = 0;
-        var result = null;
-        while (window["asm" + a])
-        {
-            if (typeof window["asm" + a].entryPoint == 'function')
-                result = window["asm" + a].entryPoint;
-
-            a++;
-        }
-        if (result != null)
-            result.apply(null, arguments);
-    }
-
-    ciljs.declare_type = function declare_type(name, genericArgs, baseType, init, ctortext) {
-        var isGeneric = genericArgs && genericArgs.length > 0;
-
-        var ctor = ctortext; //"function " + name + "() { c.init(); }";
-
-        if (isGeneric) {
-            var cacheTree = {};
-            var gA = genericArgs.join(",");
-            var gAmD = genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; }).join(",");
-            var s = "" +
-                "return function t(" + gA + ") {\n" +
-                "    var cachedType = ciljs.tree_get([" + gAmD + "], cacheTree);\n" +
-                "    if (cachedType) return cachedType;\n" +
-                "    \n" +
-                "    cachedType = new Function('" + genericArgs.join("','") + "', 'var c = " + ctor + "; return c;')(" + gA + ");\n" +
-                "    ciljs.tree_set([" + gAmD + "], cacheTree, cachedType);\n" +
-                "    \n" +
-                "    cachedType.init = init.bind(cachedType, " + gA + ");\n" +
-                "    var baseCtor = baseType(" + gA + ");\n" +
-                "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-                "    cachedType.prototype.constructor = cachedType;\n" + 
-                "    return cachedType;\n" +
-                "}";
-
-            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(ciljs, cacheTree, baseType, init);
-
-            return t;
-        }
-        else {
-
-            var cacheTree = null;
-            var s = "" +
-                "return function t() {\n" +
-                "    var cachedType = cacheTree;\n" +
-                "    if (cachedType) return cachedType;\n" +
-                "    \n" +
-                "    cachedType = new Function('var c = "+ctor+"; return c;')();\n" +
-                "    cacheTree = cachedType;\n" +
-                "    \n" +
-                "    cachedType.init = init.bind(cachedType);\n" +
-                "    var baseCtor = baseType();\n" +
-                "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-                "    cachedType.prototype.constructor = cachedType;\n" +
-                "    return cachedType;\n" +
-                "}";
-
-            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(ciljs, cacheTree, baseType, init);
-
-            return t;
-        }
-    }
-
-    ciljs.init_base_types = function init_base_types()
-    {
-        asm0['System.Object']().init();
-        asm0['System.ValueType']().init();
-        asm0['System.Array']().init();
-        asm0['System.String']().init();
-        asm0['System.Delegate']().init();
-        asm0['System.Exception']().init();
-        asm0['System.Enum']().init();
-        asm0['System.Type']().init();
-        asm0['System.Boolean']().init();
-        asm0['System.Char']().init();
-        asm0['System.Byte']().init();
-        asm0['System.SByte']().init();
-        asm0['System.Int16']().init();
-        asm0['System.UInt16']().init();
-        asm0['System.Int32']().init();
-        asm0['System.UInt32']().init();
-        asm0['System.Int64']().init();
-        asm0['System.UInt64']().init();
-        asm0['System.Single']().init();
-        asm0['System.Double']().init();
-    }
-
-    ciljs.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName, defaultValue) {
-        type.FullName = fullname;
-        type.Assembly = assembly;
-        type.IsValueType = isValueType;
-        type.IsPrimitive = isPrimitive;
-        type.IsInterface = isInterface;
-        type.IsGenericTypeDefinition = isGenericTypeDefinition;
-        type.IsNullable = isNullable;
-
-        type.CustomAttributes = customAttributes;
-        type.Methods = methods;
-        type.BaseType = baseType;
-        type.IsInst = isInst;
-        type.ArrayType = arrayType;
-        type.MetadataName = metadataName;
-
-        type.Interfaces = [];
-        type.GenericArguments = {};
-        type.prototype.vtable = {};
-        type.prototype.ifacemap = {};
-
-        type.Default = defaultValue;
-    }
-
-    ciljs.implement_interface = function implement_interface(type, iface, implementation) {
-        type.Interfaces.push(iface[0]);
-        if (implementation !== null)
-            ciljs.tree_set(iface, type.prototype.ifacemap, implementation);
-    }
-
-    ciljs.declare_virtual = function declare_virtual(type, slot, target) {
-        type.prototype.vtable[slot] = new Function("return " + target + ";");
-    }
-
-    ciljs.is_inst_interface = function is_inst_interface(interfaceType) {
-        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return null; } };
-    }
-
-    ciljs.is_inst_primitive = function is_inst_primitive(primitiveType) {
-        return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return null; } }
-    }
-
-    ciljs.is_inst_array = function is_inst_array(T) {
-        return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || T === asm0['System.Object']() || t.etype.prototype instanceof T) ? t : null; };
-    }
-
-    ciljs.is_inst_default = function is_inst_default(type) {
-        return function (t) { return t instanceof type ? t : null; };
-    }
-
-    ciljs.is_inst_value_type = function is_inst_value_type(type) {
-        return function (t) { return (t != null && t.boxed instanceof type) ? t : t instanceof type ? t : null; };
-    }
-
-    ciljs.is_inst_delegate = function is_inst_delegate(delegateType) {
-        return function (t) { return (t && typeof t._methodPtr === 'function') ? t : null; };
-    }
-
-    ciljs.clone_value = function clone_value(v) {
-        if (v === null) return v;
-        if (typeof v === "number") return v;
-        if (typeof v === "function") return v;
-        if (!v.constructor.IsValueType) return v;
-        var result = new v.constructor();
-        for (var p in v) {
-            if (v.hasOwnProperty(p))
-                result[p] = ciljs.clone_value(v[p]);
-        }
-        return result;
-    }
-
-    ciljs.value_equals = function value_equals(a, b) {
-
-        if (typeof a !== typeof b)
-            return 0;
-
-        if (a === null)
-            return b === null ? 1 : 0;
-
-        if (typeof a === "object" && typeof a.constructor !== "undefined" && a.constructor.IsValueType) {
-
-            for (var p in a) {
-                var av = a[p];
-                var bv = b[p];
-
-                if (!ciljs.value_equals(av, bv))
-                    return 0;
-            }
-
-            return 1;
-        }
-        else {
-            return a === b ? 1 : 0;
-        }
-    }
-
-    ciljs.unsigned_value = function unsigned_value(a) {
-        if (a < 0)
-            return 0xffffffff + a + 1;
-        else
-            return a;
-    }
-
-    ciljs.box = function box(v, type) {
-        if (v === null)
-            return v;
-
-        if (type.IsNullable) {
-            if (v.has_value)
-                return ciljs.box(v.value, type.GenericArguments[type.MetadataName][0]);
-            else
-                return null;
-        }
-
-        if (!type.IsValueType)
-            return v;
-
-        if (!type.IsPrimitive)
-            v = ciljs.clone_value(v);
-
-        return ciljs.make_box(v, type);
-    }
-
-    ciljs.make_box = function (v, type) {
-        return {
-            'boxed': v,
-            'type': type,
-            'vtable': type.prototype.vtable,
-            'ifacemap': type.prototype.ifacemap
-        };
-    }
-
-    ciljs.unbox = function unbox(o, type) {
-        if (o === null) {
-            var t = asm0['System.InvalidCastException']();
-            var e = new t();
-            e.stack = new Error().stack;
-            throw e;
-        }
-        return ciljs.cast_class(o, type).boxed;
-    }
-
-    ciljs.unbox_any = function unbox_any(o, type) {
-        if (type.IsNullable) {
-            var result = new type();
-            if (o !== null) {
-                result.value = ciljs.cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]);
-                result.has_value = true;
-            }
-            return result;
-        }
-
-        if (type.IsValueType) {
-
-            if (o === null) {
-                var t = asm0['System.InvalidCastException']();
-                throw new t();
-            }
-
-            return ciljs.cast_class(o, type).boxed;
-        }
-        else
-            return ciljs.cast_class(o, type);
-    }
-
-    ciljs.stelem_ref = function stelem_ref(array, index, element) {
-        var castedElement = ciljs.cast_class(element, array.etype);
-        array.jsarr[index] = castedElement;
-    }
-
-    ciljs.ldelem_ref = function ldelem_ref(array, index) {
-        return ciljs.box(array.jsarr[index], array.etype);
-    }
-
-    ciljs.convert_box_to_pointer_as_needed = function convert_box_to_pointer_as_needed(o) {
-        if (typeof o.boxed !== "undefined" &&
-            typeof o.type !== "undefined" &&
-            o.type.IsValueType) {
-            return {
-                'r': function () { return o.boxed; },
-                'w': function (v) { return o.boxed = v; }
-            };
-        }
-        else {
-            return o;
-        }
-    }
-
-    ciljs.dereference_pointer_as_needed = function(p) {
-        if (typeof p.r === "function" &&
-            typeof p.w === "function") {
-            var v = p.r();
-            if (typeof v !== 'number' && !v.constructor.IsValueType) {
-                return v;
-            }
-        }
-
-        return p;
-    }
-
-    ciljs.tree_get = function tree_get(a, s) {
-        var c = s;
-        for (var i = 0; c && i < a.length; i++)
-            c = c[a[i]];
-        return c;
-    }
-
-    ciljs.tree_set = function tree_set(a, s, v) {
-        if (a.length === 1) {
-            s[a[0]] = v;
-        }
-        else {
-            var c = s[a[0]];
-            if (!c) s[a[0]] = c = {};
-            ciljs.tree_set(a.slice(1), c, v);
-        }
-    }
-
-    ciljs.new_string = function new_string(jsstr) {
-        var r = new (asm0['System.String']())();
-        r.jsstr = jsstr;
-        return r;
-    }
-
-    ciljs.new_handle = function new_handle(type, value) {
-        var r = new type();
-        r.value = value;
-        return r;
-    }
-
-    ciljs.new_array = function new_array(type, length) {
-        var ctor = type.ArrayType || Array;
-        var r = new (asm0['System.Array`1'](type))();
-        r.etype = type;
-        r.jsarr = new ctor(length);
-        var i;
-        if (type.IsValueType === false) {
-            for (i = 0; i < length; i++)
-                r.jsarr[i] = null;
-        }
-        else if (type.IsPrimitive === false) {
-            for (i = 0; i < length; i++)
-                r.jsarr[i] = new type();
-        }
-        else if (type.FullName === "System.Int64" || type.FullName === "System.UInt64") {
-            for (i = 0; i < length; i++)
-                r.jsarr[i] = [0, 0];
-        }
-        else {
-            for (i = 0; i < length; i++)
-                r.jsarr[i] = 0;
-        }
-        return r;
-    }
-
-    ciljs.newobj = function newobj(type, ctor, args) {
-        var result = new type();
-
-        if (type.IsValueType)
-            args[0] = {
-                w: function (a) { result = a; },
-                r: function () { return result; }
-            };
-        else
-            args[0] = result;
-
-        ctor.apply(null, args);
-
-        return result;
-    }
-
-    ciljs.cast_class = function cast_class(obj, type) {
-        if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
-            return obj;
-        }
-        else if (type.IsPrimitive) {
-            if (typeof obj === 'undefined' || obj === null) {
-            }
-            else if (typeof obj === 'number') {
-                return obj;
-            }
-            else if (typeof obj.length === 'number' && obj.length === 2) {
-                return obj; /* this is for (u)int64 */
-            }
-        }
-        else if (
-            (type === asm0['System.Object']() || type === asm0['System.ValueType']()) &&
-            (typeof obj.boxed !== 'undefined'))
-        {
-            return obj;
-        }
-
-        ciljs.throw_invalid_cast();
-    }
-
-    ciljs.throw_invalid_cast = function throw_invalid_cast() {
-        var t = asm0['System.InvalidCastException']();
-        var e = new t();
-        e.stack = new Error().stack;
-        throw e;
-    }
-
-    ciljs.conv_u8 = function conv_u8(n) {
-        if (n < 0) {
-            /* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */
-            n = 0x100000000 + n;
-        }
-
-        return ciljs.make_uint64(n);
-    }
-
-    ciljs.conv_i8 = function conv_i8(n) {
-        if (n < 0) {
-            /* signed 32 bit int */
-            n = 0x100000000 + n;
-
-            /* here, n should be positive and less than 0xffffffff, otherwise, input would not have fit in 32 bit */
-            return new Uint32Array([n | 0, 0xffffffff]);
-        }
-
-        return ciljs.make_uint64(n);
-    }
-
-    ciljs.make_uint64 = function make_uint64(n) {
-        var bits32 = 0xffffffff;
-
-        var floorN = Math.floor(n);
-        var low = floorN | 0;
-        var high = (floorN / 0x100000000) | 0;
-
-        low = low & bits32;
-        high = high & bits32;
-
-        return new Uint32Array([low, high]);
-    }
-
-    ciljs.to_number_signed = function to_number_signed(n) {
-        if (asm0.Int64_isNegative(n)) {
-            n = asm0.Int64_UnaryNegation(n);
-            return -ciljs.to_number_unsigned(n);
-        }
-
-        return ciljs.to_number_unsigned(n);
-    }
-
-    ciljs.to_number_unsigned = function to_number_unsigned(n) {
-        return n[1] * 4294967296 + n[0];
-    }
-
-    ciljs.array_set_value = function array_set_value(dest, value, pos) {
-
-        // value is either an object or a boxed value type.
-        var etype = dest.etype;
-        var vtype = value != null ? (value.constructor || value.type) : null;
-
-        if (dest.etype.IsNullable) {
-            throw "not implemented";
-
-            return;
-        }
-
-        if (value == null) {
-
-            // Null is the universal zero...
-
-            if (!etype.IsValueType)
-                dest.jsarr[pos] = null; // reference type
-            else if (etype.Is64BitPrimitive)
-                dest.jsarr[pos] = [0, 0];
-            else if (etype.IsPrimitive)
-                dest.jsarr[pos] = 0
-            else // value type
-                dest.jsarr[pos] = new etype();
-        }
-        else if (etype == asm0['System.Object']()) {
-
-            // Everything is compatible with Object
-
-            dest.jsarr[pos] = value;
-        }
-        else if (!etype.IsValueType) {
-            dest.jsarr[pos] = ciljs.cast_class(value, etype)
-        }
-        else {
-
-            if (etype.IsInst(value)) {
-                dest.jsarr[pos] = value.boxed;
-            }
-            else {
-                if (!etype.IsPrimitive || !vtype.IsPrimitive) {
-                    ciljs.throw_invalid_cast();
-                }
-
-                dest.jsarr[pos] = value;
-            }
-        }
-    }
-
-    ciljs.delegate_invoke = function (self) {
-        var m = self._methodPtr;
-        var t = self._target;
-
-        var args = new Array(arguments.length);
-
-        for (var i = 0; i < arguments.length; i++)
-            args[i] = arguments[i];
-
-        if (t != null)
-            args[0] = t;
-        else
-            args = Array.prototype.slice.call(args, 1);
-
-        return m.apply(null, args);
-    }
-
-    ciljs.delegate_begin_invoke = function (self /* , [delegate arguments], callback, state */) {
-        var asyncResult = asm0.CreateAsyncResult(self);
-
-        asyncResult.result = ciljs.delegate_invoke.apply(null, arguments);
-        asyncResult.asyncState = arguments[arguments.length - 1];
-
-        var asyncCallback = arguments[arguments.length - 2];
-        if (asyncCallback != null)
-        {
-            ciljs.delegate_invoke(asyncCallback, asyncResult);
-        }
-        
-        return asyncResult;
-    }
-
-    ciljs.delegate_end_invoke = function (self, asyncResult) {
-        return asyncResult.result;
-    }
-
-    ciljs.delegate_ctor = function (self, target, methodPtr) {
-        self._methodPtr = methodPtr;
-        self._target = target;
-    }
-
-    ciljs.console_write_line = function (managedStr) {
-        console.log(managedStr.jsstr);
-    }
-})(CILJS || (CILJS = {}));var asm0;(function (asm)
+var asm0;(function (asm)
 {
     asm.FullName = "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.String Locale.GetText(String)*/
@@ -674,7 +134,6 @@ var CILJS;
             var in_block_0;
             var __pos__;
             var loc1;
-            var in_block_1;
             var loc2;
             t0 = T;
             loc0 = T.Default;
@@ -697,51 +156,29 @@ var CILJS;
                     __pos__ = 0x19;
                     continue;
                     case 0xD:
+                    /* IL_0D: ldarg.0  */
+                    /* IL_0E: ldloc.1  */
+                    /* IL_0F: ldloc.0  */
+                    /* IL_10: stelem T */
+                    (arg0.jsarr)[loc1] = loc0;
+                    /* IL_15: ldloc.1  */
+                    /* IL_16: ldc.i4.1  */
+                    /* IL_17: add  */
+                    /* IL_18: stloc.1  */
+                    loc1 = (loc1 + (1|0)) | (0|0);
                     case 0x19:
-                    in_block_1 = true;
+                    /* IL_19: ldloc.1  */
+                    /* IL_1A: ldarg.0  */
+                    /* IL_1B: ldlen  */
+                    /* IL_1C: conv.i4  */
+                    /* IL_1E: clt  */
+                    /* IL_1F: stloc.2  */
+                    loc2 = ((loc1 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
+                    /* IL_20: ldloc.2  */
+                    /* IL_21: brtrue.s IL_0D */
                     
-                    if (__pos__ > 0x21){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0xD){
+                    if (loc2){
                         __pos__ = 0xD;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0xD:
-                            /* IL_0D: ldarg.0  */
-                            /* IL_0E: ldloc.1  */
-                            /* IL_0F: ldloc.0  */
-                            /* IL_10: stelem T */
-                            (arg0.jsarr)[loc1] = loc0;
-                            /* IL_15: ldloc.1  */
-                            /* IL_16: ldc.i4.1  */
-                            /* IL_17: add  */
-                            /* IL_18: stloc.1  */
-                            loc1 = (loc1 + (1|0)) | (0|0);
-                            case 0x19:
-                            /* IL_19: ldloc.1  */
-                            /* IL_1A: ldarg.0  */
-                            /* IL_1B: ldlen  */
-                            /* IL_1C: conv.i4  */
-                            /* IL_1E: clt  */
-                            /* IL_1F: stloc.2  */
-                            loc2 = ((loc1 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
-                            /* IL_20: ldloc.2  */
-                            /* IL_21: brtrue.s IL_0D */
-                            
-                            if (loc2){
-                                __pos__ = 0xD;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x19) || (__pos__ < 0xD)){
                         continue;
                     }
                     /* IL_23: ret  */
@@ -782,7 +219,6 @@ var CILJS;
             var loc0;
             var loc1;
             var loc4;
-            var in_block_1;
             var loc5;
             var loc6;
             var loc7;
@@ -880,73 +316,50 @@ var CILJS;
                     __pos__ = 0x7B;
                     continue;
                     case 0x4E:
+                    /* IL_4E: nop  */
+                    
+                    /* IL_4F: ldloc.1  */
+                    /* IL_50: ldarg.0  */
+                    /* IL_51: ldloc.s 4 */
+                    /* IL_53: call T UnsafeLoad[T](T[], System.Int32) */
+                    /* IL_58: box T */
+                    /* IL_5D: ldarg.1  */
+                    /* IL_5E: box T */
+                    /* IL_63: callvirt Boolean Equals(System.Object, System.Object) */
+                    /* IL_68: stloc.s 5 */
+                    loc5 = (((loc1.ifacemap)[t2].x60001b6)())(CILJS.convert_box_to_pointer_as_needed(loc1),CILJS.box((arg0.jsarr[loc4]),t1),CILJS.box(arg1,t1));
+                    /* IL_6A: ldloc.s 5 */
+                    /* IL_6C: brfalse.s IL_74 */
+                    
+                    if ((!(loc5))){
+                        __pos__ = 0x74;
+                        continue;
+                    }
+                    /* IL_6E: ldloc.s 4 */
+                    /* IL_70: stloc.s 6 */
+                    loc6 = loc4;
+                    /* IL_72: br.s IL_8B */
+                    __pos__ = 0x8B;
+                    continue;
                     case 0x74:
+                    /* IL_74: nop  */
+                    
+                    /* IL_75: ldloc.s 4 */
+                    /* IL_77: ldc.i4.1  */
+                    /* IL_78: add  */
+                    /* IL_79: stloc.s 4 */
+                    loc4 = (loc4 + (1|0)) | (0|0);
                     case 0x7B:
-                    in_block_1 = true;
+                    /* IL_7B: ldloc.s 4 */
+                    /* IL_7D: ldloc.0  */
+                    /* IL_7F: clt  */
+                    /* IL_80: stloc.s 7 */
+                    loc7 = ((loc4 < loc0) ? 1 : 0);
+                    /* IL_82: ldloc.s 7 */
+                    /* IL_84: brtrue.s IL_4E */
                     
-                    if (__pos__ > 0x84){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x4E){
+                    if (loc7){
                         __pos__ = 0x4E;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x4E:
-                            /* IL_4E: nop  */
-                            
-                            /* IL_4F: ldloc.1  */
-                            /* IL_50: ldarg.0  */
-                            /* IL_51: ldloc.s 4 */
-                            /* IL_53: call T UnsafeLoad[T](T[], System.Int32) */
-                            /* IL_58: box T */
-                            /* IL_5D: ldarg.1  */
-                            /* IL_5E: box T */
-                            /* IL_63: callvirt Boolean Equals(System.Object, System.Object) */
-                            /* IL_68: stloc.s 5 */
-                            loc5 = (((loc1.ifacemap)[t2].x60001b6)())(CILJS.convert_box_to_pointer_as_needed(loc1),CILJS.box((arg0.jsarr[loc4]),t1),CILJS.box(arg1,t1));
-                            /* IL_6A: ldloc.s 5 */
-                            /* IL_6C: brfalse.s IL_74 */
-                            
-                            if ((!(loc5))){
-                                __pos__ = 0x74;
-                                continue;
-                            }
-                            /* IL_6E: ldloc.s 4 */
-                            /* IL_70: stloc.s 6 */
-                            loc6 = loc4;
-                            /* IL_72: br.s IL_8B */
-                            __pos__ = 0x8B;
-                            continue;
-                            case 0x74:
-                            /* IL_74: nop  */
-                            
-                            /* IL_75: ldloc.s 4 */
-                            /* IL_77: ldc.i4.1  */
-                            /* IL_78: add  */
-                            /* IL_79: stloc.s 4 */
-                            loc4 = (loc4 + (1|0)) | (0|0);
-                            case 0x7B:
-                            /* IL_7B: ldloc.s 4 */
-                            /* IL_7D: ldloc.0  */
-                            /* IL_7F: clt  */
-                            /* IL_80: stloc.s 7 */
-                            loc7 = ((loc4 < loc0) ? 1 : 0);
-                            /* IL_82: ldloc.s 7 */
-                            /* IL_84: brtrue.s IL_4E */
-                            
-                            if (loc7){
-                                __pos__ = 0x4E;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x7B) || (__pos__ < 0x4E)){
                         continue;
                     }
                     /* IL_86: ldc.i4.m1  */
@@ -980,7 +393,6 @@ var CILJS;
         var loc5;
         var loc6;
         var loc7;
-        var in_block_1;
         var loc8;
         var loc9;
         var loc10;
@@ -1140,61 +552,39 @@ var CILJS;
                 __pos__ = 0xBC;
                 continue;
                 case 0x9F:
+                /* IL_9F: nop  */
+                
+                /* IL_A0: ldarg.2  */
+                /* IL_A1: ldarg.0  */
+                /* IL_A2: ldarg.1  */
+                /* IL_A3: ldloc.s 7 */
+                /* IL_A5: add  */
+                /* IL_A6: callvirt Object GetValue(System.Int32) */
+                /* IL_AB: ldarg.3  */
+                /* IL_AC: ldloc.s 7 */
+                /* IL_AE: add  */
+                /* IL_AF: callvirt Void SetValue(System.Object, System.Int32) */
+                asm0.x600002d(arg2,asm0.x600000e(arg0,(arg1 + loc7) | (0|0)),(arg3 + loc7) | (0|0));
+                /* IL_B4: nop  */
+                
+                /* IL_B5: nop  */
+                
+                /* IL_B6: ldloc.s 7 */
+                /* IL_B8: ldc.i4.1  */
+                /* IL_B9: add  */
+                /* IL_BA: stloc.s 7 */
+                loc7 = (loc7 + (1|0)) | (0|0);
                 case 0xBC:
-                in_block_1 = true;
+                /* IL_BC: ldloc.s 7 */
+                /* IL_BE: ldarg.s 4 */
+                /* IL_C1: clt  */
+                /* IL_C2: stloc.s 8 */
+                loc8 = ((loc7 < arg4) ? 1 : 0);
+                /* IL_C4: ldloc.s 8 */
+                /* IL_C6: brtrue.s IL_9F */
                 
-                if (__pos__ > 0xC6){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x9F){
+                if (loc8){
                     __pos__ = 0x9F;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x9F:
-                        /* IL_9F: nop  */
-                        
-                        /* IL_A0: ldarg.2  */
-                        /* IL_A1: ldarg.0  */
-                        /* IL_A2: ldarg.1  */
-                        /* IL_A3: ldloc.s 7 */
-                        /* IL_A5: add  */
-                        /* IL_A6: callvirt Object GetValue(System.Int32) */
-                        /* IL_AB: ldarg.3  */
-                        /* IL_AC: ldloc.s 7 */
-                        /* IL_AE: add  */
-                        /* IL_AF: callvirt Void SetValue(System.Object, System.Int32) */
-                        asm0.x600002d(arg2,asm0.x600000e(arg0,(arg1 + loc7) | (0|0)),(arg3 + loc7) | (0|0));
-                        /* IL_B4: nop  */
-                        
-                        /* IL_B5: nop  */
-                        
-                        /* IL_B6: ldloc.s 7 */
-                        /* IL_B8: ldc.i4.1  */
-                        /* IL_B9: add  */
-                        /* IL_BA: stloc.s 7 */
-                        loc7 = (loc7 + (1|0)) | (0|0);
-                        case 0xBC:
-                        /* IL_BC: ldloc.s 7 */
-                        /* IL_BE: ldarg.s 4 */
-                        /* IL_C1: clt  */
-                        /* IL_C2: stloc.s 8 */
-                        loc8 = ((loc7 < arg4) ? 1 : 0);
-                        /* IL_C4: ldloc.s 8 */
-                        /* IL_C6: brtrue.s IL_9F */
-                        
-                        if (loc8){
-                            __pos__ = 0x9F;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0xBC) || (__pos__ < 0x9F)){
                     continue;
                 }
                 /* IL_C8: nop  */
@@ -1214,63 +604,41 @@ var CILJS;
                 __pos__ = 0xF1;
                 continue;
                 case 0xD4:
+                /* IL_D4: nop  */
+                
+                /* IL_D5: ldarg.2  */
+                /* IL_D6: ldarg.0  */
+                /* IL_D7: ldarg.1  */
+                /* IL_D8: ldloc.s 9 */
+                /* IL_DA: add  */
+                /* IL_DB: callvirt Object GetValue(System.Int32) */
+                /* IL_E0: ldarg.3  */
+                /* IL_E1: ldloc.s 9 */
+                /* IL_E3: add  */
+                /* IL_E4: callvirt Void SetValue(System.Object, System.Int32) */
+                asm0.x600002d(arg2,asm0.x600000e(arg0,(arg1 + loc9) | (0|0)),(arg3 + loc9) | (0|0));
+                /* IL_E9: nop  */
+                
+                /* IL_EA: nop  */
+                
+                /* IL_EB: ldloc.s 9 */
+                /* IL_ED: ldc.i4.1  */
+                /* IL_EE: sub  */
+                /* IL_EF: stloc.s 9 */
+                loc9 = (loc9 - (1|0)) | (0|0);
                 case 0xF1:
-                in_block_1 = true;
+                /* IL_F1: ldloc.s 9 */
+                /* IL_F3: ldc.i4.0  */
+                /* IL_F5: clt  */
+                /* IL_F6: ldc.i4.0  */
+                /* IL_F8: ceq  */
+                /* IL_F9: stloc.s 10 */
+                loc10 = ((((loc9 < (0|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
+                /* IL_FB: ldloc.s 10 */
+                /* IL_FD: brtrue.s IL_D4 */
                 
-                if (__pos__ > 0xFD){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0xD4){
+                if (loc10){
                     __pos__ = 0xD4;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0xD4:
-                        /* IL_D4: nop  */
-                        
-                        /* IL_D5: ldarg.2  */
-                        /* IL_D6: ldarg.0  */
-                        /* IL_D7: ldarg.1  */
-                        /* IL_D8: ldloc.s 9 */
-                        /* IL_DA: add  */
-                        /* IL_DB: callvirt Object GetValue(System.Int32) */
-                        /* IL_E0: ldarg.3  */
-                        /* IL_E1: ldloc.s 9 */
-                        /* IL_E3: add  */
-                        /* IL_E4: callvirt Void SetValue(System.Object, System.Int32) */
-                        asm0.x600002d(arg2,asm0.x600000e(arg0,(arg1 + loc9) | (0|0)),(arg3 + loc9) | (0|0));
-                        /* IL_E9: nop  */
-                        
-                        /* IL_EA: nop  */
-                        
-                        /* IL_EB: ldloc.s 9 */
-                        /* IL_ED: ldc.i4.1  */
-                        /* IL_EE: sub  */
-                        /* IL_EF: stloc.s 9 */
-                        loc9 = (loc9 - (1|0)) | (0|0);
-                        case 0xF1:
-                        /* IL_F1: ldloc.s 9 */
-                        /* IL_F3: ldc.i4.0  */
-                        /* IL_F5: clt  */
-                        /* IL_F6: ldc.i4.0  */
-                        /* IL_F8: ceq  */
-                        /* IL_F9: stloc.s 10 */
-                        loc10 = ((((loc9 < (0|0)) ? 1 : 0) === (0|0)) ? 1 : 0);
-                        /* IL_FB: ldloc.s 10 */
-                        /* IL_FD: brtrue.s IL_D4 */
-                        
-                        if (loc10){
-                            __pos__ = 0xD4;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0xF1) || (__pos__ < 0xD4)){
                     continue;
                 }
                 /* IL_FF: nop  */
@@ -1290,7 +658,6 @@ var CILJS;
             var __pos__;
             var loc0;
             var loc1;
-            var in_block_1;
             var loc2;
             var loc3;
             var loc4;
@@ -1315,70 +682,47 @@ var CILJS;
                     __pos__ = 0x24;
                     continue;
                     case 0x9:
+                    /* IL_09: nop  */
+                    
+                    /* IL_0A: ldarg.3  */
+                    /* IL_0B: ldarg.0  */
+                    /* IL_0C: ldloc.1  */
+                    /* IL_0D: ldelem T */
+                    /* IL_12: callvirt Boolean Invoke(T) */
+                    /* IL_17: stloc.2  */
+                    loc2 = ((arg3._target) ? (arg3._methodPtr(arg3._target,(arg0.jsarr)[loc1])) : (arg3._methodPtr((arg0.jsarr)[loc1])));
+                    /* IL_18: ldloc.2  */
+                    /* IL_19: brfalse.s IL_1F */
+                    
+                    if ((!(loc2))){
+                        __pos__ = 0x1F;
+                        continue;
+                    }
+                    /* IL_1B: ldloc.1  */
+                    /* IL_1C: stloc.3  */
+                    loc3 = loc1;
+                    /* IL_1D: br.s IL_32 */
+                    __pos__ = 0x32;
+                    continue;
                     case 0x1F:
+                    /* IL_1F: nop  */
+                    
+                    /* IL_20: ldloc.1  */
+                    /* IL_21: ldc.i4.1  */
+                    /* IL_22: add  */
+                    /* IL_23: stloc.1  */
+                    loc1 = (loc1 + (1|0)) | (0|0);
                     case 0x24:
-                    in_block_1 = true;
+                    /* IL_24: ldloc.1  */
+                    /* IL_25: ldloc.0  */
+                    /* IL_27: clt  */
+                    /* IL_28: stloc.s 4 */
+                    loc4 = ((loc1 < loc0) ? 1 : 0);
+                    /* IL_2A: ldloc.s 4 */
+                    /* IL_2C: brtrue.s IL_09 */
                     
-                    if (__pos__ > 0x2C){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x9){
+                    if (loc4){
                         __pos__ = 0x9;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x9:
-                            /* IL_09: nop  */
-                            
-                            /* IL_0A: ldarg.3  */
-                            /* IL_0B: ldarg.0  */
-                            /* IL_0C: ldloc.1  */
-                            /* IL_0D: ldelem T */
-                            /* IL_12: callvirt Boolean Invoke(T) */
-                            /* IL_17: stloc.2  */
-                            loc2 = ((arg3._target) ? (arg3._methodPtr(arg3._target,(arg0.jsarr)[loc1])) : (arg3._methodPtr((arg0.jsarr)[loc1])));
-                            /* IL_18: ldloc.2  */
-                            /* IL_19: brfalse.s IL_1F */
-                            
-                            if ((!(loc2))){
-                                __pos__ = 0x1F;
-                                continue;
-                            }
-                            /* IL_1B: ldloc.1  */
-                            /* IL_1C: stloc.3  */
-                            loc3 = loc1;
-                            /* IL_1D: br.s IL_32 */
-                            __pos__ = 0x32;
-                            continue;
-                            case 0x1F:
-                            /* IL_1F: nop  */
-                            
-                            /* IL_20: ldloc.1  */
-                            /* IL_21: ldc.i4.1  */
-                            /* IL_22: add  */
-                            /* IL_23: stloc.1  */
-                            loc1 = (loc1 + (1|0)) | (0|0);
-                            case 0x24:
-                            /* IL_24: ldloc.1  */
-                            /* IL_25: ldloc.0  */
-                            /* IL_27: clt  */
-                            /* IL_28: stloc.s 4 */
-                            loc4 = ((loc1 < loc0) ? 1 : 0);
-                            /* IL_2A: ldloc.s 4 */
-                            /* IL_2C: brtrue.s IL_09 */
-                            
-                            if (loc4){
-                                __pos__ = 0x9;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x24) || (__pos__ < 0x9)){
                         continue;
                     }
                     /* IL_2E: ldc.i4.m1  */
@@ -1409,7 +753,6 @@ var CILJS;
             var in_block_0;
             var __pos__;
             var loc0;
-            var in_block_1;
             var loc1;
             var loc2;
             var loc3;
@@ -1431,80 +774,57 @@ var CILJS;
                     __pos__ = 0x22;
                     continue;
                     case 0x7:
+                    /* IL_07: nop  */
+                    
+                    /* IL_08: ldarg.3  */
+                    st_09 = arg3;
+                    /* IL_09: ldarg.0  */
+                    st_07 = arg0;
+                    /* IL_0A: ldloc.0  */
+                    st_03 = loc0;
+                    /* IL_0B: ldc.i4.1  */
+                    st_04 = (1|0);
+                    /* IL_0C: sub  */
+                    st_05 = (st_03 - st_04) | (0|0);
+                    /* IL_0D: dup  */
+                    st_08 = st_06 = st_05;
+                    /* IL_0E: stloc.0  */
+                    loc0 = st_06;
+                    /* IL_0F: ldelem T */
+                    st_0A = (st_07.jsarr)[st_08];
+                    /* IL_14: callvirt Boolean Invoke(T) */
+                    st_0B = ((st_09._target) ? (st_09._methodPtr(st_09._target,st_0A)) : (st_09._methodPtr(st_0A)));
+                    /* IL_19: stloc.1  */
+                    loc1 = st_0B;
+                    /* IL_1A: ldloc.1  */
+                    /* IL_1B: brfalse.s IL_21 */
+                    
+                    if ((!(loc1))){
+                        __pos__ = 0x21;
+                        continue;
+                    }
+                    /* IL_1D: ldloc.0  */
+                    /* IL_1E: stloc.2  */
+                    loc2 = loc0;
+                    /* IL_1F: br.s IL_31 */
+                    __pos__ = 0x31;
+                    continue;
                     case 0x21:
+                    /* IL_21: nop  */
+                    
                     case 0x22:
-                    in_block_1 = true;
+                    /* IL_22: ldloc.0  */
+                    /* IL_23: ldarg.1  */
+                    /* IL_25: ceq  */
+                    /* IL_26: ldc.i4.0  */
+                    /* IL_28: ceq  */
+                    /* IL_29: stloc.3  */
+                    loc3 = ((((loc0 === arg1) ? 1 : 0) === (0|0)) ? 1 : 0);
+                    /* IL_2A: ldloc.3  */
+                    /* IL_2B: brtrue.s IL_07 */
                     
-                    if (__pos__ > 0x2B){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x7){
+                    if (loc3){
                         __pos__ = 0x7;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x7:
-                            /* IL_07: nop  */
-                            
-                            /* IL_08: ldarg.3  */
-                            st_09 = arg3;
-                            /* IL_09: ldarg.0  */
-                            st_07 = arg0;
-                            /* IL_0A: ldloc.0  */
-                            st_03 = loc0;
-                            /* IL_0B: ldc.i4.1  */
-                            st_04 = (1|0);
-                            /* IL_0C: sub  */
-                            st_05 = (st_03 - st_04) | (0|0);
-                            /* IL_0D: dup  */
-                            st_08 = st_06 = st_05;
-                            /* IL_0E: stloc.0  */
-                            loc0 = st_06;
-                            /* IL_0F: ldelem T */
-                            st_0A = (st_07.jsarr)[st_08];
-                            /* IL_14: callvirt Boolean Invoke(T) */
-                            st_0B = ((st_09._target) ? (st_09._methodPtr(st_09._target,st_0A)) : (st_09._methodPtr(st_0A)));
-                            /* IL_19: stloc.1  */
-                            loc1 = st_0B;
-                            /* IL_1A: ldloc.1  */
-                            /* IL_1B: brfalse.s IL_21 */
-                            
-                            if ((!(loc1))){
-                                __pos__ = 0x21;
-                                continue;
-                            }
-                            /* IL_1D: ldloc.0  */
-                            /* IL_1E: stloc.2  */
-                            loc2 = loc0;
-                            /* IL_1F: br.s IL_31 */
-                            __pos__ = 0x31;
-                            continue;
-                            case 0x21:
-                            /* IL_21: nop  */
-                            
-                            case 0x22:
-                            /* IL_22: ldloc.0  */
-                            /* IL_23: ldarg.1  */
-                            /* IL_25: ceq  */
-                            /* IL_26: ldc.i4.0  */
-                            /* IL_28: ceq  */
-                            /* IL_29: stloc.3  */
-                            loc3 = ((((loc0 === arg1) ? 1 : 0) === (0|0)) ? 1 : 0);
-                            /* IL_2A: ldloc.3  */
-                            /* IL_2B: brtrue.s IL_07 */
-                            
-                            if (loc3){
-                                __pos__ = 0x7;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x22) || (__pos__ < 0x7)){
                         continue;
                     }
                     /* IL_2D: ldc.i4.m1  */
@@ -1548,7 +868,6 @@ var CILJS;
             var loc2;
             var loc0;
             var loc3;
-            var in_block_1;
             var loc4;
             var loc5;
             var loc6;
@@ -1653,79 +972,56 @@ var CILJS;
                     __pos__ = 0x87;
                     continue;
                     case 0x5E:
+                    /* IL_5E: nop  */
+                    
+                    /* IL_5F: ldloc.0  */
+                    /* IL_60: ldarg.0  */
+                    /* IL_61: ldloc.3  */
+                    /* IL_62: ldelem T */
+                    /* IL_67: box T */
+                    /* IL_6C: ldarg.1  */
+                    /* IL_6D: box T */
+                    /* IL_72: callvirt Boolean Equals(System.Object, System.Object) */
+                    /* IL_77: stloc.s 4 */
+                    loc4 = (((loc0.ifacemap)[t1].x60001b6)())(CILJS.convert_box_to_pointer_as_needed(loc0),CILJS.box((arg0.jsarr)[loc3],t0),CILJS.box(arg1,t0));
+                    /* IL_79: ldloc.s 4 */
+                    /* IL_7B: brfalse.s IL_82 */
+                    
+                    if ((!(loc4))){
+                        __pos__ = 0x82;
+                        continue;
+                    }
+                    /* IL_7D: ldloc.3  */
+                    /* IL_7E: stloc.s 5 */
+                    loc5 = loc3;
+                    /* IL_80: br.s IL_9D */
+                    __pos__ = 0x9D;
+                    continue;
                     case 0x82:
+                    /* IL_82: nop  */
+                    
+                    /* IL_83: ldloc.3  */
+                    /* IL_84: ldc.i4.1  */
+                    /* IL_85: sub  */
+                    /* IL_86: stloc.3  */
+                    loc3 = (loc3 - (1|0)) | (0|0);
                     case 0x87:
-                    in_block_1 = true;
+                    /* IL_87: ldloc.3  */
+                    /* IL_88: ldarg.2  */
+                    /* IL_89: ldarg.3  */
+                    /* IL_8A: sub  */
+                    /* IL_8B: ldc.i4.1  */
+                    /* IL_8C: add  */
+                    /* IL_8E: clt  */
+                    /* IL_8F: ldc.i4.0  */
+                    /* IL_91: ceq  */
+                    /* IL_92: stloc.s 6 */
+                    loc6 = ((((loc3 < ((((arg2 - arg3) | (0|0)) + (1|0)) | (0|0))) ? 1 : 0) === (0|0)) ? 1 : 0);
+                    /* IL_94: ldloc.s 6 */
+                    /* IL_96: brtrue.s IL_5E */
                     
-                    if (__pos__ > 0x96){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x5E){
+                    if (loc6){
                         __pos__ = 0x5E;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x5E:
-                            /* IL_5E: nop  */
-                            
-                            /* IL_5F: ldloc.0  */
-                            /* IL_60: ldarg.0  */
-                            /* IL_61: ldloc.3  */
-                            /* IL_62: ldelem T */
-                            /* IL_67: box T */
-                            /* IL_6C: ldarg.1  */
-                            /* IL_6D: box T */
-                            /* IL_72: callvirt Boolean Equals(System.Object, System.Object) */
-                            /* IL_77: stloc.s 4 */
-                            loc4 = (((loc0.ifacemap)[t1].x60001b6)())(CILJS.convert_box_to_pointer_as_needed(loc0),CILJS.box((arg0.jsarr)[loc3],t0),CILJS.box(arg1,t0));
-                            /* IL_79: ldloc.s 4 */
-                            /* IL_7B: brfalse.s IL_82 */
-                            
-                            if ((!(loc4))){
-                                __pos__ = 0x82;
-                                continue;
-                            }
-                            /* IL_7D: ldloc.3  */
-                            /* IL_7E: stloc.s 5 */
-                            loc5 = loc3;
-                            /* IL_80: br.s IL_9D */
-                            __pos__ = 0x9D;
-                            continue;
-                            case 0x82:
-                            /* IL_82: nop  */
-                            
-                            /* IL_83: ldloc.3  */
-                            /* IL_84: ldc.i4.1  */
-                            /* IL_85: sub  */
-                            /* IL_86: stloc.3  */
-                            loc3 = (loc3 - (1|0)) | (0|0);
-                            case 0x87:
-                            /* IL_87: ldloc.3  */
-                            /* IL_88: ldarg.2  */
-                            /* IL_89: ldarg.3  */
-                            /* IL_8A: sub  */
-                            /* IL_8B: ldc.i4.1  */
-                            /* IL_8C: add  */
-                            /* IL_8E: clt  */
-                            /* IL_8F: ldc.i4.0  */
-                            /* IL_91: ceq  */
-                            /* IL_92: stloc.s 6 */
-                            loc6 = ((((loc3 < ((((arg2 - arg3) | (0|0)) + (1|0)) | (0|0))) ? 1 : 0) === (0|0)) ? 1 : 0);
-                            /* IL_94: ldloc.s 6 */
-                            /* IL_96: brtrue.s IL_5E */
-                            
-                            if (loc6){
-                                __pos__ = 0x5E;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x87) || (__pos__ < 0x5E)){
                         continue;
                     }
                     /* IL_98: ldc.i4.m1  */
@@ -2044,7 +1340,7 @@ var CILJS;
                     loc0 = CILJS.newobj(t1,asm0.x60001f0,[null]);
                     /* IL_06: ldloc.0  */
                     /* IL_07: ldarg.3  */
-                    /* IL_08: stfld Managed.Reflection.GenericFieldInstance */
+                    /* IL_08: stfld IKVM.Reflection.GenericFieldInstance */
                     loc0.comparer = arg3;
                     /* IL_0D: nop  */
                     
@@ -2100,7 +1396,6 @@ var CILJS;
         var loc0;
         var loc1;
         var loc2;
-        var in_block_1;
         var loc3;
         var loc4;
         var loc5;
@@ -2157,77 +1452,55 @@ var CILJS;
                 __pos__ = 0x4D;
                 continue;
                 case 0x1F:
+                /* IL_1F: nop  */
+                
+                /* IL_20: ldarg.0  */
+                /* IL_21: ldloc.1  */
+                /* IL_22: callvirt Object GetValue(System.Int32) */
+                /* IL_27: stloc.3  */
+                loc3 = asm0.x600000e(arg0,loc1);
+                /* IL_28: ldarg.0  */
+                /* IL_29: ldloc.2  */
+                /* IL_2A: callvirt Object GetValue(System.Int32) */
+                /* IL_2F: stloc.s 4 */
+                loc4 = asm0.x600000e(arg0,loc2);
+                /* IL_31: ldarg.0  */
+                /* IL_32: ldloc.s 4 */
+                /* IL_34: ldloc.1  */
+                /* IL_35: callvirt Void SetValue(System.Object, System.Int32) */
+                asm0.x600002d(arg0,loc4,loc1);
+                /* IL_3A: nop  */
+                
+                /* IL_3B: ldarg.0  */
+                /* IL_3C: ldloc.3  */
+                /* IL_3D: ldloc.2  */
+                /* IL_3E: callvirt Void SetValue(System.Object, System.Int32) */
+                asm0.x600002d(arg0,loc3,loc2);
+                /* IL_43: nop  */
+                
+                /* IL_44: ldloc.1  */
+                /* IL_45: ldc.i4.1  */
+                /* IL_46: add  */
+                /* IL_47: stloc.1  */
+                loc1 = (loc1 + (1|0)) | (0|0);
+                /* IL_48: ldloc.2  */
+                /* IL_49: ldc.i4.1  */
+                /* IL_4A: sub  */
+                /* IL_4B: stloc.2  */
+                loc2 = (loc2 - (1|0)) | (0|0);
+                /* IL_4C: nop  */
+                
                 case 0x4D:
-                in_block_1 = true;
+                /* IL_4D: ldloc.1  */
+                /* IL_4E: ldloc.2  */
+                /* IL_50: clt  */
+                /* IL_51: stloc.s 5 */
+                loc5 = ((loc1 < loc2) ? 1 : 0);
+                /* IL_53: ldloc.s 5 */
+                /* IL_55: brtrue.s IL_1F */
                 
-                if (__pos__ > 0x55){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x1F){
+                if (loc5){
                     __pos__ = 0x1F;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x1F:
-                        /* IL_1F: nop  */
-                        
-                        /* IL_20: ldarg.0  */
-                        /* IL_21: ldloc.1  */
-                        /* IL_22: callvirt Object GetValue(System.Int32) */
-                        /* IL_27: stloc.3  */
-                        loc3 = asm0.x600000e(arg0,loc1);
-                        /* IL_28: ldarg.0  */
-                        /* IL_29: ldloc.2  */
-                        /* IL_2A: callvirt Object GetValue(System.Int32) */
-                        /* IL_2F: stloc.s 4 */
-                        loc4 = asm0.x600000e(arg0,loc2);
-                        /* IL_31: ldarg.0  */
-                        /* IL_32: ldloc.s 4 */
-                        /* IL_34: ldloc.1  */
-                        /* IL_35: callvirt Void SetValue(System.Object, System.Int32) */
-                        asm0.x600002d(arg0,loc4,loc1);
-                        /* IL_3A: nop  */
-                        
-                        /* IL_3B: ldarg.0  */
-                        /* IL_3C: ldloc.3  */
-                        /* IL_3D: ldloc.2  */
-                        /* IL_3E: callvirt Void SetValue(System.Object, System.Int32) */
-                        asm0.x600002d(arg0,loc3,loc2);
-                        /* IL_43: nop  */
-                        
-                        /* IL_44: ldloc.1  */
-                        /* IL_45: ldc.i4.1  */
-                        /* IL_46: add  */
-                        /* IL_47: stloc.1  */
-                        loc1 = (loc1 + (1|0)) | (0|0);
-                        /* IL_48: ldloc.2  */
-                        /* IL_49: ldc.i4.1  */
-                        /* IL_4A: sub  */
-                        /* IL_4B: stloc.2  */
-                        loc2 = (loc2 - (1|0)) | (0|0);
-                        /* IL_4C: nop  */
-                        
-                        case 0x4D:
-                        /* IL_4D: ldloc.1  */
-                        /* IL_4E: ldloc.2  */
-                        /* IL_50: clt  */
-                        /* IL_51: stloc.s 5 */
-                        loc5 = ((loc1 < loc2) ? 1 : 0);
-                        /* IL_53: ldloc.s 5 */
-                        /* IL_55: brtrue.s IL_1F */
-                        
-                        if (loc5){
-                            __pos__ = 0x1F;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x4D) || (__pos__ < 0x1F)){
                     continue;
                 }
                 /* IL_57: nop  */
@@ -2259,7 +1532,6 @@ var CILJS;
             var in_block_0;
             var __pos__;
             var loc0;
-            var in_block_1;
             var loc1;
             in_block_0 = true;
             __pos__ = 0x0;
@@ -2277,55 +1549,33 @@ var CILJS;
                     __pos__ = 0x19;
                     continue;
                     case 0x5:
+                    /* IL_05: nop  */
+                    
+                    /* IL_06: ldarg.1  */
+                    /* IL_07: ldloc.0  */
+                    /* IL_08: ldarg.0  */
+                    /* IL_09: ldloc.0  */
+                    /* IL_0A: ldelem T */
+                    /* IL_0F: stelem T */
+                    (arg1.jsarr)[loc0] = (arg0.jsarr)[loc0];
+                    /* IL_14: nop  */
+                    
+                    /* IL_15: ldloc.0  */
+                    /* IL_16: ldc.i4.1  */
+                    /* IL_17: add  */
+                    /* IL_18: stloc.0  */
+                    loc0 = (loc0 + (1|0)) | (0|0);
                     case 0x19:
-                    in_block_1 = true;
+                    /* IL_19: ldloc.0  */
+                    /* IL_1A: ldarg.2  */
+                    /* IL_1C: clt  */
+                    /* IL_1D: stloc.1  */
+                    loc1 = ((loc0 < arg2) ? 1 : 0);
+                    /* IL_1E: ldloc.1  */
+                    /* IL_1F: brtrue.s IL_05 */
                     
-                    if (__pos__ > 0x1F){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x5){
+                    if (loc1){
                         __pos__ = 0x5;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x5:
-                            /* IL_05: nop  */
-                            
-                            /* IL_06: ldarg.1  */
-                            /* IL_07: ldloc.0  */
-                            /* IL_08: ldarg.0  */
-                            /* IL_09: ldloc.0  */
-                            /* IL_0A: ldelem T */
-                            /* IL_0F: stelem T */
-                            (arg1.jsarr)[loc0] = (arg0.jsarr)[loc0];
-                            /* IL_14: nop  */
-                            
-                            /* IL_15: ldloc.0  */
-                            /* IL_16: ldc.i4.1  */
-                            /* IL_17: add  */
-                            /* IL_18: stloc.0  */
-                            loc0 = (loc0 + (1|0)) | (0|0);
-                            case 0x19:
-                            /* IL_19: ldloc.0  */
-                            /* IL_1A: ldarg.2  */
-                            /* IL_1C: clt  */
-                            /* IL_1D: stloc.1  */
-                            loc1 = ((loc0 < arg2) ? 1 : 0);
-                            /* IL_1E: ldloc.1  */
-                            /* IL_1F: brtrue.s IL_05 */
-                            
-                            if (loc1){
-                                __pos__ = 0x5;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x19) || (__pos__ < 0x5)){
                         continue;
                     }
                     /* IL_21: ret  */
@@ -2375,7 +1625,6 @@ var CILJS;
             var loc2;
             var loc3;
             var loc7;
-            var in_block_1;
             var loc8;
             t0 = (asm0)["System.Exception"]();
             t1 = T;
@@ -2470,52 +1719,30 @@ var CILJS;
                     __pos__ = 0x6A;
                     continue;
                     case 0x53:
+                    /* IL_53: ldloc.2  */
+                    /* IL_54: ldloc.s 7 */
+                    /* IL_56: ldloc.0  */
+                    /* IL_57: ldloc.s 7 */
+                    /* IL_59: call T UnsafeLoad[T](T[], System.Int32) */
+                    /* IL_5E: call T UnsafeStore[T](T[], System.Int32, T) */
+                    /* IL_63: pop  */
+                    (loc2.jsarr[loc7] = (loc0.jsarr[loc7]));
+                    /* IL_64: ldloc.s 7 */
+                    /* IL_66: ldc.i4.1  */
+                    /* IL_67: add  */
+                    /* IL_68: stloc.s 7 */
+                    loc7 = (loc7 + (1|0)) | (0|0);
                     case 0x6A:
-                    in_block_1 = true;
+                    /* IL_6A: ldloc.s 7 */
+                    /* IL_6C: ldloc.3  */
+                    /* IL_6E: clt  */
+                    /* IL_6F: stloc.s 8 */
+                    loc8 = ((loc7 < loc3) ? 1 : 0);
+                    /* IL_71: ldloc.s 8 */
+                    /* IL_73: brtrue.s IL_53 */
                     
-                    if (__pos__ > 0x73){
-                        in_block_1 = false;
-                    }
-                    
-                    if (__pos__ < 0x53){
+                    if (loc8){
                         __pos__ = 0x53;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0x53:
-                            /* IL_53: ldloc.2  */
-                            /* IL_54: ldloc.s 7 */
-                            /* IL_56: ldloc.0  */
-                            /* IL_57: ldloc.s 7 */
-                            /* IL_59: call T UnsafeLoad[T](T[], System.Int32) */
-                            /* IL_5E: call T UnsafeStore[T](T[], System.Int32, T) */
-                            /* IL_63: pop  */
-                            (loc2.jsarr[loc7] = (loc0.jsarr[loc7]));
-                            /* IL_64: ldloc.s 7 */
-                            /* IL_66: ldc.i4.1  */
-                            /* IL_67: add  */
-                            /* IL_68: stloc.s 7 */
-                            loc7 = (loc7 + (1|0)) | (0|0);
-                            case 0x6A:
-                            /* IL_6A: ldloc.s 7 */
-                            /* IL_6C: ldloc.3  */
-                            /* IL_6E: clt  */
-                            /* IL_6F: stloc.s 8 */
-                            loc8 = ((loc7 < loc3) ? 1 : 0);
-                            /* IL_71: ldloc.s 8 */
-                            /* IL_73: brtrue.s IL_53 */
-                            
-                            if (loc8){
-                                __pos__ = 0x53;
-                                continue;
-                            }
-                        }
-                        break;
-                    }
-                    
-                    if ((__pos__ > 0x6A) || (__pos__ < 0x53)){
                         continue;
                     }
                     /* IL_75: ldarg.0  */
@@ -3039,7 +2266,6 @@ var CILJS;
         var loc1;
         var loc3;
         var loc4;
-        var in_block_1;
         var loc5;
         t0 = ((arg0.constructor.GenericArguments)["asm0.t2000006"])[0];
         t1 = (asm0)["System.Array`1"](t0);
@@ -3092,60 +2318,38 @@ var CILJS;
                 __pos__ = 0x4D;
                 continue;
                 case 0x32:
+                /* IL_32: nop  */
+                
+                /* IL_33: ldarg.1  */
+                /* IL_34: ldloc.s 4 */
+                /* IL_36: ldloc.1  */
+                /* IL_37: ldloc.3  */
+                /* IL_38: ldelem T */
+                /* IL_3D: stelem T */
+                (arg1.jsarr)[loc4] = (loc1.jsarr)[loc3];
+                /* IL_42: nop  */
+                
+                /* IL_43: ldloc.s 4 */
+                /* IL_45: ldc.i4.1  */
+                /* IL_46: add  */
+                /* IL_47: stloc.s 4 */
+                loc4 = (loc4 + (1|0)) | (0|0);
+                /* IL_49: ldloc.3  */
+                /* IL_4A: ldc.i4.1  */
+                /* IL_4B: add  */
+                /* IL_4C: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
                 case 0x4D:
-                in_block_1 = true;
+                /* IL_4D: ldloc.3  */
+                /* IL_4E: ldloc.0  */
+                /* IL_50: clt  */
+                /* IL_51: stloc.s 5 */
+                loc5 = ((loc3 < loc0) ? 1 : 0);
+                /* IL_53: ldloc.s 5 */
+                /* IL_55: brtrue.s IL_32 */
                 
-                if (__pos__ > 0x55){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x32){
+                if (loc5){
                     __pos__ = 0x32;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x32:
-                        /* IL_32: nop  */
-                        
-                        /* IL_33: ldarg.1  */
-                        /* IL_34: ldloc.s 4 */
-                        /* IL_36: ldloc.1  */
-                        /* IL_37: ldloc.3  */
-                        /* IL_38: ldelem T */
-                        /* IL_3D: stelem T */
-                        (arg1.jsarr)[loc4] = (loc1.jsarr)[loc3];
-                        /* IL_42: nop  */
-                        
-                        /* IL_43: ldloc.s 4 */
-                        /* IL_45: ldc.i4.1  */
-                        /* IL_46: add  */
-                        /* IL_47: stloc.s 4 */
-                        loc4 = (loc4 + (1|0)) | (0|0);
-                        /* IL_49: ldloc.3  */
-                        /* IL_4A: ldc.i4.1  */
-                        /* IL_4B: add  */
-                        /* IL_4C: stloc.3  */
-                        loc3 = (loc3 + (1|0)) | (0|0);
-                        case 0x4D:
-                        /* IL_4D: ldloc.3  */
-                        /* IL_4E: ldloc.0  */
-                        /* IL_50: clt  */
-                        /* IL_51: stloc.s 5 */
-                        loc5 = ((loc3 < loc0) ? 1 : 0);
-                        /* IL_53: ldloc.s 5 */
-                        /* IL_55: brtrue.s IL_32 */
-                        
-                        if (loc5){
-                            __pos__ = 0x32;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x4D) || (__pos__ < 0x32)){
                     continue;
                 }
                 /* IL_57: ret  */
@@ -4115,7 +3319,6 @@ var CILJS;
         var loc7;
         var loc8;
         var loc9;
-        var in_block_1;
         var loc10;
         var loc11;
         var loc12;
@@ -4289,85 +3492,62 @@ var CILJS;
                 __pos__ = 0xE1;
                 continue;
                 case 0xAD:
+                /* IL_AD: nop  */
+                
+                /* IL_AE: ldloc.0  */
+                /* IL_AF: ldfld Delegate[] _invocationList */
+                /* IL_B4: ldloc.s 9 */
+                /* IL_B6: ldelem.ref  */
+                /* IL_B7: stloc.s 10 */
+                loc10 = CILJS.ldelem_ref(loc0._invocationList,loc9);
+                /* IL_B9: ldloc.1  */
+                /* IL_BA: ldfld Delegate[] _invocationList */
+                /* IL_BF: ldloc.s 9 */
+                /* IL_C1: ldelem.ref  */
+                /* IL_C2: stloc.s 11 */
+                loc11 = CILJS.ldelem_ref(loc1._invocationList,loc9);
+                /* IL_C4: ldloc.s 10 */
+                /* IL_C6: ldloc.s 11 */
+                /* IL_C8: call Boolean op_Equality(System.Delegate, System.Delegate) */
+                /* IL_CD: ldc.i4.0  */
+                /* IL_CF: ceq  */
+                /* IL_D0: stloc.s 12 */
+                loc12 = ((asm0.x6000062(loc10,loc11) === (0|0)) ? 1 : 0);
+                /* IL_D2: ldloc.s 12 */
+                /* IL_D4: brfalse.s IL_DA */
+                
+                if ((!(loc12))){
+                    __pos__ = 0xDA;
+                    continue;
+                }
+                /* IL_D6: ldc.i4.0  */
+                /* IL_D7: stloc.3  */
+                loc3 = (0|0);
+                /* IL_D8: br.s IL_10E */
+                __pos__ = 0x10E;
+                continue;
                 case 0xDA:
+                /* IL_DA: nop  */
+                
+                /* IL_DB: ldloc.s 9 */
+                /* IL_DD: ldc.i4.1  */
+                /* IL_DE: add  */
+                /* IL_DF: stloc.s 9 */
+                loc9 = (loc9 + (1|0)) | (0|0);
                 case 0xE1:
-                in_block_1 = true;
+                /* IL_E1: ldloc.s 9 */
+                /* IL_E3: ldloc.0  */
+                /* IL_E4: ldfld Delegate[] _invocationList */
+                /* IL_E9: ldlen  */
+                /* IL_EA: conv.i4  */
+                /* IL_EC: clt  */
+                /* IL_ED: stloc.s 13 */
+                loc13 = ((loc9 < (loc0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_EF: ldloc.s 13 */
+                /* IL_F1: brtrue.s IL_AD */
                 
-                if (__pos__ > 0xF1){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0xAD){
+                if (loc13){
                     __pos__ = 0xAD;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0xAD:
-                        /* IL_AD: nop  */
-                        
-                        /* IL_AE: ldloc.0  */
-                        /* IL_AF: ldfld Delegate[] _invocationList */
-                        /* IL_B4: ldloc.s 9 */
-                        /* IL_B6: ldelem.ref  */
-                        /* IL_B7: stloc.s 10 */
-                        loc10 = CILJS.ldelem_ref(loc0._invocationList,loc9);
-                        /* IL_B9: ldloc.1  */
-                        /* IL_BA: ldfld Delegate[] _invocationList */
-                        /* IL_BF: ldloc.s 9 */
-                        /* IL_C1: ldelem.ref  */
-                        /* IL_C2: stloc.s 11 */
-                        loc11 = CILJS.ldelem_ref(loc1._invocationList,loc9);
-                        /* IL_C4: ldloc.s 10 */
-                        /* IL_C6: ldloc.s 11 */
-                        /* IL_C8: call Boolean op_Equality(System.Delegate, System.Delegate) */
-                        /* IL_CD: ldc.i4.0  */
-                        /* IL_CF: ceq  */
-                        /* IL_D0: stloc.s 12 */
-                        loc12 = ((asm0.x6000062(loc10,loc11) === (0|0)) ? 1 : 0);
-                        /* IL_D2: ldloc.s 12 */
-                        /* IL_D4: brfalse.s IL_DA */
-                        
-                        if ((!(loc12))){
-                            __pos__ = 0xDA;
-                            continue;
-                        }
-                        /* IL_D6: ldc.i4.0  */
-                        /* IL_D7: stloc.3  */
-                        loc3 = (0|0);
-                        /* IL_D8: br.s IL_10E */
-                        __pos__ = 0x10E;
-                        continue;
-                        case 0xDA:
-                        /* IL_DA: nop  */
-                        
-                        /* IL_DB: ldloc.s 9 */
-                        /* IL_DD: ldc.i4.1  */
-                        /* IL_DE: add  */
-                        /* IL_DF: stloc.s 9 */
-                        loc9 = (loc9 + (1|0)) | (0|0);
-                        case 0xE1:
-                        /* IL_E1: ldloc.s 9 */
-                        /* IL_E3: ldloc.0  */
-                        /* IL_E4: ldfld Delegate[] _invocationList */
-                        /* IL_E9: ldlen  */
-                        /* IL_EA: conv.i4  */
-                        /* IL_EC: clt  */
-                        /* IL_ED: stloc.s 13 */
-                        loc13 = ((loc9 < (loc0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_EF: ldloc.s 13 */
-                        /* IL_F1: brtrue.s IL_AD */
-                        
-                        if (loc13){
-                            __pos__ = 0xAD;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0xE1) || (__pos__ < 0xAD)){
                     continue;
                 }
                 /* IL_F3: ldc.i4.1  */
@@ -5448,7 +4628,6 @@ var CILJS;
         var loc2;
         var loc3;
         var loc4;
-        var in_block_1;
         var loc5;
         var loc6;
         var loc7;
@@ -5501,77 +4680,55 @@ var CILJS;
                 /* IL_28: nop  */
                 
                 case 0x29:
+                /* IL_29: nop  */
+                
+                /* IL_2A: ldloc.0  */
+                /* IL_2B: ldloc.1  */
+                /* IL_2C: rem  */
+                /* IL_2D: stloc.s 5 */
+                loc5 = asm0.Int64_Modulus(loc0,loc1);
+                /* IL_2F: ldloc.s 5 */
+                /* IL_31: ldc.i4.0  */
+                /* IL_32: conv.i8  */
+                /* IL_34: clt  */
+                /* IL_35: stloc.s 6 */
+                loc6 = asm0.Int64_LessThan(loc5,CILJS.conv_i8((0|0)));
+                /* IL_37: ldloc.s 6 */
+                /* IL_39: brfalse.s IL_40 */
+                
+                if ((!(loc6))){
+                    __pos__ = 0x40;
+                    continue;
+                }
+                /* IL_3B: ldloc.s 5 */
+                /* IL_3D: neg  */
+                /* IL_3E: stloc.s 5 */
+                loc5 = asm0.Int64_UnaryNegation(loc5);
                 case 0x40:
-                in_block_1 = true;
+                /* IL_40: ldloc.s 5 */
+                /* IL_42: call String GetLowString(System.Int64) */
+                /* IL_47: ldloc.2  */
+                /* IL_48: call String op_Addition(CilJs.JavaScript.String, CilJs.JavaScript.String) */
+                /* IL_4D: stloc.2  */
+                loc2 = loc5[0].toString() + loc2;
+                /* IL_4E: ldloc.0  */
+                /* IL_4F: ldloc.1  */
+                /* IL_50: div  */
+                /* IL_51: stloc.0  */
+                loc0 = asm0.Int64_Division(loc0,loc1);
+                /* IL_52: nop  */
                 
-                if (__pos__ > 0x5C){
-                    in_block_1 = false;
-                }
+                /* IL_53: ldloc.0  */
+                /* IL_54: ldc.i4.0  */
+                /* IL_55: conv.i8  */
+                /* IL_57: cgt.un  */
+                /* IL_58: stloc.s 7 */
+                loc7 = asm0.UInt64_GreaterThan(loc0,CILJS.conv_i8((0|0)));
+                /* IL_5A: ldloc.s 7 */
+                /* IL_5C: brtrue.s IL_29 */
                 
-                if (__pos__ < 0x29){
+                if (loc7){
                     __pos__ = 0x29;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x29:
-                        /* IL_29: nop  */
-                        
-                        /* IL_2A: ldloc.0  */
-                        /* IL_2B: ldloc.1  */
-                        /* IL_2C: rem  */
-                        /* IL_2D: stloc.s 5 */
-                        loc5 = asm0.Int64_Modulus(loc0,loc1);
-                        /* IL_2F: ldloc.s 5 */
-                        /* IL_31: ldc.i4.0  */
-                        /* IL_32: conv.i8  */
-                        /* IL_34: clt  */
-                        /* IL_35: stloc.s 6 */
-                        loc6 = asm0.Int64_LessThan(loc5,CILJS.conv_i8((0|0)));
-                        /* IL_37: ldloc.s 6 */
-                        /* IL_39: brfalse.s IL_40 */
-                        
-                        if ((!(loc6))){
-                            __pos__ = 0x40;
-                            continue;
-                        }
-                        /* IL_3B: ldloc.s 5 */
-                        /* IL_3D: neg  */
-                        /* IL_3E: stloc.s 5 */
-                        loc5 = asm0.Int64_UnaryNegation(loc5);
-                        case 0x40:
-                        /* IL_40: ldloc.s 5 */
-                        /* IL_42: call String GetLowString(System.Int64) */
-                        /* IL_47: ldloc.2  */
-                        /* IL_48: call String op_Addition(CilJs.JavaScript.String, CilJs.JavaScript.String) */
-                        /* IL_4D: stloc.2  */
-                        loc2 = loc5[0].toString() + loc2;
-                        /* IL_4E: ldloc.0  */
-                        /* IL_4F: ldloc.1  */
-                        /* IL_50: div  */
-                        /* IL_51: stloc.0  */
-                        loc0 = asm0.Int64_Division(loc0,loc1);
-                        /* IL_52: nop  */
-                        
-                        /* IL_53: ldloc.0  */
-                        /* IL_54: ldc.i4.0  */
-                        /* IL_55: conv.i8  */
-                        /* IL_57: cgt.un  */
-                        /* IL_58: stloc.s 7 */
-                        loc7 = asm0.UInt64_GreaterThan(loc0,CILJS.conv_i8((0|0)));
-                        /* IL_5A: ldloc.s 7 */
-                        /* IL_5C: brtrue.s IL_29 */
-                        
-                        if (loc7){
-                            __pos__ = 0x29;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x40) || (__pos__ < 0x29)){
                     continue;
                 }
                 /* IL_5E: ldloc.3  */
@@ -6244,7 +5401,6 @@ var CILJS;
         var loc1;
         var loc0;
         var loc2;
-        var in_block_1;
         var loc3;
         var loc4;
         t0 = (asm0)["System.Delegate"]();
@@ -6288,55 +5444,33 @@ var CILJS;
                 __pos__ = 0x32;
                 continue;
                 case 0x23:
+                /* IL_23: ldloc.0  */
+                /* IL_24: ldloc.2  */
+                /* IL_25: ldarg.0  */
+                /* IL_26: ldfld Delegate[] _invocationList */
+                /* IL_2B: ldloc.2  */
+                /* IL_2C: ldelem.ref  */
+                /* IL_2D: stelem.ref  */
+                CILJS.stelem_ref(loc0,loc2,CILJS.ldelem_ref(arg0._invocationList,loc2));
+                /* IL_2E: ldloc.2  */
+                /* IL_2F: ldc.i4.1  */
+                /* IL_30: add  */
+                /* IL_31: stloc.2  */
+                loc2 = (loc2 + (1|0)) | (0|0);
                 case 0x32:
-                in_block_1 = true;
+                /* IL_32: ldloc.2  */
+                /* IL_33: ldarg.0  */
+                /* IL_34: ldfld Delegate[] _invocationList */
+                /* IL_39: ldlen  */
+                /* IL_3A: conv.i4  */
+                /* IL_3C: clt  */
+                /* IL_3D: stloc.3  */
+                loc3 = ((loc2 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_3E: ldloc.3  */
+                /* IL_3F: brtrue.s IL_23 */
                 
-                if (__pos__ > 0x3F){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x23){
+                if (loc3){
                     __pos__ = 0x23;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x23:
-                        /* IL_23: ldloc.0  */
-                        /* IL_24: ldloc.2  */
-                        /* IL_25: ldarg.0  */
-                        /* IL_26: ldfld Delegate[] _invocationList */
-                        /* IL_2B: ldloc.2  */
-                        /* IL_2C: ldelem.ref  */
-                        /* IL_2D: stelem.ref  */
-                        CILJS.stelem_ref(loc0,loc2,CILJS.ldelem_ref(arg0._invocationList,loc2));
-                        /* IL_2E: ldloc.2  */
-                        /* IL_2F: ldc.i4.1  */
-                        /* IL_30: add  */
-                        /* IL_31: stloc.2  */
-                        loc2 = (loc2 + (1|0)) | (0|0);
-                        case 0x32:
-                        /* IL_32: ldloc.2  */
-                        /* IL_33: ldarg.0  */
-                        /* IL_34: ldfld Delegate[] _invocationList */
-                        /* IL_39: ldlen  */
-                        /* IL_3A: conv.i4  */
-                        /* IL_3C: clt  */
-                        /* IL_3D: stloc.3  */
-                        loc3 = ((loc2 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_3E: ldloc.3  */
-                        /* IL_3F: brtrue.s IL_23 */
-                        
-                        if (loc3){
-                            __pos__ = 0x23;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x32) || (__pos__ < 0x23)){
                     continue;
                 }
                 /* IL_41: ldloc.0  */
@@ -6404,7 +5538,6 @@ var CILJS;
         var loc2;
         var loc3;
         var loc5;
-        var in_block_1;
         var loc6;
         var loc7;
         var loc8;
@@ -6480,69 +5613,46 @@ var CILJS;
                 __pos__ = 0x4F;
                 continue;
                 case 0x30:
+                /* IL_30: ldarg.0  */
+                /* IL_31: ldfld Delegate[] _invocationList */
+                /* IL_36: ldloc.s 5 */
+                /* IL_38: ldelem.ref  */
+                /* IL_39: ldarg.1  */
+                /* IL_3A: call Boolean op_Inequality(System.Delegate, System.Delegate) */
+                /* IL_3F: stloc.s 6 */
+                loc6 = asm0.x6000063(CILJS.ldelem_ref(arg0._invocationList,loc5),arg1);
+                /* IL_41: ldloc.s 6 */
+                /* IL_43: brfalse.s IL_49 */
+                
+                if ((!(loc6))){
+                    __pos__ = 0x49;
+                    continue;
+                }
+                /* IL_45: ldloc.3  */
+                /* IL_46: ldc.i4.1  */
+                /* IL_47: add  */
+                /* IL_48: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
                 case 0x49:
+                /* IL_49: ldloc.s 5 */
+                /* IL_4B: ldc.i4.1  */
+                /* IL_4C: add  */
+                /* IL_4D: stloc.s 5 */
+                loc5 = (loc5 + (1|0)) | (0|0);
                 case 0x4F:
-                in_block_1 = true;
+                /* IL_4F: ldloc.s 5 */
+                /* IL_51: ldarg.0  */
+                /* IL_52: ldfld Delegate[] _invocationList */
+                /* IL_57: ldlen  */
+                /* IL_58: conv.i4  */
+                /* IL_5A: clt  */
+                /* IL_5B: stloc.s 7 */
+                loc7 = ((loc5 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_5D: ldloc.s 7 */
+                /* IL_5F: brtrue.s IL_30 */
                 
-                if (__pos__ > 0x5F){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x30){
+                if (loc7){
                     __pos__ = 0x30;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x30:
-                        /* IL_30: ldarg.0  */
-                        /* IL_31: ldfld Delegate[] _invocationList */
-                        /* IL_36: ldloc.s 5 */
-                        /* IL_38: ldelem.ref  */
-                        /* IL_39: ldarg.1  */
-                        /* IL_3A: call Boolean op_Inequality(System.Delegate, System.Delegate) */
-                        /* IL_3F: stloc.s 6 */
-                        loc6 = asm0.x6000063(CILJS.ldelem_ref(arg0._invocationList,loc5),arg1);
-                        /* IL_41: ldloc.s 6 */
-                        /* IL_43: brfalse.s IL_49 */
-                        
-                        if ((!(loc6))){
-                            __pos__ = 0x49;
-                            continue;
-                        }
-                        /* IL_45: ldloc.3  */
-                        /* IL_46: ldc.i4.1  */
-                        /* IL_47: add  */
-                        /* IL_48: stloc.3  */
-                        loc3 = (loc3 + (1|0)) | (0|0);
-                        case 0x49:
-                        /* IL_49: ldloc.s 5 */
-                        /* IL_4B: ldc.i4.1  */
-                        /* IL_4C: add  */
-                        /* IL_4D: stloc.s 5 */
-                        loc5 = (loc5 + (1|0)) | (0|0);
-                        case 0x4F:
-                        /* IL_4F: ldloc.s 5 */
-                        /* IL_51: ldarg.0  */
-                        /* IL_52: ldfld Delegate[] _invocationList */
-                        /* IL_57: ldlen  */
-                        /* IL_58: conv.i4  */
-                        /* IL_5A: clt  */
-                        /* IL_5B: stloc.s 7 */
-                        loc7 = ((loc5 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_5D: ldloc.s 7 */
-                        /* IL_5F: brtrue.s IL_30 */
-                        
-                        if (loc7){
-                            __pos__ = 0x30;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x4F) || (__pos__ < 0x30)){
                     continue;
                 }
                 /* IL_61: ldloc.3  */
@@ -6583,70 +5693,51 @@ var CILJS;
                 __pos__ = 0xA8;
                 continue;
                 case 0x81:
+                /* IL_81: ldarg.0  */
+                /* IL_82: ldfld Delegate[] _invocationList */
+                /* IL_87: ldloc.s 10 */
+                /* IL_89: ldelem.ref  */
+                /* IL_8A: ldarg.1  */
+                /* IL_8B: call Boolean op_Inequality(System.Delegate, System.Delegate) */
+                /* IL_90: stloc.s 11 */
+                loc11 = asm0.x6000063(CILJS.ldelem_ref(arg0._invocationList,loc10),arg1);
+                /* IL_92: ldloc.s 11 */
+                /* IL_94: brfalse.s IL_A2 */
+                
+                if ((!(loc11))){
+                    __pos__ = 0xA2;
+                    continue;
+                }
+                /* IL_96: ldarg.0  */
+                /* IL_97: ldfld Delegate[] _invocationList */
+                /* IL_9C: ldloc.s 10 */
+                /* IL_9E: ldelem.ref  */
+                /* IL_9F: stloc.2  */
+                loc2 = CILJS.ldelem_ref(arg0._invocationList,loc10);
+                /* IL_A0: br.s IL_114 */
+                __pos__ = 0x114;
+                continue;
                 case 0xA2:
+                /* IL_A2: ldloc.s 10 */
+                /* IL_A4: ldc.i4.1  */
+                /* IL_A5: add  */
+                /* IL_A6: stloc.s 10 */
+                loc10 = (loc10 + (1|0)) | (0|0);
                 case 0xA8:
-                in_block_1 = true;
+                /* IL_A8: ldloc.s 10 */
+                /* IL_AA: ldarg.0  */
+                /* IL_AB: ldfld Delegate[] _invocationList */
+                /* IL_B0: ldlen  */
+                /* IL_B1: conv.i4  */
+                /* IL_B3: clt  */
+                /* IL_B4: stloc.s 12 */
+                loc12 = ((loc10 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_B6: ldloc.s 12 */
+                /* IL_B8: brtrue.s IL_81 */
                 
-                if (__pos__ > 0xB8){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x81){
+                if (loc12){
                     __pos__ = 0x81;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x81:
-                        /* IL_81: ldarg.0  */
-                        /* IL_82: ldfld Delegate[] _invocationList */
-                        /* IL_87: ldloc.s 10 */
-                        /* IL_89: ldelem.ref  */
-                        /* IL_8A: ldarg.1  */
-                        /* IL_8B: call Boolean op_Inequality(System.Delegate, System.Delegate) */
-                        /* IL_90: stloc.s 11 */
-                        loc11 = asm0.x6000063(CILJS.ldelem_ref(arg0._invocationList,loc10),arg1);
-                        /* IL_92: ldloc.s 11 */
-                        /* IL_94: brfalse.s IL_A2 */
-                        
-                        if ((!(loc11))){
-                            __pos__ = 0xA2;
-                            continue;
-                        }
-                        /* IL_96: ldarg.0  */
-                        /* IL_97: ldfld Delegate[] _invocationList */
-                        /* IL_9C: ldloc.s 10 */
-                        /* IL_9E: ldelem.ref  */
-                        /* IL_9F: stloc.2  */
-                        loc2 = CILJS.ldelem_ref(arg0._invocationList,loc10);
-                        /* IL_A0: br.s IL_114 */
-                        __pos__ = 0x114;
-                        continue;
-                        case 0xA2:
-                        /* IL_A2: ldloc.s 10 */
-                        /* IL_A4: ldc.i4.1  */
-                        /* IL_A5: add  */
-                        /* IL_A6: stloc.s 10 */
-                        loc10 = (loc10 + (1|0)) | (0|0);
-                        case 0xA8:
-                        /* IL_A8: ldloc.s 10 */
-                        /* IL_AA: ldarg.0  */
-                        /* IL_AB: ldfld Delegate[] _invocationList */
-                        /* IL_B0: ldlen  */
-                        /* IL_B1: conv.i4  */
-                        /* IL_B3: clt  */
-                        /* IL_B4: stloc.s 12 */
-                        loc12 = ((loc10 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_B6: ldloc.s 12 */
-                        /* IL_B8: brtrue.s IL_81 */
-                        
-                        if (loc12){
-                            __pos__ = 0x81;
-                            continue;
-                        }
-                    }
-                    break;
+                    continue;
                 }
                 case 0xBA:
                 /* IL_BA: ldloc.3  */
@@ -6663,86 +5754,63 @@ var CILJS;
                 __pos__ = 0xF8;
                 continue;
                 case 0xCA:
+                /* IL_CA: ldarg.0  */
+                /* IL_CB: ldfld Delegate[] _invocationList */
+                /* IL_D0: ldloc.s 13 */
+                /* IL_D2: ldelem.ref  */
+                /* IL_D3: ldarg.1  */
+                /* IL_D4: call Boolean op_Inequality(System.Delegate, System.Delegate) */
+                /* IL_D9: stloc.s 15 */
+                loc15 = asm0.x6000063(CILJS.ldelem_ref(arg0._invocationList,loc13),arg1);
+                /* IL_DB: ldloc.s 15 */
+                /* IL_DD: brfalse.s IL_F2 */
+                
+                if ((!(loc15))){
+                    __pos__ = 0xF2;
+                    continue;
+                }
+                /* IL_DF: ldloc.s 4 */
+                st_52 = loc4;
+                /* IL_E1: ldloc.s 14 */
+                st_4B = loc14;
+                /* IL_E3: dup  */
+                st_53 = st_4C = st_4B;
+                /* IL_E4: ldc.i4.1  */
+                st_4D = (1|0);
+                /* IL_E5: add  */
+                st_4E = (st_4C + st_4D) | (0|0);
+                /* IL_E6: stloc.s 14 */
+                loc14 = st_4E;
+                /* IL_E8: ldarg.0  */
+                st_4F = arg0;
+                /* IL_E9: ldfld Delegate[] _invocationList */
+                st_50 = st_4F._invocationList;
+                /* IL_EE: ldloc.s 13 */
+                st_51 = loc13;
+                /* IL_F0: ldelem.ref  */
+                st_54 = CILJS.ldelem_ref(st_50,st_51);
+                /* IL_F1: stelem.ref  */
+                CILJS.stelem_ref(st_52,st_53,st_54);
                 case 0xF2:
+                /* IL_F2: ldloc.s 13 */
+                /* IL_F4: ldc.i4.1  */
+                /* IL_F5: add  */
+                /* IL_F6: stloc.s 13 */
+                loc13 = (loc13 + (1|0)) | (0|0);
                 case 0xF8:
-                in_block_1 = true;
+                /* IL_F8: ldloc.s 13 */
+                /* IL_FA: ldarg.0  */
+                /* IL_FB: ldfld Delegate[] _invocationList */
+                /* IL_100: ldlen  */
+                /* IL_101: conv.i4  */
+                /* IL_103: clt  */
+                /* IL_104: stloc.s 16 */
+                loc16 = ((loc13 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_106: ldloc.s 16 */
+                /* IL_108: brtrue.s IL_CA */
                 
-                if (__pos__ > 0x108){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0xCA){
+                if (loc16){
                     __pos__ = 0xCA;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0xCA:
-                        /* IL_CA: ldarg.0  */
-                        /* IL_CB: ldfld Delegate[] _invocationList */
-                        /* IL_D0: ldloc.s 13 */
-                        /* IL_D2: ldelem.ref  */
-                        /* IL_D3: ldarg.1  */
-                        /* IL_D4: call Boolean op_Inequality(System.Delegate, System.Delegate) */
-                        /* IL_D9: stloc.s 15 */
-                        loc15 = asm0.x6000063(CILJS.ldelem_ref(arg0._invocationList,loc13),arg1);
-                        /* IL_DB: ldloc.s 15 */
-                        /* IL_DD: brfalse.s IL_F2 */
-                        
-                        if ((!(loc15))){
-                            __pos__ = 0xF2;
-                            continue;
-                        }
-                        /* IL_DF: ldloc.s 4 */
-                        st_52 = loc4;
-                        /* IL_E1: ldloc.s 14 */
-                        st_4B = loc14;
-                        /* IL_E3: dup  */
-                        st_53 = st_4C = st_4B;
-                        /* IL_E4: ldc.i4.1  */
-                        st_4D = (1|0);
-                        /* IL_E5: add  */
-                        st_4E = (st_4C + st_4D) | (0|0);
-                        /* IL_E6: stloc.s 14 */
-                        loc14 = st_4E;
-                        /* IL_E8: ldarg.0  */
-                        st_4F = arg0;
-                        /* IL_E9: ldfld Delegate[] _invocationList */
-                        st_50 = st_4F._invocationList;
-                        /* IL_EE: ldloc.s 13 */
-                        st_51 = loc13;
-                        /* IL_F0: ldelem.ref  */
-                        st_54 = CILJS.ldelem_ref(st_50,st_51);
-                        /* IL_F1: stelem.ref  */
-                        CILJS.stelem_ref(st_52,st_53,st_54);
-                        case 0xF2:
-                        /* IL_F2: ldloc.s 13 */
-                        /* IL_F4: ldc.i4.1  */
-                        /* IL_F5: add  */
-                        /* IL_F6: stloc.s 13 */
-                        loc13 = (loc13 + (1|0)) | (0|0);
-                        case 0xF8:
-                        /* IL_F8: ldloc.s 13 */
-                        /* IL_FA: ldarg.0  */
-                        /* IL_FB: ldfld Delegate[] _invocationList */
-                        /* IL_100: ldlen  */
-                        /* IL_101: conv.i4  */
-                        /* IL_103: clt  */
-                        /* IL_104: stloc.s 16 */
-                        loc16 = ((loc13 < (arg0._invocationList.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_106: ldloc.s 16 */
-                        /* IL_108: brtrue.s IL_CA */
-                        
-                        if (loc16){
-                            __pos__ = 0xCA;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0xF8) || (__pos__ < 0xCA)){
                     continue;
                 }
                 /* IL_10A: ldloc.s 4 */
@@ -7806,7 +6874,6 @@ var CILJS;
         var loc3;
         var loc4;
         var loc5;
-        var in_block_1;
         var loc6;
         t0 = (asm0)["System.Array"]();
         in_block_0 = true;
@@ -7897,56 +6964,34 @@ var CILJS;
                 __pos__ = 0x95;
                 continue;
                 case 0x74:
+                /* IL_74: ldloc.0  */
+                /* IL_75: ldstr [ */
+                /* IL_7A: ldloc.s 4 */
+                /* IL_7C: ldloc.s 5 */
+                /* IL_7E: ldelem.ref  */
+                /* IL_7F: callvirt String get_AssemblyQualifiedName() */
+                /* IL_84: ldstr ] */
+                /* IL_89: call String Concat(System.String, System.String, System.String, System.String) */
+                /* IL_8E: stloc.0  */
+                loc0 = asm0.x600012a(loc0,CILJS.new_string("["),(((CILJS.ldelem_ref(loc4,loc5).vtable)["asm0.x600014c"])())(CILJS.ldelem_ref(loc4,loc5)),CILJS.new_string("]"));
+                /* IL_8F: ldloc.s 5 */
+                /* IL_91: ldc.i4.1  */
+                /* IL_92: add  */
+                /* IL_93: stloc.s 5 */
+                loc5 = (loc5 + (1|0)) | (0|0);
                 case 0x95:
-                in_block_1 = true;
+                /* IL_95: ldloc.s 5 */
+                /* IL_97: ldloc.s 4 */
+                /* IL_99: ldlen  */
+                /* IL_9A: conv.i4  */
+                /* IL_9C: clt  */
+                /* IL_9D: stloc.s 6 */
+                loc6 = ((loc5 < (loc4.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_9F: ldloc.s 6 */
+                /* IL_A1: brtrue.s IL_74 */
                 
-                if (__pos__ > 0xA1){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x74){
+                if (loc6){
                     __pos__ = 0x74;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x74:
-                        /* IL_74: ldloc.0  */
-                        /* IL_75: ldstr [ */
-                        /* IL_7A: ldloc.s 4 */
-                        /* IL_7C: ldloc.s 5 */
-                        /* IL_7E: ldelem.ref  */
-                        /* IL_7F: callvirt String get_AssemblyQualifiedName() */
-                        /* IL_84: ldstr ] */
-                        /* IL_89: call String Concat(System.String, System.String, System.String, System.String) */
-                        /* IL_8E: stloc.0  */
-                        loc0 = asm0.x600012a(loc0,CILJS.new_string("["),(((CILJS.ldelem_ref(loc4,loc5).vtable)["asm0.x600014c"])())(CILJS.ldelem_ref(loc4,loc5)),CILJS.new_string("]"));
-                        /* IL_8F: ldloc.s 5 */
-                        /* IL_91: ldc.i4.1  */
-                        /* IL_92: add  */
-                        /* IL_93: stloc.s 5 */
-                        loc5 = (loc5 + (1|0)) | (0|0);
-                        case 0x95:
-                        /* IL_95: ldloc.s 5 */
-                        /* IL_97: ldloc.s 4 */
-                        /* IL_99: ldlen  */
-                        /* IL_9A: conv.i4  */
-                        /* IL_9C: clt  */
-                        /* IL_9D: stloc.s 6 */
-                        loc6 = ((loc5 < (loc4.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_9F: ldloc.s 6 */
-                        /* IL_A1: brtrue.s IL_74 */
-                        
-                        if (loc6){
-                            __pos__ = 0x74;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x95) || (__pos__ < 0x74)){
                     continue;
                 }
                 /* IL_A3: ldloc.0  */
@@ -8280,7 +7325,6 @@ var CILJS;
         var loc3;
         var loc0;
         var loc4;
-        var in_block_1;
         var loc5;
         var loc1;
         var loc2;
@@ -8324,57 +7368,35 @@ var CILJS;
                 __pos__ = 0x3C;
                 continue;
                 case 0x1F:
+                /* IL_1F: ldloc.0  */
+                /* IL_20: ldloc.s 4 */
+                /* IL_22: ldarg.1  */
+                /* IL_23: ldloc.s 4 */
+                /* IL_25: ldelem.ref  */
+                /* IL_26: castclass System.RuntimeType */
+                /* IL_2B: ldfld constructor ctor */
+                /* IL_30: callvirt Void set_Item(System.Int32, System.Object) */
+                loc0[loc4] = CILJS.cast_class(CILJS.ldelem_ref(arg1,loc4),t1).ctor;
+                /* IL_35: nop  */
+                
+                /* IL_36: ldloc.s 4 */
+                /* IL_38: ldc.i4.1  */
+                /* IL_39: add  */
+                /* IL_3A: stloc.s 4 */
+                loc4 = (loc4 + (1|0)) | (0|0);
                 case 0x3C:
-                in_block_1 = true;
+                /* IL_3C: ldloc.s 4 */
+                /* IL_3E: ldarg.1  */
+                /* IL_3F: ldlen  */
+                /* IL_40: conv.i4  */
+                /* IL_42: clt  */
+                /* IL_43: stloc.s 5 */
+                loc5 = ((loc4 < (arg1.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_45: ldloc.s 5 */
+                /* IL_47: brtrue.s IL_1F */
                 
-                if (__pos__ > 0x47){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x1F){
+                if (loc5){
                     __pos__ = 0x1F;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x1F:
-                        /* IL_1F: ldloc.0  */
-                        /* IL_20: ldloc.s 4 */
-                        /* IL_22: ldarg.1  */
-                        /* IL_23: ldloc.s 4 */
-                        /* IL_25: ldelem.ref  */
-                        /* IL_26: castclass System.RuntimeType */
-                        /* IL_2B: ldfld constructor ctor */
-                        /* IL_30: callvirt Void set_Item(System.Int32, System.Object) */
-                        loc0[loc4] = CILJS.cast_class(CILJS.ldelem_ref(arg1,loc4),t1).ctor;
-                        /* IL_35: nop  */
-                        
-                        /* IL_36: ldloc.s 4 */
-                        /* IL_38: ldc.i4.1  */
-                        /* IL_39: add  */
-                        /* IL_3A: stloc.s 4 */
-                        loc4 = (loc4 + (1|0)) | (0|0);
-                        case 0x3C:
-                        /* IL_3C: ldloc.s 4 */
-                        /* IL_3E: ldarg.1  */
-                        /* IL_3F: ldlen  */
-                        /* IL_40: conv.i4  */
-                        /* IL_42: clt  */
-                        /* IL_43: stloc.s 5 */
-                        loc5 = ((loc4 < (arg1.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_45: ldloc.s 5 */
-                        /* IL_47: brtrue.s IL_1F */
-                        
-                        if (loc5){
-                            __pos__ = 0x1F;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x3C) || (__pos__ < 0x1F)){
                     continue;
                 }
                 /* IL_49: ldarg.0  */
@@ -8422,7 +7444,6 @@ var CILJS;
         var loc0;
         var loc1;
         var loc2;
-        var in_block_1;
         var loc3;
         var loc4;
         t0 = (asm0)["System.RuntimeType+constructor"]();
@@ -8460,54 +7481,32 @@ var CILJS;
                 __pos__ = 0x43;
                 continue;
                 case 0x34:
+                /* IL_34: ldloc.1  */
+                /* IL_35: ldloc.2  */
+                /* IL_36: ldloc.0  */
+                /* IL_37: ldloc.2  */
+                /* IL_38: ldelem.ref  */
+                /* IL_39: call Type GetInstance(System.RuntimeType+constructor) */
+                /* IL_3E: stelem.ref  */
+                CILJS.stelem_ref(loc1,loc2,asm0.x60000fa(CILJS.ldelem_ref(loc0,loc2)));
+                /* IL_3F: ldloc.2  */
+                /* IL_40: ldc.i4.1  */
+                /* IL_41: add  */
+                /* IL_42: stloc.2  */
+                loc2 = (loc2 + (1|0)) | (0|0);
                 case 0x43:
-                in_block_1 = true;
+                /* IL_43: ldloc.2  */
+                /* IL_44: ldloc.0  */
+                /* IL_45: ldlen  */
+                /* IL_46: conv.i4  */
+                /* IL_48: clt  */
+                /* IL_49: stloc.3  */
+                loc3 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_4A: ldloc.3  */
+                /* IL_4B: brtrue.s IL_34 */
                 
-                if (__pos__ > 0x4B){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x34){
+                if (loc3){
                     __pos__ = 0x34;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x34:
-                        /* IL_34: ldloc.1  */
-                        /* IL_35: ldloc.2  */
-                        /* IL_36: ldloc.0  */
-                        /* IL_37: ldloc.2  */
-                        /* IL_38: ldelem.ref  */
-                        /* IL_39: call Type GetInstance(System.RuntimeType+constructor) */
-                        /* IL_3E: stelem.ref  */
-                        CILJS.stelem_ref(loc1,loc2,asm0.x60000fa(CILJS.ldelem_ref(loc0,loc2)));
-                        /* IL_3F: ldloc.2  */
-                        /* IL_40: ldc.i4.1  */
-                        /* IL_41: add  */
-                        /* IL_42: stloc.2  */
-                        loc2 = (loc2 + (1|0)) | (0|0);
-                        case 0x43:
-                        /* IL_43: ldloc.2  */
-                        /* IL_44: ldloc.0  */
-                        /* IL_45: ldlen  */
-                        /* IL_46: conv.i4  */
-                        /* IL_48: clt  */
-                        /* IL_49: stloc.3  */
-                        loc3 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_4A: ldloc.3  */
-                        /* IL_4B: brtrue.s IL_34 */
-                        
-                        if (loc3){
-                            __pos__ = 0x34;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x43) || (__pos__ < 0x34)){
                     continue;
                 }
                 /* IL_4D: ldloc.1  */
@@ -8608,7 +7607,6 @@ var CILJS;
         var loc0;
         var loc1;
         var loc2;
-        var in_block_1;
         var loc3;
         var loc4;
         t0 = (asm0)["System.RuntimeType+constructor"]();
@@ -8641,54 +7639,32 @@ var CILJS;
                 __pos__ = 0x2E;
                 continue;
                 case 0x1F:
+                /* IL_1F: ldloc.1  */
+                /* IL_20: ldloc.2  */
+                /* IL_21: ldloc.0  */
+                /* IL_22: ldloc.2  */
+                /* IL_23: ldelem.ref  */
+                /* IL_24: call Type GetInstance(System.RuntimeType+constructor) */
+                /* IL_29: stelem.ref  */
+                CILJS.stelem_ref(loc1,loc2,asm0.x60000fa(CILJS.ldelem_ref(loc0,loc2)));
+                /* IL_2A: ldloc.2  */
+                /* IL_2B: ldc.i4.1  */
+                /* IL_2C: add  */
+                /* IL_2D: stloc.2  */
+                loc2 = (loc2 + (1|0)) | (0|0);
                 case 0x2E:
-                in_block_1 = true;
+                /* IL_2E: ldloc.2  */
+                /* IL_2F: ldloc.0  */
+                /* IL_30: ldlen  */
+                /* IL_31: conv.i4  */
+                /* IL_33: clt  */
+                /* IL_34: stloc.3  */
+                loc3 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_35: ldloc.3  */
+                /* IL_36: brtrue.s IL_1F */
                 
-                if (__pos__ > 0x36){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x1F){
+                if (loc3){
                     __pos__ = 0x1F;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x1F:
-                        /* IL_1F: ldloc.1  */
-                        /* IL_20: ldloc.2  */
-                        /* IL_21: ldloc.0  */
-                        /* IL_22: ldloc.2  */
-                        /* IL_23: ldelem.ref  */
-                        /* IL_24: call Type GetInstance(System.RuntimeType+constructor) */
-                        /* IL_29: stelem.ref  */
-                        CILJS.stelem_ref(loc1,loc2,asm0.x60000fa(CILJS.ldelem_ref(loc0,loc2)));
-                        /* IL_2A: ldloc.2  */
-                        /* IL_2B: ldc.i4.1  */
-                        /* IL_2C: add  */
-                        /* IL_2D: stloc.2  */
-                        loc2 = (loc2 + (1|0)) | (0|0);
-                        case 0x2E:
-                        /* IL_2E: ldloc.2  */
-                        /* IL_2F: ldloc.0  */
-                        /* IL_30: ldlen  */
-                        /* IL_31: conv.i4  */
-                        /* IL_33: clt  */
-                        /* IL_34: stloc.3  */
-                        loc3 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_35: ldloc.3  */
-                        /* IL_36: brtrue.s IL_1F */
-                        
-                        if (loc3){
-                            __pos__ = 0x1F;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x2E) || (__pos__ < 0x1F)){
                     continue;
                 }
                 /* IL_38: ldloc.1  */
@@ -8715,7 +7691,6 @@ var CILJS;
         var loc5;
         var loc6;
         var loc7;
-        var in_block_1;
         var loc8;
         var loc9;
         t0 = (asm0)["System.Object"]();
@@ -8845,68 +7820,45 @@ var CILJS;
                 __pos__ = 0x88;
                 continue;
                 case 0x6D:
+                /* IL_6D: ldarg.0  */
+                /* IL_6E: ldloc.s 6 */
+                /* IL_70: ldloc.s 7 */
+                /* IL_72: ldelem.ref  */
+                /* IL_73: callvirt Boolean IsAssignableFrom(System.Type) */
+                /* IL_78: stloc.s 8 */
+                loc8 = ((arg0.vtable)["asm0.x6000153"]())(arg0,CILJS.ldelem_ref(loc6,loc7));
+                /* IL_7A: ldloc.s 8 */
+                /* IL_7C: brfalse.s IL_82 */
+                
+                if ((!(loc8))){
+                    __pos__ = 0x82;
+                    continue;
+                }
+                /* IL_7E: ldc.i4.1  */
+                /* IL_7F: stloc.1  */
+                loc1 = (1|0);
+                /* IL_80: br.s IL_9B */
+                __pos__ = 0x9B;
+                continue;
                 case 0x82:
+                /* IL_82: ldloc.s 7 */
+                /* IL_84: ldc.i4.1  */
+                /* IL_85: add  */
+                /* IL_86: stloc.s 7 */
+                loc7 = (loc7 + (1|0)) | (0|0);
                 case 0x88:
-                in_block_1 = true;
+                /* IL_88: ldloc.s 7 */
+                /* IL_8A: ldloc.s 6 */
+                /* IL_8C: ldlen  */
+                /* IL_8D: conv.i4  */
+                /* IL_8F: clt  */
+                /* IL_90: stloc.s 9 */
+                loc9 = ((loc7 < (loc6.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_92: ldloc.s 9 */
+                /* IL_94: brtrue.s IL_6D */
                 
-                if (__pos__ > 0x94){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x6D){
+                if (loc9){
                     __pos__ = 0x6D;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x6D:
-                        /* IL_6D: ldarg.0  */
-                        /* IL_6E: ldloc.s 6 */
-                        /* IL_70: ldloc.s 7 */
-                        /* IL_72: ldelem.ref  */
-                        /* IL_73: callvirt Boolean IsAssignableFrom(System.Type) */
-                        /* IL_78: stloc.s 8 */
-                        loc8 = ((arg0.vtable)["asm0.x6000153"]())(arg0,CILJS.ldelem_ref(loc6,loc7));
-                        /* IL_7A: ldloc.s 8 */
-                        /* IL_7C: brfalse.s IL_82 */
-                        
-                        if ((!(loc8))){
-                            __pos__ = 0x82;
-                            continue;
-                        }
-                        /* IL_7E: ldc.i4.1  */
-                        /* IL_7F: stloc.1  */
-                        loc1 = (1|0);
-                        /* IL_80: br.s IL_9B */
-                        __pos__ = 0x9B;
-                        continue;
-                        case 0x82:
-                        /* IL_82: ldloc.s 7 */
-                        /* IL_84: ldc.i4.1  */
-                        /* IL_85: add  */
-                        /* IL_86: stloc.s 7 */
-                        loc7 = (loc7 + (1|0)) | (0|0);
-                        case 0x88:
-                        /* IL_88: ldloc.s 7 */
-                        /* IL_8A: ldloc.s 6 */
-                        /* IL_8C: ldlen  */
-                        /* IL_8D: conv.i4  */
-                        /* IL_8F: clt  */
-                        /* IL_90: stloc.s 9 */
-                        loc9 = ((loc7 < (loc6.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_92: ldloc.s 9 */
-                        /* IL_94: brtrue.s IL_6D */
-                        
-                        if (loc9){
-                            __pos__ = 0x6D;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x88) || (__pos__ < 0x6D)){
                     continue;
                 }
                 /* IL_96: nop  */
@@ -9100,7 +8052,6 @@ var CILJS;
         var loc3;
         var loc4;
         var loc5;
-        var in_block_1;
         var loc6;
         var loc7;
         var loc8;
@@ -9172,59 +8123,37 @@ var CILJS;
                 __pos__ = 0x7D;
                 continue;
                 case 0x54:
+                /* IL_54: nop  */
+                
+                /* IL_55: ldloc.s 4 */
+                /* IL_57: ldloc.s 5 */
+                /* IL_59: ldarg.0  */
+                /* IL_5A: ldfld constructor ctor */
+                /* IL_5F: ldfld Array Methods */
+                /* IL_64: ldloc.s 5 */
+                /* IL_66: callvirt Object get_Item(System.Int32) */
+                /* IL_6B: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
+                /* IL_70: call MethodInfo GetInstance(CilJs.JavaScript.Array) */
+                /* IL_75: stelem.ref  */
+                CILJS.stelem_ref(loc4,loc5,asm0.x60001a7(arg0.ctor.Methods[loc5]));
+                /* IL_76: nop  */
+                
+                /* IL_77: ldloc.s 5 */
+                /* IL_79: ldc.i4.1  */
+                /* IL_7A: add  */
+                /* IL_7B: stloc.s 5 */
+                loc5 = (loc5 + (1|0)) | (0|0);
                 case 0x7D:
-                in_block_1 = true;
+                /* IL_7D: ldloc.s 5 */
+                /* IL_7F: ldloc.2  */
+                /* IL_81: clt  */
+                /* IL_82: stloc.s 6 */
+                loc6 = ((loc5 < loc2) ? 1 : 0);
+                /* IL_84: ldloc.s 6 */
+                /* IL_86: brtrue.s IL_54 */
                 
-                if (__pos__ > 0x86){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x54){
+                if (loc6){
                     __pos__ = 0x54;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x54:
-                        /* IL_54: nop  */
-                        
-                        /* IL_55: ldloc.s 4 */
-                        /* IL_57: ldloc.s 5 */
-                        /* IL_59: ldarg.0  */
-                        /* IL_5A: ldfld constructor ctor */
-                        /* IL_5F: ldfld Array Methods */
-                        /* IL_64: ldloc.s 5 */
-                        /* IL_66: callvirt Object get_Item(System.Int32) */
-                        /* IL_6B: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
-                        /* IL_70: call MethodInfo GetInstance(CilJs.JavaScript.Array) */
-                        /* IL_75: stelem.ref  */
-                        CILJS.stelem_ref(loc4,loc5,asm0.x60001a7(arg0.ctor.Methods[loc5]));
-                        /* IL_76: nop  */
-                        
-                        /* IL_77: ldloc.s 5 */
-                        /* IL_79: ldc.i4.1  */
-                        /* IL_7A: add  */
-                        /* IL_7B: stloc.s 5 */
-                        loc5 = (loc5 + (1|0)) | (0|0);
-                        case 0x7D:
-                        /* IL_7D: ldloc.s 5 */
-                        /* IL_7F: ldloc.2  */
-                        /* IL_81: clt  */
-                        /* IL_82: stloc.s 6 */
-                        loc6 = ((loc5 < loc2) ? 1 : 0);
-                        /* IL_84: ldloc.s 6 */
-                        /* IL_86: brtrue.s IL_54 */
-                        
-                        if (loc6){
-                            __pos__ = 0x54;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x7D) || (__pos__ < 0x54)){
                     continue;
                 }
                 /* IL_88: ldc.i4.0  */
@@ -9234,57 +8163,35 @@ var CILJS;
                 __pos__ = 0xA0;
                 continue;
                 case 0x8D:
+                /* IL_8D: nop  */
+                
+                /* IL_8E: ldloc.s 4 */
+                /* IL_90: ldloc.s 7 */
+                /* IL_92: ldloc.2  */
+                /* IL_93: add  */
+                /* IL_94: ldloc.0  */
+                /* IL_95: ldloc.s 7 */
+                /* IL_97: ldelem.ref  */
+                /* IL_98: stelem.ref  */
+                CILJS.stelem_ref(loc4,(loc7 + loc2) | (0|0),CILJS.ldelem_ref(loc0,loc7));
+                /* IL_99: nop  */
+                
+                /* IL_9A: ldloc.s 7 */
+                /* IL_9C: ldc.i4.1  */
+                /* IL_9D: add  */
+                /* IL_9E: stloc.s 7 */
+                loc7 = (loc7 + (1|0)) | (0|0);
                 case 0xA0:
-                in_block_1 = true;
+                /* IL_A0: ldloc.s 7 */
+                /* IL_A2: ldloc.3  */
+                /* IL_A4: clt  */
+                /* IL_A5: stloc.s 8 */
+                loc8 = ((loc7 < loc3) ? 1 : 0);
+                /* IL_A7: ldloc.s 8 */
+                /* IL_A9: brtrue.s IL_8D */
                 
-                if (__pos__ > 0xA9){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x8D){
+                if (loc8){
                     __pos__ = 0x8D;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x8D:
-                        /* IL_8D: nop  */
-                        
-                        /* IL_8E: ldloc.s 4 */
-                        /* IL_90: ldloc.s 7 */
-                        /* IL_92: ldloc.2  */
-                        /* IL_93: add  */
-                        /* IL_94: ldloc.0  */
-                        /* IL_95: ldloc.s 7 */
-                        /* IL_97: ldelem.ref  */
-                        /* IL_98: stelem.ref  */
-                        CILJS.stelem_ref(loc4,(loc7 + loc2) | (0|0),CILJS.ldelem_ref(loc0,loc7));
-                        /* IL_99: nop  */
-                        
-                        /* IL_9A: ldloc.s 7 */
-                        /* IL_9C: ldc.i4.1  */
-                        /* IL_9D: add  */
-                        /* IL_9E: stloc.s 7 */
-                        loc7 = (loc7 + (1|0)) | (0|0);
-                        case 0xA0:
-                        /* IL_A0: ldloc.s 7 */
-                        /* IL_A2: ldloc.3  */
-                        /* IL_A4: clt  */
-                        /* IL_A5: stloc.s 8 */
-                        loc8 = ((loc7 < loc3) ? 1 : 0);
-                        /* IL_A7: ldloc.s 8 */
-                        /* IL_A9: brtrue.s IL_8D */
-                        
-                        if (loc8){
-                            __pos__ = 0x8D;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0xA0) || (__pos__ < 0x8D)){
                     continue;
                 }
                 /* IL_AB: ldloc.s 4 */
@@ -10129,7 +9036,6 @@ var CILJS;
         var __pos__;
         var loc0;
         var loc1;
-        var in_block_1;
         var loc2;
         var loc3;
         var loc4;
@@ -10156,79 +9062,56 @@ var CILJS;
                 __pos__ = 0x2A;
                 continue;
                 case 0xE:
+                /* IL_0E: nop  */
+                
+                /* IL_0F: ldarg.0  */
+                st_05 = arg0;
+                /* IL_10: ldloc.1  */
+                st_06 = loc1;
+                /* IL_11: ldelem.ref  */
+                st_07 = CILJS.ldelem_ref(st_05,st_06);
+                /* IL_12: dup  */
+                st_0A = st_09 = st_08 = st_07;
+                /* IL_13: brtrue.s IL_1B */
+                
+                if (st_08){
+                    __pos__ = 0x1B;
+                    continue;
+                }
+                /* IL_15: pop  */
+                
+                asm0.x6000142();
+                /* IL_16: ldsfld String Empty */
+                st_0A = t0.Empty;
                 case 0x1B:
+                /* IL_1B: stloc.2  */
+                loc2 = st_0A;
+                /* IL_1C: ldloc.0  */
+                /* IL_1D: ldloc.1  */
+                /* IL_1E: ldloc.2  */
+                /* IL_1F: callvirt String ToString() */
+                /* IL_24: stelem.ref  */
+                CILJS.stelem_ref(loc0,loc1,((loc2.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(loc2)));
+                /* IL_25: nop  */
+                
+                /* IL_26: ldloc.1  */
+                /* IL_27: ldc.i4.1  */
+                /* IL_28: add  */
+                /* IL_29: stloc.1  */
+                loc1 = (loc1 + (1|0)) | (0|0);
                 case 0x2A:
-                in_block_1 = true;
+                /* IL_2A: ldloc.1  */
+                /* IL_2B: ldarg.0  */
+                /* IL_2C: ldlen  */
+                /* IL_2D: conv.i4  */
+                /* IL_2F: clt  */
+                /* IL_30: stloc.3  */
+                loc3 = ((loc1 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_31: ldloc.3  */
+                /* IL_32: brtrue.s IL_0E */
                 
-                if (__pos__ > 0x32){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0xE){
+                if (loc3){
                     __pos__ = 0xE;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0xE:
-                        /* IL_0E: nop  */
-                        
-                        /* IL_0F: ldarg.0  */
-                        st_05 = arg0;
-                        /* IL_10: ldloc.1  */
-                        st_06 = loc1;
-                        /* IL_11: ldelem.ref  */
-                        st_07 = CILJS.ldelem_ref(st_05,st_06);
-                        /* IL_12: dup  */
-                        st_0A = st_09 = st_08 = st_07;
-                        /* IL_13: brtrue.s IL_1B */
-                        
-                        if (st_08){
-                            __pos__ = 0x1B;
-                            continue;
-                        }
-                        /* IL_15: pop  */
-                        
-                        asm0.x6000142();
-                        /* IL_16: ldsfld String Empty */
-                        st_0A = t0.Empty;
-                        case 0x1B:
-                        /* IL_1B: stloc.2  */
-                        loc2 = st_0A;
-                        /* IL_1C: ldloc.0  */
-                        /* IL_1D: ldloc.1  */
-                        /* IL_1E: ldloc.2  */
-                        /* IL_1F: callvirt String ToString() */
-                        /* IL_24: stelem.ref  */
-                        CILJS.stelem_ref(loc0,loc1,((loc2.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(loc2)));
-                        /* IL_25: nop  */
-                        
-                        /* IL_26: ldloc.1  */
-                        /* IL_27: ldc.i4.1  */
-                        /* IL_28: add  */
-                        /* IL_29: stloc.1  */
-                        loc1 = (loc1 + (1|0)) | (0|0);
-                        case 0x2A:
-                        /* IL_2A: ldloc.1  */
-                        /* IL_2B: ldarg.0  */
-                        /* IL_2C: ldlen  */
-                        /* IL_2D: conv.i4  */
-                        /* IL_2F: clt  */
-                        /* IL_30: stloc.3  */
-                        loc3 = ((loc1 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_31: ldloc.3  */
-                        /* IL_32: brtrue.s IL_0E */
-                        
-                        if (loc3){
-                            __pos__ = 0xE;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x2A) || (__pos__ < 0xE)){
                     continue;
                 }
                 /* IL_34: ldloc.0  */
@@ -10487,7 +9370,6 @@ var CILJS;
         var in_block_0;
         var __pos__;
         var loc0;
-        var in_block_1;
         var loc1;
         var loc2;
         var loc3;
@@ -10510,84 +9392,61 @@ var CILJS;
                 __pos__ = 0x40;
                 continue;
                 case 0x5:
+                /* IL_05: nop  */
+                
+                /* IL_06: ldarg.1  */
+                /* IL_07: ldloc.0  */
+                /* IL_08: ldelem.ref  */
+                /* IL_09: stloc.1  */
+                loc1 = CILJS.ldelem_ref(arg1,loc0);
+                /* IL_0A: ldloc.1  */
+                /* IL_0B: ldnull  */
+                /* IL_0D: ceq  */
+                /* IL_0E: stloc.2  */
+                loc2 = ((loc1 === null) ? 1 : 0);
+                /* IL_0F: ldloc.2  */
+                /* IL_10: brfalse.s IL_18 */
+                
+                if ((!(loc2))){
+                    __pos__ = 0x18;
+                    continue;
+                }
+                asm0.x6000142();
+                /* IL_12: ldsfld String Empty */
+                /* IL_17: stloc.1  */
+                loc1 = t0.Empty;
                 case 0x18:
+                /* IL_18: ldarg.0  */
+                /* IL_19: ldstr { */
+                /* IL_1E: ldloc.0  */
+                /* IL_1F: box System.Int32 */
+                /* IL_24: ldstr } */
+                /* IL_29: call String Concat(System.Object, System.Object, System.Object) */
+                /* IL_2E: ldloc.1  */
+                /* IL_2F: callvirt String ToString() */
+                /* IL_34: callvirt String Replace(System.String, System.String) */
+                /* IL_39: starg.s 0 */
+                arg0 = asm0.x600012e(arg0,asm0.x6000128(CILJS.new_string("{"),CILJS.make_box(loc0,t1),CILJS.new_string("}")),((loc1.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(loc1)));
+                /* IL_3B: nop  */
+                
+                /* IL_3C: ldloc.0  */
+                /* IL_3D: ldc.i4.1  */
+                /* IL_3E: add  */
+                /* IL_3F: stloc.0  */
+                loc0 = (loc0 + (1|0)) | (0|0);
                 case 0x40:
-                in_block_1 = true;
+                /* IL_40: ldloc.0  */
+                /* IL_41: ldarg.1  */
+                /* IL_42: ldlen  */
+                /* IL_43: conv.i4  */
+                /* IL_45: clt  */
+                /* IL_46: stloc.3  */
+                loc3 = ((loc0 < (arg1.jsarr.length | (0|0))) ? 1 : 0);
+                /* IL_47: ldloc.3  */
+                /* IL_48: brtrue.s IL_05 */
                 
-                if (__pos__ > 0x48){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x5){
+                if (loc3){
                     __pos__ = 0x5;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x5:
-                        /* IL_05: nop  */
-                        
-                        /* IL_06: ldarg.1  */
-                        /* IL_07: ldloc.0  */
-                        /* IL_08: ldelem.ref  */
-                        /* IL_09: stloc.1  */
-                        loc1 = CILJS.ldelem_ref(arg1,loc0);
-                        /* IL_0A: ldloc.1  */
-                        /* IL_0B: ldnull  */
-                        /* IL_0D: ceq  */
-                        /* IL_0E: stloc.2  */
-                        loc2 = ((loc1 === null) ? 1 : 0);
-                        /* IL_0F: ldloc.2  */
-                        /* IL_10: brfalse.s IL_18 */
-                        
-                        if ((!(loc2))){
-                            __pos__ = 0x18;
-                            continue;
-                        }
-                        asm0.x6000142();
-                        /* IL_12: ldsfld String Empty */
-                        /* IL_17: stloc.1  */
-                        loc1 = t0.Empty;
-                        case 0x18:
-                        /* IL_18: ldarg.0  */
-                        /* IL_19: ldstr { */
-                        /* IL_1E: ldloc.0  */
-                        /* IL_1F: box System.Int32 */
-                        /* IL_24: ldstr } */
-                        /* IL_29: call String Concat(System.Object, System.Object, System.Object) */
-                        /* IL_2E: ldloc.1  */
-                        /* IL_2F: callvirt String ToString() */
-                        /* IL_34: callvirt String Replace(System.String, System.String) */
-                        /* IL_39: starg.s 0 */
-                        arg0 = asm0.x600012e(arg0,asm0.x6000128(CILJS.new_string("{"),CILJS.make_box(loc0,t1),CILJS.new_string("}")),((loc1.vtable)["asm0.x60000ed"]())(CILJS.convert_box_to_pointer_as_needed(loc1)));
-                        /* IL_3B: nop  */
-                        
-                        /* IL_3C: ldloc.0  */
-                        /* IL_3D: ldc.i4.1  */
-                        /* IL_3E: add  */
-                        /* IL_3F: stloc.0  */
-                        loc0 = (loc0 + (1|0)) | (0|0);
-                        case 0x40:
-                        /* IL_40: ldloc.0  */
-                        /* IL_41: ldarg.1  */
-                        /* IL_42: ldlen  */
-                        /* IL_43: conv.i4  */
-                        /* IL_45: clt  */
-                        /* IL_46: stloc.3  */
-                        loc3 = ((loc0 < (arg1.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_47: ldloc.3  */
-                        /* IL_48: brtrue.s IL_05 */
-                        
-                        if (loc3){
-                            __pos__ = 0x5;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x40) || (__pos__ < 0x5)){
                     continue;
                 }
                 /* IL_4A: ldarg.0  */
@@ -10821,7 +9680,6 @@ var CILJS;
         var loc0;
         var loc1;
         var loc2;
-        var in_block_1;
         var loc3;
         var loc4;
         in_block_0 = true;
@@ -10875,63 +9733,40 @@ var CILJS;
                 __pos__ = 0x2F;
                 continue;
                 case 0x1C:
+                /* IL_1C: ldloc.2  */
+                /* IL_1D: ldarg.1  */
+                /* IL_1F: ceq  */
+                /* IL_20: stloc.3  */
+                loc3 = ((loc2 === arg1) ? 1 : 0);
+                /* IL_21: ldloc.3  */
+                /* IL_22: brfalse.s IL_28 */
+                
+                if ((!(loc3))){
+                    __pos__ = 0x28;
+                    continue;
+                }
+                /* IL_24: ldc.i4.1  */
+                /* IL_25: stloc.1  */
+                loc1 = (1|0);
+                /* IL_26: br.s IL_3D */
+                __pos__ = 0x3D;
+                continue;
                 case 0x28:
+                /* IL_28: ldloc.2  */
+                /* IL_29: callvirt Type get_BaseType() */
+                /* IL_2E: stloc.2  */
+                loc2 = ((loc2.vtable)["asm0.x600014b"]())(loc2);
                 case 0x2F:
-                in_block_1 = true;
+                /* IL_2F: ldloc.2  */
+                /* IL_30: ldnull  */
+                /* IL_32: cgt.un  */
+                /* IL_33: stloc.s 4 */
+                loc4 = ((loc2 !== null) ? 1 : 0);
+                /* IL_35: ldloc.s 4 */
+                /* IL_37: brtrue.s IL_1C */
                 
-                if (__pos__ > 0x37){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x1C){
+                if (loc4){
                     __pos__ = 0x1C;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x1C:
-                        /* IL_1C: ldloc.2  */
-                        /* IL_1D: ldarg.1  */
-                        /* IL_1F: ceq  */
-                        /* IL_20: stloc.3  */
-                        loc3 = ((loc2 === arg1) ? 1 : 0);
-                        /* IL_21: ldloc.3  */
-                        /* IL_22: brfalse.s IL_28 */
-                        
-                        if ((!(loc3))){
-                            __pos__ = 0x28;
-                            continue;
-                        }
-                        /* IL_24: ldc.i4.1  */
-                        /* IL_25: stloc.1  */
-                        loc1 = (1|0);
-                        /* IL_26: br.s IL_3D */
-                        __pos__ = 0x3D;
-                        continue;
-                        case 0x28:
-                        /* IL_28: ldloc.2  */
-                        /* IL_29: callvirt Type get_BaseType() */
-                        /* IL_2E: stloc.2  */
-                        loc2 = ((loc2.vtable)["asm0.x600014b"]())(loc2);
-                        case 0x2F:
-                        /* IL_2F: ldloc.2  */
-                        /* IL_30: ldnull  */
-                        /* IL_32: cgt.un  */
-                        /* IL_33: stloc.s 4 */
-                        loc4 = ((loc2 !== null) ? 1 : 0);
-                        /* IL_35: ldloc.s 4 */
-                        /* IL_37: brtrue.s IL_1C */
-                        
-                        if (loc4){
-                            __pos__ = 0x1C;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x2F) || (__pos__ < 0x1C)){
                     continue;
                 }
                 /* IL_39: ldc.i4.0  */
@@ -11348,7 +10183,6 @@ var CILJS;
         var loc0;
         var loc1;
         var loc2;
-        var in_block_1;
         var loc3;
         var loc4;
         var loc5;
@@ -11373,58 +10207,37 @@ var CILJS;
                 /* IL_0D: stloc.2  */
                 loc2 = CILJS.new_string("");
                 case 0xE:
-                in_block_1 = true;
+                /* IL_0E: nop  */
                 
-                if (__pos__ > 0x2E){
-                    in_block_1 = false;
-                }
+                /* IL_0F: ldloc.0  */
+                /* IL_10: ldloc.1  */
+                /* IL_11: rem.un  */
+                /* IL_12: stloc.3  */
+                loc3 = asm0.UInt64_Modulus(loc0,loc1);
+                /* IL_13: ldloc.3  */
+                /* IL_14: call String GetLowString(System.UInt64) */
+                /* IL_19: ldloc.2  */
+                /* IL_1A: call String Concat(System.String, System.String) */
+                /* IL_1F: stloc.2  */
+                loc2 = asm0.x6000127(CILJS.new_string(loc3[0].toString()),loc2);
+                /* IL_20: ldloc.0  */
+                /* IL_21: ldloc.1  */
+                /* IL_22: div.un  */
+                /* IL_23: stloc.0  */
+                loc0 = asm0.UInt64_Division(loc0,loc1);
+                /* IL_24: nop  */
                 
-                if (__pos__ < 0xE){
+                /* IL_25: ldloc.0  */
+                /* IL_26: ldc.i4.0  */
+                /* IL_27: conv.i8  */
+                /* IL_29: cgt.un  */
+                /* IL_2A: stloc.s 4 */
+                loc4 = asm0.UInt64_GreaterThan(loc0,CILJS.conv_i8((0|0)));
+                /* IL_2C: ldloc.s 4 */
+                /* IL_2E: brtrue.s IL_0E */
+                
+                if (loc4){
                     __pos__ = 0xE;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0xE:
-                        /* IL_0E: nop  */
-                        
-                        /* IL_0F: ldloc.0  */
-                        /* IL_10: ldloc.1  */
-                        /* IL_11: rem.un  */
-                        /* IL_12: stloc.3  */
-                        loc3 = asm0.UInt64_Modulus(loc0,loc1);
-                        /* IL_13: ldloc.3  */
-                        /* IL_14: call String GetLowString(System.UInt64) */
-                        /* IL_19: ldloc.2  */
-                        /* IL_1A: call String Concat(System.String, System.String) */
-                        /* IL_1F: stloc.2  */
-                        loc2 = asm0.x6000127(CILJS.new_string(loc3[0].toString()),loc2);
-                        /* IL_20: ldloc.0  */
-                        /* IL_21: ldloc.1  */
-                        /* IL_22: div.un  */
-                        /* IL_23: stloc.0  */
-                        loc0 = asm0.UInt64_Division(loc0,loc1);
-                        /* IL_24: nop  */
-                        
-                        /* IL_25: ldloc.0  */
-                        /* IL_26: ldc.i4.0  */
-                        /* IL_27: conv.i8  */
-                        /* IL_29: cgt.un  */
-                        /* IL_2A: stloc.s 4 */
-                        loc4 = asm0.UInt64_GreaterThan(loc0,CILJS.conv_i8((0|0)));
-                        /* IL_2C: ldloc.s 4 */
-                        /* IL_2E: brtrue.s IL_0E */
-                        
-                        if (loc4){
-                            __pos__ = 0xE;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0xE) || (__pos__ < 0xE)){
                     continue;
                 }
                 /* IL_30: ldloc.2  */
@@ -12152,7 +10965,6 @@ var CILJS;
         var loc2;
         var loc3;
         var loc4;
-        var in_block_1;
         var loc5;
         t0 = (asm0)["System.Int64"]();
         t1 = (asm0)["System.Array`1"](t0);
@@ -12223,63 +11035,41 @@ var CILJS;
                 __pos__ = 0x53;
                 continue;
                 case 0x37:
+                /* IL_37: ldloc.1  */
+                /* IL_38: ldloc.3  */
+                /* IL_39: ldloc.2  */
+                /* IL_3A: ldloc.s 4 */
+                /* IL_3C: ldelem.u4  */
+                /* IL_3D: ldloc.2  */
+                /* IL_3E: ldloc.s 4 */
+                /* IL_40: ldc.i4.1  */
+                /* IL_41: add  */
+                /* IL_42: ldelem.u4  */
+                /* IL_43: call Int64 Make(System.UInt32, System.UInt32) */
+                /* IL_48: stelem.i8  */
+                (loc1.jsarr)[loc3] = new Uint32Array([(loc2.jsarr)[loc4],(loc2.jsarr)[(loc4 + (1|0)) | (0|0)]]);
+                /* IL_49: ldloc.3  */
+                /* IL_4A: ldc.i4.1  */
+                /* IL_4B: add  */
+                /* IL_4C: stloc.3  */
+                loc3 = (loc3 + (1|0)) | (0|0);
+                /* IL_4D: ldloc.s 4 */
+                /* IL_4F: ldc.i4.2  */
+                /* IL_50: add  */
+                /* IL_51: stloc.s 4 */
+                loc4 = (loc4 + (2|0)) | (0|0);
                 case 0x53:
-                in_block_1 = true;
+                /* IL_53: ldloc.3  */
+                /* IL_54: ldarg.0  */
+                /* IL_55: callvirt Int32 get_Length() */
+                /* IL_5B: clt  */
+                /* IL_5C: stloc.s 5 */
+                loc5 = ((loc3 < asm0.x6000009(arg0)) ? 1 : 0);
+                /* IL_5E: ldloc.s 5 */
+                /* IL_60: brtrue.s IL_37 */
                 
-                if (__pos__ > 0x60){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x37){
+                if (loc5){
                     __pos__ = 0x37;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x37:
-                        /* IL_37: ldloc.1  */
-                        /* IL_38: ldloc.3  */
-                        /* IL_39: ldloc.2  */
-                        /* IL_3A: ldloc.s 4 */
-                        /* IL_3C: ldelem.u4  */
-                        /* IL_3D: ldloc.2  */
-                        /* IL_3E: ldloc.s 4 */
-                        /* IL_40: ldc.i4.1  */
-                        /* IL_41: add  */
-                        /* IL_42: ldelem.u4  */
-                        /* IL_43: call Int64 Make(System.UInt32, System.UInt32) */
-                        /* IL_48: stelem.i8  */
-                        (loc1.jsarr)[loc3] = new Uint32Array([(loc2.jsarr)[loc4],(loc2.jsarr)[(loc4 + (1|0)) | (0|0)]]);
-                        /* IL_49: ldloc.3  */
-                        /* IL_4A: ldc.i4.1  */
-                        /* IL_4B: add  */
-                        /* IL_4C: stloc.3  */
-                        loc3 = (loc3 + (1|0)) | (0|0);
-                        /* IL_4D: ldloc.s 4 */
-                        /* IL_4F: ldc.i4.2  */
-                        /* IL_50: add  */
-                        /* IL_51: stloc.s 4 */
-                        loc4 = (loc4 + (2|0)) | (0|0);
-                        case 0x53:
-                        /* IL_53: ldloc.3  */
-                        /* IL_54: ldarg.0  */
-                        /* IL_55: callvirt Int32 get_Length() */
-                        /* IL_5B: clt  */
-                        /* IL_5C: stloc.s 5 */
-                        loc5 = ((loc3 < asm0.x6000009(arg0)) ? 1 : 0);
-                        /* IL_5E: ldloc.s 5 */
-                        /* IL_60: brtrue.s IL_37 */
-                        
-                        if (loc5){
-                            __pos__ = 0x37;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x53) || (__pos__ < 0x37)){
                     continue;
                 }
                 /* IL_62: nop  */
@@ -12932,7 +11722,6 @@ var CILJS;
         var in_block_0;
         var __pos__;
         var loc0;
-        var in_block_1;
         var loc1;
         var loc2;
         in_block_0 = true;
@@ -12996,77 +11785,54 @@ var CILJS;
                 __pos__ = 0x6E;
                 continue;
                 case 0x35:
+                /* IL_35: nop  */
+                
+                /* IL_36: ldarg.0  */
+                /* IL_37: ldarg.0  */
+                /* IL_38: ldfld Array <a>5__1 */
+                /* IL_3D: ldarg.0  */
+                /* IL_3E: ldfld Int32 <i>5__2 */
+                /* IL_43: callvirt Object get_Item(System.Int32) */
+                /* IL_48: stfld Object <>2__current */
+                (arg0)["CilJs_JavaScript_GetEnumerator_d__7<>2__current"] = (arg0)["CilJs_JavaScript_GetEnumerator_d__7<a>5__1"][(arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"]];
+                /* IL_4D: ldarg.0  */
+                /* IL_4E: ldc.i4.1  */
+                /* IL_4F: stfld Int32 <>1__state */
+                (arg0)["CilJs_JavaScript_GetEnumerator_d__7<>1__state"] = (1|0);
+                /* IL_54: ldc.i4.1  */
+                /* IL_55: ret  */
+                return (1|0);
                 case 0x56:
+                /* IL_56: ldarg.0  */
+                /* IL_57: ldc.i4.m1  */
+                /* IL_58: stfld Int32 <>1__state */
+                (arg0)["CilJs_JavaScript_GetEnumerator_d__7<>1__state"] = (-1|0);
+                /* IL_5D: nop  */
+                
+                /* IL_5E: ldarg.0  */
+                /* IL_5F: ldfld Int32 <i>5__2 */
+                /* IL_64: stloc.1  */
+                loc1 = (arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"];
+                /* IL_65: ldarg.0  */
+                /* IL_66: ldloc.1  */
+                /* IL_67: ldc.i4.1  */
+                /* IL_68: add  */
+                /* IL_69: stfld Int32 <i>5__2 */
+                (arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"] = ((loc1 + (1|0)) | (0|0));
                 case 0x6E:
-                in_block_1 = true;
+                /* IL_6E: ldarg.0  */
+                /* IL_6F: ldfld Int32 <i>5__2 */
+                /* IL_74: ldarg.0  */
+                /* IL_75: ldfld Array <a>5__1 */
+                /* IL_7A: callvirt Int32 get_Length() */
+                /* IL_80: clt  */
+                /* IL_81: stloc.2  */
+                loc2 = (((arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"] < (arg0)["CilJs_JavaScript_GetEnumerator_d__7<a>5__1"].length) ? 1 : 0);
+                /* IL_82: ldloc.2  */
+                /* IL_83: brtrue.s IL_35 */
                 
-                if (__pos__ > 0x83){
-                    in_block_1 = false;
-                }
-                
-                if (__pos__ < 0x35){
+                if (loc2){
                     __pos__ = 0x35;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x35:
-                        /* IL_35: nop  */
-                        
-                        /* IL_36: ldarg.0  */
-                        /* IL_37: ldarg.0  */
-                        /* IL_38: ldfld Array <a>5__1 */
-                        /* IL_3D: ldarg.0  */
-                        /* IL_3E: ldfld Int32 <i>5__2 */
-                        /* IL_43: callvirt Object get_Item(System.Int32) */
-                        /* IL_48: stfld Object <>2__current */
-                        (arg0)["CilJs_JavaScript_GetEnumerator_d__7<>2__current"] = (arg0)["CilJs_JavaScript_GetEnumerator_d__7<a>5__1"][(arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"]];
-                        /* IL_4D: ldarg.0  */
-                        /* IL_4E: ldc.i4.1  */
-                        /* IL_4F: stfld Int32 <>1__state */
-                        (arg0)["CilJs_JavaScript_GetEnumerator_d__7<>1__state"] = (1|0);
-                        /* IL_54: ldc.i4.1  */
-                        /* IL_55: ret  */
-                        return (1|0);
-                        case 0x56:
-                        /* IL_56: ldarg.0  */
-                        /* IL_57: ldc.i4.m1  */
-                        /* IL_58: stfld Int32 <>1__state */
-                        (arg0)["CilJs_JavaScript_GetEnumerator_d__7<>1__state"] = (-1|0);
-                        /* IL_5D: nop  */
-                        
-                        /* IL_5E: ldarg.0  */
-                        /* IL_5F: ldfld Int32 <i>5__2 */
-                        /* IL_64: stloc.1  */
-                        loc1 = (arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"];
-                        /* IL_65: ldarg.0  */
-                        /* IL_66: ldloc.1  */
-                        /* IL_67: ldc.i4.1  */
-                        /* IL_68: add  */
-                        /* IL_69: stfld Int32 <i>5__2 */
-                        (arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"] = ((loc1 + (1|0)) | (0|0));
-                        case 0x6E:
-                        /* IL_6E: ldarg.0  */
-                        /* IL_6F: ldfld Int32 <i>5__2 */
-                        /* IL_74: ldarg.0  */
-                        /* IL_75: ldfld Array <a>5__1 */
-                        /* IL_7A: callvirt Int32 get_Length() */
-                        /* IL_80: clt  */
-                        /* IL_81: stloc.2  */
-                        loc2 = (((arg0)["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"] < (arg0)["CilJs_JavaScript_GetEnumerator_d__7<a>5__1"].length) ? 1 : 0);
-                        /* IL_82: ldloc.2  */
-                        /* IL_83: brtrue.s IL_35 */
-                        
-                        if (loc2){
-                            __pos__ = 0x35;
-                            continue;
-                        }
-                    }
-                    break;
-                }
-                
-                if ((__pos__ > 0x6E) || (__pos__ < 0x35)){
                     continue;
                 }
                 /* IL_85: ldc.i4.0  */
@@ -15852,3 +14618,7 @@ var CILJS;
         },
         "function _GetEnumerator_d__7() { c.init();(this)[\"CilJs_JavaScript_GetEnumerator_d__7<>1__state\"] = 0;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<>2__current\"] = null;(this)[\"<>4__this\"] = null;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<a>5__1\"] = null;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<i>5__2\"] = 0 }");
 })(asm0 || (asm0 = {}));
+
+if (module) {
+    module.exports = asm0;
+}

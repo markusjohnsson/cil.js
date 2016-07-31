@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CilJs.JSAst;
 
-using Type = IKVM.Reflection.Type;
+using Type = Managed.Reflection.Type;
 
 namespace CilJs.Ast
 {

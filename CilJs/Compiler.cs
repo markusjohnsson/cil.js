@@ -155,9 +155,9 @@ namespace CilJs
             }
         }
 
-        private static Stream GetRuntimeJsResource()
+        private Stream GetRuntimeJsResource() 
         {
-            return typeof(Compiler).Assembly.GetManifestResourceStream("CilJs.Runtime.Runtime.js");
+            throw new NotImplementedException();
         }
     }
 }

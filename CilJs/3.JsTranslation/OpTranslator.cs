@@ -2,13 +2,13 @@ using CilJs.Ast;
 using CilJs.JSAst;
 using CilJs.JsTranslation.OpTranslators;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
+using Managed.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Type = IKVM.Reflection.Type;
+using Type = Managed.Reflection.Type;
 
 namespace CilJs.JsTranslation
 {

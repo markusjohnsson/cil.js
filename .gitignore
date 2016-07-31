@@ -6,6 +6,8 @@ CilJs.TestLib.dll
 [Bb]in/
 [Oo]bj/
 
+project.lock.json
+
 # mstest test results
 TestResults
 

@@ -1,12 +1,12 @@
 ﻿using CilJs.Analysis.Passes;
 using CilJs.Ast;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
+using Managed.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Type = IKVM.Reflection.Type;
+using Type = Managed.Reflection.Type;
 
 namespace CilJs.Analysis
 {

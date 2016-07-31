@@ -1,5 +1,5 @@
 
-using IKVM.Reflection.Emit;
+using Managed.Reflection.Emit;
 
 namespace CilJs.Ast
 {

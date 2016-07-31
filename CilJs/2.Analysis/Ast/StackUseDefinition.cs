@@ -1,4 +1,4 @@
-using IKVM.Reflection;
+using Managed.Reflection;
 using System.Collections.Generic;
 
 namespace CilJs.Ast

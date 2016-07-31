@@ -1,14 +1,10 @@
-﻿using CilJs.JSAst;
-using CilJs.Loading;
-using CilJs.JsTranslation;
-using IKVM.Reflection;
+﻿using CilJs.Loading;
+using Managed.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Type = IKVM.Reflection.Type;
+using Type = Managed.Reflection.Type;
 using System.Diagnostics;
-using CilJs.Ast;
 using CilJs.Loading.Model;
 
 namespace CilJs.Ast

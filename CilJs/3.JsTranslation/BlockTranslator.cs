@@ -1,7 +1,6 @@
 using CilJs.Ast;
 using CilJs.JSAst;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;

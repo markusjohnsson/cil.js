@@ -1,6 +1,6 @@
 ﻿using CilJs.Analysis.Passes;
 using CilJs.Ast;
-using IKVM.Reflection;
+using Managed.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 

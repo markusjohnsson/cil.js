@@ -76,6 +76,6 @@ namespace CilJs.Ast
                 yield return subnode;
         }
         
-        public List<IKVM.Reflection.Type> RequireFieldInitTypes { get; set; }
+        public List<Managed.Reflection.Type> RequireFieldInitTypes { get; set; }
     }
 }

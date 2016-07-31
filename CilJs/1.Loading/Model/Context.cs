@@ -1,5 +1,5 @@
 ﻿using CilJs.Ast;
-using IKVM.Reflection;
+using Managed.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;

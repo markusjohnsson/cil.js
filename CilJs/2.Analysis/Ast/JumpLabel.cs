@@ -1,7 +1,4 @@
-﻿
-using System.Diagnostics;
-
-namespace CilJs.Ast
+﻿namespace CilJs.Ast
 {
     class JumpLabel : Node
     {

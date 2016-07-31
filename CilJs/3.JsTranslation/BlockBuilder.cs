@@ -1,10 +1,7 @@
 
 using CilJs.JSAst;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using CilJs.Analysis;
 using CilJs.Ast;
 
 namespace CilJs.JsTranslation

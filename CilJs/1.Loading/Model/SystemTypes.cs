@@ -1,6 +1,6 @@
-using IKVM.Reflection;
+using Managed.Reflection;
 using System.Collections.Generic;
-using Type = IKVM.Reflection.Type;
+using Type = Managed.Reflection.Type;
 
 namespace CilJs.Loading.Model
 {

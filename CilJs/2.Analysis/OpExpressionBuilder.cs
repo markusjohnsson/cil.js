@@ -2,13 +2,11 @@
 using CilJs.Ast;
 using CilJs.Loading;
 using CilJs.Loading.Model;
-using IKVM.Reflection;
-using IKVM.Reflection.Emit;
+using Managed.Reflection;
+using Managed.Reflection.Emit;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using Type = IKVM.Reflection.Type;
 
 namespace CilJs.Analysis
 {

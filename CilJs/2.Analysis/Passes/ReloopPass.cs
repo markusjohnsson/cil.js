@@ -1,8 +1,7 @@
 ﻿using System;
-using CilJs.Analysis.Passes;
 using CilJs.Ast;
 using System.Collections.Generic;
-using IKVM.Reflection.Emit;
+using Managed.Reflection.Emit;
 using System.Diagnostics;
 using System.Linq;
 
