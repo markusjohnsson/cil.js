@@ -95,7 +95,7 @@ namespace CilJs
         " + string.Join(@"
         ", outputNames.Select(o => @"<script src=""" + o + @"""></script>")) + @"
         <script>
-            " + entrypointAssembly.Identifier + @".entryPoint();
+            CILJS.entry_point();
         </script>
     </head>
     <body>

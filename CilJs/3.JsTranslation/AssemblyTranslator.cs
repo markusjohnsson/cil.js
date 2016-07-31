@@ -43,6 +43,19 @@ namespace CilJs.JsTranslation
                     }
                 }
             }.ToStatement();
+
+            yield return new JSIfStatement 
+            {
+                Condition = JSFactory.Identifier("module"),
+                Statements = 
+                {
+                    JSFactory
+                        .Assignment(
+                            JSFactory.Identifier("module", "exports"), 
+                            ifier)
+                        .ToStatement()
+                }
+            };
         }
 
         private IEnumerable<JSExpression> GetBody(List<CilAssembly> world, CilAssembly asm)
