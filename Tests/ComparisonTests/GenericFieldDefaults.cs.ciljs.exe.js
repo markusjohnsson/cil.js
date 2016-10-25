@@ -40,7 +40,7 @@ var asm1;(function (asm)
         /* IL_06: stloc.0  */
         loc0 = CILJS.newobj(t1,asm1.x6000001,[null]);
         /* IL_07: ldloc.0  */
-        /* IL_08: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_08: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_0D: call Void WriteLine(System.Object) */
         asm0.x600005a(loc0.Value);
         /* IL_12: nop  */
@@ -48,7 +48,7 @@ var asm1;(function (asm)
         /* IL_18: stloc.1  */
         loc1 = CILJS.newobj(t3,asm1.x6000001,[null]);
         /* IL_19: ldloc.1  */
-        /* IL_1A: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_1A: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_1F: box System.Int32 */
         /* IL_24: call Void WriteLine(System.Object) */
         asm0.x600005a(CILJS.make_box(loc1.Value,t2));
@@ -102,3 +102,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

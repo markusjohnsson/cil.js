@@ -12,6 +12,7 @@ var asm1;(function (asm)
             var __pos__;
             var loc0;
             var loc1;
+            var in_block_1;
             var loc2;
             var loc3;
             var loc4;
@@ -38,48 +39,71 @@ var asm1;(function (asm)
                     __pos__ = 0x26;
                     continue;
                     case 0x8:
-                    /* IL_08: ldloc.0  */
-                    /* IL_09: ldloc.1  */
-                    /* IL_0A: ldelem T */
-                    /* IL_0F: stloc.2  */
-                    loc2 = (loc0.jsarr)[loc1];
-                    /* IL_10: nop  */
-                    
-                    /* IL_11: ldarg.1  */
-                    /* IL_12: ldloc.2  */
-                    /* IL_13: callvirt Boolean Invoke(T) */
-                    /* IL_18: stloc.3  */
-                    loc3 = ((arg1._target) ? (arg1._methodPtr(arg1._target,loc2)) : (arg1._methodPtr(loc2)));
-                    /* IL_19: ldloc.3  */
-                    /* IL_1A: brfalse.s IL_21 */
-                    
-                    if ((!(loc3))){
-                        __pos__ = 0x21;
-                        continue;
-                    }
-                    /* IL_1C: ldloc.2  */
-                    /* IL_1D: stloc.s 4 */
-                    loc4 = loc2;
-                    /* IL_1F: br.s IL_3A */
-                    __pos__ = 0x3A;
-                    continue;
                     case 0x21:
-                    /* IL_21: nop  */
-                    
-                    /* IL_22: ldloc.1  */
-                    /* IL_23: ldc.i4.1  */
-                    /* IL_24: add  */
-                    /* IL_25: stloc.1  */
-                    loc1 = (loc1 + (1|0)) | (0|0);
                     case 0x26:
-                    /* IL_26: ldloc.1  */
-                    /* IL_27: ldloc.0  */
-                    /* IL_28: ldlen  */
-                    /* IL_29: conv.i4  */
-                    /* IL_2A: blt.s IL_08 */
+                    in_block_1 = true;
                     
-                    if (loc1 < (loc0.jsarr.length | (0|0))){
+                    if (__pos__ > 0x2A){
+                        in_block_1 = false;
+                    }
+                    
+                    if (__pos__ < 0x8){
                         __pos__ = 0x8;
+                    }
+                    
+                    while (in_block_1){
+                        
+                        switch (__pos__){
+                            case 0x8:
+                            /* IL_08: ldloc.0  */
+                            /* IL_09: ldloc.1  */
+                            /* IL_0A: ldelem T */
+                            /* IL_0F: stloc.2  */
+                            loc2 = (loc0.jsarr)[loc1];
+                            /* IL_10: nop  */
+                            
+                            /* IL_11: ldarg.1  */
+                            /* IL_12: ldloc.2  */
+                            /* IL_13: callvirt Boolean Invoke(T) */
+                            /* IL_18: stloc.3  */
+                            loc3 = ((arg1._target) ? (arg1._methodPtr(arg1._target,loc2)) : (arg1._methodPtr(loc2)));
+                            /* IL_19: ldloc.3  */
+                            /* IL_1A: brfalse.s IL_21 */
+                            
+                            if ((!(loc3))){
+                                __pos__ = 0x21;
+                                continue;
+                            }
+                            /* IL_1C: ldloc.2  */
+                            /* IL_1D: stloc.s 4 */
+                            loc4 = loc2;
+                            /* IL_1F: br.s IL_3A */
+                            __pos__ = 0x3A;
+                            continue;
+                            case 0x21:
+                            /* IL_21: nop  */
+                            
+                            /* IL_22: ldloc.1  */
+                            /* IL_23: ldc.i4.1  */
+                            /* IL_24: add  */
+                            /* IL_25: stloc.1  */
+                            loc1 = (loc1 + (1|0)) | (0|0);
+                            case 0x26:
+                            /* IL_26: ldloc.1  */
+                            /* IL_27: ldloc.0  */
+                            /* IL_28: ldlen  */
+                            /* IL_29: conv.i4  */
+                            /* IL_2A: blt.s IL_08 */
+                            
+                            if (loc1 < (loc0.jsarr.length | (0|0))){
+                                __pos__ = 0x8;
+                                continue;
+                            }
+                        }
+                        break;
+                    }
+                    
+                    if ((__pos__ > 0x26) || (__pos__ < 0x8)){
                         continue;
                     }
                     /* IL_2C: ldloca.s 5 */
@@ -331,3 +355,6 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

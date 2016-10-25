@@ -1,7 +1,7 @@
 var asm1;(function (asm)
 {
     asm.FullName = "TestTest.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
-    /* static System.Void TestTest.Main()*/
+    /* static System.Void Program.Main()*/
     asm.x6000001 = function Main()
     {
         var t0;
@@ -17,7 +17,7 @@ var asm1;(function (asm)
         /* IL_12: ret  */
         return ;
     };;
-    /*  TestTest..ctor()*/
+    /*  Program..ctor()*/
     asm.x6000002 = function _ctor(arg0)
     {
         /* IL_00: ldarg.0  */
@@ -26,8 +26,8 @@ var asm1;(function (asm)
         /* IL_07: ret  */
         return ;
     };;
-    (asm)["CilJs.TestRunner.Tests.TestTest"] = CILJS.declare_type(
-        "TestTest",
+    (asm)["CilJs.TestRunner.Tests.Program"] = CILJS.declare_type(
+        "Program",
         [],
         function ()
         {
@@ -36,12 +36,15 @@ var asm1;(function (asm)
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"CilJs.TestRunner.Tests.TestTest",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"CilJs.TestRunner.Tests.Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
             CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
         },
-        "function TestTest() { c.init(); }");
+        "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

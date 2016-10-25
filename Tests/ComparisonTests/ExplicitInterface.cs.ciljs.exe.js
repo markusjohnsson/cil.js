@@ -1,19 +1,19 @@
 var asm1;(function (asm)
 {
     asm.FullName = "ExplicitInterface.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
-    /* static System.Void Program.Main(String[])*/
-    asm.x6000001_init = function (arg0)
+    /* static System.Void Program.Main()*/
+    asm.x6000001_init = function ()
     {
         ((asm1)["Program+X"]().init)();
         ((asm1)["Program+C"]().init)();
         asm.x6000001 = asm.x6000001_;
     };;
-    asm.x6000001 = function (arg0)
+    asm.x6000001 = function ()
     {
-        asm.x6000001_init(arg0);
-        return asm.x6000001_(arg0);
+        asm.x6000001_init();
+        return asm.x6000001_();
     };;
-    asm.x6000001_ = function Main(arg0)
+    asm.x6000001_ = function Main()
     {
         var t0;
         var t1;
@@ -216,3 +216,6 @@ var asm1;(function (asm)
         "function X() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

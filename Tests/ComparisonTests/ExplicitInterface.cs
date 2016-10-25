@@ -1,6 +1,6 @@
 ﻿class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         X x = new X();
         I<int> i = new C();

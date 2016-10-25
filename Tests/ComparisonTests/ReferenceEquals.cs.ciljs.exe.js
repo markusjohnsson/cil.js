@@ -212,7 +212,7 @@ var asm1;(function (asm)
         asm0.x600005a(CILJS.make_box(((CILJS.make_box(CILJS.clone_value(loc1),t2) === null) ? 1 : 0),t1));
         /* IL_11B: nop  */
         /* IL_11C: ldloc.0  */
-        /* IL_11D: stsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_11D: stsfld Managed.Reflection.GenericFieldInstance */
         t4.t = loc0;
         /* IL_122: ldloc.0  */
         /* IL_123: call Void CheckEquals(A) */
@@ -223,7 +223,7 @@ var asm1;(function (asm)
         (asm1.x6000002(asm1.A()))(CILJS.newobj(t3,asm1.x6000001,[null]));
         /* IL_133: nop  */
         /* IL_134: ldloc.1  */
-        /* IL_135: stsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_135: stsfld Managed.Reflection.GenericFieldInstance */
         t5.t = loc1;
         /* IL_13A: ldloc.1  */
         /* IL_13B: call Void CheckEquals(B) */
@@ -473,3 +473,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

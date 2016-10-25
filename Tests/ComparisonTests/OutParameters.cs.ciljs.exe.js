@@ -84,29 +84,26 @@ var asm1;(function (asm)
     asm.x6000004_ = function Z(arg0)
     {
         var t0;
+        var st_00;
         var st_01;
         var st_02;
         var st_03;
         var st_04;
-        var loc0;
         t0 = asm1.C();
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         st_03 = arg0;
         /* IL_02: newobj Void .ctor() */
-        /* IL_07: stloc.0  */
-        loc0 = CILJS.newobj(t0,asm1.x6000001,[null]);
-        /* IL_08: ldloc.0  */
-        st_01 = loc0;
-        /* IL_09: ldc.i4.4  */
+        st_00 = CILJS.newobj(t0,asm1.x6000001,[null]);
+        /* IL_07: dup  */
+        st_04 = st_01 = st_00;
+        /* IL_08: ldc.i4.4  */
         st_02 = (4|0);
-        /* IL_0A: stfld Int32 V */
+        /* IL_09: stfld Int32 V */
         st_01.V = st_02;
-        /* IL_0F: ldloc.0  */
-        st_04 = loc0;
-        /* IL_10: stind.ref  */
+        /* IL_0E: stind.ref  */
         st_03.w(st_04);
-        /* IL_11: ret  */
+        /* IL_0F: ret  */
         return ;
     };
     /* static System.Void Program.Main()*/
@@ -243,3 +240,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000005;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace CilJs.TestRunner
 {
@@ -6,20 +7,37 @@ namespace CilJs.TestRunner
     {
         public static void Main(string[] args)
         {
-            var runner = new TestRunner(@"..\Tests\ComparisonTests\");
+            var workingDir = @"..\Tests\ComparisonTests\";
+            var runner = new TestRunner(workingDir);
+            
+            var started = 0;
+            var succeeded = 0;
 
-            var result = runner.CompileAndRun("ArrayIteration.cs", false);
-
-            if (result.Errors.Count > 0)
+            foreach (var file in Directory.EnumerateFiles(workingDir, "*.cs"))
             {
-                Console.WriteLine("ERRORS:");
-                foreach (var error in result.Errors)
+                started++;
+                Console.Write(file + " ... ");
+                var result = runner.CompileAndRun(Path.GetFileName(file), true);
+
+                if (result.Errors.Count > 0)
                 {
-                    Console.WriteLine(error);
+                    Console.WriteLine("ERRORS:");
+                    foreach (var error in result.Errors)
+                    {
+                        Console.WriteLine(error);
+                    }
+
+                    Console.WriteLine(result.ClrOutput);
+                    Console.WriteLine(result.JsOutput);
+                }
+                else
+                {
+                    succeeded++;
+                    Console.WriteLine("OK");
                 }
             }
 
-            Console.WriteLine("DONE");
+            Console.WriteLine("{0}/{1} succeeded", succeeded, started);
         }
     }
 }

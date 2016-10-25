@@ -151,7 +151,7 @@ var asm1;(function (asm)
         asm1.x6000002(loc0,null);
         /* IL_0E: nop  */
         /* IL_0F: ldloc.0  */
-        /* IL_10: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_10: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_15: ldnull  */
         /* IL_17: ceq  */
         /* IL_18: box System.Boolean */
@@ -159,7 +159,7 @@ var asm1;(function (asm)
         asm0.x600005a(CILJS.make_box(((loc0.Value === null) ? 1 : 0),t2));
         /* IL_22: nop  */
         /* IL_23: ldloc.0  */
-        /* IL_24: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_24: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_29: ldnull  */
         /* IL_2B: ceq  */
         /* IL_2C: box System.Boolean */
@@ -175,7 +175,7 @@ var asm1;(function (asm)
         asm1.x6000002(loc1,null);
         /* IL_44: nop  */
         /* IL_45: ldloc.1  */
-        /* IL_46: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_46: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_4B: ldnull  */
         /* IL_4D: ceq  */
         /* IL_4E: box System.Boolean */
@@ -183,7 +183,7 @@ var asm1;(function (asm)
         asm0.x600005a(CILJS.make_box(((loc1.Value === null) ? 1 : 0),t2));
         /* IL_58: nop  */
         /* IL_59: ldloc.1  */
-        /* IL_5A: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_5A: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_5F: ldnull  */
         /* IL_61: ceq  */
         /* IL_62: box System.Boolean */
@@ -293,3 +293,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

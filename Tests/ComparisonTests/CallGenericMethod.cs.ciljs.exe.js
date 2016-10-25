@@ -70,23 +70,26 @@ var asm1;(function (asm)
         {
             var t0;
             var t1;
-            var loc0;
+            var st_00;
+            var st_01;
+            var st_02;
+            var st_03;
             t0 = T;
             t1 = (asm1)["A`1"](t0);
             /* IL_00: nop  */
             /* IL_01: newobj Void .ctor() */
-            /* IL_06: stloc.0  */
-            loc0 = CILJS.newobj(t1,asm1.x6000005,[null]);
-            /* IL_07: ldloc.0  */
-            /* IL_08: ldarg.0  */
-            /* IL_09: callvirt Void set_Prop(T) */
-            ((loc0.vtable)["asm1.x6000004"]())(loc0,arg0);
-            /* IL_0E: nop  */
-            /* IL_0F: ldloc.0  */
-            /* IL_10: call Void X[T](I`1[T]) */
-            (asm1.x6000008(T))(loc0);
-            /* IL_15: nop  */
-            /* IL_16: ret  */
+            st_00 = CILJS.newobj(t1,asm1.x6000005,[null]);
+            /* IL_06: dup  */
+            st_03 = st_01 = st_00;
+            /* IL_07: ldarg.0  */
+            st_02 = arg0;
+            /* IL_08: callvirt Void set_Prop(T) */
+            ((st_01.vtable)["asm1.x6000004"]())(st_01,st_02);
+            /* IL_0D: nop  */
+            /* IL_0E: call Void X[T](I`1[T]) */
+            (asm1.x6000008(T))(st_03);
+            /* IL_13: nop  */
+            /* IL_14: ret  */
             return ;
         };
     };
@@ -203,3 +206,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

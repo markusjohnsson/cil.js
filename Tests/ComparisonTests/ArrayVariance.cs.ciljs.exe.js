@@ -75,13 +75,13 @@ var asm1;(function (asm)
         var t0;
         var t1;
         var t2;
+        var st_02;
         var st_03;
         var st_04;
         var st_05;
         var st_06;
         var st_07;
         var loc0;
-        var loc1;
         t0 = (asm0)["System.Object"]();
         t1 = (asm0)["System.Array`1"](t0);
         t2 = asm1.B();
@@ -95,19 +95,16 @@ var asm1;(function (asm)
         /* IL_09: ldc.i4.0  */
         st_06 = (0|0);
         /* IL_0A: newobj Void .ctor() */
-        /* IL_0F: stloc.1  */
-        loc1 = CILJS.newobj(t2,asm1.x6000001,[null]);
-        /* IL_10: ldloc.1  */
-        st_03 = loc1;
-        /* IL_11: ldstr X */
+        st_02 = CILJS.newobj(t2,asm1.x6000001,[null]);
+        /* IL_0F: dup  */
+        st_07 = st_03 = st_02;
+        /* IL_10: ldstr X */
         st_04 = CILJS.new_string("X");
-        /* IL_16: stfld String X */
+        /* IL_15: stfld String X */
         st_03.X = st_04;
-        /* IL_1B: ldloc.1  */
-        st_07 = loc1;
-        /* IL_1C: stelem.ref  */
+        /* IL_1A: stelem.ref  */
         CILJS.stelem_ref(st_05,st_06,st_07);
-        /* IL_1D: ret  */
+        /* IL_1B: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -173,3 +170,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

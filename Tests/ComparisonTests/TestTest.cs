@@ -3,7 +3,7 @@
 
 namespace CilJs.TestRunner.Tests
 {
-    class TestTest
+    class Program
     {
         public static void Main()
         {

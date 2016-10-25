@@ -43,13 +43,13 @@ var asm1;(function (asm)
             st_04 = st_02 = st_01;
             /* IL_08: ldarg.0  */
             st_03 = arg0;
-            /* IL_09: stfld IKVM.Reflection.GenericFieldInstance */
+            /* IL_09: stfld Managed.Reflection.GenericFieldInstance */
             (st_02)["<>3__source"] = st_03;
             /* IL_0E: dup  */
             st_07 = st_05 = st_04;
             /* IL_0F: ldarg.1  */
             st_06 = arg1;
-            /* IL_10: stfld IKVM.Reflection.GenericFieldInstance */
+            /* IL_10: stfld Managed.Reflection.GenericFieldInstance */
             (st_05)["<>3__selector"] = st_06;
             /* IL_15: ret  */
             return st_07;
@@ -95,13 +95,13 @@ var asm1;(function (asm)
             st_04 = st_02 = st_01;
             /* IL_08: ldarg.0  */
             st_03 = arg0;
-            /* IL_09: stfld IKVM.Reflection.GenericFieldInstance */
+            /* IL_09: stfld Managed.Reflection.GenericFieldInstance */
             (st_02)["<>3__source"] = st_03;
             /* IL_0E: dup  */
             st_07 = st_05 = st_04;
             /* IL_0F: ldarg.1  */
             st_06 = arg1;
-            /* IL_10: stfld IKVM.Reflection.GenericFieldInstance */
+            /* IL_10: stfld Managed.Reflection.GenericFieldInstance */
             (st_05)["<>3__predicate"] = st_06;
             /* IL_15: ret  */
             return st_07;
@@ -451,26 +451,31 @@ var asm1;(function (asm)
         var t3;
         var t4;
         var t5;
+        var st_02;
         var st_03;
         var st_04;
         var st_05;
         var st_06;
         var st_07;
+        var st_08;
         var st_09;
         var st_0A;
         var st_0B;
         var st_0C;
         var st_0D;
+        var st_0E;
         var st_0F;
         var st_10;
         var st_11;
         var st_12;
         var st_13;
+        var st_14;
         var st_15;
         var st_16;
         var st_17;
         var st_18;
         var st_19;
+        var st_1A;
         var st_1B;
         var st_1C;
         var st_1D;
@@ -515,7 +520,6 @@ var asm1;(function (asm)
         var in_block_0;
         var __pos__;
         var loc0;
-        var loc1;
         CILJS.init_base_types();
         t0 = asm1.P();
         t1 = (asm0)["System.Int32"]();
@@ -541,226 +545,211 @@ var asm1;(function (asm)
                 /* IL_09: ldc.i4.0  */
                 st_06 = (0|0);
                 /* IL_0A: newobj Void .ctor() */
-                /* IL_0F: stloc.1  */
-                loc1 = CILJS.newobj(t0,asm1.x6000007,[null]);
-                /* IL_10: ldloc.1  */
-                st_03 = loc1;
-                /* IL_11: ldc.i4.s 11 */
+                st_02 = CILJS.newobj(t0,asm1.x6000007,[null]);
+                /* IL_0F: dup  */
+                st_07 = st_03 = st_02;
+                /* IL_10: ldc.i4.s 11 */
                 st_04 = (11|0);
-                /* IL_13: callvirt Void set_Prop(System.Int32) */
+                /* IL_12: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_03,st_04);
-                /* IL_18: nop  */
+                /* IL_17: nop  */
                 
-                /* IL_19: ldloc.1  */
-                st_07 = loc1;
-                /* IL_1A: stelem.ref  */
+                /* IL_18: stelem.ref  */
                 CILJS.stelem_ref(st_05,st_06,st_07);
-                /* IL_1B: ldloc.0  */
+                /* IL_19: ldloc.0  */
                 st_0B = loc0;
-                /* IL_1C: ldc.i4.1  */
+                /* IL_1A: ldc.i4.1  */
                 st_0C = (1|0);
-                /* IL_1D: newobj Void .ctor() */
-                /* IL_22: stloc.1  */
-                loc1 = CILJS.newobj(t0,asm1.x6000007,[null]);
-                /* IL_23: ldloc.1  */
-                st_09 = loc1;
-                /* IL_24: ldc.i4.s 22 */
+                /* IL_1B: newobj Void .ctor() */
+                st_08 = CILJS.newobj(t0,asm1.x6000007,[null]);
+                /* IL_20: dup  */
+                st_0D = st_09 = st_08;
+                /* IL_21: ldc.i4.s 22 */
                 st_0A = (22|0);
-                /* IL_26: callvirt Void set_Prop(System.Int32) */
+                /* IL_23: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_09,st_0A);
-                /* IL_2B: nop  */
+                /* IL_28: nop  */
                 
-                /* IL_2C: ldloc.1  */
-                st_0D = loc1;
-                /* IL_2D: stelem.ref  */
+                /* IL_29: stelem.ref  */
                 CILJS.stelem_ref(st_0B,st_0C,st_0D);
-                /* IL_2E: ldloc.0  */
+                /* IL_2A: ldloc.0  */
                 st_11 = loc0;
-                /* IL_2F: ldc.i4.2  */
+                /* IL_2B: ldc.i4.2  */
                 st_12 = (2|0);
-                /* IL_30: newobj Void .ctor() */
-                /* IL_35: stloc.1  */
-                loc1 = CILJS.newobj(t0,asm1.x6000007,[null]);
-                /* IL_36: ldloc.1  */
-                st_0F = loc1;
-                /* IL_37: ldc.i4.s 33 */
+                /* IL_2C: newobj Void .ctor() */
+                st_0E = CILJS.newobj(t0,asm1.x6000007,[null]);
+                /* IL_31: dup  */
+                st_13 = st_0F = st_0E;
+                /* IL_32: ldc.i4.s 33 */
                 st_10 = (33|0);
-                /* IL_39: callvirt Void set_Prop(System.Int32) */
+                /* IL_34: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_0F,st_10);
-                /* IL_3E: nop  */
+                /* IL_39: nop  */
                 
-                /* IL_3F: ldloc.1  */
-                st_13 = loc1;
-                /* IL_40: stelem.ref  */
+                /* IL_3A: stelem.ref  */
                 CILJS.stelem_ref(st_11,st_12,st_13);
-                /* IL_41: ldloc.0  */
+                /* IL_3B: ldloc.0  */
                 st_17 = loc0;
-                /* IL_42: ldc.i4.3  */
+                /* IL_3C: ldc.i4.3  */
                 st_18 = (3|0);
-                /* IL_43: newobj Void .ctor() */
-                /* IL_48: stloc.1  */
-                loc1 = CILJS.newobj(t0,asm1.x6000007,[null]);
-                /* IL_49: ldloc.1  */
-                st_15 = loc1;
-                /* IL_4A: ldc.i4.s 44 */
+                /* IL_3D: newobj Void .ctor() */
+                st_14 = CILJS.newobj(t0,asm1.x6000007,[null]);
+                /* IL_42: dup  */
+                st_19 = st_15 = st_14;
+                /* IL_43: ldc.i4.s 44 */
                 st_16 = (44|0);
-                /* IL_4C: callvirt Void set_Prop(System.Int32) */
+                /* IL_45: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_15,st_16);
-                /* IL_51: nop  */
+                /* IL_4A: nop  */
                 
-                /* IL_52: ldloc.1  */
-                st_19 = loc1;
-                /* IL_53: stelem.ref  */
+                /* IL_4B: stelem.ref  */
                 CILJS.stelem_ref(st_17,st_18,st_19);
-                /* IL_54: ldloc.0  */
+                /* IL_4C: ldloc.0  */
                 st_1D = loc0;
-                /* IL_55: ldc.i4.4  */
+                /* IL_4D: ldc.i4.4  */
                 st_1E = (4|0);
-                /* IL_56: newobj Void .ctor() */
-                /* IL_5B: stloc.1  */
-                loc1 = CILJS.newobj(t0,asm1.x6000007,[null]);
-                /* IL_5C: ldloc.1  */
-                st_1B = loc1;
-                /* IL_5D: ldc.i4.s 55 */
+                /* IL_4E: newobj Void .ctor() */
+                st_1A = CILJS.newobj(t0,asm1.x6000007,[null]);
+                /* IL_53: dup  */
+                st_1F = st_1B = st_1A;
+                /* IL_54: ldc.i4.s 55 */
                 st_1C = (55|0);
-                /* IL_5F: callvirt Void set_Prop(System.Int32) */
+                /* IL_56: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_1B,st_1C);
-                /* IL_64: nop  */
+                /* IL_5B: nop  */
                 
-                /* IL_65: ldloc.1  */
-                st_1F = loc1;
-                /* IL_66: stelem.ref  */
+                /* IL_5C: stelem.ref  */
                 CILJS.stelem_ref(st_1D,st_1E,st_1F);
-                /* IL_67: ldloc.0  */
-                /* IL_68: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
-                /* IL_6D: callvirt Int32 get_Prop() */
-                /* IL_72: box System.Int32 */
-                /* IL_77: call Void WriteLine(System.Object) */
+                /* IL_5D: ldloc.0  */
+                /* IL_5E: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
+                /* IL_63: callvirt Int32 get_Prop() */
+                /* IL_68: box System.Int32 */
+                /* IL_6D: call Void WriteLine(System.Object) */
                 asm0.x600005a(CILJS.make_box(((asm1.x6000003(asm1.P()))(loc0))["P<Prop>k__BackingField"],t1));
-                /* IL_7C: nop  */
+                /* IL_72: nop  */
                 
-                /* IL_7D: ldloc.0  */
-                /* IL_7E: call Boolean Any[P](System.Collections.Generic.IEnumerable`1[P]) */
-                /* IL_83: box System.Boolean */
-                /* IL_88: call Void WriteLine(System.Object) */
+                /* IL_73: ldloc.0  */
+                /* IL_74: call Boolean Any[P](System.Collections.Generic.IEnumerable`1[P]) */
+                /* IL_79: box System.Boolean */
+                /* IL_7E: call Void WriteLine(System.Object) */
                 asm0.x600005a(CILJS.make_box((asm1.x6000004(asm1.P()))(loc0),t2));
-                /* IL_8D: nop  */
+                /* IL_83: nop  */
                 
-                /* IL_8E: ldloc.0  */
+                /* IL_84: ldloc.0  */
                 st_2E = loc0;
                 asm1.x600001c();
-                /* IL_8F: ldsfld Func`2 <>9__0_0 */
+                /* IL_85: ldsfld Func`2 <>9__0_0 */
                 st_27 = (t3)["<>9__0_0"];
-                /* IL_94: dup  */
+                /* IL_8A: dup  */
                 st_2F = st_29 = st_28 = st_27;
-                /* IL_95: brtrue.s IL_AE */
+                /* IL_8B: brtrue.s IL_A4 */
                 
                 if (st_28){
-                    __pos__ = 0xAE;
+                    __pos__ = 0xA4;
                     continue;
                 }
-                /* IL_97: pop  */
+                /* IL_8D: pop  */
                 
                 asm1.x600001c();
-                /* IL_98: ldsfld <>c <>9 */
+                /* IL_8E: ldsfld <>c <>9 */
                 st_2A = (t3)["<>9"];
-                /* IL_9E: ldftn Int32 <Main>b__0_0(P) */
+                /* IL_94: ldftn Int32 <Main>b__0_0(P) */
                 st_2B = asm1.x600001e;
-                /* IL_A3: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_99: newobj Void .ctor(System.Object, System.IntPtr) */
                 st_2C = CILJS.newobj(t4,asm0.x6000082,[null, st_2A, st_2B]);
-                /* IL_A8: dup  */
+                /* IL_9E: dup  */
                 st_2F = st_2D = st_2C;
                 asm1.x600001c();
-                /* IL_A9: stsfld Func`2 <>9__0_0 */
+                /* IL_9F: stsfld Func`2 <>9__0_0 */
                 (t3)["<>9__0_0"] = st_2D;
-                case 0xAE:
-                /* IL_AE: call IEnumerable`1 Select[P, System.Int32](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Int32]) */
+                case 0xA4:
+                /* IL_A4: call IEnumerable`1 Select[P, System.Int32](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Int32]) */
                 st_30 = (asm1.x6000001(asm1.P(),(asm0)["System.Int32"]()))(st_2E,st_2F);
-                /* IL_B3: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32]) */
+                /* IL_A9: call Int32 FirstOrDefault[System.Int32](System.Collections.Generic.IEnumerable`1[System.Int32]) */
                 st_31 = (asm1.x6000003((asm0)["System.Int32"]()))(st_30);
-                /* IL_B8: box System.Int32 */
+                /* IL_AE: box System.Int32 */
                 st_32 = CILJS.make_box(st_31,t1);
-                /* IL_BD: call Void WriteLine(System.Object) */
+                /* IL_B3: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_32);
-                /* IL_C2: nop  */
+                /* IL_B8: nop  */
                 
-                /* IL_C3: ldloc.0  */
+                /* IL_B9: ldloc.0  */
                 st_3A = loc0;
                 asm1.x600001c();
-                /* IL_C4: ldsfld Func`2 <>9__0_1 */
+                /* IL_BA: ldsfld Func`2 <>9__0_1 */
                 st_33 = (t3)["<>9__0_1"];
-                /* IL_C9: dup  */
+                /* IL_BF: dup  */
                 st_3B = st_35 = st_34 = st_33;
-                /* IL_CA: brtrue.s IL_E3 */
+                /* IL_C0: brtrue.s IL_D9 */
                 
                 if (st_34){
-                    __pos__ = 0xE3;
+                    __pos__ = 0xD9;
                     continue;
                 }
-                /* IL_CC: pop  */
+                /* IL_C2: pop  */
                 
                 asm1.x600001c();
-                /* IL_CD: ldsfld <>c <>9 */
+                /* IL_C3: ldsfld <>c <>9 */
                 st_36 = (t3)["<>9"];
-                /* IL_D3: ldftn Boolean <Main>b__0_1(P) */
+                /* IL_C9: ldftn Boolean <Main>b__0_1(P) */
                 st_37 = asm1.x600001f;
-                /* IL_D8: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_CE: newobj Void .ctor(System.Object, System.IntPtr) */
                 st_38 = CILJS.newobj(t5,asm0.x6000082,[null, st_36, st_37]);
-                /* IL_DD: dup  */
+                /* IL_D3: dup  */
                 st_3B = st_39 = st_38;
                 asm1.x600001c();
-                /* IL_DE: stsfld Func`2 <>9__0_1 */
+                /* IL_D4: stsfld Func`2 <>9__0_1 */
                 (t3)["<>9__0_1"] = st_39;
-                case 0xE3:
-                /* IL_E3: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean]) */
+                case 0xD9:
+                /* IL_D9: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean]) */
                 st_3C = (asm1.x6000002(asm1.P()))(st_3A,st_3B);
-                /* IL_E8: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
+                /* IL_DE: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
                 st_3D = (asm1.x6000003(asm1.P()))(st_3C);
-                /* IL_ED: callvirt Int32 get_Prop() */
+                /* IL_E3: callvirt Int32 get_Prop() */
                 st_3E = (st_3D)["P<Prop>k__BackingField"];
-                /* IL_F2: box System.Int32 */
+                /* IL_E8: box System.Int32 */
                 st_3F = CILJS.make_box(st_3E,t1);
-                /* IL_F7: call Void WriteLine(System.Object) */
+                /* IL_ED: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_3F);
-                /* IL_FC: nop  */
+                /* IL_F2: nop  */
                 
-                /* IL_FD: ldloc.0  */
+                /* IL_F3: ldloc.0  */
                 st_47 = loc0;
                 asm1.x600001c();
-                /* IL_FE: ldsfld Func`2 <>9__0_2 */
+                /* IL_F4: ldsfld Func`2 <>9__0_2 */
                 st_40 = (t3)["<>9__0_2"];
-                /* IL_103: dup  */
+                /* IL_F9: dup  */
                 st_48 = st_42 = st_41 = st_40;
-                /* IL_104: brtrue.s IL_11D */
+                /* IL_FA: brtrue.s IL_113 */
                 
                 if (st_41){
-                    __pos__ = 0x11D;
+                    __pos__ = 0x113;
                     continue;
                 }
-                /* IL_106: pop  */
+                /* IL_FC: pop  */
                 
                 asm1.x600001c();
-                /* IL_107: ldsfld <>c <>9 */
+                /* IL_FD: ldsfld <>c <>9 */
                 st_43 = (t3)["<>9"];
-                /* IL_10D: ldftn Boolean <Main>b__0_2(P) */
+                /* IL_103: ldftn Boolean <Main>b__0_2(P) */
                 st_44 = asm1.x6000020;
-                /* IL_112: newobj Void .ctor(System.Object, System.IntPtr) */
+                /* IL_108: newobj Void .ctor(System.Object, System.IntPtr) */
                 st_45 = CILJS.newobj(t5,asm0.x6000082,[null, st_43, st_44]);
-                /* IL_117: dup  */
+                /* IL_10D: dup  */
                 st_48 = st_46 = st_45;
                 asm1.x600001c();
-                /* IL_118: stsfld Func`2 <>9__0_2 */
+                /* IL_10E: stsfld Func`2 <>9__0_2 */
                 (t3)["<>9__0_2"] = st_46;
-                case 0x11D:
-                /* IL_11D: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean]) */
+                case 0x113:
+                /* IL_113: call IEnumerable`1 Where[P](System.Collections.Generic.IEnumerable`1[P], System.Func`2[P,System.Boolean]) */
                 st_49 = (asm1.x6000002(asm1.P()))(st_47,st_48);
-                /* IL_122: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
+                /* IL_118: call P FirstOrDefault[P](System.Collections.Generic.IEnumerable`1[P]) */
                 st_4A = (asm1.x6000003(asm1.P()))(st_49);
-                /* IL_127: call Void WriteLine(System.Object) */
+                /* IL_11D: call Void WriteLine(System.Object) */
                 asm0.x600005a(st_4A);
-                /* IL_12C: nop  */
+                /* IL_122: nop  */
                 
-                /* IL_12D: ret  */
+                /* IL_123: ret  */
                 return ;
             }
         }
@@ -2008,3 +1997,6 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000008;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

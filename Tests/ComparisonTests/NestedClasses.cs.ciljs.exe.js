@@ -135,6 +135,7 @@ var asm1;(function (asm)
         var t0;
         var t1;
         var t2;
+        var st_00;
         var st_01;
         var st_02;
         var st_03;
@@ -144,7 +145,6 @@ var asm1;(function (asm)
         var st_07;
         var st_08;
         var st_09;
-        var loc0;
         t0 = (asm1)["C+D+E"]();
         t1 = (asm0)["System.Int32"]();
         t2 = (asm0)["System.Object"]();
@@ -153,31 +153,28 @@ var asm1;(function (asm)
         st_05 = CILJS.new_string("C.D.E.Y");
         asm1.x600000b();
         /* IL_06: ldsfld Int32 y */
-        /* IL_0B: stloc.0  */
-        loc0 = t0.y;
-        /* IL_0C: ldloc.0  */
-        st_01 = loc0;
-        /* IL_0D: ldc.i4.1  */
+        st_00 = t0.y;
+        /* IL_0B: dup  */
+        st_04 = st_01 = st_00;
+        /* IL_0C: ldc.i4.1  */
         st_02 = (1|0);
-        /* IL_0E: add  */
+        /* IL_0D: add  */
         st_03 = (st_01 + st_02) | (0|0);
         asm1.x600000b();
-        /* IL_0F: stsfld Int32 y */
+        /* IL_0E: stsfld Int32 y */
         t0.y = st_03;
-        /* IL_14: ldloc.0  */
-        st_04 = loc0;
-        /* IL_15: box System.Int32 */
+        /* IL_13: box System.Int32 */
         st_06 = CILJS.make_box(st_04,t1);
-        /* IL_1A: call String Concat(System.Object, System.Object) */
+        /* IL_18: call String Concat(System.Object, System.Object) */
         st_08 = asm0.x600012b(st_05,st_06);
-        /* IL_1F: ldc.i4.0  */
+        /* IL_1D: ldc.i4.0  */
         st_07 = (0|0);
-        /* IL_20: newarr System.Object */
+        /* IL_1E: newarr System.Object */
         st_09 = CILJS.new_array(t2,st_07);
-        /* IL_25: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_23: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b(st_08,st_09);
-        /* IL_2A: nop  */
-        /* IL_2B: ret  */
+        /* IL_28: nop  */
+        /* IL_29: ret  */
         return ;
     };
     /*  E..ctor()*/
@@ -324,3 +321,6 @@ var asm1;(function (asm)
         "function E() { c.init(); }");
     asm.entryPoint = asm.x6000003;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

@@ -5,7 +5,7 @@ public delegate T FuncX<T>();
 
 public static class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         FuncX<object, object> lambda = i => null;
         System.Console.WriteLine("Lambda:");

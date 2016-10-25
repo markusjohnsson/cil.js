@@ -481,10 +481,9 @@ var asm1;(function (asm)
         var loc2;
         var in_block_1;
         var loc3;
-        var loc4;
         var loc1;
+        var loc4;
         var loc5;
-        var loc6;
         CILJS.init_base_types();
         t0 = (asm0)["System.Object"]();
         t1 = asm1.ByName();
@@ -518,14 +517,14 @@ var asm1;(function (asm)
                 /* IL_24: ldc.i4.0  */
                 /* IL_25: stloc.2  */
                 loc2 = (0|0);
-                /* IL_26: br.s IL_39 */
-                __pos__ = 0x39;
+                /* IL_26: br.s IL_37 */
+                __pos__ = 0x37;
                 continue;
                 case 0x28:
-                case 0x39:
+                case 0x37:
                 in_block_1 = true;
                 
-                if (__pos__ > 0x43){
+                if (__pos__ > 0x3F){
                     in_block_1 = false;
                 }
                 
@@ -549,25 +548,22 @@ var asm1;(function (asm)
                         /* IL_32: nop  */
                         
                         /* IL_33: ldloc.2  */
-                        /* IL_34: stloc.3  */
-                        loc3 = loc2;
-                        /* IL_35: ldloc.3  */
-                        /* IL_36: ldc.i4.1  */
-                        /* IL_37: add  */
-                        /* IL_38: stloc.2  */
-                        loc2 = (loc3 + (1|0)) | (0|0);
-                        case 0x39:
-                        /* IL_39: ldloc.2  */
-                        /* IL_3A: ldloc.0  */
-                        /* IL_3B: ldlen  */
-                        /* IL_3C: conv.i4  */
-                        /* IL_3E: clt  */
-                        /* IL_3F: stloc.s 4 */
-                        loc4 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_41: ldloc.s 4 */
-                        /* IL_43: brtrue.s IL_28 */
+                        /* IL_34: ldc.i4.1  */
+                        /* IL_35: add  */
+                        /* IL_36: stloc.2  */
+                        loc2 = (loc2 + (1|0)) | (0|0);
+                        case 0x37:
+                        /* IL_37: ldloc.2  */
+                        /* IL_38: ldloc.0  */
+                        /* IL_39: ldlen  */
+                        /* IL_3A: conv.i4  */
+                        /* IL_3C: clt  */
+                        /* IL_3D: stloc.3  */
+                        loc3 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
+                        /* IL_3E: ldloc.3  */
+                        /* IL_3F: brtrue.s IL_28 */
                         
-                        if (loc4){
+                        if (loc3){
                             __pos__ = 0x28;
                             continue;
                         }
@@ -575,89 +571,86 @@ var asm1;(function (asm)
                     break;
                 }
                 
-                if ((__pos__ > 0x39) || (__pos__ < 0x28)){
+                if ((__pos__ > 0x37) || (__pos__ < 0x28)){
                     continue;
                 }
-                /* IL_45: ldstr Descending */
-                /* IL_4A: ldc.i4.0  */
-                /* IL_4B: newarr System.Object */
-                /* IL_50: call Void WriteLine(System.String, System.Object[]) */
+                /* IL_41: ldstr Descending */
+                /* IL_46: ldc.i4.0  */
+                /* IL_47: newarr System.Object */
+                /* IL_4C: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x600005b(CILJS.new_string("Descending"),CILJS.new_array(t0,(0|0)));
-                /* IL_55: nop  */
+                /* IL_51: nop  */
                 
-                /* IL_56: call Baz[] CreateBazCollection() */
-                /* IL_5B: stloc.1  */
+                /* IL_52: call Baz[] CreateBazCollection() */
+                /* IL_57: stloc.1  */
                 loc1 = asm1.x600000b();
-                /* IL_5C: ldloc.1  */
-                /* IL_5D: newobj Void .ctor() */
-                /* IL_62: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz]) */
+                /* IL_58: ldloc.1  */
+                /* IL_59: newobj Void .ctor() */
+                /* IL_5E: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz]) */
                 (asm0.x600001a(asm1.Baz()))(loc1,CILJS.newobj(t3,asm1.x6000008,[null]));
-                /* IL_67: nop  */
+                /* IL_63: nop  */
                 
-                /* IL_68: ldc.i4.0  */
-                /* IL_69: stloc.s 5 */
-                loc5 = (0|0);
-                /* IL_6B: br.s IL_81 */
-                __pos__ = 0x81;
+                /* IL_64: ldc.i4.0  */
+                /* IL_65: stloc.s 4 */
+                loc4 = (0|0);
+                /* IL_67: br.s IL_7B */
+                __pos__ = 0x7B;
                 continue;
-                case 0x6D:
-                case 0x81:
+                case 0x69:
+                case 0x7B:
                 in_block_1 = true;
                 
-                if (__pos__ > 0x8C){
+                if (__pos__ > 0x86){
                     in_block_1 = false;
                 }
                 
-                if (__pos__ < 0x6D){
-                    __pos__ = 0x6D;
+                if (__pos__ < 0x69){
+                    __pos__ = 0x69;
                 }
                 
                 while (in_block_1){
                     
                     switch (__pos__){
-                        case 0x6D:
-                        /* IL_6D: nop  */
+                        case 0x69:
+                        /* IL_69: nop  */
                         
-                        /* IL_6E: ldloc.1  */
-                        /* IL_6F: ldloc.s 5 */
-                        /* IL_71: ldelem.ref  */
-                        /* IL_72: call Void WriteLine(System.Object) */
-                        asm0.x600005a(CILJS.ldelem_ref(loc1,loc5));
-                        /* IL_77: nop  */
+                        /* IL_6A: ldloc.1  */
+                        /* IL_6B: ldloc.s 4 */
+                        /* IL_6D: ldelem.ref  */
+                        /* IL_6E: call Void WriteLine(System.Object) */
+                        asm0.x600005a(CILJS.ldelem_ref(loc1,loc4));
+                        /* IL_73: nop  */
                         
-                        /* IL_78: nop  */
+                        /* IL_74: nop  */
                         
-                        /* IL_79: ldloc.s 5 */
-                        /* IL_7B: stloc.3  */
-                        loc3 = loc5;
-                        /* IL_7C: ldloc.3  */
-                        /* IL_7D: ldc.i4.1  */
-                        /* IL_7E: add  */
-                        /* IL_7F: stloc.s 5 */
-                        loc5 = (loc3 + (1|0)) | (0|0);
-                        case 0x81:
-                        /* IL_81: ldloc.s 5 */
-                        /* IL_83: ldloc.1  */
-                        /* IL_84: ldlen  */
-                        /* IL_85: conv.i4  */
-                        /* IL_87: clt  */
-                        /* IL_88: stloc.s 6 */
-                        loc6 = ((loc5 < (loc1.jsarr.length | (0|0))) ? 1 : 0);
-                        /* IL_8A: ldloc.s 6 */
-                        /* IL_8C: brtrue.s IL_6D */
+                        /* IL_75: ldloc.s 4 */
+                        /* IL_77: ldc.i4.1  */
+                        /* IL_78: add  */
+                        /* IL_79: stloc.s 4 */
+                        loc4 = (loc4 + (1|0)) | (0|0);
+                        case 0x7B:
+                        /* IL_7B: ldloc.s 4 */
+                        /* IL_7D: ldloc.1  */
+                        /* IL_7E: ldlen  */
+                        /* IL_7F: conv.i4  */
+                        /* IL_81: clt  */
+                        /* IL_82: stloc.s 5 */
+                        loc5 = ((loc4 < (loc1.jsarr.length | (0|0))) ? 1 : 0);
+                        /* IL_84: ldloc.s 5 */
+                        /* IL_86: brtrue.s IL_69 */
                         
-                        if (loc6){
-                            __pos__ = 0x6D;
+                        if (loc5){
+                            __pos__ = 0x69;
                             continue;
                         }
                     }
                     break;
                 }
                 
-                if ((__pos__ > 0x81) || (__pos__ < 0x6D)){
+                if ((__pos__ > 0x7B) || (__pos__ < 0x69)){
                     continue;
                 }
-                /* IL_8E: ret  */
+                /* IL_88: ret  */
                 return ;
             }
         }
@@ -765,3 +758,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x600000c;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

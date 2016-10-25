@@ -17,8 +17,8 @@ var asm1;(function (asm)
     asm.x6000008 = CILJS.delegate_end_invoke;;
     /*  FuncX`1..ctor(Object,IntPtr)*/
     asm.x6000005 = CILJS.delegate_ctor;;
-    /* static System.Void Program.Main(String[])*/
-    asm.x6000009_init = function (arg0)
+    /* static System.Void Program.Main()*/
+    asm.x6000009_init = function ()
     {
         ((asm1)["Program+<>c"]().init)();
         ((asm1)["FuncX`2"]((asm0)["System.Object"](),(asm0)["System.Object"]()).init)();
@@ -26,12 +26,12 @@ var asm1;(function (asm)
         ((asm1)["FuncX`2"]((asm0)["System.String"](),(asm0)["System.Object"]()).init)();
         asm.x6000009 = asm.x6000009_;
     };;
-    asm.x6000009 = function (arg0)
+    asm.x6000009 = function ()
     {
-        asm.x6000009_init(arg0);
-        return asm.x6000009_(arg0);
+        asm.x6000009_init();
+        return asm.x6000009_();
     };;
-    asm.x6000009_ = function Main(arg0)
+    asm.x6000009_ = function Main()
     {
         var t0;
         var t1;
@@ -476,3 +476,6 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000009;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

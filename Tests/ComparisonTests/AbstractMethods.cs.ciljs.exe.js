@@ -190,3 +190,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000007;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

@@ -72,7 +72,7 @@ var asm1;(function (asm)
         /* IL_07: nop  */
         (asm1.x6000002(((arg0.constructor.GenericArguments)["asm1.t2000003"])[0]))();
         /* IL_08: ldarg.0  */
-        /* IL_09: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_09: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_0E: stfld T[] Value */
         arg0.Value = t1.Value;
         /* IL_13: ret  */
@@ -125,7 +125,7 @@ var asm1;(function (asm)
         t4 = (asm1)["B`1"](t3);
         /* IL_00: nop  */
         /* IL_01: newobj Void .ctor() */
-        /* IL_06: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_06: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_0B: callvirt Type GetType() */
         /* IL_10: callvirt String get_FullName() */
         /* IL_15: ldc.i4.0  */
@@ -134,7 +134,7 @@ var asm1;(function (asm)
         asm0.x600005b((((asm0.x60000f2(CILJS.newobj(t1,asm1.x6000003,[null]).Value).vtable)["asm0.x6000146"])())(asm0.x60000f2(CILJS.newobj(t1,asm1.x6000003,[null]).Value)),CILJS.new_array(t2,(0|0)));
         /* IL_20: nop  */
         /* IL_21: newobj Void .ctor() */
-        /* IL_26: ldfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_26: ldfld Managed.Reflection.GenericFieldInstance */
         /* IL_2B: callvirt Type GetType() */
         /* IL_30: callvirt String get_FullName() */
         /* IL_35: ldc.i4.0  */
@@ -244,3 +244,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

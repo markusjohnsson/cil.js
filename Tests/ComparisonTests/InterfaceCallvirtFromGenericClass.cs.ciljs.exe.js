@@ -84,11 +84,11 @@ var asm1;(function (asm)
     {
         var t0;
         var t1;
+        var st_00;
         var st_01;
         var st_02;
         var st_03;
         var st_04;
-        var loc0;
         CILJS.init_base_types();
         t0 = asm1.D();
         t1 = (asm1)["C`1"](t0);
@@ -96,20 +96,17 @@ var asm1;(function (asm)
         /* IL_01: newobj Void .ctor() */
         st_03 = CILJS.newobj(t1,asm1.x6000005,[null]);
         /* IL_06: newobj Void .ctor() */
-        /* IL_0B: stloc.0  */
-        loc0 = CILJS.newobj(t0,asm1.x6000003,[null]);
-        /* IL_0C: ldloc.0  */
-        st_01 = loc0;
-        /* IL_0D: ldc.i4.s 101 */
+        st_00 = CILJS.newobj(t0,asm1.x6000003,[null]);
+        /* IL_0B: dup  */
+        st_04 = st_01 = st_00;
+        /* IL_0C: ldc.i4.s 101 */
         st_02 = (101|0);
-        /* IL_0F: stfld Int32 x */
+        /* IL_0E: stfld Int32 x */
         st_01.x = st_02;
-        /* IL_14: ldloc.0  */
-        st_04 = loc0;
-        /* IL_15: call Void X(D) */
+        /* IL_13: call Void X(D) */
         asm1.x6000004(st_03,st_04);
-        /* IL_1A: nop  */
-        /* IL_1B: ret  */
+        /* IL_18: nop  */
+        /* IL_19: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -221,3 +218,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

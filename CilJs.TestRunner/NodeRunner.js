@@ -8,15 +8,11 @@ global.asm1 = require('./program.js');
 
 function runScript() {
     var result = CILJS.entry_point();
-    console.log("exit: " + result);
+    process.exit(result);
 }
 
 CILJS.console_write_line = function (managedString) {
-    console.log(managedString.jsstr);
-}
-
-function ciljs_test_log(message) {
-    console.log(asm0.ToJavaScriptString(message));
+    process.stdout.write(managedString.jsstr + "\r\n");
 }
 
 runScript();

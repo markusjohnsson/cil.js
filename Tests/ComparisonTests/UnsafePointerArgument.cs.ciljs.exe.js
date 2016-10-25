@@ -4,20 +4,29 @@ var asm1;(function (asm)
     /* static System.Void Program.SquarePtrParam(Int32*)*/
     asm.x6000001 = function SquarePtrParam(arg0)
     {
-        var loc0;
+        var st_00;
+        var st_01;
+        var st_02;
+        var st_03;
+        var st_04;
+        var st_05;
+        var st_06;
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
-        /* IL_02: stloc.0  */
-        loc0 = arg0;
-        /* IL_03: ldloc.0  */
-        /* IL_04: ldloc.0  */
+        st_00 = arg0;
+        /* IL_02: dup  */
+        st_05 = st_01 = st_00;
+        /* IL_03: ldind.i4  */
+        st_03 = st_01.r();
+        /* IL_04: ldarg.0  */
+        st_02 = arg0;
         /* IL_05: ldind.i4  */
-        /* IL_06: ldarg.0  */
-        /* IL_07: ldind.i4  */
-        /* IL_08: mul  */
-        /* IL_09: stind.i4  */
-        loc0.w(loc0.r() * arg0.r());
-        /* IL_0A: ret  */
+        st_04 = st_02.r();
+        /* IL_06: mul  */
+        st_06 = st_03 * st_04;
+        /* IL_07: stind.i4  */
+        st_05.w(st_06);
+        /* IL_08: ret  */
         return ;
     };;
     /* static System.Void Program.Main()*/
@@ -81,3 +90,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

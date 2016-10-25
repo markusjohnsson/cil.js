@@ -304,3 +304,6 @@ var asm1;(function (asm)
         "function C() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

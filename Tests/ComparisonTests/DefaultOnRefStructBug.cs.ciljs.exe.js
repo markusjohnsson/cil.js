@@ -75,10 +75,10 @@ var asm1;(function (asm)
                 loc0 = new t1();
                 /* IL_09: ldloca.s 0 */
                 /* IL_0B: ldc.i4.s 123 */
-                /* IL_0D: stfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_0D: stfld Managed.Reflection.GenericFieldInstance */
                 loc0.X = (123|0);
                 /* IL_12: ldloc.0  */
-                /* IL_13: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_13: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_18: box System.Int32 */
                 /* IL_1D: call Void WriteLine(System.Object) */
                 asm0.x600005a(CILJS.make_box(loc0.X,t0));
@@ -99,7 +99,7 @@ var asm1;(function (asm)
                 /* IL_2A: nop  */
                 
                 /* IL_2B: ldloc.0  */
-                /* IL_2C: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_2C: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_31: box System.Int32 */
                 /* IL_36: call Void WriteLine(System.Object) */
                 asm0.x600005a(CILJS.make_box(loc0.X,t0));
@@ -110,10 +110,10 @@ var asm1;(function (asm)
                 loc1 = new t3();
                 /* IL_44: ldloca.s 1 */
                 /* IL_46: newobj Void .ctor() */
-                /* IL_4B: stfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_4B: stfld Managed.Reflection.GenericFieldInstance */
                 loc1.X = CILJS.newobj(t2,asm1.x6000002,[null]);
                 /* IL_50: ldloc.1  */
-                /* IL_51: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_51: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_56: brfalse.s IL_5F */
                 
                 if ((!(loc1.X))){
@@ -152,7 +152,7 @@ var asm1;(function (asm)
                 /* IL_77: nop  */
                 
                 /* IL_78: ldloc.1  */
-                /* IL_79: ldfld IKVM.Reflection.GenericFieldInstance */
+                /* IL_79: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_7E: brfalse.s IL_87 */
                 
                 if ((!(loc1.X))){
@@ -246,3 +246,6 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000003;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

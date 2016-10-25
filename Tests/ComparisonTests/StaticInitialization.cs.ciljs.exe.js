@@ -188,7 +188,7 @@ var asm1;(function (asm)
             t4 = (asm0)["CilJs.Runtime.UnboundGenericParameter"]();
             t5 = (asm1)["P`1"](t0);
             (asm1.x6000018(T))();
-            /* IL_00: ldsfld IKVM.Reflection.GenericFieldInstance */
+            /* IL_00: ldsfld Managed.Reflection.GenericFieldInstance */
             /* IL_06: ldftn Boolean <.cctor>b__2_0(T) */
             /* IL_0B: newobj Void .ctor(System.Object, System.IntPtr) */
             /* IL_10: stsfld Func`2 Always */
@@ -294,17 +294,17 @@ var asm1;(function (asm)
         asm1.x6000016(t0.Prop);
         /* IL_0B: nop  */
         (asm1.x6000008((asm0)["System.Object"]()))();
-        /* IL_0C: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_0C: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_11: call Void Is(System.Object) */
         asm1.x6000016(t2.Prop);
         /* IL_16: nop  */
         (asm1.x6000008(asm1.A()))();
-        /* IL_17: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_17: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_1C: call Void Is(System.Object) */
         asm1.x6000016(t4.Prop);
         /* IL_21: nop  */
         (asm1.x6000008(asm1.B()))();
-        /* IL_22: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_22: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_27: call Void Is(System.Object) */
         asm1.x6000016(t6.Prop);
         /* IL_2C: nop  */
@@ -705,3 +705,6 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000015;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

@@ -55,12 +55,12 @@ var asm1;(function (asm)
         var t1;
         var t2;
         var t3;
+        var st_01;
         var st_02;
         var st_03;
         var st_04;
         var st_05;
         var loc0;
-        var loc2;
         var loc1;
         CILJS.init_base_types();
         t0 = (asm1)["Program+<>c__DisplayClass0_0"]();
@@ -74,41 +74,38 @@ var asm1;(function (asm)
         /* IL_07: ldloc.0  */
         st_04 = loc0;
         /* IL_08: newobj Void .ctor() */
-        /* IL_0D: stloc.2  */
-        loc2 = CILJS.newobj(t1,asm1.x6000003,[null]);
-        /* IL_0E: ldloc.2  */
-        st_02 = loc2;
-        /* IL_0F: ldstr hello */
+        st_01 = CILJS.newobj(t1,asm1.x6000003,[null]);
+        /* IL_0D: dup  */
+        st_05 = st_02 = st_01;
+        /* IL_0E: ldstr hello */
         st_03 = CILJS.new_string("hello");
-        /* IL_14: callvirt Void set_Prop(System.String) */
+        /* IL_13: callvirt Void set_Prop(System.String) */
         asm1.x6000002(st_02,st_03);
-        /* IL_19: nop  */
-        /* IL_1A: ldloc.2  */
-        st_05 = loc2;
-        /* IL_1B: stfld A a */
+        /* IL_18: nop  */
+        /* IL_19: stfld A a */
         st_04.a = st_05;
-        /* IL_20: ldloc.0  */
-        /* IL_21: ldnull  */
-        /* IL_22: stfld A b */
+        /* IL_1E: ldloc.0  */
+        /* IL_1F: ldnull  */
+        /* IL_20: stfld A b */
         loc0.b = null;
-        /* IL_27: ldloc.0  */
-        /* IL_29: ldftn Void <Main>b__0() */
-        /* IL_2E: newobj Void .ctor(System.Object, System.IntPtr) */
-        /* IL_33: stloc.1  */
+        /* IL_25: ldloc.0  */
+        /* IL_27: ldftn Void <Main>b__0() */
+        /* IL_2C: newobj Void .ctor(System.Object, System.IntPtr) */
+        /* IL_31: stloc.1  */
         loc1 = CILJS.newobj(t2,asm1.x6000004,[null, loc0, asm1.x600000b]);
-        /* IL_34: ldloc.1  */
-        /* IL_35: callvirt Void Invoke() */
+        /* IL_32: ldloc.1  */
+        /* IL_33: callvirt Void Invoke() */
         ((loc1._target) ? (loc1._methodPtr(loc1._target)) : (loc1._methodPtr()));
-        /* IL_3A: nop  */
-        /* IL_3B: ldloc.0  */
-        /* IL_3C: ldfld A b */
-        /* IL_41: callvirt String get_Prop() */
-        /* IL_46: ldc.i4.0  */
-        /* IL_47: newarr System.Object */
-        /* IL_4C: call Void WriteLine(System.String, System.Object[]) */
+        /* IL_38: nop  */
+        /* IL_39: ldloc.0  */
+        /* IL_3A: ldfld A b */
+        /* IL_3F: callvirt String get_Prop() */
+        /* IL_44: ldc.i4.0  */
+        /* IL_45: newarr System.Object */
+        /* IL_4A: call Void WriteLine(System.String, System.Object[]) */
         asm0.x600005b((loc0.b)["A<Prop>k__BackingField"],CILJS.new_array(t3,(0|0)));
-        /* IL_51: nop  */
-        /* IL_52: ret  */
+        /* IL_4F: nop  */
+        /* IL_50: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -129,7 +126,7 @@ var asm1;(function (asm)
         /* IL_03: ldfld A a */
         /* IL_08: stfld A b */
         arg0.b = arg0.a;
-        /* IL_0F: ret  */
+        /* IL_0D: ret  */
         return ;
     };;
     /*  <>c__DisplayClass0_0..ctor()*/
@@ -223,3 +220,6 @@ var asm1;(function (asm)
         "function __c__DisplayClass0_0() { c.init();this.b = null;this.a = null }");
     asm.entryPoint = asm.x6000008;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

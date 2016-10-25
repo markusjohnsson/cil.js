@@ -47,22 +47,22 @@ namespace CilJs.TestRunner
 
             lock (corlibGate)
             {
-                // translate corlib only if it, or the compiler, has been built since last run
-                if (!File.Exists(corlibOutput) ||
-                     File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput) ||
-                     File.GetLastWriteTime(typeof(Compiler).GetTypeInfo().Assembly.Location) > File.GetLastWriteTime(corlibOutput))
+                if (jsCorlib == null)
                 {
-                    CilToJavaScript(corlib, null, corlibOutput, null, ciljsRefs, errors, outputRuntimeJs: true);
-
-                    if (errors.Any())
+                    // translate corlib only if it, or the compiler, has been built since last run
+                    if (!File.Exists(corlibOutput) ||
+                        File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput) ||
+                        File.GetLastWriteTime(typeof(Compiler).GetTypeInfo().Assembly.Location) > File.GetLastWriteTime(corlibOutput))
                     {
-                        return new TestResult { Errors = errors };
+                        CilToJavaScript(corlib, null, corlibOutput, null, ciljsRefs, errors, outputRuntimeJs: false);
+
+                        if (errors.Any())
+                        {
+                            return new TestResult { Errors = errors };
+                        }
+
                     }
 
-                    jsCorlib = File.ReadAllText(corlibOutput);
-                }
-                else if (jsCorlib == null)
-                {
                     jsCorlib = File.ReadAllText(corlibOutput);
                 }
             }
@@ -96,8 +96,6 @@ namespace CilJs.TestRunner
             string jsOutput = null;
             string exeOutput = null;
 
-            Console.WriteLine("Compile for CLR");
-
             time.Restart();
 
             // Compile CLR-version of exe
@@ -121,8 +119,6 @@ namespace CilJs.TestRunner
             exeOutput = ExecuteAssembly(programStream, out exeExitCode);
 
             timings.Add(new Timing("Run on CLR: ", time.ElapsedMilliseconds));
-
-            Console.WriteLine("Compile for cil.js");
 
             time.Restart();
 
@@ -295,8 +291,6 @@ namespace CilJs.TestRunner
         private void CSharpToCil(string csFile, string outputName, List<Ref> refs, Stream output, List<string> errors)
         {
             var mrefs = refs.Select(r => MetadataReference.CreateFromFile(r.path));
-
-            Console.WriteLine(string.Join(", ", refs.Select(r => r.path)));
 
             var compilation = CSharpCompilation.Create(
                 Path.GetFileNameWithoutExtension(outputName),

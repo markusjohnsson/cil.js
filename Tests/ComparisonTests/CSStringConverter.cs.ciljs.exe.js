@@ -79,7 +79,6 @@ var asm1;(function (asm)
         var __jmp__;
         var loc3;
         var loc4;
-        var loc5;
         t0 = asm1.S();
         in_block_0 = true;
         __pos__ = 0x0;
@@ -102,8 +101,8 @@ var asm1;(function (asm)
                 /* IL_10: ldc.i4.0  */
                 /* IL_11: stloc.1  */
                 loc1 = (0|0);
-                /* IL_12: br IL_EE */
-                __pos__ = 0xEE;
+                /* IL_12: br IL_EC */
+                __pos__ = 0xEC;
                 continue;
                 case 0x17:
                 /* IL_17: nop  */
@@ -273,40 +272,37 @@ var asm1;(function (asm)
                 /* IL_E7: nop  */
                 
                 /* IL_E8: ldloc.1  */
-                /* IL_E9: stloc.3  */
-                loc3 = loc1;
-                /* IL_EA: ldloc.3  */
-                /* IL_EB: ldc.i4.1  */
-                /* IL_EC: add  */
-                /* IL_ED: stloc.1  */
-                loc1 = (loc3 + (1|0)) | (0|0);
-                case 0xEE:
-                /* IL_EE: ldloc.1  */
-                /* IL_EF: ldarg.0  */
-                /* IL_F0: callvirt Int32 get_Length() */
-                /* IL_F6: clt  */
-                /* IL_F7: stloc.s 4 */
-                loc4 = ((loc1 < asm0.x600012f(arg0)) ? 1 : 0);
-                /* IL_F9: ldloc.s 4 */
-                /* IL_FB: brtrue IL_17 */
+                /* IL_E9: ldc.i4.1  */
+                /* IL_EA: add  */
+                /* IL_EB: stloc.1  */
+                loc1 = (loc1 + (1|0)) | (0|0);
+                case 0xEC:
+                /* IL_EC: ldloc.1  */
+                /* IL_ED: ldarg.0  */
+                /* IL_EE: callvirt Int32 get_Length() */
+                /* IL_F4: clt  */
+                /* IL_F5: stloc.3  */
+                loc3 = ((loc1 < asm0.x600012f(arg0)) ? 1 : 0);
+                /* IL_F6: ldloc.3  */
+                /* IL_F7: brtrue IL_17 */
                 
-                if (loc4){
+                if (loc3){
                     __pos__ = 0x17;
                     continue;
                 }
-                /* IL_100: ldloc.0  */
-                /* IL_101: ldc.i4.s 34 */
-                /* IL_103: callvirt Void Append(System.Char) */
+                /* IL_FC: ldloc.0  */
+                /* IL_FD: ldc.i4.s 34 */
+                /* IL_FF: callvirt Void Append(System.Char) */
                 asm1.x6000004(loc0,(34|0));
-                /* IL_108: nop  */
+                /* IL_104: nop  */
                 
-                /* IL_109: ldloc.0  */
-                /* IL_10A: callvirt String ToString() */
-                /* IL_10F: stloc.s 5 */
-                loc5 = ((loc0.vtable)["asm0.x60000ed"]())(loc0);
-                /* IL_113: ldloc.s 5 */
-                /* IL_115: ret  */
-                return loc5;
+                /* IL_105: ldloc.0  */
+                /* IL_106: callvirt String ToString() */
+                /* IL_10B: stloc.s 4 */
+                loc4 = ((loc0.vtable)["asm0.x60000ed"]())(loc0);
+                /* IL_10F: ldloc.s 4 */
+                /* IL_111: ret  */
+                return loc4;
             }
         }
     };
@@ -383,3 +379,6 @@ var asm1;(function (asm)
         "function CSStringConverter() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}
