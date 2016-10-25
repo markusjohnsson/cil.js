@@ -1,23 +1,25 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
-using MsieJavaScriptEngine;
-using MsieJavaScriptEngine.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reactive.Linq;
+using System.Reflection;
+using System.Runtime.Loader;
+using Microsoft.Extensions.DependencyModel;
 
-namespace CilJs.TestRunner.Models
+namespace CilJs.TestRunner
 {
-    public class Tests
+    public class TestRunner
     {
         private string workingDir;
+        private IJavaScriptRunner scriptRunner;
 
-        public Tests(string workingDir)
+        public TestRunner(string workingDir)
         {
             this.workingDir = workingDir;
+            this.scriptRunner = new NodeScriptRunner();
         }
 
         class Ref
@@ -48,10 +50,15 @@ namespace CilJs.TestRunner.Models
                 // translate corlib only if it, or the compiler, has been built since last run
                 if (!File.Exists(corlibOutput) ||
                      File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput) ||
-                     File.GetLastWriteTime(typeof(Compiler).Assembly.Location) > File.GetLastWriteTime(corlibOutput))
+                     File.GetLastWriteTime(typeof(Compiler).GetTypeInfo().Assembly.Location) > File.GetLastWriteTime(corlibOutput))
                 {
                     CilToJavaScript(corlib, null, corlibOutput, null, ciljsRefs, errors, outputRuntimeJs: true);
-                    
+
+                    if (errors.Any())
+                    {
+                        return new TestResult { Errors = errors };
+                    }
+
                     jsCorlib = File.ReadAllText(corlibOutput);
                 }
                 else if (jsCorlib == null)
@@ -62,27 +69,42 @@ namespace CilJs.TestRunner.Models
 
             timings.Add(new Timing("Translate corlib: ", time.ElapsedMilliseconds));
 
-            clrRefs.Add(new Ref { path = typeof(object).Assembly.Location, translate = false });
+            // clrRefs.Add(new Ref { path = typeof(Console).GetTypeInfo().Assembly.Location, translate = false });
+            // clrRefs.Add(new Ref { path = typeof(IEnumerable<>).GetTypeInfo().Assembly.Location, translate = false });
+
+            // clrRefs.Add(new Ref{ path = @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\System.Runtime.dll", translate = false});
+            // clrRefs.Add(new Ref { path = typeof(Console).GetTypeInfo().Assembly.Location, translate = false });
+            var dd = typeof(Enumerable).GetTypeInfo().Assembly.Location;
+            var coreDir = Directory.GetParent(dd);
+
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.dll"), translate = false     });
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.Extensions.dll"), translate = false     });
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Console.dll"), translate = false     });
+            
             ciljsRefs.Add(new Ref { path = corlib, translate = false });
 
             string clrProgramOutputName = null;
             string ciljsProgramOutputName = null;
             string csProgramFile = null;
 
+            var success = true;
+
             csProgramFile = Path.Combine(workingDir, csFile);
             ciljsProgramOutputName = csProgramFile + ".ciljs.exe";
             clrProgramOutputName = csProgramFile + ".clr.exe";
 
-            var success = true;
-
             string jsOutput = null;
             string exeOutput = null;
+
+            Console.WriteLine("Compile for CLR");
 
             time.Restart();
 
             // Compile CLR-version of exe
-            using (var programOutput = File.OpenWrite(clrProgramOutputName))
-                CSharpToCil(csProgramFile, clrProgramOutputName, clrRefs, programOutput, errors);
+            var programStream = new MemoryStream();
+
+            // using (var programOutput = File.OpenWrite(clrProgramOutputName))
+            CSharpToCil(csProgramFile, clrProgramOutputName, clrRefs, programStream, errors);
 
             timings.Add(new Timing("Compile C# for CLR: ", time.ElapsedMilliseconds));
 
@@ -95,9 +117,12 @@ namespace CilJs.TestRunner.Models
             time.Restart();
 
             int exeExitCode;
-            exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
+            // exeOutput = ExecuteExe(clrProgramOutputName, out exeExitCode);
+            exeOutput = ExecuteAssembly(programStream, out exeExitCode);
 
             timings.Add(new Timing("Run on CLR: ", time.ElapsedMilliseconds));
+
+            Console.WriteLine("Compile for cil.js");
 
             time.Restart();
 
@@ -120,16 +145,16 @@ namespace CilJs.TestRunner.Models
 
                 var stringWriter = new StringWriter();
                 var entryPoint = CilToJavaScript(
-                    ciljsProgramOutputName, 
-                    programOutput, 
-                    ciljsProgramOutputName + ".js", 
-                    stringWriter, 
-                    ciljsRefs, 
+                    ciljsProgramOutputName,
+                    programOutput,
+                    ciljsProgramOutputName + ".js",
+                    stringWriter,
+                    ciljsRefs,
                     errors);
 
                 var ciljsProgram = stringWriter.ToString();
 
-                timings.Add(new Timing("Translate to JS: ",  time.ElapsedMilliseconds));
+                timings.Add(new Timing("Translate to JS: ", time.ElapsedMilliseconds));
 
                 if (errors.Any())
                 {
@@ -141,16 +166,17 @@ namespace CilJs.TestRunner.Models
                     File.WriteAllText(ciljsProgramOutputName + ".js", ciljsProgram);
 
                 time.Restart();
-                
+
                 int jsExitCode;
-                jsOutput = ExecuteJs(
+                jsOutput = scriptRunner.ExecuteJs(
+                    jsCorlib,
                     ciljsProgram,
                     entryPoint,
                     out jsExitCode,
                     errors);
 
                 timings.Add(new Timing("Run JS: ", time.ElapsedMilliseconds));
-                
+
                 if (exeExitCode != jsExitCode)
                 {
                     success = false;
@@ -180,83 +206,59 @@ namespace CilJs.TestRunner.Models
 
         private string GetCorlibPath()
         {
-            return Path.Combine(workingDir, @"..\CilJs.Corlib\bin\Debug\mscorlib.dll");
+            return Path.Combine(workingDir, @"..\..\CilJs.Corlib\bin\Debug\mscorlib.dll");
         }
 
-        private string ExecuteExe(string outputName, out int exitCode)
+        private string ExecuteAssembly(MemoryStream assembly, out int exitCode)
         {
-            var process = Process.Start(
-                new ProcessStartInfo
-                {
-                    FileName = outputName,
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false
-                });
-            var output = process.StandardOutput.ReadToEnd();
-            if (false == process.WaitForExit(2000))
-                Debug.WriteLine("FAILED");
-            exitCode = process.ExitCode;
-            return output;
-        }
+            var original = Console.Out;
 
-        private string ExecuteJs(string jsProgram, string entryPoint, out int exitCode, List<string> errors)
-        {
-            string jsOutput = null;
-            exitCode = -1;
-            using (var jsEngine = new MsieJsEngine(
-                engineMode: JsEngineMode.Auto,
-                useEcmaScript5Polyfill: false, 
-                useJson2Library: false))
-            {
-                object exitCodeObj = null;
-                try
-                {
-                    jsEngine.Execute(@"var ciljs_testlib_output = """";");
-                    jsEngine.Execute(@"
-                        var console = { 
-                            log: function ciljs_test_log(message) { 
-                                ciljs_testlib_output += message + ""\r\n""; 
-                            } 
-                        }");
+            var outWriter = new StringWriter();
+            Console.SetOut(outWriter);
 
-                    jsEngine.Execute(jsCorlib);
-                    jsEngine.Execute(jsProgram);
-                    
-                    exitCodeObj = jsEngine.Evaluate(entryPoint + ".entryPoint()");
-                }
-                catch (JsEngineLoadException e)
-                {
-                    errors.Add("During loading of JavaScript engine an error occurred.\n" + JsErrorHelpers.Format(e));
-                }
-                catch (JsRuntimeException e)
-                {
-                    errors.Add("During execution of JavaScript code an error occurred.\n" + JsErrorHelpers.Format(e));
-                }
+            assembly.Seek(0, SeekOrigin.Begin);
+            
+            try {
 
-                if (exitCodeObj == null || exitCodeObj == Undefined.Value)
-                    exitCode = 0;
-                else
-                    exitCode = (int)(double)exitCodeObj;
+                var loader = new AssemblyLoader();
+                var ourAssembly = loader.LoadFromStream(assembly);
 
-                try
-                {
-                    jsOutput = (string)jsEngine.Evaluate("ciljs_testlib_output");
-                }
-                catch
-                {
-                    errors.Add("Exception while evaluating script output");
-                }
+                var type = ourAssembly.GetType("Program");
+                var main = type.GetTypeInfo().GetDeclaredMethod("Main");
+                
+                exitCode = (int?)main.Invoke(null, new object[] { }) ?? 0;
+                return outWriter.ToString();
             }
-            return jsOutput;
+            catch (Exception e) {
+
+                exitCode = 1;
+                return e.ToString();
+            }
+            finally {
+                Console.SetOut(original);
+            }
+            
+        }
+
+        public class AssemblyLoader : AssemblyLoadContext
+        {
+            // Not exactly sure about this
+            protected override Assembly Load(AssemblyName assemblyName)
+            {
+                var deps = DependencyContext.Default;
+                var res = deps.CompileLibraries.Where(d => d.Name.Contains(assemblyName.Name)).ToList();
+                var assembly = Assembly.Load(new AssemblyName(res.First().Name));
+                return assembly;
+            }
         }
 
         private string CilToJavaScript(
-            string mainAssemblyName, 
-            Stream mainAssembly, 
-            string outputName, 
+            string mainAssemblyName,
+            Stream mainAssembly,
+            string outputName,
             TextWriter writer,
-            List<Ref> refs, 
-            List<string> errors, 
+            List<Ref> refs,
+            List<string> errors,
             bool outputRuntimeJs = false)
         {
             try
@@ -274,9 +276,7 @@ namespace CilJs.TestRunner.Models
                     settings.AddAssembly(mainAssemblyName, translate: true);
 
                 settings.OutputFileName = outputName;
-
                 settings.TextWriter = writer;
-
                 settings.OutputILComments = true;
 
                 var compiler = new Compiler(settings);
@@ -295,6 +295,8 @@ namespace CilJs.TestRunner.Models
         private void CSharpToCil(string csFile, string outputName, List<Ref> refs, Stream output, List<string> errors)
         {
             var mrefs = refs.Select(r => MetadataReference.CreateFromFile(r.path));
+
+            Console.WriteLine(string.Join(", ", refs.Select(r => r.path)));
 
             var compilation = CSharpCompilation.Create(
                 Path.GetFileNameWithoutExtension(outputName),

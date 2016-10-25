@@ -157,7 +157,7 @@ namespace CilJs
 
         private Stream GetRuntimeJsResource() 
         {
-            throw new NotImplementedException();
+            return File.OpenRead("../CilJs.Runtime/Runtime.js");
         }
     }
 }

@@ -1,10 +1,10 @@
 
-var proc = require('process');
+var process = require('process');
 
 global.window = global;
-global.CILJS = require('../Runtime/Runtime.js');
+global.CILJS = require('../CilJs.Runtime/Runtime.js');
 global.asm0 = require('./corlib.ciljs.js');
-global.asm1 = require('./' + proc.argv[2]);
+global.asm1 = require('./program.js');
 
 function runScript() {
     var result = CILJS.entry_point();

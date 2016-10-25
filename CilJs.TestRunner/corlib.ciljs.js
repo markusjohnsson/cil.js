@@ -19,7 +19,7 @@ var CILJS;
             a++;
         }
         if (result != null)
-            result.apply(null, arguments);
+            return result.apply(null, arguments);
     }
 
     ciljs.declare_type = function declare_type(name, genericArgs, baseType, init, ctortext) {
@@ -540,7 +540,11 @@ var CILJS;
     ciljs.console_write_line = function (managedStr) {
         console.log(managedStr.jsstr);
     }
-})(CILJS || (CILJS = {}));var asm0;(function (asm)
+})(CILJS || (CILJS = {}));
+
+if (module) {
+    module.exports = CILJS;
+}var asm0;(function (asm)
 {
     asm.FullName = "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";
     /* static System.String Locale.GetText(String)*/
@@ -15852,7 +15856,6 @@ var CILJS;
         },
         "function _GetEnumerator_d__7() { c.init();(this)[\"CilJs_JavaScript_GetEnumerator_d__7<>1__state\"] = 0;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<>2__current\"] = null;(this)[\"<>4__this\"] = null;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<a>5__1\"] = null;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<i>5__2\"] = 0 }");
 })(asm0 || (asm0 = {}));
-
-if (module) {
+if (module){
     module.exports = asm0;
 }
