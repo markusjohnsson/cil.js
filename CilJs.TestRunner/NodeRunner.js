@@ -1,5 +1,6 @@
 
 var process = require('process');
+var endOfLine = require('os').EOL;
 
 global.window = global;
 global.CILJS = require('../CilJs.Runtime/Runtime.js');
@@ -12,7 +13,7 @@ function runScript() {
 }
 
 CILJS.console_write_line = function (managedString) {
-    process.stdout.write(managedString.jsstr + "\r\n");
+    process.stdout.write(managedString.jsstr + endOfLine);
 }
 
 runScript();

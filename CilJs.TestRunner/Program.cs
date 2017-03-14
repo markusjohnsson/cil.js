@@ -8,7 +8,7 @@ namespace CilJs.TestRunner
     {
         public static void Main(string[] args)
         {
-            var workingDir = @"..\Tests\ComparisonTests\";
+            var workingDir = @"../Tests/ComparisonTests/";
             var runner = new TestRunner(workingDir);
             
             var started = 0;
