@@ -111,7 +111,7 @@ var asm1;(function (asm)
                 /* IL_19: ldloc.1  */
                 /* IL_1A: callvirt Char get_Chars(System.Int32) */
                 /* IL_1F: stloc.2  */
-                loc2 = asm0.x6000125(arg0,loc1);
+                loc2 = asm0.x6000107(arg0,loc1);
                 /* IL_20: ldloc.2  */
                 /* IL_21: ldc.i4.s 34 */
                 /* IL_23: bgt.un.s IL_53 */
@@ -203,7 +203,7 @@ var asm1;(function (asm)
                 /* IL_7F: callvirt Char get_Chars(System.Int32) */
                 /* IL_84: call String EscapeChar(System.Char) */
                 /* IL_89: callvirt Void Append(System.String) */
-                asm1.x6000003(loc0,asm1.x6000007(asm0.x6000125(arg0,loc1)));
+                asm1.x6000003(loc0,asm1.x6000007(asm0.x6000107(arg0,loc1)));
                 /* IL_8E: nop  */
                 
                 /* IL_8F: br.s IL_E7 */
@@ -265,7 +265,7 @@ var asm1;(function (asm)
                 /* IL_D9: ldloc.1  */
                 /* IL_DA: callvirt Char get_Chars(System.Int32) */
                 /* IL_DF: callvirt Void Append(System.Char) */
-                asm1.x6000004(loc0,asm0.x6000125(arg0,loc1));
+                asm1.x6000004(loc0,asm0.x6000107(arg0,loc1));
                 /* IL_E4: nop  */
                 
                 case 0xE7:
@@ -282,7 +282,7 @@ var asm1;(function (asm)
                 /* IL_EE: callvirt Int32 get_Length() */
                 /* IL_F4: clt  */
                 /* IL_F5: stloc.3  */
-                loc3 = ((loc1 < asm0.x600012f(arg0)) ? 1 : 0);
+                loc3 = ((loc1 < asm0.x6000111(arg0)) ? 1 : 0);
                 /* IL_F6: ldloc.3  */
                 /* IL_F7: brtrue IL_17 */
                 
@@ -299,7 +299,7 @@ var asm1;(function (asm)
                 /* IL_105: ldloc.0  */
                 /* IL_106: callvirt String ToString() */
                 /* IL_10B: stloc.s 4 */
-                loc4 = ((loc0.vtable)["asm0.x60000ed"]())(loc0);
+                loc4 = ((loc0.vtable)["asm0.x60000ee"]())(loc0);
                 /* IL_10F: ldloc.s 4 */
                 /* IL_111: ret  */
                 return loc4;
@@ -318,7 +318,7 @@ var asm1;(function (asm)
         /* IL_07: box System.Int32 */
         /* IL_0C: call String Concat(System.Object, System.Object) */
         /* IL_11: stloc.0  */
-        loc0 = asm0.x600012b(CILJS.new_string("\\u"),CILJS.make_box(arg0,t0));
+        loc0 = asm0.x600010d(CILJS.new_string("\\u"),CILJS.make_box(arg0,t0));
         /* IL_14: ldloc.0  */
         /* IL_15: ret  */
         return loc0;
@@ -335,9 +335,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.S = CILJS.declare_type(
@@ -355,9 +355,9 @@ var asm1;(function (asm)
                     [asm1, "x6000004", "Append"]
                 ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function S() { c.init(); }");
     asm.CSStringConverter = CILJS.declare_type(
@@ -372,9 +372,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"CSStringConverter",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function CSStringConverter() { c.init(); }");
     asm.entryPoint = asm.x6000001;

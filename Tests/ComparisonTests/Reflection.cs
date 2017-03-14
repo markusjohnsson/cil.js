@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 class A { }
 
@@ -44,10 +45,10 @@ class Program
 
         System.Console.WriteLine(typeof(X<>).MakeGenericType(new[] { typeof(A) }).Equals(typeof(X<A>)));
 
-        System.Console.WriteLine(typeof(object).BaseType == null);
-        System.Console.WriteLine(typeof(A).BaseType.Equals(typeof(object)));
-        System.Console.WriteLine(typeof(A).BaseType.Equals(typeof(B)));
-        System.Console.WriteLine(typeof(B).BaseType.Equals(typeof(A)));
+        System.Console.WriteLine(typeof(object).GetTypeInfo().BaseType == null);
+        System.Console.WriteLine(typeof(A).GetTypeInfo().BaseType.Equals(typeof(object)));
+        System.Console.WriteLine(typeof(A).GetTypeInfo().BaseType.Equals(typeof(B)));
+        System.Console.WriteLine(typeof(B).GetTypeInfo().BaseType.Equals(typeof(A)));
 
         System.Console.WriteLine(IsAssignableFrom(typeof(B), typeof(A)));
         System.Console.WriteLine(IsAssignableFrom(typeof(B), typeof(B)));
@@ -73,6 +74,6 @@ class Program
 
     public static bool IsAssignableFrom(Type a, Type b)
     {
-        return a.IsAssignableFrom(b);
+        return a.GetTypeInfo().IsAssignableFrom(b);
     }
 }

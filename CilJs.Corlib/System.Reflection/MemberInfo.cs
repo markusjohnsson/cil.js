@@ -1,4 +1,5 @@
 using CilJs.Runtime.TranslatorServices;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 namespace System.Reflection
@@ -8,6 +9,11 @@ namespace System.Reflection
         public abstract object[] GetCustomAttributes(bool inherit);
 
         public abstract object[] GetCustomAttributes(Type attributeType, bool inherit);
+
+        public virtual IEnumerable<CustomAttributeData> CustomAttributes
+        {
+            get { return null; }
+        }
 
         public abstract bool IsDefined(Type attributeType, bool inherit);
 

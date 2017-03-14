@@ -233,9 +233,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"A",true,false,false,false,false,[],[],(asm0)["System.ValueType"](),CILJS.is_inst_value_type(this),Array,"asm1.t2000002",new (asm1.A())());
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x6000176");
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x6000158");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function A() { c.init();this.Value = 0 }");
     asm.Program = CILJS.declare_type(
@@ -251,9 +251,9 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.sfield = new (asm1.A())();
             this.GenericTypeMetadataName = "asm1.t2000003";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;

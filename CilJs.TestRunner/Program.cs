@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.IO;
 
 namespace CilJs.TestRunner
@@ -13,7 +14,12 @@ namespace CilJs.TestRunner
             var started = 0;
             var succeeded = 0;
 
-            foreach (var file in Directory.EnumerateFiles(workingDir, "*.cs"))
+            var files = args.Length > 0 ? args :
+                Directory
+                    .EnumerateFiles(workingDir, "*.cs")
+                    ;
+
+            foreach (var file in files)
             {
                 started++;
                 Console.Write(file + " ... ");

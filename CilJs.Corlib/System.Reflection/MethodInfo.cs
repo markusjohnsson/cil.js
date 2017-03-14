@@ -1,22 +1,23 @@
 ﻿using CilJs.Runtime.TranslatorServices;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace System.Reflection
 {
     public class MethodInfo : MemberInfo
     {
-        private CilJs.JavaScript.Array mtd;
+        private CilJs.JavaScript.Array methodData;
 
         private MethodInfo() { }
 
         internal static MethodInfo GetInstance(CilJs.JavaScript.Array m)
         {
-            return new MethodInfo { mtd = m };
+            return new MethodInfo { methodData = m };
         }
 
         public override object[] GetCustomAttributes(bool inherit)
         {
-            return GetCustomAttributesImpl(mtd[3]);
+            return GetCustomAttributesImpl(methodData[3]);
         }
 
         public override object[] GetCustomAttributes(Type attributeType, bool inherit)
@@ -29,18 +30,30 @@ namespace System.Reflection
             throw new NotImplementedException();
         }
 
+        public override IEnumerable<CustomAttributeData> CustomAttributes
+        {
+            get
+            {
+                var attributes = UnsafeCast<CilJs.JavaScript.Array>(methodData[3]);
+                foreach (var rawAttribData in attributes)
+                {
+                    yield return new CustomAttributeData(UnsafeCast<CilJs.JavaScript.Array>(rawAttribData));
+                }
+            }
+        }
+
         public override string Name
         {
             get
             {
-                return (string)UnsafeCast<CilJs.JavaScript.String>(mtd[2]);
+                return (string)UnsafeCast<CilJs.JavaScript.String>(methodData[2]);
             }
         }
 
         public object Invoke(object obj, object[] parameters)
         {
-            var assembly = mtd[0];
-            var method = mtd[1];
+            var assembly = methodData[0];
+            var method = methodData[1];
             return InvokeImpl(assembly, method, obj, parameters);
         }
 

@@ -42,8 +42,6 @@ var asm1;(function (asm)
             var t5;
             var t6;
             var t7;
-            var st_05;
-            var st_06;
             var st_07;
             var st_08;
             var st_09;
@@ -54,6 +52,8 @@ var asm1;(function (asm)
             var st_0E;
             var st_0F;
             var st_10;
+            var st_11;
+            var st_12;
             var in_block_0;
             var __pos__;
             
@@ -78,51 +78,53 @@ var asm1;(function (asm)
                     case 0x0:
                     /* IL_00: ldtoken I`1[T] */
                     /* IL_05: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                    /* IL_0A: ldtoken T */
-                    /* IL_0F: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                    /* IL_14: callvirt Boolean IsAssignableFrom(System.Type) */
-                    /* IL_19: brtrue.s IL_22 */
+                    /* IL_0A: call TypeInfo GetTypeInfo(System.Type) */
+                    /* IL_0F: ldtoken T */
+                    /* IL_14: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+                    /* IL_19: call TypeInfo GetTypeInfo(System.Type) */
+                    /* IL_1E: callvirt Boolean IsAssignableFrom(System.Type) */
+                    /* IL_23: brtrue.s IL_2C */
                     
-                    if ((((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)).vtable)["asm0.x6000153"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1)),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))){
-                        __pos__ = 0x22;
+                    if ((((asm0.x6000184(asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))).vtable)["asm0.x6000135"])())(asm0.x6000184(asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),asm0.x6000184(asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))))){
+                        __pos__ = 0x2C;
                         continue;
                     }
                     (asm1.x6000002(T))();
-                    /* IL_1B: newobj Void .ctor() */
-                    st_10 = CILJS.newobj(t2,asm1.x6000003,[null]);
-                    /* IL_20: br.s IL_4E */
-                    __pos__ = 0x4E;
+                    /* IL_25: newobj Void .ctor() */
+                    st_12 = CILJS.newobj(t2,asm1.x6000003,[null]);
+                    /* IL_2A: br.s IL_58 */
+                    __pos__ = 0x58;
                     continue;
-                    case 0x22:
-                    /* IL_22: ldtoken C`1[T] */
-                    st_05 = CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5);
-                    /* IL_27: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                    st_0C = asm0.x6000147(st_05);
-                    /* IL_2C: ldc.i4.1  */
-                    st_06 = (1|0);
-                    /* IL_2D: newarr System.Type */
-                    st_07 = CILJS.new_array(t6,st_06);
-                    /* IL_32: dup  */
-                    st_0D = st_09 = st_07;
-                    /* IL_33: ldc.i4.0  */
-                    st_0A = (0|0);
-                    /* IL_34: ldtoken T */
-                    st_08 = CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0);
-                    /* IL_39: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-                    st_0B = asm0.x6000147(st_08);
-                    /* IL_3E: stelem.ref  */
-                    CILJS.stelem_ref(st_09,st_0A,st_0B);
-                    /* IL_3F: callvirt Type MakeGenericType(System.Type[]) */
-                    st_0E = ((st_0C.vtable)["asm0.x6000152"]())(st_0C,st_0D);
-                    /* IL_44: call Object CreateInstance(System.Type) */
-                    st_0F = asm0.x6000002(st_0E);
-                    /* IL_49: castclass A`1[T] */
-                    st_10 = CILJS.cast_class(st_0F,t7);
-                    case 0x4E:
+                    case 0x2C:
+                    /* IL_2C: ldtoken C`1[T] */
+                    st_07 = CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5);
+                    /* IL_31: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+                    st_0E = asm0.x6000129(st_07);
+                    /* IL_36: ldc.i4.1  */
+                    st_08 = (1|0);
+                    /* IL_37: newarr System.Type */
+                    st_09 = CILJS.new_array(t6,st_08);
+                    /* IL_3C: dup  */
+                    st_0F = st_0B = st_09;
+                    /* IL_3D: ldc.i4.0  */
+                    st_0C = (0|0);
+                    /* IL_3E: ldtoken T */
+                    st_0A = CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0);
+                    /* IL_43: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+                    st_0D = asm0.x6000129(st_0A);
+                    /* IL_48: stelem.ref  */
+                    CILJS.stelem_ref(st_0B,st_0C,st_0D);
+                    /* IL_49: callvirt Type MakeGenericType(System.Type[]) */
+                    st_10 = ((st_0E.vtable)["asm0.x6000134"]())(st_0E,st_0F);
+                    /* IL_4E: call Object CreateInstance(System.Type) */
+                    st_11 = asm0.x6000002(st_10);
+                    /* IL_53: castclass A`1[T] */
+                    st_12 = CILJS.cast_class(st_11,t7);
+                    case 0x58:
                     (asm1.x6000002(T))();
-                    /* IL_4E: stsfld A`1 Instance */
-                    t7.Instance = st_10;
-                    /* IL_53: ret  */
+                    /* IL_58: stsfld A`1 Instance */
+                    t7.Instance = st_12;
+                    /* IL_5D: ret  */
                     return ;
                 }
             }
@@ -234,29 +236,29 @@ var asm1;(function (asm)
         t5 = (asm0)["System.Object"]();
         /* IL_00: nop  */
         (asm1.x6000002(asm1.D()))();
-        /* IL_01: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_01: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_06: call Boolean IsA[D](System.Object) */
         /* IL_0B: box System.Boolean */
         /* IL_10: call Void WriteLine(System.Object) */
         asm0.x600005a(CILJS.make_box((asm1.x6000007(asm1.D()))(t1.Instance),t2));
         /* IL_15: nop  */
         (asm1.x6000002(asm1.E()))();
-        /* IL_16: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_16: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_1B: callvirt Type GetType() */
         /* IL_20: callvirt String get_Name() */
         /* IL_25: ldc.i4.0  */
         /* IL_26: newarr System.Object */
         /* IL_2B: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b((((asm0.x60000f2(t4.Instance).vtable)["asm0.x60001a4"])())(asm0.x60000f2(t4.Instance)),CILJS.new_array(t5,(0|0)));
+        asm0.x600005b((((asm0.x60000f3(t4.Instance).vtable)["asm0.x600018a"])())(asm0.x60000f3(t4.Instance)),CILJS.new_array(t5,(0|0)));
         /* IL_30: nop  */
         (asm1.x6000002(asm1.D()))();
-        /* IL_31: ldsfld IKVM.Reflection.GenericFieldInstance */
+        /* IL_31: ldsfld Managed.Reflection.GenericFieldInstance */
         /* IL_36: callvirt Type GetType() */
         /* IL_3B: callvirt String get_Name() */
         /* IL_40: ldc.i4.0  */
         /* IL_41: newarr System.Object */
         /* IL_46: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b((((asm0.x60000f2(t1.Instance).vtable)["asm0.x60001a4"])())(asm0.x60000f2(t1.Instance)),CILJS.new_array(t5,(0|0)));
+        asm0.x600005b((((asm0.x60000f3(t1.Instance).vtable)["asm0.x600018a"])())(asm0.x60000f3(t1.Instance)),CILJS.new_array(t5,(0|0)));
         /* IL_4B: nop  */
         /* IL_4C: ret  */
         return ;
@@ -299,9 +301,9 @@ var asm1;(function (asm)
             this.Instance = null;
             (this.GenericArguments)["asm1.t2000003"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000003<" + (T.GenericTypeMetadataName + ">"));
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function A_1() { c.init(); }");
     (asm)["B`1"] = CILJS.declare_type(
@@ -318,9 +320,9 @@ var asm1;(function (asm)
             (this.GenericArguments)["asm1.t2000004"] = [T];
             (this.GenericArguments)["asm1.t2000003"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000004<" + (T.GenericTypeMetadataName + ">"));
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function B_1() { c.init(); }");
     (asm)["C`1"] = CILJS.declare_type(
@@ -337,9 +339,9 @@ var asm1;(function (asm)
             (this.GenericArguments)["asm1.t2000005"] = [T];
             (this.GenericArguments)["asm1.t2000003"] = [T];
             this.GenericTypeMetadataName = ("asm1.t2000005<" + (T.GenericTypeMetadataName + ">"));
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function C_1() { c.init(); }");
     asm.D = CILJS.declare_type(
@@ -354,9 +356,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"D",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000006",null);
             this.GenericTypeMetadataName = "asm1.t2000006";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](asm1.D()), asm1.D()],
@@ -375,9 +377,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"E",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000007",null);
             this.GenericTypeMetadataName = "asm1.t2000007";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function E() { c.init(); }");
     asm.Program = CILJS.declare_type(
@@ -392,10 +394,13 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000008",null);
             this.GenericTypeMetadataName = "asm1.t2000008";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000008;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

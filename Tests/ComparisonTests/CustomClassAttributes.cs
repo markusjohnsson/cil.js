@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 class A: Attribute { }
 
@@ -15,22 +17,47 @@ class C { }
 
 class D { }
 
-public class Program
-{
-    public static void Main(string[] args)
+public static class MiniLinq
+{    
+    public static bool Any<T>(this IEnumerable<T> source)
     {
-        var a0 = typeof(B).GetCustomAttributes(true);
-        System.Console.WriteLine(a0.Length);
-        for (var i = 0; i < a0.Length; i++)
+        foreach (var s in source)
         {
-            System.Console.WriteLine(typeof(A).Equals(a0[i].GetType()));
-            System.Console.WriteLine(a0[i].GetType().FullName);
+            return true;
         }
 
-        var a1 = typeof(C).GetCustomAttributes(true);
-        System.Console.WriteLine(((A2)a1[0]).P);
+        return false;
+    }
+    
+    public static int Count<T>(this IEnumerable<T> source)
+    {
+        int counter = 0;
+        foreach (var s in source)
+        {
+            counter++;
+        }
 
-        var a2 = typeof(D).GetCustomAttributes(true);
-        System.Console.WriteLine(a2.Length);
+        return counter;
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var a0 = typeof(B).GetTypeInfo().CustomAttributes;
+        System.Console.WriteLine(a0.Count());
+        foreach (var attr in a0)
+        {
+            System.Console.WriteLine(typeof(A).Equals(attr.AttributeType));
+            System.Console.WriteLine(attr.AttributeType.FullName);
+        }
+
+        var a1 = typeof(C).GetTypeInfo().CustomAttributes;
+        System.Console.WriteLine(a1.Count());
+        // System.Console.WriteLine(((A2)a1[0]).P);
+
+        var a2 = typeof(D).GetTypeInfo().CustomAttributes;
+        System.Console.WriteLine(a2.Count());
     }
 }

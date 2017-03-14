@@ -4839,7 +4839,7 @@ var asm1;(function (asm)
         /* IL_11: ldc.i4.0  */
         /* IL_12: newarr System.Object */
         /* IL_17: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(asm0.x600012b(CILJS.new_string("RightShift "),CILJS.make_box(arg0,t0)),CILJS.new_array(t1,(0|0)));
+        asm0.x600005b(asm0.x600010d(CILJS.new_string("RightShift "),CILJS.make_box(arg0,t0)),CILJS.new_array(t1,(0|0)));
         /* IL_1C: nop  */
         /* IL_1D: ldarg.0  */
         /* IL_1E: ldc.i4.0  */
@@ -4964,7 +4964,7 @@ var asm1;(function (asm)
         /* IL_11: ldc.i4.0  */
         /* IL_12: newarr System.Object */
         /* IL_17: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b(asm0.x600012b(CILJS.new_string("LeftShift "),CILJS.make_box(arg0,t0)),CILJS.new_array(t1,(0|0)));
+        asm0.x600005b(asm0.x600010d(CILJS.new_string("LeftShift "),CILJS.make_box(arg0,t0)),CILJS.new_array(t1,(0|0)));
         /* IL_1C: nop  */
         /* IL_1D: ldarg.0  */
         /* IL_1E: ldc.i4.0  */
@@ -5127,9 +5127,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;

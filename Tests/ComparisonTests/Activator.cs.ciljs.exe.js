@@ -49,7 +49,7 @@ var asm1;(function (asm)
         /* IL_0B: call Object CreateInstance(System.Type) */
         /* IL_10: castclass A */
         /* IL_15: stloc.0  */
-        loc0 = CILJS.cast_class(asm0.x6000002(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),t0);
+        loc0 = CILJS.cast_class(asm0.x6000002(asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),t0);
         /* IL_16: ldtoken A */
         /* IL_1B: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
         /* IL_20: ldloc.0  */
@@ -57,7 +57,7 @@ var asm1;(function (asm)
         /* IL_26: callvirt Boolean Equals(System.Object) */
         /* IL_2B: box System.Boolean */
         /* IL_30: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000f0"])())(asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),asm0.x60000f2(loc0)),t1));
+        asm0.x600005a(CILJS.make_box((((asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000f1"])())(asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),asm0.x60000f3(loc0)),t1));
         /* IL_35: nop  */
         /* IL_36: ldloc.0  */
         /* IL_37: callvirt Int32 X() */
@@ -91,9 +91,9 @@ var asm1;(function (asm)
                     [asm1, "x6000001", "X"]
                 ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function A() { c.init(); }");
     asm.Program = CILJS.declare_type(
@@ -108,9 +108,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000003;

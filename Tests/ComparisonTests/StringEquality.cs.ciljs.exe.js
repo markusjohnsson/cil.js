@@ -12,21 +12,21 @@ var asm1;(function (asm)
         /* IL_07: call Boolean op_Equality(System.String, System.String) */
         /* IL_0C: box System.Boolean */
         /* IL_11: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(asm0.x6000132(arg0,CILJS.new_string("Hello World")),t0));
+        asm0.x600005a(CILJS.make_box(asm0.x6000114(arg0,CILJS.new_string("Hello World")),t0));
         /* IL_16: nop  */
         /* IL_17: ldarg.0  */
         /* IL_18: ldstr Hello World */
         /* IL_1D: callvirt Boolean Equals(System.String) */
         /* IL_22: box System.Boolean */
         /* IL_27: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(((arg0.vtable)["asm0.x6000133"]())(arg0,CILJS.new_string("Hello World")),t0));
+        asm0.x600005a(CILJS.make_box(((arg0.vtable)["asm0.x6000115"]())(arg0,CILJS.new_string("Hello World")),t0));
         /* IL_2C: nop  */
         /* IL_2D: ldstr Hello World */
         /* IL_32: ldarg.0  */
         /* IL_33: call Boolean Equals(System.String) */
         /* IL_38: box System.Boolean */
         /* IL_3D: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(asm0.x6000133(CILJS.new_string("Hello World"),arg0),t0));
+        asm0.x600005a(CILJS.make_box(asm0.x6000115(CILJS.new_string("Hello World"),arg0),t0));
         /* IL_42: nop  */
         /* IL_43: ret  */
         return ;
@@ -72,9 +72,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000002;

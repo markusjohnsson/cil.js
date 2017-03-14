@@ -211,162 +211,179 @@ var asm1;(function (asm)
         /* IL_0C: ldc.i4.0  */
         /* IL_0D: newarr System.Object */
         /* IL_12: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x600005b((((asm0.x60000f2(arg0).vtable)["asm0.x60001a4"])())(asm0.x60000f2(arg0)),CILJS.new_array(t0,(0|0)));
+        asm0.x600005b((((asm0.x60000f3(arg0).vtable)["asm0.x600018a"])())(asm0.x60000f3(arg0)),CILJS.new_array(t0,(0|0)));
         /* IL_17: nop  */
         /* IL_18: ldarg.0  */
         /* IL_19: callvirt Type GetType() */
-        /* IL_1E: ldtoken System.Int32 */
-        /* IL_23: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_28: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_2D: box System.Boolean */
-        /* IL_32: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),t2));
-        /* IL_37: nop  */
-        /* IL_38: ldarg.0  */
-        /* IL_39: callvirt Type GetType() */
-        /* IL_3E: ldtoken System.Object */
-        /* IL_43: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_48: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_4D: box System.Boolean */
-        /* IL_52: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),t2));
-        /* IL_57: nop  */
-        /* IL_58: ldarg.0  */
-        /* IL_59: callvirt Type GetType() */
-        /* IL_5E: ldtoken System.ValueType */
-        /* IL_63: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_68: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_6D: box System.Boolean */
-        /* IL_72: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t3))),t2));
-        /* IL_77: nop  */
-        /* IL_78: ldarg.0  */
-        /* IL_79: callvirt Type GetType() */
-        /* IL_7E: ldtoken A */
-        /* IL_83: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_88: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_8D: box System.Boolean */
-        /* IL_92: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t4))),t2));
-        /* IL_97: nop  */
-        /* IL_98: ldarg.0  */
-        /* IL_99: callvirt Type GetType() */
-        /* IL_9E: ldtoken B */
-        /* IL_A3: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_A8: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_AD: box System.Boolean */
-        /* IL_B2: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))),t2));
-        /* IL_B7: nop  */
-        /* IL_B8: ldarg.0  */
-        /* IL_B9: callvirt Type GetType() */
-        /* IL_BE: ldtoken C */
-        /* IL_C3: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_C8: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_CD: box System.Boolean */
-        /* IL_D2: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))),t2));
-        /* IL_D7: nop  */
-        /* IL_D8: ldarg.0  */
-        /* IL_D9: callvirt Type GetType() */
-        /* IL_DE: ldtoken D */
-        /* IL_E3: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_E8: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_ED: box System.Boolean */
-        /* IL_F2: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t7))),t2));
-        /* IL_F7: nop  */
-        /* IL_F8: ldarg.0  */
-        /* IL_F9: callvirt Type GetType() */
-        /* IL_FE: ldtoken I */
-        /* IL_103: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_108: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_10D: box System.Boolean */
-        /* IL_112: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t8))),t2));
-        /* IL_117: nop  */
-        /* IL_118: ldarg.0  */
-        /* IL_119: callvirt Type GetType() */
-        /* IL_11E: ldtoken System.Array */
-        /* IL_123: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_128: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_12D: box System.Boolean */
-        /* IL_132: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t9))),t2));
-        /* IL_137: nop  */
-        /* IL_138: ldarg.0  */
-        /* IL_139: callvirt Type GetType() */
-        /* IL_13E: ldtoken System.Int32[] */
-        /* IL_143: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_148: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_14D: box System.Boolean */
-        /* IL_152: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t10))),t2));
-        /* IL_157: nop  */
-        /* IL_158: ldarg.0  */
-        /* IL_159: callvirt Type GetType() */
-        /* IL_15E: ldtoken System.Object[] */
-        /* IL_163: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_168: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_16D: box System.Boolean */
-        /* IL_172: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t11))),t2));
-        /* IL_177: nop  */
-        /* IL_178: ldarg.0  */
-        /* IL_179: callvirt Type GetType() */
-        /* IL_17E: ldtoken System.ValueType[] */
-        /* IL_183: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_188: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_18D: box System.Boolean */
-        /* IL_192: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t12))),t2));
-        /* IL_197: nop  */
-        /* IL_198: ldarg.0  */
-        /* IL_199: callvirt Type GetType() */
-        /* IL_19E: ldtoken A[] */
-        /* IL_1A3: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_1A8: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_1AD: box System.Boolean */
-        /* IL_1B2: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t13))),t2));
-        /* IL_1B7: nop  */
-        /* IL_1B8: ldarg.0  */
-        /* IL_1B9: callvirt Type GetType() */
-        /* IL_1BE: ldtoken B[] */
-        /* IL_1C3: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_1C8: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_1CD: box System.Boolean */
-        /* IL_1D2: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t14))),t2));
-        /* IL_1D7: nop  */
-        /* IL_1D8: ldarg.0  */
-        /* IL_1D9: callvirt Type GetType() */
-        /* IL_1DE: ldtoken C[] */
-        /* IL_1E3: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_1E8: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_1ED: box System.Boolean */
-        /* IL_1F2: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t15))),t2));
-        /* IL_1F7: nop  */
-        /* IL_1F8: ldarg.0  */
-        /* IL_1F9: callvirt Type GetType() */
-        /* IL_1FE: ldtoken D[] */
-        /* IL_203: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_208: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_20D: box System.Boolean */
-        /* IL_212: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t16))),t2));
-        /* IL_217: nop  */
-        /* IL_218: ldarg.0  */
-        /* IL_219: callvirt Type GetType() */
-        /* IL_21E: ldtoken I[] */
-        /* IL_223: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
-        /* IL_228: callvirt Boolean IsSubclassOf(System.Type) */
-        /* IL_22D: box System.Boolean */
-        /* IL_232: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((((asm0.x60000f2(arg0).vtable)["asm0.x6000148"])())(asm0.x60000f2(arg0),asm0.x6000147(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t17))),t2));
-        /* IL_237: nop  */
-        /* IL_238: ret  */
+        /* IL_1E: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_23: ldtoken System.Int32 */
+        /* IL_28: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_2D: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_32: box System.Boolean */
+        /* IL_37: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),t2));
+        /* IL_3C: nop  */
+        /* IL_3D: ldarg.0  */
+        /* IL_3E: callvirt Type GetType() */
+        /* IL_43: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_48: ldtoken System.Object */
+        /* IL_4D: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_52: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_57: box System.Boolean */
+        /* IL_5C: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),t2));
+        /* IL_61: nop  */
+        /* IL_62: ldarg.0  */
+        /* IL_63: callvirt Type GetType() */
+        /* IL_68: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_6D: ldtoken System.ValueType */
+        /* IL_72: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_77: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_7C: box System.Boolean */
+        /* IL_81: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t3))),t2));
+        /* IL_86: nop  */
+        /* IL_87: ldarg.0  */
+        /* IL_88: callvirt Type GetType() */
+        /* IL_8D: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_92: ldtoken A */
+        /* IL_97: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_9C: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_A1: box System.Boolean */
+        /* IL_A6: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t4))),t2));
+        /* IL_AB: nop  */
+        /* IL_AC: ldarg.0  */
+        /* IL_AD: callvirt Type GetType() */
+        /* IL_B2: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_B7: ldtoken B */
+        /* IL_BC: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_C1: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_C6: box System.Boolean */
+        /* IL_CB: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5))),t2));
+        /* IL_D0: nop  */
+        /* IL_D1: ldarg.0  */
+        /* IL_D2: callvirt Type GetType() */
+        /* IL_D7: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_DC: ldtoken C */
+        /* IL_E1: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_E6: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_EB: box System.Boolean */
+        /* IL_F0: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t6))),t2));
+        /* IL_F5: nop  */
+        /* IL_F6: ldarg.0  */
+        /* IL_F7: callvirt Type GetType() */
+        /* IL_FC: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_101: ldtoken D */
+        /* IL_106: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_10B: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_110: box System.Boolean */
+        /* IL_115: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t7))),t2));
+        /* IL_11A: nop  */
+        /* IL_11B: ldarg.0  */
+        /* IL_11C: callvirt Type GetType() */
+        /* IL_121: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_126: ldtoken I */
+        /* IL_12B: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_130: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_135: box System.Boolean */
+        /* IL_13A: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t8))),t2));
+        /* IL_13F: nop  */
+        /* IL_140: ldarg.0  */
+        /* IL_141: callvirt Type GetType() */
+        /* IL_146: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_14B: ldtoken System.Array */
+        /* IL_150: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_155: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_15A: box System.Boolean */
+        /* IL_15F: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t9))),t2));
+        /* IL_164: nop  */
+        /* IL_165: ldarg.0  */
+        /* IL_166: callvirt Type GetType() */
+        /* IL_16B: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_170: ldtoken System.Int32[] */
+        /* IL_175: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_17A: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_17F: box System.Boolean */
+        /* IL_184: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t10))),t2));
+        /* IL_189: nop  */
+        /* IL_18A: ldarg.0  */
+        /* IL_18B: callvirt Type GetType() */
+        /* IL_190: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_195: ldtoken System.Object[] */
+        /* IL_19A: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_19F: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_1A4: box System.Boolean */
+        /* IL_1A9: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t11))),t2));
+        /* IL_1AE: nop  */
+        /* IL_1AF: ldarg.0  */
+        /* IL_1B0: callvirt Type GetType() */
+        /* IL_1B5: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_1BA: ldtoken System.ValueType[] */
+        /* IL_1BF: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_1C4: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_1C9: box System.Boolean */
+        /* IL_1CE: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t12))),t2));
+        /* IL_1D3: nop  */
+        /* IL_1D4: ldarg.0  */
+        /* IL_1D5: callvirt Type GetType() */
+        /* IL_1DA: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_1DF: ldtoken A[] */
+        /* IL_1E4: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_1E9: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_1EE: box System.Boolean */
+        /* IL_1F3: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t13))),t2));
+        /* IL_1F8: nop  */
+        /* IL_1F9: ldarg.0  */
+        /* IL_1FA: callvirt Type GetType() */
+        /* IL_1FF: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_204: ldtoken B[] */
+        /* IL_209: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_20E: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_213: box System.Boolean */
+        /* IL_218: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t14))),t2));
+        /* IL_21D: nop  */
+        /* IL_21E: ldarg.0  */
+        /* IL_21F: callvirt Type GetType() */
+        /* IL_224: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_229: ldtoken C[] */
+        /* IL_22E: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_233: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_238: box System.Boolean */
+        /* IL_23D: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t15))),t2));
+        /* IL_242: nop  */
+        /* IL_243: ldarg.0  */
+        /* IL_244: callvirt Type GetType() */
+        /* IL_249: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_24E: ldtoken D[] */
+        /* IL_253: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_258: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_25D: box System.Boolean */
+        /* IL_262: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t16))),t2));
+        /* IL_267: nop  */
+        /* IL_268: ldarg.0  */
+        /* IL_269: callvirt Type GetType() */
+        /* IL_26E: call TypeInfo GetTypeInfo(System.Type) */
+        /* IL_273: ldtoken I[] */
+        /* IL_278: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
+        /* IL_27D: callvirt Boolean IsSubclassOf(System.Type) */
+        /* IL_282: box System.Boolean */
+        /* IL_287: call Void WriteLine(System.Object) */
+        asm0.x600005a(CILJS.make_box((((asm0.x6000184(asm0.x60000f3(arg0)).vtable)["asm0.x600012a"])())(asm0.x6000184(asm0.x60000f3(arg0)),asm0.x6000129(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t17))),t2));
+        /* IL_28C: nop  */
+        /* IL_28D: ret  */
         return ;
     };
     /*  Program..ctor()*/
@@ -390,9 +407,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"A",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function A() { c.init(); }");
     asm.I = CILJS.declare_type(
@@ -421,9 +438,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"B",false,false,false,false,false,[],[],asm1.A(),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
@@ -442,9 +459,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"C",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000005",null);
             this.GenericTypeMetadataName = "asm1.t2000005";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function C() { c.init(); }");
     asm.D = CILJS.declare_type(
@@ -459,9 +476,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"D",false,false,false,false,false,[],[],asm1.B(),CILJS.is_inst_default(this),Array,"asm1.t2000006",null);
             this.GenericTypeMetadataName = "asm1.t2000006";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
@@ -480,10 +497,13 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000007",null);
             this.GenericTypeMetadataName = "asm1.t2000007";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000005;
 })(asm1 || (asm1 = {}));
+if (module){
+    module.exports = asm1;
+}

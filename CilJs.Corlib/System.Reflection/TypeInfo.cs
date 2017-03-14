@@ -1,13 +1,12 @@
-using System.Runtime.CompilerServices;
-using CilJs.Runtime.TranslatorServices;
-using CilJs.JavaScript;
-using System.Reflection;
-using CilJs.Runtime.InteropServices;
-using CilJs.Runtime;
 
-namespace System
+using JsArray = CilJs.JavaScript.Array;
+using CilJs.Runtime.InteropServices;
+using CilJs.Runtime.TranslatorServices;
+using System.Collections.Generic;
+
+namespace System.Reflection
 {
-    sealed internal class RuntimeType : Type
+    public class TypeInfo : Type
     {
         // o.constructor for reference types, o.type for (boxed) value types
         [JsImport("function (o) { return o.type || o.constructor; }")]
@@ -33,7 +32,7 @@ namespace System
 
         internal constructor ctor;
 
-        private RuntimeType(constructor ctor)
+        private TypeInfo(constructor ctor)
         {
             this.ctor = ctor;
             init(ctor);
@@ -46,7 +45,7 @@ namespace System
         internal static Type GetInstance(constructor ctor)
         {
             if (CilJs.JavaScript.Object.IsUndefined(ctor.TypeInstance))
-                ctor.TypeInstance = new RuntimeType(ctor);
+                ctor.TypeInstance = new TypeInfo(ctor);
 
             return ctor.TypeInstance;
         }
@@ -102,7 +101,7 @@ namespace System
 
         public override bool Equals(object other)
         {
-            var type = other as RuntimeType;
+            var type = other as TypeInfo;
             return ctor == type.ctor;
         }
 
@@ -117,6 +116,17 @@ namespace System
         public override object[] GetCustomAttributes(bool inherit)
         {
             return GetCustomAttributesImpl(this.ctor.CustomAttributes);
+        }
+
+        public override IEnumerable<CustomAttributeData> CustomAttributes
+        {
+            get
+            {
+                foreach (var rawAttribData in ctor.CustomAttributes)
+                {
+                    yield return new CustomAttributeData(UnsafeCast<JsArray>(rawAttribData));
+                }
+            }
         }
 
         public override object[] GetCustomAttributes(Type attributeType, bool inherit)
@@ -164,7 +174,7 @@ namespace System
             var typeArgs = CilJs.JavaScript.Array.New();
 
             for (var i = 0; i < args.Length; i++)
-                typeArgs[i] = ((RuntimeType)args[i]).ctor;
+                typeArgs[i] = ((TypeInfo)args[i]).ctor;
 
             var openType = Marshal.ObjectLookup(ctor.Assembly, FullName);
             var closedType = Marshal.Apply(openType, null, typeArgs);

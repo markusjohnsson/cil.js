@@ -1,11 +1,12 @@
 ﻿
 using System;
+using System.Reflection;
 
 interface I<T> { }
 
 class A<T> 
 {
-    public static A<T> Instance = typeof(I<T>).IsAssignableFrom(typeof(T)) ?
+    public static A<T> Instance = typeof(I<T>).GetTypeInfo().IsAssignableFrom(typeof(T).GetTypeInfo()) ?
         (A<T>) Activator.CreateInstance(typeof(C<>).MakeGenericType(typeof(T))) :
         new B<T>();
 }

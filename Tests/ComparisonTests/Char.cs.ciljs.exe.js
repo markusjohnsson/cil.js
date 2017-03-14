@@ -32,28 +32,28 @@ var asm1;(function (asm)
         /* IL_03: callvirt Char get_Chars(System.Int32) */
         /* IL_08: box System.Char */
         /* IL_0D: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(asm0.x6000125(arg0,(0|0)),t0));
+        asm0.x600005a(CILJS.make_box(asm0.x6000107(arg0,(0|0)),t0));
         /* IL_12: nop  */
         /* IL_13: ldarg.0  */
         /* IL_14: ldc.i4.1  */
         /* IL_15: callvirt Char get_Chars(System.Int32) */
         /* IL_1A: box System.Char */
         /* IL_1F: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(asm0.x6000125(arg0,(1|0)),t0));
+        asm0.x600005a(CILJS.make_box(asm0.x6000107(arg0,(1|0)),t0));
         /* IL_24: nop  */
         /* IL_25: ldarg.0  */
         /* IL_26: ldc.i4.2  */
         /* IL_27: callvirt Char get_Chars(System.Int32) */
         /* IL_2C: box System.Char */
         /* IL_31: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(asm0.x6000125(arg0,(2|0)),t0));
+        asm0.x600005a(CILJS.make_box(asm0.x6000107(arg0,(2|0)),t0));
         /* IL_36: nop  */
         /* IL_37: ldarg.0  */
         /* IL_38: ldc.i4.3  */
         /* IL_39: callvirt Char get_Chars(System.Int32) */
         /* IL_3E: box System.Char */
         /* IL_43: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(asm0.x6000125(arg0,(3|0)),t0));
+        asm0.x600005a(CILJS.make_box(asm0.x6000107(arg0,(3|0)),t0));
         /* IL_48: nop  */
         /* IL_49: ret  */
         return ;
@@ -79,9 +79,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;

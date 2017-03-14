@@ -163,7 +163,7 @@ var asm1;(function (asm)
                     /* IL_02: ldarg.0  */
                     /* IL_03: callvirt IEnumerator`1 GetEnumerator() */
                     /* IL_08: stloc.0  */
-                    loc0 = ((((arg0.ifacemap)[t1])[t0].x60001c0)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+                    loc0 = ((((arg0.ifacemap)[t1])[t0].x60001c6)())(CILJS.convert_box_to_pointer_as_needed(arg0));
                     
                     try {
                         in_block_1 = true;
@@ -184,7 +184,7 @@ var asm1;(function (asm)
                                 /* IL_0B: ldloc.0  */
                                 /* IL_0C: callvirt T get_Current() */
                                 /* IL_11: stloc.1  */
-                                loc1 = ((((loc0.ifacemap)[t2])[t0].x60001c1)())(CILJS.convert_box_to_pointer_as_needed(loc0));
+                                loc1 = ((((loc0.ifacemap)[t2])[t0].x60001c7)())(CILJS.convert_box_to_pointer_as_needed(loc0));
                                 /* IL_12: nop  */
                                 
                                 /* IL_13: ldloc.1  */
@@ -199,7 +199,7 @@ var asm1;(function (asm)
                                 /* IL_18: callvirt Boolean MoveNext() */
                                 /* IL_1D: brtrue.s IL_0B */
                                 
-                                if ((((loc0.ifacemap)[t3].x60001b4)())(CILJS.convert_box_to_pointer_as_needed(loc0))){
+                                if ((((loc0.ifacemap)[t3].x60001ba)())(CILJS.convert_box_to_pointer_as_needed(loc0))){
                                     __pos__ = 0xB;
                                     continue;
                                 }
@@ -311,7 +311,7 @@ var asm1;(function (asm)
                     /* IL_02: ldarg.0  */
                     /* IL_03: callvirt IEnumerator`1 GetEnumerator() */
                     /* IL_08: stloc.0  */
-                    loc0 = ((((arg0.ifacemap)[t1])[t0].x60001c0)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+                    loc0 = ((((arg0.ifacemap)[t1])[t0].x60001c6)())(CILJS.convert_box_to_pointer_as_needed(arg0));
                     
                     try {
                         in_block_1 = true;
@@ -332,7 +332,7 @@ var asm1;(function (asm)
                                 /* IL_0B: ldloc.0  */
                                 /* IL_0C: callvirt T get_Current() */
                                 /* IL_11: stloc.1  */
-                                loc1 = ((((loc0.ifacemap)[t2])[t0].x60001c1)())(CILJS.convert_box_to_pointer_as_needed(loc0));
+                                loc1 = ((((loc0.ifacemap)[t2])[t0].x60001c7)())(CILJS.convert_box_to_pointer_as_needed(loc0));
                                 /* IL_12: nop  */
                                 
                                 /* IL_13: ldc.i4.1  */
@@ -347,7 +347,7 @@ var asm1;(function (asm)
                                 /* IL_18: callvirt Boolean MoveNext() */
                                 /* IL_1D: brtrue.s IL_0B */
                                 
-                                if ((((loc0.ifacemap)[t3].x60001b4)())(CILJS.convert_box_to_pointer_as_needed(loc0))){
+                                if ((((loc0.ifacemap)[t3].x60001ba)())(CILJS.convert_box_to_pointer_as_needed(loc0))){
                                     __pos__ = 0xB;
                                     continue;
                                 }
@@ -955,7 +955,7 @@ var asm1;(function (asm)
                             /* IL_28: ldfld IEnumerable`1 source */
                             /* IL_2D: callvirt IEnumerator`1 GetEnumerator() */
                             /* IL_32: stfld IEnumerator`1 <>s__1 */
-                            (arg0)["_Select_d__0_2<>s__1"] = ((((arg0._Select_d__0_2source.ifacemap)[t1])[t0].x60001c0)())(CILJS.convert_box_to_pointer_as_needed(arg0._Select_d__0_2source));
+                            (arg0)["_Select_d__0_2<>s__1"] = ((((arg0._Select_d__0_2source.ifacemap)[t1])[t0].x60001c6)())(CILJS.convert_box_to_pointer_as_needed(arg0._Select_d__0_2source));
                             /* IL_37: ldarg.0  */
                             /* IL_38: ldc.i4.s 253 */
                             /* IL_3A: stfld Int32 <>1__state */
@@ -969,7 +969,7 @@ var asm1;(function (asm)
                             /* IL_43: ldfld IEnumerator`1 <>s__1 */
                             /* IL_48: callvirt T get_Current() */
                             /* IL_4D: stfld T <s>5__2 */
-                            (arg0)["_Select_d__0_2<s>5__2"] = (((((arg0)["_Select_d__0_2<>s__1"].ifacemap)[t2])[t0].x60001c1)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Select_d__0_2<>s__1"]));
+                            (arg0)["_Select_d__0_2<s>5__2"] = (((((arg0)["_Select_d__0_2<>s__1"].ifacemap)[t2])[t0].x60001c7)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Select_d__0_2<>s__1"]));
                             /* IL_52: ldarg.0  */
                             /* IL_53: ldarg.0  */
                             /* IL_54: ldfld Func`2 selector */
@@ -1004,7 +1004,7 @@ var asm1;(function (asm)
                             /* IL_8E: callvirt Boolean MoveNext() */
                             /* IL_93: brtrue.s IL_41 */
                             
-                            if (((((arg0)["_Select_d__0_2<>s__1"].ifacemap)[t3].x60001b4)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Select_d__0_2<>s__1"]))){
+                            if (((((arg0)["_Select_d__0_2<>s__1"].ifacemap)[t3].x60001ba)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Select_d__0_2<>s__1"]))){
                                 __pos__ = 0x41;
                                 continue;
                             }
@@ -1432,7 +1432,7 @@ var asm1;(function (asm)
                             /* IL_28: ldfld IEnumerable`1 source */
                             /* IL_2D: callvirt IEnumerator`1 GetEnumerator() */
                             /* IL_32: stfld IEnumerator`1 <>s__1 */
-                            (arg0)["_Where_d__1_1<>s__1"] = ((((arg0._Where_d__1_1source.ifacemap)[t1])[t0].x60001c0)())(CILJS.convert_box_to_pointer_as_needed(arg0._Where_d__1_1source));
+                            (arg0)["_Where_d__1_1<>s__1"] = ((((arg0._Where_d__1_1source.ifacemap)[t1])[t0].x60001c6)())(CILJS.convert_box_to_pointer_as_needed(arg0._Where_d__1_1source));
                             /* IL_37: ldarg.0  */
                             /* IL_38: ldc.i4.s 253 */
                             /* IL_3A: stfld Int32 <>1__state */
@@ -1446,7 +1446,7 @@ var asm1;(function (asm)
                             /* IL_43: ldfld IEnumerator`1 <>s__1 */
                             /* IL_48: callvirt T get_Current() */
                             /* IL_4D: stfld T <s>5__2 */
-                            (arg0)["_Where_d__1_1<s>5__2"] = (((((arg0)["_Where_d__1_1<>s__1"].ifacemap)[t2])[t0].x60001c1)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Where_d__1_1<>s__1"]));
+                            (arg0)["_Where_d__1_1<s>5__2"] = (((((arg0)["_Where_d__1_1<>s__1"].ifacemap)[t2])[t0].x60001c7)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Where_d__1_1<>s__1"]));
                             /* IL_52: ldarg.0  */
                             /* IL_53: ldfld Func`2 predicate */
                             /* IL_58: ldarg.0  */
@@ -1493,7 +1493,7 @@ var asm1;(function (asm)
                             /* IL_98: callvirt Boolean MoveNext() */
                             /* IL_9D: brtrue.s IL_41 */
                             
-                            if (((((arg0)["_Where_d__1_1<>s__1"].ifacemap)[t3].x60001b4)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Where_d__1_1<>s__1"]))){
+                            if (((((arg0)["_Where_d__1_1<>s__1"].ifacemap)[t3].x60001ba)())(CILJS.convert_box_to_pointer_as_needed((arg0)["_Where_d__1_1<>s__1"]))){
                                 __pos__ = 0x41;
                                 continue;
                             }
@@ -1814,13 +1814,13 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"E",false,false,false,false,false,[
                     [
                         (asm0)["System.Runtime.CompilerServices.ExtensionAttribute"](),
-                        asm0.x600018a
+                        asm0.x600016c
                     ]
                 ],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function E() { c.init(); }");
     asm.P = CILJS.declare_type(
@@ -1838,9 +1838,9 @@ var asm1;(function (asm)
                     [asm1, "x6000006", "set_Prop"]
                 ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function P() { c.init();(this)[\"P<Prop>k__BackingField\"] = 0 }");
     asm.Program = CILJS.declare_type(
@@ -1855,9 +1855,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function Program() { c.init(); }");
     (asm)["E+<Select>d__0`2"] = CILJS.declare_type(
@@ -1880,34 +1880,34 @@ var asm1;(function (asm)
             CILJS.declare_virtual(this,"asm1.x6000010","asm1.x6000010");
             CILJS.declare_virtual(this,"asm1.x6000011","asm1.x6000011");
             CILJS.declare_virtual(this,"asm1.x6000012","asm1.x6000012");
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerable`1"](TResult), TResult],
                 {
-                    'x60001c0': function (){ return asm1.x6000011;}
+                    'x60001c6': function (){ return asm1.x6000011;}
                 });
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
                 {
-                    'x60001b2': function (){ return asm1.x6000012;}
+                    'x60001b8': function (){ return asm1.x6000012;}
                 });
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"](TResult), TResult],
                 {
-                    'x60001c1': function (){ return asm1.x600000e;}
+                    'x60001c7': function (){ return asm1.x600000e;}
                 });
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
                 {
-                    'x60001b3': function (){ return asm1.x6000010;},
-                    'x60001b4': function (){ return asm1.x600000c;},
-                    'x60001b5': function (){ return asm1.x600000f;}
+                    'x60001b9': function (){ return asm1.x6000010;},
+                    'x60001ba': function (){ return asm1.x600000c;},
+                    'x60001bb': function (){ return asm1.x600000f;}
                 });
             CILJS.implement_interface(
                 this,
@@ -1937,34 +1937,34 @@ var asm1;(function (asm)
             CILJS.declare_virtual(this,"asm1.x6000019","asm1.x6000019");
             CILJS.declare_virtual(this,"asm1.x600001a","asm1.x600001a");
             CILJS.declare_virtual(this,"asm1.x600001b","asm1.x600001b");
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerable`1"](T), T],
                 {
-                    'x60001c0': function (){ return asm1.x600001a;}
+                    'x60001c6': function (){ return asm1.x600001a;}
                 });
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
                 {
-                    'x60001b2': function (){ return asm1.x600001b;}
+                    'x60001b8': function (){ return asm1.x600001b;}
                 });
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"](T), T],
                 {
-                    'x60001c1': function (){ return asm1.x6000017;}
+                    'x60001c7': function (){ return asm1.x6000017;}
                 });
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
                 {
-                    'x60001b3': function (){ return asm1.x6000019;},
-                    'x60001b4': function (){ return asm1.x6000015;},
-                    'x60001b5': function (){ return asm1.x6000018;}
+                    'x60001b9': function (){ return asm1.x6000019;},
+                    'x60001ba': function (){ return asm1.x6000015;},
+                    'x60001bb': function (){ return asm1.x6000018;}
                 });
             CILJS.implement_interface(
                 this,
@@ -1990,9 +1990,9 @@ var asm1;(function (asm)
             (this)["<>9__0_1"] = null;
             (this)["<>9__0_2"] = null;
             this.GenericTypeMetadataName = "asm1.t2000007";
-            CILJS.declare_virtual(this,"asm0.x60000ed","asm0.x60000ed");
-            CILJS.declare_virtual(this,"asm0.x60000f0","asm0.x60000f0");
+            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
             CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
+            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
         },
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000008;

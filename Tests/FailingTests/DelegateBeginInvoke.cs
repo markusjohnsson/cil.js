@@ -1,4 +1,6 @@
 ﻿
+// This should work in js, but right now it fails on CLR since we run tests in Console.
+
 using System;
 using System.Threading;
 

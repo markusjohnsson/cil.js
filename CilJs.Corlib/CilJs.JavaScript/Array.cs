@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CilJs.JavaScript
 {
-    public class Array: IEnumerable<object>
+    public class Array
     {
         private Array() { }
 
@@ -24,8 +24,9 @@ namespace CilJs.JavaScript
             [JsReplace("{0}[{1}] = {2}")]
             set;
         }
-
-        public IEnumerator<object> GetEnumerator()
+        
+        // do not implement IEnumerable<T> (cannot call GetEnumerator virtually)
+        public IEnumerator<object> GetEnumerator() 
         {
             var a = this;
             for (int i = 0; i < a.Length; i++)
@@ -33,10 +34,14 @@ namespace CilJs.JavaScript
                 yield return a[i];
             }
         }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        
+        public IEnumerable<object> AsEnumerable()
         {
-            return GetEnumerator();
+            var a = this;
+            for (int i = 0; i < a.Length; i++)
+            {
+                yield return a[i];
+            }
         }
     }
 }

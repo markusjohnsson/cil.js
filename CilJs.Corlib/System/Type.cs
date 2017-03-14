@@ -8,7 +8,7 @@ namespace System
 
         public static Type GetTypeFromHandle(RuntimeTypeHandle handle)
         {
-            return RuntimeType.GetRuntimeTypeFromHandle(handle);
+            return TypeInfo.GetRuntimeTypeFromHandle(handle);
         }
 
         public virtual bool IsSubclassOf(Type c)

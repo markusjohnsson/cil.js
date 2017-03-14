@@ -17,6 +17,13 @@
             "type": "coreclr",
             "request": "attach",
             "processId": 0
+        },
+        {
+            "name": "Debug with node",
+            "type": "node",
+            "cwd": "${workspaceRoot}",
+            "request": "launch",
+            "program": "${workspaceRoot}/NodeRunner.js"
         }
     ]
 }

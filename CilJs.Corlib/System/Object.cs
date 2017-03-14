@@ -1,9 +1,14 @@
 ﻿using CilJs.Runtime.TranslatorServices;
+using System.Reflection;
 
 namespace System
 {
     public class Object
     {
+        public Object()
+        {
+        }
+
         [JsImport("function (a, b) { return Number(a === b); }")]
         private extern static bool ReferenceEqualsImpl(object a, object b);
 
@@ -55,7 +60,7 @@ namespace System
 
         public Type GetType()
         {
-            return RuntimeType.GetType(this);
+            return TypeInfo.GetType(this);
         }
 
         public static bool Equals(object a, object b)

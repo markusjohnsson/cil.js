@@ -77,9 +77,10 @@ namespace CilJs.TestRunner
             var dd = typeof(Enumerable).GetTypeInfo().Assembly.Location;
             var coreDir = Directory.GetParent(dd);
 
-            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.dll"), translate = false     });
-            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.Extensions.dll"), translate = false     });
-            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Console.dll"), translate = false     });
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.dll"), translate = false });
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.Extensions.dll"), translate = false });
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Console.dll"), translate = false });
+            clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Reflection.dll"), translate = false });
             
             ciljsRefs.Add(new Ref { path = corlib, translate = false });
 
@@ -108,6 +109,7 @@ namespace CilJs.TestRunner
 
             if (errors.Any())
             {
+                errors.Add("Failed to compile for CLR");
                 success = false;
                 goto DONE;
             }
@@ -131,6 +133,7 @@ namespace CilJs.TestRunner
 
                 if (errors.Any())
                 {
+                    errors.Add("Failed to compile for ciljs");
                     success = false;
                     goto DONE;
                 }
@@ -213,27 +216,30 @@ namespace CilJs.TestRunner
             Console.SetOut(outWriter);
 
             assembly.Seek(0, SeekOrigin.Begin);
-            
-            try {
+
+            try
+            {
 
                 var loader = new AssemblyLoader();
                 var ourAssembly = loader.LoadFromStream(assembly);
 
                 var type = ourAssembly.GetType("Program");
                 var main = type.GetTypeInfo().GetDeclaredMethod("Main");
-                
+
                 exitCode = (int?)main.Invoke(null, new object[] { }) ?? 0;
                 return outWriter.ToString();
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
 
                 exitCode = 1;
                 return e.ToString();
             }
-            finally {
+            finally
+            {
                 Console.SetOut(original);
             }
-            
+
         }
 
         public class AssemblyLoader : AssemblyLoadContext

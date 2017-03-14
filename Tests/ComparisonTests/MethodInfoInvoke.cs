@@ -1,4 +1,5 @@
-﻿
+﻿using System.Reflection;
+
 class A 
 {
     string Y;
@@ -21,7 +22,7 @@ class Program
 {
     public static void Main()
     {
-        var m = typeof(A).GetMethods()[0];
+        var m = typeof(A).GetTypeInfo().GetMethods()[0];
         System.Console.WriteLine(m.Invoke(new A("Hello"), new object[] { "World" }));
     }
 }

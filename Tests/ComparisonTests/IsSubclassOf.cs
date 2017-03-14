@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Reflection;
 
 class A { }
 interface I { }
@@ -31,24 +32,24 @@ public class Program
     public static void Test(object o)
     {
         System.Console.WriteLine(o.GetType().Name);
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(int)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(object)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(ValueType)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(A)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(B)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(C)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(D)));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(I)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(int)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(object)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(ValueType)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(A)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(B)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(C)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(D)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(I)));
 
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(Array)));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(Array)));
 
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(int[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(object[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(ValueType[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(A[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(B[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(C[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(D[])));
-        System.Console.WriteLine(o.GetType().IsSubclassOf(typeof(I[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(int[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(object[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(ValueType[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(A[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(B[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(C[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(D[])));
+        System.Console.WriteLine(o.GetType().GetTypeInfo().IsSubclassOf(typeof(I[])));
     }
 }
