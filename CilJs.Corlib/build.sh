@@ -1,0 +1,1 @@
+dotnet /usr/local/share/dotnet/sdk/1.0.4/Roslyn/csc.exe /nostdlib /recurse:*.cs /t:library
