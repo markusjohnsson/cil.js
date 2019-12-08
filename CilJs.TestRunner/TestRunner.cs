@@ -205,7 +205,7 @@ namespace CilJs.TestRunner
 
         private string GetCorlibPath()
         {
-            return Path.Combine(workingDir, @"../../CilJs.Corlib/bin/Debug/mscorlib.dll");
+            return Path.Combine(workingDir, @"../../CilJs.Corlib/mscorlib.dll");
         }
 
         private string ExecuteAssembly(MemoryStream assembly, out int exitCode)

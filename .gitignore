@@ -1,4 +1,6 @@
 CilJs.TestLib.dll
+CilJs.TestRunner/program.js
+CilJs.TestRunner/corlib.ciljs.js
 
 .DS_Store
 
