@@ -60,7 +60,7 @@ var asm1;(function (asm)
         /* IL_11: callvirt Int32 get_Y() */
         /* IL_16: box System.Int32 */
         /* IL_1B: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box((loc0)["X<Y>k__BackingField"],t1));
+        asm0.x60000a1(CILJS.make_box((loc0)["X<Y>k__BackingField"],t1));
         /* IL_20: nop  */
         /* IL_21: ret  */
         return ;
@@ -89,9 +89,9 @@ var asm1;(function (asm)
                     [asm1, "x6000002", "set_Y"]
                 ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
-            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
+            CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
+            CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
+            CILJS.declare_virtual(this,"asm0.x60000ce","asm0.x60000ce");
         },
         "function X() { c.init();(this)[\"X<Y>k__BackingField\"] = 0 }");
     asm.Program = CILJS.declare_type(
@@ -106,9 +106,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
-            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
-            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
+            CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
+            CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
+            CILJS.declare_virtual(this,"asm0.x60000ce","asm0.x60000ce");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;

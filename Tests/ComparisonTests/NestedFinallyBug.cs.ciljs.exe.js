@@ -62,7 +62,7 @@ var asm1;(function (asm)
                             /* IL_1B: ldc.i4.0  */
                             /* IL_1C: newarr System.Object */
                             /* IL_21: call Void WriteLine(System.String, System.Object[]) */
-                            asm0.x600005b(asm0.x600009d({
+                            asm0.x60000a2(asm0.x6000180({
                                         'w': function (v)
                                         {
                                             loc1 = v;
@@ -131,7 +131,7 @@ var asm1;(function (asm)
                                         /* IL_45: ldc.i4.0  */
                                         /* IL_46: newarr System.Object */
                                         /* IL_4B: call Void WriteLine(System.String, System.Object[]) */
-                                        asm0.x600005b(asm0.x600009d({
+                                        asm0.x60000a2(asm0.x6000180({
                                                     'w': function (v)
                                                     {
                                                         loc1 = v;
@@ -185,7 +185,7 @@ var asm1;(function (asm)
                                         /* IL_6E: ldc.i4.0  */
                                         /* IL_6F: newarr System.Object */
                                         /* IL_74: call Void WriteLine(System.String, System.Object[]) */
-                                        asm0.x600005b(asm0.x600009d({
+                                        asm0.x60000a2(asm0.x6000180({
                                                     'w': function (v)
                                                     {
                                                         loc1 = v;
@@ -230,7 +230,7 @@ var asm1;(function (asm)
                             /* IL_97: ldc.i4.0  */
                             /* IL_98: newarr System.Object */
                             /* IL_9D: call Void WriteLine(System.String, System.Object[]) */
-                            asm0.x600005b(asm0.x600009d({
+                            asm0.x60000a2(asm0.x6000180({
                                         'w': function (v)
                                         {
                                             loc1 = v;
@@ -293,9 +293,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
-            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
+            CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
+            CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
+            CILJS.declare_virtual(this,"asm0.x60000ce","asm0.x60000ce");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;

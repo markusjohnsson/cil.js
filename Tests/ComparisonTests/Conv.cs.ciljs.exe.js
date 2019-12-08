@@ -19,29 +19,29 @@ var asm1;(function (asm)
         /* IL_02: conv.i4  */
         /* IL_03: box System.Int32 */
         /* IL_08: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
+        asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
         /* IL_0D: nop  */
         /* IL_0E: ldarg.0  */
         /* IL_0F: conv.u4  */
         /* IL_10: box System.UInt32 */
         /* IL_15: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
+        asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
         /* IL_1A: nop  */
         /* IL_1B: ldarg.0  */
         /* IL_1C: box System.Int64 */
         /* IL_21: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t2));
+        asm0.x60000a1(CILJS.make_box(arg0,t2));
         /* IL_26: nop  */
         /* IL_27: ldarg.0  */
         /* IL_28: box System.UInt64 */
         /* IL_2D: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t3));
+        asm0.x60000a1(CILJS.make_box(arg0,t3));
         /* IL_32: nop  */
         /* IL_33: ldarg.0  */
         /* IL_34: conv.r8  */
         /* IL_35: box System.Double */
         /* IL_3A: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.to_number_signed(arg0),t4));
+        asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t4));
         /* IL_3F: nop  */
         /* IL_40: ret  */
         return ;
@@ -64,30 +64,30 @@ var asm1;(function (asm)
         /* IL_02: conv.i4  */
         /* IL_03: box System.Int32 */
         /* IL_08: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
+        asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
         /* IL_0D: nop  */
         /* IL_0E: ldarg.0  */
         /* IL_0F: conv.u4  */
         /* IL_10: box System.UInt32 */
         /* IL_15: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
+        asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
         /* IL_1A: nop  */
         /* IL_1B: ldarg.0  */
         /* IL_1C: box System.Int64 */
         /* IL_21: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t2));
+        asm0.x60000a1(CILJS.make_box(arg0,t2));
         /* IL_26: nop  */
         /* IL_27: ldarg.0  */
         /* IL_28: box System.UInt64 */
         /* IL_2D: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t3));
+        asm0.x60000a1(CILJS.make_box(arg0,t3));
         /* IL_32: nop  */
         /* IL_33: ldarg.0  */
         /* IL_34: conv.r.un  */
         /* IL_35: conv.r8  */
         /* IL_36: box System.Double */
         /* IL_3B: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.to_number_unsigned(arg0),t4));
+        asm0.x60000a1(CILJS.make_box(CILJS.to_number_unsigned(arg0),t4));
         /* IL_40: nop  */
         /* IL_41: ret  */
         return ;
@@ -109,30 +109,30 @@ var asm1;(function (asm)
         /* IL_01: ldarg.0  */
         /* IL_02: box System.Int32 */
         /* IL_07: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t0));
+        asm0.x60000a1(CILJS.make_box(arg0,t0));
         /* IL_0C: nop  */
         /* IL_0D: ldarg.0  */
         /* IL_0E: box System.UInt32 */
         /* IL_13: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t1));
+        asm0.x60000a1(CILJS.make_box(arg0,t1));
         /* IL_18: nop  */
         /* IL_19: ldarg.0  */
         /* IL_1A: conv.i8  */
         /* IL_1B: box System.Int64 */
         /* IL_20: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.conv_i8(arg0),t2));
+        asm0.x60000a1(CILJS.make_box(CILJS.conv_i8(arg0),t2));
         /* IL_25: nop  */
         /* IL_26: ldarg.0  */
         /* IL_27: conv.i8  */
         /* IL_28: box System.UInt64 */
         /* IL_2D: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(CILJS.conv_i8(arg0),t3));
+        asm0.x60000a1(CILJS.make_box(CILJS.conv_i8(arg0),t3));
         /* IL_32: nop  */
         /* IL_33: ldarg.0  */
         /* IL_34: conv.r8  */
         /* IL_35: box System.Double */
         /* IL_3A: call Void WriteLine(System.Object) */
-        asm0.x600005a(CILJS.make_box(arg0,t4));
+        asm0.x60000a1(CILJS.make_box(arg0,t4));
         /* IL_3F: nop  */
         /* IL_40: ret  */
         return ;
@@ -189,9 +189,9 @@ var asm1;(function (asm)
             this.init = CILJS.nop;
             CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
-            CILJS.declare_virtual(this,"asm0.x60000ee","asm0.x60000ee");
-            CILJS.declare_virtual(this,"asm0.x60000f1","asm0.x60000f1");
-            CILJS.declare_virtual(this,"asm0.x60000f2","asm0.x60000f2");
+            CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
+            CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
+            CILJS.declare_virtual(this,"asm0.x60000ce","asm0.x60000ce");
         },
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;
