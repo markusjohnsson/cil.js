@@ -12,8 +12,8 @@ function runScript() {
     process.exit(result);
 }
 
-CILJS.console_write_line = function (managedString) {
+CILJS.set_console_writer(function (managedString) {
     process.stdout.write(managedString.jsstr + endOfLine);
-}
+});
 
 runScript();

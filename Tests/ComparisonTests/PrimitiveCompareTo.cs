@@ -6,17 +6,17 @@ public class Program
     {
         Test((byte)0, (byte)0);
         Test((byte)0, (byte)1);
-        Test((byte)1, 1);
-        Test((byte)0, (sbyte)0);
+        // Test((byte)1, 1);
+        // Test((byte)0, (sbyte)0);
 
-        Test((sbyte)0, (byte)0);
-        Test((sbyte)0, (byte)1);
-        Test((sbyte)1, 1000);
+        Test((sbyte)0, (sbyte)0);
+        Test((sbyte)0, (sbyte)1);
+        // Test((sbyte)1, 1000);
         Test((sbyte)0, (sbyte)0);
 
-        Test(byte.MaxValue, (sbyte)-1);
-        Test((sbyte)0, (byte)1);
-        Test((sbyte)1, 1000);
+        // Test(byte.MaxValue, (sbyte)-1);
+        // Test((sbyte)0, (byte)1);
+        // Test((sbyte)1, 1000);
         Test((sbyte)0, (sbyte)0);
 
         Test(true, true);
@@ -31,9 +31,10 @@ public class Program
         {
             System.Console.WriteLine(a.CompareTo(b));
         }
-        catch
+        catch (Exception e)
         {
             System.Console.WriteLine("threw");
+            System.Console.WriteLine(e.Message);
         }
     }
 }

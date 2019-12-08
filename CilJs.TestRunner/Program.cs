@@ -33,7 +33,9 @@ namespace CilJs.TestRunner
                         Console.WriteLine(error);
                     }
 
+                    Console.WriteLine("CLR output");
                     Console.WriteLine(result.ClrOutput);
+                    Console.WriteLine("JS output");
                     Console.WriteLine(result.JsOutput);
                 }
                 else

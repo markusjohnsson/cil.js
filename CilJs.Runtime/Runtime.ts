@@ -1,34 +1,116 @@
 ﻿
 "use strict";
 
-var CILJS;
+declare var asm0: any;
 
-(function (ciljs) {
-    ciljs.nop = function nop() { };
-    
-    ciljs.next_hash = 1;
+type CilJsType = Function & {
+    new(): CilJsInstance;
+    FullName: string;
+    Assembly: any;
+    IsValueType: boolean;
+    IsPrimitive: boolean;
+    IsInterface: boolean;
+    IsGenericTypeDefinition: boolean;
+    IsNullable: boolean;
+    Is64BitPrimitive?: boolean;
 
-    ciljs.entry_point = function () {
+    CustomAttributes: any;
+    Methods: any;
+    BaseType: CilJsType;
+    IsInst: (v: any) => boolean;
+    ArrayType: any;
+    MetadataName: string;
+
+    Interfaces: any[];
+    GenericArguments: any;
+
+    Default: any;
+}
+
+type CilJsLong = Uint32Array;
+
+type CilJsString = {
+    jsstr: string;
+}
+
+type CilJsArray = {
+    jsarr: any[];
+    etype: CilJsType;
+};
+
+type CilJsInstance = {
+    constructor: CilJsType;
+    vtable: any;
+    ifacemap: any;
+    [s: string]: CilJsValue | CilJsInstance;
+};
+
+type CilJsValue = number | Function | CilJsInstance;
+
+type CilJsNullableValue = {
+    has_value: boolean;
+    value: CilJsValue;
+} & CilJsInstance;
+
+type CilJsDelegate = {
+    _methodPtr: Function;
+    _target: CilJsValue;
+};
+
+type CilJsPointer = {
+    w: (v: CilJsValue) => void;
+    r: () => CilJsValue;
+};
+
+type CilJsBox = {
+    boxed: CilJsValue;
+    type: CilJsType;
+    vtable: CilJsInstance["vtable"];
+    ifacemap: CilJsInstance["ifacemap"];
+};
+
+type CilJsAsyncResult = {
+    asyncState: CilJsValue;
+    result: CilJsValue;
+};
+
+function isBoxed(o: any): o is CilJsBox {
+    return "boxed" in o;
+}
+
+function isPointer(p: any): p is CilJsPointer {
+    return typeof p.r === "function" &&
+        typeof p.w === "function";
+}
+
+namespace CILJS {
+
+    export function nop() { };
+
+    export let next_hash = 1;
+
+    export function entry_point() {
         var a = 0;
         var result = null;
-        while (window["asm" + a])
-        {
-            if (typeof window["asm" + a].entryPoint == 'function')
-                result = window["asm" + a].entryPoint;
+        while ((window as any)["asm" + a]) {
+            if (typeof (window as any)["asm" + a].entryPoint == 'function') {
+                result = (window as any)["asm" + a].entryPoint;
+            }
 
             a++;
         }
+
         if (result != null)
             return result.apply(null, arguments);
     }
 
-    ciljs.declare_type = function declare_type(name, genericArgs, baseType, init, ctortext) {
-        var isGeneric = genericArgs && genericArgs.length > 0;
+    export function declare_type(name: string, genericArgs: string[], baseType: CilJsType, init: any, ctortext: string) {
+        let isGeneric = genericArgs && genericArgs.length > 0;
 
-        var ctor = ctortext; //"function " + name + "() { c.init(); }";
+        let ctor = ctortext; //"function " + name + "() { c.init(); }";
 
         if (isGeneric) {
-            var cacheTree = {};
+            let cacheTree = {};
             var gA = genericArgs.join(",");
             var gAmD = genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; }).join(",");
             var s = "" +
@@ -42,23 +124,23 @@ var CILJS;
                 "    cachedType.init = init.bind(cachedType, " + gA + ");\n" +
                 "    var baseCtor = baseType(" + gA + ");\n" +
                 "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-                "    cachedType.prototype.constructor = cachedType;\n" + 
+                "    cachedType.prototype.constructor = cachedType;\n" +
                 "    return cachedType;\n" +
                 "}";
 
-            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(ciljs, cacheTree, baseType, init);
+            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(CILJS, cacheTree, baseType, init);
 
             return t;
         }
         else {
 
-            var cacheTree = null;
+            let cacheTree: any = null;
             var s = "" +
                 "return function t() {\n" +
                 "    var cachedType = cacheTree;\n" +
                 "    if (cachedType) return cachedType;\n" +
                 "    \n" +
-                "    cachedType = new Function('var c = "+ctor+"; return c;')();\n" +
+                "    cachedType = new Function('var c = " + ctor + "; return c;')();\n" +
                 "    cacheTree = cachedType;\n" +
                 "    \n" +
                 "    cachedType.init = init.bind(cachedType);\n" +
@@ -68,14 +150,13 @@ var CILJS;
                 "    return cachedType;\n" +
                 "}";
 
-            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(ciljs, cacheTree, baseType, init);
+            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(CILJS, cacheTree, baseType, init);
 
             return t;
         }
     }
 
-    ciljs.init_base_types = function init_base_types()
-    {
+    export function init_base_types() {
         asm0['System.Object']().init();
         asm0['System.ValueType']().init();
         asm0['System.Array']().init();
@@ -98,7 +179,8 @@ var CILJS;
         asm0['System.Double']().init();
     }
 
-    ciljs.init_type = function init_type(type, assembly, fullname, isValueType, isPrimitive, isInterface, isGenericTypeDefinition, isNullable, customAttributes, methods, baseType, isInst, arrayType, metadataName, defaultValue) {
+    export function init_type(
+        type: CilJsType, assembly: any, fullname: string, isValueType: boolean, isPrimitive: boolean, isInterface: boolean, isGenericTypeDefinition: boolean, isNullable: boolean, customAttributes: any, methods: any, baseType: CilJsType, isInst: (v: any) => boolean, arrayType: any, metadataName: string, defaultValue: any) {
         type.FullName = fullname;
         type.Assembly = assembly;
         type.IsValueType = isValueType;
@@ -122,54 +204,54 @@ var CILJS;
         type.Default = defaultValue;
     }
 
-    ciljs.implement_interface = function implement_interface(type, iface, implementation) {
+    export function implement_interface(type: CilJsType, iface: CilJsType[], implementation: { [method: string]: Function }) {
         type.Interfaces.push(iface[0]);
         if (implementation !== null)
-            ciljs.tree_set(iface, type.prototype.ifacemap, implementation);
+            tree_set(iface, type.prototype.ifacemap, implementation);
     }
 
-    ciljs.declare_virtual = function declare_virtual(type, slot, target) {
+    export function declare_virtual(type: CilJsType, slot: string, target: string) {
         type.prototype.vtable[slot] = new Function("return " + target + ";");
     }
 
-    ciljs.is_inst_interface = function is_inst_interface(interfaceType) {
-        return function (t) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return null; } };
+    export function is_inst_interface(interfaceType: CilJsType) {
+        return function (t: any) { try { return (t.type || t.constructor).Interfaces.indexOf(interfaceType) !== -1 ? t : null; } catch (e) { return null; } };
     }
 
-    ciljs.is_inst_primitive = function is_inst_primitive(primitiveType) {
-        return function (t) { try { return t.type === primitiveType ? t : null; } catch (e) { return null; } }
+    export function is_inst_primitive(primitiveType: CilJsType) {
+        return function (t: any) { try { return t.type === primitiveType ? t : null; } catch (e) { return null; } }
     }
 
-    ciljs.is_inst_array = function is_inst_array(T) {
-        return function (t) { return t instanceof asm0['System.Array']() && (t.etype === T || T === asm0['System.Object']() || t.etype.prototype instanceof T) ? t : null; };
+    export function is_inst_array(T: CilJsType) {
+        return function (t: any) { return t instanceof asm0['System.Array']() && (t.etype === T || T === asm0['System.Object']() || t.etype.prototype instanceof T) ? t : null; };
     }
 
-    ciljs.is_inst_default = function is_inst_default(type) {
-        return function (t) { return t instanceof type ? t : null; };
+    export function is_inst_default(type: CilJsType) {
+        return function (t: any) { return t instanceof type ? t : null; };
     }
 
-    ciljs.is_inst_value_type = function is_inst_value_type(type) {
-        return function (t) { return (t != null && t.boxed instanceof type) ? t : t instanceof type ? t : null; };
+    export function is_inst_value_type(type: CilJsType) {
+        return function (t: any) { return (t != null && t.boxed instanceof type) ? t : t instanceof type ? t : null; };
     }
 
-    ciljs.is_inst_delegate = function is_inst_delegate(delegateType) {
-        return function (t) { return (t && typeof t._methodPtr === 'function') ? t : null; };
+    export function is_inst_delegate(delegateType: CilJsType) {
+        return function (t: CilJsDelegate) { return (t && typeof t._methodPtr === 'function') ? t : null; };
     }
 
-    ciljs.clone_value = function clone_value(v) {
+    export function clone_value(v: CilJsValue | CilJsInstance) {
         if (v === null) return v;
         if (typeof v === "number") return v;
         if (typeof v === "function") return v;
         if (!v.constructor.IsValueType) return v;
-        var result = new v.constructor();
+        var result: any = new v.constructor();
         for (var p in v) {
             if (v.hasOwnProperty(p))
-                result[p] = ciljs.clone_value(v[p]);
+                result[p] = clone_value(v[p]);
         }
         return result;
     }
 
-    ciljs.value_equals = function value_equals(a, b) {
+    export function value_equals(a: CilJsValue, b: CilJsValue) {
 
         if (typeof a !== typeof b)
             return 0;
@@ -178,73 +260,88 @@ var CILJS;
             return b === null ? 1 : 0;
 
         if (typeof a === "object" && typeof a.constructor !== "undefined" && a.constructor.IsValueType) {
+            if (typeof b === "object" && typeof b.constructor !== "undefined" && b.constructor.IsValueType) {
 
-            for (var p in a) {
-                var av = a[p];
-                var bv = b[p];
+                for (let p in a) {
+                    let av = a[p];
+                    let bv = b[p];
 
-                if (!ciljs.value_equals(av, bv))
-                    return 0;
+                    if (!value_equals(av, bv))
+                        return 0;
+                }
+
+                return 1;
             }
-
-            return 1;
+            else {
+                return 0;
+            }
         }
         else {
             return a === b ? 1 : 0;
         }
     }
 
-    ciljs.unsigned_value = function unsigned_value(a) {
+    export function unsigned_value(a: number) {
         if (a < 0)
             return 0xffffffff + a + 1;
         else
             return a;
     }
 
-    ciljs.box = function box(v, type) {
+    function isNullable(v: unknown, t: CilJsType): v is CilJsNullableValue {
+        return t.IsNullable;
+    }
+
+    function isReference(v: unknown, t: CilJsType): v is CilJsInstance {
+        return !t.IsValueType;
+    }
+
+    export function box(v: CilJsValue | CilJsNullableValue | CilJsInstance, type: CilJsType): CilJsBox | CilJsInstance | null {
         if (v === null)
             return v;
 
-        if (type.IsNullable) {
-            if (v.has_value)
-                return ciljs.box(v.value, type.GenericArguments[type.MetadataName][0]);
+        if (isNullable(v, type)) {
+            const nv = v as CilJsNullableValue;
+            if (nv.has_value)
+                return box(nv.value, type.GenericArguments[type.MetadataName][0]);
             else
                 return null;
         }
 
-        if (!type.IsValueType)
+        if (isReference(v, type))
             return v;
 
         if (!type.IsPrimitive)
-            v = ciljs.clone_value(v);
+            v = clone_value(v) as CilJsInstance;
 
-        return ciljs.make_box(v, type);
+        return make_box(v, type);
     }
 
-    ciljs.make_box = function (v, type) {
+    export function make_box(v: CilJsValue, type: CilJsType): CilJsBox {
         return {
-            'boxed': v,
-            'type': type,
-            'vtable': type.prototype.vtable,
-            'ifacemap': type.prototype.ifacemap
+            boxed: v,
+            type: type,
+            vtable: type.prototype.vtable,
+            ifacemap: type.prototype.ifacemap
         };
     }
 
-    ciljs.unbox = function unbox(o, type) {
+    // perhaps unused
+    export function unbox(o: CilJsBox, type: CilJsType) {
         if (o === null) {
             var t = asm0['System.InvalidCastException']();
             var e = new t();
             e.stack = new Error().stack;
             throw e;
         }
-        return ciljs.cast_class(o, type).boxed;
+        return cast_class(o.boxed, type);
     }
 
-    ciljs.unbox_any = function unbox_any(o, type) {
+    export function unbox_any(o: CilJsBox, type: CilJsType) {
         if (type.IsNullable) {
-            var result = new type();
+            let result = new type() as CilJsNullableValue;
             if (o !== null) {
-                result.value = ciljs.cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]);
+                result.value = cast_class(o.boxed, type.GenericArguments[type.MetadataName][0]) as CilJsValue;
                 result.has_value = true;
             }
             return result;
@@ -257,25 +354,25 @@ var CILJS;
                 throw new t();
             }
 
-            return ciljs.cast_class(o, type).boxed;
+            return cast_class(o.boxed, type);
         }
-        else
-            return ciljs.cast_class(o, type);
+        else {
+            return cast_class(o as any, type);
+        }
     }
 
-    ciljs.stelem_ref = function stelem_ref(array, index, element) {
-        var castedElement = ciljs.cast_class(element, array.etype);
+    export function stelem_ref(array: CilJsArray, index: number, element: CilJsValue) {
+        var castedElement = cast_class(element, array.etype);
         array.jsarr[index] = castedElement;
     }
 
-    ciljs.ldelem_ref = function ldelem_ref(array, index) {
-        return ciljs.box(array.jsarr[index], array.etype);
+    export function ldelem_ref(array: CilJsArray, index: number) {
+        return box(array.jsarr[index], array.etype);
     }
 
-    ciljs.convert_box_to_pointer_as_needed = function convert_box_to_pointer_as_needed(o) {
-        if (typeof o.boxed !== "undefined" &&
-            typeof o.type !== "undefined" &&
-            o.type.IsValueType) {
+
+    export function convert_box_to_pointer_as_needed(o: CilJsBox | CilJsPointer): CilJsPointer {
+        if (isBoxed(o)) {
             return {
                 'r': function () { return o.boxed; },
                 'w': function (v) { return o.boxed = v; }
@@ -286,11 +383,10 @@ var CILJS;
         }
     }
 
-    ciljs.dereference_pointer_as_needed = function(p) {
-        if (typeof p.r === "function" &&
-            typeof p.w === "function") {
+    export function dereference_pointer_as_needed(p: CilJsPointer | CilJsValue) {
+        if (isPointer(p)) {
             var v = p.r();
-            if (typeof v !== 'number' && !v.constructor.IsValueType) {
+            if (typeof v !== 'number' && !(v.constructor as CilJsType).IsValueType) {
                 return v;
             }
         }
@@ -298,37 +394,37 @@ var CILJS;
         return p;
     }
 
-    ciljs.tree_get = function tree_get(a, s) {
+    export function tree_get(a: any[], s: any) {
         var c = s;
         for (var i = 0; c && i < a.length; i++)
             c = c[a[i]];
         return c;
     }
 
-    ciljs.tree_set = function tree_set(a, s, v) {
+    export function tree_set(a: any[], s: any, v: any) {
         if (a.length === 1) {
             s[a[0]] = v;
         }
         else {
             var c = s[a[0]];
             if (!c) s[a[0]] = c = {};
-            ciljs.tree_set(a.slice(1), c, v);
+            tree_set(a.slice(1), c, v);
         }
     }
 
-    ciljs.new_string = function new_string(jsstr) {
+    export function new_string(jsstr: string) {
         var r = new (asm0['System.String']())();
         r.jsstr = jsstr;
         return r;
     }
 
-    ciljs.new_handle = function new_handle(type, value) {
+    export function new_handle(type: CilJsType, value: any) {
         var r = new type();
         r.value = value;
         return r;
     }
 
-    ciljs.new_array = function new_array(type, length) {
+    export function new_array(type: CilJsType, length: number): CilJsArray {
         var ctor = type.ArrayType || Array;
         var r = new (asm0['System.Array`1'](type))();
         r.etype = type;
@@ -353,14 +449,14 @@ var CILJS;
         return r;
     }
 
-    ciljs.newobj = function newobj(type, ctor, args) {
-        var result = new type();
+    export function newobj(type: CilJsType, ctor: Function, args: any[]): CilJsValue {
+        let result: CilJsValue = new type();
 
         if (type.IsValueType)
             args[0] = {
                 w: function (a) { result = a; },
                 r: function () { return result; }
-            };
+            } as CilJsPointer;
         else
             args[0] = result;
 
@@ -369,7 +465,7 @@ var CILJS;
         return result;
     }
 
-    ciljs.cast_class = function cast_class(obj, type) {
+    export function cast_class(obj: CilJsValue, type: CilJsType) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
             return obj;
         }
@@ -385,31 +481,30 @@ var CILJS;
         }
         else if (
             (type === asm0['System.Object']() || type === asm0['System.ValueType']()) &&
-            (typeof obj.boxed !== 'undefined'))
-        {
+            isBoxed(obj)) {
             return obj;
         }
 
-        ciljs.throw_invalid_cast();
+        throw_invalid_cast();
     }
 
-    ciljs.throw_invalid_cast = function throw_invalid_cast() {
+    function throw_invalid_cast(): never {
         var t = asm0['System.InvalidCastException']();
         var e = new t();
         e.stack = new Error().stack;
         throw e;
     }
 
-    ciljs.conv_u8 = function conv_u8(n) {
+    export function conv_u8(n: number) {
         if (n < 0) {
             /* signed 32 bit int that need to be converted to 32 bit unsigned before 64 bit conversion */
             n = 0x100000000 + n;
         }
 
-        return ciljs.make_uint64(n);
+        return make_uint64(n);
     }
 
-    ciljs.conv_i8 = function conv_i8(n) {
+    export function conv_i8(n: number) {
         if (n < 0) {
             /* signed 32 bit int */
             n = 0x100000000 + n;
@@ -418,10 +513,10 @@ var CILJS;
             return new Uint32Array([n | 0, 0xffffffff]);
         }
 
-        return ciljs.make_uint64(n);
+        return make_uint64(n);
     }
 
-    ciljs.make_uint64 = function make_uint64(n) {
+    export function make_uint64(n: number): CilJsLong {
         var bits32 = 0xffffffff;
 
         var floorN = Math.floor(n);
@@ -434,32 +529,30 @@ var CILJS;
         return new Uint32Array([low, high]);
     }
 
-    ciljs.to_number_signed = function to_number_signed(n) {
+    export function to_number_signed(n: CilJsLong) {
         if (asm0.Int64_isNegative(n)) {
             n = asm0.Int64_UnaryNegation(n);
-            return -ciljs.to_number_unsigned(n);
+            return -to_number_unsigned(n);
         }
 
-        return ciljs.to_number_unsigned(n);
+        return to_number_unsigned(n);
     }
 
-    ciljs.to_number_unsigned = function to_number_unsigned(n) {
+    export function to_number_unsigned(n: CilJsLong) {
         return n[1] * 4294967296 + n[0];
     }
 
-    ciljs.array_set_value = function array_set_value(dest, value, pos) {
+    export function array_set_value(dest: CilJsArray, value: CilJsValue | CilJsBox, pos: number) {
 
         // value is either an object or a boxed value type.
         var etype = dest.etype;
-        var vtype = value != null ? (value.constructor || value.type) : null;
+        var vtype = value != null ? isBoxed(value) ? value.type : value.constructor as CilJsType : null;
 
         if (dest.etype.IsNullable) {
             throw "not implemented";
-
-            return;
         }
 
-        if (value == null) {
+        if (vtype == null) {
 
             // Null is the universal zero...
 
@@ -479,16 +572,16 @@ var CILJS;
             dest.jsarr[pos] = value;
         }
         else if (!etype.IsValueType) {
-            dest.jsarr[pos] = ciljs.cast_class(value, etype)
+            dest.jsarr[pos] = cast_class(value as CilJsValue, etype)
         }
         else {
 
             if (etype.IsInst(value)) {
-                dest.jsarr[pos] = value.boxed;
+                dest.jsarr[pos] = (value as CilJsBox).boxed;
             }
             else {
                 if (!etype.IsPrimitive || !vtype.IsPrimitive) {
-                    ciljs.throw_invalid_cast();
+                    throw_invalid_cast();
                 }
 
                 dest.jsarr[pos] = value;
@@ -496,7 +589,7 @@ var CILJS;
         }
     }
 
-    ciljs.delegate_invoke = function (self) {
+    export function delegate_invoke(self: CilJsDelegate, ... _: any[]) {
         var m = self._methodPtr;
         var t = self._target;
 
@@ -513,35 +606,40 @@ var CILJS;
         return m.apply(null, args);
     }
 
-    ciljs.delegate_begin_invoke = function (self /* , [delegate arguments], callback, state */) {
-        var asyncResult = asm0.CreateAsyncResult(self);
+    export function delegate_begin_invoke(self: CilJsDelegate /* , [delegate arguments], callback, state */) {
+        var asyncResult = asm0.CreateAsyncResult(self) as CilJsAsyncResult;
 
-        asyncResult.result = ciljs.delegate_invoke.apply(null, arguments);
+        asyncResult.result = delegate_invoke.apply(null, arguments as any);
         asyncResult.asyncState = arguments[arguments.length - 1];
 
         var asyncCallback = arguments[arguments.length - 2];
-        if (asyncCallback != null)
-        {
-            ciljs.delegate_invoke(asyncCallback, asyncResult);
+        if (asyncCallback != null) {
+            delegate_invoke(asyncCallback, asyncResult);
         }
-        
+
         return asyncResult;
     }
 
-    ciljs.delegate_end_invoke = function (self, asyncResult) {
+    export function delegate_end_invoke(self: CilJsDelegate, asyncResult: CilJsAsyncResult) {
         return asyncResult.result;
     }
 
-    ciljs.delegate_ctor = function (self, target, methodPtr) {
+    export function delegate_ctor(self: CilJsDelegate, target: CilJsValue, methodPtr: Function) {
         self._methodPtr = methodPtr;
         self._target = target;
     }
 
-    ciljs.console_write_line = function (managedStr) {
+    export let console_write_line = function console_write_line(managedStr: CilJsString) {
         console.log(managedStr.jsstr);
     }
-})(CILJS || (CILJS = {}));
 
+    export function set_console_writer(f: (s: CilJsString) => void) {
+        console_write_line = f;
+    }
+
+}
+
+declare var module: any;
 if (module) {
     module.exports = CILJS;
 }

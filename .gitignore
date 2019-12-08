@@ -1,6 +1,10 @@
 CilJs.TestLib.dll
 CilJs.TestRunner/program.js
 CilJs.TestRunner/corlib.ciljs.js
+CilJs.Runtime/*.js
+CilJs.Runtime/**/*.js
+CilJs.Runtime/*.js.map
+CilJs.Runtime/**/*.js.map
 
 .DS_Store
 
