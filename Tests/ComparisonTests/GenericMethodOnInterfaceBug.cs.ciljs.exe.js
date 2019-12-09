@@ -17,7 +17,7 @@ var asm1;(function (asm)
             /* IL_10: ldc.i4.0  */
             /* IL_11: newarr System.Object */
             /* IL_16: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x6000073"])())(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),CILJS.new_array(t1,(0|0)));
+            asm0.x60000a2(((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x6000073"])(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),CILJS.new_array(t1,(0|0)));
             /* IL_1B: nop  */
             /* IL_1C: ldarg.1  */
             /* IL_1D: ldc.i4.0  */
@@ -89,7 +89,7 @@ var asm1;(function (asm)
         /* IL_07: ldloc.0  */
         /* IL_08: ldstr test1 */
         /* IL_0D: callvirt Void X[Y](System.String) */
-        (((loc0.vtable)["asm1.x6000002"]())(asm1.Y()))(loc0,CILJS.new_string("test1"));
+        ((loc0.vtable)["asm1.x6000002"](asm1.Y()))(loc0,CILJS.new_string("test1"));
         /* IL_12: nop  */
         /* IL_13: ldloc.0  */
         /* IL_14: ldstr test2 */

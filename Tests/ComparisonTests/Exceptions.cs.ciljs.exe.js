@@ -169,7 +169,7 @@ var asm1;(function (asm)
                                             /* IL_0C: ldc.i4.0  */
                                             /* IL_0D: newarr System.Object */
                                             /* IL_12: call Void WriteLine(System.String, System.Object[]) */
-                                            asm0.x60000a2(((loc0.vtable)["asm0.x60000a9"]())(loc0),CILJS.new_array(t0,(0|0)));
+                                            asm0.x60000a2((loc0.vtable)["asm0.x60000a9"](loc0),CILJS.new_array(t0,(0|0)));
                                             /* IL_17: nop  */
                                             
                                             /* IL_18: nop  */
@@ -204,7 +204,7 @@ var asm1;(function (asm)
                                             /* IL_23: ldc.i4.0  */
                                             /* IL_24: newarr System.Object */
                                             /* IL_29: call Void WriteLine(System.String, System.Object[]) */
-                                            asm0.x60000a2(((loc1.vtable)["asm0.x60000a9"]())(loc1),CILJS.new_array(t0,(0|0)));
+                                            asm0.x60000a2((loc1.vtable)["asm0.x60000a9"](loc1),CILJS.new_array(t0,(0|0)));
                                             /* IL_2E: nop  */
                                             
                                             /* IL_2F: nop  */
@@ -239,7 +239,7 @@ var asm1;(function (asm)
                                             /* IL_3A: ldc.i4.0  */
                                             /* IL_3B: newarr System.Object */
                                             /* IL_40: call Void WriteLine(System.String, System.Object[]) */
-                                            asm0.x60000a2(((loc2.vtable)["asm0.x60000a9"]())(loc2),CILJS.new_array(t0,(0|0)));
+                                            asm0.x60000a2((loc2.vtable)["asm0.x60000a9"](loc2),CILJS.new_array(t0,(0|0)));
                                             /* IL_45: nop  */
                                             
                                             /* IL_46: nop  */

@@ -103,7 +103,7 @@ var asm1;(function (asm)
         /* IL_1F: ldc.i4.0  */
         /* IL_20: newarr System.Object */
         /* IL_25: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg1,t0)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg1,t0))),CILJS.new_array(t1,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg1,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg1,t0))),CILJS.new_array(t1,(0|0)));
         /* IL_2A: nop  */
         /* IL_2B: ret  */
         return ;
@@ -129,7 +129,7 @@ var asm1;(function (asm)
             /* IL_1F: ldc.i4.0  */
             /* IL_20: newarr System.Object */
             /* IL_25: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg0,t0)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg0,t0))),CILJS.new_array(t1,(0|0)));
+            asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg0,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg0,t0))),CILJS.new_array(t1,(0|0)));
             /* IL_2A: nop  */
             /* IL_2B: ret  */
             return ;
@@ -163,7 +163,7 @@ var asm1;(function (asm)
             /* IL_2B: ldc.i4.0  */
             /* IL_2C: newarr System.Object */
             /* IL_31: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg0,t0)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg0,t0))),CILJS.new_array(t2,(0|0)));
+            asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg0,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg0,t0))),CILJS.new_array(t2,(0|0)));
             /* IL_36: nop  */
             /* IL_37: ldarga.s 1 */
             /* IL_3F: callvirt Type GetType() */
@@ -171,7 +171,7 @@ var asm1;(function (asm)
             /* IL_49: ldc.i4.0  */
             /* IL_4A: newarr System.Object */
             /* IL_4F: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg1,t1)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg1,t1))),CILJS.new_array(t2,(0|0)));
+            asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg1,t1)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg1,t1))),CILJS.new_array(t2,(0|0)));
             /* IL_54: nop  */
             /* IL_55: ret  */
             return ;
@@ -205,7 +205,7 @@ var asm1;(function (asm)
             /* IL_2B: ldc.i4.0  */
             /* IL_2C: newarr System.Object */
             /* IL_31: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg1,t0)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg1,t0))),CILJS.new_array(t2,(0|0)));
+            asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg1,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg1,t0))),CILJS.new_array(t2,(0|0)));
             /* IL_36: nop  */
             /* IL_37: ldarga.s 2 */
             /* IL_3F: callvirt Type GetType() */
@@ -213,7 +213,7 @@ var asm1;(function (asm)
             /* IL_49: ldc.i4.0  */
             /* IL_4A: newarr System.Object */
             /* IL_4F: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg2,t1)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg2,t1))),CILJS.new_array(t2,(0|0)));
+            asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg2,t1)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg2,t1))),CILJS.new_array(t2,(0|0)));
             /* IL_54: nop  */
             /* IL_55: ret  */
             return ;

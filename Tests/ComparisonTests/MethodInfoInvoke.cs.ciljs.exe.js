@@ -75,7 +75,7 @@ var asm1;(function (asm)
         /* IL_15: ldc.i4.0  */
         /* IL_16: ldelem.ref  */
         /* IL_17: stloc.0  */
-        loc0 = CILJS.ldelem_ref((((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x6000084"])())(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))),(0|0));
+        loc0 = CILJS.ldelem_ref(((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x6000084"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))),(0|0));
         /* IL_18: ldloc.0  */
         st_0C = loc0;
         /* IL_19: ldstr Hello */

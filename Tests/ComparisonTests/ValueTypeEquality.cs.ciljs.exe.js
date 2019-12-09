@@ -627,7 +627,7 @@ var asm1;(function (asm)
         /* IL_35: callvirt Boolean Equals(System.Object) */
         /* IL_3A: box System.Boolean */
         /* IL_3F: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])())({
+        asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -644,7 +644,7 @@ var asm1;(function (asm)
         /* IL_53: callvirt Boolean Equals(System.Object) */
         /* IL_58: box System.Boolean */
         /* IL_5D: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])())({
+        asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -661,7 +661,7 @@ var asm1;(function (asm)
         /* IL_71: callvirt Boolean Equals(System.Object) */
         /* IL_76: box System.Boolean */
         /* IL_7B: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])())({
+        asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -833,7 +833,7 @@ var asm1;(function (asm)
         /* IL_6B: callvirt Boolean Equals(System.Object) */
         /* IL_70: box System.Boolean */
         /* IL_75: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])())({
+        asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -850,7 +850,7 @@ var asm1;(function (asm)
         /* IL_89: callvirt Boolean Equals(System.Object) */
         /* IL_8E: box System.Boolean */
         /* IL_93: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])())({
+        asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
                         'w': function (v)
                         {
                             arg0 = v;
@@ -867,7 +867,7 @@ var asm1;(function (asm)
         /* IL_A7: callvirt Boolean Equals(System.Object) */
         /* IL_AC: box System.Boolean */
         /* IL_B1: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])())({
+        asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
                         'w': function (v)
                         {
                             arg0 = v;

@@ -140,7 +140,7 @@ var asm1;(function (asm)
         /* IL_03: callvirt Boolean Equals(System.Object) */
         /* IL_08: box System.Boolean */
         /* IL_0D: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box(((arg0.vtable)["asm0.x60000cd"]())(CILJS.convert_box_to_pointer_as_needed(arg0),arg1),t0));
+        asm0.x60000a1(CILJS.make_box((arg0.vtable)["asm0.x60000cd"](CILJS.convert_box_to_pointer_as_needed(arg0),arg1),t0));
         /* IL_12: nop  */
         /* IL_13: ret  */
         return ;

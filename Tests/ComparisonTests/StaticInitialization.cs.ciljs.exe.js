@@ -355,7 +355,7 @@ var asm1;(function (asm)
         /* IL_07: ldc.i4.0  */
         /* IL_08: newarr System.Object */
         /* IL_0D: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((arg0.vtable)["asm0.x60000ca"]())(CILJS.convert_box_to_pointer_as_needed(arg0)),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2((arg0.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(arg0)),CILJS.new_array(t0,(0|0)));
         /* IL_12: nop  */
         /* IL_13: ldarg.0  */
         /* IL_14: isinst A */

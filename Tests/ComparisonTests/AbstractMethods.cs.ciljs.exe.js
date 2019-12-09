@@ -97,7 +97,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: callvirt Void X() */
-        ((arg0.vtable)["asm1.x6000001"]())(arg0);
+        (arg0.vtable)["asm1.x6000001"](arg0);
         /* IL_07: nop  */
         /* IL_08: ret  */
         return ;

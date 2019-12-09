@@ -85,7 +85,7 @@ var asm1;(function (asm)
                     /* IL_1E: callvirt Boolean IsAssignableFrom(System.Type) */
                     /* IL_23: brtrue.s IL_2C */
                     
-                    if ((((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))).vtable)["asm0.x6000080"])())(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))))){
+                    if (((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))).vtable)["asm0.x6000080"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t1))),asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))))){
                         __pos__ = 0x2C;
                         continue;
                     }
@@ -115,7 +115,7 @@ var asm1;(function (asm)
                     /* IL_48: stelem.ref  */
                     CILJS.stelem_ref(st_0B,st_0C,st_0D);
                     /* IL_49: callvirt Type MakeGenericType(System.Type[]) */
-                    st_10 = ((st_0E.vtable)["asm0.x600007f"]())(st_0E,st_0F);
+                    st_10 = (st_0E.vtable)["asm0.x600007f"](st_0E,st_0F);
                     /* IL_4E: call Object CreateInstance(System.Type) */
                     st_11 = asm0.x600009c(st_10);
                     /* IL_53: castclass A`1[T] */
@@ -249,7 +249,7 @@ var asm1;(function (asm)
         /* IL_25: ldc.i4.0  */
         /* IL_26: newarr System.Object */
         /* IL_2B: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((asm0.x60000cf(t4.Instance).vtable)["asm0.x60001c5"])())(asm0.x60000cf(t4.Instance)),CILJS.new_array(t5,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(t4.Instance).vtable)["asm0.x60001c5"])(asm0.x60000cf(t4.Instance)),CILJS.new_array(t5,(0|0)));
         /* IL_30: nop  */
         (asm1.x6000002(asm1.D()))();
         /* IL_31: ldsfld Managed.Reflection.GenericFieldInstance */
@@ -258,7 +258,7 @@ var asm1;(function (asm)
         /* IL_40: ldc.i4.0  */
         /* IL_41: newarr System.Object */
         /* IL_46: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((asm0.x60000cf(t1.Instance).vtable)["asm0.x60001c5"])())(asm0.x60000cf(t1.Instance)),CILJS.new_array(t5,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(t1.Instance).vtable)["asm0.x60001c5"])(asm0.x60000cf(t1.Instance)),CILJS.new_array(t5,(0|0)));
         /* IL_4B: nop  */
         /* IL_4C: ret  */
         return ;

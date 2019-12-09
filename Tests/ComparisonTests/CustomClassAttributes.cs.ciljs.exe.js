@@ -434,7 +434,7 @@ var asm1;(function (asm)
                 /* IL_0B: call TypeInfo GetTypeInfo(System.Type) */
                 /* IL_10: callvirt IEnumerable`1 get_CustomAttributes() */
                 /* IL_15: stloc.0  */
-                loc0 = (((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x60001c2"])())(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
+                loc0 = ((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x60001c2"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
                 /* IL_16: ldloc.0  */
                 /* IL_17: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */
                 /* IL_1C: box System.Int32 */
@@ -478,7 +478,7 @@ var asm1;(function (asm)
                             /* IL_4B: callvirt Boolean Equals(System.Object) */
                             /* IL_50: box System.Boolean */
                             /* IL_55: call Void WriteLine(System.Object) */
-                            asm0.x60000a1(CILJS.make_box((((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)).vtable)["asm0.x60000cd"])())(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)),asm0.x60001be(loc4)),t6));
+                            asm0.x60000a1(CILJS.make_box(((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)).vtable)["asm0.x60000cd"])(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t5)),asm0.x60001be(loc4)),t6));
                             /* IL_5A: nop  */
                             
                             /* IL_5B: ldloc.s 4 */
@@ -487,7 +487,7 @@ var asm1;(function (asm)
                             /* IL_67: ldc.i4.0  */
                             /* IL_68: newarr System.Object */
                             /* IL_6D: call Void WriteLine(System.String, System.Object[]) */
-                            asm0.x60000a2((((asm0.x60001be(loc4).vtable)["asm0.x6000073"])())(asm0.x60001be(loc4)),CILJS.new_array(t7,(0|0)));
+                            asm0.x60000a2(((asm0.x60001be(loc4).vtable)["asm0.x6000073"])(asm0.x60001be(loc4)),CILJS.new_array(t7,(0|0)));
                             /* IL_72: nop  */
                             
                             /* IL_73: nop  */
@@ -546,7 +546,7 @@ var asm1;(function (asm)
                 /* IL_93: call TypeInfo GetTypeInfo(System.Type) */
                 /* IL_98: callvirt IEnumerable`1 get_CustomAttributes() */
                 /* IL_9D: stloc.1  */
-                loc1 = (((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t10))).vtable)["asm0.x60001c2"])())(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t10))));
+                loc1 = ((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t10))).vtable)["asm0.x60001c2"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t10))));
                 /* IL_9E: ldloc.1  */
                 /* IL_9F: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */
                 /* IL_A4: box System.Int32 */
@@ -559,7 +559,7 @@ var asm1;(function (asm)
                 /* IL_B9: call TypeInfo GetTypeInfo(System.Type) */
                 /* IL_BE: callvirt IEnumerable`1 get_CustomAttributes() */
                 /* IL_C3: stloc.2  */
-                loc2 = (((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t11))).vtable)["asm0.x60001c2"])())(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t11))));
+                loc2 = ((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t11))).vtable)["asm0.x60001c2"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t11))));
                 /* IL_C4: ldloc.2  */
                 /* IL_C5: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */
                 /* IL_CA: box System.Int32 */

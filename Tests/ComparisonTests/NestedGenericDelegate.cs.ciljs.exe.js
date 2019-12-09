@@ -74,7 +74,7 @@ var asm1;(function (asm)
         /* IL_0B: callvirt Type Invoke(T) */
         st_03 = ((st_01._target) ? (st_01._methodPtr(st_01._target,st_02)) : (st_01._methodPtr(st_02)));
         /* IL_10: callvirt String get_Name() */
-        st_05 = ((st_03.vtable)["asm0.x60001c5"]())(st_03);
+        st_05 = (st_03.vtable)["asm0.x60001c5"](st_03);
         /* IL_15: ldc.i4.0  */
         st_04 = (0|0);
         /* IL_16: newarr System.Object */

@@ -57,7 +57,7 @@ var asm1;(function (asm)
         /* IL_26: callvirt Boolean Equals(System.Object) */
         /* IL_2B: box System.Boolean */
         /* IL_30: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000cd"])())(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),asm0.x60000cf(loc0)),t1));
+        asm0.x60000a1(CILJS.make_box(((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x60000cd"])(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)),asm0.x60000cf(loc0)),t1));
         /* IL_35: nop  */
         /* IL_36: ldloc.0  */
         /* IL_37: callvirt Int32 X() */

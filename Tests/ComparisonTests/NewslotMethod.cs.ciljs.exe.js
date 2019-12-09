@@ -107,14 +107,14 @@ var asm1;(function (asm)
         loc1 = loc0;
         /* IL_10: ldloc.1  */
         /* IL_11: callvirt Void M() */
-        ((loc1.vtable)["asm1.x6000001"]())(loc1);
+        (loc1.vtable)["asm1.x6000001"](loc1);
         /* IL_16: nop  */
         /* IL_17: ldloc.0  */
         /* IL_18: stloc.2  */
         loc2 = loc0;
         /* IL_19: ldloc.2  */
         /* IL_1A: callvirt Void M() */
-        ((loc2.vtable)["asm1.x6000001"]())(loc2);
+        (loc2.vtable)["asm1.x6000001"](loc2);
         /* IL_1F: nop  */
         /* IL_20: ret  */
         return ;

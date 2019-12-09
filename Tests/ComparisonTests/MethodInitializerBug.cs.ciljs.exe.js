@@ -131,7 +131,7 @@ var asm1;(function (asm)
         /* IL_15: ldc.i4.0  */
         /* IL_16: newarr System.Object */
         /* IL_1B: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((asm0.x60000cf(CILJS.newobj(t1,asm1.x6000003,[null]).Value).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.newobj(t1,asm1.x6000003,[null]).Value)),CILJS.new_array(t2,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(CILJS.newobj(t1,asm1.x6000003,[null]).Value).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.newobj(t1,asm1.x6000003,[null]).Value)),CILJS.new_array(t2,(0|0)));
         /* IL_20: nop  */
         /* IL_21: newobj Void .ctor() */
         /* IL_26: ldfld Managed.Reflection.GenericFieldInstance */
@@ -140,7 +140,7 @@ var asm1;(function (asm)
         /* IL_35: ldc.i4.0  */
         /* IL_36: newarr System.Object */
         /* IL_3B: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((asm0.x60000cf(CILJS.newobj(t4,asm1.x6000003,[null]).Value).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.newobj(t4,asm1.x6000003,[null]).Value)),CILJS.new_array(t2,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(CILJS.newobj(t4,asm1.x6000003,[null]).Value).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.newobj(t4,asm1.x6000003,[null]).Value)),CILJS.new_array(t2,(0|0)));
         /* IL_40: nop  */
         /* IL_41: ret  */
         return ;

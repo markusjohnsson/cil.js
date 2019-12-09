@@ -119,7 +119,7 @@ var asm1;(function (asm)
                                 /* IL_22: ldc.i4.0  */
                                 /* IL_24: cgt  */
                                 /* IL_25: stloc.2  */
-                                loc2 = ((((((((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])())(CILJS.ldelem_ref(arg0,loc1)).vtable)["asm0.x6000102"])())((((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])())(CILJS.ldelem_ref(arg0,loc1)),(((CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0)).vtable)["asm0.x60001c5"])())(CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0)))) > (0|0)) ? 1 : 0);
+                                loc2 = ((((((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,loc1)).vtable)["asm0.x6000102"])(((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,loc1)),((CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0)).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0)))) > (0|0)) ? 1 : 0);
                                 /* IL_26: ldloc.2  */
                                 /* IL_27: brfalse.s IL_3D */
                                 
@@ -261,7 +261,7 @@ var asm1;(function (asm)
                 /* IL_0D: call TypeInfo GetTypeInfo(System.Type) */
                 /* IL_12: callvirt MethodInfo[] GetMethods() */
                 /* IL_17: stloc.1  */
-                loc1 = (((asm0.x60001bf(loc0).vtable)["asm0.x6000084"])())(asm0.x60001bf(loc0));
+                loc1 = ((asm0.x60001bf(loc0).vtable)["asm0.x6000084"])(asm0.x60001bf(loc0));
                 /* IL_18: ldloc.1  */
                 /* IL_19: call Void Sort(System.Reflection.MethodInfo[]) */
                 asm1.x6000005(loc1);
@@ -304,7 +304,7 @@ var asm1;(function (asm)
                         /* IL_32: ldc.i4.0  */
                         /* IL_33: newarr System.Object */
                         /* IL_38: call Void WriteLine(System.String, System.Object[]) */
-                        asm0.x60000a2(((loc4.vtable)["asm0.x60001c5"]())(loc4),CILJS.new_array(t1,(0|0)));
+                        asm0.x60000a2((loc4.vtable)["asm0.x60001c5"](loc4),CILJS.new_array(t1,(0|0)));
                         /* IL_3D: nop  */
                         
                         /* IL_3E: ldloc.3  */

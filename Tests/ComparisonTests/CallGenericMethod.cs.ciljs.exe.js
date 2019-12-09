@@ -84,7 +84,7 @@ var asm1;(function (asm)
             /* IL_07: ldarg.0  */
             st_02 = arg0;
             /* IL_08: callvirt Void set_Prop(T) */
-            ((st_01.vtable)["asm1.x6000004"]())(st_01,st_02);
+            (st_01.vtable)["asm1.x6000004"](st_01,st_02);
             /* IL_0D: nop  */
             /* IL_0E: call Void X[T](I`1[T]) */
             (asm1.x6000008(T))(st_03);

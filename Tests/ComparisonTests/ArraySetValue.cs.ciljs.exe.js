@@ -33,7 +33,7 @@ var asm1;(function (asm)
         /* IL_02: ldfld String V */
         /* IL_07: callvirt String ToString() */
         /* IL_0C: stloc.0  */
-        loc0 = ((arg0.V.vtable)["asm0.x60000ca"]())(arg0.V);
+        loc0 = (arg0.V.vtable)["asm0.x60000ca"](arg0.V);
         /* IL_0F: ldloc.0  */
         /* IL_10: ret  */
         return loc0;

@@ -182,7 +182,7 @@ var asm1;(function (asm)
                                 /* IL_30: ldc.i4.0  */
                                 /* IL_31: newarr System.Object */
                                 /* IL_36: call Void WriteLine(System.String, System.Object[]) */
-                                asm0.x60000a2(((loc0.vtable)["asm0.x60000a9"]())(loc0),CILJS.new_array(t2,(0|0)));
+                                asm0.x60000a2((loc0.vtable)["asm0.x60000a9"](loc0),CILJS.new_array(t2,(0|0)));
                                 /* IL_3B: nop  */
                                 
                                 /* IL_3C: nop  */

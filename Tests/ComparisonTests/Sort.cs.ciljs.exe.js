@@ -157,7 +157,7 @@ var asm1;(function (asm)
         /* IL_0D: callvirt Int32 GetHashCode() */
         /* IL_12: xor  */
         /* IL_13: stloc.0  */
-        loc0 = asm1.x6000002(arg0) ^ (((asm1.x6000001(arg0).vtable)["asm0.x60000ce"])())(asm1.x6000001(arg0));
+        loc0 = asm1.x6000002(arg0) ^ ((asm1.x6000001(arg0).vtable)["asm0.x60000ce"])(asm1.x6000001(arg0));
         /* IL_16: ldloc.0  */
         /* IL_17: ret  */
         return loc0;
@@ -290,7 +290,7 @@ var asm1;(function (asm)
         /* IL_08: callvirt String get_Name() */
         /* IL_0D: callvirt Int32 CompareTo(System.String) */
         /* IL_12: stloc.0  */
-        loc0 = (((asm1.x6000001(arg1).vtable)["asm0.x6000102"])())(asm1.x6000001(arg1),asm1.x6000001(arg2));
+        loc0 = ((asm1.x6000001(arg1).vtable)["asm0.x6000102"])(asm1.x6000001(arg1),asm1.x6000001(arg2));
         /* IL_13: ldloc.0  */
         /* IL_14: neg  */
         /* IL_15: stloc.1  */
@@ -320,7 +320,7 @@ var asm1;(function (asm)
         /* IL_08: callvirt String get_Name() */
         /* IL_0D: callvirt Int32 CompareTo(System.String) */
         /* IL_12: stloc.0  */
-        loc0 = (((asm1.x6000001(arg1).vtable)["asm0.x6000102"])())(asm1.x6000001(arg1),asm1.x6000001(arg2));
+        loc0 = ((asm1.x6000001(arg1).vtable)["asm0.x6000102"])(asm1.x6000001(arg1),asm1.x6000001(arg2));
         /* IL_13: ldloc.0  */
         /* IL_14: stloc.1  */
         loc1 = loc0;

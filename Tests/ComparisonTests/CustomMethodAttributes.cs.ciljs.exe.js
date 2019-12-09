@@ -407,19 +407,19 @@ var asm1;(function (asm)
         /* IL_0B: call TypeInfo GetTypeInfo(System.Type) */
         /* IL_10: callvirt MethodInfo[] GetMethods() */
         /* IL_15: stloc.0  */
-        loc0 = (((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x6000084"])())(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
+        loc0 = ((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x6000084"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))));
         /* IL_16: ldloc.0  */
         /* IL_17: ldc.i4.0  */
         /* IL_18: ldelem.ref  */
         /* IL_19: callvirt IEnumerable`1 get_CustomAttributes() */
         /* IL_1E: stloc.1  */
-        loc1 = (((CILJS.ldelem_ref(loc0,(0|0)).vtable)["asm0.x60001c2"])())(CILJS.ldelem_ref(loc0,(0|0)));
+        loc1 = ((CILJS.ldelem_ref(loc0,(0|0)).vtable)["asm0.x60001c2"])(CILJS.ldelem_ref(loc0,(0|0)));
         /* IL_1F: ldloc.0  */
         /* IL_20: ldc.i4.1  */
         /* IL_21: ldelem.ref  */
         /* IL_22: callvirt IEnumerable`1 get_CustomAttributes() */
         /* IL_27: stloc.2  */
-        loc2 = (((CILJS.ldelem_ref(loc0,(1|0)).vtable)["asm0.x60001c2"])())(CILJS.ldelem_ref(loc0,(1|0)));
+        loc2 = ((CILJS.ldelem_ref(loc0,(1|0)).vtable)["asm0.x60001c2"])(CILJS.ldelem_ref(loc0,(1|0)));
         /* IL_28: ldloc.1  */
         /* IL_29: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */
         /* IL_2E: box System.Int32 */
@@ -433,7 +433,7 @@ var asm1;(function (asm)
         /* IL_49: ldc.i4.0  */
         /* IL_4A: newarr System.Object */
         /* IL_4F: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1)).vtable)["asm0.x60001c5"])())(asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1))),CILJS.new_array(t3,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1)).vtable)["asm0.x60001c5"])(asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1))),CILJS.new_array(t3,(0|0)));
         /* IL_54: nop  */
         /* IL_55: ldloc.2  */
         /* IL_56: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */

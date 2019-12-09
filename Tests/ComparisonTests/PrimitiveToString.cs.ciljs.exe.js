@@ -267,7 +267,7 @@ var asm1;(function (asm)
         /* IL_09: ldc.i4.0  */
         /* IL_0A: newarr System.Object */
         /* IL_0F: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((CILJS.ldelem_ref(arg0,(0|0)).vtable)["asm0.x60000ca"])())(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(arg0,(0|0)))),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(((CILJS.ldelem_ref(arg0,(0|0)).vtable)["asm0.x60000ca"])(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(arg0,(0|0)))),CILJS.new_array(t0,(0|0)));
         /* IL_14: nop  */
         /* IL_15: ret  */
         return ;

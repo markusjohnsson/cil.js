@@ -19,7 +19,7 @@ var asm1;(function (asm)
         /* IL_1D: callvirt Boolean Equals(System.String) */
         /* IL_22: box System.Boolean */
         /* IL_27: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box(((arg0.vtable)["asm0.x60000f6"]())(arg0,CILJS.new_string("Hello World")),t0));
+        asm0.x60000a1(CILJS.make_box((arg0.vtable)["asm0.x60000f6"](arg0,CILJS.new_string("Hello World")),t0));
         /* IL_2C: nop  */
         /* IL_2D: ldstr Hello World */
         /* IL_32: ldarg.0  */

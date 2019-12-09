@@ -15,7 +15,7 @@ var asm1;(function (asm)
             /* IL_13: ldc.i4.0  */
             /* IL_14: newarr System.Object */
             /* IL_19: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2((((asm0.x60000cf(CILJS.box(arg0,T)).vtable)["asm0.x6000073"])())(asm0.x60000cf(CILJS.box(arg0,T))),CILJS.new_array(t0,(0|0)));
+            asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg0,T)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg0,T))),CILJS.new_array(t0,(0|0)));
             /* IL_1E: nop  */
             /* IL_1F: ret  */
             return ;

@@ -299,7 +299,7 @@ var asm1;(function (asm)
                 /* IL_105: ldloc.0  */
                 /* IL_106: callvirt String ToString() */
                 /* IL_10B: stloc.s 4 */
-                loc4 = ((loc0.vtable)["asm0.x60000ca"]())(loc0);
+                loc4 = (loc0.vtable)["asm0.x60000ca"](loc0);
                 /* IL_10F: ldloc.s 4 */
                 /* IL_111: ret  */
                 return loc4;
