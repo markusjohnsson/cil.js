@@ -104,53 +104,61 @@ namespace CILJS {
             return result.apply(null, arguments);
     }
 
-    export function declare_type(name: string, genericArgs: string[], baseType: CilJsType, init: any, ctortext: string) {
-        let isGeneric = genericArgs && genericArgs.length > 0;
+    export function declare_type(name: string, genericArgs: string[], baseType: CilJsType, init: Function, ctortext: string) {
+        const isGeneric = genericArgs && genericArgs.length > 0;
 
-        let ctor = ctortext; //"function " + name + "() { c.init(); }";
+        const ctor = ctortext; //"function " + name + "() { c.init(); }";
 
         if (isGeneric) {
-            let cacheTree = {};
-            var gA = genericArgs.join(",");
-            var gAmD = genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; }).join(",");
-            var s = "" +
-                "return function t(" + gA + ") {\n" +
-                "    var cachedType = ciljs.tree_get([" + gAmD + "], cacheTree);\n" +
-                "    if (cachedType) return cachedType;\n" +
-                "    \n" +
-                "    cachedType = new Function('" + genericArgs.join("','") + "', 'var c = " + ctor + "; return c;')(" + gA + ");\n" +
-                "    ciljs.tree_set([" + gAmD + "], cacheTree, cachedType);\n" +
-                "    \n" +
-                "    cachedType.init = init.bind(cachedType, " + gA + ");\n" +
-                "    var baseCtor = baseType(" + gA + ");\n" +
-                "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-                "    cachedType.prototype.constructor = cachedType;\n" +
-                "    return cachedType;\n" +
-                "}";
+            const cacheTree = {};
+            const gA = genericArgs.join(",");
+            const gAmD = genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; }).join(",");
+            const s = /* js */`
+                return function t(${gA}) {
+                    var cachedType = ciljs.tree_get([${gAmD}], cacheTree);
+                    if (cachedType) {
+                        return cachedType
+                    };
 
-            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(CILJS, cacheTree, baseType, init);
+                    cachedType = new Function('${genericArgs}', 'var c = ${ctor}; return c;')(${gA});
+                    ciljs.tree_set([${gAmD}], cacheTree, cachedType);
+
+                    cachedType.init = init.bind(cachedType, ${gA});
+                    var baseCtor = baseType(${gA});
+                    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
+                    cachedType.prototype.constructor = cachedType;
+                    return cachedType;
+                }
+            `;
+
+            const t = new Function("ciljs", "cacheTree", "baseType", "init", s)
+                (CILJS, cacheTree, baseType, init);
 
             return t;
         }
         else {
 
             let cacheTree: any = null;
-            var s = "" +
-                "return function t() {\n" +
-                "    var cachedType = cacheTree;\n" +
-                "    if (cachedType) return cachedType;\n" +
-                "    \n" +
-                "    cachedType = new Function('var c = " + ctor + "; return c;')();\n" +
-                "    cacheTree = cachedType;\n" +
-                "    \n" +
-                "    cachedType.init = init.bind(cachedType);\n" +
-                "    var baseCtor = baseType();\n" +
-                "    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;\n" +
-                "    cachedType.prototype.constructor = cachedType;\n" +
-                "    return cachedType;\n" +
-                "}";
+            const s = /* js */`
+                return function t() {
+                    var cachedType = cacheTree;
+                    if (cachedType) {
+                        return cachedType;
+                    }
 
-            var t = new Function("ciljs", "cacheTree", "baseType", "init", s)(CILJS, cacheTree, baseType, init);
+                    cachedType = new Function('var c = ${ctor}; return c;')();
+                    cacheTree = cachedType;
+
+                    cachedType.init = init.bind(cachedType);
+                    var baseCtor = baseType();
+                    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
+                    cachedType.prototype.constructor = cachedType;
+                    return cachedType;
+                }
+            `;
+
+            const t = new Function("ciljs", "cacheTree", "baseType", "init", s)
+                (CILJS, cacheTree, baseType, init);
 
             return t;
         }
@@ -589,7 +597,7 @@ namespace CILJS {
         }
     }
 
-    export function delegate_invoke(self: CilJsDelegate, ... _: any[]) {
+    export function delegate_invoke(self: CilJsDelegate, ..._: any[]) {
         var m = self._methodPtr;
         var t = self._target;
 
