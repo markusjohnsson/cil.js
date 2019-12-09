@@ -219,7 +219,13 @@ namespace CILJS {
     }
 
     export function declare_virtual(type: CilJsType, slot: string, target: string) {
-        type.prototype.vtable[slot] = new Function("return " + target + ";");
+        type.prototype.vtable[slot] = new Function('type', 'slot', 'target',
+            /* js */`
+                return function (...args) {
+                    type.prototype.vtable[slot] = ${target};
+                    return ${target}(...args);
+                }
+            `, )(type, slot, target);
     }
 
     export function is_inst_interface(interfaceType: CilJsType) {

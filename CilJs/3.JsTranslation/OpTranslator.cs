@@ -1363,13 +1363,10 @@ namespace CilJs.JsTranslation
                 };
             }
 
-            return new JSCallExpression
+            return new JSPropertyAccessExpression
             {
-                Function = new JSPropertyAccessExpression
-                {
-                    Host = host,
-                    Property = GetVirtualMethodIdentifier(mi)
-                }
+                Host = host,
+                Property = GetVirtualMethodIdentifier(mi)
             };
         }
 
