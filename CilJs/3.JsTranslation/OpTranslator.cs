@@ -1252,18 +1252,42 @@ namespace CilJs.JsTranslation
 
         private JSExpression GetInterfaceMethodAccessor(JSExpression thisArg, JSExpression alternateThisArg, JSExpression thisScope, MethodBase mi)
         {
-            // vtables and interface maps are dictionaries of function references:
+            // Interface maps are structured like this
             //
             //  {
-            //      "asm0.x60000001": function () { return asm0.x60000104; },
-            //      "asm0.x60000004": function () { return asm0.x60000106; }
+            //     // key: interface identifier, value: method map
+            //     "interfaceX": {
+            //        // key: interface method identifier, value: function returning method implementation identifier
+            //        "asm0.x60000001": function () { return asm0.x60000104; },
+            //        "asm0.x60000004": function () { return asm0.x60000106; }
+            //     }
             //  }
             //
             // The references are wrapped in functions because the value of asm0.xAAAAAAAA might 
             // be updated by the method initialization function, which initialize types that the method depends on. 
             //
             // We might be able to change this later and just store the reference to the actual method implementation.
-            // To accomplish this, we need to call the init function when the vtable or interface map is created.
+            // To accomplish this, we need to call the method init function when the vtable or interface map is created.
+            //
+            //
+            // For generic interfaces, ifacemap is a tree
+            //
+            //    interface X<S, T> { void M(); }
+            //    class Y : X<int, string>, X<int, boolean> { void M(); }
+            //
+            //  {
+            //     // key: interface identifier, value: method map
+            //     "typeX": {
+            //         "typeInt": {
+            //             "typeString": { ... method map },
+            //             "typeBoolean": { ... method map }
+            //         }
+            //     }
+            //  }
+            //
+            // Method lookup becomes:
+            //
+            //    (((((loc1.ifacemap)[X])[S])[T]).x6000123)()
 
             JSExpression host;
 
@@ -1299,15 +1323,17 @@ namespace CilJs.JsTranslation
                 Indexer = GetTypeAccessor(mi.DeclaringType, thisScope)
             };
 
+
             if (mi.DeclaringType.IsGenericType)
             {
                 foreach (var i in mi.DeclaringType.GenericTypeArguments)
+                {
                     function = new JSArrayLookupExpression
                     {
                         Array = function,
                         Indexer = GetTypeAccessor(i, thisScope: thisScope)
                     };
-
+                }
             }
 
             return new JSCallExpression
@@ -1322,18 +1348,16 @@ namespace CilJs.JsTranslation
 
         private JSExpression GetVirtualMethodAccessor(JSExpression thisArg, JSExpression alternateThisArg, MethodInfo mi)
         {
-            // vtables and interface maps are dictionaries of function references:
+            // Ideally, vtables are dictionaries of function references:
             //
             //  {
-            //      "asm0.x60000001": function () { return asm0.x60000104; },
-            //      "asm0.x60000004": function () { return asm0.x60000106; }
+            //      "asm0.x60000001": asm0.x60000104,
+            //      "asm0.x60000004": asm0.x60000106,
+            //      ...
             //  }
             //
-            // The references are wrapped in functions because the value of asm0.xAAAAAAAA might 
-            // be updated by the method initialization function, which types that the method depends on. 
-            //
-            // We might be able to change this later and just store the reference to the actual method implementation.
-            // To accomplish this, we need to call the init function when the vtable or interface map is created.
+            // Because the implementation function might have an initializer, we use a trampoline that calls
+            // the initializer if it exists, before replacing itself witht the actual implementation.
 
             JSExpression host;
 

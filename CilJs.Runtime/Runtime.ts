@@ -214,14 +214,18 @@ namespace CILJS {
 
     export function implement_interface(type: CilJsType, iface: CilJsType[], implementation: { [method: string]: Function }) {
         type.Interfaces.push(iface[0]);
-        if (implementation !== null)
+        if (implementation !== null) {
             tree_set(iface, type.prototype.ifacemap, implementation);
+        }
     }
 
     export function declare_virtual(type: CilJsType, slot: string, target: string) {
         type.prototype.vtable[slot] = new Function('type', 'slot', 'target',
             /* js */`
                 return function (...args) {
+                    if (${target}_init) {
+                        ${target}_init(...args);
+                    }
                     type.prototype.vtable[slot] = ${target};
                     return ${target}(...args);
                 }
