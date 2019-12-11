@@ -298,11 +298,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I1()],
-                {});
+                []);
             CILJS.implement_interface(
                 this,
                 [asm1.I2()],
-                {});
+                []);
         },
         "function B() { c.init(); }");
     asm.C = CILJS.declare_type(
@@ -323,11 +323,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I3()],
-                {});
+                []);
             CILJS.implement_interface(
                 this,
                 [asm1.I2()],
-                {});
+                []);
         },
         "function C() { c.init(); }");
     asm.D = CILJS.declare_type(
@@ -348,11 +348,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I2()],
-                {});
+                []);
             CILJS.implement_interface(
                 this,
                 [asm1.I3()],
-                {});
+                []);
         },
         "function D() { c.init(); }");
     asm.Program = CILJS.declare_type(

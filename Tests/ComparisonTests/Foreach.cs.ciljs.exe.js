@@ -250,7 +250,7 @@ var asm1;(function (asm)
                             }
                             /* IL_3A: ldloc.3  */
                             /* IL_3B: callvirt Void Dispose() */
-                            (((loc3.ifacemap)[t2].x600010c)())(CILJS.convert_box_to_pointer_as_needed(loc3));
+                            ((loc3.ifacemap)[t2].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc3));
                             /* IL_40: nop  */
                             
                             case 0x41:

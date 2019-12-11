@@ -117,7 +117,7 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {});
+                []);
         },
         "function A() { c.init(); }");
     asm.Program = CILJS.declare_type(

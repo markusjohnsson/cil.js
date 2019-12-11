@@ -137,7 +137,7 @@ var asm1;(function (asm)
                             /* IL_04: callvirt Int32 CompareTo(System.Object) */
                             /* IL_09: box System.Int32 */
                             /* IL_0E: call Void WriteLine(System.Object) */
-                            asm0.x60000a1(CILJS.make_box((((arg0.ifacemap)[t0].x6000109)())(CILJS.convert_box_to_pointer_as_needed(arg0),arg1),t1));
+                            asm0.x60000a1(CILJS.make_box(((arg0.ifacemap)[t0].x6000109)(CILJS.convert_box_to_pointer_as_needed(arg0),arg1),t1));
                             /* IL_13: nop  */
                             
                             /* IL_14: nop  */

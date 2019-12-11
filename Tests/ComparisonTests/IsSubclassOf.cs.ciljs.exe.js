@@ -444,7 +444,7 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {});
+                []);
         },
         "function B() { c.init(); }");
     asm.C = CILJS.declare_type(
@@ -482,7 +482,7 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {});
+                []);
         },
         "function D() { c.init(); }");
     asm.Program = CILJS.declare_type(

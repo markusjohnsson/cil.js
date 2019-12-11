@@ -126,7 +126,7 @@ var asm1;(function (asm)
                     /* IL_02: ldarg.0  */
                     /* IL_03: callvirt IEnumerator`1 GetEnumerator() */
                     /* IL_08: stloc.0  */
-                    loc0 = ((((arg0.ifacemap)[t1])[t0].x60001d1)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+                    loc0 = (((arg0.ifacemap)[t1])[t0].x60001d1)(CILJS.convert_box_to_pointer_as_needed(arg0));
                     
                     try {
                         in_block_1 = true;
@@ -147,7 +147,7 @@ var asm1;(function (asm)
                                 /* IL_0B: ldloc.0  */
                                 /* IL_0C: callvirt T get_Current() */
                                 /* IL_11: stloc.1  */
-                                loc1 = ((((loc0.ifacemap)[t2])[t0].x60001da)())(CILJS.convert_box_to_pointer_as_needed(loc0));
+                                loc1 = (((loc0.ifacemap)[t2])[t0].x60001da)(CILJS.convert_box_to_pointer_as_needed(loc0));
                                 /* IL_12: nop  */
                                 
                                 /* IL_13: ldc.i4.1  */
@@ -162,7 +162,7 @@ var asm1;(function (asm)
                                 /* IL_18: callvirt Boolean MoveNext() */
                                 /* IL_1D: brtrue.s IL_0B */
                                 
-                                if ((((loc0.ifacemap)[t3].x60001cf)())(CILJS.convert_box_to_pointer_as_needed(loc0))){
+                                if (((loc0.ifacemap)[t3].x60001cf)(CILJS.convert_box_to_pointer_as_needed(loc0))){
                                     __pos__ = 0xB;
                                     continue;
                                 }
@@ -192,7 +192,7 @@ var asm1;(function (asm)
                                 }
                                 /* IL_24: ldloc.0  */
                                 /* IL_25: callvirt Void Dispose() */
-                                (((loc0.ifacemap)[t4].x600010c)())(CILJS.convert_box_to_pointer_as_needed(loc0));
+                                ((loc0.ifacemap)[t4].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc0));
                                 /* IL_2A: nop  */
                                 
                                 case 0x2B:
@@ -275,7 +275,7 @@ var asm1;(function (asm)
                     /* IL_04: ldarg.0  */
                     /* IL_05: callvirt IEnumerator`1 GetEnumerator() */
                     /* IL_0A: stloc.1  */
-                    loc1 = ((((arg0.ifacemap)[t1])[t0].x60001d1)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+                    loc1 = (((arg0.ifacemap)[t1])[t0].x60001d1)(CILJS.convert_box_to_pointer_as_needed(arg0));
                     
                     try {
                         in_block_1 = true;
@@ -296,7 +296,7 @@ var asm1;(function (asm)
                                 /* IL_0D: ldloc.1  */
                                 /* IL_0E: callvirt T get_Current() */
                                 /* IL_13: stloc.2  */
-                                loc2 = ((((loc1.ifacemap)[t2])[t0].x60001da)())(CILJS.convert_box_to_pointer_as_needed(loc1));
+                                loc2 = (((loc1.ifacemap)[t2])[t0].x60001da)(CILJS.convert_box_to_pointer_as_needed(loc1));
                                 /* IL_14: nop  */
                                 
                                 /* IL_15: ldloc.0  */
@@ -311,7 +311,7 @@ var asm1;(function (asm)
                                 /* IL_1B: callvirt Boolean MoveNext() */
                                 /* IL_20: brtrue.s IL_0D */
                                 
-                                if ((((loc1.ifacemap)[t3].x60001cf)())(CILJS.convert_box_to_pointer_as_needed(loc1))){
+                                if (((loc1.ifacemap)[t3].x60001cf)(CILJS.convert_box_to_pointer_as_needed(loc1))){
                                     __pos__ = 0xD;
                                     continue;
                                 }
@@ -341,7 +341,7 @@ var asm1;(function (asm)
                                 }
                                 /* IL_27: ldloc.1  */
                                 /* IL_28: callvirt Void Dispose() */
-                                (((loc1.ifacemap)[t4].x600010c)())(CILJS.convert_box_to_pointer_as_needed(loc1));
+                                ((loc1.ifacemap)[t4].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc1));
                                 /* IL_2D: nop  */
                                 
                                 case 0x2E:
@@ -447,7 +447,7 @@ var asm1;(function (asm)
                 /* IL_28: ldloc.0  */
                 /* IL_29: callvirt IEnumerator`1 GetEnumerator() */
                 /* IL_2E: stloc.3  */
-                loc3 = ((((loc0.ifacemap)[t3])[t1].x60001d1)())(CILJS.convert_box_to_pointer_as_needed(loc0));
+                loc3 = (((loc0.ifacemap)[t3])[t1].x60001d1)(CILJS.convert_box_to_pointer_as_needed(loc0));
                 
                 try {
                     in_block_1 = true;
@@ -468,7 +468,7 @@ var asm1;(function (asm)
                             /* IL_31: ldloc.3  */
                             /* IL_32: callvirt CustomAttributeData get_Current() */
                             /* IL_37: stloc.s 4 */
-                            loc4 = ((((loc3.ifacemap)[t4])[t1].x60001da)())(CILJS.convert_box_to_pointer_as_needed(loc3));
+                            loc4 = (((loc3.ifacemap)[t4])[t1].x60001da)(CILJS.convert_box_to_pointer_as_needed(loc3));
                             /* IL_39: nop  */
                             
                             /* IL_3A: ldtoken A */
@@ -497,7 +497,7 @@ var asm1;(function (asm)
                             /* IL_75: callvirt Boolean MoveNext() */
                             /* IL_7A: brtrue.s IL_31 */
                             
-                            if ((((loc3.ifacemap)[t8].x60001cf)())(CILJS.convert_box_to_pointer_as_needed(loc3))){
+                            if (((loc3.ifacemap)[t8].x60001cf)(CILJS.convert_box_to_pointer_as_needed(loc3))){
                                 __pos__ = 0x31;
                                 continue;
                             }
@@ -527,7 +527,7 @@ var asm1;(function (asm)
                             }
                             /* IL_81: ldloc.3  */
                             /* IL_82: callvirt Void Dispose() */
-                            (((loc3.ifacemap)[t9].x600010c)())(CILJS.convert_box_to_pointer_as_needed(loc3));
+                            ((loc3.ifacemap)[t9].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc3));
                             /* IL_87: nop  */
                             
                             case 0x88:

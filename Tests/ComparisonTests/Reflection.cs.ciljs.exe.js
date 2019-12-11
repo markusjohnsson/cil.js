@@ -584,11 +584,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I2()],
-                {});
+                []);
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {});
+                []);
         },
         "function B() { c.init(); }");
     (asm)["X`1"] = CILJS.declare_type(
@@ -610,11 +610,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I3`1"](T), T],
-                {});
+                []);
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {});
+                []);
         },
         "function X_1() { c.init(); }");
     asm.I = CILJS.declare_type(

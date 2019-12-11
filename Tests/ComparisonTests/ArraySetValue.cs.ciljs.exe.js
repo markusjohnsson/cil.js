@@ -278,7 +278,7 @@ var asm1;(function (asm)
         /* IL_2F: ldc.i4.0  */
         /* IL_30: newarr System.Object */
         /* IL_35: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((CILJS.ldelem_ref(loc0,(0|0)).ifacemap)[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,(0|0)))),CILJS.new_array(t2,(0|0)));
+        asm0.x60000a2(((CILJS.ldelem_ref(loc0,(0|0)).ifacemap)[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,(0|0)))),CILJS.new_array(t2,(0|0)));
         /* IL_3A: nop  */
         /* IL_3B: ldloc.0  */
         st_12 = loc0;
@@ -302,7 +302,7 @@ var asm1;(function (asm)
         /* IL_5B: ldc.i4.0  */
         /* IL_5C: newarr System.Object */
         /* IL_61: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((((CILJS.ldelem_ref(loc0,(0|0)).ifacemap)[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,(0|0)))),CILJS.new_array(t2,(0|0)));
+        asm0.x60000a2(((CILJS.ldelem_ref(loc0,(0|0)).ifacemap)[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,(0|0)))),CILJS.new_array(t2,(0|0)));
         /* IL_66: nop  */
         /* IL_67: ldloc.0  */
         /* IL_68: ldnull  */
@@ -491,9 +491,9 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {
-                    'x6000001': function (){ return asm1.x6000002;}
-                });
+                [
+                    ["x6000001", "asm1.x6000002"]
+                ]);
         },
         "function A() { c.init();this.V = 0 }");
     asm.B = CILJS.declare_type(
@@ -517,9 +517,9 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {
-                    'x6000001': function (){ return asm1.x6000003;}
-                });
+                [
+                    ["x6000001", "asm1.x6000003"]
+                ]);
         },
         "function B() { c.init();this.V = null }");
     asm.Program = CILJS.declare_type(

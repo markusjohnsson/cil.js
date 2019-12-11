@@ -708,9 +708,9 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IComparer`1"](asm1.Baz()), asm1.Baz()],
-                {
-                    'x60001d9': function (){ return asm1.x6000007;}
-                });
+                [
+                    ["x60001d9", "asm1.x6000007"]
+                ]);
         },
         "function ByNameDescending() { c.init(); }");
     asm.ByName = CILJS.declare_type(
@@ -734,9 +734,9 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IComparer`1"](asm1.Baz()), asm1.Baz()],
-                {
-                    'x60001d9': function (){ return asm1.x6000009;}
-                });
+                [
+                    ["x60001d9", "asm1.x6000009"]
+                ]);
         },
         "function ByName() { c.init(); }");
     asm.Program = CILJS.declare_type(

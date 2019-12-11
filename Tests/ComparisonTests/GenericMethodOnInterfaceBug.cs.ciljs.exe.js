@@ -94,7 +94,7 @@ var asm1;(function (asm)
         /* IL_13: ldloc.0  */
         /* IL_14: ldstr test2 */
         /* IL_19: callvirt Void X[Y](System.String) */
-        (((((loc0.ifacemap)[t3])[t0].x6000001)())(asm1.Y()))(loc0,CILJS.new_string("test2"));
+        ((((loc0.ifacemap)[t3])[t0].x6000001)(asm1.Y()))(loc0,CILJS.new_string("test2"));
         /* IL_1E: nop  */
         /* IL_1F: ret  */
         return ;
@@ -148,9 +148,9 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](T), T],
-                {
-                    'x6000001': function (){ return asm1.x6000002;}
-                });
+                [
+                    ["x6000001", "asm1.x6000002"]
+                ]);
         },
         "function A_1() { c.init(); }");
     asm.X = CILJS.declare_type(

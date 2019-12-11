@@ -193,18 +193,18 @@ var asm1;(function (asm)
             /* IL_00: nop  */
             /* IL_01: ldarg.0  */
             /* IL_02: callvirt Void NonGeneric() */
-            ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+            (((arg0.ifacemap)[t1])[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(arg0));
             /* IL_07: nop  */
             /* IL_08: ldarg.0  */
             /* IL_09: ldarg.1  */
             /* IL_0A: callvirt Void GenericArg(T) */
-            ((((arg0.ifacemap)[t1])[t0].x6000002)())(CILJS.convert_box_to_pointer_as_needed(arg0),arg1);
+            (((arg0.ifacemap)[t1])[t0].x6000002)(CILJS.convert_box_to_pointer_as_needed(arg0),arg1);
             /* IL_0F: nop  */
             /* IL_10: ldarg.0  */
             /* IL_11: callvirt T GenericReturn() */
             /* IL_16: box T */
             /* IL_1B: call Void WriteLine(System.Object) */
-            asm0.x60000a1(CILJS.box(((((arg0.ifacemap)[t1])[t0].x6000003)())(CILJS.convert_box_to_pointer_as_needed(arg0)),t0));
+            asm0.x60000a1(CILJS.box((((arg0.ifacemap)[t1])[t0].x6000003)(CILJS.convert_box_to_pointer_as_needed(arg0)),t0));
             /* IL_20: nop  */
             /* IL_21: ret  */
             return ;
@@ -266,11 +266,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"]((asm0)["System.Int32"]()), (asm0)["System.Int32"]()],
-                {
-                    'x6000001': function (){ return asm1.x6000004;},
-                    'x6000002': function (){ return asm1.x6000005;},
-                    'x6000003': function (){ return asm1.x6000006;}
-                });
+                [
+                    ["x6000001", "asm1.x6000004"],
+                    ["x6000002", "asm1.x6000005"],
+                    ["x6000003", "asm1.x6000006"]
+                ]);
         },
         "function A() { c.init();this.Afield = 0 }");
     (asm)["B`1"] = CILJS.declare_type(
@@ -299,11 +299,11 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](T), T],
-                {
-                    'x6000001': function (){ return asm1.x6000008;},
-                    'x6000002': function (){ return asm1.x6000009;},
-                    'x6000003': function (){ return asm1.x600000a;}
-                });
+                [
+                    ["x6000001", "asm1.x6000008"],
+                    ["x6000002", "asm1.x6000009"],
+                    ["x6000003", "asm1.x600000a"]
+                ]);
         },
         "function B_1() { c.init();this.B_1field = T.Default }");
     asm.Program = CILJS.declare_type(

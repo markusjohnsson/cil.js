@@ -362,7 +362,7 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](asm1.D()), asm1.D()],
-                {});
+                []);
         },
         "function D() { c.init(); }");
     asm.E = CILJS.declare_type(

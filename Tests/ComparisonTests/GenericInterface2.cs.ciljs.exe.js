@@ -111,7 +111,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: callvirt Void Print() */
-        ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+        (((arg0.ifacemap)[t1])[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(arg0));
         /* IL_07: nop  */
         /* IL_08: ret  */
         return ;
@@ -137,7 +137,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: callvirt Void Print() */
-        ((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0));
+        (((arg0.ifacemap)[t1])[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(arg0));
         /* IL_07: nop  */
         /* IL_08: ret  */
         return ;
@@ -223,15 +223,15 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](asm1.A()), asm1.A()],
-                {
-                    'x6000001': function (){ return asm1.x6000004;}
-                });
+                [
+                    ["x6000001", "asm1.x6000004"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](asm1.B()), asm1.B()],
-                {
-                    'x6000001': function (){ return asm1.x6000005;}
-                });
+                [
+                    ["x6000001", "asm1.x6000005"]
+                ]);
         },
         "function C() { c.init(); }");
     asm.Program = CILJS.declare_type(

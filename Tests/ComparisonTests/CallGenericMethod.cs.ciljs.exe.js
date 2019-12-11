@@ -122,7 +122,7 @@ var asm1;(function (asm)
             /* IL_02: callvirt T get_Prop() */
             /* IL_07: box T */
             /* IL_0C: call Void WriteLine(System.Object) */
-            asm0.x60000a1(CILJS.box(((((arg0.ifacemap)[t1])[t0].x6000001)())(CILJS.convert_box_to_pointer_as_needed(arg0)),t0));
+            asm0.x60000a1(CILJS.box((((arg0.ifacemap)[t1])[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(arg0)),t0));
             /* IL_11: nop  */
             /* IL_12: ret  */
             return ;
@@ -181,10 +181,10 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](T), T],
-                {
-                    'x6000001': function (){ return asm1.x6000003;},
-                    'x6000002': function (){ return asm1.x6000004;}
-                });
+                [
+                    ["x6000001", "asm1.x6000003"],
+                    ["x6000002", "asm1.x6000004"]
+                ]);
         },
         "function A_1() { c.init();(this)[\"A_1<Prop>k__BackingField\"] = T.Default }");
     asm.Program = CILJS.declare_type(

@@ -114,7 +114,7 @@ var asm1;(function (asm)
             /* IL_00: nop  */
             /* IL_01: ldarg.1  */
             /* IL_02: callvirt Void M() */
-            ((((arg1.ifacemap)[t1])[t0].x6000003)())(CILJS.convert_box_to_pointer_as_needed(arg1));
+            (((arg1.ifacemap)[t1])[t0].x6000003)(CILJS.convert_box_to_pointer_as_needed(arg1));
             /* IL_07: nop  */
             /* IL_08: ret  */
             return ;
@@ -184,15 +184,15 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["Program+I`1"]((asm0)["System.Int32"]()), (asm0)["System.Int32"]()],
-                {
-                    'x6000003': function (){ return asm1.x6000004;}
-                });
+                [
+                    ["x6000003", "asm1.x6000004"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm1)["Program+I`1"]((asm0)["System.String"]()), (asm0)["System.String"]()],
-                {
-                    'x6000003': function (){ return asm1.x6000005;}
-                });
+                [
+                    ["x6000003", "asm1.x6000005"]
+                ]);
         },
         "function C() { c.init(); }");
     (asm)["Program+X"] = CILJS.declare_type(

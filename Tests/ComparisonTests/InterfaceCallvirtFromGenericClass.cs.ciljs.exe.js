@@ -45,7 +45,7 @@ var asm1;(function (asm)
         /* IL_09: callvirt Int32 Get() */
         /* IL_0E: box System.Int32 */
         /* IL_13: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((arg1.ifacemap || ((arg0.constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)())(CILJS.dereference_pointer_as_needed({
+        asm0.x60000a1(CILJS.make_box(((arg1.ifacemap || ((arg0.constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)(CILJS.dereference_pointer_as_needed({
                             'w': function (v)
                             {
                                 arg1 = v;
@@ -170,9 +170,9 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I2()],
-                {
-                    'x6000001': function (){ return asm1.x6000002;}
-                });
+                [
+                    ["x6000001", "asm1.x6000002"]
+                ]);
         },
         "function D() { c.init();this.x = 0 }");
     (asm)["C`1"] = CILJS.declare_type(
@@ -196,7 +196,7 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [asm1.I()],
-                {});
+                []);
         },
         "function C_1() { c.init(); }");
     asm.Program = CILJS.declare_type(

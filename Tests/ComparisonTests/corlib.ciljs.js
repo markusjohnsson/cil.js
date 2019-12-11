@@ -6192,7 +6192,7 @@ var asm0;(function (asm)
                             /* IL_5E: box T */
                             /* IL_63: callvirt Boolean Equals(System.Object, System.Object) */
                             /* IL_68: stloc.s 5 */
-                            loc5 = (((loc1.ifacemap)[t2].x60001cb)())(CILJS.convert_box_to_pointer_as_needed(loc1),CILJS.box((arg0.jsarr[loc4]),t1),CILJS.box(arg1,t1));
+                            loc5 = ((loc1.ifacemap)[t2].x60001cb)(CILJS.convert_box_to_pointer_as_needed(loc1),CILJS.box((arg0.jsarr[loc4]),t1),CILJS.box(arg1,t1));
                             /* IL_6A: ldloc.s 5 */
                             /* IL_6C: brfalse.s IL_74 */
                             
@@ -6965,7 +6965,7 @@ var asm0;(function (asm)
                             /* IL_6D: box T */
                             /* IL_72: callvirt Boolean Equals(System.Object, System.Object) */
                             /* IL_77: stloc.s 4 */
-                            loc4 = (((loc0.ifacemap)[t1].x60001cb)())(CILJS.convert_box_to_pointer_as_needed(loc0),CILJS.box((arg0.jsarr)[loc3],t0),CILJS.box(arg1,t0));
+                            loc4 = ((loc0.ifacemap)[t1].x60001cb)(CILJS.convert_box_to_pointer_as_needed(loc0),CILJS.box((arg0.jsarr)[loc3],t0),CILJS.box(arg1,t0));
                             /* IL_79: ldloc.s 4 */
                             /* IL_7B: brfalse.s IL_82 */
                             
@@ -8029,7 +8029,7 @@ var asm0;(function (asm)
                                 /* IL_99: ldarg.3  */
                                 /* IL_9A: callvirt Int32 Compare(T, T) */
                                 /* IL_9F: stloc.2  */
-                                loc2 = ((((arg4.ifacemap)[t2])[t1].x60001d9)())(CILJS.convert_box_to_pointer_as_needed(arg4),(arg0.jsarr)[loc8],arg3);
+                                loc2 = (((arg4.ifacemap)[t2])[t1].x60001d9)(CILJS.convert_box_to_pointer_as_needed(arg4),(arg0.jsarr)[loc8],arg3);
                                 /* IL_A0: ldloc.2  */
                                 /* IL_A1: ldc.i4.0  */
                                 /* IL_A3: ceq  */
@@ -12983,7 +12983,7 @@ var asm0;(function (asm)
         /* IL_07: ldarg.2  */
         /* IL_08: callvirt Int32 Compare(T, T) */
         /* IL_0D: ret  */
-        return ((((arg0.comparer.ifacemap)[t1])[t0].x60001d9)())(CILJS.convert_box_to_pointer_as_needed(arg0.comparer),arg1,arg2);
+        return (((arg0.comparer.ifacemap)[t1])[t0].x60001d9)(CILJS.convert_box_to_pointer_as_needed(arg0.comparer),arg1,arg2);
     };
     /*  <>c__DisplayClass23_0`1..ctor()*/
     asm.x600020b = function _ctor(arg0)
@@ -13311,7 +13311,7 @@ var asm0;(function (asm)
                             /* IL_4D: ldfld IEnumerator`1 <>s__1 */
                             /* IL_52: callvirt Object get_Current() */
                             /* IL_57: stfld Object <rawAttribData>5__2 */
-                            (arg0)["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"] = (((((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t1])[t0].x60001da)())(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
+                            (arg0)["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"] = ((((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t1])[t0].x60001da)(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
                             /* IL_5C: nop  */
                             
                             /* IL_5D: ldarg.0  */
@@ -13349,7 +13349,7 @@ var asm0;(function (asm)
                             /* IL_94: callvirt Boolean MoveNext() */
                             /* IL_99: brtrue.s IL_4B */
                             
-                            if (((((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t4].x60001cf)())(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"]))){
+                            if ((((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t4].x60001cf)(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"]))){
                                 __pos__ = 0x4B;
                                 continue;
                             }
@@ -13442,7 +13442,7 @@ var asm0;(function (asm)
                 /* IL_0F: ldarg.0  */
                 /* IL_10: ldfld IEnumerator`1 <>s__1 */
                 /* IL_15: callvirt Void Dispose() */
-                ((((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t0].x600010c)())(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
+                (((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t0].x600010c)(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
                 /* IL_1A: nop  */
                 
                 case 0x1B:
@@ -13800,7 +13800,7 @@ var asm0;(function (asm)
                             /* IL_5F: ldfld IEnumerator`1 <>s__2 */
                             /* IL_64: callvirt Object get_Current() */
                             /* IL_69: stfld Object <rawAttribData>5__3 */
-                            (arg0)["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"] = (((((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t2])[t1].x60001da)())(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
+                            (arg0)["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"] = ((((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t2])[t1].x60001da)(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
                             /* IL_6E: nop  */
                             
                             /* IL_6F: ldarg.0  */
@@ -13838,7 +13838,7 @@ var asm0;(function (asm)
                             /* IL_A6: callvirt Boolean MoveNext() */
                             /* IL_AB: brtrue.s IL_5D */
                             
-                            if (((((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t4].x60001cf)())(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"]))){
+                            if ((((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t4].x60001cf)(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"]))){
                                 __pos__ = 0x5D;
                                 continue;
                             }
@@ -13931,7 +13931,7 @@ var asm0;(function (asm)
                 /* IL_0F: ldarg.0  */
                 /* IL_10: ldfld IEnumerator`1 <>s__2 */
                 /* IL_15: callvirt Void Dispose() */
-                ((((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t0].x600010c)())(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
+                (((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t0].x600010c)(CILJS.convert_box_to_pointer_as_needed((arg0)["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
                 /* IL_1A: nop  */
                 
                 case 0x1B:
@@ -14296,21 +14296,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Int64"]()), (asm0)["System.Int64"]()],
-                {
-                    'x600010a': function (){ return asm0.x600004b;}
-                });
+                [
+                    ["x600010a", "asm0.x600004b"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x600004a;}
-                });
+                [
+                    ["x6000109", "asm0.x600004a"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.Int64"]()), (asm0)["System.Int64"]()],
-                {
-                    'x6000162': function (){ return asm0.x600004d;}
-                });
+                [
+                    ["x6000162", "asm0.x600004d"]
+                ]);
         },
         "function Int64() { c.init(); }");
     (asm)["System.Char"] = CILJS.declare_type(
@@ -14384,15 +14384,15 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Single"]()), (asm0)["System.Single"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000056;}
-                });
+                [
+                    ["x600010a", "asm0.x6000056"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000055;}
-                });
+                [
+                    ["x6000109", "asm0.x6000055"]
+                ]);
         },
         "function Single() { c.init(); }");
     (asm)["System.RuntimeFieldHandle"] = CILJS.declare_type(
@@ -14444,21 +14444,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.UInt16"]()), (asm0)["System.UInt16"]()],
-                {
-                    'x600010a': function (){ return asm0.x600005a;}
-                });
+                [
+                    ["x600010a", "asm0.x600005a"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000059;}
-                });
+                [
+                    ["x6000109", "asm0.x6000059"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.UInt16"]()), (asm0)["System.UInt16"]()],
-                {
-                    'x6000162': function (){ return asm0.x600005b;}
-                });
+                [
+                    ["x6000162", "asm0.x600005b"]
+                ]);
         },
         "function UInt16() { c.init(); }");
     (asm)["System.InternalFormatting"] = CILJS.declare_type(
@@ -14541,15 +14541,15 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.UInt32"]()), (asm0)["System.UInt32"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000066;}
-                });
+                [
+                    ["x600010a", "asm0.x6000066"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000065;}
-                });
+                [
+                    ["x6000109", "asm0.x6000065"]
+                ]);
         },
         "function UInt32() { c.init(); }");
     (asm)["System.FlagsAttribute"] = CILJS.declare_type(
@@ -14664,11 +14664,11 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Reflection.ICustomAttributeProvider"]()],
-                {
-                    'x60001b1': function (){ return asm0.x60001c0;},
-                    'x60001b2': function (){ return asm0.x60001c1;},
-                    'x60001b3': function (){ return asm0.x60001c3;}
-                });
+                [
+                    ["x60001b1", "asm0.x60001c0"],
+                    ["x60001b2", "asm0.x60001c1"],
+                    ["x60001b3", "asm0.x60001c3"]
+                ]);
         },
         "function Type() { c.init(); }");
     (asm)["System.AttributeUsageAttribute"] = CILJS.declare_type(
@@ -14755,21 +14755,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Boolean"]()), (asm0)["System.Boolean"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000094;}
-                });
+                [
+                    ["x600010a", "asm0.x6000094"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000093;}
-                });
+                [
+                    ["x6000109", "asm0.x6000093"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.Boolean"]()), (asm0)["System.Boolean"]()],
-                {
-                    'x6000162': function (){ return asm0.x6000091;}
-                });
+                [
+                    ["x6000162", "asm0.x6000091"]
+                ]);
         },
         "function $$Boolean() { c.init(); }");
     (asm)["System.SByte"] = CILJS.declare_type(
@@ -14802,21 +14802,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.SByte"]()), (asm0)["System.SByte"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000097;}
-                });
+                [
+                    ["x600010a", "asm0.x6000097"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000096;}
-                });
+                [
+                    ["x6000109", "asm0.x6000096"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.SByte"]()), (asm0)["System.SByte"]()],
-                {
-                    'x6000162': function (){ return asm0.x6000098;}
-                });
+                [
+                    ["x6000162", "asm0.x6000098"]
+                ]);
         },
         "function SByte() { c.init(); }");
     (asm)["System.ICloneable"] = CILJS.declare_type(
@@ -15208,15 +15208,15 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.String"]()), (asm0)["System.String"]()],
-                {
-                    'x6000162': function (){ return asm0.x60000f6;}
-                });
+                [
+                    ["x6000162", "asm0.x60000f6"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.String"]()), (asm0)["System.String"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000102;}
-                });
+                [
+                    ["x600010a", "asm0.x6000102"]
+                ]);
         },
         "function $$String() { c.init();this.jsstr = null }");
     (asm)["System.Double"] = CILJS.declare_type(
@@ -15249,15 +15249,15 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Double"]()), (asm0)["System.Double"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000108;}
-                });
+                [
+                    ["x600010a", "asm0.x6000108"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000107;}
-                });
+                [
+                    ["x6000109", "asm0.x6000107"]
+                ]);
         },
         "function Double() { c.init(); }");
     (asm)["System.IComparable"] = CILJS.declare_type(
@@ -15382,9 +15382,9 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
-                {
-                    'x60001ca': function (){ return asm0.x6000117;}
-                });
+                [
+                    ["x60001ca", "asm0.x6000117"]
+                ]);
         },
         "function Array() { c.init();this.etype = null;this.jsarr = null }");
     (asm)["System.Array`1"] = CILJS.declare_type(
@@ -15418,27 +15418,27 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerable`1"](T), T],
-                {
-                    'x60001d1': function (){ return asm0.x6000138;}
-                });
+                [
+                    ["x60001d1", "asm0.x6000138"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
-                {
-                    'x60001ca': function (){ return asm0.x6000117;}
-                });
+                [
+                    ["x60001ca", "asm0.x6000117"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.ICollection`1"](T), T],
-                {
-                    'x60001d2': function (){ return asm0.x600013a;},
-                    'x60001d3': function (){ return asm0.x600013b;},
-                    'x60001d4': function (){ return asm0.x600013c;},
-                    'x60001d5': function (){ return asm0.x600013d;},
-                    'x60001d6': function (){ return asm0.x600013e;},
-                    'x60001d7': function (){ return asm0.x600013f;},
-                    'x60001d8': function (){ return asm0.x6000140;}
-                });
+                [
+                    ["x60001d2", "asm0.x600013a"],
+                    ["x60001d3", "asm0.x600013b"],
+                    ["x60001d4", "asm0.x600013c"],
+                    ["x60001d5", "asm0.x600013d"],
+                    ["x60001d6", "asm0.x600013e"],
+                    ["x60001d7", "asm0.x600013f"],
+                    ["x60001d8", "asm0.x6000140"]
+                ]);
         },
         "function Array_1() { c.init();this.etype = null;this.jsarr = null }");
     (asm)["System.Byte"] = CILJS.declare_type(
@@ -15471,21 +15471,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Byte"]()), (asm0)["System.Byte"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000144;}
-                });
+                [
+                    ["x600010a", "asm0.x6000144"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000143;}
-                });
+                [
+                    ["x6000109", "asm0.x6000143"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.Byte"]()), (asm0)["System.Byte"]()],
-                {
-                    'x6000162': function (){ return asm0.x6000145;}
-                });
+                [
+                    ["x6000162", "asm0.x6000145"]
+                ]);
         },
         "function Byte() { c.init(); }");
     (asm)["System.ValueType"] = CILJS.declare_type(
@@ -15656,12 +15656,12 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IAsyncResult"]()],
-                {
-                    'x6000158': function (){ return asm0.x600015d;},
-                    'x6000159': function (){ return asm0.x600015e;},
-                    'x600015a': function (){ return asm0.x600015f;},
-                    'x600015b': function (){ return asm0.x6000160;}
-                });
+                [
+                    ["x6000158", "asm0.x600015d"],
+                    ["x6000159", "asm0.x600015e"],
+                    ["x600015a", "asm0.x600015f"],
+                    ["x600015b", "asm0.x6000160"]
+                ]);
         },
         "function AsyncResult() { c.init();this.asyncState = null;this.result = null }");
     (asm)["System.IEquatable`1"] = CILJS.declare_type(
@@ -15769,21 +15769,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.UInt64"]()), (asm0)["System.UInt64"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000174;}
-                });
+                [
+                    ["x600010a", "asm0.x6000174"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000173;}
-                });
+                [
+                    ["x6000109", "asm0.x6000173"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.UInt64"]()), (asm0)["System.UInt64"]()],
-                {
-                    'x6000162': function (){ return asm0.x6000176;}
-                });
+                [
+                    ["x6000162", "asm0.x6000176"]
+                ]);
         },
         "function UInt64() { c.init(); }");
     (asm)["System.SerializableAttribute"] = CILJS.declare_type(
@@ -15862,21 +15862,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.Int16"]()), (asm0)["System.Int16"]()],
-                {
-                    'x6000162': function (){ return asm0.x600017d;}
-                });
+                [
+                    ["x6000162", "asm0.x600017d"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x600017b;}
-                });
+                [
+                    ["x6000109", "asm0.x600017b"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Int16"]()), (asm0)["System.Int16"]()],
-                {
-                    'x600010a': function (){ return asm0.x600017c;}
-                });
+                [
+                    ["x600010a", "asm0.x600017c"]
+                ]);
         },
         "function Int16() { c.init(); }");
     (asm)["System.Int32"] = CILJS.declare_type(
@@ -15910,21 +15910,21 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable`1"]((asm0)["System.Int32"]()), (asm0)["System.Int32"]()],
-                {
-                    'x600010a': function (){ return asm0.x6000184;}
-                });
+                [
+                    ["x600010a", "asm0.x6000184"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IComparable"]()],
-                {
-                    'x6000109': function (){ return asm0.x6000183;}
-                });
+                [
+                    ["x6000109", "asm0.x6000183"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IEquatable`1"]((asm0)["System.Int32"]()), (asm0)["System.Int32"]()],
-                {
-                    'x6000162': function (){ return asm0.x6000186;}
-                });
+                [
+                    ["x6000162", "asm0.x6000186"]
+                ]);
         },
         "function Int32() { c.init(); }");
     (asm)["System.Reflection.TypeInfo"] = CILJS.declare_type(
@@ -15991,11 +15991,11 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Reflection.ICustomAttributeProvider"]()],
-                {
-                    'x60001b1': function (){ return asm0.x6000194;},
-                    'x60001b2': function (){ return asm0.x6000196;},
-                    'x60001b3': function (){ return asm0.x6000197;}
-                });
+                [
+                    ["x60001b1", "asm0.x6000194"],
+                    ["x60001b2", "asm0.x6000196"],
+                    ["x60001b3", "asm0.x6000197"]
+                ]);
         },
         "function TypeInfo() { c.init();this.ctor = null }");
     (asm)["System.Reflection.AssemblyCompanyAttribute"] = CILJS.declare_type(
@@ -16195,11 +16195,11 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Reflection.ICustomAttributeProvider"]()],
-                {
-                    'x60001b1': function (){ return asm0.x60001b6;},
-                    'x60001b2': function (){ return asm0.x60001b7;},
-                    'x60001b3': function (){ return asm0.x60001b8;}
-                });
+                [
+                    ["x60001b1", "asm0.x60001b6"],
+                    ["x60001b2", "asm0.x60001b7"],
+                    ["x60001b3", "asm0.x60001b8"]
+                ]);
         },
         "function MethodInfo() { c.init();this.System_ReflectionMethodInfomethodData = null }");
     (asm)["System.Reflection.CustomAttributeData"] = CILJS.declare_type(
@@ -16272,11 +16272,11 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Reflection.ICustomAttributeProvider"]()],
-                {
-                    'x60001b1': function (){ return asm0.x60001c0;},
-                    'x60001b2': function (){ return asm0.x60001c1;},
-                    'x60001b3': function (){ return asm0.x60001c3;}
-                });
+                [
+                    ["x60001b1", "asm0.x60001c0"],
+                    ["x60001b2", "asm0.x60001c1"],
+                    ["x60001b3", "asm0.x60001c3"]
+                ]);
         },
         "function MemberInfo() { c.init(); }");
     (asm)["System.Reflection.Assembly"] = CILJS.declare_type(
@@ -16859,23 +16859,23 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"]((asm0)["System.Object"]()), (asm0)["System.Object"]()],
-                {
-                    'x60001da': function (){ return asm0.x6000200;}
-                });
+                [
+                    ["x60001da", "asm0.x6000200"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
-                {
-                    'x60001ce': function (){ return asm0.x6000202;},
-                    'x60001cf': function (){ return asm0.x60001ff;},
-                    'x60001d0': function (){ return asm0.x6000201;}
-                });
+                [
+                    ["x60001ce", "asm0.x6000202"],
+                    ["x60001cf", "asm0.x60001ff"],
+                    ["x60001d0", "asm0.x6000201"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IDisposable"]()],
-                {
-                    'x600010c': function (){ return asm0.x60001fe;}
-                });
+                [
+                    ["x600010c", "asm0.x60001fe"]
+                ]);
         },
         "function _GetEnumerator_d__7() { c.init();(this)[\"CilJs_JavaScript_GetEnumerator_d__7<>1__state\"] = 0;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<>2__current\"] = null;(this)[\"<>4__this\"] = null;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<a>5__1\"] = null;(this)[\"CilJs_JavaScript_GetEnumerator_d__7<i>5__2\"] = 0 }");
     (asm)["CilJs.JavaScript.Array+<AsEnumerable>d__8"] = CILJS.declare_type(
@@ -16903,35 +16903,35 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerable`1"]((asm0)["System.Object"]()), (asm0)["System.Object"]()],
-                {
-                    'x60001d1': function (){ return asm0.x6000209;}
-                });
+                [
+                    ["x60001d1", "asm0.x6000209"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
-                {
-                    'x60001ca': function (){ return asm0.x600020a;}
-                });
+                [
+                    ["x60001ca", "asm0.x600020a"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"]((asm0)["System.Object"]()), (asm0)["System.Object"]()],
-                {
-                    'x60001da': function (){ return asm0.x6000206;}
-                });
+                [
+                    ["x60001da", "asm0.x6000206"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
-                {
-                    'x60001ce': function (){ return asm0.x6000208;},
-                    'x60001cf': function (){ return asm0.x6000205;},
-                    'x60001d0': function (){ return asm0.x6000207;}
-                });
+                [
+                    ["x60001ce", "asm0.x6000208"],
+                    ["x60001cf", "asm0.x6000205"],
+                    ["x60001d0", "asm0.x6000207"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IDisposable"]()],
-                {
-                    'x600010c': function (){ return asm0.x6000204;}
-                });
+                [
+                    ["x600010c", "asm0.x6000204"]
+                ]);
         },
         "function _AsEnumerable_d__8() { c.init();(this)[\"CilJs_JavaScript_AsEnumerable_d__8<>1__state\"] = 0;(this)[\"CilJs_JavaScript_AsEnumerable_d__8<>2__current\"] = null;(this)[\"CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId\"] = 0;(this)[\"<>4__this\"] = null;(this)[\"CilJs_JavaScript_AsEnumerable_d__8<a>5__1\"] = null;(this)[\"CilJs_JavaScript_AsEnumerable_d__8<i>5__2\"] = 0 }");
     (asm)["System.Array+<>c__DisplayClass23_0`1"] = CILJS.declare_type(
@@ -16981,23 +16981,23 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"](T), T],
-                {
-                    'x60001da': function (){ return asm0.x600020e;}
-                });
+                [
+                    ["x60001da", "asm0.x600020e"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
-                {
-                    'x60001ce': function (){ return asm0.x6000210;},
-                    'x60001cf': function (){ return asm0.x600020f;},
-                    'x60001d0': function (){ return asm0.x6000211;}
-                });
+                [
+                    ["x60001ce", "asm0.x6000210"],
+                    ["x60001cf", "asm0.x600020f"],
+                    ["x60001d0", "asm0.x6000211"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IDisposable"]()],
-                {
-                    'x600010c': function (){ return asm0.x6000212;}
-                });
+                [
+                    ["x600010c", "asm0.x6000212"]
+                ]);
         },
         "function ArrayEnumerator() { c.init();this.index = 0;this.length = 0;this.source = null }");
     (asm)["System.Reflection.TypeInfo+constructor"] = CILJS.declare_type(
@@ -17042,35 +17042,35 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerable`1"]((asm0)["System.Reflection.CustomAttributeData"]()), (asm0)["System.Reflection.CustomAttributeData"]()],
-                {
-                    'x60001d1': function (){ return asm0.x600021b;}
-                });
+                [
+                    ["x60001d1", "asm0.x600021b"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
-                {
-                    'x60001ca': function (){ return asm0.x600021c;}
-                });
+                [
+                    ["x60001ca", "asm0.x600021c"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"]((asm0)["System.Reflection.CustomAttributeData"]()), (asm0)["System.Reflection.CustomAttributeData"]()],
-                {
-                    'x60001da': function (){ return asm0.x6000218;}
-                });
+                [
+                    ["x60001da", "asm0.x6000218"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
-                {
-                    'x60001ce': function (){ return asm0.x600021a;},
-                    'x60001cf': function (){ return asm0.x6000216;},
-                    'x60001d0': function (){ return asm0.x6000219;}
-                });
+                [
+                    ["x60001ce", "asm0.x600021a"],
+                    ["x60001cf", "asm0.x6000216"],
+                    ["x60001d0", "asm0.x6000219"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IDisposable"]()],
-                {
-                    'x600010c': function (){ return asm0.x6000215;}
-                });
+                [
+                    ["x600010c", "asm0.x6000215"]
+                ]);
         },
         "function _get_CustomAttributes_d__18() { c.init();(this)[\"System_Reflection_get_CustomAttributes_d__18<>1__state\"] = 0;(this)[\"System_Reflection_get_CustomAttributes_d__18<>2__current\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__18<>l__initialThreadId\"] = 0;(this)[\"<>4__this\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__18<>s__1\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2\"] = null }");
     (asm)["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"] = CILJS.declare_type(
@@ -17098,35 +17098,35 @@ var asm0;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerable`1"]((asm0)["System.Reflection.CustomAttributeData"]()), (asm0)["System.Reflection.CustomAttributeData"]()],
-                {
-                    'x60001d1': function (){ return asm0.x6000224;}
-                });
+                [
+                    ["x60001d1", "asm0.x6000224"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerable"]()],
-                {
-                    'x60001ca': function (){ return asm0.x6000225;}
-                });
+                [
+                    ["x60001ca", "asm0.x6000225"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.Generic.IEnumerator`1"]((asm0)["System.Reflection.CustomAttributeData"]()), (asm0)["System.Reflection.CustomAttributeData"]()],
-                {
-                    'x60001da': function (){ return asm0.x6000221;}
-                });
+                [
+                    ["x60001da", "asm0.x6000221"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.Collections.IEnumerator"]()],
-                {
-                    'x60001ce': function (){ return asm0.x6000223;},
-                    'x60001cf': function (){ return asm0.x600021f;},
-                    'x60001d0': function (){ return asm0.x6000222;}
-                });
+                [
+                    ["x60001ce", "asm0.x6000223"],
+                    ["x60001cf", "asm0.x600021f"],
+                    ["x60001d0", "asm0.x6000222"]
+                ]);
             CILJS.implement_interface(
                 this,
                 [(asm0)["System.IDisposable"]()],
-                {
-                    'x600010c': function (){ return asm0.x600021e;}
-                });
+                [
+                    ["x600010c", "asm0.x600021e"]
+                ]);
         },
         "function _get_CustomAttributes_d__7() { c.init();(this)[\"System_Reflection_get_CustomAttributes_d__7<>1__state\"] = 0;(this)[\"System_Reflection_get_CustomAttributes_d__7<>2__current\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__7<>l__initialThreadId\"] = 0;(this)[\"<>4__this\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__7<attributes>5__1\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__7<>s__2\"] = null;(this)[\"System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3\"] = null }");
     (asm)["System.Reflection.Assembly+jsAsm"] = CILJS.declare_type(

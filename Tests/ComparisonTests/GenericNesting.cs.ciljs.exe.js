@@ -102,7 +102,7 @@ var asm1;(function (asm)
             CILJS.implement_interface(
                 this,
                 [(asm1)["I`1"](asm1.A()), asm1.A()],
-                {});
+                []);
         },
         "function A() { c.init(); }");
     (asm)["B`1"] = CILJS.declare_type(
