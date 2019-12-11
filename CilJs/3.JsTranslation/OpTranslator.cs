@@ -270,14 +270,14 @@ namespace CilJs.JsTranslation
         }
 
         private static string DebugInfo(OpExpression op)
-        { 
+        {
             return string.Empty;
         }
 
         private static JSStatement GetILAsComment(OpExpression node)
         {
             var il = node.PrefixTraversal().OrderBy(i => i.Position).Select(op => op.Instruction.ToString() + " " + DebugInfo(node));
-            
+
             return JSFactory
                 .Statement(
                     new JSLineComment
@@ -296,7 +296,7 @@ namespace CilJs.JsTranslation
 
         protected bool IsFloatingPointOperation(OpExpression frame)
         {
-            return 
+            return
                 frame.Arguments.First().ResultType == context.SystemTypes.Single ||
                 frame.Arguments.First().ResultType == context.SystemTypes.Double;
         }
@@ -447,7 +447,7 @@ namespace CilJs.JsTranslation
                             d = d.GetGenericArguments()[0];
                             value = JSFactory.Identifier(value, "value");
                         }
-                        
+
                         var boxed = JSFactory.Call(
                             JSFactory.Identifier("CILJS", "make_box"),
                             CloneValueTypeIfNeeded(value, d),
@@ -529,7 +529,7 @@ namespace CilJs.JsTranslation
                                         Function = JSFactory.Identifier(arglist.First(), "_methodPtr"),
                                         Arguments = arglist.Skip(1).StartWith(JSFactory.Identifier(arglist.First(), "_target")).ToList()
                                     },
-                                FalseValue = 
+                                FalseValue =
                                     new JSCallExpression
                                     {
                                         Function = JSFactory.Identifier(arglist.First(), "_methodPtr"),
@@ -547,7 +547,7 @@ namespace CilJs.JsTranslation
                                 .OfType<OpExpression>()
                                 .Single()
                                 .Arguments
-                                .Single(), 
+                                .Single(),
                                 arglist);
                             //break;
                         }
@@ -559,7 +559,7 @@ namespace CilJs.JsTranslation
 
                         if (firstArgNode.ResultType != null)
                         {
-                            if (mi.IsVirtual &&(
+                            if (mi.IsVirtual && (
                                 firstArgNode.ResultType.IsInterface ||
                                 firstArgNode.ResultType == context.SystemTypes.Object))
                             {
@@ -593,8 +593,8 @@ namespace CilJs.JsTranslation
                                 {
                                     thisArg = UnwrapReader(thisArg);
                                     arglist[0] = JSFactory.Call(
-                                        JSFactory.Identifier("CILJS", "box"), 
-                                        thisArg, 
+                                        JSFactory.Identifier("CILJS", "box"),
+                                        thisArg,
                                         GetTypeAccessor(pointerTargetType, thisScope));
                                 }
                             }
@@ -686,12 +686,12 @@ namespace CilJs.JsTranslation
                             id = node.Instruction.Data.ToString();
 
                         var idx = opc.Replace(".s", ".").Replace(".", "").Substring("ldarg".Length) + id;
-                        
+
                         if (inlineArgs != null)
                         {
                             return inlineArgs[int.Parse(idx)];
                         }
-                        
+
                         var result = new JSIdentifier
                         {
                             Name = "arg" + idx //"__args__[" + idx + "]"
@@ -881,17 +881,17 @@ namespace CilJs.JsTranslation
                             {
                                 Function = new JSFunctionDelcaration
                                 {
-                                    Body = 
+                                    Body =
                                     {
-                                        new JSCallExpression 
+                                        new JSCallExpression
                                         {
                                             Function = JSFactory.Identifier(
-                                                GetAssemblyIdentifier(methodBase.DeclaringType), 
+                                                GetAssemblyIdentifier(methodBase.DeclaringType),
                                                 GetMethodIdentifier(methodBase) + "_init")
                                         }.ToStatement(),
-                                        new JSReturnExpression 
-                                        { 
-                                            Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod, this.type.ReflectionType, thisScope) 
+                                        new JSReturnExpression
+                                        {
+                                            Expression = GetMethodAccessor(methodBase, this.method.ReflectionMethod, this.type.ReflectionType, thisScope)
                                         }.ToStatement()
                                     }
                                 }
@@ -956,8 +956,8 @@ namespace CilJs.JsTranslation
                     return new JSCallExpression
                     {
                         Function = JSFactory.Identifier("CILJS", "new_string"),
-                        Arguments = 
-                        { 
+                        Arguments =
+                        {
                             new JSStringLiteral
                             {
                                 Value = (string)node.Instruction.Data
@@ -977,9 +977,9 @@ namespace CilJs.JsTranslation
 
                             value = new JSObjectLiteral
                             {
-                                Properties = new Dictionary<string, JSExpression> 
-                                { 
-                                    { "type", GetTypeAccessor(fieldInfo.DeclaringType, thisScope) }, 
+                                Properties = new Dictionary<string, JSExpression>
+                                {
+                                    { "type", GetTypeAccessor(fieldInfo.DeclaringType, thisScope) },
                                     { "field", new JSStringLiteral { Value = GetTranslatedFieldName(fieldInfo) } }
                                 }
                             };
@@ -992,9 +992,9 @@ namespace CilJs.JsTranslation
 
                             value = new JSObjectLiteral
                             {
-                                Properties = new Dictionary<string, JSExpression> 
-                                { 
-                                    { "type", GetTypeAccessor(methodInfo.DeclaringType, thisScope) }, 
+                                Properties = new Dictionary<string, JSExpression>
+                                {
+                                    { "type", GetTypeAccessor(methodInfo.DeclaringType, thisScope) },
                                     { "field", new JSStringLiteral { Value = methodInfo.Name } }
                                 }
                             };
@@ -1016,8 +1016,8 @@ namespace CilJs.JsTranslation
                         return new JSCallExpression
                         {
                             Function = JSFactory.Identifier("CILJS", "new_handle"),
-                            Arguments = 
-                            { 
+                            Arguments =
+                            {
                                 handleType,
                                 value
                             }
@@ -1030,7 +1030,7 @@ namespace CilJs.JsTranslation
                     return new JSCallExpression
                     {
                         Function = JSFactory.Identifier("CILJS", "new_array"),
-                        Arguments = 
+                        Arguments =
                         {
                             GetTypeAccessor(elementType, thisScope),
                             length
@@ -1174,8 +1174,8 @@ namespace CilJs.JsTranslation
                         return new JSCallExpression
                         {
                             Function = JSFactory.Identifier("CILJS", "unbox_any"),
-                            Arguments = 
-                            { 
+                            Arguments =
+                            {
                                 prop,
                                 GetTypeAccessor(ttype, thisScope)
                             }
@@ -1199,8 +1199,8 @@ namespace CilJs.JsTranslation
             return new JSNewExpression
             {
                 Constructor = JSFactory.Identifier("Uint32Array"),
-                Arguments = 
-                { 
+                Arguments =
+                {
                     JSFactory.Array(low, high)
                 }
             };
@@ -1336,13 +1336,10 @@ namespace CilJs.JsTranslation
                 }
             }
 
-            return new JSCallExpression
+            return new JSPropertyAccessExpression
             {
-                Function = new JSPropertyAccessExpression
-                {
-                    Host = function,
-                    Property = GetMethodIdentifier(mi)
-                }
+                Host = function,
+                Property = GetMethodIdentifier(mi)
             };
         }
 

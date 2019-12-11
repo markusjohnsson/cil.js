@@ -21,10 +21,14 @@ type CilJsType = Function & {
     ArrayType: any;
     MetadataName: string;
 
-    Interfaces: any[];
+    Interfaces: CilJsType[];
     GenericArguments: any;
 
     Default: any;
+}
+
+type CilJsMethodMap = {
+    [m: string]: () => Function;
 }
 
 type CilJsLong = Uint32Array;
@@ -40,8 +44,8 @@ type CilJsArray = {
 
 type CilJsInstance = {
     constructor: CilJsType;
-    vtable: any;
-    ifacemap: any;
+    vtable: any; // CilJsMethodMap
+    ifacemap: any; // Tree<CilJsMethodMap>
     [s: string]: CilJsValue | CilJsInstance;
 };
 
@@ -212,24 +216,35 @@ namespace CILJS {
         type.Default = defaultValue;
     }
 
-    export function implement_interface(type: CilJsType, iface: CilJsType[], implementation: { [method: string]: Function }) {
-        type.Interfaces.push(iface[0]);
-        if (implementation !== null) {
-            tree_set(iface, type.prototype.ifacemap, implementation);
-        }
-    }
-
-    export function declare_virtual(type: CilJsType, slot: string, target: string) {
-        type.prototype.vtable[slot] = new Function('type', 'slot', 'target',
-            /* js */`
+    function make_trampoline(map: CilJsMethodMap, slot: string, target: string): () => Function {
+        return new Function('map', 'slot',
+            /* js */ `
                 return function (...args) {
                     if (${target}_init) {
                         ${target}_init(...args);
                     }
-                    type.prototype.vtable[slot] = ${target};
+                    map[slot] = ${target};
                     return ${target}(...args);
                 }
-            `, )(type, slot, target);
+            `)(map, slot);
+    }
+
+    export function implement_interface(type: CilJsType, iface: CilJsType[], implementation: [string, string][]) {
+        type.Interfaces.push(iface[0]);
+        if (implementation !== null) {
+            const map: CilJsMethodMap = {};
+            implementation.forEach(
+                curr => {
+                    const target = curr[1];
+                    const slot = curr[0];
+                    map[slot] = make_trampoline(map, slot, target)
+                });
+            tree_set(iface, type.prototype.ifacemap, map);
+        }
+    }
+
+    export function declare_virtual(type: CilJsType, slot: string, target: string) {
+        type.prototype.vtable[slot] = make_trampoline(type.prototype.vtable, slot, target)
     }
 
     export function is_inst_interface(interfaceType: CilJsType) {

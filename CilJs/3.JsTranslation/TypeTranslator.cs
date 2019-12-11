@@ -455,24 +455,22 @@ namespace CilJs.JsTranslation
                 .GetInterfaceMap(iface)
                 ;
 
-            return new JSObjectLiteral
+            return new JSArrayLiteral
             {
-                Properties = Enumerable
+                Values = Enumerable
                     .Zip(
                         map.InterfaceMethods,
                         map.TargetMethods,
                         (ifaceMethod, targetMethod) => new { ifaceMethod, targetMethod })
-                    .ToDictionary(
-                        m => GetMethodIdentifier(m.ifaceMethod),
-                        m => new JSFunctionDelcaration
+                    .Select(
+                        m => new JSArrayLiteral
                         {
                             Inline = true,
-                            Body =
-                            {
-                                //JSFactory.Return(GetMethodAccessor(m.targetMethod)).ToStatement()
-                                JSFactory.Return(GetUnboundMethodAccessor(m.targetMethod)).ToStatement()
+                            Values = new JSExpression[] {
+                                new JSStringLiteral { Value = GetMethodIdentifier(m.ifaceMethod) },
+                                new JSStringLiteral { Value = GetUnboundMethodAccessor(m.targetMethod).ToString() }
                             }
-                        } as JSExpression)
+                        })
             };
         }
 
