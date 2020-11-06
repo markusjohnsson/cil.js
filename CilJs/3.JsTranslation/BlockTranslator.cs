@@ -1,5 +1,6 @@
 using CilJs.Ast;
 using CilJs.JSAst;
+using CilJs.Loading;
 using CilJs.Loading.Model;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,8 @@ namespace CilJs.JsTranslation
         private JSExpression this_;
         private CilAssembly assembly;
 
-        public BlockTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, JSExpression this_)
-            : base(context)
+        public BlockTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, JSExpression this_, SourceMapBuilder sourceMapBuilder)
+            : base(context, sourceMapBuilder)
         {
             this.type = type;
             this.assembly = assembly;
@@ -33,7 +34,7 @@ namespace CilJs.JsTranslation
 
         private BlockBuilder CreateJsBlock(ProtectedRegion region, Block block, int depth, bool isSubBlock = false, bool isFinally = false)
         {
-            var opTranslator = new OpTranslator(context, assembly, type, method, block);
+            var opTranslator = new OpTranslator(context, assembly, type, method, block, sourceMapBuilder);
 
             var hasFinally = region != null && region.FinallyBlock != null;
             var hasBranching = block.GetAllLabels().Any(l => l.Position != 0);

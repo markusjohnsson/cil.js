@@ -67,7 +67,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 asm1.x600000e();
                 /* IL_01: ldsfld FuncX`2 <>9__0_0 */
                 st_00 = (t0)["<>9__0_0"];
@@ -80,7 +79,6 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_09: pop  */
-                
                 asm1.x600000e();
                 /* IL_0A: ldsfld <>c <>9 */
                 st_03 = (t0)["<>9"];
@@ -102,54 +100,46 @@ var asm1;(function (asm)
                 /* IL_2C: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("Lambda:"),CILJS.new_array(t1,(0|0)));
                 /* IL_31: nop  */
-                
                 /* IL_32: ldloc.0  */
                 /* IL_33: call Void WriteType(System.Delegate) */
                 asm1.x600000d(loc0);
                 /* IL_38: nop  */
-                
                 /* IL_39: ldstr Method (object): */
                 /* IL_3E: ldc.i4.0  */
                 /* IL_3F: newarr System.Object */
                 /* IL_44: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,(0|0)));
                 /* IL_49: nop  */
-                
                 /* IL_4A: ldnull  */
                 /* IL_4C: ldftn Object MethodObj(System.Object) */
                 /* IL_51: newobj Void .ctor(System.Object, System.IntPtr) */
                 /* IL_56: call Void WriteType(System.Delegate) */
                 asm1.x600000d(CILJS.newobj(t2,asm1.x6000001,[null, null, asm1.x600000a]));
                 /* IL_5B: nop  */
-                
                 /* IL_5C: ldstr Method (object): */
                 /* IL_61: ldc.i4.0  */
                 /* IL_62: newarr System.Object */
                 /* IL_67: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,(0|0)));
                 /* IL_6C: nop  */
-                
                 /* IL_6D: ldnull  */
                 /* IL_6F: ldftn Object MethodInt(System.Int32) */
                 /* IL_74: newobj Void .ctor(System.Object, System.IntPtr) */
                 /* IL_79: call Void WriteType(System.Delegate) */
                 asm1.x600000d(CILJS.newobj(t4,asm1.x6000001,[null, null, asm1.x600000b]));
                 /* IL_7E: nop  */
-                
                 /* IL_7F: ldstr Method (object): */
                 /* IL_84: ldc.i4.0  */
                 /* IL_85: newarr System.Object */
                 /* IL_8A: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,(0|0)));
                 /* IL_8F: nop  */
-                
                 /* IL_90: ldnull  */
                 /* IL_92: ldftn Object MethodString(System.String) */
                 /* IL_97: newobj Void .ctor(System.Object, System.IntPtr) */
                 /* IL_9C: call Void WriteType(System.Delegate) */
                 asm1.x600000d(CILJS.newobj(t6,asm1.x6000001,[null, null, asm1.x600000c]));
                 /* IL_A1: nop  */
-                
                 /* IL_A2: ret  */
                 return ;
             }
@@ -235,7 +225,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldarg.0  */
                 /* IL_02: isinst FuncX`1[System.Object] */
                 /* IL_07: ldnull  */
@@ -250,16 +239,13 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_0E: nop  */
-                
                 /* IL_0F: ldstr FuncX<object> */
                 /* IL_14: ldc.i4.0  */
                 /* IL_15: newarr System.Object */
                 /* IL_1A: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("FuncX<object>"),CILJS.new_array(t0,(0|0)));
                 /* IL_1F: nop  */
-                
                 /* IL_20: nop  */
-                
                 case 0x21:
                 /* IL_21: ldarg.0  */
                 /* IL_22: isinst FuncX`2[System.Object,System.Object] */
@@ -275,16 +261,13 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_2E: nop  */
-                
                 /* IL_2F: ldstr FuncX<object, object> */
                 /* IL_34: ldc.i4.0  */
                 /* IL_35: newarr System.Object */
                 /* IL_3A: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("FuncX<object, object>"),CILJS.new_array(t0,(0|0)));
                 /* IL_3F: nop  */
-                
                 /* IL_40: nop  */
-                
                 case 0x41:
                 /* IL_41: ldarg.0  */
                 /* IL_42: isinst FuncX`2[System.String,System.Object] */
@@ -300,16 +283,13 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_4E: nop  */
-                
                 /* IL_4F: ldstr FuncX<string, object> */
                 /* IL_54: ldc.i4.0  */
                 /* IL_55: newarr System.Object */
                 /* IL_5A: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("FuncX<string, object>"),CILJS.new_array(t0,(0|0)));
                 /* IL_5F: nop  */
-                
                 /* IL_60: nop  */
-                
                 case 0x61:
                 /* IL_61: ldarg.0  */
                 /* IL_62: isinst FuncX`2[System.Int32,System.Object] */
@@ -325,16 +305,13 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_6E: nop  */
-                
                 /* IL_6F: ldstr FuncX<int, object> */
                 /* IL_74: ldc.i4.0  */
                 /* IL_75: newarr System.Object */
                 /* IL_7A: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("FuncX<int, object>"),CILJS.new_array(t0,(0|0)));
                 /* IL_7F: nop  */
-                
                 /* IL_80: nop  */
-                
                 case 0x81:
                 /* IL_81: ret  */
                 return ;
@@ -476,6 +453,7 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000009;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=IsInstDelegate.cs.ciljs.exe.js.map

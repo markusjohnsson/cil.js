@@ -110,7 +110,6 @@ var asm1;(function (asm)
                 case 0x0:
                 /* IL_00: nop  */
                 
-                
                 try {
                     in_block_1 = true;
                     __finally_continuation_1__ = __pos__;
@@ -136,7 +135,6 @@ var asm1;(function (asm)
                                     switch (__pos__){
                                         case 0x1:
                                         /* IL_01: nop  */
-                                        
                                         /* IL_02: ldarg.0  */
                                         /* IL_03: throw  */
                                         throw arg0;
@@ -163,7 +161,6 @@ var asm1;(function (asm)
                                             /* IL_04: stloc.0  */
                                             loc0 = st_01;
                                             /* IL_05: nop  */
-                                            
                                             /* IL_06: ldloc.0  */
                                             /* IL_07: callvirt String get_Message() */
                                             /* IL_0C: ldc.i4.0  */
@@ -171,9 +168,7 @@ var asm1;(function (asm)
                                             /* IL_12: call Void WriteLine(System.String, System.Object[]) */
                                             asm0.x60000a2((loc0.vtable)["asm0.x60000a9"](loc0),CILJS.new_array(t0,(0|0)));
                                             /* IL_17: nop  */
-                                            
                                             /* IL_18: nop  */
-                                            
                                             /* IL_19: leave.s IL_49 */
                                             in_block_2 = false;
                                             __pos__ = 0x49;
@@ -198,7 +193,6 @@ var asm1;(function (asm)
                                             /* IL_1B: stloc.1  */
                                             loc1 = st_06;
                                             /* IL_1C: nop  */
-                                            
                                             /* IL_1D: ldloc.1  */
                                             /* IL_1E: callvirt String get_Message() */
                                             /* IL_23: ldc.i4.0  */
@@ -206,9 +200,7 @@ var asm1;(function (asm)
                                             /* IL_29: call Void WriteLine(System.String, System.Object[]) */
                                             asm0.x60000a2((loc1.vtable)["asm0.x60000a9"](loc1),CILJS.new_array(t0,(0|0)));
                                             /* IL_2E: nop  */
-                                            
                                             /* IL_2F: nop  */
-                                            
                                             /* IL_30: leave.s IL_49 */
                                             in_block_2 = false;
                                             __pos__ = 0x49;
@@ -233,7 +225,6 @@ var asm1;(function (asm)
                                             /* IL_32: stloc.2  */
                                             loc2 = st_0B;
                                             /* IL_33: nop  */
-                                            
                                             /* IL_34: ldloc.2  */
                                             /* IL_35: callvirt String get_Message() */
                                             /* IL_3A: ldc.i4.0  */
@@ -241,9 +232,7 @@ var asm1;(function (asm)
                                             /* IL_40: call Void WriteLine(System.String, System.Object[]) */
                                             asm0.x60000a2((loc2.vtable)["asm0.x60000a9"](loc2),CILJS.new_array(t0,(0|0)));
                                             /* IL_45: nop  */
-                                            
                                             /* IL_46: nop  */
-                                            
                                             /* IL_47: leave.s IL_49 */
                                             in_block_2 = false;
                                             __pos__ = 0x49;
@@ -276,16 +265,13 @@ var asm1;(function (asm)
                         switch (__pos__){
                             case 0x4B:
                             /* IL_4B: nop  */
-                            
                             /* IL_4C: ldstr Finally */
                             /* IL_51: ldc.i4.0  */
                             /* IL_52: newarr System.Object */
                             /* IL_57: call Void WriteLine(System.String, System.Object[]) */
                             asm0.x60000a2(CILJS.new_string("Finally"),CILJS.new_array(t0,(0|0)));
                             /* IL_5C: nop  */
-                            
                             /* IL_5D: nop  */
-                            
                             /* IL_5E: endfinally  */
                             in_block_1 = false;
                             __pos__ = __finally_continuation_1__;
@@ -386,6 +372,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000005;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Exceptions.cs.ciljs.exe.js.map

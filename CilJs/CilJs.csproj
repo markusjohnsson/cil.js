@@ -6,5 +6,6 @@
 
   <ItemGroup>
     <PackageReference Include="Managed.Reflection" Version="0.2.0" />
+    <PackageReference Include="System.Reflection.Metadata" Version="1.8.0" />
   </ItemGroup>
 </Project>

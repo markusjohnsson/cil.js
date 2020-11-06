@@ -6,4 +6,10 @@ namespace CilJs.Ast
     {
         public Type ResultType { get; set; }
     }
+
+    class AnnotatedNode : Node
+    {
+        public Node ChildNode { get; set; }
+        public string Annotation { get; set; }
+    }
 }

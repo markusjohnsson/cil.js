@@ -115,6 +115,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Class01.cs.ciljs.exe.js.map

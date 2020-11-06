@@ -121,7 +121,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldarg.0  */
                 /* IL_02: isinst A */
                 /* IL_07: brfalse.s IL_10 */
@@ -146,7 +145,6 @@ var asm1;(function (asm)
                 /* IL_1B: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(st_03,st_04);
                 /* IL_20: nop  */
-                
                 /* IL_21: ret  */
                 return ;
             }
@@ -174,7 +172,6 @@ var asm1;(function (asm)
                 switch (__pos__){
                     case 0x0:
                     /* IL_00: nop  */
-                    
                     /* IL_01: ldarg.0  */
                     /* IL_02: isinst T */
                     /* IL_07: unbox.any T */
@@ -201,7 +198,6 @@ var asm1;(function (asm)
                     /* IL_25: call Void WriteLine(System.String, System.Object[]) */
                     asm0.x60000a2(st_05,st_06);
                     /* IL_2A: nop  */
-                    
                     /* IL_2B: ret  */
                     return ;
                 }
@@ -287,6 +283,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=As.cs.ciljs.exe.js.map

@@ -207,6 +207,7 @@ var asm1;(function (asm)
         "function D_1() { c.init();this._invocationList = null;this._methodPtr = null;this._target = null }");
     asm.entryPoint = asm.x6000005;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=NestedGenericDelegate.cs.ciljs.exe.js.map

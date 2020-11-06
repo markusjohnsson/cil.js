@@ -56,20 +56,37 @@ namespace CilJs
                     staticAnalyzer.Analyze(asm);
                 }
 
-                var translator = new AssemblyTranslator(ctx);
+                var absPath = Path.GetFullPath(settings.OutputFileName);
+                var filename = Path.GetFileName(absPath);
+                var sourceMapBuilder = new SourceMapBuilder(filename, Path.GetDirectoryName(absPath) + Path.DirectorySeparatorChar);
+                var translator = new AssemblyTranslator(ctx, sourceMapBuilder);
 
                 foreach (var asm in asms)
                 {
                     if (!asm.Settings.Translate)
                         continue;
-                    
+
                     using (var writer = GetTextWriter(outputNames, asm))
                     {
                         var emitter = new Emitter(new Formatting(), writer);
                         foreach (var statement in translator.Translate(asms, asm))
                             statement.Emit(emitter);
+
                         writer.WriteLine();
+                        if (asm.Settings.SourceMap)
+                        {
+                            writer.WriteLine($"//# sourceMappingURL={filename}.map");
+                        }
                     }
+
+                    if (asm.Settings.SourceMap)
+                    {
+                        using (var writer = GetTextWriter(outputNames, asm, sourceMap: true))
+                        {
+                            sourceMapBuilder.Write(writer);
+                        }
+                    }
+
                 }
 
                 var entrypointAssembly = ctx
@@ -113,18 +130,25 @@ namespace CilJs
             }
         }
 
-        private TextWriter GetTextWriter(List<string> outputNames, Ast.CilAssembly asm)
+        private TextWriter GetTextWriter(List<string> outputNames, Ast.CilAssembly asm, bool sourceMap = false)
         {
-            if (settings.TextWriter != null)
+            if (settings.TextWriter != null && !sourceMap)
                 return settings.TextWriter;
+
+            if (settings.SourceMapTextWriter != null && sourceMap)
+                return settings.SourceMapTextWriter;
 
             string outputFileName;
 
             if (settings.OutputFileName != null)
-                outputFileName = settings.OutputFileName;
+            {
+                outputFileName = settings.OutputFileName + (sourceMap ? ".map" : "");
+                if (sourceMap)
+                    File.Delete(outputFileName);
+            }
             else
             {
-                outputFileName = asm.ReflectionAssembly.GetName().Name + ".js";
+                outputFileName = asm.ReflectionAssembly.GetName().Name + ".js" + (sourceMap ? ".map" : "");
                 File.Delete(outputFileName);
 
                 outputNames.Add(outputFileName);
@@ -133,7 +157,7 @@ namespace CilJs
             var stream = File.Open(outputFileName, FileMode.OpenOrCreate, FileAccess.Write);
 
             stream.Seek(0, SeekOrigin.End);
-            
+
             return new StreamWriter(stream);
         }
 
@@ -155,7 +179,7 @@ namespace CilJs
             }
         }
 
-        private Stream GetRuntimeJsResource() 
+        private Stream GetRuntimeJsResource()
         {
             return File.OpenRead("../CilJs.Runtime/Runtime.js");
         }

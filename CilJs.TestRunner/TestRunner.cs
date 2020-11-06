@@ -8,6 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
 using Microsoft.Extensions.DependencyModel;
+using Microsoft.CodeAnalysis.Emit;
+using System.Text;
 
 namespace CilJs.TestRunner
 {
@@ -26,6 +28,7 @@ namespace CilJs.TestRunner
         {
             public string path;
             public bool translate = true;
+            public bool sourceMap = true;
         }
 
         private static string jsCorlib;
@@ -54,7 +57,7 @@ namespace CilJs.TestRunner
                         File.GetLastWriteTime(corlib) > File.GetLastWriteTime(corlibOutput) ||
                         File.GetLastWriteTime(typeof(Compiler).GetTypeInfo().Assembly.Location) > File.GetLastWriteTime(corlibOutput))
                     {
-                        CilToJavaScript(corlib, null, corlibOutput, null, ciljsRefs, errors, outputRuntimeJs: false);
+                        CilToJavaScript(corlib, null, null, corlibOutput, null, ciljsRefs, errors, sourceMaps: true);
 
                         if (errors.Any())
                         {
@@ -69,11 +72,6 @@ namespace CilJs.TestRunner
 
             timings.Add(new Timing("Translate corlib: ", time.ElapsedMilliseconds));
 
-            // clrRefs.Add(new Ref { path = typeof(Console).GetTypeInfo().Assembly.Location, translate = false });
-            // clrRefs.Add(new Ref { path = typeof(IEnumerable<>).GetTypeInfo().Assembly.Location, translate = false });
-
-            // clrRefs.Add(new Ref{ path = @"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETCore\v4.5.1\System.Runtime.dll", translate = false});
-            // clrRefs.Add(new Ref { path = typeof(Console).GetTypeInfo().Assembly.Location, translate = false });
             var dd = typeof(Enumerable).GetTypeInfo().Assembly.Location;
             var coreDir = Directory.GetParent(dd);
 
@@ -81,7 +79,7 @@ namespace CilJs.TestRunner
             clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Runtime.Extensions.dll"), translate = false });
             clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Console.dll"), translate = false });
             clrRefs.Add(new Ref { path = Path.Combine(Directory.GetCurrentDirectory(), "System.Reflection.dll"), translate = false });
-            
+
             ciljsRefs.Add(new Ref { path = corlib, translate = false });
 
             string clrProgramOutputName = null;
@@ -103,7 +101,7 @@ namespace CilJs.TestRunner
             var programStream = new MemoryStream();
 
             // using (var programOutput = File.OpenWrite(clrProgramOutputName))
-            CSharpToCil(csProgramFile, clrProgramOutputName, clrRefs, programStream, errors);
+            CSharpToCil(csProgramFile, clrProgramOutputName, clrRefs, programStream, null, errors);
 
             timings.Add(new Timing("Compile C# for CLR: ", time.ElapsedMilliseconds));
 
@@ -126,8 +124,9 @@ namespace CilJs.TestRunner
 
             // Compile CilJs-version of exe
             using (var programOutput = new MemoryStream())
+            using (var pdbOutput = new MemoryStream())
             {
-                CSharpToCil(csProgramFile, ciljsProgramOutputName, ciljsRefs, programOutput, errors);
+                CSharpToCil(csProgramFile, ciljsProgramOutputName, ciljsRefs, programOutput, pdbOutput, errors);
 
                 timings.Add(new Timing("Compile C# for ciljs: ", time.ElapsedMilliseconds));
 
@@ -139,13 +138,16 @@ namespace CilJs.TestRunner
                 }
 
                 programOutput.Seek(0, SeekOrigin.Begin);
+                pdbOutput.Seek(0, SeekOrigin.Begin);
 
                 time.Restart();
 
                 var stringWriter = new StringWriter();
+                var sourceMapWriter = new StringWriter();
                 var entryPoint = CilToJavaScript(
                     ciljsProgramOutputName,
                     programOutput,
+                    pdbOutput,
                     ciljsProgramOutputName + ".js",
                     stringWriter,
                     ciljsRefs,
@@ -257,28 +259,31 @@ namespace CilJs.TestRunner
         private string CilToJavaScript(
             string mainAssemblyName,
             Stream mainAssembly,
+            Stream pdbStream,
             string outputName,
             TextWriter writer,
             List<Ref> refs,
             List<string> errors,
-            bool outputRuntimeJs = false)
+            TextWriter sourceMapWriter = null,
+            bool sourceMaps = false)
         {
             try
             {
                 var settings = new CompileSettings();
 
                 foreach (var r in refs)
-                    settings.AddAssembly(r.path, translate: r.translate);
+                    settings.AddAssembly(r.path, translate: r.translate, sourceMap: sourceMaps);
 
-                settings.OutputRuntimeJs = outputRuntimeJs;
+                settings.OutputRuntimeJs = false;
 
                 if (mainAssembly != null)
-                    settings.AddAssembly(stream: mainAssembly, assemblyPath: mainAssemblyName, translate: true);
+                    settings.AddAssembly(stream: mainAssembly, pdbStream: pdbStream, assemblyPath: mainAssemblyName, translate: true);
                 else
-                    settings.AddAssembly(mainAssemblyName, translate: true);
+                    settings.AddAssembly(mainAssemblyName, translate: true, sourceMap: sourceMaps);
 
                 settings.OutputFileName = outputName;
                 settings.TextWriter = writer;
+                settings.SourceMapTextWriter = sourceMapWriter;
                 settings.OutputILComments = true;
 
                 var compiler = new Compiler(settings);
@@ -294,18 +299,23 @@ namespace CilJs.TestRunner
             return null;
         }
 
-        private void CSharpToCil(string csFile, string outputName, List<Ref> refs, Stream output, List<string> errors)
+        private void CSharpToCil(string csFile, string outputName, List<Ref> refs, Stream output, Stream pdbOutput, List<string> errors)
         {
             var mrefs = refs.Select(r => MetadataReference.CreateFromFile(r.path));
 
             var compilation = CSharpCompilation.Create(
                 Path.GetFileNameWithoutExtension(outputName),
-                syntaxTrees: new[] { CSharpSyntaxTree.ParseText(File.ReadAllText(csFile)) },
+                syntaxTrees: new[] { CSharpSyntaxTree.ParseText(File.ReadAllText(csFile), path: Path.GetFullPath(csFile), encoding: Encoding.UTF8) },
                 references: mrefs.ToArray(),
                 options: new CSharpCompilationOptions(OutputKind.ConsoleApplication)
-                    .WithAllowUnsafe(true));
+                    .WithAllowUnsafe(true)
 
-            var results = compilation.Emit(output);
+                    );
+
+            var results = compilation.Emit(
+                output,
+                pdbOutput,
+                options: new EmitOptions(debugInformationFormat: DebugInformationFormat.PortablePdb));
 
             if (results.Success == false)
             {

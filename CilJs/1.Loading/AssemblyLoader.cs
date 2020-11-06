@@ -1,9 +1,7 @@
 ﻿using CilJs.Ast;
 using CilJs.Loading.Model;
 using Managed.Reflection;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -21,7 +19,7 @@ namespace CilJs.Loading
         public Context Load()
         {
             var universe = new Universe();
-            
+
             var allPaths = new HashSet<string>(settings.Assemblies.Select(k => Path.GetFileNameWithoutExtension(k.Path)));
 
             var dependencyOrdered = settings.Assemblies
@@ -54,7 +52,12 @@ namespace CilJs.Loading
 
                 if (allPaths.Add(r.Name) && File.Exists(path))
                 {
-                    var asmSettings = new AssemblySettings { Path = path, Translate = true };
+                    var asmSettings = new AssemblySettings
+                    {
+                        Path = path,
+                        Translate = p.Translate,
+                        SourceMap = p.SourceMap
+                    };
 
                     foreach (var sub in AddReferencedAssemblies(universe, allPaths, asmSettings))
                         yield return sub;
@@ -86,6 +89,23 @@ namespace CilJs.Loading
             foreach (var type in asm.GetTypes())
             {
                 types.Add(ProcessType(type));
+            }
+
+            if (data.Settings.SourceMap)
+            {
+                if (data.Settings.PdbStream != null)
+                {
+                    var debugLoader = new DebugInfoLoader(data.Settings.PdbStream);
+                    debugLoader.ReadDebugInfo(result);
+                }
+                else if (File.Exists(Path.ChangeExtension(data.Settings.Path, "pdb")))
+                {
+                    using (var pdbFile = File.OpenRead(Path.ChangeExtension(data.Settings.Path, "pdb")))
+                    {
+                        var debugLoader = new DebugInfoLoader(pdbFile);
+                        debugLoader.ReadDebugInfo(result);
+                    }
+                }
             }
 
             return result;

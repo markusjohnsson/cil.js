@@ -19,7 +19,7 @@ namespace CilJs.JSAst
             foreach (var part in GetParts())
             {
                 if (part is TemplateToken)
-                    emitter.EmitString(((TemplateToken)part).Value);
+                    emitter.EmitMultiLine(((TemplateToken)part).Value);
                 if (part is PlaceToken)
                     Arguments[((PlaceToken)part).Index].Emit(emitter);
             }

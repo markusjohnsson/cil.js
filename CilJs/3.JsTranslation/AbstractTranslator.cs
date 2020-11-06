@@ -11,10 +11,12 @@ namespace CilJs.JsTranslation
     abstract class AbstractTranslator
     {
         protected readonly Context context;
+        protected readonly SourceMapBuilder sourceMapBuilder;
 
-        public AbstractTranslator(Context context)
+        public AbstractTranslator(Context context, SourceMapBuilder sourceMapBuilder)
         {
             this.context = context;
+            this.sourceMapBuilder = sourceMapBuilder;
         }
 
         protected JSIdentifier GetAssemblyIdentifier(Type type)

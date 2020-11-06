@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CilJs.JSAst
 {
     class JSObjectLiteral : JSExpression
     {
+        static Regex identifierRegex = new Regex(@"^\w+$");
         public IEnumerable<KeyValuePair<string, JSExpression>> Properties { get; set; }
 
         public JSObjectLiteral()
@@ -41,9 +43,16 @@ namespace CilJs.JSAst
 
                     first = false;
 
-                    emitter.EmitString("'");
-                    emitter.EmitString(prop.Key);
-                    emitter.EmitString("'");
+                    if (identifierRegex.IsMatch(prop.Key))
+                    {
+                        emitter.EmitString(prop.Key);
+                    }
+                    else
+                    {
+                        emitter.EmitString("\"");
+                        emitter.EmitString(prop.Key);
+                        emitter.EmitString("\"");
+                    }
                     emitter.EmitString(": ");
                     emitter.Emit(prop.Value);
                 }

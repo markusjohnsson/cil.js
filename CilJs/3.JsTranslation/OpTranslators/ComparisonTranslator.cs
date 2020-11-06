@@ -10,8 +10,8 @@ namespace CilJs.JsTranslation.OpTranslators
 {
     class ComparisonTranslator: OpTranslator
     {
-        public ComparisonTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block)
-            : base(context, assembly, type, method, block)
+        public ComparisonTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block, SourceMapBuilder sourceMapBuilder)
+            : base(context, assembly, type, method, block, sourceMapBuilder)
         {
         }
 

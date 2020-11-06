@@ -7,7 +7,6 @@ namespace CilJs.JSAst
     {
         public readonly static JSFunctionDelcaration Empty = new JSFunctionDelcaration();
 
-        public bool Inline { get; set; }
         public string Name { get; set; }
         public List<JSStatement> Body { get; set; }
         public List<JSFunctionParameter> Parameters { get; set; }
@@ -45,9 +44,7 @@ namespace CilJs.JSAst
 
             emitter.EmitString(")");
 
-
-            if (!Inline)
-                emitter.EmitNewLineAndIndentation();
+            emitter.EmitNewLineAndIndentation();
 
             emitter.EmitString("{");
             emitter.Formatting.IncreaseIndentation();
@@ -62,8 +59,7 @@ namespace CilJs.JSAst
                 {
                     foreach (var v in variables)
                     {
-                        if (false == Inline)
-                            emitter.EmitNewLineAndIndentation();
+                        emitter.EmitNewLineAndIndentation();
 
                         emitter.EmitString("var ");
                         emitter.EmitString(v);
@@ -77,15 +73,8 @@ namespace CilJs.JSAst
 
                     foreach (var p in Body)
                     {
-                        if (false == Inline && emitter.Position != lastPos)
-                        {
+                        if (emitter.Position != lastPos)
                             emitter.EmitNewLineAndIndentation();
-                        }
-
-                        if (Inline)
-                        {
-                            emitter.EmitString(" ");
-                        }
 
                         lastPos = emitter.Position;
 
@@ -96,8 +85,7 @@ namespace CilJs.JSAst
             
             emitter.Formatting.DecreaseIndentation();
 
-            if (!Inline)
-                emitter.EmitNewLineAndIndentation();
+            emitter.EmitNewLineAndIndentation();
 
             emitter.EmitString("}");
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -87,6 +88,11 @@ namespace CilJs.JSAst
         public static JSStatement Statement(JSExpression s)
         {
             return new JSExpressionStatement(s);
+        }
+
+        internal static JSStatement EmitCallback(Func<Emitter, IEnumerable<JSStatement>> p)
+        {
+            return new JSEmitCallbackExpression(p);
         }
 
         public static JSStatement RawStatement(string p)
@@ -186,6 +192,11 @@ namespace CilJs.JSAst
         public static JSExpression Return(JSExpression e)
         {
             return new JSReturnExpression { Expression = e };
+        }
+
+        public static JSExpression Comment(string s)
+        {
+            return new JSLineComment { Text = s };
         }
     }
 }

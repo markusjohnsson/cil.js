@@ -6,20 +6,6 @@ using System.Text;
 
 namespace CilJs.JSAst
 {
-    class JSRaw : JSExpression
-    {
-        public string Value { get; set; }
-
-        public override void Emit(Emitter emitter)
-        {
-            emitter.EmitString(Value);
-        }
-
-        public override IEnumerable<JSExpression> GetChildren()
-        {
-            yield break;
-        }
-    }
 
     class JSIdentifier : JSExpression
     {

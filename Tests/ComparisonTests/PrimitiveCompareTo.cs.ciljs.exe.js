@@ -118,7 +118,6 @@ var asm1;(function (asm)
                 case 0x0:
                 /* IL_00: nop  */
                 
-                
                 try {
                     in_block_1 = true;
                     
@@ -131,7 +130,6 @@ var asm1;(function (asm)
                         switch (__pos__){
                             case 0x1:
                             /* IL_01: nop  */
-                            
                             /* IL_02: ldarg.0  */
                             /* IL_03: ldarg.1  */
                             /* IL_04: callvirt Int32 CompareTo(System.Object) */
@@ -139,9 +137,7 @@ var asm1;(function (asm)
                             /* IL_0E: call Void WriteLine(System.Object) */
                             asm0.x60000a1(CILJS.make_box(((arg0.ifacemap)[t0].x6000109)(CILJS.convert_box_to_pointer_as_needed(arg0),arg1),t1));
                             /* IL_13: nop  */
-                            
                             /* IL_14: nop  */
-                            
                             /* IL_15: leave.s IL_3F */
                             in_block_1 = false;
                             __pos__ = 0x3F;
@@ -169,14 +165,12 @@ var asm1;(function (asm)
                                 /* IL_17: stloc.0  */
                                 loc0 = st_04;
                                 /* IL_18: nop  */
-                                
                                 /* IL_19: ldstr threw */
                                 /* IL_1E: ldc.i4.0  */
                                 /* IL_1F: newarr System.Object */
                                 /* IL_24: call Void WriteLine(System.String, System.Object[]) */
                                 asm0.x60000a2(CILJS.new_string("threw"),CILJS.new_array(t2,(0|0)));
                                 /* IL_29: nop  */
-                                
                                 /* IL_2A: ldloc.0  */
                                 /* IL_2B: callvirt String get_Message() */
                                 /* IL_30: ldc.i4.0  */
@@ -184,9 +178,7 @@ var asm1;(function (asm)
                                 /* IL_36: call Void WriteLine(System.String, System.Object[]) */
                                 asm0.x60000a2((loc0.vtable)["asm0.x60000a9"](loc0),CILJS.new_array(t2,(0|0)));
                                 /* IL_3B: nop  */
-                                
                                 /* IL_3C: nop  */
-                                
                                 /* IL_3D: leave.s IL_3F */
                                 in_block_1 = false;
                                 __pos__ = 0x3F;
@@ -234,6 +226,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=PrimitiveCompareTo.cs.ciljs.exe.js.map

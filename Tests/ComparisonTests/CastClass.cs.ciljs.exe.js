@@ -135,7 +135,6 @@ var asm1;(function (asm)
                     case 0x0:
                     /* IL_00: nop  */
                     
-                    
                     try {
                         in_block_1 = true;
                         
@@ -148,7 +147,6 @@ var asm1;(function (asm)
                             switch (__pos__){
                                 case 0x1:
                                 /* IL_01: nop  */
-                                
                                 /* IL_02: ldarg.0  */
                                 /* IL_03: unbox.any T */
                                 /* IL_08: box T */
@@ -160,9 +158,7 @@ var asm1;(function (asm)
                                 /* IL_19: call Void WriteLine(System.String, System.Object[]) */
                                 asm0.x60000a2(CILJS.new_string("Success"),CILJS.new_array(t1,(0|0)));
                                 /* IL_1E: nop  */
-                                
                                 /* IL_1F: nop  */
-                                
                                 /* IL_20: leave.s IL_38 */
                                 in_block_1 = false;
                                 __pos__ = 0x38;
@@ -188,18 +184,14 @@ var asm1;(function (asm)
                                     st_06 = __error__;
                                     __error_handled_1__ = true;
                                     /* IL_22: pop  */
-                                    
                                     /* IL_23: nop  */
-                                    
                                     /* IL_24: ldstr Failure */
                                     /* IL_29: ldc.i4.0  */
                                     /* IL_2A: newarr System.Object */
                                     /* IL_2F: call Void WriteLine(System.String, System.Object[]) */
                                     asm0.x60000a2(CILJS.new_string("Failure"),CILJS.new_array(t1,(0|0)));
                                     /* IL_34: nop  */
-                                    
                                     /* IL_35: nop  */
-                                    
                                     /* IL_36: leave.s IL_38 */
                                     in_block_1 = false;
                                     __pos__ = 0x38;
@@ -299,6 +291,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000004;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=CastClass.cs.ciljs.exe.js.map

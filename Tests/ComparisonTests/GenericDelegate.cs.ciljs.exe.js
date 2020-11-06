@@ -70,7 +70,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 asm1.x600000a();
                 /* IL_01: ldsfld MFunc`2 <>9__0_0 */
                 st_00 = (t0)["<>9__0_0"];
@@ -83,7 +82,6 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_09: pop  */
-                
                 asm1.x600000a();
                 /* IL_0A: ldsfld <>c <>9 */
                 st_03 = (t0)["<>9"];
@@ -104,7 +102,6 @@ var asm1;(function (asm)
                 /* IL_20: call Void CallDelegate(MFunc`2[IntWrapper,StringWrapper]) */
                 asm1.x6000008(st_07);
                 /* IL_25: nop  */
-                
                 /* IL_26: ret  */
                 return ;
             }
@@ -335,6 +332,7 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000007;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=GenericDelegate.cs.ciljs.exe.js.map

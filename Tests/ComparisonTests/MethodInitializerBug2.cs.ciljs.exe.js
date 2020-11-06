@@ -41,7 +41,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldarg.1  */
                 /* IL_02: isinst T[] */
                 /* IL_07: ldnull  */
@@ -293,6 +292,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=MethodInitializerBug2.cs.ciljs.exe.js.map

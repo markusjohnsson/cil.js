@@ -120,11 +120,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_0B: ldloca.s 0 */
         st_01 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -185,6 +185,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=StructArray.cs.ciljs.exe.js.map

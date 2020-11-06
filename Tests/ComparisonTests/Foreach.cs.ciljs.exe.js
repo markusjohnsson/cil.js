@@ -170,12 +170,10 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: newobj Void .ctor() */
                 /* IL_06: stloc.0  */
                 loc0 = CILJS.newobj(t0,asm1.x6000002,[null]);
                 /* IL_07: nop  */
-                
                 /* IL_08: ldloc.0  */
                 /* IL_09: callvirt Iter GetEnumerator() */
                 /* IL_0E: stloc.1  */
@@ -202,15 +200,12 @@ var asm1;(function (asm)
                             /* IL_17: stloc.2  */
                             loc2 = asm1.x6000005(loc1);
                             /* IL_18: nop  */
-                            
                             /* IL_19: ldloc.2  */
                             /* IL_1A: box System.Int32 */
                             /* IL_1F: call Void WriteLine(System.Object) */
                             asm0.x60000a1(CILJS.make_box(loc2,t1));
                             /* IL_24: nop  */
-                            
                             /* IL_25: nop  */
-                            
                             case 0x26:
                             /* IL_26: ldloc.1  */
                             /* IL_27: callvirt Boolean MoveNext() */
@@ -252,7 +247,6 @@ var asm1;(function (asm)
                             /* IL_3B: callvirt Void Dispose() */
                             ((loc3.ifacemap)[t2].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc3));
                             /* IL_40: nop  */
-                            
                             case 0x41:
                             /* IL_41: endfinally  */
                             in_block_1 = false;
@@ -336,6 +330,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Foreach.cs.ciljs.exe.js.map

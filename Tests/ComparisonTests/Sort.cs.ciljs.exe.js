@@ -43,7 +43,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldarg.0  */
                 /* IL_02: ldfld String name */
                 /* IL_07: call Boolean IsNullOrEmpty(System.String) */
@@ -64,11 +63,11 @@ var asm1;(function (asm)
                 /* IL_19: call String ToString() */
                 /* IL_1E: stloc.2  */
                 loc2 = asm0.x6000180({
-                        'w': function (v)
+                        w: function (v)
                         {
                             loc1 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return loc1;
                         }
@@ -191,7 +190,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldarg.1  */
                 /* IL_02: isinst Baz */
                 /* IL_07: stloc.0  */
@@ -497,14 +495,12 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldstr Ascending */
                 /* IL_06: ldc.i4.0  */
                 /* IL_07: newarr System.Object */
                 /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("Ascending"),CILJS.new_array(t0,(0|0)));
                 /* IL_11: nop  */
-                
                 /* IL_12: call Baz[] CreateBazCollection() */
                 /* IL_17: stloc.0  */
                 loc0 = asm1.x600000b();
@@ -513,7 +509,6 @@ var asm1;(function (asm)
                 /* IL_1E: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz]) */
                 (asm0.x6000122(asm1.Baz()))(loc0,CILJS.newobj(t1,asm1.x600000a,[null]));
                 /* IL_23: nop  */
-                
                 /* IL_24: ldc.i4.0  */
                 /* IL_25: stloc.2  */
                 loc2 = (0|0);
@@ -537,16 +532,13 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x28:
                         /* IL_28: nop  */
-                        
                         /* IL_29: ldloc.0  */
                         /* IL_2A: ldloc.2  */
                         /* IL_2B: ldelem.ref  */
                         /* IL_2C: call Void WriteLine(System.Object) */
                         asm0.x60000a1(CILJS.ldelem_ref(loc0,loc2));
                         /* IL_31: nop  */
-                        
                         /* IL_32: nop  */
-                        
                         /* IL_33: ldloc.2  */
                         /* IL_34: ldc.i4.1  */
                         /* IL_35: add  */
@@ -580,7 +572,6 @@ var asm1;(function (asm)
                 /* IL_4C: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(CILJS.new_string("Descending"),CILJS.new_array(t0,(0|0)));
                 /* IL_51: nop  */
-                
                 /* IL_52: call Baz[] CreateBazCollection() */
                 /* IL_57: stloc.1  */
                 loc1 = asm1.x600000b();
@@ -589,7 +580,6 @@ var asm1;(function (asm)
                 /* IL_5E: call Void Sort[Baz](Baz[], System.Collections.Generic.IComparer`1[Baz]) */
                 (asm0.x6000122(asm1.Baz()))(loc1,CILJS.newobj(t3,asm1.x6000008,[null]));
                 /* IL_63: nop  */
-                
                 /* IL_64: ldc.i4.0  */
                 /* IL_65: stloc.s 4 */
                 loc4 = (0|0);
@@ -613,16 +603,13 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x69:
                         /* IL_69: nop  */
-                        
                         /* IL_6A: ldloc.1  */
                         /* IL_6B: ldloc.s 4 */
                         /* IL_6D: ldelem.ref  */
                         /* IL_6E: call Void WriteLine(System.Object) */
                         asm0.x60000a1(CILJS.ldelem_ref(loc1,loc4));
                         /* IL_73: nop  */
-                        
                         /* IL_74: nop  */
-                        
                         /* IL_75: ldloc.s 4 */
                         /* IL_77: ldc.i4.1  */
                         /* IL_78: add  */
@@ -758,6 +745,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x600000c;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Sort.cs.ciljs.exe.js.map

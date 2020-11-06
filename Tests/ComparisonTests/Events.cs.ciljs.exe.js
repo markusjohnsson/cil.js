@@ -100,7 +100,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 asm1.x6000006();
                 /* IL_01: ldsfld EventHandler <>9__3_0 */
                 st_00 = (t0)["<>9__3_0"];
@@ -113,7 +112,6 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_09: pop  */
-                
                 asm1.x6000006();
                 /* IL_0A: ldsfld <>c <>9 */
                 st_03 = (t0)["<>9"];
@@ -130,14 +128,12 @@ var asm1;(function (asm)
                 /* IL_20: call Void add_MyEvent(System.EventHandler) */
                 asm1.x6000001(st_07);
                 /* IL_25: nop  */
-                
                 /* IL_26: ldnull  */
                 /* IL_28: ldftn Void Handler(System.Object, System.EventArgs) */
                 /* IL_2D: newobj Void .ctor(System.Object, System.IntPtr) */
                 /* IL_32: call Void add_MyEvent(System.EventHandler) */
                 asm1.x6000001(CILJS.newobj(t1,asm0.x60000c1,[null, null, asm1.x6000004]));
                 /* IL_37: nop  */
-                
                 asm0.x6000061();
                 /* IL_38: ldsfld EventHandler MyEvent */
                 /* IL_3D: newobj Void .ctor() */
@@ -145,14 +141,12 @@ var asm1;(function (asm)
                 /* IL_47: callvirt Void Invoke(System.Object, System.EventArgs) */
                 ((t2.MyEvent._target) ? (t2.MyEvent._methodPtr(t2.MyEvent._target,CILJS.newobj(t3,asm0.x60000c5,[null]),CILJS.newobj(t4,asm0.x6000060,[null]))) : (t2.MyEvent._methodPtr(CILJS.newobj(t3,asm0.x60000c5,[null]),CILJS.newobj(t4,asm0.x6000060,[null]))));
                 /* IL_4C: nop  */
-                
                 /* IL_4D: ldnull  */
                 /* IL_4F: ldftn Void Handler(System.Object, System.EventArgs) */
                 /* IL_54: newobj Void .ctor(System.Object, System.IntPtr) */
                 /* IL_59: call Void remove_MyEvent(System.EventHandler) */
                 asm1.x6000002(CILJS.newobj(t1,asm0.x60000c1,[null, null, asm1.x6000004]));
                 /* IL_5E: nop  */
-                
                 asm0.x6000061();
                 /* IL_5F: ldsfld EventHandler MyEvent */
                 /* IL_64: newobj Void .ctor() */
@@ -160,7 +154,6 @@ var asm1;(function (asm)
                 /* IL_6E: callvirt Void Invoke(System.Object, System.EventArgs) */
                 ((t2.MyEvent._target) ? (t2.MyEvent._methodPtr(t2.MyEvent._target,CILJS.newobj(t3,asm0.x60000c5,[null]),CILJS.newobj(t4,asm0.x6000060,[null]))) : (t2.MyEvent._methodPtr(CILJS.newobj(t3,asm0.x60000c5,[null]),CILJS.newobj(t4,asm0.x6000060,[null]))));
                 /* IL_73: nop  */
-                
                 /* IL_74: ret  */
                 return ;
             }
@@ -279,6 +272,7 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000003;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Events.cs.ciljs.exe.js.map

@@ -69,7 +69,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldloca.s 0 */
                 /* IL_04: initobj A`1[System.Int32] */
                 loc0 = new t1();
@@ -83,28 +82,25 @@ var asm1;(function (asm)
                 /* IL_1D: call Void WriteLine(System.Object) */
                 asm0.x60000a1(CILJS.make_box(loc0.X,t0));
                 /* IL_22: nop  */
-                
                 /* IL_23: ldloca.s 0 */
                 /* IL_25: call Void Reset() */
                 asm1.x6000001({
-                        'w': function (v)
+                        w: function (v)
                         {
                             loc0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return loc0;
                         }
                     });
                 /* IL_2A: nop  */
-                
                 /* IL_2B: ldloc.0  */
                 /* IL_2C: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_31: box System.Int32 */
                 /* IL_36: call Void WriteLine(System.Object) */
                 asm0.x60000a1(CILJS.make_box(loc0.X,t0));
                 /* IL_3B: nop  */
-                
                 /* IL_3C: ldloca.s 1 */
                 /* IL_3F: initobj A`1[B] */
                 loc1 = new t3();
@@ -136,21 +132,19 @@ var asm1;(function (asm)
                 /* IL_6A: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(st_10,st_11);
                 /* IL_6F: nop  */
-                
                 /* IL_70: ldloca.s 1 */
                 /* IL_72: call Void Reset() */
                 asm1.x6000001({
-                        'w': function (v)
+                        w: function (v)
                         {
                             loc1 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return loc1;
                         }
                     });
                 /* IL_77: nop  */
-                
                 /* IL_78: ldloc.1  */
                 /* IL_79: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_7E: brfalse.s IL_87 */
@@ -175,7 +169,6 @@ var asm1;(function (asm)
                 /* IL_92: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(st_16,st_17);
                 /* IL_97: nop  */
-                
                 /* IL_98: ret  */
                 return ;
             }
@@ -246,6 +239,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000003;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=DefaultOnRefStructBug.cs.ciljs.exe.js.map

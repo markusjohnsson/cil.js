@@ -72,7 +72,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldc.i4.0  */
                 /* IL_02: stloc.0  */
                 loc0 = (0|0);
@@ -96,7 +95,6 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x5:
                         /* IL_05: nop  */
-                        
                         /* IL_06: newobj Void .ctor() */
                         /* IL_0B: stloc.1  */
                         loc1 = CILJS.newobj(t0,asm1.x6000004,[null]);
@@ -104,9 +102,7 @@ var asm1;(function (asm)
                         /* IL_0D: callvirt Void X() */
                         (loc1.vtable)["asm1.x6000001"](loc1);
                         /* IL_12: nop  */
-                        
                         /* IL_13: nop  */
-                        
                         /* IL_14: ldloc.0  */
                         /* IL_15: ldc.i4.1  */
                         /* IL_16: add  */
@@ -205,6 +201,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000005;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=VirtualMethodBench.cs.ciljs.exe.js.map

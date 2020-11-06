@@ -17,8 +17,8 @@ namespace CilJs.JsTranslation
     /// </summary>
     class TypeTranslator : AbstractTranslator
     {
-        public TypeTranslator(Context context)
-            : base(context)
+        public TypeTranslator(Context context, SourceMapBuilder sourceMapBuilder)
+            : base(context, sourceMapBuilder)
         {
         }
 

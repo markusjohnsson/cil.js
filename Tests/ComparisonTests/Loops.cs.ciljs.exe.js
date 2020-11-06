@@ -36,7 +36,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldc.i4.1  */
                 /* IL_02: stloc.0  */
                 loc0 = (1|0);
@@ -62,7 +61,6 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x5:
                         /* IL_05: nop  */
-                        
                         /* IL_06: ldloc.0  */
                         /* IL_07: ldc.i4.2  */
                         /* IL_09: cgt  */
@@ -101,7 +99,6 @@ var asm1;(function (asm)
                         /* IL_1D: stloc.0  */
                         loc0 = (loc0 + (1|0)) | (0|0);
                         /* IL_1E: nop  */
-                        
                         case 0x1F:
                         /* IL_1F: ldc.i4.1  */
                         /* IL_20: stloc.3  */
@@ -137,7 +134,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldc.i4.1  */
                 /* IL_02: stloc.0  */
                 loc0 = (1|0);
@@ -164,7 +160,6 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x5:
                         /* IL_05: nop  */
-                        
                         /* IL_06: ldloc.0  */
                         /* IL_07: ldc.i4.1  */
                         /* IL_08: add  */
@@ -219,7 +214,6 @@ var asm1;(function (asm)
                         continue;
                         case 0x28:
                         /* IL_28: nop  */
-                        
                         case 0x29:
                         /* IL_29: ldc.i4.1  */
                         /* IL_2A: stloc.s 4 */
@@ -259,7 +253,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldc.i4.1  */
                 /* IL_02: stloc.0  */
                 loc0 = (1|0);
@@ -290,7 +283,6 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x5:
                         /* IL_05: nop  */
-                        
                         /* IL_06: ldloc.0  */
                         /* IL_07: ldc.i4.2  */
                         /* IL_09: cgt  */
@@ -332,7 +324,6 @@ var asm1;(function (asm)
                             switch (__pos__){
                                 case 0x14:
                                 /* IL_14: nop  */
-                                
                                 /* IL_15: ldloc.1  */
                                 /* IL_16: ldc.i4.2  */
                                 /* IL_18: cgt  */
@@ -371,7 +362,6 @@ var asm1;(function (asm)
                                 /* IL_2E: stloc.1  */
                                 loc1 = (loc1 + (1|0)) | (0|0);
                                 /* IL_2F: nop  */
-                                
                                 case 0x30:
                                 /* IL_30: ldc.i4.1  */
                                 /* IL_31: stloc.s 5 */
@@ -405,7 +395,6 @@ var asm1;(function (asm)
                         /* IL_44: stloc.0  */
                         loc0 = (loc0 + (1|0)) | (0|0);
                         /* IL_45: nop  */
-                        
                         case 0x46:
                         /* IL_46: ldc.i4.1  */
                         /* IL_47: stloc.s 7 */
@@ -450,6 +439,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Loops.cs.ciljs.exe.js.map

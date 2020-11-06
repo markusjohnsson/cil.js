@@ -127,9 +127,7 @@ var asm1;(function (asm)
                 switch (__pos__){
                     case 0x0:
                     /* IL_00: nop  */
-                    
                     /* IL_01: nop  */
-                    
                     /* IL_02: ldarg.0  */
                     /* IL_03: callvirt IEnumerator`1 GetEnumerator() */
                     /* IL_08: stloc.0  */
@@ -156,7 +154,6 @@ var asm1;(function (asm)
                                 /* IL_11: stloc.1  */
                                 loc1 = (((loc0.ifacemap)[t2])[t0].x60001da)(CILJS.convert_box_to_pointer_as_needed(loc0));
                                 /* IL_12: nop  */
-                                
                                 /* IL_13: ldloc.1  */
                                 /* IL_14: stloc.2  */
                                 loc2 = loc1;
@@ -201,7 +198,6 @@ var asm1;(function (asm)
                                 /* IL_25: callvirt Void Dispose() */
                                 ((loc0.ifacemap)[t4].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc0));
                                 /* IL_2A: nop  */
-                                
                                 case 0x2B:
                                 /* IL_2B: endfinally  */
                                 in_block_1 = false;
@@ -276,12 +272,10 @@ var asm1;(function (asm)
                 switch (__pos__){
                     case 0x0:
                     /* IL_00: nop  */
-                    
                     /* IL_01: ldc.i4.0  */
                     /* IL_02: stloc.0  */
                     loc0 = (0|0);
                     /* IL_03: nop  */
-                    
                     /* IL_04: ldarg.0  */
                     /* IL_05: callvirt IEnumerator`1 GetEnumerator() */
                     /* IL_0A: stloc.1  */
@@ -308,14 +302,12 @@ var asm1;(function (asm)
                                 /* IL_13: stloc.2  */
                                 loc2 = (((loc1.ifacemap)[t2])[t0].x60001da)(CILJS.convert_box_to_pointer_as_needed(loc1));
                                 /* IL_14: nop  */
-                                
                                 /* IL_15: ldloc.0  */
                                 /* IL_16: ldc.i4.1  */
                                 /* IL_17: add  */
                                 /* IL_18: stloc.0  */
                                 loc0 = (loc0 + (1|0)) | (0|0);
                                 /* IL_19: nop  */
-                                
                                 case 0x1A:
                                 /* IL_1A: ldloc.1  */
                                 /* IL_1B: callvirt Boolean MoveNext() */
@@ -353,7 +345,6 @@ var asm1;(function (asm)
                                 /* IL_28: callvirt Void Dispose() */
                                 ((loc1.ifacemap)[t4].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc1));
                                 /* IL_2D: nop  */
-                                
                                 case 0x2E:
                                 /* IL_2E: endfinally  */
                                 in_block_1 = false;
@@ -581,6 +572,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x600000b;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=CustomMethodAttributes.cs.ciljs.exe.js.map

@@ -11,11 +11,11 @@ var asm1;(function (asm)
         /* IL_07: call String ToString() */
         /* IL_0C: stloc.0  */
         loc0 = asm0.x6000180({
-                'w': function (v)
+                w: function (v)
                 {
                     arg0.r().V = v;
                 },
-                'r': function ()
+                r: function ()
                 {
                     return arg0.r().V;
                 }
@@ -153,11 +153,11 @@ var asm1;(function (asm)
         loc1 = new t2();
         /* IL_28: ldloca.s 1 */
         st_0A = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -249,11 +249,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_11: ldloca.s 1 */
         st_03 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -357,11 +357,11 @@ var asm1;(function (asm)
         loc1 = new t0();
         /* IL_11: ldloca.s 1 */
         st_03 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -387,11 +387,11 @@ var asm1;(function (asm)
         /* IL_34: newarr System.Object */
         /* IL_39: call Void WriteLine(System.String, System.Object[]) */
         asm0.x60000a2(asm1.x6000002({
-                    'w': function (v)
+                    w: function (v)
                     {
                         (loc0.jsarr)[(0|0)] = v;
                     },
-                    'r': function ()
+                    r: function ()
                     {
                         return (loc0.jsarr)[(0|0)];
                     }
@@ -411,11 +411,11 @@ var asm1;(function (asm)
         /* IL_55: newarr System.Object */
         /* IL_5A: call Void WriteLine(System.String, System.Object[]) */
         asm0.x60000a2(asm1.x6000002({
-                    'w': function (v)
+                    w: function (v)
                     {
                         (loc0.jsarr)[(0|0)] = v;
                     },
-                    'r': function ()
+                    r: function ()
                     {
                         return (loc0.jsarr)[(0|0)];
                     }
@@ -541,6 +541,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000009;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=ArraySetValue.cs.ciljs.exe.js.map

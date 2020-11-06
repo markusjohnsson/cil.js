@@ -150,11 +150,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_9E: ldloca.s 1 */
         st_1A = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -164,11 +164,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_A8: ldloca.s 0 */
         st_18 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -190,11 +190,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_C6: ldloca.s 1 */
         st_21 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -204,11 +204,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_D0: ldloca.s 0 */
         st_1F = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -234,11 +234,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_F6: ldloca.s 1 */
         st_2A = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -248,11 +248,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_100: ldloca.s 0 */
         st_28 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -278,11 +278,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_12A: ldloca.s 1 */
         st_33 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -292,11 +292,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_134: ldloca.s 0 */
         st_31 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -322,11 +322,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_15E: ldloca.s 1 */
         st_3C = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -336,11 +336,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_168: ldloca.s 0 */
         st_3A = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -366,11 +366,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_192: ldloca.s 1 */
         st_45 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -380,11 +380,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_19C: ldloca.s 0 */
         st_43 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -406,11 +406,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_1BA: ldloca.s 1 */
         st_4C = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -420,11 +420,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_1C4: ldloca.s 0 */
         st_4A = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -450,11 +450,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_1EA: ldloca.s 1 */
         st_55 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -464,11 +464,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_1F4: ldloca.s 0 */
         st_53 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -494,11 +494,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_21E: ldloca.s 1 */
         st_5E = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -508,11 +508,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_228: ldloca.s 0 */
         st_5C = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -538,11 +538,11 @@ var asm1;(function (asm)
         loc1 = new t1();
         /* IL_252: ldloca.s 1 */
         st_67 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc1 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc1;
             }
@@ -552,11 +552,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_25C: ldloca.s 0 */
         st_65 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -628,11 +628,11 @@ var asm1;(function (asm)
         /* IL_3A: box System.Boolean */
         /* IL_3F: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -645,11 +645,11 @@ var asm1;(function (asm)
         /* IL_58: box System.Boolean */
         /* IL_5D: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -662,11 +662,11 @@ var asm1;(function (asm)
         /* IL_76: box System.Boolean */
         /* IL_7B: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -747,11 +747,11 @@ var asm1;(function (asm)
         loc3 = new t0();
         /* IL_09: ldloca.s 3 */
         st_04 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc3 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc3;
             }
@@ -761,11 +761,11 @@ var asm1;(function (asm)
         loc4 = new t1();
         /* IL_13: ldloca.s 4 */
         st_02 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc4 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc4;
             }
@@ -789,11 +789,11 @@ var asm1;(function (asm)
         loc3 = new t0();
         /* IL_35: ldloca.s 3 */
         st_0C = {
-            'w': function (v)
+            w: function (v)
             {
                 loc3 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc3;
             }
@@ -803,11 +803,11 @@ var asm1;(function (asm)
         loc4 = new t1();
         /* IL_3F: ldloca.s 4 */
         st_0A = {
-            'w': function (v)
+            w: function (v)
             {
                 loc4 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc4;
             }
@@ -834,11 +834,11 @@ var asm1;(function (asm)
         /* IL_70: box System.Boolean */
         /* IL_75: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -851,11 +851,11 @@ var asm1;(function (asm)
         /* IL_8E: box System.Boolean */
         /* IL_93: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -868,11 +868,11 @@ var asm1;(function (asm)
         /* IL_AC: box System.Boolean */
         /* IL_B1: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg0.vtable || t0.prototype.vtable)["asm0.x60000cd"])({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -989,6 +989,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=ValueTypeEquality.cs.ciljs.exe.js.map

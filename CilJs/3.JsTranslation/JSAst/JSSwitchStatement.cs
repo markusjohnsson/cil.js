@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CilJs.JSAst
 {
-    class JSSwitchStatement: JSStatement
+    class JSSwitchStatement : JSStatement
     {
 
         public override void Emit(Emitter emitter)
@@ -16,18 +16,23 @@ namespace CilJs.JSAst
             emitter.EmitString("{");
 
             emitter.Formatting.IncreaseIndentation();
-            
+
             if (Statements != null)
             {
+                var lastPos = 0L;
                 foreach (var stmnt in Statements)
                 {
-                    emitter.EmitNewLineAndIndentation();
+                    if (emitter.Position != lastPos)
+                        emitter.EmitNewLineAndIndentation();
+
+                    lastPos = emitter.Position;
+
                     stmnt.Emit(emitter);
                 }
             }
 
             emitter.Formatting.DecreaseIndentation();
-            
+
             emitter.EmitNewLineAndIndentation();
             emitter.EmitString("}");
         }

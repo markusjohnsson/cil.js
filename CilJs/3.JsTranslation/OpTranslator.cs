@@ -23,8 +23,8 @@ namespace CilJs.JsTranslation
         protected List<CilAssembly> world;
         protected Block block;
 
-        public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block)
-            : base(context)
+        public OpTranslator(Context context, CilAssembly assembly, CilType type, CilMethod method, Block block, SourceMapBuilder sourceMapBuilder)
+            : base(context, sourceMapBuilder)
         {
             this.world = context.Assemblies;
             this.assembly = assembly;
@@ -59,8 +59,6 @@ namespace CilJs.JsTranslation
                 yield return GetILAsComment(node);
             }
 
-            var opc = node.Instruction.OpCode.Name;
-
             if (node.Prefixes.Any())
             {
                 yield return JSFactory.Statement(
@@ -69,6 +67,37 @@ namespace CilJs.JsTranslation
                         Text = "warning: ignoring prefixes " + string.Join(",", node.Prefixes.Select(o => o.OpCode.Name))
                     });
             }
+
+            if (assembly.Settings.SourceMap)
+            {
+                var debugPoints = node
+                    .PrefixTraversal()
+                    .Where(n => n.SequencePoints != null)
+                    .SelectMany(n => n.SequencePoints)
+                    .OrderBy(n => n.IlOffset)
+                    .ToList()
+                    ;
+                if (debugPoints.Any())
+                {
+                    yield return JSFactory
+                        .EmitCallback(
+                            e =>
+                            {
+                                var emitDebug = false;
+                                var line = e.Line + (emitDebug ? 1 : 0);
+                                foreach (var sp in debugPoints)
+                                    sourceMapBuilder.AddMapping(line, e.Formatting.Indentation.Length, method.DocumentName, sp.StartLine - 1, sp.EndLine - 1, sp.StartColumn, sp.EndColumn);
+                                return emitDebug ? new[] {
+                                    JSFactory
+                                        .Comment(line + ": " + string.Join(Environment.NewLine, debugPoints.Select(sp => $"{method.DocumentName}:{sp.StartLine}:{sp.StartColumn}")))
+                                        .ToStatement()
+                                } : new JSStatement[0];
+                            })
+                        ;
+                }
+            }
+
+            var opc = node.Instruction.OpCode.Name;
 
             switch (opc)
             {
@@ -235,7 +264,6 @@ namespace CilJs.JsTranslation
                     };
                     break;
             }
-
         }
 
         private static List<JSStatement> CreateJumpTo(double target)
@@ -423,7 +451,7 @@ namespace CilJs.JsTranslation
                 case "shr.un":
                 case "sub":
                 case "xor":
-                    return new ArithmeticTranslator(context, assembly, type, method, block).Translate(node, inlineArgs);
+                    return new ArithmeticTranslator(context, assembly, type, method, block, sourceMapBuilder).Translate(node, inlineArgs);
 
                 case "box":
                     {
@@ -628,10 +656,10 @@ namespace CilJs.JsTranslation
                 case "ceq":
                 case "cgt":
                 case "clt":
-                    return new ComparisonTranslator(context, assembly, type, method, block).Translate(node, inlineArgs);
+                    return new ComparisonTranslator(context, assembly, type, method, block, sourceMapBuilder).Translate(node, inlineArgs);
 
                 case "conv":
-                    return new ConversionTranslator(context, assembly, type, method, block).Translate(node, inlineArgs);
+                    return new ConversionTranslator(context, assembly, type, method, block, sourceMapBuilder).Translate(node, inlineArgs);
 
                 case "dup":
                     return ProcessInternal(node.Arguments.Single(), inlineArgs);

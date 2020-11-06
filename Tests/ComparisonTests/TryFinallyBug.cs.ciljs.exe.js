@@ -26,7 +26,6 @@ var asm1;(function (asm)
                 case 0x0:
                 /* IL_00: nop  */
                 
-                
                 try {
                     in_block_1 = true;
                     
@@ -39,14 +38,12 @@ var asm1;(function (asm)
                         switch (__pos__){
                             case 0x1:
                             /* IL_01: nop  */
-                            
                             /* IL_02: ldstr Try 1 */
                             /* IL_07: ldc.i4.0  */
                             /* IL_08: newarr System.Object */
                             /* IL_0D: call Void WriteLine(System.String, System.Object[]) */
                             asm0.x60000a2(CILJS.new_string("Try 1"),CILJS.new_array(t0,(0|0)));
                             /* IL_12: nop  */
-                            
                             
                             try {
                                 in_block_2 = true;
@@ -61,14 +58,12 @@ var asm1;(function (asm)
                                     switch (__pos__){
                                         case 0x13:
                                         /* IL_13: nop  */
-                                        
                                         /* IL_14: ldstr Try 2 */
                                         /* IL_19: ldc.i4.0  */
                                         /* IL_1A: newarr System.Object */
                                         /* IL_1F: call Void WriteLine(System.String, System.Object[]) */
                                         asm0.x60000a2(CILJS.new_string("Try 2"),CILJS.new_array(t0,(0|0)));
                                         /* IL_24: nop  */
-                                        
                                         /* IL_25: newobj Void .ctor() */
                                         /* IL_2A: throw  */
                                         throw CILJS.newobj(t1,asm0.x60000a4,[null]);
@@ -86,14 +81,12 @@ var asm1;(function (asm)
                                     switch (__pos__){
                                         case 0x2B:
                                         /* IL_2B: nop  */
-                                        
                                         /* IL_2C: ldstr Finally with branching */
                                         /* IL_31: ldc.i4.0  */
                                         /* IL_32: newarr System.Object */
                                         /* IL_37: call Void WriteLine(System.String, System.Object[]) */
                                         asm0.x60000a2(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,(0|0)));
                                         /* IL_3C: nop  */
-                                        
                                         /* IL_3D: call Boolean What() */
                                         /* IL_42: stloc.0  */
                                         loc0 = asm1.x6000002();
@@ -110,7 +103,6 @@ var asm1;(function (asm)
                                         /* IL_51: call Void WriteLine(System.String, System.Object[]) */
                                         asm0.x60000a2(CILJS.new_string("In branch"),CILJS.new_array(t0,(0|0)));
                                         /* IL_56: nop  */
-                                        
                                         case 0x57:
                                         /* IL_57: ldstr After branch */
                                         /* IL_5C: ldc.i4.0  */
@@ -118,9 +110,7 @@ var asm1;(function (asm)
                                         /* IL_62: call Void WriteLine(System.String, System.Object[]) */
                                         asm0.x60000a2(CILJS.new_string("After branch"),CILJS.new_array(t0,(0|0)));
                                         /* IL_67: nop  */
-                                        
                                         /* IL_68: nop  */
-                                        
                                         /* IL_69: endfinally  */
                                         in_block_2 = false;
                                         __pos__ = __finally_continuation_2__;
@@ -154,16 +144,13 @@ var asm1;(function (asm)
                                 /* IL_6A: stloc.1  */
                                 loc1 = st_12;
                                 /* IL_6B: nop  */
-                                
                                 /* IL_6C: ldstr Catch */
                                 /* IL_71: ldc.i4.0  */
                                 /* IL_72: newarr System.Object */
                                 /* IL_77: call Void WriteLine(System.String, System.Object[]) */
                                 asm0.x60000a2(CILJS.new_string("Catch"),CILJS.new_array(t0,(0|0)));
                                 /* IL_7C: nop  */
-                                
                                 /* IL_7D: nop  */
-                                
                                 /* IL_7E: leave.s IL_80 */
                                 in_block_1 = false;
                                 __pos__ = 0x80;
@@ -223,6 +210,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=TryFinallyBug.cs.ciljs.exe.js.map

@@ -673,6 +673,6 @@ namespace CILJS {
 }
 
 declare var module: any;
-if (module) {
+if (typeof module !== "undefined") {
     module.exports = CILJS;
 }

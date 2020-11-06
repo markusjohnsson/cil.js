@@ -11,6 +11,26 @@ namespace CilJs.JSAst
         private long position;
         public long Position { get { return position; } }
 
+        public void EmitMultiLine(string value)
+        {
+            bool first = true;
+            foreach (var s in value.Split('\n'))
+            {
+                if (first)
+                {
+                    first = false;
+                }
+                else
+                {
+                    EmitNewLine();
+                }
+
+                EmitString(s);
+            }
+        }
+
+        public int Line { get; set; }
+
         public Emitter(Formatting formatting, TextWriter writer)
         {
             this.Formatting = formatting;
@@ -29,24 +49,24 @@ namespace CilJs.JSAst
             node.Emit(this);
         }
 
-        public void EmitIfNotWhiteSpace(string s)
-        {
-            if (false == string.IsNullOrWhiteSpace(s))
-                EmitString(s);
-        }
-
         public void EmitString(string s)
         {
-            if (s == null)
+            EmitString(s, false);
+        }
+
+        private void EmitString(string s, bool allowNewline)
+        {
+            if (s == null || (s.Contains("\n") && allowNewline == false))
                 throw new ArgumentNullException("s");
-            
+
             position += s.Length;
             writer.Write(s);
         }
 
         public void EmitNewLine()
         {
-            EmitString(Formatting.NewLine);
+            EmitString(Formatting.NewLine, true);
+            Line += 1;
         }
 
         public void EmitIndentation()
@@ -58,7 +78,7 @@ namespace CilJs.JSAst
         {
             EmitString("[");
             node.Emit(this);
-            EmitString("]");   
+            EmitString("]");
         }
 
         public void EmitParenthesizedIf(JSExpression node, bool condition)
@@ -74,16 +94,5 @@ namespace CilJs.JSAst
             EmitNewLine();
             EmitIndentation();
         }
-
-        private static int CountLines(string s)
-        {
-            int n = 0;
-            foreach (var c in s)
-            {
-                if (c == '\n') n++;
-            }
-            return n + 1;
-        }
-
     }
 }

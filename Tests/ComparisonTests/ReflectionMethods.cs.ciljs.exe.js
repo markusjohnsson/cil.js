@@ -52,7 +52,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldc.i4.0  */
                 /* IL_02: stloc.0  */
                 loc0 = (0|0);
@@ -79,7 +78,6 @@ var asm1;(function (asm)
                     switch (__pos__){
                         case 0x5:
                         /* IL_05: nop  */
-                        
                         /* IL_06: ldc.i4.0  */
                         /* IL_07: stloc.1  */
                         loc1 = (0|0);
@@ -104,7 +102,6 @@ var asm1;(function (asm)
                             switch (__pos__){
                                 case 0xA:
                                 /* IL_0A: nop  */
-                                
                                 /* IL_0B: ldarg.0  */
                                 /* IL_0C: ldloc.1  */
                                 /* IL_0D: ldelem.ref  */
@@ -128,7 +125,6 @@ var asm1;(function (asm)
                                     continue;
                                 }
                                 /* IL_29: nop  */
-                                
                                 /* IL_2A: ldarg.0  */
                                 /* IL_2B: ldloc.1  */
                                 /* IL_2C: ldc.i4.1  */
@@ -151,10 +147,8 @@ var asm1;(function (asm)
                                 /* IL_3B: stelem.ref  */
                                 CILJS.stelem_ref(arg0,loc1,loc3);
                                 /* IL_3C: nop  */
-                                
                                 case 0x3D:
                                 /* IL_3D: nop  */
-                                
                                 /* IL_3E: ldloc.1  */
                                 /* IL_3F: ldc.i4.1  */
                                 /* IL_40: add  */
@@ -185,7 +179,6 @@ var asm1;(function (asm)
                             continue;
                         }
                         /* IL_50: nop  */
-                        
                         /* IL_51: ldloc.0  */
                         /* IL_52: ldc.i4.1  */
                         /* IL_53: add  */
@@ -252,7 +245,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldtoken A */
                 /* IL_06: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
                 /* IL_0B: stloc.0  */
@@ -266,9 +258,7 @@ var asm1;(function (asm)
                 /* IL_19: call Void Sort(System.Reflection.MethodInfo[]) */
                 asm1.x6000005(loc1);
                 /* IL_1E: nop  */
-                
                 /* IL_1F: nop  */
-                
                 /* IL_20: ldloc.1  */
                 /* IL_21: stloc.2  */
                 loc2 = loc1;
@@ -306,7 +296,6 @@ var asm1;(function (asm)
                         /* IL_38: call Void WriteLine(System.String, System.Object[]) */
                         asm0.x60000a2((loc4.vtable)["asm0.x60001c5"](loc4),CILJS.new_array(t1,(0|0)));
                         /* IL_3D: nop  */
-                        
                         /* IL_3E: ldloc.3  */
                         /* IL_3F: ldc.i4.1  */
                         /* IL_40: add  */
@@ -384,6 +373,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=ReflectionMethods.cs.ciljs.exe.js.map

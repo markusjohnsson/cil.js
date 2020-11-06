@@ -220,6 +220,7 @@ var asm1;(function (asm)
         "function __c__DisplayClass0_0() { c.init();this.b = null;this.a = null }");
     asm.entryPoint = asm.x6000008;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Closure.cs.ciljs.exe.js.map

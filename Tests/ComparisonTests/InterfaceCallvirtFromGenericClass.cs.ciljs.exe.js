@@ -46,11 +46,11 @@ var asm1;(function (asm)
         /* IL_0E: box System.Int32 */
         /* IL_13: call Void WriteLine(System.Object) */
         asm0.x60000a1(CILJS.make_box(((arg1.ifacemap || ((arg0.constructor.GenericArguments)["asm1.t2000005"])[0].prototype.ifacemap)[t0].x6000001)(CILJS.dereference_pointer_as_needed({
-                            'w': function (v)
+                            w: function (v)
                             {
                                 arg1 = v;
                             },
-                            'r': function ()
+                            r: function ()
                             {
                                 return arg1;
                             }
@@ -218,6 +218,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000006;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=InterfaceCallvirtFromGenericClass.cs.ciljs.exe.js.map

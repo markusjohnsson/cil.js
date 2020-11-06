@@ -19,9 +19,6 @@ namespace System
     {
 #pragma warning disable 649
         internal object etype;
-#pragma warning restore 649
-
-#pragma warning disable 649
         internal object jsarr;
 #pragma warning restore 649
         

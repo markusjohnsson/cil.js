@@ -123,17 +123,16 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldarga.s 0 */
                 /* IL_03: call Boolean get_HasValue() */
                 /* IL_08: brtrue.s IL_11 */
                 
                 if (asm0.x60000b4({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -157,16 +156,15 @@ var asm1;(function (asm)
                 /* IL_1C: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(st_03,st_04);
                 /* IL_21: nop  */
-                
                 /* IL_22: ldarga.s 0 */
                 /* IL_24: call Boolean get_HasValue() */
                 /* IL_29: stloc.0  */
                 loc0 = asm0.x60000b4({
-                        'w': function (v)
+                        w: function (v)
                         {
                             arg0 = v;
                         },
-                        'r': function ()
+                        r: function ()
                         {
                             return arg0;
                         }
@@ -184,17 +182,16 @@ var asm1;(function (asm)
                 /* IL_39: box System.Int32 */
                 /* IL_3E: call Void WriteLine(System.Object) */
                 asm0.x60000a1(CILJS.make_box(asm0.x60000b5({
-                                'w': function (v)
+                                w: function (v)
                                 {
                                     arg0 = v;
                                 },
-                                'r': function ()
+                                r: function ()
                                 {
                                     return arg0;
                                 }
                             }).X,t1));
                 /* IL_43: nop  */
-                
                 case 0x44:
                 /* IL_44: ret  */
                 return ;
@@ -246,6 +243,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=Nullable.cs.ciljs.exe.js.map

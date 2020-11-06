@@ -31,7 +31,7 @@ namespace CilJs.TestRunner
                 {
                     started++;
                     Console.Write(file + " ... ");
-                    var result = runner.CompileAndRun(Path.GetFileName(file), true);
+                    var result = runner.CompileAndRun(Path.GetFileName(file), writeToFile: true);
 
                     if (result.Errors.Count > 0)
                     {
@@ -60,7 +60,7 @@ namespace CilJs.TestRunner
                         }
                     }
 
-                    times.Add(result.Timings.First(t => t.Key == "Run JS: ").Time);
+                    // times.Add(result.Timings.First(t => t.Key == "Run JS: ").Time);
                 }
             }
 

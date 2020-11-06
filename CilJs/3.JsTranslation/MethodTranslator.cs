@@ -11,8 +11,8 @@ namespace CilJs.JsTranslation
 {
     class MethodTranslator : AbstractTranslator
     {
-        public MethodTranslator(Context context)
-            : base(context)
+        public MethodTranslator(Context context, SourceMapBuilder sourceMapBuilder)
+            : base(context, sourceMapBuilder)
         {
         }
         
@@ -311,7 +311,7 @@ namespace CilJs.JsTranslation
                             }
                         }));
 
-            var blockTranslator = new BlockTranslator(context, asm, type, method, thisScope);
+            var blockTranslator = new BlockTranslator(context, asm, type, method, thisScope, sourceMapBuilder);
 
             functionBlock.AddRange(
                 blockTranslator

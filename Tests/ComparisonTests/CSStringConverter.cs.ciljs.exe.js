@@ -88,7 +88,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: newobj Void .ctor() */
                 /* IL_06: stloc.0  */
                 loc0 = CILJS.newobj(t0,asm1.x6000005,[null]);
@@ -97,7 +96,6 @@ var asm1;(function (asm)
                 /* IL_0A: callvirt Void Append(System.Char) */
                 asm1.x6000004(loc0,(34|0));
                 /* IL_0F: nop  */
-                
                 /* IL_10: ldc.i4.0  */
                 /* IL_11: stloc.1  */
                 loc1 = (0|0);
@@ -106,7 +104,6 @@ var asm1;(function (asm)
                 continue;
                 case 0x17:
                 /* IL_17: nop  */
-                
                 /* IL_18: ldarg.0  */
                 /* IL_19: ldloc.1  */
                 /* IL_1A: callvirt Char get_Chars(System.Int32) */
@@ -192,7 +189,6 @@ var asm1;(function (asm)
                 /* IL_74: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\\\"));
                 /* IL_79: nop  */
-                
                 /* IL_7A: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -205,7 +201,6 @@ var asm1;(function (asm)
                 /* IL_89: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,asm1.x6000007(asm0.x60000e8(arg0,loc1)));
                 /* IL_8E: nop  */
-                
                 /* IL_8F: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -215,7 +210,6 @@ var asm1;(function (asm)
                 /* IL_97: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\0"));
                 /* IL_9C: nop  */
-                
                 /* IL_9D: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -225,7 +219,6 @@ var asm1;(function (asm)
                 /* IL_A5: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\t"));
                 /* IL_AA: nop  */
-                
                 /* IL_AB: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -235,7 +228,6 @@ var asm1;(function (asm)
                 /* IL_B3: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\n"));
                 /* IL_B8: nop  */
-                
                 /* IL_B9: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -245,7 +237,6 @@ var asm1;(function (asm)
                 /* IL_C1: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\r"));
                 /* IL_C6: nop  */
-                
                 /* IL_C7: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -255,7 +246,6 @@ var asm1;(function (asm)
                 /* IL_CF: callvirt Void Append(System.String) */
                 asm1.x6000003(loc0,CILJS.new_string("\\\""));
                 /* IL_D4: nop  */
-                
                 /* IL_D5: br.s IL_E7 */
                 __pos__ = 0xE7;
                 continue;
@@ -267,10 +257,8 @@ var asm1;(function (asm)
                 /* IL_DF: callvirt Void Append(System.Char) */
                 asm1.x6000004(loc0,asm0.x60000e8(arg0,loc1));
                 /* IL_E4: nop  */
-                
                 case 0xE7:
                 /* IL_E7: nop  */
-                
                 /* IL_E8: ldloc.1  */
                 /* IL_E9: ldc.i4.1  */
                 /* IL_EA: add  */
@@ -295,7 +283,6 @@ var asm1;(function (asm)
                 /* IL_FF: callvirt Void Append(System.Char) */
                 asm1.x6000004(loc0,(34|0));
                 /* IL_104: nop  */
-                
                 /* IL_105: ldloc.0  */
                 /* IL_106: callvirt String ToString() */
                 /* IL_10B: stloc.s 4 */
@@ -379,6 +366,7 @@ var asm1;(function (asm)
         "function CSStringConverter() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=CSStringConverter.cs.ciljs.exe.js.map

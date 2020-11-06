@@ -6,6 +6,7 @@ using System.Linq;
 using Type = Managed.Reflection.Type;
 using System.Diagnostics;
 using CilJs.Loading.Model;
+using CilJs.Analysis.Passes;
 
 namespace CilJs.Ast
 {
@@ -208,5 +209,8 @@ namespace CilJs.Ast
         public Block Block { get; set; }
 
         public bool CanInline { get; set; }
+
+        public ILookup<int,SequencePoint> SequencePoints { get; set; }
+        public string DocumentName { get; internal set; }
     }
 }

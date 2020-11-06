@@ -216,6 +216,7 @@ var asm1;(function (asm)
         "function X() { c.init(); }");
     asm.entryPoint = asm.x6000001;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=ExplicitInterface.cs.ciljs.exe.js.map

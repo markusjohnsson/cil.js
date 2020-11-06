@@ -207,7 +207,8 @@ namespace CilJs.Loading
         public FieldInfo ResolveField(int metadataToken)
         {
             return this.module.ResolveField(metadataToken,
-                type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);
+                type.IsGenericType ? type.GetGenericArguments() : null, 
+                method.IsGenericMethod ? method.GetGenericArguments() : null);
         }
 
         public MemberInfo ResolveMember(int metadataToken)
@@ -218,7 +219,8 @@ namespace CilJs.Loading
         public MethodBase ResolveMethod(int metadataToken)
         {
             return this.module.ResolveMethod(metadataToken,
-                type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);
+                type.IsGenericType ? type.GetGenericArguments() : null, 
+                method.IsGenericMethod ? method.GetGenericArguments() : null);
         }
 
         public byte[] ResolveSignature(int metadataToken)
@@ -241,7 +243,8 @@ namespace CilJs.Loading
         public Managed.Reflection.Type ResolveType(int metadataToken)
         {
             return this.module.ResolveType(metadataToken,
-                type.IsGenericType ? type.GetGenericArguments() : null, method.IsGenericMethod ? method.GetGenericArguments() : null);
+                type.IsGenericType ? type.GetGenericArguments() : null, 
+                method.IsGenericMethod ? method.GetGenericArguments() : null);
         }
     }
 

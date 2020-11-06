@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using CilJs.Loading;
 
 namespace CilJs.Ast
 {
@@ -24,7 +25,7 @@ namespace CilJs.Ast
         private IEnumerable<Node> arguments;
         public IEnumerable<Node> Arguments
         {
-            set 
+            set
             {
                 arguments = value;
             }
@@ -61,12 +62,12 @@ namespace CilJs.Ast
         {
             return Instruction.ToString() +
                 "(" + string.Join(",", Arguments) + ")";
-                //(StackBefore != null ?
-                //    "  (" + string.Join(",", StackBefore.Select(l => l.Variable == null ? "*" : l.Variable.Name)) + ") " :
-                //    "  ()") +
-                //(StoreLocations.Any() ?
-                //    " -> (" + string.Join(",", StoreLocations.Select(l => l.Name)) + ")" :
-                //    "");
+            //(StackBefore != null ?
+            //    "  (" + string.Join(",", StackBefore.Select(l => l.Variable == null ? "*" : l.Variable.Name)) + ") " :
+            //    "  ()") +
+            //(StoreLocations.Any() ?
+            //    " -> (" + string.Join(",", StoreLocations.Select(l => l.Name)) + ")" :
+            //    "");
         }
 
         public IEnumerable<OpExpression> PrefixTraversal()
@@ -75,7 +76,9 @@ namespace CilJs.Ast
             foreach (var subnode in Arguments.OfType<OpExpression>().SelectMany(n => n.PrefixTraversal()))
                 yield return subnode;
         }
-        
+
         public List<Managed.Reflection.Type> RequireFieldInitTypes { get; set; }
+
+        public List<SequencePoint> SequencePoints { get; set; }
     }
 }

@@ -44,11 +44,11 @@ var asm1;(function (asm)
         /* IL_05: conv.u  */
         /* IL_06: call Void SquarePtrParam(System.Int32*) */
         asm1.x6000001({
-                'w': function (v)
+                w: function (v)
                 {
                     loc0 = v;
                 },
-                'r': function ()
+                r: function ()
                 {
                     return loc0;
                 }
@@ -90,6 +90,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=UnsafePointerArgument.cs.ciljs.exe.js.map

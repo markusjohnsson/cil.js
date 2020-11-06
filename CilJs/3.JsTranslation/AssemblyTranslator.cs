@@ -13,10 +13,10 @@ namespace CilJs.JsTranslation
         private readonly TypeTranslator typeTranslator;
         private readonly MethodTranslator methodTranslator;
 
-        public AssemblyTranslator(Context context): base(context)
+        public AssemblyTranslator(Context context, SourceMapBuilder sourceMapBuilder): base(context, sourceMapBuilder)
         {
-            typeTranslator = new TypeTranslator(context);
-            methodTranslator = new MethodTranslator(context);
+            typeTranslator = new TypeTranslator(context, sourceMapBuilder);
+            methodTranslator = new MethodTranslator(context, sourceMapBuilder);
         }
 
         public IEnumerable<JSStatement> Translate(List<CilAssembly> world, CilAssembly asm)
@@ -46,7 +46,7 @@ namespace CilJs.JsTranslation
 
             yield return new JSIfStatement 
             {
-                Condition = JSFactory.Identifier("module"),
+                Condition = JSFactory.Binary(JSFactory.Identifier("typeof module"), "!=", JSFactory.Literal("undefined")),
                 Statements = 
                 {
                     JSFactory

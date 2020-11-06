@@ -7,14 +7,14 @@ namespace CilJs.Analysis.Passes
 {
     public static class StackExtensions
     {
-        public static IEnumerable<T> Pop<T>(this Stack<T> s, int n) 
+        public static IEnumerable<T> Pop<T>(this Stack<T> s, int n)
         {
             for (var i = 0; i < n; i++)
                 yield return s.Pop();
         }
     }
 
-    class AggregateExpressionsPass: IAnalysisPass
+    class AggregateExpressionsPass : IAnalysisPass
     {
         private Context ctx;
 
@@ -27,10 +27,10 @@ namespace CilJs.Analysis.Passes
 
         public void Run(CilMethod method)
         {
-            ProcessBlock(method.Block);
+            ProcessBlock(method, method.Block);
         }
 
-        private static void ProcessBlock(Block block)
+        private static void ProcessBlock(CilMethod method, Block block)
         {
             var spans = GetExpressionSpans(block).ToList();
 
@@ -39,13 +39,13 @@ namespace CilJs.Analysis.Passes
                 // Debug.WriteLine("span: IL_{0:X} - IL_{1:X}", span.from.Instruction.Position, span.to.Instruction.Position);
 
                 block.Ast.ReplaceRange(
-                    from: span.from, 
-                    to: span.to, 
-                    replacement: AggregateExpression(block, span));
+                    from: span.from,
+                    to: span.to,
+                    replacement: AggregateExpression(method, block, span));
             }
 
             foreach (var subblock in GetBlocks(block.Ast))
-                ProcessBlock(subblock);
+                ProcessBlock(method, subblock);
         }
 
         private static IEnumerable<Block> GetBlocks(List<Node> list)
@@ -54,7 +54,7 @@ namespace CilJs.Analysis.Passes
             {
                 if (item is Block)
                     yield return item as Block;
-                
+
                 var pr = item as ProtectedRegion;
                 if (pr != null)
                 {
@@ -69,7 +69,7 @@ namespace CilJs.Analysis.Passes
             }
         }
 
-        private static Node[] AggregateExpression(Block block, span span)
+        private static Node[] AggregateExpression(CilMethod method, Block block, span span)
         {
             var original = block.Ast.GetRange(span.from, span.to).Cast<OpExpression>().ToList();
 

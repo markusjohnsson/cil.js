@@ -50,11 +50,11 @@ var asm1;(function (asm)
         loc0 = new t0();
         /* IL_0A: ldloca.s 0 */
         st_01 = {
-            'w': function (v)
+            w: function (v)
             {
                 loc0 = v;
             },
-            'r': function ()
+            r: function ()
             {
                 return loc0;
             }
@@ -122,11 +122,11 @@ var asm1;(function (asm)
         /* IL_01: ldloca.s 0 */
         /* IL_03: call Void X(System.Int32&) */
         asm1.x6000002({
-                'w': function (v)
+                w: function (v)
                 {
                     loc0 = v;
                 },
-                'r': function ()
+                r: function ()
                 {
                     return loc0;
                 }
@@ -135,11 +135,11 @@ var asm1;(function (asm)
         /* IL_09: ldloca.s 1 */
         /* IL_0B: call Void Y(A&) */
         asm1.x6000003({
-                'w': function (v)
+                w: function (v)
                 {
                     loc1 = v;
                 },
-                'r': function ()
+                r: function ()
                 {
                     return loc1;
                 }
@@ -148,11 +148,11 @@ var asm1;(function (asm)
         /* IL_11: ldloca.s 2 */
         /* IL_13: call Void Z(C&) */
         asm1.x6000004({
-                'w': function (v)
+                w: function (v)
                 {
                     loc2 = v;
                 },
-                'r': function ()
+                r: function ()
                 {
                     return loc2;
                 }
@@ -240,6 +240,7 @@ var asm1;(function (asm)
         "function Program() { c.init(); }");
     asm.entryPoint = asm.x6000005;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=OutParameters.cs.ciljs.exe.js.map

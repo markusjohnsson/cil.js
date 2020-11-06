@@ -26,9 +26,7 @@ var asm1;(function (asm)
                 switch (__pos__){
                     case 0x0:
                     /* IL_00: nop  */
-                    
                     /* IL_01: nop  */
-                    
                     /* IL_02: ldarg.0  */
                     /* IL_03: stloc.0  */
                     loc0 = arg0;
@@ -61,7 +59,6 @@ var asm1;(function (asm)
                             /* IL_0F: stloc.2  */
                             loc2 = (loc0.jsarr)[loc1];
                             /* IL_10: nop  */
-                            
                             /* IL_11: ldarg.1  */
                             /* IL_12: ldloc.2  */
                             /* IL_13: callvirt Boolean Invoke(T) */
@@ -82,7 +79,6 @@ var asm1;(function (asm)
                             continue;
                             case 0x21:
                             /* IL_21: nop  */
-                            
                             /* IL_22: ldloc.1  */
                             /* IL_23: ldc.i4.1  */
                             /* IL_24: add  */
@@ -172,7 +168,6 @@ var asm1;(function (asm)
             switch (__pos__){
                 case 0x0:
                 /* IL_00: nop  */
-                
                 /* IL_01: ldc.i4.1  */
                 st_00 = (1|0);
                 /* IL_02: newarr System.String */
@@ -201,7 +196,6 @@ var asm1;(function (asm)
                     continue;
                 }
                 /* IL_19: pop  */
-                
                 asm1.x6000008();
                 /* IL_1A: ldsfld <>c <>9 */
                 st_09 = (t1)["<>9"];
@@ -224,7 +218,6 @@ var asm1;(function (asm)
                 /* IL_3B: call Void WriteLine(System.String, System.Object[]) */
                 asm0.x60000a2(st_10,st_11);
                 /* IL_40: nop  */
-                
                 /* IL_41: ret  */
                 return ;
             }
@@ -355,6 +348,7 @@ var asm1;(function (asm)
         "function __c() { c.init(); }");
     asm.entryPoint = asm.x6000002;
 })(asm1 || (asm1 = {}));
-if (module){
+if (typeof module != "undefined"){
     module.exports = asm1;
 }
+//# sourceMappingURL=LeaveBug.cs.ciljs.exe.js.map

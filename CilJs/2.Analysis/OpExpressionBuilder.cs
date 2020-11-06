@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace CilJs.Analysis
 {
-    class OpExpressionBuilder: IAnalysisPass
+    class OpExpressionBuilder : IAnalysisPass
     {
         private Universe universe;
 
@@ -32,7 +32,7 @@ namespace CilJs.Analysis
             var ilOps = new OpInstructionReader(method.MethodBody.GetILAsByteArray(), method.Resolver);
             var opInfos = new List<OpExpression>();
             var prefixes = new List<OpInstruction>();
-            
+
             foreach (var op in ilOps.Process())
             {
                 if (op.OpCode.OpCodeType == OpCodeType.Prefix)
@@ -57,6 +57,11 @@ namespace CilJs.Analysis
                 {
                     opx = new OpExpression(
                         op, prefixes, GetPopCount(method, op), GetPushCount(method, op));
+                }
+
+                if (method.SequencePoints != null)
+                {
+                    opx.SequencePoints = method.SequencePoints[op.Position].ToList();
                 }
 
                 opInfos.Add(opx);
@@ -134,7 +139,7 @@ namespace CilJs.Analysis
                         }
 
                         var handlerStart = opInfos.First(i => i.Position == handler.HandlerOffset);
-                        
+
                         opInfo.Targets.Add(handlerStart);
                     }
                 }
