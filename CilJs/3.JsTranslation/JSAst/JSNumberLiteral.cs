@@ -34,19 +34,19 @@ namespace CilJs.JSAst
 
             var value = Value.ToString(CultureInfo.InvariantCulture);
 
-            if (TypeHint == TypeHint.Integer)
-            {
-                emitter.EmitString("(");
-                emitter.EmitString(value);
-                emitter.EmitString("|0)");
-            }
-            else if (TypeHint == TypeHint.Float)
-            {
-                emitter.EmitString("(+");
-                emitter.EmitString(value);
-                emitter.EmitString(")");
-            }
-            else
+            // if (TypeHint == TypeHint.Integer)
+            // {
+            //     emitter.EmitString("(");
+            //     emitter.EmitString(value);
+            //     emitter.EmitString("|0)");
+            // }
+            // else if (TypeHint == TypeHint.Float)
+            // {
+            //     emitter.EmitString("(+");
+            //     emitter.EmitString(value);
+            //     emitter.EmitString(")");
+            // }
+            // else
             {
                 emitter.EmitString(value);
             }

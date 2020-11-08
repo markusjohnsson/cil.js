@@ -69,7 +69,7 @@ var asm1;(function (asm)
                     st_03 = CILJS.new_string("true");
                     case 0x15:
                     /* IL_15: ldc.i4.0  */
-                    st_02 = (0|0);
+                    st_02 = 0;
                     /* IL_16: newarr System.Object */
                     st_04 = CILJS.new_array(t1,st_02);
                     /* IL_1B: call Void WriteLine(System.String, System.Object[]) */

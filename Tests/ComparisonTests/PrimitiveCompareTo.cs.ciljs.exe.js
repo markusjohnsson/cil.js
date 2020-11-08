@@ -17,70 +17,70 @@ var asm1;(function (asm)
         /* IL_07: ldc.i4.0  */
         /* IL_08: box System.Byte */
         /* IL_0D: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t0),CILJS.make_box((0|0),t0));
+        asm1.x6000002(CILJS.make_box(0,t0),CILJS.make_box(0,t0));
         /* IL_12: nop  */
         /* IL_13: ldc.i4.0  */
         /* IL_14: box System.Byte */
         /* IL_19: ldc.i4.1  */
         /* IL_1A: box System.Byte */
         /* IL_1F: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t0),CILJS.make_box((1|0),t0));
+        asm1.x6000002(CILJS.make_box(0,t0),CILJS.make_box(1,t0));
         /* IL_24: nop  */
         /* IL_25: ldc.i4.0  */
         /* IL_26: box System.SByte */
         /* IL_2B: ldc.i4.0  */
         /* IL_2C: box System.SByte */
         /* IL_31: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t1),CILJS.make_box((0|0),t1));
+        asm1.x6000002(CILJS.make_box(0,t1),CILJS.make_box(0,t1));
         /* IL_36: nop  */
         /* IL_37: ldc.i4.0  */
         /* IL_38: box System.SByte */
         /* IL_3D: ldc.i4.1  */
         /* IL_3E: box System.SByte */
         /* IL_43: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t1),CILJS.make_box((1|0),t1));
+        asm1.x6000002(CILJS.make_box(0,t1),CILJS.make_box(1,t1));
         /* IL_48: nop  */
         /* IL_49: ldc.i4.0  */
         /* IL_4A: box System.SByte */
         /* IL_4F: ldc.i4.0  */
         /* IL_50: box System.SByte */
         /* IL_55: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t1),CILJS.make_box((0|0),t1));
+        asm1.x6000002(CILJS.make_box(0,t1),CILJS.make_box(0,t1));
         /* IL_5A: nop  */
         /* IL_5B: ldc.i4.0  */
         /* IL_5C: box System.SByte */
         /* IL_61: ldc.i4.0  */
         /* IL_62: box System.SByte */
         /* IL_67: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t1),CILJS.make_box((0|0),t1));
+        asm1.x6000002(CILJS.make_box(0,t1),CILJS.make_box(0,t1));
         /* IL_6C: nop  */
         /* IL_6D: ldc.i4.1  */
         /* IL_6E: box System.Boolean */
         /* IL_73: ldc.i4.1  */
         /* IL_74: box System.Boolean */
         /* IL_79: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((1|0),t2),CILJS.make_box((1|0),t2));
+        asm1.x6000002(CILJS.make_box(1,t2),CILJS.make_box(1,t2));
         /* IL_7E: nop  */
         /* IL_7F: ldc.i4.1  */
         /* IL_80: box System.Boolean */
         /* IL_85: ldc.i4.0  */
         /* IL_86: box System.Boolean */
         /* IL_8B: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((1|0),t2),CILJS.make_box((0|0),t2));
+        asm1.x6000002(CILJS.make_box(1,t2),CILJS.make_box(0,t2));
         /* IL_90: nop  */
         /* IL_91: ldc.i4.0  */
         /* IL_92: box System.Boolean */
         /* IL_97: ldc.i4.1  */
         /* IL_98: box System.Boolean */
         /* IL_9D: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t2),CILJS.make_box((1|0),t2));
+        asm1.x6000002(CILJS.make_box(0,t2),CILJS.make_box(1,t2));
         /* IL_A2: nop  */
         /* IL_A3: ldc.i4.0  */
         /* IL_A4: box System.Boolean */
         /* IL_A9: ldc.i4.0  */
         /* IL_AA: box System.Boolean */
         /* IL_AF: call Void Test(System.IComparable, System.IComparable) */
-        asm1.x6000002(CILJS.make_box((0|0),t2),CILJS.make_box((0|0),t2));
+        asm1.x6000002(CILJS.make_box(0,t2),CILJS.make_box(0,t2));
         /* IL_B4: nop  */
         /* IL_B5: ret  */
         return ;
@@ -169,14 +169,14 @@ var asm1;(function (asm)
                                 /* IL_1E: ldc.i4.0  */
                                 /* IL_1F: newarr System.Object */
                                 /* IL_24: call Void WriteLine(System.String, System.Object[]) */
-                                asm0.x60000a2(CILJS.new_string("threw"),CILJS.new_array(t2,(0|0)));
+                                asm0.x60000a2(CILJS.new_string("threw"),CILJS.new_array(t2,0));
                                 /* IL_29: nop  */
                                 /* IL_2A: ldloc.0  */
                                 /* IL_2B: callvirt String get_Message() */
                                 /* IL_30: ldc.i4.0  */
                                 /* IL_31: newarr System.Object */
                                 /* IL_36: call Void WriteLine(System.String, System.Object[]) */
-                                asm0.x60000a2((loc0.vtable)["asm0.x60000a9"](loc0),CILJS.new_array(t2,(0|0)));
+                                asm0.x60000a2((loc0.vtable)["asm0.x60000a9"](loc0),CILJS.new_array(t2,0));
                                 /* IL_3B: nop  */
                                 /* IL_3C: nop  */
                                 /* IL_3D: leave.s IL_3F */

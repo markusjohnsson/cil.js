@@ -54,7 +54,7 @@ var asm1;(function (asm)
         /* IL_07: ldloc.0  */
         /* IL_08: ldc.i4.s 123 */
         /* IL_0A: callvirt Void set_Y(System.Int32) */
-        asm1.x6000002(loc0,(123|0));
+        asm1.x6000002(loc0,123);
         /* IL_0F: nop  */
         /* IL_10: ldloc.0  */
         /* IL_11: callvirt Int32 get_Y() */

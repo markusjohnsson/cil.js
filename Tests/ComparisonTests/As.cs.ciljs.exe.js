@@ -139,7 +139,7 @@ var asm1;(function (asm)
                 st_03 = CILJS.new_string("null");
                 case 0x15:
                 /* IL_15: ldc.i4.0  */
-                st_02 = (0|0);
+                st_02 = 0;
                 /* IL_16: newarr System.Object */
                 st_04 = CILJS.new_array(t1,st_02);
                 /* IL_1B: call Void WriteLine(System.String, System.Object[]) */
@@ -192,7 +192,7 @@ var asm1;(function (asm)
                     st_05 = CILJS.new_string("null");
                     case 0x1F:
                     /* IL_1F: ldc.i4.0  */
-                    st_04 = (0|0);
+                    st_04 = 0;
                     /* IL_20: newarr System.Object */
                     st_06 = CILJS.new_array(t1,st_04);
                     /* IL_25: call Void WriteLine(System.String, System.Object[]) */

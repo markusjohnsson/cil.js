@@ -38,7 +38,7 @@ var asm1;(function (asm)
                 /* IL_00: nop  */
                 /* IL_01: ldc.i4.1  */
                 /* IL_02: stloc.0  */
-                loc0 = (1|0);
+                loc0 = 1;
                 /* IL_03: br.s IL_1F */
                 __pos__ = 0x1F;
                 continue;
@@ -65,7 +65,7 @@ var asm1;(function (asm)
                         /* IL_07: ldc.i4.2  */
                         /* IL_09: cgt  */
                         /* IL_0A: stloc.1  */
-                        loc1 = ((loc0 > (2|0)) ? 1 : 0);
+                        loc1 = ((loc0 > 2) ? 1 : 0);
                         /* IL_0B: ldloc.1  */
                         /* IL_0C: brfalse.s IL_10 */
                         
@@ -81,7 +81,7 @@ var asm1;(function (asm)
                         /* IL_11: ldc.i4.3  */
                         /* IL_13: cgt  */
                         /* IL_14: stloc.2  */
-                        loc2 = ((loc0 > (3|0)) ? 1 : 0);
+                        loc2 = ((loc0 > 3) ? 1 : 0);
                         /* IL_15: ldloc.2  */
                         /* IL_16: brfalse.s IL_1A */
                         
@@ -97,12 +97,12 @@ var asm1;(function (asm)
                         /* IL_1B: ldc.i4.1  */
                         /* IL_1C: add  */
                         /* IL_1D: stloc.0  */
-                        loc0 = (loc0 + (1|0)) | (0|0);
+                        loc0 = (loc0 + 1) | 0;
                         /* IL_1E: nop  */
                         case 0x1F:
                         /* IL_1F: ldc.i4.1  */
                         /* IL_20: stloc.3  */
-                        loc3 = (1|0);
+                        loc3 = 1;
                         /* IL_21: br.s IL_05 */
                         __pos__ = 0x5;
                         continue;
@@ -136,7 +136,7 @@ var asm1;(function (asm)
                 /* IL_00: nop  */
                 /* IL_01: ldc.i4.1  */
                 /* IL_02: stloc.0  */
-                loc0 = (1|0);
+                loc0 = 1;
                 /* IL_03: br.s IL_29 */
                 __pos__ = 0x29;
                 continue;
@@ -164,12 +164,12 @@ var asm1;(function (asm)
                         /* IL_07: ldc.i4.1  */
                         /* IL_08: add  */
                         /* IL_09: stloc.0  */
-                        loc0 = (loc0 + (1|0)) | (0|0);
+                        loc0 = (loc0 + 1) | 0;
                         /* IL_0A: ldloc.0  */
                         /* IL_0B: ldc.i4.4  */
                         /* IL_0D: ceq  */
                         /* IL_0E: stloc.1  */
-                        loc1 = ((loc0 === (4|0)) ? 1 : 0);
+                        loc1 = ((loc0 === 4) ? 1 : 0);
                         /* IL_0F: ldloc.1  */
                         /* IL_10: brfalse.s IL_14 */
                         
@@ -185,7 +185,7 @@ var asm1;(function (asm)
                         /* IL_15: ldc.i4.2  */
                         /* IL_17: cgt  */
                         /* IL_18: stloc.2  */
-                        loc2 = ((loc0 > (2|0)) ? 1 : 0);
+                        loc2 = ((loc0 > 2) ? 1 : 0);
                         /* IL_19: ldloc.2  */
                         /* IL_1A: brfalse.s IL_1E */
                         
@@ -201,7 +201,7 @@ var asm1;(function (asm)
                         /* IL_1F: ldc.i4.3  */
                         /* IL_21: cgt  */
                         /* IL_22: stloc.3  */
-                        loc3 = ((loc0 > (3|0)) ? 1 : 0);
+                        loc3 = ((loc0 > 3) ? 1 : 0);
                         /* IL_23: ldloc.3  */
                         /* IL_24: brfalse.s IL_28 */
                         
@@ -217,7 +217,7 @@ var asm1;(function (asm)
                         case 0x29:
                         /* IL_29: ldc.i4.1  */
                         /* IL_2A: stloc.s 4 */
-                        loc4 = (1|0);
+                        loc4 = 1;
                         /* IL_2C: br.s IL_05 */
                         __pos__ = 0x5;
                         continue;
@@ -255,7 +255,7 @@ var asm1;(function (asm)
                 /* IL_00: nop  */
                 /* IL_01: ldc.i4.1  */
                 /* IL_02: stloc.0  */
-                loc0 = (1|0);
+                loc0 = 1;
                 /* IL_03: br.s IL_46 */
                 __pos__ = 0x46;
                 continue;
@@ -287,7 +287,7 @@ var asm1;(function (asm)
                         /* IL_07: ldc.i4.2  */
                         /* IL_09: cgt  */
                         /* IL_0A: stloc.2  */
-                        loc2 = ((loc0 > (2|0)) ? 1 : 0);
+                        loc2 = ((loc0 > 2) ? 1 : 0);
                         /* IL_0B: ldloc.2  */
                         /* IL_0C: brfalse.s IL_10 */
                         
@@ -301,7 +301,7 @@ var asm1;(function (asm)
                         case 0x10:
                         /* IL_10: ldc.i4.1  */
                         /* IL_11: stloc.1  */
-                        loc1 = (1|0);
+                        loc1 = 1;
                         /* IL_12: br.s IL_30 */
                         __pos__ = 0x30;
                         continue;
@@ -328,7 +328,7 @@ var asm1;(function (asm)
                                 /* IL_16: ldc.i4.2  */
                                 /* IL_18: cgt  */
                                 /* IL_19: stloc.3  */
-                                loc3 = ((loc1 > (2|0)) ? 1 : 0);
+                                loc3 = ((loc1 > 2) ? 1 : 0);
                                 /* IL_1A: ldloc.3  */
                                 /* IL_1B: brfalse.s IL_1F */
                                 
@@ -344,7 +344,7 @@ var asm1;(function (asm)
                                 /* IL_20: ldc.i4.3  */
                                 /* IL_22: cgt  */
                                 /* IL_23: stloc.s 4 */
-                                loc4 = ((loc1 > (3|0)) ? 1 : 0);
+                                loc4 = ((loc1 > 3) ? 1 : 0);
                                 /* IL_25: ldloc.s 4 */
                                 /* IL_27: brfalse.s IL_2B */
                                 
@@ -360,12 +360,12 @@ var asm1;(function (asm)
                                 /* IL_2C: ldc.i4.1  */
                                 /* IL_2D: add  */
                                 /* IL_2E: stloc.1  */
-                                loc1 = (loc1 + (1|0)) | (0|0);
+                                loc1 = (loc1 + 1) | 0;
                                 /* IL_2F: nop  */
                                 case 0x30:
                                 /* IL_30: ldc.i4.1  */
                                 /* IL_31: stloc.s 5 */
-                                loc5 = (1|0);
+                                loc5 = 1;
                                 /* IL_33: br.s IL_14 */
                                 __pos__ = 0x14;
                                 continue;
@@ -377,7 +377,7 @@ var asm1;(function (asm)
                         /* IL_36: ldc.i4.3  */
                         /* IL_38: cgt  */
                         /* IL_39: stloc.s 6 */
-                        loc6 = ((loc0 > (3|0)) ? 1 : 0);
+                        loc6 = ((loc0 > 3) ? 1 : 0);
                         /* IL_3B: ldloc.s 6 */
                         /* IL_3D: brfalse.s IL_41 */
                         
@@ -393,12 +393,12 @@ var asm1;(function (asm)
                         /* IL_42: ldc.i4.1  */
                         /* IL_43: add  */
                         /* IL_44: stloc.0  */
-                        loc0 = (loc0 + (1|0)) | (0|0);
+                        loc0 = (loc0 + 1) | 0;
                         /* IL_45: nop  */
                         case 0x46:
                         /* IL_46: ldc.i4.1  */
                         /* IL_47: stloc.s 7 */
-                        loc7 = (1|0);
+                        loc7 = 1;
                         /* IL_49: br.s IL_05 */
                         __pos__ = 0x5;
                         continue;

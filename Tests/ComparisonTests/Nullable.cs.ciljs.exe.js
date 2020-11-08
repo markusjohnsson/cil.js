@@ -45,7 +45,7 @@ var asm1;(function (asm)
         /* IL_27: ldloca.s 1 */
         /* IL_29: ldc.i4.s 33 */
         /* IL_2B: stfld Int32 X */
-        loc1.X = (33|0);
+        loc1.X = 33;
         /* IL_30: ldloc.1  */
         /* IL_31: newobj Void .ctor(A) */
         /* IL_36: call Void Print(System.Nullable`1[A]) */
@@ -73,7 +73,7 @@ var asm1;(function (asm)
         /* IL_66: ldloca.s 1 */
         /* IL_68: ldc.i4.s 33 */
         /* IL_6A: stfld Int32 X */
-        loc1.X = (33|0);
+        loc1.X = 33;
         /* IL_6F: ldloc.1  */
         /* IL_70: box A */
         /* IL_75: call Void PrintObject(System.Object) */
@@ -150,7 +150,7 @@ var asm1;(function (asm)
                 st_03 = CILJS.new_string("true");
                 case 0x16:
                 /* IL_16: ldc.i4.0  */
-                st_02 = (0|0);
+                st_02 = 0;
                 /* IL_17: newarr System.Object */
                 st_04 = CILJS.new_array(t0,st_02);
                 /* IL_1C: call Void WriteLine(System.String, System.Object[]) */

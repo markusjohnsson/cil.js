@@ -26,7 +26,7 @@ var asm1;(function (asm)
         /* IL_09: ldloca.s 0 */
         /* IL_0B: ldc.i4 123456789 */
         /* IL_10: stfld Int32 Value */
-        loc0.Value = (123456789|0);
+        loc0.Value = 123456789;
         /* IL_15: ldloc.0  */
         /* IL_16: call Void Print(A) */
         asm1.x6000006(CILJS.clone_value(loc0));
@@ -67,14 +67,14 @@ var asm1;(function (asm)
         /* IL_01: ldarga.s 0 */
         /* IL_03: ldc.i4.s 111 */
         /* IL_05: stfld Int32 Value */
-        arg0.Value = (111|0);
+        arg0.Value = 111;
         /* IL_0A: ldarg.0  */
         /* IL_0B: stloc.0  */
         loc0 = CILJS.clone_value(arg0);
         /* IL_0C: ldloca.s 0 */
         /* IL_0E: ldc.i4 222 */
         /* IL_13: stfld Int32 Value */
-        loc0.Value = (222|0);
+        loc0.Value = 222;
         /* IL_18: ldarg.0  */
         /* IL_19: call Void Print(A) */
         asm1.x6000006(CILJS.clone_value(arg0));
@@ -99,7 +99,7 @@ var asm1;(function (asm)
         /* IL_08: ldloca.s 0 */
         /* IL_0A: ldc.i4 333 */
         /* IL_0F: stfld Int32 Value */
-        loc0.Value = (333|0);
+        loc0.Value = 333;
         /* IL_14: ldarg.0  */
         /* IL_15: unbox.any A */
         /* IL_1A: stloc.1  */
@@ -107,7 +107,7 @@ var asm1;(function (asm)
         /* IL_1B: ldloca.s 1 */
         /* IL_1D: ldc.i4 444 */
         /* IL_22: stfld Int32 Value */
-        loc1.Value = (444|0);
+        loc1.Value = 444;
         /* IL_27: ldloc.0  */
         /* IL_28: call Void Print(A) */
         asm1.x6000006(CILJS.clone_value(loc0));
@@ -137,7 +137,7 @@ var asm1;(function (asm)
             /* IL_0D: ldloca.s 0 */
             /* IL_0F: ldc.i4 555 */
             /* IL_14: stfld Int32 Value */
-            loc0.Value = (555|0);
+            loc0.Value = 555;
             /* IL_19: ldarg.0  */
             /* IL_1A: box T */
             /* IL_1F: unbox.any A */
@@ -146,7 +146,7 @@ var asm1;(function (asm)
             /* IL_25: ldloca.s 1 */
             /* IL_27: ldc.i4 666 */
             /* IL_2C: stfld Int32 Value */
-            loc1.Value = (666|0);
+            loc1.Value = 666;
             /* IL_31: ldloc.0  */
             /* IL_32: call Void Print(A) */
             asm1.x6000006(CILJS.clone_value(loc0));
@@ -178,14 +178,14 @@ var asm1;(function (asm)
         /* IL_01: ldarga.s 0 */
         /* IL_03: ldc.i4 777 */
         /* IL_08: stfld Int32 Value */
-        arg0.Value = (777|0);
+        arg0.Value = 777;
         /* IL_0D: ldarg.0  */
         /* IL_0E: stsfld A sfield */
         t0.sfield = arg0;
         /* IL_13: ldsflda A sfield */
         /* IL_18: ldc.i4 888 */
         /* IL_1D: stfld Int32 Value */
-        t0.sfield.Value = (888|0);
+        t0.sfield.Value = 888;
         /* IL_22: ldarg.0  */
         /* IL_23: call Void Print(A) */
         asm1.x6000006(CILJS.clone_value(arg0));

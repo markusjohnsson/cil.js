@@ -93,7 +93,7 @@ var asm1;(function (asm)
         /* IL_18: ldloca.s 0 */
         /* IL_1A: ldc.i4.0  */
         /* IL_1B: stfld Int32 x */
-        loc0.x = (0|0);
+        loc0.x = 0;
         /* IL_20: ldloc.0  */
         /* IL_21: call Void TestA(A) */
         asm1.x6000003(CILJS.clone_value(loc0));
@@ -104,7 +104,7 @@ var asm1;(function (asm)
         /* IL_2F: ldloca.s 0 */
         /* IL_31: ldc.i4.s 123 */
         /* IL_33: stfld Int32 x */
-        loc0.x = (123|0);
+        loc0.x = 123;
         /* IL_38: ldloc.0  */
         /* IL_39: call Void TestA(A) */
         asm1.x6000003(CILJS.clone_value(loc0));
@@ -115,7 +115,7 @@ var asm1;(function (asm)
         /* IL_47: ldloca.s 0 */
         /* IL_49: ldc.i4 321 */
         /* IL_4E: stfld Int32 x */
-        loc0.x = (321|0);
+        loc0.x = 321;
         /* IL_53: ldloc.0  */
         /* IL_54: call Void TestA(A) */
         asm1.x6000003(CILJS.clone_value(loc0));
@@ -174,7 +174,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_AA: ldc.i4.s 123 */
-        st_19 = (123|0);
+        st_19 = 123;
         /* IL_AC: stfld Int32 x */
         st_18.r().x = st_19;
         /* IL_B1: ldloc.0  */
@@ -214,7 +214,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_D2: ldc.i4.s 123 */
-        st_20 = (123|0);
+        st_20 = 123;
         /* IL_D4: stfld Int32 x */
         st_1F.r().x = st_20;
         /* IL_D9: ldloc.0  */
@@ -258,7 +258,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_102: ldc.i4.s 123 */
-        st_29 = (123|0);
+        st_29 = 123;
         /* IL_104: stfld Int32 x */
         st_28.r().x = st_29;
         /* IL_109: ldloc.0  */
@@ -302,7 +302,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_136: ldc.i4.s 123 */
-        st_32 = (123|0);
+        st_32 = 123;
         /* IL_138: stfld Int32 x */
         st_31.r().x = st_32;
         /* IL_13D: ldloc.0  */
@@ -346,7 +346,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_16A: ldc.i4.s 123 */
-        st_3B = (123|0);
+        st_3B = 123;
         /* IL_16C: stfld Int32 x */
         st_3A.r().x = st_3B;
         /* IL_171: ldloc.0  */
@@ -390,7 +390,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_19E: ldc.i4.s 22 */
-        st_44 = (22|0);
+        st_44 = 22;
         /* IL_1A0: stfld Int32 x */
         st_43.r().x = st_44;
         /* IL_1A5: ldloc.0  */
@@ -430,7 +430,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_1C6: ldc.i4.s 22 */
-        st_4B = (22|0);
+        st_4B = 22;
         /* IL_1C8: stfld Int32 x */
         st_4A.r().x = st_4B;
         /* IL_1CD: ldloc.0  */
@@ -474,7 +474,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_1F6: ldc.i4.s 22 */
-        st_54 = (22|0);
+        st_54 = 22;
         /* IL_1F8: stfld Int32 x */
         st_53.r().x = st_54;
         /* IL_1FD: ldloc.0  */
@@ -518,7 +518,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_22A: ldc.i4.s 22 */
-        st_5D = (22|0);
+        st_5D = 22;
         /* IL_22C: stfld Int32 x */
         st_5C.r().x = st_5D;
         /* IL_231: ldloc.0  */
@@ -562,7 +562,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_25E: ldc.i4.s 22 */
-        st_66 = (22|0);
+        st_66 = 22;
         /* IL_260: stfld Int32 x */
         st_65.r().x = st_66;
         /* IL_265: ldloc.0  */
@@ -611,7 +611,7 @@ var asm1;(function (asm)
         /* IL_09: ldloca.s 3 */
         /* IL_0B: ldc.i4 321 */
         /* IL_10: stfld Int32 x */
-        loc3.x = (321|0);
+        loc3.x = 321;
         /* IL_15: ldloc.3  */
         /* IL_16: stloc.0  */
         loc0 = CILJS.clone_value(loc3);
@@ -771,7 +771,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_15: ldc.i4.s 123 */
-        st_03 = (123|0);
+        st_03 = 123;
         /* IL_17: stfld Int32 x */
         st_02.r().x = st_03;
         /* IL_1C: ldloc.s 4 */
@@ -813,7 +813,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_41: ldc.i4.s 22 */
-        st_0B = (22|0);
+        st_0B = 22;
         /* IL_43: stfld Int32 x */
         st_0A.r().x = st_0B;
         /* IL_48: ldloc.s 4 */

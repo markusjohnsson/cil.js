@@ -149,7 +149,7 @@ var asm1;(function (asm)
                                 /* IL_12: nop  */
                                 /* IL_13: ldc.i4.1  */
                                 /* IL_14: stloc.2  */
-                                loc2 = (1|0);
+                                loc2 = 1;
                                 /* IL_15: leave.s IL_30 */
                                 in_block_1 = false;
                                 __pos__ = 0x30;
@@ -204,7 +204,7 @@ var asm1;(function (asm)
                     case 0x2C:
                     /* IL_2C: ldc.i4.0  */
                     /* IL_2D: stloc.2  */
-                    loc2 = (0|0);
+                    loc2 = 0;
                     case 0x30:
                     /* IL_30: ldloc.2  */
                     /* IL_31: ret  */
@@ -264,7 +264,7 @@ var asm1;(function (asm)
                     /* IL_00: nop  */
                     /* IL_01: ldc.i4.0  */
                     /* IL_02: stloc.0  */
-                    loc0 = (0|0);
+                    loc0 = 0;
                     /* IL_03: nop  */
                     /* IL_04: ldarg.0  */
                     /* IL_05: callvirt IEnumerator`1 GetEnumerator() */
@@ -296,7 +296,7 @@ var asm1;(function (asm)
                                 /* IL_16: ldc.i4.1  */
                                 /* IL_17: add  */
                                 /* IL_18: stloc.0  */
-                                loc0 = (loc0 + (1|0)) | (0|0);
+                                loc0 = (loc0 + 1) | 0;
                                 /* IL_19: nop  */
                                 case 0x1A:
                                 /* IL_1A: ldloc.1  */
@@ -473,7 +473,7 @@ var asm1;(function (asm)
                             /* IL_67: ldc.i4.0  */
                             /* IL_68: newarr System.Object */
                             /* IL_6D: call Void WriteLine(System.String, System.Object[]) */
-                            asm0.x60000a2(((asm0.x60001be(loc4).vtable)["asm0.x6000073"])(asm0.x60001be(loc4)),CILJS.new_array(t7,(0|0)));
+                            asm0.x60000a2(((asm0.x60001be(loc4).vtable)["asm0.x6000073"])(asm0.x60001be(loc4)),CILJS.new_array(t7,0));
                             /* IL_72: nop  */
                             /* IL_73: nop  */
                             case 0x74:

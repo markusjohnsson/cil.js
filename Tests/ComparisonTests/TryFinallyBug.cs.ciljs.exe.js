@@ -42,7 +42,7 @@ var asm1;(function (asm)
                             /* IL_07: ldc.i4.0  */
                             /* IL_08: newarr System.Object */
                             /* IL_0D: call Void WriteLine(System.String, System.Object[]) */
-                            asm0.x60000a2(CILJS.new_string("Try 1"),CILJS.new_array(t0,(0|0)));
+                            asm0.x60000a2(CILJS.new_string("Try 1"),CILJS.new_array(t0,0));
                             /* IL_12: nop  */
                             
                             try {
@@ -62,7 +62,7 @@ var asm1;(function (asm)
                                         /* IL_19: ldc.i4.0  */
                                         /* IL_1A: newarr System.Object */
                                         /* IL_1F: call Void WriteLine(System.String, System.Object[]) */
-                                        asm0.x60000a2(CILJS.new_string("Try 2"),CILJS.new_array(t0,(0|0)));
+                                        asm0.x60000a2(CILJS.new_string("Try 2"),CILJS.new_array(t0,0));
                                         /* IL_24: nop  */
                                         /* IL_25: newobj Void .ctor() */
                                         /* IL_2A: throw  */
@@ -85,7 +85,7 @@ var asm1;(function (asm)
                                         /* IL_31: ldc.i4.0  */
                                         /* IL_32: newarr System.Object */
                                         /* IL_37: call Void WriteLine(System.String, System.Object[]) */
-                                        asm0.x60000a2(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,(0|0)));
+                                        asm0.x60000a2(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,0));
                                         /* IL_3C: nop  */
                                         /* IL_3D: call Boolean What() */
                                         /* IL_42: stloc.0  */
@@ -101,14 +101,14 @@ var asm1;(function (asm)
                                         /* IL_4B: ldc.i4.0  */
                                         /* IL_4C: newarr System.Object */
                                         /* IL_51: call Void WriteLine(System.String, System.Object[]) */
-                                        asm0.x60000a2(CILJS.new_string("In branch"),CILJS.new_array(t0,(0|0)));
+                                        asm0.x60000a2(CILJS.new_string("In branch"),CILJS.new_array(t0,0));
                                         /* IL_56: nop  */
                                         case 0x57:
                                         /* IL_57: ldstr After branch */
                                         /* IL_5C: ldc.i4.0  */
                                         /* IL_5D: newarr System.Object */
                                         /* IL_62: call Void WriteLine(System.String, System.Object[]) */
-                                        asm0.x60000a2(CILJS.new_string("After branch"),CILJS.new_array(t0,(0|0)));
+                                        asm0.x60000a2(CILJS.new_string("After branch"),CILJS.new_array(t0,0));
                                         /* IL_67: nop  */
                                         /* IL_68: nop  */
                                         /* IL_69: endfinally  */
@@ -148,7 +148,7 @@ var asm1;(function (asm)
                                 /* IL_71: ldc.i4.0  */
                                 /* IL_72: newarr System.Object */
                                 /* IL_77: call Void WriteLine(System.String, System.Object[]) */
-                                asm0.x60000a2(CILJS.new_string("Catch"),CILJS.new_array(t0,(0|0)));
+                                asm0.x60000a2(CILJS.new_string("Catch"),CILJS.new_array(t0,0));
                                 /* IL_7C: nop  */
                                 /* IL_7D: nop  */
                                 /* IL_7E: leave.s IL_80 */
@@ -177,7 +177,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.1  */
         /* IL_02: stloc.0  */
-        loc0 = (1|0);
+        loc0 = 1;
         /* IL_05: ldloc.0  */
         /* IL_06: ret  */
         return loc0;

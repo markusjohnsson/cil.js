@@ -77,13 +77,13 @@ var asm1;(function (asm)
                 continue;
                 case 0x21:
                 /* IL_21: ldc.i4.4  */
-                st_08 = (4|0);
+                st_08 = 4;
                 /* IL_22: newarr System.Object */
                 st_09 = CILJS.new_array(t0,st_08);
                 /* IL_27: dup  */
                 st_0E = st_0B = st_09;
                 /* IL_28: ldc.i4.0  */
-                st_0C = (0|0);
+                st_0C = 0;
                 /* IL_29: ldarg.0  */
                 st_0A = arg0;
                 /* IL_2A: ldfld String name */
@@ -93,7 +93,7 @@ var asm1;(function (asm)
                 /* IL_30: dup  */
                 st_12 = st_0F = st_0E;
                 /* IL_31: ldc.i4.1  */
-                st_10 = (1|0);
+                st_10 = 1;
                 /* IL_32: ldstr  ( */
                 st_11 = CILJS.new_string(" (");
                 /* IL_37: stelem.ref  */
@@ -101,7 +101,7 @@ var asm1;(function (asm)
                 /* IL_38: dup  */
                 st_18 = st_15 = st_12;
                 /* IL_39: ldc.i4.2  */
-                st_16 = (2|0);
+                st_16 = 2;
                 /* IL_3A: ldarg.0  */
                 st_13 = arg0;
                 /* IL_3B: call Int32 get_Age() */
@@ -113,7 +113,7 @@ var asm1;(function (asm)
                 /* IL_46: dup  */
                 st_1C = st_19 = st_18;
                 /* IL_47: ldc.i4.3  */
-                st_1A = (3|0);
+                st_1A = 3;
                 /* IL_48: ldstr ) */
                 st_1B = CILJS.new_string(")");
                 /* IL_4D: stelem.ref  */
@@ -139,7 +139,7 @@ var asm1;(function (asm)
         /* IL_07: ldc.i4.1  */
         /* IL_08: add  */
         /* IL_09: stloc.0  */
-        loc0 = (arg0.Bazage + (1|0)) | (0|0);
+        loc0 = (arg0.Bazage + 1) | 0;
         /* IL_0C: ldloc.0  */
         /* IL_0D: ret  */
         return loc0;
@@ -208,7 +208,7 @@ var asm1;(function (asm)
                 }
                 /* IL_10: ldc.i4.0  */
                 /* IL_11: stloc.2  */
-                loc2 = (0|0);
+                loc2 = 0;
                 /* IL_12: br.s IL_39 */
                 __pos__ = 0x39;
                 continue;
@@ -234,7 +234,7 @@ var asm1;(function (asm)
                 continue;
                 case 0x35:
                 /* IL_35: ldc.i4.0  */
-                st_0F = (0|0);
+                st_0F = 0;
                 case 0x36:
                 /* IL_36: stloc.2  */
                 loc2 = st_0F;
@@ -385,17 +385,17 @@ var asm1;(function (asm)
         t0 = asm1.Baz();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.5  */
-        st_00 = (5|0);
+        st_00 = 5;
         /* IL_02: newarr Baz */
         st_01 = CILJS.new_array(t0,st_00);
         /* IL_07: dup  */
         st_07 = st_04 = st_01;
         /* IL_08: ldc.i4.0  */
-        st_05 = (0|0);
+        st_05 = 0;
         /* IL_09: ldstr jb */
         st_02 = CILJS.new_string("jb");
         /* IL_0E: ldc.i4.s 25 */
-        st_03 = (25|0);
+        st_03 = 25;
         /* IL_10: newobj Void .ctor(System.String, System.Int32) */
         st_06 = CILJS.newobj(t0,asm1.x6000003,[null, st_02, st_03]);
         /* IL_15: stelem.ref  */
@@ -403,11 +403,11 @@ var asm1;(function (asm)
         /* IL_16: dup  */
         st_0D = st_0A = st_07;
         /* IL_17: ldc.i4.1  */
-        st_0B = (1|0);
+        st_0B = 1;
         /* IL_18: ldstr ana */
         st_08 = CILJS.new_string("ana");
         /* IL_1D: ldc.i4.s 20 */
-        st_09 = (20|0);
+        st_09 = 20;
         /* IL_1F: newobj Void .ctor(System.String, System.Int32) */
         st_0C = CILJS.newobj(t0,asm1.x6000003,[null, st_08, st_09]);
         /* IL_24: stelem.ref  */
@@ -415,11 +415,11 @@ var asm1;(function (asm)
         /* IL_25: dup  */
         st_13 = st_10 = st_0D;
         /* IL_26: ldc.i4.2  */
-        st_11 = (2|0);
+        st_11 = 2;
         /* IL_27: ldstr reg */
         st_0E = CILJS.new_string("reg");
         /* IL_2C: ldc.i4.s 28 */
-        st_0F = (28|0);
+        st_0F = 28;
         /* IL_2E: newobj Void .ctor(System.String, System.Int32) */
         st_12 = CILJS.newobj(t0,asm1.x6000003,[null, st_0E, st_0F]);
         /* IL_33: stelem.ref  */
@@ -427,11 +427,11 @@ var asm1;(function (asm)
         /* IL_34: dup  */
         st_19 = st_16 = st_13;
         /* IL_35: ldc.i4.3  */
-        st_17 = (3|0);
+        st_17 = 3;
         /* IL_36: ldstr ro */
         st_14 = CILJS.new_string("ro");
         /* IL_3B: ldc.i4.s 25 */
-        st_15 = (25|0);
+        st_15 = 25;
         /* IL_3D: newobj Void .ctor(System.String, System.Int32) */
         st_18 = CILJS.newobj(t0,asm1.x6000003,[null, st_14, st_15]);
         /* IL_42: stelem.ref  */
@@ -439,11 +439,11 @@ var asm1;(function (asm)
         /* IL_43: dup  */
         st_1F = st_1C = st_19;
         /* IL_44: ldc.i4.4  */
-        st_1D = (4|0);
+        st_1D = 4;
         /* IL_45: ldstr jb */
         st_1A = CILJS.new_string("jb");
         /* IL_4A: ldc.i4.7  */
-        st_1B = (7|0);
+        st_1B = 7;
         /* IL_4B: newobj Void .ctor(System.String, System.Int32) */
         st_1E = CILJS.newobj(t0,asm1.x6000003,[null, st_1A, st_1B]);
         /* IL_50: stelem.ref  */
@@ -499,7 +499,7 @@ var asm1;(function (asm)
                 /* IL_06: ldc.i4.0  */
                 /* IL_07: newarr System.Object */
                 /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("Ascending"),CILJS.new_array(t0,(0|0)));
+                asm0.x60000a2(CILJS.new_string("Ascending"),CILJS.new_array(t0,0));
                 /* IL_11: nop  */
                 /* IL_12: call Baz[] CreateBazCollection() */
                 /* IL_17: stloc.0  */
@@ -511,7 +511,7 @@ var asm1;(function (asm)
                 /* IL_23: nop  */
                 /* IL_24: ldc.i4.0  */
                 /* IL_25: stloc.2  */
-                loc2 = (0|0);
+                loc2 = 0;
                 /* IL_26: br.s IL_37 */
                 __pos__ = 0x37;
                 continue;
@@ -543,7 +543,7 @@ var asm1;(function (asm)
                         /* IL_34: ldc.i4.1  */
                         /* IL_35: add  */
                         /* IL_36: stloc.2  */
-                        loc2 = (loc2 + (1|0)) | (0|0);
+                        loc2 = (loc2 + 1) | 0;
                         case 0x37:
                         /* IL_37: ldloc.2  */
                         /* IL_38: ldloc.0  */
@@ -551,7 +551,7 @@ var asm1;(function (asm)
                         /* IL_3A: conv.i4  */
                         /* IL_3C: clt  */
                         /* IL_3D: stloc.3  */
-                        loc3 = ((loc2 < (loc0.jsarr.length | (0|0))) ? 1 : 0);
+                        loc3 = ((loc2 < (loc0.jsarr.length | 0)) ? 1 : 0);
                         /* IL_3E: ldloc.3  */
                         /* IL_3F: brtrue.s IL_28 */
                         
@@ -570,7 +570,7 @@ var asm1;(function (asm)
                 /* IL_46: ldc.i4.0  */
                 /* IL_47: newarr System.Object */
                 /* IL_4C: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("Descending"),CILJS.new_array(t0,(0|0)));
+                asm0.x60000a2(CILJS.new_string("Descending"),CILJS.new_array(t0,0));
                 /* IL_51: nop  */
                 /* IL_52: call Baz[] CreateBazCollection() */
                 /* IL_57: stloc.1  */
@@ -582,7 +582,7 @@ var asm1;(function (asm)
                 /* IL_63: nop  */
                 /* IL_64: ldc.i4.0  */
                 /* IL_65: stloc.s 4 */
-                loc4 = (0|0);
+                loc4 = 0;
                 /* IL_67: br.s IL_7B */
                 __pos__ = 0x7B;
                 continue;
@@ -614,7 +614,7 @@ var asm1;(function (asm)
                         /* IL_77: ldc.i4.1  */
                         /* IL_78: add  */
                         /* IL_79: stloc.s 4 */
-                        loc4 = (loc4 + (1|0)) | (0|0);
+                        loc4 = (loc4 + 1) | 0;
                         case 0x7B:
                         /* IL_7B: ldloc.s 4 */
                         /* IL_7D: ldloc.1  */
@@ -622,7 +622,7 @@ var asm1;(function (asm)
                         /* IL_7F: conv.i4  */
                         /* IL_81: clt  */
                         /* IL_82: stloc.s 5 */
-                        loc5 = ((loc4 < (loc1.jsarr.length | (0|0))) ? 1 : 0);
+                        loc5 = ((loc4 < (loc1.jsarr.length | 0)) ? 1 : 0);
                         /* IL_84: ldloc.s 5 */
                         /* IL_86: brtrue.s IL_69 */
                         

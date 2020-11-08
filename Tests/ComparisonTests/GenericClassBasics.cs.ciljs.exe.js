@@ -98,7 +98,7 @@ var asm1;(function (asm)
         /* IL_0D: dup  */
         st_05 = st_02 = st_01;
         /* IL_0E: ldc.i4.s 123 */
-        st_03 = (123|0);
+        st_03 = 123;
         /* IL_10: stfld Int32 Value */
         st_02.Value = st_03;
         /* IL_15: callvirt Void set_Prop(IntWrapper) */
@@ -133,7 +133,7 @@ var asm1;(function (asm)
         /* IL_59: ldc.i4.0  */
         /* IL_5A: newarr System.Object */
         /* IL_5F: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((loc1)["A_1<Prop>k__BackingField"].Value,CILJS.new_array(t5,(0|0)));
+        asm0.x60000a2((loc1)["A_1<Prop>k__BackingField"].Value,CILJS.new_array(t5,0));
         /* IL_64: nop  */
         /* IL_65: ret  */
         return ;

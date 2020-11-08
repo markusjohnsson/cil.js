@@ -22,7 +22,7 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: newarr A */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(1|0));
+        loc0 = CILJS.new_array(t0,1);
         /* IL_08: ldloc.0  */
         /* IL_09: call Void Populate(A[]) */
         asm1.x6000004(loc0);
@@ -66,7 +66,7 @@ var asm1;(function (asm)
         /* IL_0D: ldfld Int32 X */
         /* IL_12: box System.Int32 */
         /* IL_17: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((CILJS.cast_class(arg0,t1).jsarr)[(0|0)].X,t2));
+        asm0.x60000a1(CILJS.make_box((CILJS.cast_class(arg0,t1).jsarr)[0].X,t2));
         /* IL_1C: nop  */
         /* IL_1D: ret  */
         return ;
@@ -83,7 +83,7 @@ var asm1;(function (asm)
         /* IL_08: ldfld Int32 X */
         /* IL_0D: box System.Int32 */
         /* IL_12: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((arg0.jsarr)[(0|0)].X,t0));
+        asm0.x60000a1(CILJS.make_box((arg0.jsarr)[0].X,t0));
         /* IL_17: nop  */
         /* IL_18: ret  */
         return ;
@@ -114,7 +114,7 @@ var asm1;(function (asm)
         /* IL_01: ldarg.0  */
         st_03 = arg0;
         /* IL_02: ldc.i4.0  */
-        st_04 = (0|0);
+        st_04 = 0;
         /* IL_03: ldloca.s 0 */
         /* IL_06: initobj A */
         loc0 = new t0();
@@ -130,7 +130,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_0D: ldc.i4.s 123 */
-        st_02 = (123|0);
+        st_02 = 123;
         /* IL_0F: stfld Int32 X */
         st_01.r().X = st_02;
         /* IL_14: ldloc.0  */

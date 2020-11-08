@@ -59,43 +59,43 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: newarr System.Object */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(1|0));
+        loc0 = CILJS.new_array(t0,1);
         /* IL_08: ldloc.0  */
         /* IL_09: ldc.i4.1  */
         /* IL_0A: box System.Int32 */
         /* IL_0F: ldc.i4.0  */
         /* IL_10: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,CILJS.make_box((1|0),t1),(0|0));
+        asm0.x6000135(loc0,CILJS.make_box(1,t1),0);
         /* IL_15: nop  */
         /* IL_16: ldloc.0  */
         /* IL_17: ldc.i4.0  */
         /* IL_18: ldelem.ref  */
         /* IL_19: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.ldelem_ref(loc0,(0|0)));
+        asm0.x60000a1(CILJS.ldelem_ref(loc0,0));
         /* IL_1E: nop  */
         /* IL_1F: ldloc.0  */
         /* IL_20: ldstr test */
         /* IL_25: ldc.i4.0  */
         /* IL_26: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,CILJS.new_string("test"),(0|0));
+        asm0.x6000135(loc0,CILJS.new_string("test"),0);
         /* IL_2B: nop  */
         /* IL_2C: ldloc.0  */
         /* IL_2D: ldc.i4.0  */
         /* IL_2E: ldelem.ref  */
         /* IL_2F: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.ldelem_ref(loc0,(0|0)));
+        asm0.x60000a1(CILJS.ldelem_ref(loc0,0));
         /* IL_34: nop  */
         /* IL_35: ldloc.0  */
         /* IL_36: ldnull  */
         /* IL_37: ldc.i4.0  */
         /* IL_38: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,null,(0|0));
+        asm0.x6000135(loc0,null,0);
         /* IL_3D: nop  */
         /* IL_3E: ldloc.0  */
         /* IL_3F: ldc.i4.0  */
         /* IL_40: ldelem.ref  */
         /* IL_41: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.ldelem_ref(loc0,(0|0)));
+        asm0.x60000a1(CILJS.ldelem_ref(loc0,0));
         /* IL_46: nop  */
         /* IL_47: ret  */
         return ;
@@ -132,19 +132,19 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: newarr System.ValueType */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(1|0));
+        loc0 = CILJS.new_array(t0,1);
         /* IL_08: ldloc.0  */
         /* IL_09: ldc.i4.1  */
         /* IL_0A: box System.Int32 */
         /* IL_0F: ldc.i4.0  */
         /* IL_10: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,CILJS.make_box((1|0),t1),(0|0));
+        asm0.x6000135(loc0,CILJS.make_box(1,t1),0);
         /* IL_15: nop  */
         /* IL_16: ldloc.0  */
         /* IL_17: ldc.i4.0  */
         /* IL_18: ldelem.ref  */
         /* IL_19: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.ldelem_ref(loc0,(0|0)));
+        asm0.x60000a1(CILJS.ldelem_ref(loc0,0));
         /* IL_1E: nop  */
         /* IL_1F: ldloc.0  */
         st_0D = loc0;
@@ -163,7 +163,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_2A: ldc.i4.s 123 */
-        st_0B = (123|0);
+        st_0B = 123;
         /* IL_2C: stfld Int32 V */
         st_0A.r().V = st_0B;
         /* IL_31: ldloc.1  */
@@ -171,7 +171,7 @@ var asm1;(function (asm)
         /* IL_32: box A */
         st_0E = CILJS.make_box(CILJS.clone_value(st_0C),t2);
         /* IL_37: ldc.i4.0  */
-        st_0F = (0|0);
+        st_0F = 0;
         /* IL_38: callvirt Void SetValue(System.Object, System.Int32) */
         asm0.x6000135(st_0D,st_0E,st_0F);
         /* IL_3D: nop  */
@@ -182,19 +182,19 @@ var asm1;(function (asm)
         /* IL_46: ldfld Int32 V */
         /* IL_4B: box System.Int32 */
         /* IL_50: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box(CILJS.ldelem_ref(loc0,(0|0)).boxed.V,t1));
+        asm0.x60000a1(CILJS.make_box(CILJS.ldelem_ref(loc0,0).boxed.V,t1));
         /* IL_55: nop  */
         /* IL_56: ldloc.0  */
         /* IL_57: ldnull  */
         /* IL_58: ldc.i4.0  */
         /* IL_59: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,null,(0|0));
+        asm0.x6000135(loc0,null,0);
         /* IL_5E: nop  */
         /* IL_5F: ldloc.0  */
         /* IL_60: ldc.i4.0  */
         /* IL_61: ldelem.ref  */
         /* IL_62: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.ldelem_ref(loc0,(0|0)));
+        asm0.x60000a1(CILJS.ldelem_ref(loc0,0));
         /* IL_67: nop  */
         /* IL_68: ret  */
         return ;
@@ -241,7 +241,7 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: newarr I */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(1|0));
+        loc0 = CILJS.new_array(t0,1);
         /* IL_08: ldloc.0  */
         st_06 = loc0;
         /* IL_09: ldloca.s 1 */
@@ -259,7 +259,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_13: ldc.i4.s 123 */
-        st_04 = (123|0);
+        st_04 = 123;
         /* IL_15: stfld Int32 V */
         st_03.r().V = st_04;
         /* IL_1A: ldloc.1  */
@@ -267,7 +267,7 @@ var asm1;(function (asm)
         /* IL_1B: box A */
         st_07 = CILJS.make_box(CILJS.clone_value(st_05),t1);
         /* IL_20: ldc.i4.0  */
-        st_08 = (0|0);
+        st_08 = 0;
         /* IL_21: callvirt Void SetValue(System.Object, System.Int32) */
         asm0.x6000135(st_06,st_07,st_08);
         /* IL_26: nop  */
@@ -278,7 +278,7 @@ var asm1;(function (asm)
         /* IL_2F: ldc.i4.0  */
         /* IL_30: newarr System.Object */
         /* IL_35: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((CILJS.ldelem_ref(loc0,(0|0)).ifacemap)[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,(0|0)))),CILJS.new_array(t2,(0|0)));
+        asm0.x60000a2(((CILJS.ldelem_ref(loc0,0).ifacemap)[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,0))),CILJS.new_array(t2,0));
         /* IL_3A: nop  */
         /* IL_3B: ldloc.0  */
         st_12 = loc0;
@@ -291,7 +291,7 @@ var asm1;(function (asm)
         /* IL_47: stfld String V */
         st_10.V = st_11;
         /* IL_4C: ldc.i4.0  */
-        st_14 = (0|0);
+        st_14 = 0;
         /* IL_4D: callvirt Void SetValue(System.Object, System.Int32) */
         asm0.x6000135(st_12,st_13,st_14);
         /* IL_52: nop  */
@@ -302,19 +302,19 @@ var asm1;(function (asm)
         /* IL_5B: ldc.i4.0  */
         /* IL_5C: newarr System.Object */
         /* IL_61: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((CILJS.ldelem_ref(loc0,(0|0)).ifacemap)[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,(0|0)))),CILJS.new_array(t2,(0|0)));
+        asm0.x60000a2(((CILJS.ldelem_ref(loc0,0).ifacemap)[t0].x6000001)(CILJS.convert_box_to_pointer_as_needed(CILJS.ldelem_ref(loc0,0))),CILJS.new_array(t2,0));
         /* IL_66: nop  */
         /* IL_67: ldloc.0  */
         /* IL_68: ldnull  */
         /* IL_69: ldc.i4.0  */
         /* IL_6A: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,null,(0|0));
+        asm0.x6000135(loc0,null,0);
         /* IL_6F: nop  */
         /* IL_70: ldloc.0  */
         /* IL_71: ldc.i4.0  */
         /* IL_72: ldelem.ref  */
         /* IL_73: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.ldelem_ref(loc0,(0|0)));
+        asm0.x60000a1(CILJS.ldelem_ref(loc0,0));
         /* IL_78: nop  */
         /* IL_79: ret  */
         return ;
@@ -349,7 +349,7 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: newarr A */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(1|0));
+        loc0 = CILJS.new_array(t0,1);
         /* IL_08: ldloc.0  */
         st_06 = loc0;
         /* IL_09: ldloca.s 1 */
@@ -367,7 +367,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_13: ldc.i4.s 123 */
-        st_04 = (123|0);
+        st_04 = 123;
         /* IL_15: stfld Int32 V */
         st_03.r().V = st_04;
         /* IL_1A: ldloc.1  */
@@ -375,7 +375,7 @@ var asm1;(function (asm)
         /* IL_1B: box A */
         st_07 = CILJS.make_box(CILJS.clone_value(st_05),t0);
         /* IL_20: ldc.i4.0  */
-        st_08 = (0|0);
+        st_08 = 0;
         /* IL_21: callvirt Void SetValue(System.Object, System.Int32) */
         asm0.x6000135(st_06,st_07,st_08);
         /* IL_26: nop  */
@@ -389,19 +389,19 @@ var asm1;(function (asm)
         asm0.x60000a2(asm1.x6000002({
                     w: function (v)
                     {
-                        (loc0.jsarr)[(0|0)] = v;
+                        (loc0.jsarr)[0] = v;
                     },
                     r: function ()
                     {
-                        return (loc0.jsarr)[(0|0)];
+                        return (loc0.jsarr)[0];
                     }
-                }),CILJS.new_array(t1,(0|0)));
+                }),CILJS.new_array(t1,0));
         /* IL_3E: nop  */
         /* IL_3F: ldloc.0  */
         /* IL_40: ldnull  */
         /* IL_41: ldc.i4.0  */
         /* IL_42: callvirt Void SetValue(System.Object, System.Int32) */
-        asm0.x6000135(loc0,null,(0|0));
+        asm0.x6000135(loc0,null,0);
         /* IL_47: nop  */
         /* IL_48: ldloc.0  */
         /* IL_49: ldc.i4.0  */
@@ -413,13 +413,13 @@ var asm1;(function (asm)
         asm0.x60000a2(asm1.x6000002({
                     w: function (v)
                     {
-                        (loc0.jsarr)[(0|0)] = v;
+                        (loc0.jsarr)[0] = v;
                     },
                     r: function ()
                     {
-                        return (loc0.jsarr)[(0|0)];
+                        return (loc0.jsarr)[0];
                     }
-                }),CILJS.new_array(t1,(0|0)));
+                }),CILJS.new_array(t1,0));
         /* IL_5F: nop  */
         /* IL_60: ret  */
         return ;

@@ -12,32 +12,32 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.5  */
         /* IL_02: newarr System.Int32 */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(5|0));
+        loc0 = CILJS.new_array(t0,5);
         /* IL_08: ldloc.0  */
         /* IL_09: ldc.i4.0  */
         /* IL_0A: ldc.i4.s 44 */
         /* IL_0C: stelem.i4  */
-        (loc0.jsarr)[(0|0)] = (44|0);
+        (loc0.jsarr)[0] = 44;
         /* IL_0D: ldloc.0  */
         /* IL_0E: ldc.i4.1  */
         /* IL_0F: ldc.i4.s 43 */
         /* IL_11: stelem.i4  */
-        (loc0.jsarr)[(1|0)] = (43|0);
+        (loc0.jsarr)[1] = 43;
         /* IL_12: ldloc.0  */
         /* IL_13: ldc.i4.2  */
         /* IL_14: ldc.i4.s 42 */
         /* IL_16: stelem.i4  */
-        (loc0.jsarr)[(2|0)] = (42|0);
+        (loc0.jsarr)[2] = 42;
         /* IL_17: ldloc.0  */
         /* IL_18: ldc.i4.3  */
         /* IL_19: ldc.i4.s 41 */
         /* IL_1B: stelem.i4  */
-        (loc0.jsarr)[(3|0)] = (41|0);
+        (loc0.jsarr)[3] = 41;
         /* IL_1C: ldloc.0  */
         /* IL_1D: ldc.i4.4  */
         /* IL_1E: ldc.i4.s 40 */
         /* IL_20: stelem.i4  */
-        (loc0.jsarr)[(4|0)] = (40|0);
+        (loc0.jsarr)[4] = 40;
         /* IL_21: ldloc.0  */
         /* IL_22: call Void PrintArray(System.Collections.IEnumerable) */
         asm1.x6000002(loc0);

@@ -211,7 +211,7 @@ var asm1;(function (asm)
                     case 0x2C:
                     /* IL_2C: ldloca.s 3 */
                     /* IL_2F: initobj T */
-                    loc3 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+                    loc3 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
                     /* IL_34: ldloc.3  */
                     /* IL_35: stloc.2  */
                     loc2 = loc3;
@@ -274,7 +274,7 @@ var asm1;(function (asm)
                     /* IL_00: nop  */
                     /* IL_01: ldc.i4.0  */
                     /* IL_02: stloc.0  */
-                    loc0 = (0|0);
+                    loc0 = 0;
                     /* IL_03: nop  */
                     /* IL_04: ldarg.0  */
                     /* IL_05: callvirt IEnumerator`1 GetEnumerator() */
@@ -306,7 +306,7 @@ var asm1;(function (asm)
                                 /* IL_16: ldc.i4.1  */
                                 /* IL_17: add  */
                                 /* IL_18: stloc.0  */
-                                loc0 = (loc0 + (1|0)) | (0|0);
+                                loc0 = (loc0 + 1) | 0;
                                 /* IL_19: nop  */
                                 case 0x1A:
                                 /* IL_1A: ldloc.1  */
@@ -404,13 +404,13 @@ var asm1;(function (asm)
         /* IL_18: ldelem.ref  */
         /* IL_19: callvirt IEnumerable`1 get_CustomAttributes() */
         /* IL_1E: stloc.1  */
-        loc1 = ((CILJS.ldelem_ref(loc0,(0|0)).vtable)["asm0.x60001c2"])(CILJS.ldelem_ref(loc0,(0|0)));
+        loc1 = ((CILJS.ldelem_ref(loc0,0).vtable)["asm0.x60001c2"])(CILJS.ldelem_ref(loc0,0));
         /* IL_1F: ldloc.0  */
         /* IL_20: ldc.i4.1  */
         /* IL_21: ldelem.ref  */
         /* IL_22: callvirt IEnumerable`1 get_CustomAttributes() */
         /* IL_27: stloc.2  */
-        loc2 = ((CILJS.ldelem_ref(loc0,(1|0)).vtable)["asm0.x60001c2"])(CILJS.ldelem_ref(loc0,(1|0)));
+        loc2 = ((CILJS.ldelem_ref(loc0,1).vtable)["asm0.x60001c2"])(CILJS.ldelem_ref(loc0,1));
         /* IL_28: ldloc.1  */
         /* IL_29: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */
         /* IL_2E: box System.Int32 */
@@ -424,7 +424,7 @@ var asm1;(function (asm)
         /* IL_49: ldc.i4.0  */
         /* IL_4A: newarr System.Object */
         /* IL_4F: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1)).vtable)["asm0.x60001c5"])(asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1))),CILJS.new_array(t3,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1)).vtable)["asm0.x60001c5"])(asm0.x60000cf((asm1.x6000009((asm0)["System.Reflection.CustomAttributeData"]()))(loc1))),CILJS.new_array(t3,0));
         /* IL_54: nop  */
         /* IL_55: ldloc.2  */
         /* IL_56: call Int32 Count[System.Reflection.CustomAttributeData](System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData]) */

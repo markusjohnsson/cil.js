@@ -8,19 +8,19 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.r8 2 */
         /* IL_0A: call Void Test(System.Double) */
-        asm1.x6000002((+2));
+        asm1.x6000002(2);
         /* IL_0F: nop  */
         /* IL_10: ldc.r8 3 */
         /* IL_19: call Void Test(System.Double) */
-        asm1.x6000002((+3));
+        asm1.x6000002(3);
         /* IL_1E: nop  */
         /* IL_1F: ldc.r8 4 */
         /* IL_28: call Void Test(System.Double) */
-        asm1.x6000002((+4));
+        asm1.x6000002(4);
         /* IL_2D: nop  */
         /* IL_2E: ldc.r8 8 */
         /* IL_37: call Void Test(System.Double) */
-        asm1.x6000002((+8));
+        asm1.x6000002(8);
         /* IL_3C: nop  */
         /* IL_3D: ret  */
         return ;
@@ -38,7 +38,7 @@ var asm1;(function (asm)
         /* IL_0A: ceq  */
         /* IL_0B: box System.Boolean */
         /* IL_10: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | (0|0)) === (1|0)) ? 1 : 0),t0));
+        asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | 0) === 1) ? 1 : 0),t0));
         /* IL_15: nop  */
         /* IL_16: ldarg.0  */
         /* IL_17: call Double Sqrt(System.Double) */
@@ -47,7 +47,7 @@ var asm1;(function (asm)
         /* IL_1F: ceq  */
         /* IL_20: box System.Boolean */
         /* IL_25: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | (0|0)) === (2|0)) ? 1 : 0),t0));
+        asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | 0) === 2) ? 1 : 0),t0));
         /* IL_2A: nop  */
         /* IL_2B: ldarg.0  */
         /* IL_2C: call Double Sqrt(System.Double) */
@@ -56,7 +56,7 @@ var asm1;(function (asm)
         /* IL_34: ceq  */
         /* IL_35: box System.Boolean */
         /* IL_3A: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | (0|0)) === (3|0)) ? 1 : 0),t0));
+        asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | 0) === 3) ? 1 : 0),t0));
         /* IL_3F: nop  */
         /* IL_40: ret  */
         return ;

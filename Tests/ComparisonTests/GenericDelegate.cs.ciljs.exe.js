@@ -141,7 +141,7 @@ var asm1;(function (asm)
         /* IL_07: dup  */
         st_04 = st_01 = st_00;
         /* IL_08: ldc.i4.s 123 */
-        st_02 = (123|0);
+        st_02 = 123;
         /* IL_0A: stfld Int32 Value */
         st_01.Value = st_02;
         /* IL_0F: callvirt StringWrapper Invoke(IntWrapper) */
@@ -149,7 +149,7 @@ var asm1;(function (asm)
         /* IL_14: ldfld String Value */
         st_07 = st_05.Value;
         /* IL_19: ldc.i4.0  */
-        st_06 = (0|0);
+        st_06 = 0;
         /* IL_1A: newarr System.Object */
         st_08 = CILJS.new_array(t1,st_06);
         /* IL_1F: call Void WriteLine(System.String, System.Object[]) */

@@ -98,7 +98,7 @@ var asm1;(function (asm)
                 /* IL_26: ldc.i4.0  */
                 /* IL_27: newarr System.Object */
                 /* IL_2C: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("Lambda:"),CILJS.new_array(t1,(0|0)));
+                asm0.x60000a2(CILJS.new_string("Lambda:"),CILJS.new_array(t1,0));
                 /* IL_31: nop  */
                 /* IL_32: ldloc.0  */
                 /* IL_33: call Void WriteType(System.Delegate) */
@@ -108,7 +108,7 @@ var asm1;(function (asm)
                 /* IL_3E: ldc.i4.0  */
                 /* IL_3F: newarr System.Object */
                 /* IL_44: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,(0|0)));
+                asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,0));
                 /* IL_49: nop  */
                 /* IL_4A: ldnull  */
                 /* IL_4C: ldftn Object MethodObj(System.Object) */
@@ -120,7 +120,7 @@ var asm1;(function (asm)
                 /* IL_61: ldc.i4.0  */
                 /* IL_62: newarr System.Object */
                 /* IL_67: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,(0|0)));
+                asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,0));
                 /* IL_6C: nop  */
                 /* IL_6D: ldnull  */
                 /* IL_6F: ldftn Object MethodInt(System.Int32) */
@@ -132,7 +132,7 @@ var asm1;(function (asm)
                 /* IL_84: ldc.i4.0  */
                 /* IL_85: newarr System.Object */
                 /* IL_8A: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,(0|0)));
+                asm0.x60000a2(CILJS.new_string("Method (object):"),CILJS.new_array(t1,0));
                 /* IL_8F: nop  */
                 /* IL_90: ldnull  */
                 /* IL_92: ldftn Object MethodString(System.String) */
@@ -243,7 +243,7 @@ var asm1;(function (asm)
                 /* IL_14: ldc.i4.0  */
                 /* IL_15: newarr System.Object */
                 /* IL_1A: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("FuncX<object>"),CILJS.new_array(t0,(0|0)));
+                asm0.x60000a2(CILJS.new_string("FuncX<object>"),CILJS.new_array(t0,0));
                 /* IL_1F: nop  */
                 /* IL_20: nop  */
                 case 0x21:
@@ -265,7 +265,7 @@ var asm1;(function (asm)
                 /* IL_34: ldc.i4.0  */
                 /* IL_35: newarr System.Object */
                 /* IL_3A: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("FuncX<object, object>"),CILJS.new_array(t0,(0|0)));
+                asm0.x60000a2(CILJS.new_string("FuncX<object, object>"),CILJS.new_array(t0,0));
                 /* IL_3F: nop  */
                 /* IL_40: nop  */
                 case 0x41:
@@ -287,7 +287,7 @@ var asm1;(function (asm)
                 /* IL_54: ldc.i4.0  */
                 /* IL_55: newarr System.Object */
                 /* IL_5A: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("FuncX<string, object>"),CILJS.new_array(t0,(0|0)));
+                asm0.x60000a2(CILJS.new_string("FuncX<string, object>"),CILJS.new_array(t0,0));
                 /* IL_5F: nop  */
                 /* IL_60: nop  */
                 case 0x61:
@@ -309,7 +309,7 @@ var asm1;(function (asm)
                 /* IL_74: ldc.i4.0  */
                 /* IL_75: newarr System.Object */
                 /* IL_7A: call Void WriteLine(System.String, System.Object[]) */
-                asm0.x60000a2(CILJS.new_string("FuncX<int, object>"),CILJS.new_array(t0,(0|0)));
+                asm0.x60000a2(CILJS.new_string("FuncX<int, object>"),CILJS.new_array(t0,0));
                 /* IL_7F: nop  */
                 /* IL_80: nop  */
                 case 0x81:

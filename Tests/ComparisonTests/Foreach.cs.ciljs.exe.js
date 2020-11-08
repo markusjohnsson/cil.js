@@ -24,32 +24,32 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.5  */
         /* IL_02: newarr System.Int32 */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(5|0));
+        loc0 = CILJS.new_array(t0,5);
         /* IL_08: ldloc.0  */
         /* IL_09: ldc.i4.0  */
         /* IL_0A: ldc.i4.0  */
         /* IL_0B: stelem.i4  */
-        (loc0.jsarr)[(0|0)] = (0|0);
+        (loc0.jsarr)[0] = 0;
         /* IL_0C: ldloc.0  */
         /* IL_0D: ldc.i4.1  */
         /* IL_0E: ldc.i4.1  */
         /* IL_0F: stelem.i4  */
-        (loc0.jsarr)[(1|0)] = (1|0);
+        (loc0.jsarr)[1] = 1;
         /* IL_10: ldloc.0  */
         /* IL_11: ldc.i4.2  */
         /* IL_12: ldc.i4.2  */
         /* IL_13: stelem.i4  */
-        (loc0.jsarr)[(2|0)] = (2|0);
+        (loc0.jsarr)[2] = 2;
         /* IL_14: ldloc.0  */
         /* IL_15: ldc.i4.3  */
         /* IL_16: ldc.i4.4  */
         /* IL_17: stelem.i4  */
-        (loc0.jsarr)[(3|0)] = (4|0);
+        (loc0.jsarr)[3] = 4;
         /* IL_18: ldloc.0  */
         /* IL_19: ldc.i4.4  */
         /* IL_1A: ldc.i4.8  */
         /* IL_1B: stelem.i4  */
-        (loc0.jsarr)[(4|0)] = (8|0);
+        (loc0.jsarr)[4] = 8;
         /* IL_1C: ldloc.0  */
         /* IL_1D: newobj Void .ctor(System.Int32[]) */
         /* IL_22: stloc.1  */
@@ -82,7 +82,7 @@ var asm1;(function (asm)
         /* IL_08: ldc.i4.1  */
         /* IL_09: add  */
         /* IL_0A: stloc.0  */
-        loc0 = (arg0.Iteri + (1|0)) | (0|0);
+        loc0 = (arg0.Iteri + 1) | 0;
         /* IL_0B: ldloc.0  */
         st_05 = loc0;
         /* IL_0C: stfld Int32 i */
@@ -94,7 +94,7 @@ var asm1;(function (asm)
         /* IL_19: conv.i4  */
         /* IL_1B: clt  */
         /* IL_1C: stloc.1  */
-        loc1 = ((loc0 < (arg0.Iternums.jsarr.length | (0|0))) ? 1 : 0);
+        loc1 = ((loc0 < (arg0.Iternums.jsarr.length | 0)) ? 1 : 0);
         /* IL_1F: ldloc.1  */
         /* IL_20: ret  */
         return loc1;
@@ -121,7 +121,7 @@ var asm1;(function (asm)
         /* IL_00: ldarg.0  */
         /* IL_01: ldc.i4.m1  */
         /* IL_02: stfld Int32 i */
-        arg0.Iteri = (-1|0);
+        arg0.Iteri = -1;
         /* IL_07: ldarg.0  */
         /* IL_08: call Void .ctor() */
         /* IL_0D: nop  */

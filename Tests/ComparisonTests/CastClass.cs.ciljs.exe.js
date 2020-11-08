@@ -156,7 +156,7 @@ var asm1;(function (asm)
                                 /* IL_13: ldc.i4.0  */
                                 /* IL_14: newarr System.Object */
                                 /* IL_19: call Void WriteLine(System.String, System.Object[]) */
-                                asm0.x60000a2(CILJS.new_string("Success"),CILJS.new_array(t1,(0|0)));
+                                asm0.x60000a2(CILJS.new_string("Success"),CILJS.new_array(t1,0));
                                 /* IL_1E: nop  */
                                 /* IL_1F: nop  */
                                 /* IL_20: leave.s IL_38 */
@@ -189,7 +189,7 @@ var asm1;(function (asm)
                                     /* IL_29: ldc.i4.0  */
                                     /* IL_2A: newarr System.Object */
                                     /* IL_2F: call Void WriteLine(System.String, System.Object[]) */
-                                    asm0.x60000a2(CILJS.new_string("Failure"),CILJS.new_array(t1,(0|0)));
+                                    asm0.x60000a2(CILJS.new_string("Failure"),CILJS.new_array(t1,0));
                                     /* IL_34: nop  */
                                     /* IL_35: nop  */
                                     /* IL_36: leave.s IL_38 */

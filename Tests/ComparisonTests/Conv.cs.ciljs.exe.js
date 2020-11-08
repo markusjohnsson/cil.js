@@ -145,25 +145,25 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: conv.i8  */
         /* IL_03: call Void Test(System.Int64) */
-        asm1.x6000001(CILJS.conv_i8((1|0)));
+        asm1.x6000001(CILJS.conv_i8(1));
         /* IL_08: nop  */
         /* IL_09: ldc.i4.m1  */
         /* IL_0A: conv.i8  */
         /* IL_0B: call Void Test(System.Int64) */
-        asm1.x6000001(CILJS.conv_i8((-1|0)));
+        asm1.x6000001(CILJS.conv_i8(-1));
         /* IL_10: nop  */
         /* IL_11: ldc.i4.1  */
         /* IL_12: conv.i8  */
         /* IL_13: call Void Test(System.UInt64) */
-        asm1.x6000002(CILJS.conv_i8((1|0)));
+        asm1.x6000002(CILJS.conv_i8(1));
         /* IL_18: nop  */
         /* IL_19: ldc.i4.1  */
         /* IL_1A: call Void Test(System.Int32) */
-        asm1.x6000003((1|0));
+        asm1.x6000003(1);
         /* IL_1F: nop  */
         /* IL_20: ldc.i4.m1  */
         /* IL_21: call Void Test(System.Int32) */
-        asm1.x6000003((-1|0));
+        asm1.x6000003(-1);
         /* IL_26: nop  */
         /* IL_27: ret  */
         return ;

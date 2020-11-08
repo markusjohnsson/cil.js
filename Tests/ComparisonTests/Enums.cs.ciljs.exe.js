@@ -11,7 +11,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.0  */
         /* IL_02: stloc.0  */
-        loc0 = (0|0);
+        loc0 = 0;
         /* IL_03: ldloc.0  */
         /* IL_04: box System.Int32 */
         /* IL_09: call Void WriteLine(System.Object) */
@@ -19,7 +19,7 @@ var asm1;(function (asm)
         /* IL_0E: nop  */
         /* IL_0F: ldc.i4.0  */
         /* IL_10: stloc.0  */
-        loc0 = (0|0);
+        loc0 = 0;
         /* IL_11: ldloc.0  */
         /* IL_12: box System.Int32 */
         /* IL_17: call Void WriteLine(System.Object) */
@@ -27,7 +27,7 @@ var asm1;(function (asm)
         /* IL_1C: nop  */
         /* IL_1D: ldc.i4.1  */
         /* IL_1E: stloc.0  */
-        loc0 = (1|0);
+        loc0 = 1;
         /* IL_1F: ldloc.0  */
         /* IL_20: box System.Int32 */
         /* IL_25: call Void WriteLine(System.Object) */
@@ -35,7 +35,7 @@ var asm1;(function (asm)
         /* IL_2A: nop  */
         /* IL_2B: ldc.i4.2  */
         /* IL_2C: stloc.0  */
-        loc0 = (2|0);
+        loc0 = 2;
         /* IL_2D: ldloc.0  */
         /* IL_2E: box System.Int32 */
         /* IL_33: call Void WriteLine(System.Object) */

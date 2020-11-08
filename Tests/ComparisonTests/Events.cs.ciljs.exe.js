@@ -169,7 +169,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.0  */
         /* IL_07: newarr System.Object */
         /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("Second"),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(CILJS.new_string("Second"),CILJS.new_array(t0,0));
         /* IL_11: nop  */
         /* IL_12: ret  */
         return ;
@@ -192,7 +192,7 @@ var asm1;(function (asm)
         /* IL_05: ldc.i4.0  */
         /* IL_06: newarr System.Object */
         /* IL_0B: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("First"),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(CILJS.new_string("First"),CILJS.new_array(t0,0));
         /* IL_10: nop  */
         /* IL_11: ret  */
         return ;

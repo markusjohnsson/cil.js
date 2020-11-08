@@ -145,7 +145,7 @@ var asm1;(function (asm)
                 st_03 = CILJS.new_string("true");
                 case 0x15:
                 /* IL_15: ldc.i4.0  */
-                st_02 = (0|0);
+                st_02 = 0;
                 /* IL_16: newarr System.Object */
                 st_04 = CILJS.new_array(t1,st_02);
                 /* IL_1B: call Void WriteLine(System.String, System.Object[]) */
@@ -169,7 +169,7 @@ var asm1;(function (asm)
                 st_08 = CILJS.new_string("true");
                 case 0x35:
                 /* IL_35: ldc.i4.0  */
-                st_07 = (0|0);
+                st_07 = 0;
                 /* IL_36: newarr System.Object */
                 st_09 = CILJS.new_array(t1,st_07);
                 /* IL_3B: call Void WriteLine(System.String, System.Object[]) */
@@ -193,7 +193,7 @@ var asm1;(function (asm)
                 st_0D = CILJS.new_string("true");
                 case 0x55:
                 /* IL_55: ldc.i4.0  */
-                st_0C = (0|0);
+                st_0C = 0;
                 /* IL_56: newarr System.Object */
                 st_0E = CILJS.new_array(t1,st_0C);
                 /* IL_5B: call Void WriteLine(System.String, System.Object[]) */

@@ -101,13 +101,13 @@ var asm1;(function (asm)
                     /* IL_31: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
                     st_0E = asm0.x6000074(st_07);
                     /* IL_36: ldc.i4.1  */
-                    st_08 = (1|0);
+                    st_08 = 1;
                     /* IL_37: newarr System.Type */
                     st_09 = CILJS.new_array(t6,st_08);
                     /* IL_3C: dup  */
                     st_0F = st_0B = st_09;
                     /* IL_3D: ldc.i4.0  */
-                    st_0C = (0|0);
+                    st_0C = 0;
                     /* IL_3E: ldtoken T */
                     st_0A = CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0);
                     /* IL_43: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
@@ -249,7 +249,7 @@ var asm1;(function (asm)
         /* IL_25: ldc.i4.0  */
         /* IL_26: newarr System.Object */
         /* IL_2B: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((asm0.x60000cf(t4.Instance).vtable)["asm0.x60001c5"])(asm0.x60000cf(t4.Instance)),CILJS.new_array(t5,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(t4.Instance).vtable)["asm0.x60001c5"])(asm0.x60000cf(t4.Instance)),CILJS.new_array(t5,0));
         /* IL_30: nop  */
         (asm1.x6000002(asm1.D()))();
         /* IL_31: ldsfld Managed.Reflection.GenericFieldInstance */
@@ -258,7 +258,7 @@ var asm1;(function (asm)
         /* IL_40: ldc.i4.0  */
         /* IL_41: newarr System.Object */
         /* IL_46: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((asm0.x60000cf(t1.Instance).vtable)["asm0.x60001c5"])(asm0.x60000cf(t1.Instance)),CILJS.new_array(t5,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(t1.Instance).vtable)["asm0.x60001c5"])(asm0.x60000cf(t1.Instance)),CILJS.new_array(t5,0));
         /* IL_4B: nop  */
         /* IL_4C: ret  */
         return ;

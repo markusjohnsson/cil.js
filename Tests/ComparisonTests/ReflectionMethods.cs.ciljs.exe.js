@@ -54,7 +54,7 @@ var asm1;(function (asm)
                 /* IL_00: nop  */
                 /* IL_01: ldc.i4.0  */
                 /* IL_02: stloc.0  */
-                loc0 = (0|0);
+                loc0 = 0;
                 /* IL_03: br.s IL_55 */
                 __pos__ = 0x55;
                 continue;
@@ -80,7 +80,7 @@ var asm1;(function (asm)
                         /* IL_05: nop  */
                         /* IL_06: ldc.i4.0  */
                         /* IL_07: stloc.1  */
-                        loc1 = (0|0);
+                        loc1 = 0;
                         /* IL_08: br.s IL_42 */
                         __pos__ = 0x42;
                         continue;
@@ -116,7 +116,7 @@ var asm1;(function (asm)
                                 /* IL_22: ldc.i4.0  */
                                 /* IL_24: cgt  */
                                 /* IL_25: stloc.2  */
-                                loc2 = ((((((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,loc1)).vtable)["asm0.x6000102"])(((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,loc1)),((CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0)).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0)))) > (0|0)) ? 1 : 0);
+                                loc2 = ((((((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,loc1)).vtable)["asm0.x6000102"])(((CILJS.ldelem_ref(arg0,loc1).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,loc1)),((CILJS.ldelem_ref(arg0,(loc1 + 1) | 0).vtable)["asm0.x60001c5"])(CILJS.ldelem_ref(arg0,(loc1 + 1) | 0))) > 0) ? 1 : 0);
                                 /* IL_26: ldloc.2  */
                                 /* IL_27: brfalse.s IL_3D */
                                 
@@ -131,7 +131,7 @@ var asm1;(function (asm)
                                 /* IL_2D: add  */
                                 /* IL_2E: ldelem.ref  */
                                 /* IL_2F: stloc.3  */
-                                loc3 = CILJS.ldelem_ref(arg0,(loc1 + (1|0)) | (0|0));
+                                loc3 = CILJS.ldelem_ref(arg0,(loc1 + 1) | 0);
                                 /* IL_30: ldarg.0  */
                                 /* IL_31: ldloc.1  */
                                 /* IL_32: ldc.i4.1  */
@@ -140,7 +140,7 @@ var asm1;(function (asm)
                                 /* IL_35: ldloc.1  */
                                 /* IL_36: ldelem.ref  */
                                 /* IL_37: stelem.ref  */
-                                CILJS.stelem_ref(arg0,(loc1 + (1|0)) | (0|0),CILJS.ldelem_ref(arg0,loc1));
+                                CILJS.stelem_ref(arg0,(loc1 + 1) | 0,CILJS.ldelem_ref(arg0,loc1));
                                 /* IL_38: ldarg.0  */
                                 /* IL_39: ldloc.1  */
                                 /* IL_3A: ldloc.3  */
@@ -153,7 +153,7 @@ var asm1;(function (asm)
                                 /* IL_3F: ldc.i4.1  */
                                 /* IL_40: add  */
                                 /* IL_41: stloc.1  */
-                                loc1 = (loc1 + (1|0)) | (0|0);
+                                loc1 = (loc1 + 1) | 0;
                                 case 0x42:
                                 /* IL_42: ldloc.1  */
                                 /* IL_43: ldarg.0  */
@@ -163,7 +163,7 @@ var asm1;(function (asm)
                                 /* IL_47: sub  */
                                 /* IL_49: clt  */
                                 /* IL_4A: stloc.s 4 */
-                                loc4 = ((loc1 < (((arg0.jsarr.length | (0|0)) - (1|0)) | (0|0))) ? 1 : 0);
+                                loc4 = ((loc1 < (((arg0.jsarr.length | 0) - 1) | 0)) ? 1 : 0);
                                 /* IL_4C: ldloc.s 4 */
                                 /* IL_4E: brtrue.s IL_0A */
                                 
@@ -183,7 +183,7 @@ var asm1;(function (asm)
                         /* IL_52: ldc.i4.1  */
                         /* IL_53: add  */
                         /* IL_54: stloc.0  */
-                        loc0 = (loc0 + (1|0)) | (0|0);
+                        loc0 = (loc0 + 1) | 0;
                         case 0x55:
                         /* IL_55: ldloc.0  */
                         /* IL_56: ldarg.0  */
@@ -191,7 +191,7 @@ var asm1;(function (asm)
                         /* IL_58: conv.i4  */
                         /* IL_5A: clt  */
                         /* IL_5B: stloc.s 5 */
-                        loc5 = ((loc0 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
+                        loc5 = ((loc0 < (arg0.jsarr.length | 0)) ? 1 : 0);
                         /* IL_5D: ldloc.s 5 */
                         /* IL_5F: brtrue.s IL_05 */
                         
@@ -264,7 +264,7 @@ var asm1;(function (asm)
                 loc2 = loc1;
                 /* IL_22: ldc.i4.0  */
                 /* IL_23: stloc.3  */
-                loc3 = (0|0);
+                loc3 = 0;
                 /* IL_24: br.s IL_42 */
                 __pos__ = 0x42;
                 continue;
@@ -294,13 +294,13 @@ var asm1;(function (asm)
                         /* IL_32: ldc.i4.0  */
                         /* IL_33: newarr System.Object */
                         /* IL_38: call Void WriteLine(System.String, System.Object[]) */
-                        asm0.x60000a2((loc4.vtable)["asm0.x60001c5"](loc4),CILJS.new_array(t1,(0|0)));
+                        asm0.x60000a2((loc4.vtable)["asm0.x60001c5"](loc4),CILJS.new_array(t1,0));
                         /* IL_3D: nop  */
                         /* IL_3E: ldloc.3  */
                         /* IL_3F: ldc.i4.1  */
                         /* IL_40: add  */
                         /* IL_41: stloc.3  */
-                        loc3 = (loc3 + (1|0)) | (0|0);
+                        loc3 = (loc3 + 1) | 0;
                         case 0x42:
                         /* IL_42: ldloc.3  */
                         /* IL_43: ldloc.2  */
@@ -308,7 +308,7 @@ var asm1;(function (asm)
                         /* IL_45: conv.i4  */
                         /* IL_46: blt.s IL_26 */
                         
-                        if (loc3 < (loc2.jsarr.length | (0|0))){
+                        if (loc3 < (loc2.jsarr.length | 0)){
                             __pos__ = 0x26;
                             continue;
                         }

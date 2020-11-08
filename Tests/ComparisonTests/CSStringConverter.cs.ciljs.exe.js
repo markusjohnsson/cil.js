@@ -28,7 +28,7 @@ var asm1;(function (asm)
         /* IL_02: ldc.i4.0  */
         /* IL_03: newarr System.Object */
         /* IL_08: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(arg1,CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(arg1,CILJS.new_array(t0,0));
         /* IL_0D: nop  */
         /* IL_0E: ret  */
         return ;
@@ -94,11 +94,11 @@ var asm1;(function (asm)
                 /* IL_07: ldloc.0  */
                 /* IL_08: ldc.i4.s 34 */
                 /* IL_0A: callvirt Void Append(System.Char) */
-                asm1.x6000004(loc0,(34|0));
+                asm1.x6000004(loc0,34);
                 /* IL_0F: nop  */
                 /* IL_10: ldc.i4.0  */
                 /* IL_11: stloc.1  */
-                loc1 = (0|0);
+                loc1 = 0;
                 /* IL_12: br IL_EC */
                 __pos__ = 0xEC;
                 continue;
@@ -113,7 +113,7 @@ var asm1;(function (asm)
                 /* IL_21: ldc.i4.s 34 */
                 /* IL_23: bgt.un.s IL_53 */
                 
-                if (CILJS.unsigned_value(loc2) > CILJS.unsigned_value((34|0))){
+                if (CILJS.unsigned_value(loc2) > CILJS.unsigned_value(34)){
                     __pos__ = 0x53;
                     continue;
                 }
@@ -128,7 +128,7 @@ var asm1;(function (asm)
                 /* IL_2B: ldc.i4.s 9 */
                 /* IL_2D: sub  */
                 /* IL_2E: switch System.Int32[] */
-                __switch_value__ = CILJS.unsigned_value((loc2 - (9|0)) | (0|0));
+                __switch_value__ = CILJS.unsigned_value((loc2 - 9) | 0);
                 
                 if (__switch_value__ >= 0x5){
                     __pos__ = 0x47;
@@ -148,7 +148,7 @@ var asm1;(function (asm)
                 /* IL_4A: ldc.i4.s 34 */
                 /* IL_4C: beq.s IL_C9 */
                 
-                if (loc2 === (34|0)){
+                if (loc2 === 34){
                     __pos__ = 0xC9;
                     continue;
                 }
@@ -160,7 +160,7 @@ var asm1;(function (asm)
                 /* IL_54: ldc.i4.s 92 */
                 /* IL_56: beq.s IL_6E */
                 
-                if (loc2 === (92|0)){
+                if (loc2 === 92){
                     __pos__ = 0x6E;
                     continue;
                 }
@@ -168,7 +168,7 @@ var asm1;(function (asm)
                 /* IL_5B: ldc.i4 8232 */
                 /* IL_60: beq.s IL_7C */
                 
-                if (loc2 === (8232|0)){
+                if (loc2 === 8232){
                     __pos__ = 0x7C;
                     continue;
                 }
@@ -176,7 +176,7 @@ var asm1;(function (asm)
                 /* IL_65: ldc.i4 8233 */
                 /* IL_6A: beq.s IL_7C */
                 
-                if (loc2 === (8233|0)){
+                if (loc2 === 8233){
                     __pos__ = 0x7C;
                     continue;
                 }
@@ -263,7 +263,7 @@ var asm1;(function (asm)
                 /* IL_E9: ldc.i4.1  */
                 /* IL_EA: add  */
                 /* IL_EB: stloc.1  */
-                loc1 = (loc1 + (1|0)) | (0|0);
+                loc1 = (loc1 + 1) | 0;
                 case 0xEC:
                 /* IL_EC: ldloc.1  */
                 /* IL_ED: ldarg.0  */
@@ -281,7 +281,7 @@ var asm1;(function (asm)
                 /* IL_FC: ldloc.0  */
                 /* IL_FD: ldc.i4.s 34 */
                 /* IL_FF: callvirt Void Append(System.Char) */
-                asm1.x6000004(loc0,(34|0));
+                asm1.x6000004(loc0,34);
                 /* IL_104: nop  */
                 /* IL_105: ldloc.0  */
                 /* IL_106: callvirt String ToString() */

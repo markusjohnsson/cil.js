@@ -32,7 +32,7 @@ var asm1;(function (asm)
                     loc0 = arg0;
                     /* IL_04: ldc.i4.0  */
                     /* IL_05: stloc.1  */
-                    loc1 = (0|0);
+                    loc1 = 0;
                     /* IL_06: br.s IL_26 */
                     __pos__ = 0x26;
                     continue;
@@ -83,7 +83,7 @@ var asm1;(function (asm)
                             /* IL_23: ldc.i4.1  */
                             /* IL_24: add  */
                             /* IL_25: stloc.1  */
-                            loc1 = (loc1 + (1|0)) | (0|0);
+                            loc1 = (loc1 + 1) | 0;
                             case 0x26:
                             /* IL_26: ldloc.1  */
                             /* IL_27: ldloc.0  */
@@ -91,7 +91,7 @@ var asm1;(function (asm)
                             /* IL_29: conv.i4  */
                             /* IL_2A: blt.s IL_08 */
                             
-                            if (loc1 < (loc0.jsarr.length | (0|0))){
+                            if (loc1 < (loc0.jsarr.length | 0)){
                                 __pos__ = 0x8;
                                 continue;
                             }
@@ -104,7 +104,7 @@ var asm1;(function (asm)
                     }
                     /* IL_2C: ldloca.s 5 */
                     /* IL_2F: initobj T */
-                    loc5 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+                    loc5 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
                     /* IL_34: ldloc.s 5 */
                     /* IL_36: stloc.s 4 */
                     loc4 = loc5;
@@ -169,13 +169,13 @@ var asm1;(function (asm)
                 case 0x0:
                 /* IL_00: nop  */
                 /* IL_01: ldc.i4.1  */
-                st_00 = (1|0);
+                st_00 = 1;
                 /* IL_02: newarr System.String */
                 st_01 = CILJS.new_array(t0,st_00);
                 /* IL_07: dup  */
                 st_05 = st_02 = st_01;
                 /* IL_08: ldc.i4.0  */
-                st_03 = (0|0);
+                st_03 = 0;
                 /* IL_09: ldstr asd */
                 st_04 = CILJS.new_string("asd");
                 /* IL_0E: stelem.ref  */
@@ -212,7 +212,7 @@ var asm1;(function (asm)
                 /* IL_30: call String FirstOrDefault[System.String](System.String[], Program+pred`1[System.String]) */
                 st_10 = (asm1.x6000001((asm0)["System.String"]()))(st_0D,st_0E);
                 /* IL_35: ldc.i4.0  */
-                st_0F = (0|0);
+                st_0F = 0;
                 /* IL_36: newarr System.Object */
                 st_11 = CILJS.new_array(t3,st_0F);
                 /* IL_3B: call Void WriteLine(System.String, System.Object[]) */
@@ -245,7 +245,7 @@ var asm1;(function (asm)
     {
         /* IL_00: ldc.i4.1  */
         /* IL_01: ret  */
-        return (1|0);
+        return 1;
     };;
     /* static  <>c..cctor()*/
     asm.x6000008_init = function ()

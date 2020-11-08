@@ -10,7 +10,7 @@ var asm1;(function (asm)
         /* IL_01: ldarg.0  */
         /* IL_02: ldflda T X */
         /* IL_08: initobj T */
-        arg0.r().X = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+        arg0.r().X = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
         /* IL_0D: ret  */
         return ;
     };;
@@ -75,7 +75,7 @@ var asm1;(function (asm)
                 /* IL_09: ldloca.s 0 */
                 /* IL_0B: ldc.i4.s 123 */
                 /* IL_0D: stfld Managed.Reflection.GenericFieldInstance */
-                loc0.X = (123|0);
+                loc0.X = 123;
                 /* IL_12: ldloc.0  */
                 /* IL_13: ldfld Managed.Reflection.GenericFieldInstance */
                 /* IL_18: box System.Int32 */
@@ -126,7 +126,7 @@ var asm1;(function (asm)
                 st_10 = CILJS.new_string("true");
                 case 0x64:
                 /* IL_64: ldc.i4.0  */
-                st_0F = (0|0);
+                st_0F = 0;
                 /* IL_65: newarr System.Object */
                 st_11 = CILJS.new_array(t4,st_0F);
                 /* IL_6A: call Void WriteLine(System.String, System.Object[]) */
@@ -163,7 +163,7 @@ var asm1;(function (asm)
                 st_16 = CILJS.new_string("true");
                 case 0x8C:
                 /* IL_8C: ldc.i4.0  */
-                st_15 = (0|0);
+                st_15 = 0;
                 /* IL_8D: newarr System.Object */
                 st_17 = CILJS.new_array(t4,st_15);
                 /* IL_92: call Void WriteLine(System.String, System.Object[]) */

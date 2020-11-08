@@ -66,7 +66,7 @@ var asm1;(function (asm)
         /* IL_1A: ldc.i4.0  */
         /* IL_1B: newarr System.Object */
         /* IL_20: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("f, f"),CILJS.new_array(t1,(0|0)));
+        asm0.x60000a2(CILJS.new_string("f, f"),CILJS.new_array(t1,0));
         /* IL_25: nop  */
         /* IL_26: ldloc.0  */
         /* IL_27: ldloc.0  */
@@ -77,7 +77,7 @@ var asm1;(function (asm)
         /* IL_33: ldc.i4.0  */
         /* IL_34: newarr System.Object */
         /* IL_39: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("f, X"),CILJS.new_array(t1,(0|0)));
+        asm0.x60000a2(CILJS.new_string("f, X"),CILJS.new_array(t1,0));
         /* IL_3E: nop  */
         /* IL_3F: ldloc.0  */
         /* IL_40: ldnull  */
@@ -90,7 +90,7 @@ var asm1;(function (asm)
         /* IL_57: ldc.i4.0  */
         /* IL_58: newarr System.Object */
         /* IL_5D: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("f, Y"),CILJS.new_array(t1,(0|0)));
+        asm0.x60000a2(CILJS.new_string("f, Y"),CILJS.new_array(t1,0));
         /* IL_62: nop  */
         /* IL_63: ldloc.0  */
         /* IL_64: ldnull  */
@@ -103,7 +103,7 @@ var asm1;(function (asm)
         /* IL_7B: ldc.i4.0  */
         /* IL_7C: newarr System.Object */
         /* IL_81: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("f, null"),CILJS.new_array(t1,(0|0)));
+        asm0.x60000a2(CILJS.new_string("f, null"),CILJS.new_array(t1,0));
         /* IL_86: nop  */
         /* IL_87: ldloc.0  */
         /* IL_88: ldnull  */
@@ -114,7 +114,7 @@ var asm1;(function (asm)
         /* IL_94: ldc.i4.0  */
         /* IL_95: newarr System.Object */
         /* IL_9A: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("null, null"),CILJS.new_array(t1,(0|0)));
+        asm0.x60000a2(CILJS.new_string("null, null"),CILJS.new_array(t1,0));
         /* IL_9F: nop  */
         /* IL_A0: ldnull  */
         /* IL_A1: ldnull  */
@@ -136,7 +136,7 @@ var asm1;(function (asm)
         /* IL_09: ldc.i4.0  */
         /* IL_0A: newarr System.Object */
         /* IL_0F: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((arg0._target) ? (arg0._methodPtr(arg0._target,(123|0))) : (arg0._methodPtr((123|0)))),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(((arg0._target) ? (arg0._methodPtr(arg0._target,123)) : (arg0._methodPtr(123))),CILJS.new_array(t0,0));
         /* IL_14: nop  */
         /* IL_15: ret  */
         return ;

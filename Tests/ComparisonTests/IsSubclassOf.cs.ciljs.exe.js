@@ -93,52 +93,52 @@ var asm1;(function (asm)
         /* IL_2D: ldc.i4.s 123 */
         /* IL_2F: box System.Int32 */
         /* IL_34: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.make_box((123|0),t4));
+        asm1.x6000006(CILJS.make_box(123,t4));
         /* IL_39: nop  */
         /* IL_3A: ldc.i4 -555 */
         /* IL_3F: box System.Int32 */
         /* IL_44: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.make_box((-555|0),t4));
+        asm1.x6000006(CILJS.make_box(-555,t4));
         /* IL_49: nop  */
         /* IL_4A: ldc.i4.0  */
         /* IL_4B: newarr System.Int32 */
         /* IL_50: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t4,(0|0)));
+        asm1.x6000006(CILJS.new_array(t4,0));
         /* IL_55: nop  */
         /* IL_56: ldc.i4.0  */
         /* IL_57: newarr System.UInt32 */
         /* IL_5C: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t5,(0|0)));
+        asm1.x6000006(CILJS.new_array(t5,0));
         /* IL_61: nop  */
         /* IL_62: ldc.i4.0  */
         /* IL_63: newarr System.Object */
         /* IL_68: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t6,(0|0)));
+        asm1.x6000006(CILJS.new_array(t6,0));
         /* IL_6D: nop  */
         /* IL_6E: ldc.i4.0  */
         /* IL_6F: newarr A */
         /* IL_74: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t0,(0|0)));
+        asm1.x6000006(CILJS.new_array(t0,0));
         /* IL_79: nop  */
         /* IL_7A: ldc.i4.0  */
         /* IL_7B: newarr B */
         /* IL_80: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t1,(0|0)));
+        asm1.x6000006(CILJS.new_array(t1,0));
         /* IL_85: nop  */
         /* IL_86: ldc.i4.0  */
         /* IL_87: newarr C */
         /* IL_8C: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t2,(0|0)));
+        asm1.x6000006(CILJS.new_array(t2,0));
         /* IL_91: nop  */
         /* IL_92: ldc.i4.0  */
         /* IL_93: newarr D */
         /* IL_98: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t3,(0|0)));
+        asm1.x6000006(CILJS.new_array(t3,0));
         /* IL_9D: nop  */
         /* IL_9E: ldc.i4.0  */
         /* IL_9F: newarr I */
         /* IL_A4: call Void Test(System.Object) */
-        asm1.x6000006(CILJS.new_array(t7,(0|0)));
+        asm1.x6000006(CILJS.new_array(t7,0));
         /* IL_A9: nop  */
         /* IL_AA: ret  */
         return ;
@@ -211,7 +211,7 @@ var asm1;(function (asm)
         /* IL_0C: ldc.i4.0  */
         /* IL_0D: newarr System.Object */
         /* IL_12: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(((asm0.x60000cf(arg0).vtable)["asm0.x60001c5"])(asm0.x60000cf(arg0)),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(((asm0.x60000cf(arg0).vtable)["asm0.x60001c5"])(asm0.x60000cf(arg0)),CILJS.new_array(t0,0));
         /* IL_17: nop  */
         /* IL_18: ldarg.0  */
         /* IL_19: callvirt Type GetType() */

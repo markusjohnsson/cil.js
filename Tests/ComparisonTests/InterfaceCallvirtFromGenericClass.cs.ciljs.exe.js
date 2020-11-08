@@ -100,7 +100,7 @@ var asm1;(function (asm)
         /* IL_0B: dup  */
         st_04 = st_01 = st_00;
         /* IL_0C: ldc.i4.s 101 */
-        st_02 = (101|0);
+        st_02 = 101;
         /* IL_0E: stfld Int32 x */
         st_01.x = st_02;
         /* IL_13: call Void X(D) */

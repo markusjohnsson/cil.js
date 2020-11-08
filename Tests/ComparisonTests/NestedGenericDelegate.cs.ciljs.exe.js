@@ -68,7 +68,7 @@ var asm1;(function (asm)
         st_01 = arg1;
         /* IL_02: ldloca.s 0 */
         /* IL_05: initobj T */
-        loc0 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+        loc0 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
         /* IL_0A: ldloc.0  */
         st_02 = loc0;
         /* IL_0B: callvirt Type Invoke(T) */
@@ -76,7 +76,7 @@ var asm1;(function (asm)
         /* IL_10: callvirt String get_Name() */
         st_05 = (st_03.vtable)["asm0.x60001c5"](st_03);
         /* IL_15: ldc.i4.0  */
-        st_04 = (0|0);
+        st_04 = 0;
         /* IL_16: newarr System.Object */
         st_06 = CILJS.new_array(t1,st_04);
         /* IL_1B: call Void WriteLine(System.String, System.Object[]) */

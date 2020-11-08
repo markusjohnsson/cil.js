@@ -39,7 +39,7 @@ var asm1;(function (asm)
         /* IL_01: ldc.i4.1  */
         /* IL_02: newarr I */
         /* IL_07: stloc.0  */
-        loc0 = CILJS.new_array(t0,(1|0));
+        loc0 = CILJS.new_array(t0,1);
         /* IL_08: ldloc.0  */
         /* IL_09: call Void M(System.Object) */
         asm1.x6000003(loc0);
@@ -53,7 +53,7 @@ var asm1;(function (asm)
         /* IL_21: ldc.i4.0  */
         /* IL_22: newarr System.Object */
         /* IL_27: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.cast_class(CILJS.ldelem_ref(CILJS.cast_class(loc0,t1),(0|0)),t2).X,CILJS.new_array(t3,(0|0)));
+        asm0.x60000a2(CILJS.cast_class(CILJS.ldelem_ref(CILJS.cast_class(loc0,t1),0),t2).X,CILJS.new_array(t3,0));
         /* IL_2C: nop  */
         /* IL_2D: ret  */
         return ;
@@ -93,7 +93,7 @@ var asm1;(function (asm)
         /* IL_08: ldloc.0  */
         st_05 = loc0;
         /* IL_09: ldc.i4.0  */
-        st_06 = (0|0);
+        st_06 = 0;
         /* IL_0A: newobj Void .ctor() */
         st_02 = CILJS.newobj(t2,asm1.x6000001,[null]);
         /* IL_0F: dup  */

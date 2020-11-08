@@ -8,7 +8,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.s 123 */
         /* IL_03: stloc.0  */
-        loc0 = (123|0);
+        loc0 = 123;
         /* IL_06: ldloc.0  */
         /* IL_07: ret  */
         return loc0;

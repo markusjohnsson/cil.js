@@ -39,7 +39,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.5  */
         /* IL_02: stloc.0  */
-        loc0 = (5|0);
+        loc0 = 5;
         /* IL_03: ldloca.s 0 */
         /* IL_05: conv.u  */
         /* IL_06: call Void SquarePtrParam(System.Int32*) */

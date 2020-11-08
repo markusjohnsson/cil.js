@@ -94,12 +94,12 @@ var asm1;(function (asm)
         /* IL_07: ldloc.0  */
         /* IL_08: ldc.i4.s 123 */
         /* IL_0A: callvirt Void set_AX(System.Int32) */
-        asm1.x6000002(loc0,(123|0));
+        asm1.x6000002(loc0,123);
         /* IL_0F: nop  */
         /* IL_10: ldloc.0  */
         /* IL_11: ldc.i4 321 */
         /* IL_16: callvirt Void set_BX(System.Int32) */
-        asm1.x6000005(loc0,(321|0));
+        asm1.x6000005(loc0,321);
         /* IL_1B: nop  */
         /* IL_1C: ldloc.0  */
         /* IL_1D: callvirt Int32 get_AX() */

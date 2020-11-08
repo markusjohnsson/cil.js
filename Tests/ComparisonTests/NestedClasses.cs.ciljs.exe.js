@@ -81,7 +81,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.0  */
         /* IL_07: newarr System.Object */
         /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("A.B.M"),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(CILJS.new_string("A.B.M"),CILJS.new_array(t0,0));
         /* IL_11: nop  */
         /* IL_12: ret  */
         return ;
@@ -96,7 +96,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.0  */
         /* IL_07: newarr System.Object */
         /* IL_0C: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(CILJS.new_string("A.B.X"),CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(CILJS.new_string("A.B.X"),CILJS.new_array(t0,0));
         /* IL_11: nop  */
         /* IL_12: ret  */
         return ;
@@ -157,9 +157,9 @@ var asm1;(function (asm)
         /* IL_0B: dup  */
         st_04 = st_01 = st_00;
         /* IL_0C: ldc.i4.1  */
-        st_02 = (1|0);
+        st_02 = 1;
         /* IL_0D: add  */
-        st_03 = (st_01 + st_02) | (0|0);
+        st_03 = (st_01 + st_02) | 0;
         asm1.x600000b();
         /* IL_0E: stsfld Int32 y */
         t0.y = st_03;
@@ -168,7 +168,7 @@ var asm1;(function (asm)
         /* IL_18: call String Concat(System.Object, System.Object) */
         st_08 = asm0.x60000ee(st_05,st_06);
         /* IL_1D: ldc.i4.0  */
-        st_07 = (0|0);
+        st_07 = 0;
         /* IL_1E: newarr System.Object */
         st_09 = CILJS.new_array(t2,st_07);
         /* IL_23: call Void WriteLine(System.String, System.Object[]) */
@@ -208,7 +208,7 @@ var asm1;(function (asm)
         t0 = (asm1)["C+D+E"]();
         /* IL_00: ldc.i4.s 123 */
         /* IL_02: stsfld Int32 y */
-        t0.y = (123|0);
+        t0.y = 123;
         /* IL_07: ret  */
         return ;
     };

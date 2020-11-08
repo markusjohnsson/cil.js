@@ -42,7 +42,7 @@ var asm1;(function (asm)
         /* IL_00: ldarg.0  */
         /* IL_01: ldc.i4 321 */
         /* IL_06: stfld Int32 Y */
-        arg0.Y = (321|0);
+        arg0.Y = 321;
         /* IL_0B: ldarg.0  */
         /* IL_0C: call Void .ctor() */
         /* IL_11: nop  */
@@ -71,7 +71,7 @@ var asm1;(function (asm)
         t0 = asm1.Program();
         /* IL_00: ldc.i4.s 123 */
         /* IL_02: stsfld Int32 X */
-        t0.X = (123|0);
+        t0.X = 123;
         /* IL_07: ret  */
         return ;
     };

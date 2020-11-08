@@ -44,7 +44,7 @@ var asm1;(function (asm)
         /* IL_11: cgt.un  */
         /* IL_12: box System.Boolean */
         /* IL_17: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box(((CILJS.unsigned_value(loc1) > CILJS.unsigned_value((0|0))) ? 1 : 0),t1));
+        asm0.x60000a1(CILJS.make_box(((CILJS.unsigned_value(loc1) > CILJS.unsigned_value(0)) ? 1 : 0),t1));
         /* IL_1C: nop  */
         /* IL_1D: ldloc.1  */
         /* IL_1E: ldloc.0  */
@@ -75,7 +75,7 @@ var asm1;(function (asm)
         /* IL_60: ceq  */
         /* IL_61: box System.Boolean */
         /* IL_66: call Void WriteLine(System.Object) */
-        asm0.x60000a1(CILJS.make_box((((((loc2.vtable)["asm0.x60000ce"](loc2) === (loc0.vtable)["asm0.x60000ce"](loc0)) ? 1 : 0) === (0|0)) ? 1 : 0),t1));
+        asm0.x60000a1(CILJS.make_box((((((loc2.vtable)["asm0.x60000ce"](loc2) === (loc0.vtable)["asm0.x60000ce"](loc0)) ? 1 : 0) === 0) ? 1 : 0),t1));
         /* IL_6B: nop  */
         /* IL_6C: ldstr hello */
         /* IL_71: call Void TestString(System.String) */

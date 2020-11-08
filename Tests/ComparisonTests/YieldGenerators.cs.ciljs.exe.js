@@ -36,7 +36,7 @@ var asm1;(function (asm)
             t1 = TResult;
             t2 = (asm1)["E+<Select>d__0`2"](t0,t1);
             /* IL_00: ldc.i4.s 254 */
-            st_00 = (-2|0);
+            st_00 = -2;
             /* IL_02: newobj Void .ctor(System.Int32) */
             st_01 = CILJS.newobj(t2,asm1.x600000a,[null, st_00]);
             /* IL_07: dup  */
@@ -88,7 +88,7 @@ var asm1;(function (asm)
             t0 = T;
             t1 = (asm1)["E+<Where>d__1`1"](t0);
             /* IL_00: ldc.i4.s 254 */
-            st_00 = (-2|0);
+            st_00 = -2;
             /* IL_02: newobj Void .ctor(System.Int32) */
             st_01 = CILJS.newobj(t1,asm1.x6000013,[null, st_00]);
             /* IL_07: dup  */
@@ -241,7 +241,7 @@ var asm1;(function (asm)
                     case 0x2C:
                     /* IL_2C: ldloca.s 3 */
                     /* IL_2F: initobj T */
-                    loc3 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+                    loc3 = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
                     /* IL_34: ldloc.3  */
                     /* IL_35: stloc.2  */
                     loc2 = loc3;
@@ -330,7 +330,7 @@ var asm1;(function (asm)
                                 /* IL_12: nop  */
                                 /* IL_13: ldc.i4.1  */
                                 /* IL_14: stloc.2  */
-                                loc2 = (1|0);
+                                loc2 = 1;
                                 /* IL_15: leave.s IL_30 */
                                 in_block_1 = false;
                                 __pos__ = 0x30;
@@ -385,7 +385,7 @@ var asm1;(function (asm)
                     case 0x2C:
                     /* IL_2C: ldc.i4.0  */
                     /* IL_2D: stloc.2  */
-                    loc2 = (0|0);
+                    loc2 = 0;
                     case 0x30:
                     /* IL_30: ldloc.2  */
                     /* IL_31: ret  */
@@ -530,17 +530,17 @@ var asm1;(function (asm)
                 /* IL_01: ldc.i4.5  */
                 /* IL_02: newarr P */
                 /* IL_07: stloc.0  */
-                loc0 = CILJS.new_array(t0,(5|0));
+                loc0 = CILJS.new_array(t0,5);
                 /* IL_08: ldloc.0  */
                 st_05 = loc0;
                 /* IL_09: ldc.i4.0  */
-                st_06 = (0|0);
+                st_06 = 0;
                 /* IL_0A: newobj Void .ctor() */
                 st_02 = CILJS.newobj(t0,asm1.x6000007,[null]);
                 /* IL_0F: dup  */
                 st_07 = st_03 = st_02;
                 /* IL_10: ldc.i4.s 11 */
-                st_04 = (11|0);
+                st_04 = 11;
                 /* IL_12: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_03,st_04);
                 /* IL_17: nop  */
@@ -549,13 +549,13 @@ var asm1;(function (asm)
                 /* IL_19: ldloc.0  */
                 st_0B = loc0;
                 /* IL_1A: ldc.i4.1  */
-                st_0C = (1|0);
+                st_0C = 1;
                 /* IL_1B: newobj Void .ctor() */
                 st_08 = CILJS.newobj(t0,asm1.x6000007,[null]);
                 /* IL_20: dup  */
                 st_0D = st_09 = st_08;
                 /* IL_21: ldc.i4.s 22 */
-                st_0A = (22|0);
+                st_0A = 22;
                 /* IL_23: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_09,st_0A);
                 /* IL_28: nop  */
@@ -564,13 +564,13 @@ var asm1;(function (asm)
                 /* IL_2A: ldloc.0  */
                 st_11 = loc0;
                 /* IL_2B: ldc.i4.2  */
-                st_12 = (2|0);
+                st_12 = 2;
                 /* IL_2C: newobj Void .ctor() */
                 st_0E = CILJS.newobj(t0,asm1.x6000007,[null]);
                 /* IL_31: dup  */
                 st_13 = st_0F = st_0E;
                 /* IL_32: ldc.i4.s 33 */
-                st_10 = (33|0);
+                st_10 = 33;
                 /* IL_34: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_0F,st_10);
                 /* IL_39: nop  */
@@ -579,13 +579,13 @@ var asm1;(function (asm)
                 /* IL_3B: ldloc.0  */
                 st_17 = loc0;
                 /* IL_3C: ldc.i4.3  */
-                st_18 = (3|0);
+                st_18 = 3;
                 /* IL_3D: newobj Void .ctor() */
                 st_14 = CILJS.newobj(t0,asm1.x6000007,[null]);
                 /* IL_42: dup  */
                 st_19 = st_15 = st_14;
                 /* IL_43: ldc.i4.s 44 */
-                st_16 = (44|0);
+                st_16 = 44;
                 /* IL_45: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_15,st_16);
                 /* IL_4A: nop  */
@@ -594,13 +594,13 @@ var asm1;(function (asm)
                 /* IL_4C: ldloc.0  */
                 st_1D = loc0;
                 /* IL_4D: ldc.i4.4  */
-                st_1E = (4|0);
+                st_1E = 4;
                 /* IL_4E: newobj Void .ctor() */
                 st_1A = CILJS.newobj(t0,asm1.x6000007,[null]);
                 /* IL_53: dup  */
                 st_1F = st_1B = st_1A;
                 /* IL_54: ldc.i4.s 55 */
-                st_1C = (55|0);
+                st_1C = 55;
                 /* IL_56: callvirt Void set_Prop(System.Int32) */
                 asm1.x6000006(st_1B,st_1C);
                 /* IL_5B: nop  */
@@ -764,7 +764,7 @@ var asm1;(function (asm)
                 /* IL_08: ldc.i4.s 253 */
                 /* IL_0A: beq.s IL_20 */
                 
-                if (loc0 === (-3|0)){
+                if (loc0 === -3){
                     __pos__ = 0x20;
                     continue;
                 }
@@ -772,7 +772,7 @@ var asm1;(function (asm)
                 /* IL_0F: ldc.i4.1  */
                 /* IL_10: beq.s IL_20 */
                 
-                if (loc0 === (1|0)){
+                if (loc0 === 1){
                     __pos__ = 0x20;
                     continue;
                 }
@@ -895,7 +895,7 @@ var asm1;(function (asm)
                             /* IL_0D: ldc.i4.1  */
                             /* IL_0E: beq.s IL_74 */
                             
-                            if (loc1 === (1|0)){
+                            if (loc1 === 1){
                                 __pos__ = 0x74;
                                 continue;
                             }
@@ -913,7 +913,7 @@ var asm1;(function (asm)
                             case 0x16:
                             /* IL_16: ldc.i4.0  */
                             /* IL_17: stloc.0  */
-                            loc0 = (0|0);
+                            loc0 = 0;
                             /* IL_18: leave IL_AF */
                             in_block_1 = false;
                             __pos__ = 0xAF;
@@ -922,7 +922,7 @@ var asm1;(function (asm)
                             /* IL_1D: ldarg.0  */
                             /* IL_1E: ldc.i4.m1  */
                             /* IL_1F: stfld Int32 <>1__state */
-                            (arg0)["_Select_d__0_2<>1__state"] = (-1|0);
+                            (arg0)["_Select_d__0_2<>1__state"] = -1;
                             /* IL_24: nop  */
                             /* IL_25: nop  */
                             /* IL_26: ldarg.0  */
@@ -934,7 +934,7 @@ var asm1;(function (asm)
                             /* IL_37: ldarg.0  */
                             /* IL_38: ldc.i4.s 253 */
                             /* IL_3A: stfld Int32 <>1__state */
-                            (arg0)["_Select_d__0_2<>1__state"] = (-3|0);
+                            (arg0)["_Select_d__0_2<>1__state"] = -3;
                             /* IL_3F: br.s IL_88 */
                             __pos__ = 0x88;
                             continue;
@@ -956,10 +956,10 @@ var asm1;(function (asm)
                             /* IL_69: ldarg.0  */
                             /* IL_6A: ldc.i4.1  */
                             /* IL_6B: stfld Int32 <>1__state */
-                            (arg0)["_Select_d__0_2<>1__state"] = (1|0);
+                            (arg0)["_Select_d__0_2<>1__state"] = 1;
                             /* IL_70: ldc.i4.1  */
                             /* IL_71: stloc.0  */
-                            loc0 = (1|0);
+                            loc0 = 1;
                             /* IL_72: leave.s IL_AF */
                             in_block_1 = false;
                             __pos__ = 0xAF;
@@ -968,11 +968,11 @@ var asm1;(function (asm)
                             /* IL_74: ldarg.0  */
                             /* IL_75: ldc.i4.s 253 */
                             /* IL_77: stfld Int32 <>1__state */
-                            (arg0)["_Select_d__0_2<>1__state"] = (-3|0);
+                            (arg0)["_Select_d__0_2<>1__state"] = -3;
                             /* IL_7C: ldarg.0  */
                             /* IL_7D: ldflda T <s>5__2 */
                             /* IL_83: initobj T */
-                            (arg0)["_Select_d__0_2<s>5__2"] = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+                            (arg0)["_Select_d__0_2<s>5__2"] = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
                             case 0x88:
                             /* IL_88: ldarg.0  */
                             /* IL_89: ldfld IEnumerator`1 <>s__1 */
@@ -993,7 +993,7 @@ var asm1;(function (asm)
                             (arg0)["_Select_d__0_2<>s__1"] = null;
                             /* IL_A3: ldc.i4.0  */
                             /* IL_A4: stloc.0  */
-                            loc0 = (0|0);
+                            loc0 = 0;
                             /* IL_A5: leave.s IL_AF */
                             in_block_1 = false;
                             __pos__ = 0xAF;
@@ -1058,7 +1058,7 @@ var asm1;(function (asm)
                 /* IL_00: ldarg.0  */
                 /* IL_01: ldc.i4.m1  */
                 /* IL_02: stfld Int32 <>1__state */
-                (arg0)["_Select_d__0_2<>1__state"] = (-1|0);
+                (arg0)["_Select_d__0_2<>1__state"] = -1;
                 /* IL_07: ldarg.0  */
                 /* IL_08: ldfld IEnumerator`1 <>s__1 */
                 /* IL_0D: brfalse.s IL_1B */
@@ -1152,7 +1152,7 @@ var asm1;(function (asm)
                 /* IL_06: ldc.i4.s 254 */
                 /* IL_08: bne.un.s IL_22 */
                 
-                if (CILJS.unsigned_value((arg0)["_Select_d__0_2<>1__state"]) != CILJS.unsigned_value((-2|0))){
+                if (CILJS.unsigned_value((arg0)["_Select_d__0_2<>1__state"]) != CILJS.unsigned_value(-2)){
                     __pos__ = 0x22;
                     continue;
                 }
@@ -1168,7 +1168,7 @@ var asm1;(function (asm)
                 /* IL_17: ldarg.0  */
                 /* IL_18: ldc.i4.0  */
                 /* IL_19: stfld Int32 <>1__state */
-                (arg0)["_Select_d__0_2<>1__state"] = (0|0);
+                (arg0)["_Select_d__0_2<>1__state"] = 0;
                 /* IL_1E: ldarg.0  */
                 /* IL_1F: stloc.0  */
                 loc0 = arg0;
@@ -1179,7 +1179,7 @@ var asm1;(function (asm)
                 /* IL_22: ldc.i4.0  */
                 /* IL_23: newobj Void .ctor(System.Int32) */
                 /* IL_28: stloc.0  */
-                loc0 = CILJS.newobj(t3,asm1.x600000a,[null, (0|0)]);
+                loc0 = CILJS.newobj(t3,asm1.x600000a,[null, 0]);
                 case 0x29:
                 /* IL_29: ldloc.0  */
                 /* IL_2A: ldarg.0  */
@@ -1245,7 +1245,7 @@ var asm1;(function (asm)
                 /* IL_08: ldc.i4.s 253 */
                 /* IL_0A: beq.s IL_20 */
                 
-                if (loc0 === (-3|0)){
+                if (loc0 === -3){
                     __pos__ = 0x20;
                     continue;
                 }
@@ -1253,7 +1253,7 @@ var asm1;(function (asm)
                 /* IL_0F: ldc.i4.1  */
                 /* IL_10: beq.s IL_20 */
                 
-                if (loc0 === (1|0)){
+                if (loc0 === 1){
                     __pos__ = 0x20;
                     continue;
                 }
@@ -1366,7 +1366,7 @@ var asm1;(function (asm)
                             /* IL_0D: ldc.i4.1  */
                             /* IL_0E: beq.s IL_7E */
                             
-                            if (loc1 === (1|0)){
+                            if (loc1 === 1){
                                 __pos__ = 0x7E;
                                 continue;
                             }
@@ -1384,7 +1384,7 @@ var asm1;(function (asm)
                             case 0x16:
                             /* IL_16: ldc.i4.0  */
                             /* IL_17: stloc.0  */
-                            loc0 = (0|0);
+                            loc0 = 0;
                             /* IL_18: leave IL_B9 */
                             in_block_1 = false;
                             __pos__ = 0xB9;
@@ -1393,7 +1393,7 @@ var asm1;(function (asm)
                             /* IL_1D: ldarg.0  */
                             /* IL_1E: ldc.i4.m1  */
                             /* IL_1F: stfld Int32 <>1__state */
-                            (arg0)["_Where_d__1_1<>1__state"] = (-1|0);
+                            (arg0)["_Where_d__1_1<>1__state"] = -1;
                             /* IL_24: nop  */
                             /* IL_25: nop  */
                             /* IL_26: ldarg.0  */
@@ -1405,7 +1405,7 @@ var asm1;(function (asm)
                             /* IL_37: ldarg.0  */
                             /* IL_38: ldc.i4.s 253 */
                             /* IL_3A: stfld Int32 <>1__state */
-                            (arg0)["_Where_d__1_1<>1__state"] = (-3|0);
+                            (arg0)["_Where_d__1_1<>1__state"] = -3;
                             /* IL_3F: br.s IL_92 */
                             __pos__ = 0x92;
                             continue;
@@ -1438,10 +1438,10 @@ var asm1;(function (asm)
                             /* IL_73: ldarg.0  */
                             /* IL_74: ldc.i4.1  */
                             /* IL_75: stfld Int32 <>1__state */
-                            (arg0)["_Where_d__1_1<>1__state"] = (1|0);
+                            (arg0)["_Where_d__1_1<>1__state"] = 1;
                             /* IL_7A: ldc.i4.1  */
                             /* IL_7B: stloc.0  */
-                            loc0 = (1|0);
+                            loc0 = 1;
                             /* IL_7C: leave.s IL_B9 */
                             in_block_1 = false;
                             __pos__ = 0xB9;
@@ -1450,12 +1450,12 @@ var asm1;(function (asm)
                             /* IL_7E: ldarg.0  */
                             /* IL_7F: ldc.i4.s 253 */
                             /* IL_81: stfld Int32 <>1__state */
-                            (arg0)["_Where_d__1_1<>1__state"] = (-3|0);
+                            (arg0)["_Where_d__1_1<>1__state"] = -3;
                             case 0x86:
                             /* IL_86: ldarg.0  */
                             /* IL_87: ldflda T <s>5__2 */
                             /* IL_8D: initobj T */
-                            (arg0)["_Where_d__1_1<s>5__2"] = ((t0.IsValueType) ? (((t0.IsPrimitive) ? (0|0) : (new t0()))) : (null));
+                            (arg0)["_Where_d__1_1<s>5__2"] = ((t0.IsValueType) ? (((t0.IsPrimitive) ? 0 : (new t0()))) : (null));
                             case 0x92:
                             /* IL_92: ldarg.0  */
                             /* IL_93: ldfld IEnumerator`1 <>s__1 */
@@ -1476,7 +1476,7 @@ var asm1;(function (asm)
                             (arg0)["_Where_d__1_1<>s__1"] = null;
                             /* IL_AD: ldc.i4.0  */
                             /* IL_AE: stloc.0  */
-                            loc0 = (0|0);
+                            loc0 = 0;
                             /* IL_AF: leave.s IL_B9 */
                             in_block_1 = false;
                             __pos__ = 0xB9;
@@ -1541,7 +1541,7 @@ var asm1;(function (asm)
                 /* IL_00: ldarg.0  */
                 /* IL_01: ldc.i4.m1  */
                 /* IL_02: stfld Int32 <>1__state */
-                (arg0)["_Where_d__1_1<>1__state"] = (-1|0);
+                (arg0)["_Where_d__1_1<>1__state"] = -1;
                 /* IL_07: ldarg.0  */
                 /* IL_08: ldfld IEnumerator`1 <>s__1 */
                 /* IL_0D: brfalse.s IL_1B */
@@ -1633,7 +1633,7 @@ var asm1;(function (asm)
                 /* IL_06: ldc.i4.s 254 */
                 /* IL_08: bne.un.s IL_22 */
                 
-                if (CILJS.unsigned_value((arg0)["_Where_d__1_1<>1__state"]) != CILJS.unsigned_value((-2|0))){
+                if (CILJS.unsigned_value((arg0)["_Where_d__1_1<>1__state"]) != CILJS.unsigned_value(-2)){
                     __pos__ = 0x22;
                     continue;
                 }
@@ -1649,7 +1649,7 @@ var asm1;(function (asm)
                 /* IL_17: ldarg.0  */
                 /* IL_18: ldc.i4.0  */
                 /* IL_19: stfld Int32 <>1__state */
-                (arg0)["_Where_d__1_1<>1__state"] = (0|0);
+                (arg0)["_Where_d__1_1<>1__state"] = 0;
                 /* IL_1E: ldarg.0  */
                 /* IL_1F: stloc.0  */
                 loc0 = arg0;
@@ -1660,7 +1660,7 @@ var asm1;(function (asm)
                 /* IL_22: ldc.i4.0  */
                 /* IL_23: newobj Void .ctor(System.Int32) */
                 /* IL_28: stloc.0  */
-                loc0 = CILJS.newobj(t2,asm1.x6000013,[null, (0|0)]);
+                loc0 = CILJS.newobj(t2,asm1.x6000013,[null, 0]);
                 case 0x29:
                 /* IL_29: ldloc.0  */
                 /* IL_2A: ldarg.0  */
@@ -1719,7 +1719,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.s 22 */
         /* IL_09: ceq  */
         /* IL_0A: ret  */
-        return (((arg1)["P<Prop>k__BackingField"] === (22|0)) ? 1 : 0);
+        return (((arg1)["P<Prop>k__BackingField"] === 22) ? 1 : 0);
     };;
     /* System.Boolean <>c.<Main>b__0_2(P)*/
     asm.x6000020 = function _Main_b__0_2(arg0, arg1)
@@ -1729,7 +1729,7 @@ var asm1;(function (asm)
         /* IL_06: ldc.i4.s 99 */
         /* IL_09: ceq  */
         /* IL_0A: ret  */
-        return (((arg1)["P<Prop>k__BackingField"] === (99|0)) ? 1 : 0);
+        return (((arg1)["P<Prop>k__BackingField"] === 99) ? 1 : 0);
     };;
     /* static  <>c..cctor()*/
     asm.x600001c_init = function ()

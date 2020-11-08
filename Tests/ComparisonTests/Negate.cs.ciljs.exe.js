@@ -8,35 +8,35 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.s 123 */
         /* IL_03: call Void Neg(System.Int32) */
-        asm1.x6000002((123|0));
+        asm1.x6000002(123);
         /* IL_08: nop  */
         /* IL_09: ldc.i4.s 133 */
         /* IL_0B: call Void Neg(System.Int32) */
-        asm1.x6000002((-123|0));
+        asm1.x6000002(-123);
         /* IL_10: nop  */
         /* IL_11: ldc.i4 444123 */
         /* IL_16: call Void Neg(System.Int32) */
-        asm1.x6000002((444123|0));
+        asm1.x6000002(444123);
         /* IL_1B: nop  */
         /* IL_1C: ldc.i4 -518495 */
         /* IL_21: call Void Neg(System.Int32) */
-        asm1.x6000002((-518495|0));
+        asm1.x6000002(-518495);
         /* IL_26: nop  */
         /* IL_27: ldc.r8 123 */
         /* IL_30: call Void Neg(System.Double) */
-        asm1.x6000003((+123));
+        asm1.x6000003(123);
         /* IL_35: nop  */
         /* IL_36: ldc.r8 -123 */
         /* IL_3F: call Void Neg(System.Double) */
-        asm1.x6000003((+-123));
+        asm1.x6000003(-123);
         /* IL_44: nop  */
         /* IL_45: ldc.r8 444123 */
         /* IL_4E: call Void Neg(System.Double) */
-        asm1.x6000003((+444123));
+        asm1.x6000003(444123);
         /* IL_53: nop  */
         /* IL_54: ldc.r8 -518495 */
         /* IL_5D: call Void Neg(System.Double) */
-        asm1.x6000003((+-518495));
+        asm1.x6000003(-518495);
         /* IL_62: nop  */
         /* IL_63: ret  */
         return ;

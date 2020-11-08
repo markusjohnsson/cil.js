@@ -17,7 +17,7 @@ var asm1;(function (asm)
         /* IL_01: ldarg.0  */
         /* IL_02: ldc.i4.2  */
         /* IL_03: stind.i4  */
-        arg0.w((2|0));
+        arg0.w(2);
         /* IL_04: ret  */
         return ;
     };;
@@ -60,7 +60,7 @@ var asm1;(function (asm)
             }
         };
         /* IL_0C: ldc.i4.3  */
-        st_02 = (3|0);
+        st_02 = 3;
         /* IL_0D: stfld Int32 U */
         st_01.r().U = st_02;
         /* IL_12: ldloc.0  */
@@ -98,7 +98,7 @@ var asm1;(function (asm)
         /* IL_07: dup  */
         st_04 = st_01 = st_00;
         /* IL_08: ldc.i4.4  */
-        st_02 = (4|0);
+        st_02 = 4;
         /* IL_09: stfld Int32 V */
         st_01.V = st_02;
         /* IL_0E: stind.ref  */

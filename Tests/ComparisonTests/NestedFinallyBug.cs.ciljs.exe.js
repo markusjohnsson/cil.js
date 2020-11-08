@@ -44,7 +44,7 @@ var asm1;(function (asm)
                             /* IL_07: ldc.i4.0  */
                             /* IL_09: cgt.un  */
                             /* IL_0A: stloc.0  */
-                            loc0 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
+                            loc0 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
                             /* IL_0B: ldloc.0  */
                             /* IL_0C: brfalse.s IL_A5 */
                             
@@ -69,7 +69,7 @@ var asm1;(function (asm)
                                         {
                                             return loc1;
                                         }
-                                    }),CILJS.new_array(t0,(0|0)));
+                                    }),CILJS.new_array(t0,0));
                             /* IL_26: nop  */
                             case 0x27:
                             /* IL_27: nop  */
@@ -109,7 +109,7 @@ var asm1;(function (asm)
                                         /* IL_31: ldc.i4.0  */
                                         /* IL_33: cgt.un  */
                                         /* IL_34: stloc.2  */
-                                        loc2 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
+                                        loc2 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
                                         /* IL_35: ldloc.2  */
                                         /* IL_36: brfalse.s IL_7C */
                                         
@@ -134,7 +134,7 @@ var asm1;(function (asm)
                                                     {
                                                         return loc1;
                                                     }
-                                                }),CILJS.new_array(t0,(0|0)));
+                                                }),CILJS.new_array(t0,0));
                                         /* IL_50: nop  */
                                         case 0x51:
                                         /* IL_51: nop  */
@@ -160,7 +160,7 @@ var asm1;(function (asm)
                                         /* IL_5A: ldc.i4.0  */
                                         /* IL_5C: cgt.un  */
                                         /* IL_5D: stloc.3  */
-                                        loc3 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
+                                        loc3 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
                                         /* IL_5E: ldloc.3  */
                                         /* IL_5F: brfalse.s IL_7A */
                                         
@@ -185,7 +185,7 @@ var asm1;(function (asm)
                                                     {
                                                         return loc1;
                                                     }
-                                                }),CILJS.new_array(t0,(0|0)));
+                                                }),CILJS.new_array(t0,0));
                                         /* IL_79: nop  */
                                         case 0x7A:
                                         /* IL_7A: nop  */
@@ -203,7 +203,7 @@ var asm1;(function (asm)
                             /* IL_81: ldc.i4.0  */
                             /* IL_83: cgt.un  */
                             /* IL_84: stloc.s 4 */
-                            loc4 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value((0|0))) ? 1 : 0);
+                            loc4 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
                             /* IL_86: ldloc.s 4 */
                             /* IL_88: brfalse.s IL_A3 */
                             
@@ -228,7 +228,7 @@ var asm1;(function (asm)
                                         {
                                             return loc1;
                                         }
-                                    }),CILJS.new_array(t0,(0|0)));
+                                    }),CILJS.new_array(t0,0));
                             /* IL_A2: nop  */
                             case 0xA3:
                             /* IL_A3: nop  */
@@ -254,7 +254,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.1  */
         /* IL_02: stloc.0  */
-        loc0 = (1|0);
+        loc0 = 1;
         /* IL_05: ldloc.0  */
         /* IL_06: ret  */
         return loc0;

@@ -17,13 +17,13 @@ var asm1;(function (asm)
             /* IL_10: ldc.i4.0  */
             /* IL_11: newarr System.Object */
             /* IL_16: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2(((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x6000073"])(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),CILJS.new_array(t1,(0|0)));
+            asm0.x60000a2(((asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)).vtable)["asm0.x6000073"])(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))),CILJS.new_array(t1,0));
             /* IL_1B: nop  */
             /* IL_1C: ldarg.1  */
             /* IL_1D: ldc.i4.0  */
             /* IL_1E: newarr System.Object */
             /* IL_23: call Void WriteLine(System.String, System.Object[]) */
-            asm0.x60000a2(arg1,CILJS.new_array(t1,(0|0)));
+            asm0.x60000a2(arg1,CILJS.new_array(t1,0));
             /* IL_28: nop  */
             /* IL_29: ret  */
             return ;

@@ -14,7 +14,7 @@ var asm1;(function (asm)
         t0 = (asm0)["System.Int32"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.s 9 */
-        st_00 = (9|0);
+        st_00 = 9;
         /* IL_03: newarr System.Int32 */
         st_01 = CILJS.new_array(t0,st_00);
         /* IL_08: dup  */
@@ -45,7 +45,7 @@ var asm1;(function (asm)
         t0 = (asm0)["System.UInt32"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.s 9 */
-        st_00 = (9|0);
+        st_00 = 9;
         /* IL_03: newarr System.UInt32 */
         st_01 = CILJS.new_array(t0,st_00);
         /* IL_08: dup  */
@@ -76,7 +76,7 @@ var asm1;(function (asm)
         t0 = (asm0)["System.Byte"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.7  */
-        st_00 = (7|0);
+        st_00 = 7;
         /* IL_02: newarr System.Byte */
         st_01 = CILJS.new_array(t0,st_00);
         /* IL_07: dup  */
@@ -107,7 +107,7 @@ var asm1;(function (asm)
         t0 = (asm0)["System.Int64"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.s 9 */
-        st_00 = (9|0);
+        st_00 = 9;
         /* IL_03: newarr System.Int64 */
         st_01 = CILJS.new_array(t0,st_00);
         /* IL_08: dup  */
@@ -179,7 +179,7 @@ var asm1;(function (asm)
                     /* IL_00: nop  */
                     /* IL_01: ldc.i4.0  */
                     /* IL_02: stloc.0  */
-                    loc0 = (0|0);
+                    loc0 = 0;
                     /* IL_03: br.s IL_1B */
                     __pos__ = 0x1B;
                     continue;
@@ -210,7 +210,7 @@ var asm1;(function (asm)
                             /* IL_18: ldc.i4.1  */
                             /* IL_19: add  */
                             /* IL_1A: stloc.0  */
-                            loc0 = (loc0 + (1|0)) | (0|0);
+                            loc0 = (loc0 + 1) | 0;
                             case 0x1B:
                             /* IL_1B: ldloc.0  */
                             /* IL_1C: ldarg.0  */
@@ -218,7 +218,7 @@ var asm1;(function (asm)
                             /* IL_1E: conv.i4  */
                             /* IL_20: clt  */
                             /* IL_21: stloc.1  */
-                            loc1 = ((loc0 < (arg0.jsarr.length | (0|0))) ? 1 : 0);
+                            loc1 = ((loc0 < (arg0.jsarr.length | 0)) ? 1 : 0);
                             /* IL_22: ldloc.1  */
                             /* IL_23: brtrue.s IL_05 */
                             

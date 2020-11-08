@@ -12,7 +12,7 @@ var asm1;(function (asm)
         /* IL_02: ldc.i4.0  */
         /* IL_03: newarr System.Object */
         /* IL_08: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(arg1,CILJS.new_array(t0,(0|0)));
+        asm0.x60000a2(arg1,CILJS.new_array(t0,0));
         /* IL_0D: nop  */
         /* IL_0E: ldarg.0  */
         /* IL_0F: ldfld String Y */
@@ -75,7 +75,7 @@ var asm1;(function (asm)
         /* IL_15: ldc.i4.0  */
         /* IL_16: ldelem.ref  */
         /* IL_17: stloc.0  */
-        loc0 = CILJS.ldelem_ref(((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x6000084"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))),(0|0));
+        loc0 = CILJS.ldelem_ref(((asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0))).vtable)["asm0.x6000084"])(asm0.x60001bf(asm0.x6000074(CILJS.new_handle((asm0)["System.RuntimeTypeHandle"](),t0)))),0);
         /* IL_18: ldloc.0  */
         st_0C = loc0;
         /* IL_19: ldstr Hello */
@@ -83,13 +83,13 @@ var asm1;(function (asm)
         /* IL_1E: newobj Void .ctor(System.String) */
         st_0D = CILJS.newobj(t0,asm1.x6000001,[null, st_06]);
         /* IL_23: ldc.i4.1  */
-        st_07 = (1|0);
+        st_07 = 1;
         /* IL_24: newarr System.Object */
         st_08 = CILJS.new_array(t1,st_07);
         /* IL_29: dup  */
         st_0E = st_09 = st_08;
         /* IL_2A: ldc.i4.0  */
-        st_0A = (0|0);
+        st_0A = 0;
         /* IL_2B: ldstr World */
         st_0B = CILJS.new_string("World");
         /* IL_30: stelem.ref  */

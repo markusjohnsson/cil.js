@@ -39,7 +39,7 @@ var asm1;(function (asm)
         /* IL_00: nop  */
         /* IL_01: ldc.i4.s 123 */
         /* IL_03: call Void Y[System.Int32](System.Int32) */
-        (asm1.x6000007((asm0)["System.Int32"]()))((123|0));
+        (asm1.x6000007((asm0)["System.Int32"]()))(123);
         /* IL_08: nop  */
         /* IL_09: ldstr Hello */
         /* IL_0E: call Void Y[System.String](System.String) */
