@@ -51,12 +51,7 @@ namespace CilJs.JSAst
 
         public void EmitString(string s)
         {
-            EmitString(s, false);
-        }
-
-        private void EmitString(string s, bool allowNewline)
-        {
-            if (s == null || (s.Contains("\n") && allowNewline == false))
+            if (s.Contains("\n"))
                 throw new ArgumentNullException("s");
 
             position += s.Length;
@@ -65,7 +60,8 @@ namespace CilJs.JSAst
 
         public void EmitNewLine()
         {
-            EmitString(Formatting.NewLine, true);
+            position += Formatting.NewLine.Length;
+            writer.Write(Formatting.NewLine);
             Line += 1;
         }
 
