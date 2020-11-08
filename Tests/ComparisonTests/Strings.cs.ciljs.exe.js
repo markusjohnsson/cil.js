@@ -7,7 +7,7 @@ var asm1;(function (asm)
         /* IL_00: ldarg.0  */
         /* IL_01: ldfld String <X>k__BackingField */
         /* IL_06: ret  */
-        return (arg0)["A<X>k__BackingField"];
+        return arg0["A<X>k__BackingField"];
     };;
     /* System.Void A.set_X(String)*/
     asm.x6000002 = function set_X(arg0, arg1)
@@ -15,7 +15,7 @@ var asm1;(function (asm)
         /* IL_00: ldarg.0  */
         /* IL_01: ldarg.1  */
         /* IL_02: stfld String <X>k__BackingField */
-        (arg0)["A<X>k__BackingField"] = arg1;
+        arg0["A<X>k__BackingField"] = arg1;
         /* IL_07: ret  */
         return ;
     };;
@@ -46,9 +46,9 @@ var asm1;(function (asm)
         var t2;
         var loc0;
         CILJS.init_base_types();
-        t0 = (asm0)["System.Object"]();
+        t0 = asm0["System.Object"]();
         t1 = asm1.A();
-        t2 = (asm0)["System.Int32"]();
+        t2 = asm0["System.Int32"]();
         /* IL_00: nop  */
         /* IL_01: call String GetString() */
         /* IL_06: ldc.i4.0  */
@@ -69,7 +69,7 @@ var asm1;(function (asm)
         /* IL_2A: ldc.i4.0  */
         /* IL_2B: newarr System.Object */
         /* IL_30: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2((loc0)["A<X>k__BackingField"],CILJS.new_array(t0,0));
+        asm0.x60000a2(loc0["A<X>k__BackingField"],CILJS.new_array(t0,0));
         /* IL_35: nop  */
         /* IL_36: ldloc.0  */
         /* IL_37: callvirt String get_X() */
@@ -77,7 +77,7 @@ var asm1;(function (asm)
         /* IL_41: ldc.i4.0  */
         /* IL_42: newarr System.Object */
         /* IL_47: call Void WriteLine(System.String, System.Object[]) */
-        asm0.x60000a2(asm1.x6000005((loc0)["A<X>k__BackingField"]),CILJS.new_array(t0,0));
+        asm0.x60000a2(asm1.x6000005(loc0["A<X>k__BackingField"]),CILJS.new_array(t0,0));
         /* IL_4C: nop  */
         /* IL_4D: ldstr 123456789 */
         /* IL_52: call Int32 get_Length() */
@@ -96,7 +96,7 @@ var asm1;(function (asm)
         var in_block_0;
         var __pos__;
         var loc0;
-        t0 = (asm0)["System.String"]();
+        t0 = asm0["System.String"]();
         in_block_0 = true;
         __pos__ = 0x0;
         
@@ -156,7 +156,7 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
@@ -164,24 +164,24 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"A",false,false,false,false,false,[],[
                     [asm1, "x6000001", "get_X"],
                     [asm1, "x6000002", "set_X"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+                ],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
             CILJS.declare_virtual(this,"asm0.x60000ce","asm0.x60000ce");
         },
-        "function A() { c.init();(this)[\"A<X>k__BackingField\"] = null }");
+        "function A() { c.init();this[\"A<X>k__BackingField\"] = null }");
     asm.Program = CILJS.declare_type(
         "Program",
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");

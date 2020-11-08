@@ -14,15 +14,15 @@ var asm1;(function (asm)
         var t7;
         var t8;
         CILJS.init_base_types();
-        t0 = (asm0)["System.Int32"]();
-        t1 = (asm0)["System.UInt32"]();
-        t2 = (asm0)["System.Int64"]();
-        t3 = (asm0)["System.UInt64"]();
-        t4 = (asm0)["System.Single"]();
-        t5 = (asm0)["System.Double"]();
-        t6 = (asm0)["System.Byte"]();
-        t7 = (asm0)["System.SByte"]();
-        t8 = (asm0)["System.Boolean"]();
+        t0 = asm0["System.Int32"]();
+        t1 = asm0["System.UInt32"]();
+        t2 = asm0["System.Int64"]();
+        t3 = asm0["System.UInt64"]();
+        t4 = asm0["System.Single"]();
+        t5 = asm0["System.Double"]();
+        t6 = asm0["System.Byte"]();
+        t7 = asm0["System.SByte"]();
+        t8 = asm0["System.Boolean"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.0  */
         /* IL_02: box System.Int32 */
@@ -230,7 +230,7 @@ var asm1;(function (asm)
         var st_04;
         var st_05;
         var st_06;
-        t0 = (asm0)["System.Object"]();
+        t0 = asm0["System.Object"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: call Void WriteLine(System.Object) */
@@ -258,7 +258,7 @@ var asm1;(function (asm)
     asm.x6000003 = function PrintArray(arg0)
     {
         var t0;
-        t0 = (asm0)["System.Object"]();
+        t0 = asm0["System.Object"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: ldc.i4.0  */
@@ -286,12 +286,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");

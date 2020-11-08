@@ -9,11 +9,11 @@ var asm1;(function (asm)
         var t2;
         var t3;
         var t4;
-        t0 = (asm0)["System.Int32"]();
-        t1 = (asm0)["System.UInt32"]();
-        t2 = (asm0)["System.Int64"]();
-        t3 = (asm0)["System.UInt64"]();
-        t4 = (asm0)["System.Double"]();
+        t0 = asm0["System.Int32"]();
+        t1 = asm0["System.UInt32"]();
+        t2 = asm0["System.Int64"]();
+        t3 = asm0["System.UInt64"]();
+        t4 = asm0["System.Double"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: conv.i4  */
@@ -54,11 +54,11 @@ var asm1;(function (asm)
         var t2;
         var t3;
         var t4;
-        t0 = (asm0)["System.Int32"]();
-        t1 = (asm0)["System.UInt32"]();
-        t2 = (asm0)["System.Int64"]();
-        t3 = (asm0)["System.UInt64"]();
-        t4 = (asm0)["System.Double"]();
+        t0 = asm0["System.Int32"]();
+        t1 = asm0["System.UInt32"]();
+        t2 = asm0["System.Int64"]();
+        t3 = asm0["System.UInt64"]();
+        t4 = asm0["System.Double"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: conv.i4  */
@@ -100,11 +100,11 @@ var asm1;(function (asm)
         var t2;
         var t3;
         var t4;
-        t0 = (asm0)["System.Int32"]();
-        t1 = (asm0)["System.UInt32"]();
-        t2 = (asm0)["System.Int64"]();
-        t3 = (asm0)["System.UInt64"]();
-        t4 = (asm0)["System.Double"]();
+        t0 = asm0["System.Int32"]();
+        t1 = asm0["System.UInt32"]();
+        t2 = asm0["System.Int64"]();
+        t3 = asm0["System.UInt64"]();
+        t4 = asm0["System.Double"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.0  */
         /* IL_02: box System.Int32 */
@@ -182,12 +182,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");

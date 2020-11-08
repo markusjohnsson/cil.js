@@ -15,8 +15,8 @@ var asm1;(function (asm)
         var __error_handled_1__;
         var loc1;
         CILJS.init_base_types();
-        t0 = (asm0)["System.Object"]();
-        t1 = (asm0)["System.Exception"]();
+        t0 = asm0["System.Object"]();
+        t1 = asm0["System.Exception"]();
         in_block_0 = true;
         __pos__ = 0x0;
         
@@ -127,7 +127,7 @@ var asm1;(function (asm)
                 catch (__error__) {
                     __error_handled_1__ = false;
                     
-                    if ((!(__error_handled_1__)) && (__error__ instanceof (asm0)["System.Exception"]())){
+                    if ((!(__error_handled_1__)) && (__error__ instanceof asm0["System.Exception"]())){
                         in_block_1 = true;
                         
                         if (__pos__ < 0x6A){
@@ -196,12 +196,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");

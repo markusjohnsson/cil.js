@@ -36,7 +36,10 @@ namespace CilJs.JSAst
 
         public override void Emit(Emitter emitter)
         {
-            emitter.EmitParenthesized(Array);
+            if (Array is JSIdentifier)
+                emitter.Emit(Array);
+            else
+                emitter.EmitParenthesized(Array);
             emitter.EmitBracketed(Indexer);
         }
 

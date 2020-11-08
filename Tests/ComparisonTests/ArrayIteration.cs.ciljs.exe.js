@@ -7,7 +7,7 @@ var asm1;(function (asm)
         var t0;
         var loc0;
         CILJS.init_base_types();
-        t0 = (asm0)["System.Int32"]();
+        t0 = asm0["System.Int32"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.5  */
         /* IL_02: newarr System.Int32 */
@@ -48,9 +48,9 @@ var asm1;(function (asm)
     /* static System.Void Program.PrintArray(IEnumerable)*/
     asm.x6000002_init = function (arg0)
     {
-        ((asm0)["System.Collections.IEnumerable"]().init)();
-        ((asm0)["System.Collections.IEnumerator"]().init)();
-        ((asm0)["System.IDisposable"]().init)();
+        (asm0["System.Collections.IEnumerable"]().init)();
+        (asm0["System.Collections.IEnumerator"]().init)();
+        (asm0["System.IDisposable"]().init)();
         asm.x6000002 = asm.x6000002_;
     };;
     asm.x6000002 = function (arg0)
@@ -70,9 +70,9 @@ var asm1;(function (asm)
         var __finally_continuation_1__;
         var loc1;
         var loc2;
-        t0 = (asm0)["System.Collections.IEnumerable"]();
-        t1 = (asm0)["System.Collections.IEnumerator"]();
-        t2 = (asm0)["System.IDisposable"]();
+        t0 = asm0["System.Collections.IEnumerable"]();
+        t1 = asm0["System.Collections.IEnumerator"]();
+        t2 = asm0["System.IDisposable"]();
         in_block_0 = true;
         __pos__ = 0x0;
         
@@ -182,12 +182,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");

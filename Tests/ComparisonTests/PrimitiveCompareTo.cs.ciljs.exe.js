@@ -8,9 +8,9 @@ var asm1;(function (asm)
         var t1;
         var t2;
         CILJS.init_base_types();
-        t0 = (asm0)["System.Byte"]();
-        t1 = (asm0)["System.SByte"]();
-        t2 = (asm0)["System.Boolean"]();
+        t0 = asm0["System.Byte"]();
+        t1 = asm0["System.SByte"]();
+        t2 = asm0["System.Boolean"]();
         /* IL_00: nop  */
         /* IL_01: ldc.i4.0  */
         /* IL_02: box System.Byte */
@@ -88,7 +88,7 @@ var asm1;(function (asm)
     /* static System.Void Program.Test(IComparable,IComparable)*/
     asm.x6000002_init = function (arg0, arg1)
     {
-        ((asm0)["System.IComparable"]().init)();
+        (asm0["System.IComparable"]().init)();
         asm.x6000002 = asm.x6000002_;
     };;
     asm.x6000002 = function (arg0, arg1)
@@ -106,9 +106,9 @@ var asm1;(function (asm)
         var in_block_1;
         var __error_handled_1__;
         var loc0;
-        t0 = (asm0)["System.IComparable"]();
-        t1 = (asm0)["System.Int32"]();
-        t2 = (asm0)["System.Object"]();
+        t0 = asm0["System.IComparable"]();
+        t1 = asm0["System.Int32"]();
+        t2 = asm0["System.Object"]();
         in_block_0 = true;
         __pos__ = 0x0;
         
@@ -149,7 +149,7 @@ var asm1;(function (asm)
                 catch (__error__) {
                     __error_handled_1__ = false;
                     
-                    if ((!(__error_handled_1__)) && (__error__ instanceof (asm0)["System.Exception"]())){
+                    if ((!(__error_handled_1__)) && (__error__ instanceof asm0["System.Exception"]())){
                         in_block_1 = true;
                         
                         if (__pos__ < 0x17){
@@ -212,12 +212,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");

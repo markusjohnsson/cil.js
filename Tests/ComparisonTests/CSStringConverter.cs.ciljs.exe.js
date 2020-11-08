@@ -22,7 +22,7 @@ var asm1;(function (asm)
     asm.x6000003 = function Append(arg0, arg1)
     {
         var t0;
-        t0 = (asm0)["System.Object"]();
+        t0 = asm0["System.Object"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.1  */
         /* IL_02: ldc.i4.0  */
@@ -37,7 +37,7 @@ var asm1;(function (asm)
     asm.x6000004 = function Append(arg0, arg1)
     {
         var t0;
-        t0 = (asm0)["System.Char"]();
+        t0 = asm0["System.Char"]();
         /* IL_00: nop  */
         /* IL_01: ldarg.1  */
         /* IL_02: box System.Char */
@@ -141,7 +141,7 @@ var asm1;(function (asm)
                     0x90,
                     0x74
                 ];
-                __pos__ = (0x47 + (__jmp__)[__switch_value__]);
+                __pos__ = (0x47 + __jmp__[__switch_value__]);
                 continue;
                 case 0x49:
                 /* IL_49: ldloc.2  */
@@ -298,7 +298,7 @@ var asm1;(function (asm)
     {
         var t0;
         var loc0;
-        t0 = (asm0)["System.Int32"]();
+        t0 = asm0["System.Int32"]();
         /* IL_00: nop  */
         /* IL_01: ldstr \u */
         /* IL_06: ldarg.0  */
@@ -315,12 +315,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
             this.GenericTypeMetadataName = "asm1.t2000002";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
@@ -332,7 +332,7 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
@@ -340,7 +340,7 @@ var asm1;(function (asm)
             CILJS.init_type(this,asm,"S",false,false,false,false,false,[],[
                     [asm1, "x6000003", "Append"],
                     [asm1, "x6000004", "Append"]
-                ],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
+                ],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
             this.GenericTypeMetadataName = "asm1.t2000003";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
@@ -352,12 +352,12 @@ var asm1;(function (asm)
         [],
         function ()
         {
-            return (asm0)["System.Object"]();
+            return asm0["System.Object"]();
         },
         function ()
         {
             this.init = CILJS.nop;
-            CILJS.init_type(this,asm,"CSStringConverter",false,false,false,false,false,[],[],(asm0)["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
+            CILJS.init_type(this,asm,"CSStringConverter",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
             this.GenericTypeMetadataName = "asm1.t2000004";
             CILJS.declare_virtual(this,"asm0.x60000ca","asm0.x60000ca");
             CILJS.declare_virtual(this,"asm0.x60000cd","asm0.x60000cd");
