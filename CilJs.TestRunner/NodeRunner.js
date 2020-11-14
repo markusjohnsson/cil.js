@@ -2,10 +2,9 @@
 var process = require('process');
 var endOfLine = require('os').EOL;
 
-global.window = global;
 global.CILJS = require('../CilJs.Runtime/Runtime.js');
-global.asm0 = require('./corlib.ciljs.js');
-global.asm1 = require('./program.js');
+require('./corlib.ciljs.js');
+require('./program.js');
 
 function runScript() {
     var result = CILJS.entry_point();

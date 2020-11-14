@@ -91,7 +91,7 @@ namespace System
 
                 var s = new Uint32Array([0, 0]);
 
-                if (a[0] & 1 == 1) {
+                if ((a[0] & 1) == 1) {
                     s[0] = b[0];
                     s[1] = b[1];
                 }
@@ -102,7 +102,7 @@ namespace System
                     a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
-                    if (a[0] & 1 == 1)
+                    if ((a[0] & 1) == 1)
                         s = asm0.XInt64_Addition(b, s);
                 }
 

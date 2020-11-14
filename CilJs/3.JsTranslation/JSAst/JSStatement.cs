@@ -6,10 +6,10 @@ using System.Text;
 namespace CilJs.JSAst
 {
     abstract class JSStatement : JSExpression
-    {   
+    {
     }
 
-    class JSExpressionStatement: JSStatement
+    class JSExpressionStatement : JSStatement
     {
         private JSExpression _Expression;
         public JSExpression Expression
@@ -46,11 +46,14 @@ namespace CilJs.JSAst
                 return;
             }
 
+            emitter.EmitNewLineAndIndentation();
+
             var loc = emitter.Position;
             Expression.Emit(emitter);
 
             if (loc != emitter.Position)
                 emitter.EmitString(";");
+
         }
 
         public override IEnumerable<JSExpression> GetChildren()

@@ -8,12 +8,12 @@ using Managed.Reflection;
 
 namespace CilJs.JsTranslation
 {
-    class AssemblyTranslator: AbstractTranslator
+    class AssemblyTranslator : AbstractTranslator
     {
         private readonly TypeTranslator typeTranslator;
         private readonly MethodTranslator methodTranslator;
 
-        public AssemblyTranslator(Context context, SourceMapBuilder sourceMapBuilder): base(context, sourceMapBuilder)
+        public AssemblyTranslator(Context context, SourceMapBuilder sourceMapBuilder) : base(context, sourceMapBuilder)
         {
             typeTranslator = new TypeTranslator(context, sourceMapBuilder);
             methodTranslator = new MethodTranslator(context, sourceMapBuilder);
@@ -24,34 +24,28 @@ namespace CilJs.JsTranslation
             var name = "asm" + world.IndexOf(asm);
             var ifier = JSFactory.Identifier(name);
 
-            yield return new JSVariableDelcaration { Name = name, ForceDeclaration = true }.ToStatement();
+            yield return new JSVariableDelcaration { Name = name, ForceDeclaration = true, Value = new JSObjectLiteral() }.ToStatement();
+            yield return new JSVariableDelcaration { Name = "asm", ForceDeclaration = true, Value = JSFactory.Identifier(name) }.ToStatement();
 
-            yield return new JSCallExpression
-            {
-                Function = new JSFunctionDelcaration
+            foreach (var refAsm in asm.ReflectionAssembly.GetReferencedAssemblies())
+                yield return new JSVariableDelcaration 
                 {
-                    Parameters = new List<JSFunctionParameter> { new JSFunctionParameter { Name = "asm" } },
-                    Body = GetBody(world, asm).Select(JSFactory.Statement).ToList()
-                },
-                Arguments = 
-                {
-                    new JSBinaryExpression 
-                    {
-                        Left = ifier,
-                        Operator = "||",
-                        Right = JSFactory.Assignment(ifier, new JSObjectLiteral())
-                    }
-                }
-            }.ToStatement();
+                    Name = "asm" + world.TakeWhile(c => c.ReflectionAssembly.GetName().FullName != refAsm.FullName).Count(),
+                    ForceDeclaration = true,
+                    Value = JSFactory.Call(JSFactory.Identifier("CILJS", "find_assembly"), JSFactory.Literal(refAsm.Name))
+                }.ToStatement();
 
-            yield return new JSIfStatement 
+            foreach (var s in GetBody(world, asm).Select(JSFactory.Statement))
+                yield return s;
+
+            yield return new JSIfStatement
             {
                 Condition = JSFactory.Binary(JSFactory.Identifier("typeof module"), "!=", JSFactory.Literal("undefined")),
-                Statements = 
+                Statements =
                 {
                     JSFactory
                         .Assignment(
-                            JSFactory.Identifier("module", "exports"), 
+                            JSFactory.Identifier("module", "exports"),
                             ifier)
                         .ToStatement()
                 }
@@ -62,7 +56,7 @@ namespace CilJs.JsTranslation
         {
             yield return JSFactory
                 .Assignment(
-                    JSFactory.Identifier("asm", "FullName"), 
+                    JSFactory.Identifier("asm", "FullName"),
                     JSFactory.Literal(asm.ReflectionAssembly.FullName));
 
             foreach (var type in asm.Types)
@@ -80,7 +74,9 @@ namespace CilJs.JsTranslation
                     var rmtd = method.ReflectionMethod;
                     var mtdInfo = rmtd as MethodInfo;
 
-                    yield return new JSLineComment { Text = 
+                    yield return new JSLineComment
+                    {
+                        Text =
                         string.Format("{0}{1} {2}.{3}{4}({5})",
                             rmtd.IsStatic ? "static " : "",
                             mtdInfo != null ? mtdInfo.ReturnType.ToString() : null,
@@ -129,7 +125,7 @@ namespace CilJs.JsTranslation
 
                         yield return JSFactory
                             .Assignment(
-                                new JSPropertyAccessExpression 
+                                new JSPropertyAccessExpression
                                 {
                                     Host = new JSIdentifier { Name = "asm" },
 
@@ -164,6 +160,12 @@ namespace CilJs.JsTranslation
                         JSFactory.Identifier("asm", "entryPoint"),
                         JSFactory.Identifier("asm", "x" + asm.EntryPoint.MetadataToken.ToString("x")));
             }
+
+            yield return JSFactory
+                .Call(
+                    JSFactory.Identifier("CILJS", "declare_assembly"),
+                    JSFactory.Literal(asm.ReflectionAssembly.GetName().Name),
+                    JSFactory.Identifier("asm"));
         }
     }
 }

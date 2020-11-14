@@ -62,21 +62,27 @@ namespace CilJs.JsTranslation
                 Parameters = genericParameters
             };
 
-            yield return GetConstructor(type);
+            yield return GetConstructor(type, genericParameters);
         }
 
-        private JSStringLiteral GetConstructor(CilType type)
+        private JSExpression GetConstructor(CilType type, List<JSFunctionParameter> genericParams)
         {
-            return new JSStringLiteral
+            return new JSFunctionDelcaration
             {
-                Value = "function " + GetSimpleName(type.ReflectionType) +
-                    "() { c.init();" +
-                    string.Join(";", GetFieldInitializers(type)
-                        .Select(
-                            f => JSFactory
-                                .Assignment(JSFactory.Identifier("this", f.Key), f.Value)
-                                .ToString())) +
-                " }"
+                Parameters = genericParams,
+                Body = {
+                    JSFactory
+                    .Return(
+                        new JSFunctionDelcaration
+                        {
+                            Name = GetSimpleName(type.ReflectionType),
+                            Body = GetFieldInitializers(type)
+                                .Select(f => JSFactory.Assignment(JSFactory.Identifier("this", f.Key), f.Value).ToStatement())
+                                .StartWith(JSFactory.Call(JSFactory.Identifier(GetSimpleName(type.ReflectionType), "init")).ToStatement())
+                                .ToList()
+                        })
+                    .ToStatement()
+                }
             };
         }
 
@@ -194,7 +200,8 @@ namespace CilJs.JsTranslation
                         JSFactory.Identifier("CILJS", "declare_virtual"),
                         JSFactory.Identifier(n),
                         JSFactory.Literal(f.Key),
-                        JSFactory.Literal(f.Value))
+                        f.Value.Item1,
+                        JSFactory.Literal(f.Value.Item2))
                     .ToStatement();
             }
 
@@ -422,30 +429,34 @@ namespace CilJs.JsTranslation
 
         private IEnumerable<KeyValuePair<JSExpression[], JSExpression>> GetInterfaceMaps(CilType type)
         {
-            return type.ReflectionType
-                       .GetInterfaces()
-                       .Select(
-                           iface => new KeyValuePair<JSExpression[], JSExpression>(
-                               new[] { GetTypeIdentifier(iface, typeScope: type.ReflectionType) }
-                                   .Concat(
-                                       iface.GenericTypeArguments.Select(
-                                           g => GetTypeIdentifier(g, typeScope: type.ReflectionType)))
-                                   .ToArray(),
-                               type.ReflectionType.IsInterface
-                                   ? JSFactory.Null()
-                                   : GetInterfaceMap(type, iface)));
+            return type
+                .ReflectionType
+                .GetInterfaces()
+                .Select(
+                    iface => new KeyValuePair<JSExpression[], JSExpression>(
+                        new[] { GetTypeIdentifier(iface, typeScope: type.ReflectionType) }
+                            .Concat(
+                                iface.GenericTypeArguments.Select(
+                                    g => GetTypeIdentifier(g, typeScope: type.ReflectionType)))
+                            .ToArray(),
+                        type.ReflectionType.IsInterface
+                            ? JSFactory.Null()
+                            : GetInterfaceMap(type, iface)))
+                ;
         }
 
-        private Dictionary<string, string> GetVtable(CilType type)
+        private Dictionary<string, (JSExpression, string)> GetVtable(CilType type)
         {
             return type
-                    .ReflectionType
-                    .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
-                    .Where(m => m.IsVirtual)
-                    .ToDictionary(
-                        m => GetVirtualMethodIdentifier(m),
-                        m => GetUnboundMethodAccessor(m).ToString())
-            ;
+                .ReflectionType
+                .GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+                .Where(m => m.IsVirtual)
+                .ToDictionary(
+                    m => GetVirtualMethodIdentifier(m),
+                    m => (
+                        GetAssemblyIdentifier(m.DeclaringType) as JSExpression,
+                        GetMethodIdentifier(m).ToString()))
+                ;
         }
 
         private JSExpression GetInterfaceMap(CilType type, Type iface)
@@ -468,7 +479,8 @@ namespace CilJs.JsTranslation
                             Inline = true,
                             Values = new JSExpression[] {
                                 new JSStringLiteral { Value = GetMethodIdentifier(m.ifaceMethod) },
-                                new JSStringLiteral { Value = GetUnboundMethodAccessor(m.targetMethod).ToString() }
+                                GetAssemblyIdentifier(m.targetMethod.DeclaringType),
+                                new JSStringLiteral { Value = GetMethodIdentifier(m.targetMethod).ToString() }
                             }
                         })
             };

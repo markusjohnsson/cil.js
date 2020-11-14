@@ -23,8 +23,11 @@ type CilJsType = Function & {
 
     Interfaces: CilJsType[];
     GenericArguments: any;
+    GenericTypeMetadataName: string;
 
     Default: any;
+
+    init: Function;
 }
 
 type CilJsMethodMap = {
@@ -42,14 +45,17 @@ type CilJsArray = {
     etype: CilJsType;
 };
 
+type Tree<T> = any;
+
 type CilJsInstance = {
     constructor: CilJsType;
-    vtable: any; // CilJsMethodMap
-    ifacemap: any; // Tree<CilJsMethodMap>
-    [s: string]: CilJsValue | CilJsInstance;
+    vtable: CilJsMethodMap
+    ifacemap: Tree<CilJsMethodMap>
+} & {
+    [s: string]: CilJsValue;
 };
 
-type CilJsValue = number | Function | CilJsInstance;
+type CilJsValue = number | CilJsLong | Function | CilJsInstance;
 
 type CilJsNullableValue = {
     has_value: boolean;
@@ -78,6 +84,12 @@ type CilJsAsyncResult = {
     result: CilJsValue;
 };
 
+type CilJsAssembly = {
+    entryPoint?: Function;
+} & {
+    [s: string]: any;
+};
+
 function isBoxed(o: any): o is CilJsBox {
     return "boxed" in o;
 }
@@ -93,106 +105,126 @@ namespace CILJS {
 
     export let next_hash = 1;
 
-    export function entry_point() {
-        var a = 0;
-        var result = null;
-        while ((window as any)["asm" + a]) {
-            if (typeof (window as any)["asm" + a].entryPoint == 'function') {
-                result = (window as any)["asm" + a].entryPoint;
-            }
+    let asm0: CilJsAssembly;
+    const assemblies: { [name: string]: CilJsAssembly; } = {};
 
-            a++;
+    export function entry_point() {
+        var result = null;
+
+        for (let asmName in assemblies) {
+            const asm = assemblies[asmName];
+            if (typeof asm.entryPoint == 'function') {
+                result = asm.entryPoint;
+            }
         }
 
         if (result != null)
             return result.apply(null, arguments);
     }
 
-    export function declare_type(name: string, genericArgs: string[], baseType: CilJsType, init: Function, ctortext: string) {
-        const isGeneric = genericArgs && genericArgs.length > 0;
+    export function declare_assembly(name: string, asm: CilJsAssembly) {
+        if (name == "mscorlib")
+            asm0 = asm;
+        assemblies[name] = asm;
+    }
 
-        const ctor = ctortext; //"function " + name + "() { c.init(); }";
+    export function find_assembly(name: string) {
+        return assemblies[name];
+    }
+
+    type CilJsTypeAccessor = (...typeargs: CilJsType[]) => CilJsType;
+
+    export function declare_type(
+        name: string, genericArgs: string[], baseType: CilJsTypeAccessor, init: Function, ctor: CilJsTypeAccessor): CilJsTypeAccessor {
+
+        const isGeneric = genericArgs && genericArgs.length > 0;
 
         if (isGeneric) {
             const cacheTree = {};
-            const gA = genericArgs.join(",");
-            const gAmD = genericArgs.map(function (a) { return a + ".GenericTypeMetadataName"; }).join(",");
-            const s = /* js */`
-                return function t(${gA}) {
-                    var cachedType = ciljs.tree_get([${gAmD}], cacheTree);
-                    if (cachedType) {
-                        return cachedType
-                    };
-
-                    cachedType = new Function('${genericArgs}', 'var c = ${ctor}; return c;')(${gA});
-                    ciljs.tree_set([${gAmD}], cacheTree, cachedType);
-
-                    cachedType.init = init.bind(cachedType, ${gA});
-                    var baseCtor = baseType(${gA});
-                    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
-                    cachedType.prototype.constructor = cachedType;
-                    return cachedType;
+            
+            const s = function t(...ga: CilJsType[]) {
+                const key = ga.map(t => t.GenericTypeMetadataName);
+                let cachedType = tree_get<CilJsType>(key, cacheTree);
+                if (cachedType) {
+                    return cachedType
                 }
-            `;
 
-            const t = new Function("ciljs", "cacheTree", "baseType", "init", s)
-                (CILJS, cacheTree, baseType, init);
+                cachedType = ctor(...ga); 
+                tree_set(key, cacheTree, cachedType);
 
-            return t;
+                cachedType.init = init.bind(cachedType, ...ga);
+                const baseCtor = baseType(...ga);
+                cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
+                cachedType.prototype.constructor = cachedType;
+                return cachedType;
+            }
+
+            return s;
         }
         else {
 
-            let cacheTree: any = null;
-            const s = /* js */`
-                return function t() {
-                    var cachedType = cacheTree;
-                    if (cachedType) {
-                        return cachedType;
-                    }
-
-                    cachedType = new Function('var c = ${ctor}; return c;')();
-                    cacheTree = cachedType;
-
-                    cachedType.init = init.bind(cachedType);
-                    var baseCtor = baseType();
-                    cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
-                    cachedType.prototype.constructor = cachedType;
+            let cacheTree: CilJsType | null = null;
+            const s = function t() {
+                let cachedType = cacheTree;
+                if (cachedType) {
                     return cachedType;
                 }
-            `;
 
-            const t = new Function("ciljs", "cacheTree", "baseType", "init", s)
-                (CILJS, cacheTree, baseType, init);
+                cachedType = ctor();
+                cacheTree = cachedType;
 
-            return t;
+                cachedType.init = init.bind(cachedType);
+                const baseCtor = baseType();
+                cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
+                cachedType.prototype.constructor = cachedType;
+                return cachedType;
+            }
+
+            return s;
         }
     }
 
     export function init_base_types() {
-        asm0['System.Object']().init();
-        asm0['System.ValueType']().init();
-        asm0['System.Array']().init();
-        asm0['System.String']().init();
-        asm0['System.Delegate']().init();
-        asm0['System.Exception']().init();
-        asm0['System.Enum']().init();
-        asm0['System.Type']().init();
-        asm0['System.Boolean']().init();
-        asm0['System.Char']().init();
-        asm0['System.Byte']().init();
-        asm0['System.SByte']().init();
-        asm0['System.Int16']().init();
-        asm0['System.UInt16']().init();
-        asm0['System.Int32']().init();
-        asm0['System.UInt32']().init();
-        asm0['System.Int64']().init();
-        asm0['System.UInt64']().init();
-        asm0['System.Single']().init();
-        asm0['System.Double']().init();
+        const asm = find_assembly("mscorlib") as any;
+        asm['System.Object']().init();
+        asm['System.ValueType']().init();
+        asm['System.Array']().init();
+        asm['System.String']().init();
+        asm['System.Delegate']().init();
+        asm['System.Exception']().init();
+        asm['System.Enum']().init();
+        asm['System.Type']().init();
+        asm['System.Boolean']().init();
+        asm['System.Char']().init();
+        asm['System.Byte']().init();
+        asm['System.SByte']().init();
+        asm['System.Int16']().init();
+        asm['System.UInt16']().init();
+        asm['System.Int32']().init();
+        asm['System.UInt32']().init();
+        asm['System.Int64']().init();
+        asm['System.UInt64']().init();
+        asm['System.Single']().init();
+        asm['System.Double']().init();
     }
 
     export function init_type(
-        type: CilJsType, assembly: any, fullname: string, isValueType: boolean, isPrimitive: boolean, isInterface: boolean, isGenericTypeDefinition: boolean, isNullable: boolean, customAttributes: any, methods: any, baseType: CilJsType, isInst: (v: any) => boolean, arrayType: any, metadataName: string, defaultValue: any) {
+        type: CilJsType,
+        assembly: any,
+        fullname: string,
+        isValueType: boolean,
+        isPrimitive: boolean,
+        isInterface: boolean,
+        isGenericTypeDefinition: boolean,
+        isNullable: boolean,
+        customAttributes: any,
+        methods: any,
+        baseType: CilJsType,
+        isInst: (v: any) => boolean,
+        arrayType: any,
+        metadataName: string,
+        defaultValue: any) {
+
         type.FullName = fullname;
         type.Assembly = assembly;
         type.IsValueType = isValueType;
@@ -216,35 +248,31 @@ namespace CILJS {
         type.Default = defaultValue;
     }
 
-    function make_trampoline(map: CilJsMethodMap, slot: string, target: string): () => Function {
-        return new Function('map', 'slot',
-            /* js */ `
-                return function (...args) {
-                    if (${target}_init) {
-                        ${target}_init(...args);
-                    }
-                    map[slot] = ${target};
-                    return ${target}(...args);
-                }
-            `)(map, slot);
+    function make_trampoline(map: CilJsMethodMap, slot: string, assembly: CilJsAssembly, target: string): () => Function {
+        return function (...args) {
+            if (assembly[target + '_init']) {
+                assembly[target + '_init'](...args);
+            }
+            map[slot] = assembly[target];
+            return assembly[target](...args);
+        }
     }
 
-    export function implement_interface(type: CilJsType, iface: CilJsType[], implementation: [string, string][]) {
+    export function implement_interface(type: CilJsType, iface: CilJsType[], implementation: [string, CilJsAssembly, string][]) {
         type.Interfaces.push(iface[0]);
         if (implementation !== null) {
             const map: CilJsMethodMap = {};
             implementation.forEach(
                 curr => {
-                    const target = curr[1];
-                    const slot = curr[0];
-                    map[slot] = make_trampoline(map, slot, target)
+                    const [slot, asm, target] = curr;
+                    map[slot] = make_trampoline(map, slot, asm, target)
                 });
             tree_set(iface, type.prototype.ifacemap, map);
         }
     }
 
-    export function declare_virtual(type: CilJsType, slot: string, target: string) {
-        type.prototype.vtable[slot] = make_trampoline(type.prototype.vtable, slot, target)
+    export function declare_virtual(type: CilJsType, slot: string, assembly: CilJsAssembly, target: string) {
+        type.prototype.vtable[slot] = make_trampoline(type.prototype.vtable, slot, assembly, target)
     }
 
     export function is_inst_interface(interfaceType: CilJsType) {
@@ -271,10 +299,11 @@ namespace CILJS {
         return function (t: CilJsDelegate) { return (t && typeof t._methodPtr === 'function') ? t : null; };
     }
 
-    export function clone_value(v: CilJsValue | CilJsInstance) {
+    export function clone_value(v: CilJsValue) {
         if (v === null) return v;
         if (typeof v === "number") return v;
         if (typeof v === "function") return v;
+        if (v instanceof Uint32Array) return v;
         if (!v.constructor.IsValueType) return v;
         var result: any = new v.constructor();
         for (var p in v) {
@@ -291,6 +320,17 @@ namespace CILJS {
 
         if (a === null)
             return b === null ? 1 : 0;
+
+        // TODO: Remove, since this function is not actually used for int64
+        if (a instanceof Uint32Array) {
+            if (!(b instanceof Uint32Array))
+                return 0;
+            else
+                return (a[0] == b[0] && a[1] == b[1]) ? 1 : 0;
+        }
+
+        if (b instanceof Uint32Array)
+            return 0;
 
         if (typeof a === "object" && typeof a.constructor !== "undefined" && a.constructor.IsValueType) {
             if (typeof b === "object" && typeof b.constructor !== "undefined" && b.constructor.IsValueType) {
@@ -427,21 +467,21 @@ namespace CILJS {
         return p;
     }
 
-    export function tree_get(a: any[], s: any) {
-        var c = s;
-        for (var i = 0; c && i < a.length; i++)
-            c = c[a[i]];
+    export function tree_get<T>(key: string[] | object[], tree: Tree<T>): T {
+        var c = tree;
+        for (var i = 0; c && i < key.length; i++)
+            c = c[String(key[i])];
         return c;
     }
 
-    export function tree_set(a: any[], s: any, v: any) {
-        if (a.length === 1) {
-            s[a[0]] = v;
+    export function tree_set<T>(key: string[] | object[], tree: Tree<T>, value: T) {
+        if (key.length === 1) {
+            tree[String(key[0])] = value;
         }
         else {
-            var c = s[a[0]];
-            if (!c) s[a[0]] = c = {};
-            tree_set(a.slice(1), c, v);
+            var c = tree[String(key[0])];
+            if (!c) tree[String(key[0])] = c = {};
+            tree_set(key.slice(1), c, value);
         }
     }
 

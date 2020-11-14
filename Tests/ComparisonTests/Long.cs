@@ -540,6 +540,8 @@ class Program
 
         System.Console.WriteLine(Double(0xff));
         System.Console.WriteLine(Double(0xfffffffffffL));
+
+        System.Console.WriteLine(0xffffffffffffffL.Equals(0xffffffffffffffL));
     }
 
     public static double Double(long l)
