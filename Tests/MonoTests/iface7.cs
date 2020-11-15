@@ -29,7 +29,7 @@ namespace TestMono
 
     class Class1
     {
-        static int Main(string[] args)
+        static int Main()
         {
             IDerived id = new Derived();
             if (id.Do() != 2)

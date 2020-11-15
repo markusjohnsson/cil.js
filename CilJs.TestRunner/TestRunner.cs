@@ -224,9 +224,9 @@ namespace CilJs.TestRunner
 
                 var loader = new AssemblyLoader();
                 var ourAssembly = loader.LoadFromStream(assembly);
-
-                var type = ourAssembly.GetType("Program");
-                var main = type.GetTypeInfo().GetDeclaredMethod("Main");
+                
+                // var type = ourAssembly.GetType("Program");
+                var main = ourAssembly.EntryPoint; //type.GetTypeInfo().GetDeclaredMethod("Main");
 
                 exitCode = (int?)main.Invoke(null, new object[] { }) ?? 0;
                 return outWriter.ToString();

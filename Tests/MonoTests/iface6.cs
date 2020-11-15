@@ -12,7 +12,9 @@ interface IB
 
 interface IC : IA, IB { }
 
-interface IE : ICloneable, IDisposable
+interface ICl { object Clone(); }
+
+interface IE : ICl, IDisposable
 {
     void doom();
 }

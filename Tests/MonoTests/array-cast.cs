@@ -2,7 +2,7 @@
 
 namespace Test
 {
-    public class Test
+    public class Program
     {
         public static int Main()
         {

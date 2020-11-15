@@ -22,17 +22,19 @@ type CilJsType = Function & {
     MetadataName: string;
 
     Interfaces: CilJsType[];
-    GenericArguments: any;
-    GenericTypeMetadataName: string;
+    GenericArguments: Dict<CilJsType[]>;
+    TypeMetadataName: string;
 
     Default: any;
 
     init: Function;
 }
 
-type CilJsMethodMap = {
-    [m: string]: () => Function;
+type Dict<T> = {
+    [m: string]: T;
 }
+
+type CilJsMethodMap = Dict<() => Function>;
 
 type CilJsLong = Uint32Array;
 
@@ -72,8 +74,8 @@ type CilJsPointer = {
     r: () => CilJsValue;
 };
 
-type CilJsBox = {
-    boxed: CilJsValue;
+type CilJsBox<V extends CilJsValue = CilJsValue> = {
+    boxed: V;
     type: CilJsType;
     vtable: CilJsInstance["vtable"];
     ifacemap: CilJsInstance["ifacemap"];
@@ -133,54 +135,48 @@ namespace CILJS {
     }
 
     type CilJsTypeAccessor = (...typeargs: CilJsType[]) => CilJsType;
+    type CilJsValueBaseTypeAccessor = (...typeargs: CilJsType[]) => {};
+
+    type CilJsTypeInitializer = (type: CilJsType, ...typeargs: CilJsType[]) => void;
 
     export function declare_type(
-        name: string, genericArgs: string[], baseType: CilJsTypeAccessor, init: Function, ctor: CilJsTypeAccessor): CilJsTypeAccessor {
+        genericArgs: string[], baseType: CilJsTypeAccessor | CilJsValueBaseTypeAccessor, init: CilJsTypeInitializer, createType: CilJsTypeAccessor): CilJsTypeAccessor {
 
         const isGeneric = genericArgs && genericArgs.length > 0;
+        function isClassType(t: CilJsType | {}): t is CilJsType {
+            return typeof t === 'function';
+        }
 
         if (isGeneric) {
             const cacheTree = {};
-            
-            const s = function t(...ga: CilJsType[]) {
-                const key = ga.map(t => t.GenericTypeMetadataName);
+            return function t(...ga: CilJsType[]) {
+                const key = ga.map(t => t.TypeMetadataName);
                 let cachedType = tree_get<CilJsType>(key, cacheTree);
                 if (cachedType) {
                     return cachedType
                 }
-
-                cachedType = ctor(...ga); 
+                cachedType = createType(...ga); 
                 tree_set(key, cacheTree, cachedType);
-
-                cachedType.init = init.bind(cachedType, ...ga);
+                cachedType.init = () => init(cachedType, ...ga);
                 const baseCtor = baseType(...ga);
-                cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
+                cachedType.prototype = isClassType(baseCtor) ? (new baseCtor()) : baseCtor;
                 cachedType.prototype.constructor = cachedType;
                 return cachedType;
             }
-
-            return s;
         }
         else {
-
-            let cacheTree: CilJsType | null = null;
-            const s = function t() {
-                let cachedType = cacheTree;
+            let cachedType: CilJsType | null = null;
+            return function t() {
                 if (cachedType) {
                     return cachedType;
                 }
-
-                cachedType = ctor();
-                cacheTree = cachedType;
-
-                cachedType.init = init.bind(cachedType);
+                cachedType = createType();
+                cachedType.init = () => init(cachedType!);
                 const baseCtor = baseType();
-                cachedType.prototype = (typeof baseCtor === 'function') ? (new baseCtor()) : baseCtor;
+                cachedType.prototype = isClassType(baseCtor) ? (new baseCtor()) : baseCtor;
                 cachedType.prototype.constructor = cachedType;
                 return cachedType;
             }
-
-            return s;
         }
     }
 
@@ -223,7 +219,8 @@ namespace CILJS {
         isInst: (v: any) => boolean,
         arrayType: any,
         metadataName: string,
-        defaultValue: any) {
+        defaultValue: any)
+    {
 
         type.FullName = fullname;
         type.Assembly = assembly;
@@ -374,9 +371,8 @@ namespace CILJS {
             return v;
 
         if (isNullable(v, type)) {
-            const nv = v as CilJsNullableValue;
-            if (nv.has_value)
-                return box(nv.value, type.GenericArguments[type.MetadataName][0]);
+            if (v.has_value)
+                return box(v.value, type.GenericArguments[type.MetadataName][0]);
             else
                 return null;
         }
@@ -390,7 +386,7 @@ namespace CILJS {
         return make_box(v, type);
     }
 
-    export function make_box(v: CilJsValue, type: CilJsType): CilJsBox {
+    export function make_box<V extends CilJsValue>(v: V, type: CilJsType): CilJsBox {
         return {
             boxed: v,
             type: type,
@@ -421,12 +417,10 @@ namespace CILJS {
         }
 
         if (type.IsValueType) {
-
             if (o === null) {
                 var t = asm0['System.InvalidCastException']();
                 throw new t();
             }
-
             return cast_class(o.boxed, type);
         }
         else {

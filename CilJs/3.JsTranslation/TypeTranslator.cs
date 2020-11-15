@@ -35,8 +35,6 @@ namespace CilJs.JsTranslation
         /// </summary>
         private IEnumerable<JSExpression> GetTypeDeclarationArguments(CilType type)
         {
-            yield return JSFactory.Literal(GetSimpleName(type.ReflectionType));
-
             var genericParameters = type
                 .ReflectionType
                 .GetGenericArguments()
@@ -58,8 +56,8 @@ namespace CilJs.JsTranslation
 
             yield return new JSFunctionDelcaration
             {
-                Body = GetInitialization("this", type).ToList(),
-                Parameters = genericParameters
+                Body = GetInitialization("type", type).ToList(),
+                Parameters = genericParameters.StartWith(new JSFunctionParameter{ Name = "type" }).ToList()
             };
 
             yield return GetConstructor(type, genericParameters);
@@ -157,7 +155,7 @@ namespace CilJs.JsTranslation
                     GetAttributes(type.ReflectionType, type.ReflectionType),
                     GetMethods(type),
                     GetBaseType(type),
-                    GetIsInst(type),
+                    GetIsInst(JSFactory.Identifier(n), type),
                     GetArrayType(type),
                     JSFactory.Literal(GetTypeMetadataName(type.ReflectionType)),
                     GetDefaultValue(type.ReflectionType)
@@ -190,7 +188,7 @@ namespace CilJs.JsTranslation
 
             yield return JSFactory
                 .Assignment(
-                    JSFactory.Identifier(n, "GenericTypeMetadataName"),
+                    JSFactory.Identifier(n, "TypeMetadataName"),
                     GetGenericTypeMetadataName(type.ReflectionType))
                 .ToStatement();
 
@@ -240,7 +238,7 @@ namespace CilJs.JsTranslation
             if (!type.IsGenericTypeDefinition)
                 return JSFactory.Literal(n);
 
-            var ga = type.GetGenericArguments().Select(a => JSFactory.Identifier(GetSimpleName(a), "GenericTypeMetadataName"));
+            var ga = type.GetGenericArguments().Select(a => JSFactory.Identifier(GetSimpleName(a), "TypeMetadataName"));
             var gaStr = ga.Aggregate((a, b) => new JSBinaryExpression { Left = a, Right = b, Operator = "+" });
             return new JSBinaryExpression
             {
@@ -402,11 +400,9 @@ namespace CilJs.JsTranslation
             };
         }
 
-        private JSExpression GetIsInst(CilType type)
+        private JSExpression GetIsInst(JSExpression simpleName, CilType type)
         {
             // TODO: this could be done at runtime, in typeInit for example. Only thing needed is to pass T for arrays
-
-            var simpleName = JSFactory.Identifier("this");
 
             if (type.IsInterface)
                 return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_interface"), simpleName);

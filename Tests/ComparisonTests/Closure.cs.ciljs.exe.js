@@ -183,30 +183,29 @@ asm.x600000a = function _ctor(arg0)
     return ;
 };;
 asm.A = CILJS.declare_type(
-    "A",
     [],
     function ()
     {
         
         return asm0["System.Object"]();
     },
-    function ()
+    function (type)
     {
         
-        this.init = CILJS.nop;
+        type.init = CILJS.nop;
         
-        CILJS.init_type(this,asm,"A",false,false,false,false,false,[],[
+        CILJS.init_type(type,asm,"A",false,false,false,false,false,[],[
                 [asm1, "x6000001", "get_Prop"],
                 [asm1, "x6000002", "set_Prop"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000002",null);
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
         
-        this.GenericTypeMetadataName = "asm1.t2000002";
+        type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(this,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
         
-        CILJS.declare_virtual(this,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
         
-        CILJS.declare_virtual(this,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
     },
     function ()
     {
@@ -220,41 +219,40 @@ asm.A = CILJS.declare_type(
         };
     });
 asm.X = CILJS.declare_type(
-    "X",
     [],
     function ()
     {
         
         return {};
     },
-    function ()
+    function (type)
     {
         
-        this.init = CILJS.nop;
+        type.init = CILJS.nop;
         
-        CILJS.init_type(this,asm,"X",false,false,false,false,false,[],[
+        CILJS.init_type(type,asm,"X",false,false,false,false,false,[],[
                 [asm1, "x6000005", "Invoke"],
                 [asm1, "x6000006", "BeginInvoke"],
                 [asm1, "x6000007", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(this),Array,"asm1.t2000003",null);
+            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm1.t2000003",null);
         
-        this.GenericTypeMetadataName = "asm1.t2000003";
+        type.TypeMetadataName = "asm1.t2000003";
         
-        CILJS.declare_virtual(this,"asm1.x6000005",asm1,"x6000005");
+        CILJS.declare_virtual(type,"asm1.x6000005",asm1,"x6000005");
         
-        CILJS.declare_virtual(this,"asm1.x6000006",asm1,"x6000006");
+        CILJS.declare_virtual(type,"asm1.x6000006",asm1,"x6000006");
         
-        CILJS.declare_virtual(this,"asm1.x6000007",asm1,"x6000007");
+        CILJS.declare_virtual(type,"asm1.x6000007",asm1,"x6000007");
         
-        CILJS.declare_virtual(this,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
         
-        CILJS.declare_virtual(this,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
         
-        CILJS.declare_virtual(this,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
         
-        CILJS.declare_virtual(this,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
         
-        CILJS.declare_virtual(this,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
     },
     function ()
     {
@@ -272,27 +270,26 @@ asm.X = CILJS.declare_type(
         };
     });
 asm.Program = CILJS.declare_type(
-    "Program",
     [],
     function ()
     {
         
         return asm0["System.Object"]();
     },
-    function ()
+    function (type)
     {
         
-        this.init = CILJS.nop;
+        type.init = CILJS.nop;
         
-        CILJS.init_type(this,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000004",null);
+        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000004",null);
         
-        this.GenericTypeMetadataName = "asm1.t2000004";
+        type.TypeMetadataName = "asm1.t2000004";
         
-        CILJS.declare_virtual(this,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
         
-        CILJS.declare_virtual(this,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
         
-        CILJS.declare_virtual(this,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
     },
     function ()
     {
@@ -304,27 +301,26 @@ asm.Program = CILJS.declare_type(
         };
     });
 asm["Program+<>c__DisplayClass0_0"] = CILJS.declare_type(
-    "__c__DisplayClass0_0",
     [],
     function ()
     {
         
         return asm0["System.Object"]();
     },
-    function ()
+    function (type)
     {
         
-        this.init = CILJS.nop;
+        type.init = CILJS.nop;
         
-        CILJS.init_type(this,asm,"Program+<>c__DisplayClass0_0",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(this),Array,"asm1.t2000005",null);
+        CILJS.init_type(type,asm,"Program+<>c__DisplayClass0_0",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000005",null);
         
-        this.GenericTypeMetadataName = "asm1.t2000005";
+        type.TypeMetadataName = "asm1.t2000005";
         
-        CILJS.declare_virtual(this,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
         
-        CILJS.declare_virtual(this,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
         
-        CILJS.declare_virtual(this,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
     },
     function ()
     {
