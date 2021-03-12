@@ -273,7 +273,7 @@ namespace CilJs.JsTranslation
             {
                 Condition = new JSBinaryExpression
                 {
-                    Left = new JSIdentifier { Name = "__error_handled_" + (block.Depth - 1) + "__" },
+                    Left = new JSIdentifier { Name = "__error_handled_" + block.Depth + "__" },
                     Operator = "===",
                     Right = new JSBoolLiteral { Value = false }
                 },

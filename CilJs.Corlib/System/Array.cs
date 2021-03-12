@@ -379,10 +379,10 @@ namespace System
             array = a;
         }
 
-        [JsReplace("asm1.GetDefaultComparer({0}.ctor)()")]
+        [JsReplace("asm.GetDefaultComparer({0}.ctor)()")]
         private extern static IComparer GetComparer(Type t);
 
-        [JsReplace("asm1.GetDefaultEqualityComparer({0}.ctor)()")]
+        [JsReplace("asm.GetDefaultEqualityComparer({0}.ctor)()")]
         private extern static IEqualityComparer GetDefaultEqualityComparer(Type t);
 
         public static int BinarySearch<T>(T[] items, int index, int length, T item)

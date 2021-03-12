@@ -50,23 +50,20 @@ namespace CilJs.JSAst
             emitter.Formatting.IncreaseIndentation();
 
             {
-                var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration))
+                var variables = GetChildrenRecursive(a => a == this || !(a is JSFunctionDelcaration)) // do not descend any other functions
                     .OfType<JSVariableDelcaration>()
                     .Select(v => v.Name)
                     .Distinct();
 
-                if (variables.Any())
+                foreach (var v in variables)
                 {
-                    foreach (var v in variables)
-                    {
-                        emitter.EmitNewLineAndIndentation();
+                    emitter.EmitNewLineAndIndentation();
 
-                        emitter.EmitString("var ");
-                        emitter.EmitString(v);
-                        emitter.EmitString(";");
-                    }
+                    emitter.EmitString("var ");
+                    emitter.EmitString(v);
+                    emitter.EmitString(";");
                 }
-
+                
                 if (Body != null)
                 {
                     var lastPos = 0L;

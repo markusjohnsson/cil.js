@@ -1498,7 +1498,7 @@ asm.x600000c_ = function MoveNext(arg0)
                     throw __error__;
                 }
                 
-                if (__error_handled_0__ === false){
+                if (__error_handled_1__ === false){
                     
                     in_block_1 = true;
                     
@@ -2112,7 +2112,7 @@ asm.x6000015 = function MoveNext(arg0)
                     throw __error__;
                 }
                 
-                if (__error_handled_0__ === false){
+                if (__error_handled_1__ === false){
                     
                     in_block_1 = true;
                     

@@ -16371,7 +16371,7 @@ asm.x6000216_ = function MoveNext(arg0)
                     throw __error__;
                 }
                 
-                if (__error_handled_0__ === false){
+                if (__error_handled_1__ === false){
                     
                     in_block_1 = true;
                     
@@ -16985,7 +16985,7 @@ asm.x600021f_ = function MoveNext(arg0)
                     throw __error__;
                 }
                 
-                if (__error_handled_0__ === false){
+                if (__error_handled_1__ === false){
                     
                     in_block_1 = true;
                     
