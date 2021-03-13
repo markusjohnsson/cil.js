@@ -1,8 +1,6 @@
 ﻿
 "use strict";
 
-declare var asm0: any;
-
 type CilJsType = Function & {
     new(): CilJsInstance;
     FullName: string;
@@ -111,7 +109,7 @@ namespace CILJS {
     const assemblies: { [name: string]: CilJsAssembly; } = {};
 
     export function entry_point() {
-        var result = null;
+        let result = null;
 
         for (let asmName in assemblies) {
             const asm = assemblies[asmName];
@@ -259,11 +257,9 @@ namespace CILJS {
         type.Interfaces.push(iface[0]);
         if (implementation !== null) {
             const map: CilJsMethodMap = {};
-            implementation.forEach(
-                curr => {
-                    const [slot, asm, target] = curr;
-                    map[slot] = make_trampoline(map, slot, asm, target)
-                });
+            for (const [slot, asm, target] of implementation) {
+                map[slot] = make_trampoline(map, slot, asm, target)
+            }
             tree_set(iface, type.prototype.ifacemap, map);
         }
     }
@@ -302,8 +298,8 @@ namespace CILJS {
         if (typeof v === "function") return v;
         if (v instanceof Uint32Array) return v;
         if (!v.constructor.IsValueType) return v;
-        var result: any = new v.constructor();
-        for (var p in v) {
+        const result: any = new v.constructor();
+        for (let p in v) {
             if (v.hasOwnProperty(p))
                 result[p] = clone_value(v[p]);
         }
@@ -398,8 +394,8 @@ namespace CILJS {
     // perhaps unused
     export function unbox(o: CilJsBox, type: CilJsType) {
         if (o === null) {
-            var t = asm0['System.InvalidCastException']();
-            var e = new t();
+            const t = asm0['System.InvalidCastException']();
+            const e = new t();
             e.stack = new Error().stack;
             throw e;
         }
@@ -418,7 +414,7 @@ namespace CILJS {
 
         if (type.IsValueType) {
             if (o === null) {
-                var t = asm0['System.InvalidCastException']();
+                const t = asm0['System.InvalidCastException']();
                 throw new t();
             }
             return cast_class(o.boxed, type);
@@ -429,7 +425,7 @@ namespace CILJS {
     }
 
     export function stelem_ref(array: CilJsArray, index: number, element: CilJsValue) {
-        var castedElement = cast_class(element, array.etype);
+        const castedElement = cast_class(element, array.etype);
         array.jsarr[index] = castedElement;
     }
 
@@ -452,7 +448,7 @@ namespace CILJS {
 
     export function dereference_pointer_as_needed(p: CilJsPointer | CilJsValue) {
         if (isPointer(p)) {
-            var v = p.r();
+            const v = p.r();
             if (typeof v !== 'number' && !(v.constructor as CilJsType).IsValueType) {
                 return v;
             }
@@ -462,8 +458,8 @@ namespace CILJS {
     }
 
     export function tree_get<T>(key: string[] | object[], tree: Tree<T>): T {
-        var c = tree;
-        for (var i = 0; c && i < key.length; i++)
+        let c = tree;
+        for (let i = 0; c && i < key.length; i++)
             c = c[String(key[i])];
         return c;
     }
@@ -473,44 +469,43 @@ namespace CILJS {
             tree[String(key[0])] = value;
         }
         else {
-            var c = tree[String(key[0])];
+            let c = tree[String(key[0])];
             if (!c) tree[String(key[0])] = c = {};
             tree_set(key.slice(1), c, value);
         }
     }
 
     export function new_string(jsstr: string) {
-        var r = new (asm0['System.String']())();
+        const r = new (asm0['System.String']())();
         r.jsstr = jsstr;
         return r;
     }
 
     export function new_handle(type: CilJsType, value: any) {
-        var r = new type();
+        const r = new type();
         r.value = value;
         return r;
     }
 
     export function new_array(type: CilJsType, length: number): CilJsArray {
-        var ctor = type.ArrayType || Array;
-        var r = new (asm0['System.Array`1'](type))();
+        const ctor = type.ArrayType || Array;
+        const r = new (asm0['System.Array`1'](type))();
         r.etype = type;
         r.jsarr = new ctor(length);
-        var i;
         if (type.IsValueType === false) {
-            for (i = 0; i < length; i++)
+            for (let i = 0; i < length; i++)
                 r.jsarr[i] = null;
         }
         else if (type.IsPrimitive === false) {
-            for (i = 0; i < length; i++)
+            for (let i = 0; i < length; i++)
                 r.jsarr[i] = new type();
         }
         else if (type.FullName === "System.Int64" || type.FullName === "System.UInt64") {
-            for (i = 0; i < length; i++)
+            for (let i = 0; i < length; i++)
                 r.jsarr[i] = [0, 0];
         }
         else {
-            for (i = 0; i < length; i++)
+            for (let i = 0; i < length; i++)
                 r.jsarr[i] = 0;
         }
         return r;
@@ -556,8 +551,8 @@ namespace CILJS {
     }
 
     function throw_invalid_cast(): never {
-        var t = asm0['System.InvalidCastException']();
-        var e = new t();
+        const t = asm0['System.InvalidCastException']();
+        const e = new t();
         e.stack = new Error().stack;
         throw e;
     }
@@ -584,11 +579,11 @@ namespace CILJS {
     }
 
     export function make_uint64(n: number): CilJsLong {
-        var bits32 = 0xffffffff;
+        const bits32 = 0xffffffff;
 
-        var floorN = Math.floor(n);
-        var low = floorN | 0;
-        var high = (floorN / 0x100000000) | 0;
+        const floorN = Math.floor(n);
+        let low = floorN | 0;
+        let high = (floorN / 0x100000000) | 0;
 
         low = low & bits32;
         high = high & bits32;
@@ -612,8 +607,8 @@ namespace CILJS {
     export function array_set_value(dest: CilJsArray, value: CilJsValue | CilJsBox, pos: number) {
 
         // value is either an object or a boxed value type.
-        var etype = dest.etype;
-        var vtype = value != null ? isBoxed(value) ? value.type : value.constructor as CilJsType : null;
+        const etype = dest.etype;
+        const vtype = value != null ? isBoxed(value) ? value.type : value.constructor as CilJsType : null;
 
         if (dest.etype.IsNullable) {
             throw "not implemented";
@@ -657,12 +652,12 @@ namespace CILJS {
     }
 
     export function delegate_invoke(self: CilJsDelegate, ..._: any[]) {
-        var m = self._methodPtr;
-        var t = self._target;
+        const m = self._methodPtr;
+        const t = self._target;
 
-        var args = new Array(arguments.length);
+        let args = new Array(arguments.length);
 
-        for (var i = 0; i < arguments.length; i++)
+        for (let i = 0; i < arguments.length; i++)
             args[i] = arguments[i];
 
         if (t != null)
@@ -674,12 +669,12 @@ namespace CILJS {
     }
 
     export function delegate_begin_invoke(self: CilJsDelegate /* , [delegate arguments], callback, state */) {
-        var asyncResult = asm0.CreateAsyncResult(self) as CilJsAsyncResult;
+        const asyncResult = asm0.CreateAsyncResult(self) as CilJsAsyncResult;
 
         asyncResult.result = delegate_invoke.apply(null, arguments as any);
         asyncResult.asyncState = arguments[arguments.length - 1];
 
-        var asyncCallback = arguments[arguments.length - 2];
+        const asyncCallback = arguments[arguments.length - 2];
         if (asyncCallback != null) {
             delegate_invoke(asyncCallback, asyncResult);
         }
@@ -706,7 +701,7 @@ namespace CILJS {
 
 }
 
-declare var module: any;
+declare const module: any;
 if (typeof module !== "undefined") {
     module.exports = CILJS;
 }
