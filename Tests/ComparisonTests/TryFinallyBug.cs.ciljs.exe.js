@@ -52,7 +52,7 @@ asm.x6000001 = function Main()
                         /* IL_08: newarr System.Object */
                         /* IL_0D: call Void WriteLine(System.String, System.Object[]) */
                         
-                        asm0.x60000a2(CILJS.new_string("Try 1"),CILJS.new_array(t0,0));
+                        asm0.x6000073(CILJS.new_string("Try 1"),CILJS.new_array(t0,0));
                         /* IL_12: nop  */
                         
                         try {
@@ -76,12 +76,12 @@ asm.x6000001 = function Main()
                                     /* IL_1A: newarr System.Object */
                                     /* IL_1F: call Void WriteLine(System.String, System.Object[]) */
                                     
-                                    asm0.x60000a2(CILJS.new_string("Try 2"),CILJS.new_array(t0,0));
+                                    asm0.x6000073(CILJS.new_string("Try 2"),CILJS.new_array(t0,0));
                                     /* IL_24: nop  */
                                     /* IL_25: newobj Void .ctor() */
                                     /* IL_2A: throw  */
                                     
-                                    throw CILJS.newobj(t1,asm0.x60000a4,[null]);
+                                    throw CILJS.newobj(t1,asm0.x6000075,[null]);
                                 }
                             }
                         }
@@ -104,7 +104,7 @@ asm.x6000001 = function Main()
                                     /* IL_32: newarr System.Object */
                                     /* IL_37: call Void WriteLine(System.String, System.Object[]) */
                                     
-                                    asm0.x60000a2(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,0));
+                                    asm0.x6000073(CILJS.new_string("Finally with branching"),CILJS.new_array(t0,0));
                                     /* IL_3C: nop  */
                                     /* IL_3D: call Boolean What() */
                                     /* IL_42: stloc.0  */
@@ -124,7 +124,7 @@ asm.x6000001 = function Main()
                                     /* IL_4C: newarr System.Object */
                                     /* IL_51: call Void WriteLine(System.String, System.Object[]) */
                                     
-                                    asm0.x60000a2(CILJS.new_string("In branch"),CILJS.new_array(t0,0));
+                                    asm0.x6000073(CILJS.new_string("In branch"),CILJS.new_array(t0,0));
                                     /* IL_56: nop  */
                                     case 0x57:
                                     /* IL_57: ldstr After branch */
@@ -132,7 +132,7 @@ asm.x6000001 = function Main()
                                     /* IL_5D: newarr System.Object */
                                     /* IL_62: call Void WriteLine(System.String, System.Object[]) */
                                     
-                                    asm0.x60000a2(CILJS.new_string("After branch"),CILJS.new_array(t0,0));
+                                    asm0.x6000073(CILJS.new_string("After branch"),CILJS.new_array(t0,0));
                                     /* IL_67: nop  */
                                     /* IL_68: nop  */
                                     /* IL_69: endfinally  */
@@ -185,7 +185,7 @@ asm.x6000001 = function Main()
                             /* IL_72: newarr System.Object */
                             /* IL_77: call Void WriteLine(System.String, System.Object[]) */
                             
-                            asm0.x60000a2(CILJS.new_string("Catch"),CILJS.new_array(t0,0));
+                            asm0.x6000073(CILJS.new_string("Catch"),CILJS.new_array(t0,0));
                             /* IL_7C: nop  */
                             /* IL_7D: nop  */
                             /* IL_7E: leave.s IL_80 */
@@ -253,11 +253,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

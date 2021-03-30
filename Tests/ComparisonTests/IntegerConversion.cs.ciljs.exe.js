@@ -48,7 +48,7 @@ asm.x6000002 = function Test(arg0)
     /* IL_0B: box System.Boolean */
     /* IL_10: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | 0) === 1) ? 1 : 0),t0));
+    asm0.x6000072(CILJS.make_box((((Math.sqrt(arg0) | 0) === 1) ? 1 : 0),t0));
     /* IL_15: nop  */
     /* IL_16: ldarg.0  */
     /* IL_17: call Double Sqrt(System.Double) */
@@ -58,7 +58,7 @@ asm.x6000002 = function Test(arg0)
     /* IL_20: box System.Boolean */
     /* IL_25: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | 0) === 2) ? 1 : 0),t0));
+    asm0.x6000072(CILJS.make_box((((Math.sqrt(arg0) | 0) === 2) ? 1 : 0),t0));
     /* IL_2A: nop  */
     /* IL_2B: ldarg.0  */
     /* IL_2C: call Double Sqrt(System.Double) */
@@ -68,7 +68,7 @@ asm.x6000002 = function Test(arg0)
     /* IL_35: box System.Boolean */
     /* IL_3A: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box((((Math.sqrt(arg0) | 0) === 3) ? 1 : 0),t0));
+    asm0.x6000072(CILJS.make_box((((Math.sqrt(arg0) | 0) === 3) ? 1 : 0),t0));
     /* IL_3F: nop  */
     /* IL_40: ret  */
     
@@ -100,11 +100,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

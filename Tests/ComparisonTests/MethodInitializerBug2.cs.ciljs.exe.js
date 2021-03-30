@@ -197,7 +197,7 @@ asm.x6000006_ = function Main()
     /* IL_18: box System.Boolean */
     /* IL_1D: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(((loc0.Value === null) ? 1 : 0),t2));
+    asm0.x6000072(CILJS.make_box(((loc0.Value === null) ? 1 : 0),t2));
     /* IL_22: nop  */
     /* IL_23: ldloc.0  */
     /* IL_24: ldfld Managed.Reflection.GenericFieldInstance */
@@ -206,7 +206,7 @@ asm.x6000006_ = function Main()
     /* IL_2C: box System.Boolean */
     /* IL_31: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(((loc0.Array === null) ? 1 : 0),t2));
+    asm0.x6000072(CILJS.make_box(((loc0.Array === null) ? 1 : 0),t2));
     /* IL_36: nop  */
     /* IL_37: newobj Void .ctor() */
     /* IL_3C: stloc.1  */
@@ -225,7 +225,7 @@ asm.x6000006_ = function Main()
     /* IL_4E: box System.Boolean */
     /* IL_53: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(((loc1.Value === null) ? 1 : 0),t2));
+    asm0.x6000072(CILJS.make_box(((loc1.Value === null) ? 1 : 0),t2));
     /* IL_58: nop  */
     /* IL_59: ldloc.1  */
     /* IL_5A: ldfld Managed.Reflection.GenericFieldInstance */
@@ -234,7 +234,7 @@ asm.x6000006_ = function Main()
     /* IL_62: box System.Boolean */
     /* IL_67: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(((loc1.Array === null) ? 1 : 0),t2));
+    asm0.x6000072(CILJS.make_box(((loc1.Array === null) ? 1 : 0),t2));
     /* IL_6C: nop  */
     /* IL_6D: ret  */
     
@@ -268,11 +268,11 @@ asm["A`1"] = CILJS.declare_type(
         
         type.TypeMetadataName = ("asm1.t2000002<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -303,11 +303,11 @@ asm["B`1"] = CILJS.declare_type(
         
         type.TypeMetadataName = ("asm1.t2000003<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -338,11 +338,11 @@ asm.C = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000004";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -369,11 +369,11 @@ asm.D = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000005";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -400,11 +400,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000006";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

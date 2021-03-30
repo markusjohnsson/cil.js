@@ -126,7 +126,7 @@ asm.x6000002 = function TestInt8()
                     /* IL_21: box System.SByte */
                     /* IL_26: call Void WriteLine(System.Object) */
                     
-                    asm0.x60000a1(CILJS.make_box(loc3,t0));
+                    asm0.x6000072(CILJS.make_box(loc3,t0));
                     /* IL_2B: nop  */
                     /* IL_2C: ldloc.2  */
                     /* IL_2D: ldc.i4.1  */
@@ -251,7 +251,7 @@ asm.x6000003 = function TestUInt8()
                     /* IL_20: box System.Byte */
                     /* IL_25: call Void WriteLine(System.Object) */
                     
-                    asm0.x60000a1(CILJS.make_box(loc3,t0));
+                    asm0.x6000072(CILJS.make_box(loc3,t0));
                     /* IL_2A: nop  */
                     /* IL_2B: ldloc.2  */
                     /* IL_2C: ldc.i4.1  */
@@ -376,7 +376,7 @@ asm.x6000004 = function TestInt16()
                     /* IL_21: box System.Int16 */
                     /* IL_26: call Void WriteLine(System.Object) */
                     
-                    asm0.x60000a1(CILJS.make_box(loc3,t0));
+                    asm0.x6000072(CILJS.make_box(loc3,t0));
                     /* IL_2B: nop  */
                     /* IL_2C: ldloc.2  */
                     /* IL_2D: ldc.i4.1  */
@@ -501,7 +501,7 @@ asm.x6000005 = function TestUInt16()
                     /* IL_20: box System.UInt16 */
                     /* IL_25: call Void WriteLine(System.Object) */
                     
-                    asm0.x60000a1(CILJS.make_box(loc3,t0));
+                    asm0.x6000072(CILJS.make_box(loc3,t0));
                     /* IL_2A: nop  */
                     /* IL_2B: ldloc.2  */
                     /* IL_2C: ldc.i4.1  */
@@ -626,7 +626,7 @@ asm.x6000006 = function TestInt32()
                     /* IL_21: box System.Int32 */
                     /* IL_26: call Void WriteLine(System.Object) */
                     
-                    asm0.x60000a1(CILJS.make_box(loc3,t0));
+                    asm0.x6000072(CILJS.make_box(loc3,t0));
                     /* IL_2B: nop  */
                     /* IL_2C: ldloc.2  */
                     /* IL_2D: ldc.i4.1  */
@@ -751,7 +751,7 @@ asm.x6000007 = function TestUInt32()
                     /* IL_20: box System.UInt32 */
                     /* IL_25: call Void WriteLine(System.Object) */
                     
-                    asm0.x60000a1(CILJS.make_box(loc3,t0));
+                    asm0.x6000072(CILJS.make_box(loc3,t0));
                     /* IL_2A: nop  */
                     /* IL_2B: ldloc.2  */
                     /* IL_2C: ldc.i4.1  */
@@ -813,11 +813,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

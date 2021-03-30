@@ -35,7 +35,7 @@ namespace System
         [JsImport(@"
             function (T) {
                 return function FromJsArray(arr) {
-                    var r = new (asm0['System.Array`1'](T))();
+                    var r = new (asm['System.Array`1'](T))();
                     r.etype = T;
                     r.jsarr = arr;
                     return r;

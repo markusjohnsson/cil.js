@@ -1,1 +1,1 @@
-dotnet /usr/local/share/dotnet/sdk/1.0.4/Roslyn/csc.exe /nostdlib /recurse:*.cs /debug:portable /embed /out:mscorlib.dll /t:library
+dotnet /usr/local/share/dotnet/sdk/3.1.402/Roslyn/bincore/csc.dll /nostdlib /recurse:*.cs /debug:portable /embed /out:mscorlib.dll /t:library

@@ -110,7 +110,7 @@ asm.x6000002_ = function PrintArray(arg0)
             /* IL_03: callvirt IEnumerator GetEnumerator() */
             /* IL_08: stloc.0  */
             
-            loc0 = ((arg0.ifacemap)[t0].x60001ca)(CILJS.convert_box_to_pointer_as_needed(arg0));
+            loc0 = ((arg0.ifacemap)[t0].x600017d)(CILJS.convert_box_to_pointer_as_needed(arg0));
             
             try {
                 
@@ -137,18 +137,18 @@ asm.x6000002_ = function PrintArray(arg0)
                         /* IL_0C: callvirt Object get_Current() */
                         /* IL_11: stloc.1  */
                         
-                        loc1 = ((loc0.ifacemap)[t1].x60001ce)(CILJS.convert_box_to_pointer_as_needed(loc0));
+                        loc1 = ((loc0.ifacemap)[t1].x6000181)(CILJS.convert_box_to_pointer_as_needed(loc0));
                         /* IL_12: ldloc.1  */
                         /* IL_13: call Void WriteLine(System.Object) */
                         
-                        asm0.x60000a1(loc1);
+                        asm0.x6000072(loc1);
                         /* IL_18: nop  */
                         case 0x19:
                         /* IL_19: ldloc.0  */
                         /* IL_1A: callvirt Boolean MoveNext() */
                         /* IL_1F: brtrue.s IL_0B */
                         
-                        if (((loc0.ifacemap)[t1].x60001cf)(CILJS.convert_box_to_pointer_as_needed(loc0))){
+                        if (((loc0.ifacemap)[t1].x6000182)(CILJS.convert_box_to_pointer_as_needed(loc0))){
                             
                             __pos__ = 0xB;
                             
@@ -194,7 +194,7 @@ asm.x6000002_ = function PrintArray(arg0)
                         /* IL_2D: ldloc.2  */
                         /* IL_2E: callvirt Void Dispose() */
                         
-                        ((loc2.ifacemap)[t2].x600010c)(CILJS.convert_box_to_pointer_as_needed(loc2));
+                        ((loc2.ifacemap)[t2].x60000dd)(CILJS.convert_box_to_pointer_as_needed(loc2));
                         /* IL_33: nop  */
                         case 0x34:
                         /* IL_34: endfinally  */
@@ -244,11 +244,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

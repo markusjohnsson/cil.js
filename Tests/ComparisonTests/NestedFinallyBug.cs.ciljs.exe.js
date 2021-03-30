@@ -74,7 +74,7 @@ asm.x6000001 = function Main()
                         /* IL_1C: newarr System.Object */
                         /* IL_21: call Void WriteLine(System.String, System.Object[]) */
                         
-                        asm0.x60000a2(asm0.x6000180({
+                        asm0.x6000073(asm0.x6000151({
                                     w: function (v)
                                     {
                                         
@@ -155,7 +155,7 @@ asm.x6000001 = function Main()
                                     /* IL_46: newarr System.Object */
                                     /* IL_4B: call Void WriteLine(System.String, System.Object[]) */
                                     
-                                    asm0.x60000a2(asm0.x6000180({
+                                    asm0.x6000073(asm0.x6000151({
                                                 w: function (v)
                                                 {
                                                     
@@ -219,7 +219,7 @@ asm.x6000001 = function Main()
                                     /* IL_6F: newarr System.Object */
                                     /* IL_74: call Void WriteLine(System.String, System.Object[]) */
                                     
-                                    asm0.x60000a2(asm0.x6000180({
+                                    asm0.x6000073(asm0.x6000151({
                                                 w: function (v)
                                                 {
                                                     
@@ -274,7 +274,7 @@ asm.x6000001 = function Main()
                         /* IL_98: newarr System.Object */
                         /* IL_9D: call Void WriteLine(System.String, System.Object[]) */
                         
-                        asm0.x60000a2(asm0.x6000180({
+                        asm0.x6000073(asm0.x6000151({
                                     w: function (v)
                                     {
                                         
@@ -350,11 +350,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

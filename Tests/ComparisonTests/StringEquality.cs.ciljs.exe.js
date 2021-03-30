@@ -16,7 +16,7 @@ asm.x6000001 = function Cmp(arg0)
     /* IL_0C: box System.Boolean */
     /* IL_11: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(asm0.x60000f5(arg0,CILJS.new_string("Hello World")),t0));
+    asm0.x6000072(CILJS.make_box(asm0.x60000c6(arg0,CILJS.new_string("Hello World")),t0));
     /* IL_16: nop  */
     /* IL_17: ldarg.0  */
     /* IL_18: ldstr Hello World */
@@ -24,7 +24,7 @@ asm.x6000001 = function Cmp(arg0)
     /* IL_22: box System.Boolean */
     /* IL_27: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box((arg0.vtable)["asm0.x60000f6"](arg0,CILJS.new_string("Hello World")),t0));
+    asm0.x6000072(CILJS.make_box((arg0.vtable)["asm0.x60000c7"](arg0,CILJS.new_string("Hello World")),t0));
     /* IL_2C: nop  */
     /* IL_2D: ldstr Hello World */
     /* IL_32: ldarg.0  */
@@ -32,7 +32,7 @@ asm.x6000001 = function Cmp(arg0)
     /* IL_38: box System.Boolean */
     /* IL_3D: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(asm0.x60000f6(CILJS.new_string("Hello World"),arg0),t0));
+    asm0.x6000072(CILJS.make_box(asm0.x60000c7(CILJS.new_string("Hello World"),arg0),t0));
     /* IL_42: nop  */
     /* IL_43: ret  */
     
@@ -89,11 +89,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

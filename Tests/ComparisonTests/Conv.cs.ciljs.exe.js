@@ -27,33 +27,33 @@ asm.x6000001 = function Test(arg0)
     /* IL_03: box System.Int32 */
     /* IL_08: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
+    asm0.x6000072(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
     /* IL_0D: nop  */
     /* IL_0E: ldarg.0  */
     /* IL_0F: conv.u4  */
     /* IL_10: box System.UInt32 */
     /* IL_15: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
+    asm0.x6000072(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
     /* IL_1A: nop  */
     /* IL_1B: ldarg.0  */
     /* IL_1C: box System.Int64 */
     /* IL_21: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t2));
+    asm0.x6000072(CILJS.make_box(arg0,t2));
     /* IL_26: nop  */
     /* IL_27: ldarg.0  */
     /* IL_28: box System.UInt64 */
     /* IL_2D: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t3));
+    asm0.x6000072(CILJS.make_box(arg0,t3));
     /* IL_32: nop  */
     /* IL_33: ldarg.0  */
     /* IL_34: conv.r8  */
     /* IL_35: box System.Double */
     /* IL_3A: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t4));
+    asm0.x6000072(CILJS.make_box(CILJS.to_number_signed(arg0),t4));
     /* IL_3F: nop  */
     /* IL_40: ret  */
     
@@ -83,26 +83,26 @@ asm.x6000002 = function Test(arg0)
     /* IL_03: box System.Int32 */
     /* IL_08: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
+    asm0.x6000072(CILJS.make_box(CILJS.to_number_signed(arg0),t0));
     /* IL_0D: nop  */
     /* IL_0E: ldarg.0  */
     /* IL_0F: conv.u4  */
     /* IL_10: box System.UInt32 */
     /* IL_15: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
+    asm0.x6000072(CILJS.make_box(CILJS.to_number_signed(arg0),t1));
     /* IL_1A: nop  */
     /* IL_1B: ldarg.0  */
     /* IL_1C: box System.Int64 */
     /* IL_21: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t2));
+    asm0.x6000072(CILJS.make_box(arg0,t2));
     /* IL_26: nop  */
     /* IL_27: ldarg.0  */
     /* IL_28: box System.UInt64 */
     /* IL_2D: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t3));
+    asm0.x6000072(CILJS.make_box(arg0,t3));
     /* IL_32: nop  */
     /* IL_33: ldarg.0  */
     /* IL_34: conv.r.un  */
@@ -110,7 +110,7 @@ asm.x6000002 = function Test(arg0)
     /* IL_36: box System.Double */
     /* IL_3B: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.to_number_unsigned(arg0),t4));
+    asm0.x6000072(CILJS.make_box(CILJS.to_number_unsigned(arg0),t4));
     /* IL_40: nop  */
     /* IL_41: ret  */
     
@@ -139,34 +139,34 @@ asm.x6000003 = function Test(arg0)
     /* IL_02: box System.Int32 */
     /* IL_07: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t0));
+    asm0.x6000072(CILJS.make_box(arg0,t0));
     /* IL_0C: nop  */
     /* IL_0D: ldarg.0  */
     /* IL_0E: box System.UInt32 */
     /* IL_13: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t1));
+    asm0.x6000072(CILJS.make_box(arg0,t1));
     /* IL_18: nop  */
     /* IL_19: ldarg.0  */
     /* IL_1A: conv.i8  */
     /* IL_1B: box System.Int64 */
     /* IL_20: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.conv_i8(arg0),t2));
+    asm0.x6000072(CILJS.make_box(CILJS.conv_i8(arg0),t2));
     /* IL_25: nop  */
     /* IL_26: ldarg.0  */
     /* IL_27: conv.i8  */
     /* IL_28: box System.UInt64 */
     /* IL_2D: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(CILJS.conv_i8(arg0),t3));
+    asm0.x6000072(CILJS.make_box(CILJS.conv_i8(arg0),t3));
     /* IL_32: nop  */
     /* IL_33: ldarg.0  */
     /* IL_34: conv.r8  */
     /* IL_35: box System.Double */
     /* IL_3A: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.make_box(arg0,t4));
+    asm0.x6000072(CILJS.make_box(arg0,t4));
     /* IL_3F: nop  */
     /* IL_40: ret  */
     
@@ -236,11 +236,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

@@ -121,7 +121,7 @@ asm.x6000005 = function Foo(arg0, arg1)
     /* IL_02: box T */
     /* IL_07: call Void WriteLine(System.Object) */
     
-    asm0.x60000a1(CILJS.box(arg1,t0));
+    asm0.x6000072(CILJS.box(arg1,t0));
     /* IL_0C: nop  */
     /* IL_0D: ldarga.s 1 */
     /* IL_15: callvirt Type GetType() */
@@ -130,7 +130,7 @@ asm.x6000005 = function Foo(arg0, arg1)
     /* IL_20: newarr System.Object */
     /* IL_25: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg1,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg1,t0))),CILJS.new_array(t1,0));
+    asm0.x6000073(((asm0.x60000a0(CILJS.box(arg1,t0)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg1,t0))),CILJS.new_array(t1,0));
     /* IL_2A: nop  */
     /* IL_2B: ret  */
     
@@ -153,7 +153,7 @@ asm.x6000006 = function (T)
         /* IL_02: box T */
         /* IL_07: call Void WriteLine(System.Object) */
         
-        asm0.x60000a1(CILJS.box(arg0,t0));
+        asm0.x6000072(CILJS.box(arg0,t0));
         /* IL_0C: nop  */
         /* IL_0D: ldarga.s 0 */
         /* IL_15: callvirt Type GetType() */
@@ -162,7 +162,7 @@ asm.x6000006 = function (T)
         /* IL_20: newarr System.Object */
         /* IL_25: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg0,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg0,t0))),CILJS.new_array(t1,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg0,t0)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg0,t0))),CILJS.new_array(t1,0));
         /* IL_2A: nop  */
         /* IL_2B: ret  */
         
@@ -189,13 +189,13 @@ asm.x6000007 = function (T, T2)
         /* IL_02: box T */
         /* IL_07: call Void WriteLine(System.Object) */
         
-        asm0.x60000a1(CILJS.box(arg0,t0));
+        asm0.x6000072(CILJS.box(arg0,t0));
         /* IL_0C: nop  */
         /* IL_0D: ldarg.1  */
         /* IL_0E: box T2 */
         /* IL_13: call Void WriteLine(System.Object) */
         
-        asm0.x60000a1(CILJS.box(arg1,t1));
+        asm0.x6000072(CILJS.box(arg1,t1));
         /* IL_18: nop  */
         /* IL_19: ldarga.s 0 */
         /* IL_21: callvirt Type GetType() */
@@ -204,7 +204,7 @@ asm.x6000007 = function (T, T2)
         /* IL_2C: newarr System.Object */
         /* IL_31: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg0,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg0,t0))),CILJS.new_array(t2,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg0,t0)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg0,t0))),CILJS.new_array(t2,0));
         /* IL_36: nop  */
         /* IL_37: ldarga.s 1 */
         /* IL_3F: callvirt Type GetType() */
@@ -213,7 +213,7 @@ asm.x6000007 = function (T, T2)
         /* IL_4A: newarr System.Object */
         /* IL_4F: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg1,t1)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg1,t1))),CILJS.new_array(t2,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg1,t1)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg1,t1))),CILJS.new_array(t2,0));
         /* IL_54: nop  */
         /* IL_55: ret  */
         
@@ -240,13 +240,13 @@ asm.x6000008 = function (T2)
         /* IL_02: box T */
         /* IL_07: call Void WriteLine(System.Object) */
         
-        asm0.x60000a1(CILJS.box(arg1,t0));
+        asm0.x6000072(CILJS.box(arg1,t0));
         /* IL_0C: nop  */
         /* IL_0D: ldarg.2  */
         /* IL_0E: box T2 */
         /* IL_13: call Void WriteLine(System.Object) */
         
-        asm0.x60000a1(CILJS.box(arg2,t1));
+        asm0.x6000072(CILJS.box(arg2,t1));
         /* IL_18: nop  */
         /* IL_19: ldarga.s 1 */
         /* IL_21: callvirt Type GetType() */
@@ -255,7 +255,7 @@ asm.x6000008 = function (T2)
         /* IL_2C: newarr System.Object */
         /* IL_31: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg1,t0)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg1,t0))),CILJS.new_array(t2,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg1,t0)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg1,t0))),CILJS.new_array(t2,0));
         /* IL_36: nop  */
         /* IL_37: ldarga.s 2 */
         /* IL_3F: callvirt Type GetType() */
@@ -264,7 +264,7 @@ asm.x6000008 = function (T2)
         /* IL_4A: newarr System.Object */
         /* IL_4F: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg2,t1)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg2,t1))),CILJS.new_array(t2,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg2,t1)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg2,t1))),CILJS.new_array(t2,0));
         /* IL_54: nop  */
         /* IL_55: ret  */
         
@@ -299,11 +299,11 @@ asm["A`1"] = CILJS.declare_type(
         
         type.TypeMetadataName = ("asm1.t2000002<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -330,11 +330,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000003";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -363,11 +363,11 @@ asm["A`1+B"] = CILJS.declare_type(
         
         type.TypeMetadataName = ("asm1.t2000004<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -399,11 +399,11 @@ asm["A`1+B+C"] = CILJS.declare_type(
         
         type.TypeMetadataName = ("asm1.t2000005<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {

@@ -1,233 +1,15 @@
 
 var asm0 = {};
 var asm = asm0;
-asm.FullName = "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* static System.Boolean Object.IsUndefined(Object)*/
+asm.FullName = "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/*  InvalidOperationException..ctor()*/
 
-asm.x600000c = function (o) { return o === void 0; };;/*  Object..ctor()*/
-
-asm.x600000d = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/*  String..ctor()*/
-
-asm.x600000e = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ret  */
-    
-    return ;
-};;/* static  String..cctor()*/
-
-asm.x6000013_init = function ()
-{
-    
-    (asm0["CilJs.JavaScript.String"]().init)();
-    
-    asm.x6000013 = asm.x6000013_;
-};;
-
-asm.x6000013 = function ()
-{
-    
-    asm.x6000013_init();
-    
-    return asm.x6000013_();
-};;
-asm.x6000013_ = function _cctor()
-{
-    var t0;
-    
-    if (asm0["CilJs.JavaScript.String"]().FieldsInitialized){
-        
-        return;
-    }
-    
-    asm0["CilJs.JavaScript.String"]().FieldsInitialized = true;
-    
-    t0 = asm0["CilJs.JavaScript.String"]();
-    /* IL_00: call String GetEmpty() */
-    /* IL_05: stsfld String Emtpy */
-    
-    t0.Emtpy = "";
-    /* IL_0A: ret  */
-    
-    return ;
-};/* System.Collections.Generic.IEnumerator`1[System.Object] Array.GetEnumerator()*/
-
-asm.x6000019_init = function (arg0)
-{
-    
-    (asm0["CilJs.JavaScript.Array+<GetEnumerator>d__7"]().init)();
-    
-    asm.x6000019 = asm.x6000019_;
-};;
-
-asm.x6000019 = function (arg0)
-{
-    
-    asm.x6000019_init(arg0);
-    
-    return asm.x6000019_(arg0);
-};;
-asm.x6000019_ = function GetEnumerator(arg0)
-{
-    var t0;
-    var st_00;
-    var st_01;
-    var st_02;
-    var st_03;
-    var st_04;
-    
-    t0 = asm0["CilJs.JavaScript.Array+<GetEnumerator>d__7"]();
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /* IL_00: ldc.i4.0  */
-    
-    st_00 = 0;
-    /* IL_01: newobj Void .ctor(System.Int32) */
-    
-    st_01 = CILJS.newobj(t0,asm0.x60001fd,[null, st_00]);
-    /* IL_06: dup  */
-    
-    st_04 = st_02 = st_01;
-    /* IL_07: ldarg.0  */
-    
-    st_03 = arg0;
-    /* IL_08: stfld Array <>4__this */
-    
-    st_02["<>4__this"] = st_03;
-    /* IL_0D: ret  */
-    
-    return st_04;
-};/* System.Collections.Generic.IEnumerable`1[System.Object] Array.AsEnumerable()*/
-
-asm.x600001a_init = function (arg0)
-{
-    
-    (asm0["CilJs.JavaScript.Array+<AsEnumerable>d__8"]().init)();
-    
-    asm.x600001a = asm.x600001a_;
-};;
-
-asm.x600001a = function (arg0)
-{
-    
-    asm.x600001a_init(arg0);
-    
-    return asm.x600001a_(arg0);
-};;
-asm.x600001a_ = function AsEnumerable(arg0)
-{
-    var t0;
-    var st_00;
-    var st_01;
-    var st_02;
-    var st_03;
-    var st_04;
-    
-    t0 = asm0["CilJs.JavaScript.Array+<AsEnumerable>d__8"]();
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /* IL_00: ldc.i4.s 254 */
-    
-    st_00 = -2;
-    /* IL_02: newobj Void .ctor(System.Int32) */
-    
-    st_01 = CILJS.newobj(t0,asm0.x6000203,[null, st_00]);
-    /* IL_07: dup  */
-    
-    st_04 = st_02 = st_01;
-    /* IL_08: ldarg.0  */
-    
-    st_03 = arg0;
-    /* IL_09: stfld Array <>4__this */
-    
-    st_02["<>4__this"] = st_03;
-    /* IL_0E: ret  */
-    
-    return st_04;
-};/*  Array..ctor()*/
-
-asm.x6000014 = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ret  */
-    
-    return ;
-};;/*  UnboundGenericParameter..ctor()*/
-
-asm.x600001c = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/* static System.Object Marshal.get_Null()*/
-
-asm.x600001e = function get_Null()
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: call Object null_impl() */
-    /* IL_06: stloc.0  */
-    
-    loc0 = null;
-    /* IL_09: ldloc.0  */
-    /* IL_0A: ret  */
-    
-    return loc0;
-};;/* static System.String Locale.GetText(String)*/
-
-asm.x600002f = function GetText(arg0)
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: stloc.0  */
-    
-    loc0 = arg0;
-    /* IL_05: ldloc.0  */
-    /* IL_06: ret  */
-    
-    return loc0;
-};;/*  InvalidOperationException..ctor()*/
-
-asm.x6000030 = function _ctor(arg0)
+asm.x6000001 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldstr Operation is not valid due to the current state of the object */
     /* IL_06: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,CILJS.new_string("Operation is not valid due to the current state of the object"));
+    asm0.x6000076(arg0,CILJS.new_string("Operation is not valid due to the current state of the object"));
     /* IL_0B: nop  */
     /* IL_0C: nop  */
     /* IL_0D: ret  */
@@ -235,14 +17,14 @@ asm.x6000030 = function _ctor(arg0)
     return ;
 };;/*  InvalidOperationException..ctor(Exception)*/
 
-asm.x6000031 = function _ctor(arg0, arg1)
+asm.x6000002 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldstr Operation is not valid due to the current state of the object */
     /* IL_06: ldarg.1  */
     /* IL_07: call Void .ctor(System.String, System.Exception) */
     
-    asm0.x60000a6(arg0,CILJS.new_string("Operation is not valid due to the current state of the object"),arg1);
+    asm0.x6000077(arg0,CILJS.new_string("Operation is not valid due to the current state of the object"),arg1);
     /* IL_0C: nop  */
     /* IL_0D: nop  */
     /* IL_0E: ret  */
@@ -250,14 +32,14 @@ asm.x6000031 = function _ctor(arg0, arg1)
     return ;
 };;/*  InvalidOperationException..ctor(String,Exception)*/
 
-asm.x6000032 = function _ctor(arg0, arg1, arg2)
+asm.x6000003 = function _ctor(arg0, arg1, arg2)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
     /* IL_02: ldarg.2  */
     /* IL_03: call Void .ctor(System.String, System.Exception) */
     
-    asm0.x60000a6(arg0,arg1,arg2);
+    asm0.x6000077(arg0,arg1,arg2);
     /* IL_08: nop  */
     /* IL_09: nop  */
     /* IL_0A: ret  */
@@ -265,13 +47,13 @@ asm.x6000032 = function _ctor(arg0, arg1, arg2)
     return ;
 };;/*  InvalidOperationException..ctor(String)*/
 
-asm.x6000033 = function _ctor(arg0, arg1)
+asm.x6000004 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
     /* IL_02: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,arg1);
+    asm0.x6000076(arg0,arg1);
     /* IL_07: nop  */
     /* IL_08: nop  */
     /* IL_09: ret  */
@@ -279,22 +61,22 @@ asm.x6000033 = function _ctor(arg0, arg1)
     return ;
 };;/* System.String Int64.ToString()*/
 
-asm.x6000034_init = function (arg0)
+asm.x6000005_init = function (arg0)
 {
     
     (asm0["CilJs.JavaScript.String"]().init)();
     
-    asm.x6000034 = asm.x6000034_;
+    asm.x6000005 = asm.x6000005_;
 };;
 
-asm.x6000034 = function (arg0)
+asm.x6000005 = function (arg0)
 {
     
-    asm.x6000034_init(arg0);
+    asm.x6000005_init(arg0);
     
-    return asm.x6000034_(arg0);
+    return asm.x6000005_(arg0);
 };;
-asm.x6000034_ = function ToString(arg0)
+asm.x6000005_ = function ToString(arg0)
 {
     var t0;
     var in_block_0;
@@ -332,13 +114,13 @@ asm.x6000034_ = function ToString(arg0)
             
             loc1 = CILJS.conv_i8(10);
             
-            asm0.x6000013();
+            asm0.x60001f5();
             /* IL_08: ldsfld String Emtpy */
             /* IL_0D: stloc.2  */
             
             loc2 = t0.Emtpy;
             
-            asm0.x6000013();
+            asm0.x60001f5();
             /* IL_0E: ldsfld String Emtpy */
             /* IL_13: stloc.3  */
             
@@ -468,7 +250,7 @@ asm.x6000034_ = function ToString(arg0)
     }
 };/* System.Int32 Int64.GetHashCode()*/
 
-asm.x6000035 = function GetHashCode(arg0)
+asm.x6000006 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -484,7 +266,7 @@ asm.x6000035 = function GetHashCode(arg0)
     return loc0;
 };;/* static System.Int64 Int64.op_Addition(Int64,Int64)*/
 
-asm.x6000038 = 
+asm.x6000009 = 
             function XInt64_Addition(lhs, rhs) 
             {
                 var x = new Uint16Array(lhs.buffer);
@@ -500,9 +282,9 @@ asm.x6000038 =
 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-asm.XInt64_Addition = asm.x6000038;/* static System.Int64 Int64.op_Subtraction(Int64,Int64)*/
+asm.XInt64_Addition = asm.x6000009;/* static System.Int64 Int64.op_Subtraction(Int64,Int64)*/
 
-asm.x6000039 = 
+asm.x600000a = 
             function XInt64_Subtraction(lhs, rhs) 
             {
                 if (lhs[0] >= rhs[0] && rhs[1] == 0)
@@ -528,41 +310,41 @@ asm.x6000039 =
                 
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             };;
-asm.XInt64_Subtraction = asm.x6000039;/* static System.Int64 Int64.op_BitwiseOr(Int64,Int64)*/
+asm.XInt64_Subtraction = asm.x600000a;/* static System.Int64 Int64.op_BitwiseOr(Int64,Int64)*/
 
-asm.x600003a = 
+asm.x600000b = 
             function XInt64_BitwiseOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] | rhs[0], lhs[1] | rhs[1]]);
             }
             ;;
-asm.XInt64_BitwiseOr = asm.x600003a;/* static System.Int64 Int64.op_BitwiseAnd(Int64,Int64)*/
+asm.XInt64_BitwiseOr = asm.x600000b;/* static System.Int64 Int64.op_BitwiseAnd(Int64,Int64)*/
 
-asm.x600003b = 
+asm.x600000c = 
             function XInt64_BitwiseAnd(lhs, rhs) 
             {
                 return new Uint32Array([lhs[0] & rhs[0], lhs[1] & rhs[1]]);
             }
             ;;
-asm.XInt64_BitwiseAnd = asm.x600003b;/* static System.Int64 Int64.op_ExclusiveOr(Int64,Int64)*/
+asm.XInt64_BitwiseAnd = asm.x600000c;/* static System.Int64 Int64.op_ExclusiveOr(Int64,Int64)*/
 
-asm.x600003c = 
+asm.x600000d = 
             function XInt64_ExclusiveOr(lhs, rhs)
             {
                 return new Uint32Array([lhs[0] ^ rhs[0], lhs[1] ^ rhs[1]]);
             }
             ;;
-asm.XInt64_ExclusiveOr = asm.x600003c;/* static System.Int64 Int64.op_OnesComplement(Int64)*/
+asm.XInt64_ExclusiveOr = asm.x600000d;/* static System.Int64 Int64.op_OnesComplement(Int64)*/
 
-asm.x600003d = 
+asm.x600000e = 
             function XInt64_OnesComplement(a)
             {
                 return new Uint32Array([~a[0], ~a[1]]);
             }
             ;;
-asm.XInt64_OnesComplement = asm.x600003d;/* static System.Int64 Int64.op_LeftShift(Int64,Int32)*/
+asm.XInt64_OnesComplement = asm.x600000e;/* static System.Int64 Int64.op_LeftShift(Int64,Int32)*/
 
-asm.x600003e = 
+asm.x600000f = 
             function XInt64_LeftShift(lhs, n)
             {
                 n = n & 0x3f;
@@ -583,25 +365,25 @@ asm.x600003e =
                 return new Uint32Array(new Uint16Array([a & 0xffff, b & 0xffff, c & 0xffff, d & 0xffff]).buffer);
             }
             ;;
-asm.XInt64_LeftShift = asm.x600003e;/* static System.Int64 Int64.op_Equality(Int64,Int64)*/
+asm.XInt64_LeftShift = asm.x600000f;/* static System.Int64 Int64.op_Equality(Int64,Int64)*/
 
-asm.x600003f = 
+asm.x6000010 = 
             function XInt64_Equality(lhs, rhs)
             {
                 return (lhs[0] === rhs[0] && lhs[1] === rhs[1]) ? 1 : 0;
             }
             ;;
-asm.XInt64_Equality = asm.x600003f;/* static System.Int64 Int64.op_Inequality(Int64,Int64)*/
+asm.XInt64_Equality = asm.x6000010;/* static System.Int64 Int64.op_Inequality(Int64,Int64)*/
 
-asm.x6000040 = 
+asm.x6000011 = 
             function XInt64_Inequality(lhs, rhs)
             {
                 return (lhs[0] !== rhs[0] && lhs[1] !== rhs[1]) ? 1 : 0;
             }
             ;;
-asm.XInt64_Inequality = asm.x6000040;/* static System.Int64 Int64.op_Decrement(Int64)*/
+asm.XInt64_Inequality = asm.x6000011;/* static System.Int64 Int64.op_Decrement(Int64)*/
 
-asm.x6000041 = function op_Decrement(arg0)
+asm.x6000012 = function op_Decrement(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -617,9 +399,9 @@ asm.x6000041 = function op_Decrement(arg0)
     
     return loc0;
 };;
-asm.XInt64_Decrement = asm.x6000041;/* static System.Int64 Int64.op_Increment(Int64)*/
+asm.XInt64_Decrement = asm.x6000012;/* static System.Int64 Int64.op_Increment(Int64)*/
 
-asm.x6000042 = function op_Increment(arg0)
+asm.x6000013 = function op_Increment(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -635,9 +417,9 @@ asm.x6000042 = function op_Increment(arg0)
     
     return loc0;
 };;
-asm.XInt64_Increment = asm.x6000042;/* static System.Int64 Int64.op_RightShift(Int64,Int32)*/
+asm.XInt64_Increment = asm.x6000013;/* static System.Int64 Int64.op_RightShift(Int64,Int32)*/
 
-asm.x6000043 = 
+asm.x6000014 = 
             function Int64_RightShift(a, n) {
                 // Int64 (signed) uses arithmetic shift, UIn64 (unsigned) uses logical shift
 
@@ -659,9 +441,9 @@ asm.x6000043 =
                 }
                 return result2;
             };;
-asm.Int64_RightShift = asm.x6000043;/* static System.Int64 Int64.op_Division(Int64,Int32)*/
+asm.Int64_RightShift = asm.x6000014;/* static System.Int64 Int64.op_Division(Int64,Int32)*/
 
-asm.x6000044 = 
+asm.x6000015 = 
             function Int64_Division(n, d) {
                 if (d[0] === 0 && d[1] === 0)
                     throw new Error("System.DivideByZeroException");
@@ -684,9 +466,9 @@ asm.x6000044 =
                 else
                     return asm0.UInt64_Division(n, d);
             };;
-asm.Int64_Division = asm.x6000044;/* static System.Int64 Int64.op_Modulus(Int64,Int32)*/
+asm.Int64_Division = asm.x6000015;/* static System.Int64 Int64.op_Modulus(Int64,Int32)*/
 
-asm.x6000045 = 
+asm.x6000016 = 
             function Int64_Modulus(n, d) {
                 if (d[0] === 0 && d[1] === 0)
                     throw new Error("System.DivideByZeroException");
@@ -704,9 +486,9 @@ asm.x6000045 =
                 else
                     return asm0.UInt64_Modulus(n, d);
             };;
-asm.Int64_Modulus = asm.x6000045;/* static System.Boolean Int64.op_GreaterThan(Int64,Int64)*/
+asm.Int64_Modulus = asm.x6000016;/* static System.Boolean Int64.op_GreaterThan(Int64,Int64)*/
 
-asm.x6000046 = 
+asm.x6000017 = 
             function Int64_GreaterThan (a, b) {
                 var an = asm0.Int64_isNegative(a);
                 var bn = asm0.Int64_isNegative(b);
@@ -716,9 +498,9 @@ asm.x6000046 =
                 else
                     return bn ? 1 : 0;
             };;
-asm.Int64_GreaterThan = asm.x6000046;/* static System.Boolean Int64.op_LessThan(Int64,Int64)*/
+asm.Int64_GreaterThan = asm.x6000017;/* static System.Boolean Int64.op_LessThan(Int64,Int64)*/
 
-asm.x6000047 = 
+asm.x6000018 = 
             function Int64_LessThan (a, b) {
                 var an = asm0.Int64_isNegative(a);
                 var bn = asm0.Int64_isNegative(b);
@@ -728,22 +510,22 @@ asm.x6000047 =
                 else
                     return an ? 1 : 0;
             };;
-asm.Int64_LessThan = asm.x6000047;/* static System.Int64 Int64.op_UnaryNegation(Int64)*/
+asm.Int64_LessThan = asm.x6000018;/* static System.Int64 Int64.op_UnaryNegation(Int64)*/
 
-asm.x6000048 = 
+asm.x6000019 = 
             function Int64_UnaryNegation (a) {
                 var complement = asm0.XInt64_Subtraction(new Uint32Array([0xffffffff, 0xffffffff]), a);
                 return asm0.XInt64_Addition(complement, new Uint32Array([1, 0]));
             };;
-asm.Int64_UnaryNegation = asm.x6000048;/* static System.Boolean Int64.isNegative(Int64)*/
+asm.Int64_UnaryNegation = asm.x6000019;/* static System.Boolean Int64.isNegative(Int64)*/
 
-asm.x6000049 = 
+asm.x600001a = 
             function isNegative(n) {
                 return asm0.UInt64_GreaterThan(n, [0xffffffff, 0x7fffffff]);
             };;
-asm.Int64_isNegative = asm.x6000049;/* System.Int32 Int64.CompareTo(Object)*/
+asm.Int64_isNegative = asm.x600001a;/* System.Int32 Int64.CompareTo(Object)*/
 
-asm.x600004a = function CompareTo(arg0, arg1)
+asm.x600001b = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -753,14 +535,14 @@ asm.x600004a = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Int64) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600004b(arg0,CILJS.unbox_any(arg1,asm0["System.Int64"]()));
+    loc0 = asm0.x600001c(arg0,CILJS.unbox_any(arg1,asm0["System.Int64"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Int64.CompareTo(Int64)*/
 
-asm.x600004b = function CompareTo(arg0, arg1)
+asm.x600001c = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -846,7 +628,7 @@ asm.x600004b = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean Int64.Equals(Object)*/
 
-asm.x600004c = function Equals(arg0, arg1)
+asm.x600001d = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -899,7 +681,7 @@ asm.x600004c = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.Int64) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x600004d(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x600001e(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -909,7 +691,7 @@ asm.x600004c = function Equals(arg0, arg1)
     }
 };;/* System.Boolean Int64.Equals(Int64)*/
 
-asm.x600004d = function Equals(arg0, arg1)
+asm.x600001e = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -936,7 +718,7 @@ asm.x600004d = function Equals(arg0, arg1)
     return loc2;
 };;/* System.String Char.ToString()*/
 
-asm.x600004e = function ToString(arg0)
+asm.x600001f = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -949,80 +731,80 @@ asm.x600004e = function ToString(arg0)
     /* IL_08: call String ToStringImpl(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600004f(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x6000020(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* static System.String Char.ToStringImpl(Object)*/
 
-asm.x600004f = function(o) { return CILJS.new_string(String.fromCharCode(o.boxed)); };;/* static System.Boolean Char.IsDigit(Char)*/
+asm.x6000020 = function(o) { return CILJS.new_string(String.fromCharCode(o.boxed)); };;/* static System.Boolean Char.IsDigit(Char)*/
 
-asm.x6000050 = function(o) { return (48 <= o.boxed && o.boxed <= 57) ? 1 : 0; };;/*  SystemException..ctor()*/
+asm.x6000021 = function(o) { return (48 <= o.boxed && o.boxed <= 57) ? 1 : 0; };;/*  SystemException..ctor()*/
 
-asm.x6000051 = function _ctor(arg0)
+asm.x6000022 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldstr A system exception has occurred. */
     /* IL_06: call String GetText(System.String) */
     /* IL_0B: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,asm0.x600002f(CILJS.new_string("A system exception has occurred.")));
+    asm0.x6000076(arg0,asm0.x600015a(CILJS.new_string("A system exception has occurred.")));
     /* IL_10: nop  */
     /* IL_11: nop  */
     /* IL_12: ldarg.0  */
     /* IL_13: ldc.i4 -2146233087 */
     /* IL_18: call Void set_HResult(System.Int32) */
     
-    asm0.x60000a8(arg0,-2146233087);
+    asm0.x6000079(arg0,-2146233087);
     /* IL_1D: nop  */
     /* IL_1E: ret  */
     
     return ;
 };;/*  SystemException..ctor(String)*/
 
-asm.x6000052 = function _ctor(arg0, arg1)
+asm.x6000023 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
     /* IL_02: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,arg1);
+    asm0.x6000076(arg0,arg1);
     /* IL_07: nop  */
     /* IL_08: nop  */
     /* IL_09: ldarg.0  */
     /* IL_0A: ldc.i4 -2146233087 */
     /* IL_0F: call Void set_HResult(System.Int32) */
     
-    asm0.x60000a8(arg0,-2146233087);
+    asm0.x6000079(arg0,-2146233087);
     /* IL_14: nop  */
     /* IL_15: ret  */
     
     return ;
 };;/*  SystemException..ctor(String,Exception)*/
 
-asm.x6000053 = function _ctor(arg0, arg1, arg2)
+asm.x6000024 = function _ctor(arg0, arg1, arg2)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
     /* IL_02: ldarg.2  */
     /* IL_03: call Void .ctor(System.String, System.Exception) */
     
-    asm0.x60000a6(arg0,arg1,arg2);
+    asm0.x6000077(arg0,arg1,arg2);
     /* IL_08: nop  */
     /* IL_09: nop  */
     /* IL_0A: ldarg.0  */
     /* IL_0B: ldc.i4 -2146233087 */
     /* IL_10: call Void set_HResult(System.Int32) */
     
-    asm0.x60000a8(arg0,-2146233087);
+    asm0.x6000079(arg0,-2146233087);
     /* IL_15: nop  */
     /* IL_16: ret  */
     
     return ;
 };;/* System.String Single.ToString()*/
 
-asm.x6000054 = function ToString(arg0)
+asm.x6000025 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -1035,14 +817,14 @@ asm.x6000054 = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Single.CompareTo(Object)*/
 
-asm.x6000055 = function CompareTo(arg0, arg1)
+asm.x6000026 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -1052,14 +834,14 @@ asm.x6000055 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Single) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000056(arg0,CILJS.unbox_any(arg1,asm0["System.Single"]()));
+    loc0 = asm0.x6000027(arg0,CILJS.unbox_any(arg1,asm0["System.Single"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Single.CompareTo(Single)*/
 
-asm.x6000056 = function CompareTo(arg0, arg1)
+asm.x6000027 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -1145,7 +927,7 @@ asm.x6000056 = function CompareTo(arg0, arg1)
     }
 };;/* System.Object RuntimeFieldHandle.get_Value()*/
 
-asm.x6000057 = function get_Value(arg0)
+asm.x6000028 = function get_Value(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -1160,7 +942,7 @@ asm.x6000057 = function get_Value(arg0)
     return loc0;
 };;/* System.String UInt16.ToString()*/
 
-asm.x6000058 = function ToString(arg0)
+asm.x6000029 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -1174,14 +956,14 @@ asm.x6000058 = function ToString(arg0)
     /* IL_0A: call String UnsignedPrimitiveToString(System.Object, System.Int32) */
     /* IL_0F: stloc.0  */
     
-    loc0 = asm0.x600005f(CILJS.make_box(arg0.r(),t0),16);
+    loc0 = asm0.x6000030(CILJS.make_box(arg0.r(),t0),16);
     /* IL_12: ldloc.0  */
     /* IL_13: ret  */
     
     return loc0;
 };;/* System.Int32 UInt16.CompareTo(Object)*/
 
-asm.x6000059 = function CompareTo(arg0, arg1)
+asm.x600002a = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -1191,14 +973,14 @@ asm.x6000059 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.UInt16) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005a(arg0,CILJS.unbox_any(arg1,asm0["System.UInt16"]()));
+    loc0 = asm0.x600002b(arg0,CILJS.unbox_any(arg1,asm0["System.UInt16"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 UInt16.CompareTo(UInt16)*/
 
-asm.x600005a = function CompareTo(arg0, arg1)
+asm.x600002b = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -1284,7 +1066,7 @@ asm.x600005a = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean UInt16.Equals(UInt16)*/
 
-asm.x600005b = function Equals(arg0, arg1)
+asm.x600002c = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -1311,7 +1093,7 @@ asm.x600005b = function Equals(arg0, arg1)
     return loc2;
 };;/* System.Boolean UInt16.Equals(Object)*/
 
-asm.x600005c = function Equals(arg0, arg1)
+asm.x600002d = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -1363,7 +1145,7 @@ asm.x600005c = function Equals(arg0, arg1)
             /* IL_17: call Boolean Equals(System.Object) */
             /* IL_1C: stloc.1  */
             
-            loc1 = asm0.x600005c(arg0,arg1);
+            loc1 = asm0.x600002d(arg0,arg1);
             case 0x1F:
             /* IL_1F: ldloc.1  */
             /* IL_20: ret  */
@@ -1373,7 +1155,7 @@ asm.x600005c = function Equals(arg0, arg1)
     }
 };;/* System.Int32 UInt16.GetHashCode()*/
 
-asm.x600005d = function GetHashCode(arg0)
+asm.x600002e = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -1388,9 +1170,9 @@ asm.x600005d = function GetHashCode(arg0)
     return loc0;
 };;/* static System.String InternalFormatting.SignedPrimitiveToString(Object)*/
 
-asm.x600005e = function(o) { return CILJS.new_string(o.boxed.toString()); };;/* static System.String InternalFormatting.UnsignedPrimitiveToString(Object,Int32)*/
+asm.x600002f = function(o) { return CILJS.new_string(o.boxed.toString()); };;/* static System.String InternalFormatting.UnsignedPrimitiveToString(Object,Int32)*/
 
-asm.x600005f = 
+asm.x6000030 = 
             function(o, size) {
                 var b = o.boxed;
                 if (b < 0) {
@@ -1400,7 +1182,7 @@ asm.x600005f =
                 return CILJS.new_string(b.toString());
             };;/*  EventArgs..ctor()*/
 
-asm.x6000060 = function _ctor(arg0)
+asm.x6000031 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -1411,22 +1193,22 @@ asm.x6000060 = function _ctor(arg0)
     return ;
 };;/* static  EventArgs..cctor()*/
 
-asm.x6000061_init = function ()
+asm.x6000032_init = function ()
 {
     
     (asm0["System.EventArgs"]().init)();
     
-    asm.x6000061 = asm.x6000061_;
+    asm.x6000032 = asm.x6000032_;
 };;
 
-asm.x6000061 = function ()
+asm.x6000032 = function ()
 {
     
-    asm.x6000061_init();
+    asm.x6000032_init();
     
-    return asm.x6000061_();
+    return asm.x6000032_();
 };;
-asm.x6000061_ = function _cctor()
+asm.x6000032_ = function _cctor()
 {
     var t0;
     
@@ -1439,17 +1221,17 @@ asm.x6000061_ = function _cctor()
     
     t0 = asm0["System.EventArgs"]();
     
-    asm0.x6000061();
+    asm0.x6000032();
     /* IL_00: newobj Void .ctor() */
     /* IL_05: stsfld EventArgs Empty */
     
-    t0.Empty = CILJS.newobj(t0,asm0.x6000060,[null]);
+    t0.Empty = CILJS.newobj(t0,asm0.x6000031,[null]);
     /* IL_0A: ret  */
     
     return ;
 };/* System.String UInt32.ToString()*/
 
-asm.x6000062 = function ToString(arg0)
+asm.x6000033 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -1463,14 +1245,14 @@ asm.x6000062 = function ToString(arg0)
     /* IL_0A: call String UnsignedPrimitiveToString(System.Object, System.Int32) */
     /* IL_0F: stloc.0  */
     
-    loc0 = asm0.x600005f(CILJS.make_box(arg0.r(),t0),32);
+    loc0 = asm0.x6000030(CILJS.make_box(arg0.r(),t0),32);
     /* IL_12: ldloc.0  */
     /* IL_13: ret  */
     
     return loc0;
 };;/* System.Boolean UInt32.Equals(Object)*/
 
-asm.x6000063 = function Equals(arg0, arg1)
+asm.x6000034 = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -1544,7 +1326,7 @@ asm.x6000063 = function Equals(arg0, arg1)
     }
 };;/* System.Int32 UInt32.GetHashCode()*/
 
-asm.x6000064 = function GetHashCode(arg0)
+asm.x6000035 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -1559,7 +1341,7 @@ asm.x6000064 = function GetHashCode(arg0)
     return loc0;
 };;/* System.Int32 UInt32.CompareTo(Object)*/
 
-asm.x6000065 = function CompareTo(arg0, arg1)
+asm.x6000036 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -1569,14 +1351,14 @@ asm.x6000065 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.UInt32) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000066(arg0,CILJS.unbox_any(arg1,asm0["System.UInt32"]()));
+    loc0 = asm0.x6000037(arg0,CILJS.unbox_any(arg1,asm0["System.UInt32"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 UInt32.CompareTo(UInt32)*/
 
-asm.x6000066 = function CompareTo(arg0, arg1)
+asm.x6000037 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -1662,19 +1444,19 @@ asm.x6000066 = function CompareTo(arg0, arg1)
     }
 };;/*  FlagsAttribute..ctor()*/
 
-asm.x6000067 = function _ctor(arg0)
+asm.x6000038 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* static System.Delegate Delegate.Combine(Delegate,Delegate)*/
 
-asm.x6000068 = function Combine(arg0, arg1)
+asm.x6000039 = function Combine(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -1781,7 +1563,7 @@ asm.x6000068 = function Combine(arg0, arg1)
             /* IL_36: ceq  */
             /* IL_37: stloc.s 4 */
             
-            loc4 = ((((asm0.x60000cf(arg0) === asm0.x60000cf(arg1)) ? 1 : 0) === 0) ? 1 : 0);
+            loc4 = ((((asm0.x60000a0(arg0) === asm0.x60000a0(arg1)) ? 1 : 0) === 0) ? 1 : 0);
             /* IL_39: ldloc.s 4 */
             /* IL_3B: brfalse.s IL_48 */
             
@@ -1795,14 +1577,14 @@ asm.x6000068 = function Combine(arg0, arg1)
             /* IL_42: newobj Void .ctor(System.String) */
             /* IL_47: throw  */
             
-            throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("Incompatible delegate types")]);
+            throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("Incompatible delegate types")]);
             case 0x48:
             /* IL_48: ldarg.0  */
             /* IL_49: ldarg.1  */
             /* IL_4A: callvirt Delegate CombineImpl(System.Delegate) */
             /* IL_4F: stloc.2  */
             
-            loc2 = (arg0.vtable)["asm0.x600006b"](arg0,arg1);
+            loc2 = (arg0.vtable)["asm0.x600003c"](arg0,arg1);
             case 0x52:
             /* IL_52: ldloc.2  */
             /* IL_53: ret  */
@@ -1812,7 +1594,7 @@ asm.x6000068 = function Combine(arg0, arg1)
     }
 };;/* static System.Delegate Delegate.Remove(Delegate,Delegate)*/
 
-asm.x6000069 = function Remove(arg0, arg1)
+asm.x600003a = function Remove(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -1866,7 +1648,7 @@ asm.x6000069 = function Remove(arg0, arg1)
             /* IL_1D: ceq  */
             /* IL_1E: stloc.2  */
             
-            loc2 = ((((asm0.x60000cf(arg0) === asm0.x60000cf(arg1)) ? 1 : 0) === 0) ? 1 : 0);
+            loc2 = ((((asm0.x60000a0(arg0) === asm0.x60000a0(arg1)) ? 1 : 0) === 0) ? 1 : 0);
             /* IL_1F: ldloc.2  */
             /* IL_20: brfalse.s IL_2D */
             
@@ -1880,14 +1662,14 @@ asm.x6000069 = function Remove(arg0, arg1)
             /* IL_27: newobj Void .ctor(System.String) */
             /* IL_2C: throw  */
             
-            throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("Incompatible delegate types")]);
+            throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("Incompatible delegate types")]);
             case 0x2D:
             /* IL_2D: ldarg.0  */
             /* IL_2E: ldarg.1  */
             /* IL_2F: callvirt Delegate RemoveImpl(System.Delegate) */
             /* IL_34: stloc.1  */
             
-            loc1 = (arg0.vtable)["asm0.x600006a"](arg0,arg1);
+            loc1 = (arg0.vtable)["asm0.x600003b"](arg0,arg1);
             case 0x37:
             /* IL_37: ldloc.1  */
             /* IL_38: ret  */
@@ -1897,22 +1679,22 @@ asm.x6000069 = function Remove(arg0, arg1)
     }
 };;/* System.Delegate Delegate.RemoveImpl(Delegate)*/
 
-asm.x600006a_init = function (arg0, arg1)
+asm.x600003b_init = function (arg0, arg1)
 {
     
     (asm0["System.NotImplementedException"]().init)();
     
-    asm.x600006a = asm.x600006a_;
+    asm.x600003b = asm.x600003b_;
 };;
 
-asm.x600006a = function (arg0, arg1)
+asm.x600003b = function (arg0, arg1)
 {
     
-    asm.x600006a_init(arg0,arg1);
+    asm.x600003b_init(arg0,arg1);
     
-    return asm.x600006a_(arg0,arg1);
+    return asm.x600003b_(arg0,arg1);
 };;
-asm.x600006a_ = function RemoveImpl(arg0, arg1)
+asm.x600003b_ = function RemoveImpl(arg0, arg1)
 {
     var t0;
     
@@ -1921,25 +1703,25 @@ asm.x600006a_ = function RemoveImpl(arg0, arg1)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x600009f,[null]);
+    throw CILJS.newobj(t0,asm0.x6000070,[null]);
 };/* System.Delegate Delegate.CombineImpl(Delegate)*/
 
-asm.x600006b_init = function (arg0, arg1)
+asm.x600003c_init = function (arg0, arg1)
 {
     
     (asm0["System.NotImplementedException"]().init)();
     
-    asm.x600006b = asm.x600006b_;
+    asm.x600003c = asm.x600003c_;
 };;
 
-asm.x600006b = function (arg0, arg1)
+asm.x600003c = function (arg0, arg1)
 {
     
-    asm.x600006b_init(arg0,arg1);
+    asm.x600003c_init(arg0,arg1);
     
-    return asm.x600006b_(arg0,arg1);
+    return asm.x600003c_(arg0,arg1);
 };;
-asm.x600006b_ = function CombineImpl(arg0, arg1)
+asm.x600003c_ = function CombineImpl(arg0, arg1)
 {
     var t0;
     
@@ -1948,10 +1730,10 @@ asm.x600006b_ = function CombineImpl(arg0, arg1)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x600009f,[null]);
+    throw CILJS.newobj(t0,asm0.x6000070,[null]);
 };/* System.Boolean Delegate.Equals(Object)*/
 
-asm.x600006c = function Equals(arg0, arg1)
+asm.x600003d = function Equals(arg0, arg1)
 {
     var t0;
     var loc0;
@@ -1964,29 +1746,29 @@ asm.x600006c = function Equals(arg0, arg1)
     /* IL_08: call Boolean op_Equality(System.Delegate, System.Delegate) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600006d(arg0,t0.IsInst(arg1));
+    loc0 = asm0.x600003e(arg0,t0.IsInst(arg1));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* static System.Boolean Delegate.op_Equality(Delegate,Delegate)*/
 
-asm.x600006d_init = function (arg0, arg1)
+asm.x600003e_init = function (arg0, arg1)
 {
     
     (asm0["System.MulticastDelegate"]().init)();
     
-    asm.x600006d = asm.x600006d_;
+    asm.x600003e = asm.x600003e_;
 };;
 
-asm.x600006d = function (arg0, arg1)
+asm.x600003e = function (arg0, arg1)
 {
     
-    asm.x600006d_init(arg0,arg1);
+    asm.x600003e_init(arg0,arg1);
     
-    return asm.x600006d_(arg0,arg1);
+    return asm.x600003e_(arg0,arg1);
 };;
-asm.x600006d_ = function op_Equality(arg0, arg1)
+asm.x600003e_ = function op_Equality(arg0, arg1)
 {
     var t0;
     var st_27;
@@ -2267,7 +2049,7 @@ asm.x600006d_ = function op_Equality(arg0, arg1)
                     /* IL_CF: ceq  */
                     /* IL_D0: stloc.s 12 */
                     
-                    loc12 = ((asm0.x600006d(loc10,loc11) === 0) ? 1 : 0);
+                    loc12 = ((asm0.x600003e(loc10,loc11) === 0) ? 1 : 0);
                     /* IL_D2: ldloc.s 12 */
                     /* IL_D4: brfalse.s IL_DA */
                     
@@ -2370,7 +2152,7 @@ asm.x600006d_ = function op_Equality(arg0, arg1)
     }
 };/* static System.Boolean Delegate.op_Inequality(Delegate,Delegate)*/
 
-asm.x600006e = function op_Inequality(arg0, arg1)
+asm.x600003f = function op_Inequality(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -2381,14 +2163,14 @@ asm.x600006e = function op_Inequality(arg0, arg1)
     /* IL_0A: ceq  */
     /* IL_0B: stloc.0  */
     
-    loc0 = ((asm0.x600006d(arg0,arg1) === 0) ? 1 : 0);
+    loc0 = ((asm0.x600003e(arg0,arg1) === 0) ? 1 : 0);
     /* IL_0E: ldloc.0  */
     /* IL_0F: ret  */
     
     return loc0;
 };;/* System.Int32 Delegate.GetHashCode()*/
 
-asm.x600006f = function GetHashCode(arg0)
+asm.x6000040 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -2396,14 +2178,14 @@ asm.x600006f = function GetHashCode(arg0)
     /* IL_02: call Int32 GetHashCode() */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000ce(arg0);
+    loc0 = asm0.x600009f(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* static System.Object Delegate.GetJsFunction(Delegate)*/
 
-asm.x6000071 = function GetJsFunction(arg0)
+asm.x6000042 = function GetJsFunction(arg0)
 {
     var in_block_0;
     var __pos__;
@@ -2468,7 +2250,7 @@ asm.x6000071 = function GetJsFunction(arg0)
     }
 };;/*  Delegate..ctor()*/
 
-asm.x6000072 = function _ctor(arg0)
+asm.x6000043 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -2478,7 +2260,7 @@ asm.x6000072 = function _ctor(arg0)
     return ;
 };;/* static System.Type Type.GetTypeFromHandle(RuntimeTypeHandle)*/
 
-asm.x6000074 = function GetTypeFromHandle(arg0)
+asm.x6000045 = function GetTypeFromHandle(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -2486,14 +2268,14 @@ asm.x6000074 = function GetTypeFromHandle(arg0)
     /* IL_02: call Type GetRuntimeTypeFromHandle(System.RuntimeTypeHandle) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x600018e(CILJS.clone_value(arg0));
+    loc0 = asm0.x6000193(CILJS.clone_value(arg0));
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Boolean Type.IsSubclassOf(Type)*/
 
-asm.x6000075 = function IsSubclassOf(arg0, arg1)
+asm.x6000046 = function IsSubclassOf(arg0, arg1)
 {
     var st_03;
     var in_block_0;
@@ -2566,7 +2348,7 @@ asm.x6000075 = function IsSubclassOf(arg0, arg1)
             /* IL_14: callvirt Type get_BaseType() */
             /* IL_19: stloc.2  */
             
-            loc2 = (arg0.vtable)["asm0.x6000078"](arg0);
+            loc2 = (arg0.vtable)["asm0.x6000049"](arg0);
             /* IL_1A: br.s IL_2F */
             
             __pos__ = 0x2F;
@@ -2621,7 +2403,7 @@ asm.x6000075 = function IsSubclassOf(arg0, arg1)
                     /* IL_29: callvirt Type get_BaseType() */
                     /* IL_2E: stloc.2  */
                     
-                    loc2 = (loc2.vtable)["asm0.x6000078"](loc2);
+                    loc2 = (loc2.vtable)["asm0.x6000049"](loc2);
                     case 0x2F:
                     /* IL_2F: ldloc.2  */
                     /* IL_30: ldnull  */
@@ -2660,7 +2442,7 @@ asm.x6000075 = function IsSubclassOf(arg0, arg1)
     }
 };;/* System.Boolean Type.get_IsEnum()*/
 
-asm.x6000076 = function get_IsEnum(arg0)
+asm.x6000047 = function get_IsEnum(arg0)
 {
     var t0;
     var loc0;
@@ -2673,26 +2455,26 @@ asm.x6000076 = function get_IsEnum(arg0)
     /* IL_0C: callvirt Boolean IsSubclassOf(System.Type) */
     /* IL_11: stloc.0  */
     
-    loc0 = (arg0.vtable)["asm0.x6000075"](arg0,asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
+    loc0 = (arg0.vtable)["asm0.x6000046"](arg0,asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
     /* IL_14: ldloc.0  */
     /* IL_15: ret  */
     
     return loc0;
 };;/*  Type..ctor()*/
 
-asm.x6000086 = function _ctor(arg0)
+asm.x6000057 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60001c6(arg0);
+    asm0.x60001cb(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* System.AttributeTargets AttributeUsageAttribute.get_ValidOn()*/
 
-asm.x6000088 = function get_ValidOn(arg0)
+asm.x6000059 = function get_ValidOn(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld AttributeTargets <ValidOn>k__BackingField */
@@ -2701,7 +2483,7 @@ asm.x6000088 = function get_ValidOn(arg0)
     return arg0["SystemAttributeUsageAttribute<ValidOn>k__BackingField"];
 };;/* System.Void AttributeUsageAttribute.set_ValidOn(AttributeTargets)*/
 
-asm.x6000089 = function set_ValidOn(arg0, arg1)
+asm.x600005a = function set_ValidOn(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
@@ -2713,7 +2495,7 @@ asm.x6000089 = function set_ValidOn(arg0, arg1)
     return ;
 };;/* System.Boolean AttributeUsageAttribute.get_Inherited()*/
 
-asm.x600008a = function get_Inherited(arg0)
+asm.x600005b = function get_Inherited(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Boolean <Inherited>k__BackingField */
@@ -2722,7 +2504,7 @@ asm.x600008a = function get_Inherited(arg0)
     return arg0["SystemAttributeUsageAttribute<Inherited>k__BackingField"];
 };;/* System.Void AttributeUsageAttribute.set_Inherited(Boolean)*/
 
-asm.x600008b = function set_Inherited(arg0, arg1)
+asm.x600005c = function set_Inherited(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
@@ -2734,7 +2516,7 @@ asm.x600008b = function set_Inherited(arg0, arg1)
     return ;
 };;/* System.Boolean AttributeUsageAttribute.get_AllowMultiple()*/
 
-asm.x600008c = function get_AllowMultiple(arg0)
+asm.x600005d = function get_AllowMultiple(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Boolean <AllowMultiple>k__BackingField */
@@ -2743,7 +2525,7 @@ asm.x600008c = function get_AllowMultiple(arg0)
     return arg0["SystemAttributeUsageAttribute<AllowMultiple>k__BackingField"];
 };;/* System.Void AttributeUsageAttribute.set_AllowMultiple(Boolean)*/
 
-asm.x600008d = function set_AllowMultiple(arg0, arg1)
+asm.x600005e = function set_AllowMultiple(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
@@ -2755,26 +2537,26 @@ asm.x600008d = function set_AllowMultiple(arg0, arg1)
     return ;
 };;/*  AttributeUsageAttribute..ctor(AttributeTargets)*/
 
-asm.x6000087 = function _ctor(arg0, arg1)
+asm.x6000058 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ldarg.0  */
     /* IL_09: ldarg.1  */
     /* IL_0A: call Void set_ValidOn(System.AttributeTargets) */
     
-    asm0.x6000089(arg0,CILJS.clone_value(arg1));
+    asm0.x600005a(arg0,CILJS.clone_value(arg1));
     /* IL_0F: nop  */
     /* IL_10: ret  */
     
     return ;
 };;/* System.Object RuntimeTypeHandle.get_Value()*/
 
-asm.x600008e = function get_Value(arg0)
+asm.x600005f = function get_Value(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -2789,7 +2571,7 @@ asm.x600008e = function get_Value(arg0)
     return loc0;
 };;/* System.String Boolean.ToString()*/
 
-asm.x600008f = function ToString(arg0)
+asm.x6000060 = function ToString(arg0)
 {
     var st_02;
     var in_block_0;
@@ -2841,7 +2623,7 @@ asm.x600008f = function ToString(arg0)
     }
 };;/* System.Int32 Boolean.GetHashCode()*/
 
-asm.x6000090 = function GetHashCode(arg0)
+asm.x6000061 = function GetHashCode(arg0)
 {
     var st_02;
     var in_block_0;
@@ -2893,7 +2675,7 @@ asm.x6000090 = function GetHashCode(arg0)
     }
 };;/* System.Boolean Boolean.Equals(Boolean)*/
 
-asm.x6000091 = function Equals(arg0, arg1)
+asm.x6000062 = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -2920,7 +2702,7 @@ asm.x6000091 = function Equals(arg0, arg1)
     return loc2;
 };;/* System.Boolean Boolean.Equals(Object)*/
 
-asm.x6000092 = function Equals(arg0, arg1)
+asm.x6000063 = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -2973,7 +2755,7 @@ asm.x6000092 = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.Boolean) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x6000091(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x6000062(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -2983,7 +2765,7 @@ asm.x6000092 = function Equals(arg0, arg1)
     }
 };;/* System.Int32 Boolean.CompareTo(Object)*/
 
-asm.x6000093 = function CompareTo(arg0, arg1)
+asm.x6000064 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -2993,14 +2775,14 @@ asm.x6000093 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Boolean) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000094(arg0,CILJS.unbox_any(arg1,asm0["System.Boolean"]()));
+    loc0 = asm0.x6000065(arg0,CILJS.unbox_any(arg1,asm0["System.Boolean"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Boolean.CompareTo(Boolean)*/
 
-asm.x6000094 = function CompareTo(arg0, arg1)
+asm.x6000065 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -3086,7 +2868,7 @@ asm.x6000094 = function CompareTo(arg0, arg1)
     }
 };;/* System.String SByte.ToString()*/
 
-asm.x6000095 = function ToString(arg0)
+asm.x6000066 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -3099,14 +2881,14 @@ asm.x6000095 = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 SByte.CompareTo(Object)*/
 
-asm.x6000096 = function CompareTo(arg0, arg1)
+asm.x6000067 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -3116,14 +2898,14 @@ asm.x6000096 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.SByte) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000097(arg0,CILJS.unbox_any(arg1,asm0["System.SByte"]()));
+    loc0 = asm0.x6000068(arg0,CILJS.unbox_any(arg1,asm0["System.SByte"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 SByte.CompareTo(SByte)*/
 
-asm.x6000097 = function CompareTo(arg0, arg1)
+asm.x6000068 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -3209,7 +2991,7 @@ asm.x6000097 = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean SByte.Equals(SByte)*/
 
-asm.x6000098 = function Equals(arg0, arg1)
+asm.x6000069 = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -3236,7 +3018,7 @@ asm.x6000098 = function Equals(arg0, arg1)
     return loc2;
 };;/* System.Boolean SByte.Equals(Object)*/
 
-asm.x6000099 = function Equals(arg0, arg1)
+asm.x600006a = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -3289,7 +3071,7 @@ asm.x6000099 = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.SByte) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x6000098(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x6000069(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -3299,7 +3081,7 @@ asm.x6000099 = function Equals(arg0, arg1)
     }
 };;/* System.Int32 SByte.GetHashCode()*/
 
-asm.x600009a = function GetHashCode(arg0)
+asm.x600006b = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -3314,7 +3096,7 @@ asm.x600009a = function GetHashCode(arg0)
     return loc0;
 };;/* static System.Object Activator.CreateInstance(Type)*/
 
-asm.x600009c = function CreateInstance(arg0)
+asm.x600006d = function CreateInstance(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -3329,7 +3111,7 @@ asm.x600009c = function CreateInstance(arg0)
     return loc0;
 };;/* static T Activator.CreateInstance<T>()*/
 
-asm.x600009d = function (T)
+asm.x600006e = function (T)
 {
     
     return function CreateInstance()
@@ -3345,7 +3127,7 @@ asm.x600009d = function (T)
         /* IL_10: unbox.any T */
         /* IL_15: stloc.0  */
         
-        loc0 = CILJS.unbox_any(asm0.x600009c(asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0))),t0);
+        loc0 = CILJS.unbox_any(asm0.x600006d(asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0))),t0);
         /* IL_18: ldloc.0  */
         /* IL_19: ret  */
         
@@ -3353,19 +3135,19 @@ asm.x600009d = function (T)
     };
 };;/*  NotImplementedException..ctor()*/
 
-asm.x600009f = function _ctor(arg0)
+asm.x6000070 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000a4(arg0);
+    asm0.x6000075(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* static System.Void Console.WriteLine(Object)*/
 
-asm.x60000a1 = function WriteLine(arg0)
+asm.x6000072 = function WriteLine(arg0)
 {
     var t0;
     var in_block_0;
@@ -3399,7 +3181,7 @@ asm.x60000a1 = function WriteLine(arg0)
                 continue;
             }
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_09: ldsfld String Empty */
             /* IL_0E: call Void WriteLineImpl(System.String) */
             
@@ -3415,7 +3197,7 @@ asm.x60000a1 = function WriteLine(arg0)
             /* IL_17: callvirt String ToString() */
             /* IL_1C: call Void WriteLineImpl(System.String) */
             
-            CILJS.console_write_line((arg0.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(arg0)));
+            CILJS.console_write_line((arg0.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(arg0)));
             /* IL_21: nop  */
             case 0x22:
             /* IL_22: ret  */
@@ -3425,7 +3207,7 @@ asm.x60000a1 = function WriteLine(arg0)
     }
 };;/* static System.Void Console.WriteLine(String,Object[])*/
 
-asm.x60000a2 = function WriteLine(arg0, arg1)
+asm.x6000073 = function WriteLine(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -3459,7 +3241,7 @@ asm.x60000a2 = function WriteLine(arg0, arg1)
                 continue;
             }
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_09: ldsfld String Empty */
             /* IL_0E: call Void WriteLineImpl(System.String) */
             
@@ -3476,7 +3258,7 @@ asm.x60000a2 = function WriteLine(arg0, arg1)
             /* IL_18: call String Format(System.String, System.Object[]) */
             /* IL_1D: call Void WriteLineImpl(System.String) */
             
-            CILJS.console_write_line(asm0.x60000fc(arg0,arg1));
+            CILJS.console_write_line(asm0.x60000cd(arg0,arg1));
             /* IL_22: nop  */
             case 0x23:
             /* IL_23: ret  */
@@ -3486,7 +3268,7 @@ asm.x60000a2 = function WriteLine(arg0, arg1)
     }
 };;/*  Console..ctor()*/
 
-asm.x60000a3 = function _ctor(arg0)
+asm.x6000074 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -3496,7 +3278,7 @@ asm.x60000a3 = function _ctor(arg0)
     return ;
 };;/* System.Int32 Exception.get_HResult()*/
 
-asm.x60000a7 = function get_HResult(arg0)
+asm.x6000078 = function get_HResult(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Int32 <HResult>k__BackingField */
@@ -3505,7 +3287,7 @@ asm.x60000a7 = function get_HResult(arg0)
     return arg0["SystemException<HResult>k__BackingField"];
 };;/* System.Void Exception.set_HResult(Int32)*/
 
-asm.x60000a8 = function set_HResult(arg0, arg1)
+asm.x6000079 = function set_HResult(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
@@ -3517,7 +3299,7 @@ asm.x60000a8 = function set_HResult(arg0, arg1)
     return ;
 };;/* System.String Exception.get_Message()*/
 
-asm.x60000a9 = function get_Message(arg0)
+asm.x600007a = function get_Message(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld String <Message>k__BackingField */
@@ -3526,7 +3308,7 @@ asm.x60000a9 = function get_Message(arg0)
     return arg0["SystemException<Message>k__BackingField"];
 };;/* System.Void Exception.set_Message(String)*/
 
-asm.x60000aa = function set_Message(arg0, arg1)
+asm.x600007b = function set_Message(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
@@ -3538,7 +3320,7 @@ asm.x60000aa = function set_Message(arg0, arg1)
     return ;
 };;/* System.String Exception.ToString()*/
 
-asm.x60000ab = function ToString(arg0)
+asm.x600007c = function ToString(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -3546,14 +3328,14 @@ asm.x60000ab = function ToString(arg0)
     /* IL_02: callvirt String get_Message() */
     /* IL_07: stloc.0  */
     
-    loc0 = (arg0.vtable)["asm0.x60000a9"](arg0);
+    loc0 = (arg0.vtable)["asm0.x600007a"](arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Exception Exception.get_InnerException()*/
 
-asm.x60000ac = function get_InnerException(arg0)
+asm.x600007d = function get_InnerException(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Exception <InnerException>k__BackingField */
@@ -3562,7 +3344,7 @@ asm.x60000ac = function get_InnerException(arg0)
     return arg0["SystemException<InnerException>k__BackingField"];
 };;/* System.Void Exception.set_InnerException(Exception)*/
 
-asm.x60000ad = function set_InnerException(arg0, arg1)
+asm.x600007e = function set_InnerException(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
@@ -3574,7 +3356,7 @@ asm.x60000ad = function set_InnerException(arg0, arg1)
     return ;
 };;/*  Exception..ctor()*/
 
-asm.x60000a4 = function _ctor(arg0)
+asm.x6000075 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -3590,51 +3372,51 @@ asm.x60000a4 = function _ctor(arg0)
     return ;
 };;/*  Exception..ctor(String)*/
 
-asm.x60000a5 = function _ctor(arg0, arg1)
+asm.x6000076 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000a4(arg0);
+    asm0.x6000075(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ldarg.0  */
     /* IL_09: ldarg.1  */
     /* IL_0A: callvirt Void set_Message(System.String) */
     
-    (arg0.vtable)["asm0.x60000aa"](arg0,arg1);
+    (arg0.vtable)["asm0.x600007b"](arg0,arg1);
     /* IL_0F: nop  */
     /* IL_10: ret  */
     
     return ;
 };;/*  Exception..ctor(String,Exception)*/
 
-asm.x60000a6 = function _ctor(arg0, arg1, arg2)
+asm.x6000077 = function _ctor(arg0, arg1, arg2)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000a4(arg0);
+    asm0.x6000075(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ldarg.0  */
     /* IL_09: ldarg.1  */
     /* IL_0A: callvirt Void set_Message(System.String) */
     
-    (arg0.vtable)["asm0.x60000aa"](arg0,arg1);
+    (arg0.vtable)["asm0.x600007b"](arg0,arg1);
     /* IL_0F: nop  */
     /* IL_10: ldarg.0  */
     /* IL_11: ldarg.2  */
     /* IL_12: call Void set_InnerException(System.Exception) */
     
-    asm0.x60000ad(arg0,arg2);
+    asm0.x600007e(arg0,arg2);
     /* IL_17: nop  */
     /* IL_18: ret  */
     
     return ;
 };;/*  Attribute..ctor()*/
 
-asm.x60000af = function _ctor(arg0)
+asm.x6000080 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -3644,7 +3426,7 @@ asm.x60000af = function _ctor(arg0)
     return ;
 };;/* static System.Void GC.KeepAlive(Object)*/
 
-asm.x60000b0 = function KeepAlive(arg0)
+asm.x6000081 = function KeepAlive(arg0)
 {
     /* IL_00: nop  */
     /* IL_01: ret  */
@@ -3652,7 +3434,7 @@ asm.x60000b0 = function KeepAlive(arg0)
     return ;
 };;/* static System.Void GC.SuppressFinalize(Object)*/
 
-asm.x60000b1 = function SuppressFinalize(arg0)
+asm.x6000082 = function SuppressFinalize(arg0)
 {
     /* IL_00: nop  */
     /* IL_01: ret  */
@@ -3660,22 +3442,22 @@ asm.x60000b1 = function SuppressFinalize(arg0)
     return ;
 };;/* System.String IntPtr.ToString()*/
 
-asm.x60000b2_init = function (arg0)
+asm.x6000083_init = function (arg0)
 {
     
     (asm0["System.IntPtr"]().init)();
     
-    asm.x60000b2 = asm.x60000b2_;
+    asm.x6000083 = asm.x6000083_;
 };;
 
-asm.x60000b2 = function (arg0)
+asm.x6000083 = function (arg0)
 {
     
-    asm.x60000b2_init(arg0);
+    asm.x6000083_init(arg0);
     
-    return asm.x60000b2_(arg0);
+    return asm.x6000083_(arg0);
 };;
-asm.x60000b2_ = function ToString(arg0)
+asm.x6000083_ = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -3688,14 +3470,14 @@ asm.x60000b2_ = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };/* System.Boolean Nullable`1.get_HasValue()*/
 
-asm.x60000b4 = function get_HasValue(arg0)
+asm.x6000085 = function get_HasValue(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -3710,22 +3492,22 @@ asm.x60000b4 = function get_HasValue(arg0)
     return loc0;
 };;/* T Nullable`1.get_Value()*/
 
-asm.x60000b5_init = function (arg0)
+asm.x6000086_init = function (arg0)
 {
     
     (asm0["System.InvalidOperationException"]().init)();
     
-    asm.x60000b5 = asm.x60000b5_;
+    asm.x6000086 = asm.x6000086_;
 };;
 
-asm.x60000b5 = function (arg0)
+asm.x6000086 = function (arg0)
 {
     
-    asm.x60000b5_init(arg0);
+    asm.x6000086_init(arg0);
     
-    return asm.x60000b5_(arg0);
+    return asm.x6000086_(arg0);
 };;
-asm.x60000b5_ = function get_Value(arg0)
+asm.x6000086_ = function get_Value(arg0)
 {
     var t0;
     var in_block_0;
@@ -3764,7 +3546,7 @@ asm.x60000b5_ = function get_Value(arg0)
             /* IL_13: newobj Void .ctor(System.String) */
             /* IL_18: throw  */
             
-            throw CILJS.newobj(t0,asm0.x6000033,[null, CILJS.new_string("Nullable object must have a value.")]);
+            throw CILJS.newobj(t0,asm0.x6000004,[null, CILJS.new_string("Nullable object must have a value.")]);
             case 0x19:
             /* IL_19: ldarg.0  */
             /* IL_1A: ldfld T value */
@@ -3779,22 +3561,22 @@ asm.x60000b5_ = function get_Value(arg0)
     }
 };/* System.Boolean Nullable`1.Equals(Object)*/
 
-asm.x60000b6_init = function (arg0, arg1)
+asm.x6000087_init = function (arg0, arg1)
 {
     
     (asm0["CilJs.Runtime.UnboundGenericParameter"]().init)();
     
-    (asm0["System.Nullable`1"](((arg0.r().constructor.GenericArguments)["asm0.t200002c"])[0]).init)();
+    (asm0["System.Nullable`1"](((arg0.r().constructor.GenericArguments)["asm0.t200001d"])[0]).init)();
 };;
 
-asm.x60000b6 = function (arg0, arg1)
+asm.x6000087 = function (arg0, arg1)
 {
     
-    asm.x60000b6_init(arg0,arg1);
+    asm.x6000087_init(arg0,arg1);
     
-    return asm.x60000b6_(arg0,arg1);
+    return asm.x6000087_(arg0,arg1);
 };;
-asm.x60000b6_ = function Equals(arg0, arg1)
+asm.x6000087_ = function Equals(arg0, arg1)
 {
     var t0;
     var t1;
@@ -3807,7 +3589,7 @@ asm.x60000b6_ = function Equals(arg0, arg1)
     
     t0 = asm0["CilJs.Runtime.UnboundGenericParameter"]();
     
-    t1 = ((arg0.r().constructor.GenericArguments)["asm0.t200002c"])[0];
+    t1 = ((arg0.r().constructor.GenericArguments)["asm0.t200001d"])[0];
     
     t2 = asm0["System.Nullable`1"](t1);
     
@@ -3882,7 +3664,7 @@ asm.x60000b6_ = function Equals(arg0, arg1)
             /* IL_30: call Boolean Equals(System.Nullable`1[T]) */
             /* IL_35: stloc.1  */
             
-            loc1 = asm0.x60000b7(arg0,CILJS.clone_value(CILJS.unbox_any(arg1,t2)));
+            loc1 = asm0.x6000088(arg0,CILJS.clone_value(CILJS.unbox_any(arg1,t2)));
             case 0x38:
             /* IL_38: ldloc.1  */
             /* IL_39: ret  */
@@ -3892,7 +3674,7 @@ asm.x60000b6_ = function Equals(arg0, arg1)
     }
 };/* System.Boolean Nullable`1.Equals(Nullable`1)*/
 
-asm.x60000b7 = function Equals(arg0, arg1)
+asm.x6000088 = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -3901,7 +3683,7 @@ asm.x60000b7 = function Equals(arg0, arg1)
     var loc1;
     var loc2;
     
-    t0 = ((arg0.r().constructor.GenericArguments)["asm0.t200002c"])[0];
+    t0 = ((arg0.r().constructor.GenericArguments)["asm0.t200001d"])[0];
     
     in_block_0 = true;
     
@@ -3975,7 +3757,7 @@ asm.x60000b7 = function Equals(arg0, arg1)
             /* IL_43: callvirt Boolean Equals(System.Object) */
             /* IL_48: stloc.1  */
             
-            loc1 = ((arg1.value.vtable || t0.prototype.vtable)["asm0.x60000cd"])(CILJS.dereference_pointer_as_needed({
+            loc1 = ((arg1.value.vtable || t0.prototype.vtable)["asm0.x600009e"])(CILJS.dereference_pointer_as_needed({
                         w: function (v)
                         {
                             
@@ -3996,7 +3778,7 @@ asm.x60000b7 = function Equals(arg0, arg1)
     }
 };;/* System.Int32 Nullable`1.GetHashCode()*/
 
-asm.x60000b8 = function GetHashCode(arg0)
+asm.x6000089 = function GetHashCode(arg0)
 {
     var in_block_0;
     var __pos__;
@@ -4043,7 +3825,7 @@ asm.x60000b8 = function GetHashCode(arg0)
             /* IL_1E: callvirt Int32 GetHashCode() */
             /* IL_23: stloc.1  */
             
-            loc1 = ((arg0.r().value.vtable || ((arg0.r().constructor.GenericArguments)["asm0.t200002c"])[0].prototype.vtable)["asm0.x60000ce"])(CILJS.dereference_pointer_as_needed({
+            loc1 = ((arg0.r().value.vtable || ((arg0.r().constructor.GenericArguments)["asm0.t200001d"])[0].prototype.vtable)["asm0.x600009f"])(CILJS.dereference_pointer_as_needed({
                         w: function (v)
                         {
                             
@@ -4064,7 +3846,7 @@ asm.x60000b8 = function GetHashCode(arg0)
     }
 };;/* T Nullable`1.GetValueOrDefault()*/
 
-asm.x60000b9 = function GetValueOrDefault(arg0)
+asm.x600008a = function GetValueOrDefault(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -4079,7 +3861,7 @@ asm.x60000b9 = function GetValueOrDefault(arg0)
     return loc0;
 };;/* T Nullable`1.GetValueOrDefault(T)*/
 
-asm.x60000ba = function GetValueOrDefault(arg0, arg1)
+asm.x600008b = function GetValueOrDefault(arg0, arg1)
 {
     var st_02;
     var st_03;
@@ -4137,7 +3919,7 @@ asm.x60000ba = function GetValueOrDefault(arg0, arg1)
     }
 };;/* System.String Nullable`1.ToString()*/
 
-asm.x60000bb = function ToString(arg0)
+asm.x600008c = function ToString(arg0)
 {
     var t0;
     var in_block_0;
@@ -4175,7 +3957,7 @@ asm.x60000bb = function ToString(arg0)
             /* IL_17: callvirt String ToString() */
             /* IL_1C: stloc.1  */
             
-            loc1 = ((arg0.r().value.vtable || ((arg0.r().constructor.GenericArguments)["asm0.t200002c"])[0].prototype.vtable)["asm0.x60000ca"])(CILJS.dereference_pointer_as_needed({
+            loc1 = ((arg0.r().value.vtable || ((arg0.r().constructor.GenericArguments)["asm0.t200001d"])[0].prototype.vtable)["asm0.x600009b"])(CILJS.dereference_pointer_as_needed({
                         w: function (v)
                         {
                             
@@ -4194,7 +3976,7 @@ asm.x60000bb = function ToString(arg0)
             continue;
             case 0x1F:
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_1F: ldsfld String Empty */
             /* IL_24: stloc.1  */
             
@@ -4208,7 +3990,7 @@ asm.x60000bb = function ToString(arg0)
     }
 };;/* static System.Nullable`1[T] Nullable`1.op_Implicit(T)*/
 
-asm.x60000bc_init = function (T)
+asm.x600008d_init = function (T)
 {
     
     return function (arg0)
@@ -4220,18 +4002,18 @@ asm.x60000bc_init = function (T)
     };
 };;
 
-asm.x60000bc = function (T)
+asm.x600008d = function (T)
 {
     
     return function (arg0)
     {
         
-        (asm.x60000bc_init(T))(arg0);
+        (asm.x600008d_init(T))(arg0);
         
-        return (asm.x60000bc_(T))(arg0);
+        return (asm.x600008d_(T))(arg0);
     };
 };;
-asm.x60000bc_ = function (T)
+asm.x600008d_ = function (T)
 {
     
     return function op_Implicit(arg0)
@@ -4251,7 +4033,7 @@ asm.x60000bc_ = function (T)
         /* IL_02: newobj Void .ctor(T) */
         /* IL_07: stloc.0  */
         
-        loc0 = CILJS.clone_value(CILJS.newobj(t2,asm0.x60000b3,[null, CILJS.clone_value(arg0)]));
+        loc0 = CILJS.clone_value(CILJS.newobj(t2,asm0.x6000084,[null, CILJS.clone_value(arg0)]));
         /* IL_0A: ldloc.0  */
         /* IL_0B: ret  */
         
@@ -4259,7 +4041,7 @@ asm.x60000bc_ = function (T)
     };
 };/* static T Nullable`1.op_Explicit(Nullable`1)*/
 
-asm.x60000bd = function (T)
+asm.x600008e = function (T)
 {
     
     return function op_Explicit(arg0)
@@ -4270,7 +4052,7 @@ asm.x60000bd = function (T)
         /* IL_03: call T get_Value() */
         /* IL_08: stloc.0  */
         
-        loc0 = CILJS.clone_value(asm0.x60000b5({
+        loc0 = CILJS.clone_value(asm0.x6000086({
                     w: function (v)
                     {
                         
@@ -4289,7 +4071,7 @@ asm.x60000bd = function (T)
     };
 };;/* static System.Object Nullable`1.Box(Nullable`1)*/
 
-asm.x60000be = function (T)
+asm.x600008f = function (T)
 {
     
     return function Box(arg0)
@@ -4353,7 +4135,7 @@ asm.x60000be = function (T)
     };
 };;/* static System.Nullable`1[T] Nullable`1.Unbox(Object)*/
 
-asm.x60000bf_init = function (T)
+asm.x6000090_init = function (T)
 {
     
     return function (arg0)
@@ -4365,18 +4147,18 @@ asm.x60000bf_init = function (T)
     };
 };;
 
-asm.x60000bf = function (T)
+asm.x6000090 = function (T)
 {
     
     return function (arg0)
     {
         
-        (asm.x60000bf_init(T))(arg0);
+        (asm.x6000090_init(T))(arg0);
         
-        return (asm.x60000bf_(T))(arg0);
+        return (asm.x6000090_(T))(arg0);
     };
 };;
-asm.x60000bf_ = function (T)
+asm.x6000090_ = function (T)
 {
     
     return function Unbox(arg0)
@@ -4441,7 +4223,7 @@ asm.x60000bf_ = function (T)
                 /* IL_1B: newobj Void .ctor(T) */
                 /* IL_20: stloc.2  */
                 
-                loc2 = CILJS.clone_value(CILJS.newobj(t2,asm0.x60000b3,[null, CILJS.clone_value(CILJS.unbox_any(arg0,t1))]));
+                loc2 = CILJS.clone_value(CILJS.newobj(t2,asm0.x6000084,[null, CILJS.clone_value(CILJS.unbox_any(arg0,t1))]));
                 case 0x23:
                 /* IL_23: ldloc.2  */
                 /* IL_24: ret  */
@@ -4452,7 +4234,7 @@ asm.x60000bf_ = function (T)
     };
 };/*  Nullable`1..ctor(T)*/
 
-asm.x60000b3 = function _ctor(arg0, arg1)
+asm.x6000084 = function _ctor(arg0, arg1)
 {
     /* IL_00: nop  */
     /* IL_01: ldarg.0  */
@@ -4470,13 +4252,13 @@ asm.x60000b3 = function _ctor(arg0, arg1)
     return ;
 };;/*  InvalidCastException..ctor()*/
 
-asm.x60000c0 = function _ctor(arg0)
+asm.x6000091 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldstr Cannot cast from source type to destination type. */
     /* IL_06: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,CILJS.new_string("Cannot cast from source type to destination type."));
+    asm0.x6000076(arg0,CILJS.new_string("Cannot cast from source type to destination type."));
     /* IL_0B: nop  */
     /* IL_0C: nop  */
     /* IL_0D: ret  */
@@ -4484,21 +4266,21 @@ asm.x60000c0 = function _ctor(arg0)
     return ;
 };;/* System.Void EventHandler.Invoke(Object,EventArgs)*/
 
-asm.x60000c2 = CILJS.delegate_invoke;;/* System.IAsyncResult EventHandler.BeginInvoke(Object,EventArgs,AsyncCallback,Object)*/
+asm.x6000093 = CILJS.delegate_invoke;;/* System.IAsyncResult EventHandler.BeginInvoke(Object,EventArgs,AsyncCallback,Object)*/
 
-asm.x60000c3 = CILJS.delegate_begin_invoke;;/* System.Void EventHandler.EndInvoke(IAsyncResult)*/
+asm.x6000094 = CILJS.delegate_begin_invoke;;/* System.Void EventHandler.EndInvoke(IAsyncResult)*/
 
-asm.x60000c4 = CILJS.delegate_end_invoke;;/*  EventHandler..ctor(Object,IntPtr)*/
+asm.x6000095 = CILJS.delegate_end_invoke;;/*  EventHandler..ctor(Object,IntPtr)*/
 
-asm.x60000c1 = CILJS.delegate_ctor;;/* static System.Boolean Object.ReferenceEqualsImpl(Object,Object)*/
+asm.x6000092 = CILJS.delegate_ctor;;/* static System.Boolean Object.ReferenceEqualsImpl(Object,Object)*/
 
-asm.x60000c6 = function (a, b) { return Number(a === b); };;/* static System.Int32 Object.GetHashCode(Object)*/
+asm.x6000097 = function (a, b) { return Number(a === b); };;/* static System.Int32 Object.GetHashCode(Object)*/
 
-asm.x60000c7 = function (o) { return o.hash || (o.hash = CILJS.next_hash++); };;/* System.Object Object.toString()*/
+asm.x6000098 = function (o) { return o.hash || (o.hash = CILJS.next_hash++); };;/* System.Object Object.toString()*/
 
-asm.x60000c9 = function () { return asm0.ToJavaScriptString(this); };;/* System.String Object.ToString()*/
+asm.x600009a = function () { return asm0.ToJavaScriptString(this); };;/* System.String Object.ToString()*/
 
-asm.x60000ca = function ToString(arg0)
+asm.x600009b = function ToString(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -4512,7 +4294,7 @@ asm.x60000ca = function ToString(arg0)
     return loc0;
 };;/* static System.Object Object.ToJavaScriptString(Object)*/
 
-asm.x60000cb = function ToJavaScriptString(arg0)
+asm.x600009c = function ToJavaScriptString(arg0)
 {
     var in_block_0;
     var __pos__;
@@ -4561,7 +4343,7 @@ asm.x60000cb = function ToJavaScriptString(arg0)
             /* IL_18: callvirt String ToString() */
             /* IL_1D: stloc.2  */
             
-            loc2 = (arg0.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(arg0));
+            loc2 = (arg0.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(arg0));
             /* IL_1E: ldloc.2  */
             /* IL_1F: ldnull  */
             /* IL_21: ceq  */
@@ -4600,9 +4382,9 @@ asm.x60000cb = function ToJavaScriptString(arg0)
         }
     }
 };;
-asm.ToJavaScriptString = asm.x60000cb;/* static System.Boolean Object.ReferenceEquals(Object,Object)*/
+asm.ToJavaScriptString = asm.x600009c;/* static System.Boolean Object.ReferenceEquals(Object,Object)*/
 
-asm.x60000cc = function ReferenceEquals(arg0, arg1)
+asm.x600009d = function ReferenceEquals(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -4611,14 +4393,14 @@ asm.x60000cc = function ReferenceEquals(arg0, arg1)
     /* IL_03: call Boolean ReferenceEqualsImpl(System.Object, System.Object) */
     /* IL_08: stloc.0  */
     
-    loc0 = asm0.x60000c6(arg0,arg1);
+    loc0 = asm0.x6000097(arg0,arg1);
     /* IL_0B: ldloc.0  */
     /* IL_0C: ret  */
     
     return loc0;
 };;/* System.Boolean Object.Equals(Object)*/
 
-asm.x60000cd = function Equals(arg0, arg1)
+asm.x600009e = function Equals(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -4634,7 +4416,7 @@ asm.x60000cd = function Equals(arg0, arg1)
     return loc0;
 };;/* System.Int32 Object.GetHashCode()*/
 
-asm.x60000ce = function GetHashCode(arg0)
+asm.x600009f = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -4642,14 +4424,14 @@ asm.x60000ce = function GetHashCode(arg0)
     /* IL_02: call Int32 GetHashCode(System.Object) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000c7(arg0);
+    loc0 = asm0.x6000098(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Type Object.GetType()*/
 
-asm.x60000cf = function GetType(arg0)
+asm.x60000a0 = function GetType(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -4657,14 +4439,14 @@ asm.x60000cf = function GetType(arg0)
     /* IL_02: call Type GetType(System.Object) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x600018d(arg0);
+    loc0 = asm0.x6000192(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* static System.Boolean Object.Equals(Object,Object)*/
 
-asm.x60000d0 = function Equals(arg0, arg1)
+asm.x60000a1 = function Equals(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -4736,7 +4518,7 @@ asm.x60000d0 = function Equals(arg0, arg1)
             /* IL_1B: callvirt Boolean Equals(System.Object) */
             /* IL_20: stloc.1  */
             
-            loc1 = (arg0.vtable)["asm0.x60000cd"](CILJS.convert_box_to_pointer_as_needed(arg0),arg1);
+            loc1 = (arg0.vtable)["asm0.x600009e"](CILJS.convert_box_to_pointer_as_needed(arg0),arg1);
             case 0x23:
             /* IL_23: ldloc.1  */
             /* IL_24: ret  */
@@ -4746,7 +4528,7 @@ asm.x60000d0 = function Equals(arg0, arg1)
     }
 };;/*  Object..ctor()*/
 
-asm.x60000c5 = function _ctor(arg0)
+asm.x6000096 = function _ctor(arg0)
 {
     /* IL_00: nop  */
     /* IL_01: ret  */
@@ -4754,7 +4536,7 @@ asm.x60000c5 = function _ctor(arg0)
     return ;
 };;/* static System.Int64 Math.Max(Int64,Int64)*/
 
-asm.x60000d5 = function Max(arg0, arg1)
+asm.x60000a6 = function Max(arg0, arg1)
 {
     var st_02;
     var in_block_0;
@@ -4806,7 +4588,7 @@ asm.x60000d5 = function Max(arg0, arg1)
     }
 };;/* static System.Int64 Math.Min(Int64,Int64)*/
 
-asm.x60000d9 = function Min(arg0, arg1)
+asm.x60000aa = function Min(arg0, arg1)
 {
     var st_02;
     var in_block_0;
@@ -4858,7 +4640,7 @@ asm.x60000d9 = function Min(arg0, arg1)
     }
 };;/*  Math..ctor()*/
 
-asm.x60000dc = function _ctor(arg0)
+asm.x60000ad = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -4868,22 +4650,22 @@ asm.x60000dc = function _ctor(arg0)
     return ;
 };;/* static System.Type Enum.GetUnderlyingType(Type)*/
 
-asm.x60000dd_init = function (arg0)
+asm.x60000ae_init = function (arg0)
 {
     
     (asm0["System.InvalidOperationException"]().init)();
     
-    asm.x60000dd = asm.x60000dd_;
+    asm.x60000ae = asm.x60000ae_;
 };;
 
-asm.x60000dd = function (arg0)
+asm.x60000ae = function (arg0)
 {
     
-    asm.x60000dd_init(arg0);
+    asm.x60000ae_init(arg0);
     
-    return asm.x60000dd_(arg0);
+    return asm.x60000ae_(arg0);
 };;
-asm.x60000dd_ = function GetUnderlyingType(arg0)
+asm.x60000ae_ = function GetUnderlyingType(arg0)
 {
     var t0;
     var t1;
@@ -4911,7 +4693,7 @@ asm.x60000dd_ = function GetUnderlyingType(arg0)
             /* IL_09: ceq  */
             /* IL_0A: stloc.0  */
             
-            loc0 = ((asm0.x6000076(arg0) === 0) ? 1 : 0);
+            loc0 = ((asm0.x6000047(arg0) === 0) ? 1 : 0);
             /* IL_0B: ldloc.0  */
             /* IL_0C: brfalse.s IL_14 */
             
@@ -4924,13 +4706,13 @@ asm.x60000dd_ = function GetUnderlyingType(arg0)
             /* IL_0E: newobj Void .ctor() */
             /* IL_13: throw  */
             
-            throw CILJS.newobj(t0,asm0.x6000030,[null]);
+            throw CILJS.newobj(t0,asm0.x6000001,[null]);
             case 0x14:
             /* IL_14: ldtoken System.Int32 */
             /* IL_19: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
             /* IL_1E: stloc.1  */
             
-            loc1 = asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t1));
+            loc1 = asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t1));
             /* IL_21: ldloc.1  */
             /* IL_22: ret  */
             
@@ -4939,19 +4721,19 @@ asm.x60000dd_ = function GetUnderlyingType(arg0)
     }
 };/*  Enum..ctor()*/
 
-asm.x60000de = function _ctor(arg0)
+asm.x60000af = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x600014a(arg0);
+    asm0.x600011b(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* static System.Delegate MulticastDelegate.CreateMulticast(Delegate[])*/
 
-asm.x60000df = 
+asm.x60000b0 = 
             function (list) { 
 
                 var f = function () {
@@ -4978,7 +4760,7 @@ asm.x60000df =
             }
             ;;/* System.Delegate MulticastDelegate.CombineImpl(Delegate)*/
 
-asm.x60000e0 = function CombineImpl(arg0, arg1)
+asm.x60000b1 = function CombineImpl(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -5140,7 +4922,7 @@ asm.x60000e0 = function CombineImpl(arg0, arg1)
             /* IL_5E: call Delegate CreateMulticast(System.Delegate[]) */
             /* IL_63: stloc.s 4 */
             
-            loc4 = asm0.x60000df(loc0);
+            loc4 = asm0.x60000b0(loc0);
             /* IL_67: ldloc.s 4 */
             /* IL_69: ret  */
             
@@ -5149,7 +4931,7 @@ asm.x60000e0 = function CombineImpl(arg0, arg1)
     }
 };;/* System.Delegate MulticastDelegate.RemoveImpl(Delegate)*/
 
-asm.x60000e1 = function RemoveImpl(arg0, arg1)
+asm.x60000b2 = function RemoveImpl(arg0, arg1)
 {
     var t0;
     var st_4B;
@@ -5236,7 +5018,7 @@ asm.x60000e1 = function RemoveImpl(arg0, arg1)
             /* IL_11: call Boolean op_Equality(System.Delegate, System.Delegate) */
             /* IL_16: stloc.1  */
             
-            loc1 = asm0.x600006d(arg1,arg0);
+            loc1 = asm0.x600003e(arg1,arg0);
             /* IL_17: ldloc.1  */
             /* IL_18: brfalse.s IL_21 */
             
@@ -5308,7 +5090,7 @@ asm.x60000e1 = function RemoveImpl(arg0, arg1)
                     /* IL_3A: call Boolean op_Inequality(System.Delegate, System.Delegate) */
                     /* IL_3F: stloc.s 6 */
                     
-                    loc6 = asm0.x600006e(CILJS.ldelem_ref(arg0._invocationList,loc5),arg1);
+                    loc6 = asm0.x600003f(CILJS.ldelem_ref(arg0._invocationList,loc5),arg1);
                     /* IL_41: ldloc.s 6 */
                     /* IL_43: brfalse.s IL_49 */
                     
@@ -5436,7 +5218,7 @@ asm.x60000e1 = function RemoveImpl(arg0, arg1)
                     /* IL_8B: call Boolean op_Inequality(System.Delegate, System.Delegate) */
                     /* IL_90: stloc.s 11 */
                     
-                    loc11 = asm0.x600006e(CILJS.ldelem_ref(arg0._invocationList,loc10),arg1);
+                    loc11 = asm0.x600003f(CILJS.ldelem_ref(arg0._invocationList,loc10),arg1);
                     /* IL_92: ldloc.s 11 */
                     /* IL_94: brfalse.s IL_A2 */
                     
@@ -5535,7 +5317,7 @@ asm.x60000e1 = function RemoveImpl(arg0, arg1)
                     /* IL_D4: call Boolean op_Inequality(System.Delegate, System.Delegate) */
                     /* IL_D9: stloc.s 15 */
                     
-                    loc15 = asm0.x600006e(CILJS.ldelem_ref(arg0._invocationList,loc13),arg1);
+                    loc15 = asm0.x600003f(CILJS.ldelem_ref(arg0._invocationList,loc13),arg1);
                     /* IL_DB: ldloc.s 15 */
                     /* IL_DD: brfalse.s IL_F2 */
                     
@@ -5617,7 +5399,7 @@ asm.x60000e1 = function RemoveImpl(arg0, arg1)
             /* IL_10C: call Delegate CreateMulticast(System.Delegate[]) */
             /* IL_111: stloc.2  */
             
-            loc2 = asm0.x60000df(loc4);
+            loc2 = asm0.x60000b0(loc4);
             case 0x114:
             /* IL_114: ldloc.2  */
             /* IL_115: ret  */
@@ -5627,34 +5409,34 @@ asm.x60000e1 = function RemoveImpl(arg0, arg1)
     }
 };;/*  MulticastDelegate..ctor()*/
 
-asm.x60000e2 = function _ctor(arg0)
+asm.x60000b3 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x6000072(arg0);
+    asm0.x6000043(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* static System.Int32 String.GetLengthImpl(Object)*/
 
-asm.x60000e3 = function(o) { return o.jsstr.length; };;/* static System.Boolean String.EqualsImpl(String,String)*/
+asm.x60000b4 = function(o) { return o.jsstr.length; };;/* static System.Boolean String.EqualsImpl(String,String)*/
 
-asm.x60000e4 = function(a, b) { return a.jsstr === b.jsstr ? 1 : 0; };;/* static System.String String.ConcatImpl(String[])*/
+asm.x60000b5 = function(a, b) { return a.jsstr === b.jsstr ? 1 : 0; };;/* static System.String String.ConcatImpl(String[])*/
 
-asm.x60000e5 = function (args) { return CILJS.new_string(String.prototype.concat.apply('', args.jsarr)); };;/* static System.Char String.GetChar(String,Int32)*/
+asm.x60000b6 = function (args) { return CILJS.new_string(String.prototype.concat.apply('', args.jsarr)); };;/* static System.Char String.GetChar(String,Int32)*/
 
-asm.x60000e6 = function (s, i) { return s.jsstr.charCodeAt(i); };;/* static System.String String.ReplaceImpl(String,String,String)*/
+asm.x60000b7 = function (s, i) { return s.jsstr.charCodeAt(i); };;/* static System.String String.ReplaceImpl(String,String,String)*/
 
-asm.x60000e7 = function replaceAll(s, find, replace) {
+asm.x60000b8 = function replaceAll(s, find, replace) {
                         function escapeRegExp(s2) {
                             return s2.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
                         }
                       return CILJS.new_string(s.jsstr.replace(new RegExp(escapeRegExp(find.jsstr), 'g'), replace.jsstr));
                     };;/* System.Char String.get_Chars(Int32)*/
 
-asm.x60000e8 = function get_Chars(arg0, arg1)
+asm.x60000b9 = function get_Chars(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -5663,14 +5445,14 @@ asm.x60000e8 = function get_Chars(arg0, arg1)
     /* IL_03: call Char GetChar(System.String, System.Int32) */
     /* IL_08: stloc.0  */
     
-    loc0 = asm0.x60000e6(arg0,arg1);
+    loc0 = asm0.x60000b7(arg0,arg1);
     /* IL_0B: ldloc.0  */
     /* IL_0C: ret  */
     
     return loc0;
 };;/* static System.String String.Concat(String,String)*/
 
-asm.x60000ea = function Concat(arg0, arg1)
+asm.x60000bb = function Concat(arg0, arg1)
 {
     var t0;
     var st_00;
@@ -5742,7 +5524,7 @@ asm.x60000ea = function Concat(arg0, arg1)
     CILJS.stelem_ref(st_06,st_07,st_08);
     /* IL_0F: call String ConcatImpl(System.String[]) */
     
-    st_0A = asm0.x60000e5(st_09);
+    st_0A = asm0.x60000b6(st_09);
     /* IL_14: stloc.0  */
     
     loc0 = st_0A;
@@ -5752,7 +5534,7 @@ asm.x60000ea = function Concat(arg0, arg1)
     return loc0;
 };;/* static System.String String.Concat(Object,Object,Object)*/
 
-asm.x60000eb = function Concat(arg0, arg1, arg2)
+asm.x60000bc = function Concat(arg0, arg1, arg2)
 {
     var t0;
     var st_00;
@@ -5876,7 +5658,7 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
             }
             /* IL_05: pop  */
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_06: ldsfld String Empty */
             
             st_03 = t0.Empty;
@@ -5900,7 +5682,7 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
             }
             /* IL_11: pop  */
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_12: ldsfld String Empty */
             
             st_07 = t0.Empty;
@@ -5924,7 +5706,7 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
             }
             /* IL_1D: pop  */
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_1E: ldsfld String Empty */
             
             st_0B = t0.Empty;
@@ -5949,7 +5731,7 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
             st_0E = arg0;
             /* IL_2E: callvirt String ToString() */
             
-            st_11 = (st_0E.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(st_0E));
+            st_11 = (st_0E.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(st_0E));
             /* IL_33: stelem.ref  */
             
             CILJS.stelem_ref(st_0F,st_10,st_11);
@@ -5964,7 +5746,7 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
             st_13 = arg1;
             /* IL_37: callvirt String ToString() */
             
-            st_16 = (st_13.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(st_13));
+            st_16 = (st_13.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(st_13));
             /* IL_3C: stelem.ref  */
             
             CILJS.stelem_ref(st_14,st_15,st_16);
@@ -5979,13 +5761,13 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
             st_18 = arg2;
             /* IL_40: callvirt String ToString() */
             
-            st_1B = (st_18.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(st_18));
+            st_1B = (st_18.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(st_18));
             /* IL_45: stelem.ref  */
             
             CILJS.stelem_ref(st_19,st_1A,st_1B);
             /* IL_46: call String ConcatImpl(System.String[]) */
             
-            st_1D = asm0.x60000e5(st_1C);
+            st_1D = asm0.x60000b6(st_1C);
             /* IL_4B: stloc.0  */
             
             loc0 = st_1D;
@@ -5997,7 +5779,7 @@ asm.x60000eb = function Concat(arg0, arg1, arg2)
     }
 };;/* static System.String String.Concat(String,String,String)*/
 
-asm.x60000ec = function Concat(arg0, arg1, arg2)
+asm.x60000bd = function Concat(arg0, arg1, arg2)
 {
     var t0;
     var st_00;
@@ -6093,7 +5875,7 @@ asm.x60000ec = function Concat(arg0, arg1, arg2)
     CILJS.stelem_ref(st_0A,st_0B,st_0C);
     /* IL_13: call String ConcatImpl(System.String[]) */
     
-    st_0E = asm0.x60000e5(st_0D);
+    st_0E = asm0.x60000b6(st_0D);
     /* IL_18: stloc.0  */
     
     loc0 = st_0E;
@@ -6103,7 +5885,7 @@ asm.x60000ec = function Concat(arg0, arg1, arg2)
     return loc0;
 };;/* static System.String String.Concat(String,String,String,String)*/
 
-asm.x60000ed = function Concat(arg0, arg1, arg2, arg3)
+asm.x60000be = function Concat(arg0, arg1, arg2, arg3)
 {
     var t0;
     var st_00;
@@ -6223,7 +6005,7 @@ asm.x60000ed = function Concat(arg0, arg1, arg2, arg3)
     CILJS.stelem_ref(st_0E,st_0F,st_10);
     /* IL_17: call String ConcatImpl(System.String[]) */
     
-    st_12 = asm0.x60000e5(st_11);
+    st_12 = asm0.x60000b6(st_11);
     /* IL_1C: stloc.0  */
     
     loc0 = st_12;
@@ -6233,7 +6015,7 @@ asm.x60000ed = function Concat(arg0, arg1, arg2, arg3)
     return loc0;
 };;/* static System.String String.Concat(Object,Object)*/
 
-asm.x60000ee = function Concat(arg0, arg1)
+asm.x60000bf = function Concat(arg0, arg1)
 {
     var t0;
     var st_00;
@@ -6330,7 +6112,7 @@ asm.x60000ee = function Concat(arg0, arg1)
             }
             /* IL_05: pop  */
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_06: ldsfld String Empty */
             
             st_03 = t0.Empty;
@@ -6354,7 +6136,7 @@ asm.x60000ee = function Concat(arg0, arg1)
             }
             /* IL_11: pop  */
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_12: ldsfld String Empty */
             
             st_07 = t0.Empty;
@@ -6379,7 +6161,7 @@ asm.x60000ee = function Concat(arg0, arg1)
             st_0A = arg0;
             /* IL_22: callvirt String ToString() */
             
-            st_0D = (st_0A.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(st_0A));
+            st_0D = (st_0A.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(st_0A));
             /* IL_27: stelem.ref  */
             
             CILJS.stelem_ref(st_0B,st_0C,st_0D);
@@ -6394,13 +6176,13 @@ asm.x60000ee = function Concat(arg0, arg1)
             st_0F = arg1;
             /* IL_2B: callvirt String ToString() */
             
-            st_12 = (st_0F.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(st_0F));
+            st_12 = (st_0F.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(st_0F));
             /* IL_30: stelem.ref  */
             
             CILJS.stelem_ref(st_10,st_11,st_12);
             /* IL_31: call String ConcatImpl(System.String[]) */
             
-            st_14 = asm0.x60000e5(st_13);
+            st_14 = asm0.x60000b6(st_13);
             /* IL_36: stloc.0  */
             
             loc0 = st_14;
@@ -6412,7 +6194,7 @@ asm.x60000ee = function Concat(arg0, arg1)
     }
 };;/* static System.String String.Concat(String[])*/
 
-asm.x60000ef = function Concat(arg0)
+asm.x60000c0 = function Concat(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6420,14 +6202,14 @@ asm.x60000ef = function Concat(arg0)
     /* IL_02: call String ConcatImpl(System.String[]) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000e5(arg0);
+    loc0 = asm0.x60000b6(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* static System.String String.Concat(Object[])*/
 
-asm.x60000f0 = function Concat(arg0)
+asm.x60000c1 = function Concat(arg0)
 {
     var t0;
     var st_05;
@@ -6527,7 +6309,7 @@ asm.x60000f0 = function Concat(arg0)
                     }
                     /* IL_15: pop  */
                     
-                    asm0.x6000105();
+                    asm0.x60000d6();
                     /* IL_16: ldsfld String Empty */
                     
                     st_0A = t0.Empty;
@@ -6541,7 +6323,7 @@ asm.x60000f0 = function Concat(arg0)
                     /* IL_1F: callvirt String ToString() */
                     /* IL_24: stelem.ref  */
                     
-                    CILJS.stelem_ref(loc0,loc1,(loc2.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(loc2)));
+                    CILJS.stelem_ref(loc0,loc1,(loc2.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(loc2)));
                     /* IL_25: nop  */
                     /* IL_26: ldloc.1  */
                     /* IL_27: ldc.i4.1  */
@@ -6580,7 +6362,7 @@ asm.x60000f0 = function Concat(arg0)
             /* IL_35: call String Concat(System.String[]) */
             /* IL_3A: stloc.s 4 */
             
-            loc4 = asm0.x60000ef(loc0);
+            loc4 = asm0.x60000c0(loc0);
             /* IL_3E: ldloc.s 4 */
             /* IL_40: ret  */
             
@@ -6589,7 +6371,7 @@ asm.x60000f0 = function Concat(arg0)
     }
 };;/* System.String String.Replace(String,String)*/
 
-asm.x60000f1 = function Replace(arg0, arg1, arg2)
+asm.x60000c2 = function Replace(arg0, arg1, arg2)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6599,14 +6381,14 @@ asm.x60000f1 = function Replace(arg0, arg1, arg2)
     /* IL_04: call String ReplaceImpl(System.String, System.String, System.String) */
     /* IL_09: stloc.0  */
     
-    loc0 = asm0.x60000e7(arg0,arg1,arg2);
+    loc0 = asm0.x60000b8(arg0,arg1,arg2);
     /* IL_0C: ldloc.0  */
     /* IL_0D: ret  */
     
     return loc0;
 };;/* System.Int32 String.get_Length()*/
 
-asm.x60000f2 = function get_Length(arg0)
+asm.x60000c3 = function get_Length(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6614,14 +6396,14 @@ asm.x60000f2 = function get_Length(arg0)
     /* IL_02: call Int32 GetLengthImpl(System.Object) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000e3(arg0);
+    loc0 = asm0.x60000b4(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.String String.ToString()*/
 
-asm.x60000f3 = function ToString(arg0)
+asm.x60000c4 = function ToString(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6635,7 +6417,7 @@ asm.x60000f3 = function ToString(arg0)
     return loc0;
 };;/* static System.Boolean String.op_Inequality(String,String)*/
 
-asm.x60000f4 = function op_Inequality(arg0, arg1)
+asm.x60000c5 = function op_Inequality(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6646,14 +6428,14 @@ asm.x60000f4 = function op_Inequality(arg0, arg1)
     /* IL_0A: ceq  */
     /* IL_0B: stloc.0  */
     
-    loc0 = ((asm0.x60000f5(arg0,arg1) === 0) ? 1 : 0);
+    loc0 = ((asm0.x60000c6(arg0,arg1) === 0) ? 1 : 0);
     /* IL_0E: ldloc.0  */
     /* IL_0F: ret  */
     
     return loc0;
 };;/* static System.Boolean String.op_Equality(String,String)*/
 
-asm.x60000f5 = function op_Equality(arg0, arg1)
+asm.x60000c6 = function op_Equality(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -6727,7 +6509,7 @@ asm.x60000f5 = function op_Equality(arg0, arg1)
             /* IL_1E: call Boolean EqualsImpl(System.String, System.String) */
             /* IL_23: stloc.1  */
             
-            loc1 = asm0.x60000e4(arg0,arg1);
+            loc1 = asm0.x60000b5(arg0,arg1);
             case 0x26:
             /* IL_26: ldloc.1  */
             /* IL_27: ret  */
@@ -6737,7 +6519,7 @@ asm.x60000f5 = function op_Equality(arg0, arg1)
     }
 };;/* System.Boolean String.Equals(String)*/
 
-asm.x60000f6 = function Equals(arg0, arg1)
+asm.x60000c7 = function Equals(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -6783,7 +6565,7 @@ asm.x60000f6 = function Equals(arg0, arg1)
             /* IL_0F: call Boolean EqualsImpl(System.String, System.String) */
             /* IL_14: stloc.1  */
             
-            loc1 = asm0.x60000e4(arg0,arg1);
+            loc1 = asm0.x60000b5(arg0,arg1);
             case 0x17:
             /* IL_17: ldloc.1  */
             /* IL_18: ret  */
@@ -6793,7 +6575,7 @@ asm.x60000f6 = function Equals(arg0, arg1)
     }
 };;/* System.Boolean String.Equals(Object)*/
 
-asm.x60000f7 = function Equals(arg0, arg1)
+asm.x60000c8 = function Equals(arg0, arg1)
 {
     var t0;
     var loc0;
@@ -6806,14 +6588,14 @@ asm.x60000f7 = function Equals(arg0, arg1)
     /* IL_08: call Boolean Equals(System.String) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x60000f6(arg0,t0.IsInst(arg1));
+    loc0 = asm0.x60000c7(arg0,t0.IsInst(arg1));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* static System.Int32 String.GetHashCodeImpl(String)*/
 
-asm.x60000f8 = 
+asm.x60000c9 = 
             function (o) {
                 var str = o.jsstr;
                 var length = str.length;
@@ -6823,7 +6605,7 @@ asm.x60000f8 =
                 return h;
             };;/* System.Int32 String.GetHashCode()*/
 
-asm.x60000f9 = function GetHashCode(arg0)
+asm.x60000ca = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6831,14 +6613,14 @@ asm.x60000f9 = function GetHashCode(arg0)
     /* IL_02: call Int32 GetHashCodeImpl(System.String) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000f8(arg0);
+    loc0 = asm0.x60000c9(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* static System.Int32 String.CompareOrdinal(String,String)*/
 
-asm.x60000fa = 
+asm.x60000cb = 
             function (a, b) {
                 if (a.jsstr < b.jsstr)
                     return -1;
@@ -6850,7 +6632,7 @@ asm.x60000fa =
             }
             ;;/* static System.Int32 String.Compare(String,String)*/
 
-asm.x60000fb = function Compare(arg0, arg1)
+asm.x60000cc = function Compare(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -6859,17 +6641,16 @@ asm.x60000fb = function Compare(arg0, arg1)
     /* IL_03: call Int32 CompareOrdinal(System.String, System.String) */
     /* IL_08: stloc.0  */
     
-    loc0 = asm0.x60000fa(arg0,arg1);
+    loc0 = asm0.x60000cb(arg0,arg1);
     /* IL_0B: ldloc.0  */
     /* IL_0C: ret  */
     
     return loc0;
 };;/* static System.String String.Format(String,Object[])*/
 
-asm.x60000fc = function Format(arg0, arg1)
+asm.x60000cd = function Format(arg0, arg1)
 {
     var t0;
-    var t1;
     var in_block_0;
     var __pos__;
     var loc0;
@@ -6880,8 +6661,6 @@ asm.x60000fc = function Format(arg0, arg1)
     var loc4;
     
     t0 = asm0["System.String"]();
-    
-    t1 = asm0["System.Int32"]();
     
     in_block_0 = true;
     
@@ -6896,18 +6675,18 @@ asm.x60000fc = function Format(arg0, arg1)
             /* IL_02: stloc.0  */
             
             loc0 = 0;
-            /* IL_03: br.s IL_40 */
+            /* IL_03: br.s IL_41 */
             
-            __pos__ = 0x40;
+            __pos__ = 0x41;
             
             continue;
             case 0x5:
             case 0x18:
-            case 0x40:
+            case 0x41:
             
             in_block_1 = true;
             
-            if (__pos__ > 0x48){
+            if (__pos__ > 0x49){
                 
                 in_block_1 = false;
             }
@@ -6944,7 +6723,7 @@ asm.x60000fc = function Format(arg0, arg1)
                         continue;
                     }
                     
-                    asm0.x6000105();
+                    asm0.x60000d6();
                     /* IL_12: ldsfld String Empty */
                     /* IL_17: stloc.1  */
                     
@@ -6952,34 +6731,45 @@ asm.x60000fc = function Format(arg0, arg1)
                     case 0x18:
                     /* IL_18: ldarg.0  */
                     /* IL_19: ldstr { */
-                    /* IL_1E: ldloc.0  */
-                    /* IL_1F: box System.Int32 */
-                    /* IL_24: ldstr } */
-                    /* IL_29: call String Concat(System.Object, System.Object, System.Object) */
-                    /* IL_2E: ldloc.1  */
-                    /* IL_2F: callvirt String ToString() */
-                    /* IL_34: callvirt String Replace(System.String, System.String) */
-                    /* IL_39: starg.s 0 */
+                    /* IL_1E: ldloca.s 0 */
+                    /* IL_20: call String ToString() */
+                    /* IL_25: ldstr } */
+                    /* IL_2A: call String Concat(System.String, System.String, System.String) */
+                    /* IL_2F: ldloc.1  */
+                    /* IL_30: callvirt String ToString() */
+                    /* IL_35: callvirt String Replace(System.String, System.String) */
+                    /* IL_3A: starg.s 0 */
                     
-                    arg0 = asm0.x60000f1(arg0,asm0.x60000eb(CILJS.new_string("{"),CILJS.make_box(loc0,t1),CILJS.new_string("}")),(loc1.vtable)["asm0.x60000ca"](CILJS.convert_box_to_pointer_as_needed(loc1)));
-                    /* IL_3B: nop  */
-                    /* IL_3C: ldloc.0  */
-                    /* IL_3D: ldc.i4.1  */
-                    /* IL_3E: add  */
-                    /* IL_3F: stloc.0  */
+                    arg0 = asm0.x60000c2(arg0,asm0.x60000bd(CILJS.new_string("{"),asm0.x6000151({
+                                    w: function (v)
+                                    {
+                                        
+                                        loc0 = v;
+                                    },
+                                    r: function ()
+                                    {
+                                        
+                                        return loc0;
+                                    }
+                                }),CILJS.new_string("}")),(loc1.vtable)["asm0.x600009b"](CILJS.convert_box_to_pointer_as_needed(loc1)));
+                    /* IL_3C: nop  */
+                    /* IL_3D: ldloc.0  */
+                    /* IL_3E: ldc.i4.1  */
+                    /* IL_3F: add  */
+                    /* IL_40: stloc.0  */
                     
                     loc0 = (loc0 + 1) | 0;
-                    case 0x40:
-                    /* IL_40: ldloc.0  */
-                    /* IL_41: ldarg.1  */
-                    /* IL_42: ldlen  */
-                    /* IL_43: conv.i4  */
-                    /* IL_45: clt  */
-                    /* IL_46: stloc.3  */
+                    case 0x41:
+                    /* IL_41: ldloc.0  */
+                    /* IL_42: ldarg.1  */
+                    /* IL_43: ldlen  */
+                    /* IL_44: conv.i4  */
+                    /* IL_46: clt  */
+                    /* IL_47: stloc.3  */
                     
                     loc3 = ((loc0 < (arg1.jsarr.length | 0)) ? 1 : 0);
-                    /* IL_47: ldloc.3  */
-                    /* IL_48: brtrue.s IL_05 */
+                    /* IL_48: ldloc.3  */
+                    /* IL_49: brtrue.s IL_05 */
                     
                     if (loc3){
                         
@@ -6992,25 +6782,25 @@ asm.x60000fc = function Format(arg0, arg1)
                 break;
             }
             
-            if ((__pos__ > 0x40) || (__pos__ < 0x5)){
+            if ((__pos__ > 0x41) || (__pos__ < 0x5)){
                 
                 continue;
             }
-            /* IL_4A: ldarg.0  */
-            /* IL_4B: stloc.s 4 */
+            /* IL_4B: ldarg.0  */
+            /* IL_4C: stloc.s 4 */
             
             loc4 = arg0;
-            /* IL_4F: ldloc.s 4 */
-            /* IL_51: ret  */
+            /* IL_50: ldloc.s 4 */
+            /* IL_52: ret  */
             
             return loc4;
         }
     }
 };;/* static System.String String.ToLowerImpl(String)*/
 
-asm.x60000fd = function(v) { return CILJS.new_string(v.jsstr.toLowerCase()); } ;;/* System.String String.ToLower()*/
+asm.x60000ce = function(v) { return CILJS.new_string(v.jsstr.toLowerCase()); } ;;/* System.String String.ToLower()*/
 
-asm.x60000fe = function ToLower(arg0)
+asm.x60000cf = function ToLower(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7018,16 +6808,16 @@ asm.x60000fe = function ToLower(arg0)
     /* IL_02: call String ToLowerImpl(System.String) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000fd(arg0);
+    loc0 = asm0.x60000ce(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* static System.String String.ToUpperImpl(String)*/
 
-asm.x60000ff = function(v) { return CILJS.new_string(v.jsstr.toUpperCase()); } ;;/* System.String String.ToUpper()*/
+asm.x60000d0 = function(v) { return CILJS.new_string(v.jsstr.toUpperCase()); } ;;/* System.String String.ToUpper()*/
 
-asm.x6000100 = function ToUpper(arg0)
+asm.x60000d1 = function ToUpper(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7035,14 +6825,14 @@ asm.x6000100 = function ToUpper(arg0)
     /* IL_02: call String ToUpperImpl(System.String) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x60000ff(arg0);
+    loc0 = asm0.x60000d0(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Int32 String.CompareTo(String)*/
 
-asm.x6000102 = function CompareTo(arg0, arg1)
+asm.x60000d3 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -7098,7 +6888,7 @@ asm.x6000102 = function CompareTo(arg0, arg1)
     }
 };;/* static System.Boolean String.IsNullOrEmpty(String)*/
 
-asm.x6000103 = function IsNullOrEmpty(arg0)
+asm.x60000d4 = function IsNullOrEmpty(arg0)
 {
     var t0;
     var st_03;
@@ -7129,12 +6919,12 @@ asm.x6000103 = function IsNullOrEmpty(arg0)
                 continue;
             }
             
-            asm0.x6000105();
+            asm0.x60000d6();
             /* IL_04: ldarg.0  */
             /* IL_05: ldsfld String Empty */
             /* IL_0A: call Boolean op_Equality(System.String, System.String) */
             
-            st_03 = asm0.x60000f5(arg0,t0.Empty);
+            st_03 = asm0.x60000c6(arg0,t0.Empty);
             /* IL_0F: br.s IL_12 */
             
             __pos__ = 0x12;
@@ -7156,7 +6946,7 @@ asm.x6000103 = function IsNullOrEmpty(arg0)
     }
 };;/*  String..ctor()*/
 
-asm.x6000104 = function _ctor(arg0)
+asm.x60000d5 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -7166,7 +6956,7 @@ asm.x6000104 = function _ctor(arg0)
     return ;
 };;/* static  String..cctor()*/
 
-asm.x6000105 = function _cctor()
+asm.x60000d6 = function _cctor()
 {
     var t0;
     
@@ -7187,7 +6977,7 @@ asm.x6000105 = function _cctor()
     return ;
 };;/* System.String Double.ToString()*/
 
-asm.x6000106 = function ToString(arg0)
+asm.x60000d7 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -7200,14 +6990,14 @@ asm.x6000106 = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Double.CompareTo(Object)*/
 
-asm.x6000107 = function CompareTo(arg0, arg1)
+asm.x60000d8 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7217,14 +7007,14 @@ asm.x6000107 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Double) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000108(arg0,CILJS.unbox_any(arg1,asm0["System.Double"]()));
+    loc0 = asm0.x60000d9(arg0,CILJS.unbox_any(arg1,asm0["System.Double"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Double.CompareTo(Double)*/
 
-asm.x6000108 = function CompareTo(arg0, arg1)
+asm.x60000d9 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -7310,27 +7100,27 @@ asm.x6000108 = function CompareTo(arg0, arg1)
     }
 };;/*  ParamArrayAttribute..ctor()*/
 
-asm.x600010b = function _ctor(arg0)
+asm.x60000dc = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* System.Boolean Predicate`1.Invoke(T)*/
 
-asm.x600010e = CILJS.delegate_invoke;;/* System.IAsyncResult Predicate`1.BeginInvoke(T,AsyncCallback,Object)*/
+asm.x60000df = CILJS.delegate_invoke;;/* System.IAsyncResult Predicate`1.BeginInvoke(T,AsyncCallback,Object)*/
 
-asm.x600010f = CILJS.delegate_begin_invoke;;/* System.Boolean Predicate`1.EndInvoke(IAsyncResult)*/
+asm.x60000e0 = CILJS.delegate_begin_invoke;;/* System.Boolean Predicate`1.EndInvoke(IAsyncResult)*/
 
-asm.x6000110 = CILJS.delegate_end_invoke;;/*  Predicate`1..ctor(Object,IntPtr)*/
+asm.x60000e1 = CILJS.delegate_end_invoke;;/*  Predicate`1..ctor(Object,IntPtr)*/
 
-asm.x600010d = CILJS.delegate_ctor;;/* System.Int32 Array.get_Length()*/
+asm.x60000de = CILJS.delegate_ctor;;/* System.Int32 Array.get_Length()*/
 
-asm.x6000111 = function get_Length(arg0)
+asm.x60000e2 = function get_Length(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7338,14 +7128,14 @@ asm.x6000111 = function get_Length(arg0)
     /* IL_02: call Int32 GetLengthImpl(System.Object) */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x6000113(arg0);
+    loc0 = asm0.x60000e4(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Int64 Array.get_LongLength()*/
 
-asm.x6000112 = function get_LongLength(arg0)
+asm.x60000e3 = function get_LongLength(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7354,18 +7144,18 @@ asm.x6000112 = function get_LongLength(arg0)
     /* IL_07: conv.i8  */
     /* IL_08: stloc.0  */
     
-    loc0 = CILJS.conv_i8(asm0.x6000111(arg0));
+    loc0 = CILJS.conv_i8(asm0.x60000e2(arg0));
     /* IL_0B: ldloc.0  */
     /* IL_0C: ret  */
     
     return loc0;
 };;/* static System.Int32 Array.GetLengthImpl(Object)*/
 
-asm.x6000113 = function(o) { return o.jsarr.length; };;/* static System.Object Array.GetValueImpl(Object,Int32)*/
+asm.x60000e4 = function(o) { return o.jsarr.length; };;/* static System.Object Array.GetValueImpl(Object,Int32)*/
 
-asm.x6000114 = function(o, i) { return CILJS.box(o.jsarr[i], o.etype); };;/* static T[] Array.FromJsArray<T>(Object)*/
+asm.x60000e5 = function(o, i) { return CILJS.box(o.jsarr[i], o.etype); };;/* static T[] Array.FromJsArray<T>(Object)*/
 
-asm.x6000115 = 
+asm.x60000e6 = 
             function (T) {
                 return function FromJsArray(arr) {
                     var r = new (asm0['System.Array`1'](T))();
@@ -7375,7 +7165,7 @@ asm.x6000115 =
                 };
             };;/* System.Object Array.GetValue(Int32)*/
 
-asm.x6000116 = function GetValue(arg0, arg1)
+asm.x60000e7 = function GetValue(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7384,14 +7174,14 @@ asm.x6000116 = function GetValue(arg0, arg1)
     /* IL_03: call Object GetValueImpl(System.Object, System.Int32) */
     /* IL_08: stloc.0  */
     
-    loc0 = asm0.x6000114(arg0,arg1);
+    loc0 = asm0.x60000e5(arg0,arg1);
     /* IL_0B: ldloc.0  */
     /* IL_0C: ret  */
     
     return loc0;
 };;/* System.Collections.IEnumerator Array.GetEnumerator()*/
 
-asm.x6000117 = function GetEnumerator(arg0)
+asm.x60000e8 = function GetEnumerator(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -7399,14 +7189,14 @@ asm.x6000117 = function GetEnumerator(arg0)
     /* IL_02: callvirt IEnumerator GetEnumeratorImpl() */
     /* IL_07: stloc.0  */
     
-    loc0 = (arg0.vtable)["asm0.x6000118"](arg0);
+    loc0 = (arg0.vtable)["asm0.x60000e9"](arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* static System.Void Array.Clear<T>(T[],Int32,Int32)*/
 
-asm.x6000119 = function (T)
+asm.x60000ea = function (T)
 {
     
     return function Clear(arg0, arg1, arg2)
@@ -7511,7 +7301,7 @@ asm.x6000119 = function (T)
     };
 };;/* static System.Int32 Array.IndexOf<T>(T[],T,Int32,Int32)*/
 
-asm.x600011a_init = function (T)
+asm.x60000eb_init = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3)
@@ -7519,22 +7309,22 @@ asm.x600011a_init = function (T)
         
         (asm0["System.Collections.IEqualityComparer"]().init)();
         
-        asm.x600011a = asm.x600011a_;
+        asm.x60000eb = asm.x60000eb_;
     };
 };;
 
-asm.x600011a = function (T)
+asm.x60000eb = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3)
     {
         
-        (asm.x600011a_init(T))(arg0,arg1,arg2,arg3);
+        (asm.x60000eb_init(T))(arg0,arg1,arg2,arg3);
         
-        return (asm.x600011a_(T))(arg0,arg1,arg2,arg3);
+        return (asm.x60000eb_(T))(arg0,arg1,arg2,arg3);
     };
 };;
-asm.x600011a_ = function (T)
+asm.x60000eb_ = function (T)
 {
     
     return function IndexOf(arg0, arg1, arg2, arg3)
@@ -7591,7 +7381,7 @@ asm.x600011a_ = function (T)
                 /* IL_0E: newobj Void .ctor(System.String) */
                 /* IL_13: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("array")]);
+                throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("array")]);
                 case 0x14:
                 /* IL_14: ldarg.3  */
                 /* IL_15: ldc.i4.0  */
@@ -7651,7 +7441,7 @@ asm.x600011a_ = function (T)
                 /* IL_2F: newobj Void .ctor() */
                 /* IL_34: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a4,[null]);
+                throw CILJS.newobj(t0,asm0.x6000075,[null]);
                 case 0x35:
                 /* IL_35: ldarg.2  */
                 /* IL_36: ldarg.3  */
@@ -7664,7 +7454,7 @@ asm.x600011a_ = function (T)
                 /* IL_43: call IEqualityComparer GetDefaultEqualityComparer(System.Type) */
                 /* IL_48: stloc.1  */
                 
-                loc1 = asm1.GetDefaultEqualityComparer(asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t1)).ctor)();
+                loc1 = asm.GetDefaultEqualityComparer(asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t1)).ctor)();
                 /* IL_49: ldarg.2  */
                 /* IL_4A: stloc.s 4 */
                 
@@ -7705,7 +7495,7 @@ asm.x600011a_ = function (T)
                         /* IL_63: callvirt Boolean Equals(System.Object, System.Object) */
                         /* IL_68: stloc.s 5 */
                         
-                        loc5 = ((loc1.ifacemap)[t2].x60001cb)(CILJS.convert_box_to_pointer_as_needed(loc1),CILJS.box((arg0.jsarr[loc4]),t1),CILJS.box(arg1,t1));
+                        loc5 = ((loc1.ifacemap)[t2].x600017e)(CILJS.convert_box_to_pointer_as_needed(loc1),CILJS.box((arg0.jsarr[loc4]),t1),CILJS.box(arg1,t1));
                         /* IL_6A: ldloc.s 5 */
                         /* IL_6C: brfalse.s IL_74 */
                         
@@ -7771,13 +7561,13 @@ asm.x600011a_ = function (T)
     };
 };/* static System.Exception Array.GetException(String)*/
 
-asm.x600011b = 
+asm.x60000ec = 
             function (classname) { 
                 var t = asm1[classname]();
                 return new t(); 
             };;/* static System.Void Array.Copy(Array,Int32,Array,Int32,Int32)*/
 
-asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
+asm.x60000ed = function Copy(arg0, arg1, arg2, arg3, arg4)
 {
     var st_2E;
     var in_block_0;
@@ -7825,7 +7615,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_0E: call Exception GetException(System.String) */
             /* IL_13: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentNullException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentNullException"));
             case 0x14:
             /* IL_14: ldarg.2  */
             /* IL_15: ldnull  */
@@ -7846,7 +7636,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_21: call Exception GetException(System.String) */
             /* IL_26: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentNullException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentNullException"));
             case 0x27:
             /* IL_27: ldarg.1  */
             /* IL_28: ldc.i4.0  */
@@ -7867,7 +7657,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_34: call Exception GetException(System.String) */
             /* IL_39: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentOutOfRangeException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentOutOfRangeException"));
             case 0x3A:
             /* IL_3A: ldarg.3  */
             /* IL_3B: ldc.i4.0  */
@@ -7888,7 +7678,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_47: call Exception GetException(System.String) */
             /* IL_4C: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentOutOfRangeException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentOutOfRangeException"));
             case 0x4D:
             /* IL_4D: ldarg.1  */
             /* IL_4E: ldarg.0  */
@@ -7898,7 +7688,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_58: cgt  */
             /* IL_59: stloc.s 4 */
             
-            loc4 = ((arg1 > ((asm0.x6000111(arg0) - arg4) | 0)) ? 1 : 0);
+            loc4 = ((arg1 > ((asm0.x60000e2(arg0) - arg4) | 0)) ? 1 : 0);
             /* IL_5B: ldloc.s 4 */
             /* IL_5D: brfalse.s IL_6A */
             
@@ -7912,7 +7702,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_64: call Exception GetException(System.String) */
             /* IL_69: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentException"));
             case 0x6A:
             /* IL_6A: ldarg.3  */
             /* IL_6B: ldarg.2  */
@@ -7922,7 +7712,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_75: cgt  */
             /* IL_76: stloc.s 5 */
             
-            loc5 = ((arg3 > ((asm0.x6000111(arg2) - arg4) | 0)) ? 1 : 0);
+            loc5 = ((arg3 > ((asm0.x60000e2(arg2) - arg4) | 0)) ? 1 : 0);
             /* IL_78: ldloc.s 5 */
             /* IL_7A: brfalse.s IL_88 */
             
@@ -7937,7 +7727,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
             /* IL_82: call Exception GetException(System.String) */
             /* IL_87: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentException"));
             case 0x88:
             /* IL_88: ldarg.0  */
             /* IL_89: ldarg.2  */
@@ -8017,7 +7807,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
                     /* IL_AE: add  */
                     /* IL_AF: callvirt Void SetValue(System.Object, System.Int32) */
                     
-                    asm0.x6000135(arg2,asm0.x6000116(arg0,(arg1 + loc7) | 0),(arg3 + loc7) | 0);
+                    asm0.x6000106(arg2,asm0.x60000e7(arg0,(arg1 + loc7) | 0),(arg3 + loc7) | 0);
                     /* IL_B4: nop  */
                     /* IL_B5: nop  */
                     /* IL_B6: ldloc.s 7 */
@@ -8101,7 +7891,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
                     /* IL_E3: add  */
                     /* IL_E4: callvirt Void SetValue(System.Object, System.Int32) */
                     
-                    asm0.x6000135(arg2,asm0.x6000116(arg0,(arg1 + loc9) | 0),(arg3 + loc9) | 0);
+                    asm0.x6000106(arg2,asm0.x60000e7(arg0,(arg1 + loc9) | 0),(arg3 + loc9) | 0);
                     /* IL_E9: nop  */
                     /* IL_EA: nop  */
                     /* IL_EB: ldloc.s 9 */
@@ -8146,7 +7936,7 @@ asm.x600011c = function Copy(arg0, arg1, arg2, arg3, arg4)
     }
 };;/* static System.Int32 Array.GetIndex<T>(T[],Int32,Int32,Predicate`1)*/
 
-asm.x600011d = function (T)
+asm.x60000ee = function (T)
 {
     
     return function GetIndex(arg0, arg1, arg2, arg3)
@@ -8278,7 +8068,7 @@ asm.x600011d = function (T)
     };
 };;/* static System.Int32 Array.GetLastIndex<T>(T[],Int32,Int32,Predicate`1)*/
 
-asm.x600011e = function (T)
+asm.x60000ef = function (T)
 {
     
     return function GetLastIndex(arg0, arg1, arg2, arg3)
@@ -8450,7 +8240,7 @@ asm.x600011e = function (T)
     };
 };;/* static System.Int32 Array.LastIndexOf<T>(T[],T,Int32,Int32)*/
 
-asm.x600011f_init = function (T)
+asm.x60000f0_init = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3)
@@ -8458,22 +8248,22 @@ asm.x600011f_init = function (T)
         
         (asm0["System.Collections.IEqualityComparer"]().init)();
         
-        asm.x600011f = asm.x600011f_;
+        asm.x60000f0 = asm.x60000f0_;
     };
 };;
 
-asm.x600011f = function (T)
+asm.x60000f0 = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3)
     {
         
-        (asm.x600011f_init(T))(arg0,arg1,arg2,arg3);
+        (asm.x60000f0_init(T))(arg0,arg1,arg2,arg3);
         
-        return (asm.x600011f_(T))(arg0,arg1,arg2,arg3);
+        return (asm.x60000f0_(T))(arg0,arg1,arg2,arg3);
     };
 };;
-asm.x600011f_ = function (T)
+asm.x60000f0_ = function (T)
 {
     
     return function LastIndexOf(arg0, arg1, arg2, arg3)
@@ -8526,7 +8316,7 @@ asm.x600011f_ = function (T)
                 /* IL_0E: call Exception GetException(System.String) */
                 /* IL_13: throw  */
                 
-                throw asm0.x600011b(CILJS.new_string("System.ArgumentNullException"));
+                throw asm0.x60000ec(CILJS.new_string("System.ArgumentNullException"));
                 case 0x14:
                 /* IL_14: ldarg.3  */
                 /* IL_15: ldc.i4.0  */
@@ -8544,7 +8334,7 @@ asm.x600011f_ = function (T)
                 /* IL_1B: callvirt Int32 GetLowerBound(System.Int32) */
                 /* IL_20: blt.s IL_3A */
                 
-                if (arg2 < asm0.x600012d(arg0,0)){
+                if (arg2 < asm0.x60000fe(arg0,0)){
                     
                     __pos__ = 0x3A;
                     
@@ -8574,7 +8364,7 @@ asm.x600011f_ = function (T)
                 /* IL_31: callvirt Int32 GetLowerBound(System.Int32) */
                 /* IL_37: clt  */
                 
-                st_1A = ((((((arg2 - arg3) | 0) + 1) | 0) < asm0.x600012d(arg0,0)) ? 1 : 0);
+                st_1A = ((((((arg2 - arg3) | 0) + 1) | 0) < asm0.x60000fe(arg0,0)) ? 1 : 0);
                 /* IL_38: br.s IL_3B */
                 
                 __pos__ = 0x3B;
@@ -8601,14 +8391,14 @@ asm.x600011f_ = function (T)
                 /* IL_44: call Exception GetException(System.String) */
                 /* IL_49: throw  */
                 
-                throw asm0.x600011b(CILJS.new_string("System.ArgumentOutOfRangeException"));
+                throw asm0.x60000ec(CILJS.new_string("System.ArgumentOutOfRangeException"));
                 case 0x4A:
                 /* IL_4A: ldtoken T */
                 /* IL_4F: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
                 /* IL_54: call IEqualityComparer GetDefaultEqualityComparer(System.Type) */
                 /* IL_59: stloc.0  */
                 
-                loc0 = asm1.GetDefaultEqualityComparer(asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)).ctor)();
+                loc0 = asm.GetDefaultEqualityComparer(asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)).ctor)();
                 /* IL_5A: ldarg.2  */
                 /* IL_5B: stloc.3  */
                 
@@ -8649,7 +8439,7 @@ asm.x600011f_ = function (T)
                         /* IL_72: callvirt Boolean Equals(System.Object, System.Object) */
                         /* IL_77: stloc.s 4 */
                         
-                        loc4 = ((loc0.ifacemap)[t1].x60001cb)(CILJS.convert_box_to_pointer_as_needed(loc0),CILJS.box((arg0.jsarr)[loc3],t0),CILJS.box(arg1,t0));
+                        loc4 = ((loc0.ifacemap)[t1].x600017e)(CILJS.convert_box_to_pointer_as_needed(loc0),CILJS.box((arg0.jsarr)[loc3],t0),CILJS.box(arg1,t0));
                         /* IL_79: ldloc.s 4 */
                         /* IL_7B: brfalse.s IL_82 */
                         
@@ -8721,7 +8511,7 @@ asm.x600011f_ = function (T)
     };
 };/* static System.Void Array.Sort<T>(T[],Object)*/
 
-asm.x6000120 =  function (T) {
+asm.x60000f1 =  function (T) {
             return function Sort(array, comparison) {
                 function swap(items, firstIndex, secondIndex){
                     var temp = items[firstIndex];
@@ -8772,7 +8562,7 @@ asm.x6000120 =  function (T) {
             } }
             ;;/* static System.Void Array.Sort<T>(T[],Int32,Int32)*/
 
-asm.x6000121_init = function (T)
+asm.x60000f2_init = function (T)
 {
     
     return function (arg0, arg1, arg2)
@@ -8784,18 +8574,18 @@ asm.x6000121_init = function (T)
     };
 };;
 
-asm.x6000121 = function (T)
+asm.x60000f2 = function (T)
 {
     
     return function (arg0, arg1, arg2)
     {
         
-        (asm.x6000121_init(T))(arg0,arg1,arg2);
+        (asm.x60000f2_init(T))(arg0,arg1,arg2);
         
-        return (asm.x6000121_(T))(arg0,arg1,arg2);
+        return (asm.x60000f2_(T))(arg0,arg1,arg2);
     };
 };;
-asm.x6000121_ = function (T)
+asm.x60000f2_ = function (T)
 {
     
     return function Sort(arg0, arg1, arg2)
@@ -8846,14 +8636,14 @@ asm.x6000121_ = function (T)
                             /* IL_11: call IComparer`1 UnsafeCast[System.Collections.Generic.IComparer`1[T]](System.Object) */
                             /* IL_16: stloc.0  */
                             
-                            loc0 = asm1.GetDefaultComparer(asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)).ctor)();
+                            loc0 = asm.GetDefaultComparer(asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)).ctor)();
                             /* IL_17: ldarg.0  */
                             /* IL_18: ldc.i4.0  */
                             /* IL_19: ldarg.2  */
                             /* IL_1A: ldloc.0  */
                             /* IL_1B: call Void Sort[T](T[], System.Int32, System.Int32, System.Collections.Generic.IComparer`1[T]) */
                             
-                            (asm0.x6000124(T))(arg0,0,arg2,loc0);
+                            (asm0.x60000f5(T))(arg0,0,arg2,loc0);
                             /* IL_20: nop  */
                             /* IL_21: nop  */
                             /* IL_22: leave.s IL_32 */
@@ -8897,7 +8687,7 @@ asm.x6000121_ = function (T)
                                 /* IL_2C: newobj Void .ctor(System.String, System.Exception) */
                                 /* IL_31: throw  */
                                 
-                                throw CILJS.newobj(t2,asm0.x6000032,[null, CILJS.new_string("Failed to sort the array. "), loc1]);
+                                throw CILJS.newobj(t2,asm0.x6000003,[null, CILJS.new_string("Failed to sort the array. "), loc1]);
                             }
                         }
                     }
@@ -8918,7 +8708,7 @@ asm.x6000121_ = function (T)
     };
 };/* static System.Void Array.Sort<T>(T[],IComparer`1)*/
 
-asm.x6000122 = function (T)
+asm.x60000f3 = function (T)
 {
     
     return function Sort(arg0, arg1)
@@ -8935,7 +8725,7 @@ asm.x6000122 = function (T)
         /* IL_06: ldarg.1  */
         /* IL_07: call Void Sort[T](T[], System.Int32, System.Int32, System.Collections.Generic.IComparer`1[T]) */
         
-        (asm0.x6000124(T))(arg0,0,arg0.jsarr.length | 0,arg1);
+        (asm0.x60000f5(T))(arg0,0,arg0.jsarr.length | 0,arg1);
         /* IL_0C: nop  */
         /* IL_0D: ret  */
         
@@ -8943,7 +8733,7 @@ asm.x6000122 = function (T)
     };
 };;/* static System.Void Array.SortImpl<T>(T[],Int32,Comparison`1)*/
 
-asm.x6000123 = function (T)
+asm.x60000f4 = function (T)
 {
     
     return function SortImpl(arg0, arg1, arg2)
@@ -8996,7 +8786,7 @@ asm.x6000123 = function (T)
                 /* IL_14: sub  */
                 /* IL_15: call Void Splice(System.Object, System.Int32, System.Int32) */
                 
-                asm0.x6000126(arg0,arg1,((arg0.jsarr.length | 0) - arg1) | 0);
+                asm0.x60000f7(arg0,arg1,((arg0.jsarr.length | 0) - arg1) | 0);
                 /* IL_1A: nop  */
                 /* IL_1B: nop  */
                 case 0x1C:
@@ -9005,7 +8795,7 @@ asm.x6000123 = function (T)
                 /* IL_1E: call Object GetJsFunction(System.Delegate) */
                 /* IL_23: call Void Sort[T](T[], System.Object) */
                 
-                (asm0.x6000120(T))(arg0,asm0.x6000071(arg2));
+                (asm0.x60000f1(T))(arg0,asm0.x6000042(arg2));
                 /* IL_28: nop  */
                 /* IL_29: ret  */
                 
@@ -9015,7 +8805,7 @@ asm.x6000123 = function (T)
     };
 };;/* static System.Void Array.Sort<T>(T[],Int32,Int32,IComparer`1)*/
 
-asm.x6000124_init = function (T)
+asm.x60000f5_init = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3)
@@ -9029,18 +8819,18 @@ asm.x6000124_init = function (T)
     };
 };;
 
-asm.x6000124 = function (T)
+asm.x60000f5 = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3)
     {
         
-        (asm.x6000124_init(T))(arg0,arg1,arg2,arg3);
+        (asm.x60000f5_init(T))(arg0,arg1,arg2,arg3);
         
-        return (asm.x6000124_(T))(arg0,arg1,arg2,arg3);
+        return (asm.x60000f5_(T))(arg0,arg1,arg2,arg3);
     };
 };;
-asm.x6000124_ = function (T)
+asm.x60000f5_ = function (T)
 {
     
     return function Sort(arg0, arg1, arg2, arg3)
@@ -9073,7 +8863,7 @@ asm.x6000124_ = function (T)
                 /* IL_00: newobj Void .ctor() */
                 /* IL_05: stloc.0  */
                 
-                loc0 = CILJS.newobj(t1,asm0.x600020b,[null]);
+                loc0 = CILJS.newobj(t1,asm0.x60001fd,[null]);
                 /* IL_06: ldloc.0  */
                 /* IL_07: ldarg.3  */
                 /* IL_08: stfld Managed.Reflection.GenericFieldInstance */
@@ -9098,7 +8888,7 @@ asm.x6000124_ = function (T)
                 /* IL_16: newobj Void .ctor() */
                 /* IL_1B: throw  */
                 
-                throw CILJS.newobj(t2,asm0.x600009f,[null]);
+                throw CILJS.newobj(t2,asm0.x6000070,[null]);
                 case 0x1C:
                 /* IL_1C: ldarg.0  */
                 /* IL_1D: ldarg.2  */
@@ -9107,7 +8897,7 @@ asm.x6000124_ = function (T)
                 /* IL_25: newobj Void .ctor(System.Object, System.IntPtr) */
                 /* IL_2A: call Void SortImpl[T](T[], System.Int32, System.Comparison`1[T]) */
                 
-                (asm0.x6000123(T))(arg0,arg2,CILJS.newobj(t3,asm0.x6000154,[null, loc0, asm0.x600020c]));
+                (asm0.x60000f4(T))(arg0,arg2,CILJS.newobj(t3,asm0.x6000125,[null, loc0, asm0.x60001fe]));
                 /* IL_2F: nop  */
                 /* IL_30: ret  */
                 
@@ -9117,19 +8907,19 @@ asm.x6000124_ = function (T)
     };
 };/* static System.Void Array.Combine(Object,Object)*/
 
-asm.x6000125 = 
+asm.x60000f6 = 
             function (a, b) {
                 a.jsarr = a.jsarr.concat(b);
             }
             ;;/* static System.Void Array.Splice(Object,Int32,Int32)*/
 
-asm.x6000126 = 
+asm.x60000f7 = 
             function (array, index, howMany) {
                     array.jsarr.splice(index, howMany);
             }
             ;;/* static System.Void Array.Reverse(Array,Int32,Int32)*/
 
-asm.x6000128 = function Reverse(arg0, arg1, arg2)
+asm.x60000f9 = function Reverse(arg0, arg1, arg2)
 {
     var st_04;
     var in_block_0;
@@ -9167,7 +8957,7 @@ asm.x6000128 = function Reverse(arg0, arg1, arg2)
             /* IL_06: callvirt Int32 get_Length() */
             /* IL_0C: clt  */
             
-            st_04 = ((arg2 < asm0.x6000111(arg0)) ? 1 : 0);
+            st_04 = ((arg2 < asm0.x60000e2(arg0)) ? 1 : 0);
             /* IL_0D: br.s IL_10 */
             
             __pos__ = 0x10;
@@ -9233,26 +9023,26 @@ asm.x6000128 = function Reverse(arg0, arg1, arg2)
                     /* IL_22: callvirt Object GetValue(System.Int32) */
                     /* IL_27: stloc.3  */
                     
-                    loc3 = asm0.x6000116(arg0,loc1);
+                    loc3 = asm0.x60000e7(arg0,loc1);
                     /* IL_28: ldarg.0  */
                     /* IL_29: ldloc.2  */
                     /* IL_2A: callvirt Object GetValue(System.Int32) */
                     /* IL_2F: stloc.s 4 */
                     
-                    loc4 = asm0.x6000116(arg0,loc2);
+                    loc4 = asm0.x60000e7(arg0,loc2);
                     /* IL_31: ldarg.0  */
                     /* IL_32: ldloc.s 4 */
                     /* IL_34: ldloc.1  */
                     /* IL_35: callvirt Void SetValue(System.Object, System.Int32) */
                     
-                    asm0.x6000135(arg0,loc4,loc1);
+                    asm0.x6000106(arg0,loc4,loc1);
                     /* IL_3A: nop  */
                     /* IL_3B: ldarg.0  */
                     /* IL_3C: ldloc.3  */
                     /* IL_3D: ldloc.2  */
                     /* IL_3E: callvirt Void SetValue(System.Object, System.Int32) */
                     
-                    asm0.x6000135(arg0,loc3,loc2);
+                    asm0.x6000106(arg0,loc3,loc2);
                     /* IL_43: nop  */
                     /* IL_44: ldloc.1  */
                     /* IL_45: ldc.i4.1  */
@@ -9314,7 +9104,7 @@ asm.x6000128 = function Reverse(arg0, arg1, arg2)
     }
 };;/* static System.Void Array.Copy<T>(T[],T[],Int32)*/
 
-asm.x600012c = function (T)
+asm.x60000fd = function (T)
 {
     
     return function Copy(arg0, arg1, arg2)
@@ -9411,7 +9201,7 @@ asm.x600012c = function (T)
     };
 };;/* System.Int32 Array.GetLowerBound(Int32)*/
 
-asm.x600012d = function GetLowerBound(arg0, arg1)
+asm.x60000fe = function GetLowerBound(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -9425,7 +9215,7 @@ asm.x600012d = function GetLowerBound(arg0, arg1)
     return loc0;
 };;/* System.Int32 Array.get_Rank()*/
 
-asm.x600012e = function get_Rank(arg0)
+asm.x60000ff = function get_Rank(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -9439,7 +9229,7 @@ asm.x600012e = function get_Rank(arg0)
     return loc0;
 };;/* static System.Void Array.Resize<T>(T[]&,Int32)*/
 
-asm.x600012f = function (T)
+asm.x6000100 = function (T)
 {
     
     return function Resize(arg0, arg1)
@@ -9491,7 +9281,7 @@ asm.x600012f = function (T)
                 /* IL_10: newobj Void .ctor(System.String) */
                 /* IL_15: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("Argument out of range")]);
+                throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("Argument out of range")]);
                 case 0x16:
                 /* IL_16: ldarg.0  */
                 /* IL_17: ldind.ref  */
@@ -9647,7 +9437,7 @@ asm.x600012f = function (T)
     };
 };;/* static System.Int32 Array.BinarySearch<T>(T[],Int32,Int32,T)*/
 
-asm.x6000132 = function (T)
+asm.x6000103 = function (T)
 {
     
     return function BinarySearch(arg0, arg1, arg2, arg3)
@@ -9665,7 +9455,7 @@ asm.x6000132 = function (T)
         /* IL_06: call Int32 BinarySearch[T](T[], System.Int32, System.Int32, T, System.Collections.Generic.IComparer`1[T]) */
         /* IL_0B: stloc.0  */
         
-        loc0 = (asm0.x6000133(T))(arg0,arg1,arg2,arg3,null);
+        loc0 = (asm0.x6000104(T))(arg0,arg1,arg2,arg3,null);
         /* IL_0E: ldloc.0  */
         /* IL_0F: ret  */
         
@@ -9673,7 +9463,7 @@ asm.x6000132 = function (T)
     };
 };;/* static System.Int32 Array.BinarySearch<T>(T[],Int32,Int32,T,IComparer`1)*/
 
-asm.x6000133_init = function (T)
+asm.x6000104_init = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3, arg4)
@@ -9683,18 +9473,18 @@ asm.x6000133_init = function (T)
     };
 };;
 
-asm.x6000133 = function (T)
+asm.x6000104 = function (T)
 {
     
     return function (arg0, arg1, arg2, arg3, arg4)
     {
         
-        (asm.x6000133_init(T))(arg0,arg1,arg2,arg3,arg4);
+        (asm.x6000104_init(T))(arg0,arg1,arg2,arg3,arg4);
         
-        return (asm.x6000133_(T))(arg0,arg1,arg2,arg3,arg4);
+        return (asm.x6000104_(T))(arg0,arg1,arg2,arg3,arg4);
     };
 };;
-asm.x6000133_ = function (T)
+asm.x6000104_ = function (T)
 {
     
     return function BinarySearch(arg0, arg1, arg2, arg3, arg4)
@@ -9755,7 +9545,7 @@ asm.x6000133_ = function (T)
                 /* IL_0E: newobj Void .ctor(System.String) */
                 /* IL_13: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("array")]);
+                throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("array")]);
                 case 0x14:
                 /* IL_14: ldarg.1  */
                 /* IL_15: ldc.i4.0  */
@@ -9776,7 +9566,7 @@ asm.x6000133_ = function (T)
                 /* IL_23: newobj Void .ctor(System.String) */
                 /* IL_28: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("index is less than the lower bound of array.")]);
+                throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("index is less than the lower bound of array.")]);
                 case 0x29:
                 /* IL_29: ldarg.2  */
                 /* IL_2A: ldc.i4.0  */
@@ -9797,7 +9587,7 @@ asm.x6000133_ = function (T)
                 /* IL_38: newobj Void .ctor(System.String) */
                 /* IL_3D: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("Value has to be >= 0.")]);
+                throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("Value has to be >= 0.")]);
                 case 0x3E:
                 /* IL_3E: ldarg.1  */
                 /* IL_3F: ldarg.0  */
@@ -9822,7 +9612,7 @@ asm.x6000133_ = function (T)
                 /* IL_51: newobj Void .ctor(System.String) */
                 /* IL_56: throw  */
                 
-                throw CILJS.newobj(t0,asm0.x60000a5,[null, CILJS.new_string("index and length do not specify a valid range in array.")]);
+                throw CILJS.newobj(t0,asm0.x6000076,[null, CILJS.new_string("index and length do not specify a valid range in array.")]);
                 case 0x57:
                 /* IL_57: ldarg.s 4 */
                 /* IL_59: ldnull  */
@@ -9845,7 +9635,7 @@ asm.x6000133_ = function (T)
                 /* IL_71: call IComparer`1 UnsafeCast[System.Collections.Generic.IComparer`1[T]](System.Object) */
                 /* IL_76: starg.s 4 */
                 
-                arg4 = asm1.GetDefaultComparer(asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t1)).ctor)();
+                arg4 = asm.GetDefaultComparer(asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t1)).ctor)();
                 case 0x78:
                 /* IL_78: ldarg.1  */
                 /* IL_79: stloc.0  */
@@ -9903,7 +9693,7 @@ asm.x6000133_ = function (T)
                             /* IL_9A: callvirt Int32 Compare(T, T) */
                             /* IL_9F: stloc.2  */
                             
-                            loc2 = (((arg4.ifacemap)[t2])[t1].x60001d9)(CILJS.convert_box_to_pointer_as_needed(arg4),(arg0.jsarr)[loc8],arg3);
+                            loc2 = (((arg4.ifacemap)[t2])[t1].x600018c)(CILJS.convert_box_to_pointer_as_needed(arg4),(arg0.jsarr)[loc8],arg3);
                             /* IL_A0: ldloc.2  */
                             /* IL_A1: ldc.i4.0  */
                             /* IL_A3: ceq  */
@@ -10026,7 +9816,7 @@ asm.x6000133_ = function (T)
                                 /* IL_E1: newobj Void .ctor(System.String, System.Exception) */
                                 /* IL_E6: throw  */
                                 
-                                throw CILJS.newobj(t0,asm0.x60000a6,[null, CILJS.new_string("Comparer threw an exception."), loc13]);
+                                throw CILJS.newobj(t0,asm0.x6000077,[null, CILJS.new_string("Comparer threw an exception."), loc13]);
                             }
                         }
                     }
@@ -10054,11 +9844,11 @@ asm.x6000133_ = function (T)
     };
 };/* static System.Array Array.CreateInstance(Type,Int32)*/
 
-asm.x6000134 = function (elementType, length) { return CILJS.new_array(elementType.ctor, length); };;/* System.Void Array.SetValue(Object,Int32)*/
+asm.x6000105 = function (elementType, length) { return CILJS.new_array(elementType.ctor, length); };;/* System.Void Array.SetValue(Object,Int32)*/
 
-asm.x6000135 = CILJS.array_set_value;;/*  Array..ctor()*/
+asm.x6000106 = CILJS.array_set_value;;/*  Array..ctor()*/
 
-asm.x6000136 = function _ctor(arg0)
+asm.x6000107 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -10068,26 +9858,26 @@ asm.x6000136 = function _ctor(arg0)
     return ;
 };;/* System.Collections.Generic.IEnumerator`1[T] Array`1.GetEnumerator()*/
 
-asm.x6000138_init = function (arg0)
+asm.x6000109_init = function (arg0)
 {
     
-    (asm0["System.Array`1+ArrayEnumerator"](((arg0.constructor.GenericArguments)["asm0.t200003c"])[0]).init)();
+    (asm0["System.Array`1+ArrayEnumerator"](((arg0.constructor.GenericArguments)["asm0.t200002d"])[0]).init)();
 };;
 
-asm.x6000138 = function (arg0)
+asm.x6000109 = function (arg0)
 {
     
-    asm.x6000138_init(arg0);
+    asm.x6000109_init(arg0);
     
-    return asm.x6000138_(arg0);
+    return asm.x6000109_(arg0);
 };;
-asm.x6000138_ = function GetEnumerator(arg0)
+asm.x6000109_ = function GetEnumerator(arg0)
 {
     var t0;
     var t1;
     var loc0;
     
-    t0 = ((arg0.constructor.GenericArguments)["asm0.t200003c"])[0];
+    t0 = ((arg0.constructor.GenericArguments)["asm0.t200002d"])[0];
     
     t1 = asm0["System.Array`1+ArrayEnumerator"](t0);
     /* IL_00: nop  */
@@ -10095,14 +9885,14 @@ asm.x6000138_ = function GetEnumerator(arg0)
     /* IL_02: newobj Void .ctor(System.Array`1[T]) */
     /* IL_07: stloc.0  */
     
-    loc0 = CILJS.newobj(t1,asm0.x600020d,[null, arg0]);
+    loc0 = CILJS.newobj(t1,asm0.x60001ff,[null, arg0]);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };/* System.Collections.IEnumerator Array`1.GetEnumeratorImpl()*/
 
-asm.x6000139 = function GetEnumeratorImpl(arg0)
+asm.x600010a = function GetEnumeratorImpl(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10110,14 +9900,14 @@ asm.x6000139 = function GetEnumeratorImpl(arg0)
     /* IL_02: call IEnumerator`1 GetEnumerator() */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x6000138(arg0);
+    loc0 = asm0.x6000109(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Int32 Array`1.System.Collections.Generic.ICollection<T>.get_Count()*/
 
-asm.x600013a = function System_Collections_Generic_ICollection_T__get_Count(arg0)
+asm.x600010b = function System_Collections_Generic_ICollection_T__get_Count(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10125,14 +9915,14 @@ asm.x600013a = function System_Collections_Generic_ICollection_T__get_Count(arg0
     /* IL_02: call Int32 get_Length() */
     /* IL_07: stloc.0  */
     
-    loc0 = asm0.x6000111(arg0);
+    loc0 = asm0.x60000e2(arg0);
     /* IL_0A: ldloc.0  */
     /* IL_0B: ret  */
     
     return loc0;
 };;/* System.Boolean Array`1.System.Collections.Generic.ICollection<T>.get_IsReadOnly()*/
 
-asm.x600013b = function System_Collections_Generic_ICollection_T__get_IsReadOnly(arg0)
+asm.x600010c = function System_Collections_Generic_ICollection_T__get_IsReadOnly(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10146,22 +9936,22 @@ asm.x600013b = function System_Collections_Generic_ICollection_T__get_IsReadOnly
     return loc0;
 };;/* System.Void Array`1.System.Collections.Generic.ICollection<T>.Add(T)*/
 
-asm.x600013c_init = function (arg0, arg1)
+asm.x600010d_init = function (arg0, arg1)
 {
     
     (asm0["System.NotSupportedException"]().init)();
     
-    asm.x600013c = asm.x600013c_;
+    asm.x600010d = asm.x600010d_;
 };;
 
-asm.x600013c = function (arg0, arg1)
+asm.x600010d = function (arg0, arg1)
 {
     
-    asm.x600013c_init(arg0,arg1);
+    asm.x600010d_init(arg0,arg1);
     
-    return asm.x600013c_(arg0,arg1);
+    return asm.x600010d_(arg0,arg1);
 };;
-asm.x600013c_ = function System_Collections_Generic_ICollection_T__Add(arg0, arg1)
+asm.x600010d_ = function System_Collections_Generic_ICollection_T__Add(arg0, arg1)
 {
     var t0;
     
@@ -10170,25 +9960,25 @@ asm.x600013c_ = function System_Collections_Generic_ICollection_T__Add(arg0, arg
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
 };/* System.Void Array`1.System.Collections.Generic.ICollection<T>.Clear()*/
 
-asm.x600013d_init = function (arg0)
+asm.x600010e_init = function (arg0)
 {
     
     (asm0["System.NotSupportedException"]().init)();
     
-    asm.x600013d = asm.x600013d_;
+    asm.x600010e = asm.x600010e_;
 };;
 
-asm.x600013d = function (arg0)
+asm.x600010e = function (arg0)
 {
     
-    asm.x600013d_init(arg0);
+    asm.x600010e_init(arg0);
     
-    return asm.x600013d_(arg0);
+    return asm.x600010e_(arg0);
 };;
-asm.x600013d_ = function System_Collections_Generic_ICollection_T__Clear(arg0)
+asm.x600010e_ = function System_Collections_Generic_ICollection_T__Clear(arg0)
 {
     var t0;
     
@@ -10197,29 +9987,29 @@ asm.x600013d_ = function System_Collections_Generic_ICollection_T__Clear(arg0)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
 };/* System.Boolean Array`1.System.Collections.Generic.ICollection<T>.Contains(T)*/
 
-asm.x600013e_init = function (arg0, arg1)
+asm.x600010f_init = function (arg0, arg1)
 {
     
-    (asm0["System.Array`1"](((arg0.constructor.GenericArguments)["asm0.t200003c"])[0]).init)();
+    (asm0["System.Array`1"](((arg0.constructor.GenericArguments)["asm0.t200002d"])[0]).init)();
 };;
 
-asm.x600013e = function (arg0, arg1)
+asm.x600010f = function (arg0, arg1)
 {
     
-    asm.x600013e_init(arg0,arg1);
+    asm.x600010f_init(arg0,arg1);
     
-    return asm.x600013e_(arg0,arg1);
+    return asm.x600010f_(arg0,arg1);
 };;
-asm.x600013e_ = function System_Collections_Generic_ICollection_T__Contains(arg0, arg1)
+asm.x600010f_ = function System_Collections_Generic_ICollection_T__Contains(arg0, arg1)
 {
     var t0;
     var t1;
     var loc0;
     
-    t0 = ((arg0.constructor.GenericArguments)["asm0.t200003c"])[0];
+    t0 = ((arg0.constructor.GenericArguments)["asm0.t200002d"])[0];
     
     t1 = asm0["System.Array`1"](t0);
     /* IL_00: nop  */
@@ -10236,27 +10026,27 @@ asm.x600013e_ = function System_Collections_Generic_ICollection_T__Contains(arg0
     /* IL_19: ceq  */
     /* IL_1A: stloc.0  */
     
-    loc0 = (((((asm0.x600011a(((arg0.constructor.GenericArguments)["asm0.t200003c"])[0]))(CILJS.cast_class(arg0,t1),arg1,0,asm0.x6000111(arg0)) === -1) ? 1 : 0) === 0) ? 1 : 0);
+    loc0 = (((((asm0.x60000eb(((arg0.constructor.GenericArguments)["asm0.t200002d"])[0]))(CILJS.cast_class(arg0,t1),arg1,0,asm0.x60000e2(arg0)) === -1) ? 1 : 0) === 0) ? 1 : 0);
     /* IL_1D: ldloc.0  */
     /* IL_1E: ret  */
     
     return loc0;
 };/* System.Void Array`1.System.Collections.Generic.ICollection<T>.CopyTo(T[],Int32)*/
 
-asm.x600013f_init = function (arg0, arg1, arg2)
+asm.x6000110_init = function (arg0, arg1, arg2)
 {
     
-    (asm0["System.Array`1"](((arg0.constructor.GenericArguments)["asm0.t200003c"])[0]).init)();
+    (asm0["System.Array`1"](((arg0.constructor.GenericArguments)["asm0.t200002d"])[0]).init)();
 };;
 
-asm.x600013f = function (arg0, arg1, arg2)
+asm.x6000110 = function (arg0, arg1, arg2)
 {
     
-    asm.x600013f_init(arg0,arg1,arg2);
+    asm.x6000110_init(arg0,arg1,arg2);
     
-    return asm.x600013f_(arg0,arg1,arg2);
+    return asm.x6000110_(arg0,arg1,arg2);
 };;
-asm.x600013f_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, arg1, arg2)
+asm.x6000110_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, arg1, arg2)
 {
     var t0;
     var t1;
@@ -10270,7 +10060,7 @@ asm.x600013f_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, 
     var in_block_1;
     var loc5;
     
-    t0 = ((arg0.constructor.GenericArguments)["asm0.t200003c"])[0];
+    t0 = ((arg0.constructor.GenericArguments)["asm0.t200002d"])[0];
     
     t1 = asm0["System.Array`1"](t0);
     
@@ -10293,7 +10083,7 @@ asm.x600013f_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, 
             /* IL_0D: clt  */
             /* IL_0E: stloc.2  */
             
-            loc2 = ((arg2 < ((asm0.x6000111(arg0) - (arg1.jsarr.length | 0)) | 0)) ? 1 : 0);
+            loc2 = ((arg2 < ((asm0.x60000e2(arg0) - (arg1.jsarr.length | 0)) | 0)) ? 1 : 0);
             /* IL_0F: ldloc.2  */
             /* IL_10: brfalse.s IL_1D */
             
@@ -10307,13 +10097,13 @@ asm.x600013f_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, 
             /* IL_17: call Exception GetException(System.String) */
             /* IL_1C: throw  */
             
-            throw asm0.x600011b(CILJS.new_string("System.ArgumentException"));
+            throw asm0.x60000ec(CILJS.new_string("System.ArgumentException"));
             case 0x1D:
             /* IL_1D: ldarg.0  */
             /* IL_1E: call Int32 get_Length() */
             /* IL_23: stloc.0  */
             
-            loc0 = asm0.x6000111(arg0);
+            loc0 = asm0.x60000e2(arg0);
             /* IL_24: ldarg.0  */
             /* IL_25: castclass T[] */
             /* IL_2A: stloc.1  */
@@ -10405,22 +10195,22 @@ asm.x600013f_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, 
     }
 };/* System.Boolean Array`1.System.Collections.Generic.ICollection<T>.Remove(T)*/
 
-asm.x6000140_init = function (arg0, arg1)
+asm.x6000111_init = function (arg0, arg1)
 {
     
     (asm0["System.NotSupportedException"]().init)();
     
-    asm.x6000140 = asm.x6000140_;
+    asm.x6000111 = asm.x6000111_;
 };;
 
-asm.x6000140 = function (arg0, arg1)
+asm.x6000111 = function (arg0, arg1)
 {
     
-    asm.x6000140_init(arg0,arg1);
+    asm.x6000111_init(arg0,arg1);
     
-    return asm.x6000140_(arg0,arg1);
+    return asm.x6000111_(arg0,arg1);
 };;
-asm.x6000140_ = function System_Collections_Generic_ICollection_T__Remove(arg0, arg1)
+asm.x6000111_ = function System_Collections_Generic_ICollection_T__Remove(arg0, arg1)
 {
     var t0;
     
@@ -10429,22 +10219,22 @@ asm.x6000140_ = function System_Collections_Generic_ICollection_T__Remove(arg0, 
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
 };/*  Array`1..ctor()*/
 
-asm.x6000141 = function _ctor(arg0)
+asm.x6000112 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x6000136(arg0);
+    asm0.x6000107(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* System.String Byte.ToString()*/
 
-asm.x6000142 = function ToString(arg0)
+asm.x6000113 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -10458,14 +10248,14 @@ asm.x6000142 = function ToString(arg0)
     /* IL_09: call String UnsignedPrimitiveToString(System.Object, System.Int32) */
     /* IL_0E: stloc.0  */
     
-    loc0 = asm0.x600005f(CILJS.make_box(arg0.r(),t0),8);
+    loc0 = asm0.x6000030(CILJS.make_box(arg0.r(),t0),8);
     /* IL_11: ldloc.0  */
     /* IL_12: ret  */
     
     return loc0;
 };;/* System.Int32 Byte.CompareTo(Object)*/
 
-asm.x6000143 = function CompareTo(arg0, arg1)
+asm.x6000114 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10475,14 +10265,14 @@ asm.x6000143 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Byte) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000144(arg0,CILJS.unbox_any(arg1,asm0["System.Byte"]()));
+    loc0 = asm0.x6000115(arg0,CILJS.unbox_any(arg1,asm0["System.Byte"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Byte.CompareTo(Byte)*/
 
-asm.x6000144 = function CompareTo(arg0, arg1)
+asm.x6000115 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -10568,7 +10358,7 @@ asm.x6000144 = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean Byte.Equals(Byte)*/
 
-asm.x6000145 = function Equals(arg0, arg1)
+asm.x6000116 = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -10595,7 +10385,7 @@ asm.x6000145 = function Equals(arg0, arg1)
     return loc2;
 };;/* System.Boolean Byte.Equals(Object)*/
 
-asm.x6000146 = function Equals(arg0, arg1)
+asm.x6000117 = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -10648,7 +10438,7 @@ asm.x6000146 = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.Byte) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x6000145(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x6000116(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -10658,7 +10448,7 @@ asm.x6000146 = function Equals(arg0, arg1)
     }
 };;/* System.Int32 Byte.GetHashCode()*/
 
-asm.x6000147 = function GetHashCode(arg0)
+asm.x6000118 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10673,7 +10463,7 @@ asm.x6000147 = function GetHashCode(arg0)
     return loc0;
 };;/* System.Boolean ValueType.Equals(Object)*/
 
-asm.x6000148 = function Equals(arg0, arg1)
+asm.x6000119 = function Equals(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10689,7 +10479,7 @@ asm.x6000148 = function Equals(arg0, arg1)
     return loc0;
 };;/*  ValueType..ctor()*/
 
-asm.x600014a = function _ctor(arg0)
+asm.x600011b = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -10699,58 +10489,58 @@ asm.x600014a = function _ctor(arg0)
     return ;
 };;/* TResult Func`2.Invoke(T)*/
 
-asm.x600014c = CILJS.delegate_invoke;;/* System.IAsyncResult Func`2.BeginInvoke(T,AsyncCallback,Object)*/
+asm.x600011d = CILJS.delegate_invoke;;/* System.IAsyncResult Func`2.BeginInvoke(T,AsyncCallback,Object)*/
 
-asm.x600014d = CILJS.delegate_begin_invoke;;/* TResult Func`2.EndInvoke(IAsyncResult)*/
+asm.x600011e = CILJS.delegate_begin_invoke;;/* TResult Func`2.EndInvoke(IAsyncResult)*/
 
-asm.x600014e = CILJS.delegate_end_invoke;;/*  Func`2..ctor(Object,IntPtr)*/
+asm.x600011f = CILJS.delegate_end_invoke;;/*  Func`2..ctor(Object,IntPtr)*/
 
-asm.x600014b = CILJS.delegate_ctor;;/* System.Void AsyncCallback.Invoke(IAsyncResult)*/
+asm.x600011c = CILJS.delegate_ctor;;/* System.Void AsyncCallback.Invoke(IAsyncResult)*/
 
-asm.x6000150 = CILJS.delegate_invoke;;/* System.IAsyncResult AsyncCallback.BeginInvoke(IAsyncResult,AsyncCallback,Object)*/
+asm.x6000121 = CILJS.delegate_invoke;;/* System.IAsyncResult AsyncCallback.BeginInvoke(IAsyncResult,AsyncCallback,Object)*/
 
-asm.x6000151 = CILJS.delegate_begin_invoke;;/* System.Void AsyncCallback.EndInvoke(IAsyncResult)*/
+asm.x6000122 = CILJS.delegate_begin_invoke;;/* System.Void AsyncCallback.EndInvoke(IAsyncResult)*/
 
-asm.x6000152 = CILJS.delegate_end_invoke;;/*  AsyncCallback..ctor(Object,IntPtr)*/
+asm.x6000123 = CILJS.delegate_end_invoke;;/*  AsyncCallback..ctor(Object,IntPtr)*/
 
-asm.x600014f = CILJS.delegate_ctor;;/*  NullReferenceException..ctor()*/
+asm.x6000120 = CILJS.delegate_ctor;;/*  NullReferenceException..ctor()*/
 
-asm.x6000153 = function _ctor(arg0)
+asm.x6000124 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x6000051(arg0);
+    asm0.x6000022(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* System.Int32 Comparison`1.Invoke(T,T)*/
 
-asm.x6000155 = CILJS.delegate_invoke;;/* System.IAsyncResult Comparison`1.BeginInvoke(T,T,AsyncCallback,Object)*/
+asm.x6000126 = CILJS.delegate_invoke;;/* System.IAsyncResult Comparison`1.BeginInvoke(T,T,AsyncCallback,Object)*/
 
-asm.x6000156 = CILJS.delegate_begin_invoke;;/* System.Int32 Comparison`1.EndInvoke(IAsyncResult)*/
+asm.x6000127 = CILJS.delegate_begin_invoke;;/* System.Int32 Comparison`1.EndInvoke(IAsyncResult)*/
 
-asm.x6000157 = CILJS.delegate_end_invoke;;/*  Comparison`1..ctor(Object,IntPtr)*/
+asm.x6000128 = CILJS.delegate_end_invoke;;/*  Comparison`1..ctor(Object,IntPtr)*/
 
-asm.x6000154 = CILJS.delegate_ctor;;/* static System.IAsyncResult AsyncResult.CreateAsyncResult()*/
+asm.x6000125 = CILJS.delegate_ctor;;/* static System.IAsyncResult AsyncResult.CreateAsyncResult()*/
 
-asm.x600015c_init = function ()
+asm.x600012d_init = function ()
 {
     
     (asm0["System.AsyncResult"]().init)();
     
-    asm.x600015c = asm.x600015c_;
+    asm.x600012d = asm.x600012d_;
 };;
 
-asm.x600015c = function ()
+asm.x600012d = function ()
 {
     
-    asm.x600015c_init();
+    asm.x600012d_init();
     
-    return asm.x600015c_();
+    return asm.x600012d_();
 };;
-asm.x600015c_ = function CreateAsyncResult()
+asm.x600012d_ = function CreateAsyncResult()
 {
     var t0;
     var loc0;
@@ -10760,15 +10550,15 @@ asm.x600015c_ = function CreateAsyncResult()
     /* IL_01: newobj Void .ctor() */
     /* IL_06: stloc.0  */
     
-    loc0 = CILJS.newobj(t0,asm0.x6000161,[null]);
+    loc0 = CILJS.newobj(t0,asm0.x6000132,[null]);
     /* IL_09: ldloc.0  */
     /* IL_0A: ret  */
     
     return loc0;
 };
-asm.CreateAsyncResult = asm.x600015c;/* System.Boolean AsyncResult.get_IsCompleted()*/
+asm.CreateAsyncResult = asm.x600012d;/* System.Boolean AsyncResult.get_IsCompleted()*/
 
-asm.x600015d = function get_IsCompleted(arg0)
+asm.x600012e = function get_IsCompleted(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10782,7 +10572,7 @@ asm.x600015d = function get_IsCompleted(arg0)
     return loc0;
 };;/* System.Threading.WaitHandle AsyncResult.get_AsyncWaitHandle()*/
 
-asm.x600015e = function get_AsyncWaitHandle(arg0)
+asm.x600012f = function get_AsyncWaitHandle(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10796,7 +10586,7 @@ asm.x600015e = function get_AsyncWaitHandle(arg0)
     return loc0;
 };;/* System.Object AsyncResult.get_AsyncState()*/
 
-asm.x600015f = function get_AsyncState(arg0)
+asm.x6000130 = function get_AsyncState(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10811,7 +10601,7 @@ asm.x600015f = function get_AsyncState(arg0)
     return loc0;
 };;/* System.Boolean AsyncResult.get_CompletedSynchronously()*/
 
-asm.x6000160 = function get_CompletedSynchronously(arg0)
+asm.x6000131 = function get_CompletedSynchronously(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -10825,7 +10615,7 @@ asm.x6000160 = function get_CompletedSynchronously(arg0)
     return loc0;
 };;/*  AsyncResult..ctor()*/
 
-asm.x6000161 = function _ctor(arg0)
+asm.x6000132 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -10835,13 +10625,13 @@ asm.x6000161 = function _ctor(arg0)
     return ;
 };;/*  NotSupportedException..ctor()*/
 
-asm.x6000163 = function _ctor(arg0)
+asm.x6000134 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldstr Operation not supported */
     /* IL_06: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,CILJS.new_string("Operation not supported"));
+    asm0.x6000076(arg0,CILJS.new_string("Operation not supported"));
     /* IL_0B: nop  */
     /* IL_0C: nop  */
     /* IL_0D: ret  */
@@ -10849,13 +10639,13 @@ asm.x6000163 = function _ctor(arg0)
     return ;
 };;/*  NotSupportedException..ctor(String)*/
 
-asm.x6000164 = function _ctor(arg0, arg1)
+asm.x6000135 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldarg.1  */
     /* IL_02: call Void .ctor(System.String) */
     
-    asm0.x60000a5(arg0,arg1);
+    asm0.x6000076(arg0,arg1);
     /* IL_07: nop  */
     /* IL_08: nop  */
     /* IL_09: ret  */
@@ -10863,22 +10653,22 @@ asm.x6000164 = function _ctor(arg0, arg1)
     return ;
 };;/* System.String UIntPtr.ToString()*/
 
-asm.x6000165_init = function (arg0)
+asm.x6000136_init = function (arg0)
 {
     
     (asm0["System.UIntPtr"]().init)();
     
-    asm.x6000165 = asm.x6000165_;
+    asm.x6000136 = asm.x6000136_;
 };;
 
-asm.x6000165 = function (arg0)
+asm.x6000136 = function (arg0)
 {
     
-    asm.x6000165_init(arg0);
+    asm.x6000136_init(arg0);
     
-    return asm.x6000165_(arg0);
+    return asm.x6000136_(arg0);
 };;
-asm.x6000165_ = function ToString(arg0)
+asm.x6000136_ = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -10891,26 +10681,26 @@ asm.x6000165_ = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };/*  DivideByZeroException..ctor()*/
 
-asm.x6000166 = function _ctor(arg0)
+asm.x6000137 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000a4(arg0);
+    asm0.x6000075(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* System.String UInt64.ToString()*/
 
-asm.x6000167 = function ToString(arg0)
+asm.x6000138 = function ToString(arg0)
 {
     var in_block_0;
     var __pos__;
@@ -10976,7 +10766,7 @@ asm.x6000167 = function ToString(arg0)
                     /* IL_1A: call String Concat(System.String, System.String) */
                     /* IL_1F: stloc.2  */
                     
-                    loc2 = asm0.x60000ea(CILJS.new_string(loc3[0].toString()),loc2);
+                    loc2 = asm0.x60000bb(CILJS.new_string(loc3[0].toString()),loc2);
                     /* IL_20: ldloc.0  */
                     /* IL_21: ldloc.1  */
                     /* IL_22: div.un  */
@@ -11021,7 +10811,7 @@ asm.x6000167 = function ToString(arg0)
     }
 };;/* static System.UInt64 UInt64.op_RightShift(UInt64,Int32)*/
 
-asm.x6000169 = 
+asm.x600013a = 
             function UInt64_RightShift(a, n) {
                 n = n & 0x3f;
 
@@ -11039,9 +10829,9 @@ asm.x6000169 =
 
                 return new Uint32Array([ at | br, bt ]);
             };;
-asm.UInt64_RightShift = asm.x6000169;/* static System.UInt64 UInt64.op_Division(UInt64,UInt64)*/
+asm.UInt64_RightShift = asm.x600013a;/* static System.UInt64 UInt64.op_Division(UInt64,UInt64)*/
 
-asm.x600016a = 
+asm.x600013b = 
             function UInt64_Division(n, d) {
 
                 if (d[0] == 0 && d[1] == 0)
@@ -11066,9 +10856,9 @@ asm.x600016a =
 
                 return q;    
             };;
-asm.UInt64_Division = asm.x600016a;/* static System.UInt64 UInt64.op_Multiply(UInt64,UInt64)*/
+asm.UInt64_Division = asm.x600013b;/* static System.UInt64 UInt64.op_Multiply(UInt64,UInt64)*/
 
-asm.x600016b = 
+asm.x600013c = 
             function XInt64_Multiplication(a, b) {
                 if (a[0] == 0 && a[1] == 0)
                     return a;
@@ -11081,7 +10871,7 @@ asm.x600016b =
 
                 var s = new Uint32Array([0, 0]);
 
-                if (a[0] & 1 == 1) {
+                if ((a[0] & 1) == 1) {
                     s[0] = b[0];
                     s[1] = b[1];
                 }
@@ -11092,15 +10882,15 @@ asm.x600016b =
                     a = asm0.UInt64_RightShift(a, 1);
                     b = asm0.XInt64_LeftShift(b, 1);
 
-                    if (a[0] & 1 == 1)
+                    if ((a[0] & 1) == 1)
                         s = asm0.XInt64_Addition(b, s);
                 }
 
                 return s;
             };;
-asm.XInt64_Multiplication = asm.x600016b;/* static System.Boolean UInt64.op_GreaterThanOrEqual(UInt64,UInt64)*/
+asm.XInt64_Multiplication = asm.x600013c;/* static System.Boolean UInt64.op_GreaterThanOrEqual(UInt64,UInt64)*/
 
-asm.x600016c = 
+asm.x600013d = 
             function UInt64_GreaterThanOrEqual (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
@@ -11111,9 +10901,9 @@ asm.x600016c =
 
                 return a[0] >= b[0] ? 1: 0;
             };;
-asm.UInt64_GreaterThanOrEqual = asm.x600016c;/* static System.Boolean UInt64.op_LessThanOrEqual(UInt64,UInt64)*/
+asm.UInt64_GreaterThanOrEqual = asm.x600013d;/* static System.Boolean UInt64.op_LessThanOrEqual(UInt64,UInt64)*/
 
-asm.x600016d = 
+asm.x600013e = 
             function UInt64_LessThanOrEqual (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
@@ -11124,9 +10914,9 @@ asm.x600016d =
 
                 return a[0] <= b[0] ? 1: 0;
             };;
-asm.UInt64_LessThanOrEqual = asm.x600016d;/* static System.Boolean UInt64.op_GreaterThan(UInt64,UInt64)*/
+asm.UInt64_LessThanOrEqual = asm.x600013e;/* static System.Boolean UInt64.op_GreaterThan(UInt64,UInt64)*/
 
-asm.x600016e = 
+asm.x600013f = 
             function UInt64_GreaterThan (a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff > 0)
@@ -11137,9 +10927,9 @@ asm.x600016e =
 
                 return a[0] > b[0] ? 1: 0;
             };;
-asm.UInt64_GreaterThan = asm.x600016e;/* static System.Boolean UInt64.op_LessThan(UInt64,UInt64)*/
+asm.UInt64_GreaterThan = asm.x600013f;/* static System.Boolean UInt64.op_LessThan(UInt64,UInt64)*/
 
-asm.x600016f = 
+asm.x6000140 = 
             function UInt64_LessThan(a, b) {
                 var bdiff = a[1] - b[1];
                 if (bdiff < 0)
@@ -11150,9 +10940,9 @@ asm.x600016f =
 
                 return a[0] < b[0] ? 1: 0;
             };;
-asm.UInt64_LessThan = asm.x600016f;/* static System.UInt64 UInt64.op_Modulus(UInt64,UInt64)*/
+asm.UInt64_LessThan = asm.x6000140;/* static System.UInt64 UInt64.op_Modulus(UInt64,UInt64)*/
 
-asm.x6000170 = 
+asm.x6000141 = 
             function UInt64_Modulus (n, d) {
                 var greaterThanOrEqual = asm0.UInt64_GreaterThanOrEqual,
                     subtraction = asm0.XInt64_Subtraction,
@@ -11178,9 +10968,9 @@ asm.x6000170 =
 
                 return r;
             };;
-asm.UInt64_Modulus = asm.x6000170;/* System.Int32 UInt64.GetHashCode()*/
+asm.UInt64_Modulus = asm.x6000141;/* System.Int32 UInt64.GetHashCode()*/
 
-asm.x6000171 = function GetHashCode(arg0)
+asm.x6000142 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -11196,7 +10986,7 @@ asm.x6000171 = function GetHashCode(arg0)
     return loc0;
 };;/* System.Int32 UInt64.CompareTo(Object)*/
 
-asm.x6000173 = function CompareTo(arg0, arg1)
+asm.x6000144 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -11206,14 +10996,14 @@ asm.x6000173 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.UInt64) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000174(arg0,CILJS.unbox_any(arg1,asm0["System.UInt64"]()));
+    loc0 = asm0.x6000145(arg0,CILJS.unbox_any(arg1,asm0["System.UInt64"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 UInt64.CompareTo(UInt64)*/
 
-asm.x6000174 = function CompareTo(arg0, arg1)
+asm.x6000145 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -11299,7 +11089,7 @@ asm.x6000174 = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean UInt64.Equals(Object)*/
 
-asm.x6000175 = function Equals(arg0, arg1)
+asm.x6000146 = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -11352,7 +11142,7 @@ asm.x6000175 = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.UInt64) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x6000176(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x6000147(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -11362,7 +11152,7 @@ asm.x6000175 = function Equals(arg0, arg1)
     }
 };;/* System.Boolean UInt64.Equals(UInt64)*/
 
-asm.x6000176 = function Equals(arg0, arg1)
+asm.x6000147 = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -11389,19 +11179,19 @@ asm.x6000176 = function Equals(arg0, arg1)
     return loc2;
 };;/*  SerializableAttribute..ctor()*/
 
-asm.x6000177 = function _ctor(arg0)
+asm.x6000148 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* static System.Int32 Environment.get_CurrentManagedThreadId()*/
 
-asm.x6000178 = function get_CurrentManagedThreadId()
+asm.x6000149 = function get_CurrentManagedThreadId()
 {
     var loc0;
     /* IL_00: nop  */
@@ -11415,7 +11205,7 @@ asm.x6000178 = function get_CurrentManagedThreadId()
     return loc0;
 };;/* static System.String Environment.get_NewLine()*/
 
-asm.x6000179 = function get_NewLine()
+asm.x600014a = function get_NewLine()
 {
     var loc0;
     /* IL_00: nop  */
@@ -11430,7 +11220,7 @@ asm.x6000179 = function get_NewLine()
     return loc0;
 };;/* System.String Int16.ToString()*/
 
-asm.x600017a = function ToString(arg0)
+asm.x600014b = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -11443,14 +11233,14 @@ asm.x600017a = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Int16.CompareTo(Object)*/
 
-asm.x600017b = function CompareTo(arg0, arg1)
+asm.x600014c = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -11460,14 +11250,14 @@ asm.x600017b = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Int16) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600017c(arg0,CILJS.unbox_any(arg1,asm0["System.Int16"]()));
+    loc0 = asm0.x600014d(arg0,CILJS.unbox_any(arg1,asm0["System.Int16"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Int16.CompareTo(Int16)*/
 
-asm.x600017c = function CompareTo(arg0, arg1)
+asm.x600014d = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -11553,7 +11343,7 @@ asm.x600017c = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean Int16.Equals(Int16)*/
 
-asm.x600017d = function Equals(arg0, arg1)
+asm.x600014e = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -11580,7 +11370,7 @@ asm.x600017d = function Equals(arg0, arg1)
     return loc2;
 };;/* System.Boolean Int16.Equals(Object)*/
 
-asm.x600017e = function Equals(arg0, arg1)
+asm.x600014f = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -11633,7 +11423,7 @@ asm.x600017e = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.Int16) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x600017d(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x600014e(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -11643,7 +11433,7 @@ asm.x600017e = function Equals(arg0, arg1)
     }
 };;/* System.Int32 Int16.GetHashCode()*/
 
-asm.x600017f = function GetHashCode(arg0)
+asm.x6000150 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -11658,7 +11448,7 @@ asm.x600017f = function GetHashCode(arg0)
     return loc0;
 };;/* System.String Int32.ToString()*/
 
-asm.x6000180 = function ToString(arg0)
+asm.x6000151 = function ToString(arg0)
 {
     var t0;
     var loc0;
@@ -11671,29 +11461,29 @@ asm.x6000180 = function ToString(arg0)
     /* IL_08: call String SignedPrimitiveToString(System.Object) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x600005e(CILJS.make_box(arg0.r(),t0));
+    loc0 = asm0.x600002f(CILJS.make_box(arg0.r(),t0));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.String Int32.ToString(String)*/
 
-asm.x6000182_init = function (arg0, arg1)
+asm.x6000153_init = function (arg0, arg1)
 {
     
     (asm0["System.NotSupportedException"]().init)();
     
-    asm.x6000182 = asm.x6000182_;
+    asm.x6000153 = asm.x6000153_;
 };;
 
-asm.x6000182 = function (arg0, arg1)
+asm.x6000153 = function (arg0, arg1)
 {
     
-    asm.x6000182_init(arg0,arg1);
+    asm.x6000153_init(arg0,arg1);
     
-    return asm.x6000182_(arg0,arg1);
+    return asm.x6000153_(arg0,arg1);
 };;
-asm.x6000182_ = function ToString(arg0, arg1)
+asm.x6000153_ = function ToString(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -11723,7 +11513,7 @@ asm.x6000182_ = function ToString(arg0, arg1)
             /* IL_0A: call Boolean op_Equality(System.String, System.String) */
             /* IL_0F: stloc.1  */
             
-            loc1 = asm0.x60000f5(arg1,CILJS.new_string("X"));
+            loc1 = asm0.x60000c6(arg1,CILJS.new_string("X"));
             /* IL_10: ldloc.1  */
             /* IL_11: brfalse.s IL_1C */
             
@@ -11747,7 +11537,7 @@ asm.x6000182_ = function ToString(arg0, arg1)
             /* IL_1C: newobj Void .ctor() */
             /* IL_21: throw  */
             
-            throw CILJS.newobj(t0,asm0.x6000163,[null]);
+            throw CILJS.newobj(t0,asm0.x6000134,[null]);
             case 0x22:
             /* IL_22: ldloc.2  */
             /* IL_23: ret  */
@@ -11757,7 +11547,7 @@ asm.x6000182_ = function ToString(arg0, arg1)
     }
 };/* System.Int32 Int32.CompareTo(Object)*/
 
-asm.x6000183 = function CompareTo(arg0, arg1)
+asm.x6000154 = function CompareTo(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -11767,14 +11557,14 @@ asm.x6000183 = function CompareTo(arg0, arg1)
     /* IL_08: call Int32 CompareTo(System.Int32) */
     /* IL_0D: stloc.0  */
     
-    loc0 = asm0.x6000184(arg0,CILJS.unbox_any(arg1,asm0["System.Int32"]()));
+    loc0 = asm0.x6000155(arg0,CILJS.unbox_any(arg1,asm0["System.Int32"]()));
     /* IL_10: ldloc.0  */
     /* IL_11: ret  */
     
     return loc0;
 };;/* System.Int32 Int32.CompareTo(Int32)*/
 
-asm.x6000184 = function CompareTo(arg0, arg1)
+asm.x6000155 = function CompareTo(arg0, arg1)
 {
     var in_block_0;
     var __pos__;
@@ -11860,7 +11650,7 @@ asm.x6000184 = function CompareTo(arg0, arg1)
     }
 };;/* System.Boolean Int32.Equals(Object)*/
 
-asm.x6000185 = function Equals(arg0, arg1)
+asm.x6000156 = function Equals(arg0, arg1)
 {
     var t0;
     var in_block_0;
@@ -11913,7 +11703,7 @@ asm.x6000185 = function Equals(arg0, arg1)
             /* IL_1C: call Boolean Equals(System.Int32) */
             /* IL_21: stloc.1  */
             
-            loc1 = asm0.x6000186(arg0,CILJS.unbox_any(arg1,t0));
+            loc1 = asm0.x6000157(arg0,CILJS.unbox_any(arg1,t0));
             case 0x24:
             /* IL_24: ldloc.1  */
             /* IL_25: ret  */
@@ -11923,7 +11713,7 @@ asm.x6000185 = function Equals(arg0, arg1)
     }
 };;/* System.Boolean Int32.Equals(Int32)*/
 
-asm.x6000186 = function Equals(arg0, arg1)
+asm.x6000157 = function Equals(arg0, arg1)
 {
     var loc0;
     var loc1;
@@ -11950,7 +11740,7 @@ asm.x6000186 = function Equals(arg0, arg1)
     return loc2;
 };;/* System.Int32 Int32.GetHashCode()*/
 
-asm.x6000187 = function GetHashCode(arg0)
+asm.x6000158 = function GetHashCode(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -11963,26 +11753,656 @@ asm.x6000187 = function GetHashCode(arg0)
     /* IL_07: ret  */
     
     return loc0;
+};;/* static System.String Locale.GetText(String)*/
+
+asm.x600015a = function GetText(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: stloc.0  */
+    
+    loc0 = arg0;
+    /* IL_05: ldloc.0  */
+    /* IL_06: ret  */
+    
+    return loc0;
+};;/*  DebuggerStepThroughAttribute..ctor()*/
+
+asm.x600015b = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/*  Debugger..ctor()*/
+
+asm.x600015d = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/* System.Void AutoResetEvent.Close()*/
+
+asm.x600015f = function Close(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/* System.Void AutoResetEvent.WaitOne()*/
+
+asm.x6000160 = function WaitOne(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/* System.Void AutoResetEvent.Set()*/
+
+asm.x6000161 = function Set(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/*  AutoResetEvent..ctor(Boolean)*/
+
+asm.x600015e = function _ctor(arg0, arg1)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: nop  */
+    /* IL_08: ret  */
+    
+    return ;
+};;/* static System.Threading.Thread Thread.get_CurrentThread()*/
+
+asm.x6000162_init = function ()
+{
+    
+    (asm0["System.Threading.Thread"]().init)();
+    
+    asm.x6000162 = asm.x6000162_;
+};;
+
+asm.x6000162 = function ()
+{
+    
+    asm.x6000162_init();
+    
+    return asm.x6000162_();
+};;
+asm.x6000162_ = function get_CurrentThread()
+{
+    var t0;
+    var loc0;
+    
+    t0 = asm0["System.Threading.Thread"]();
+    /* IL_00: nop  */
+    
+    asm0.x6000166();
+    /* IL_01: ldsfld Thread currentThread */
+    /* IL_06: stloc.0  */
+    
+    loc0 = t0.currentThread;
+    /* IL_09: ldloc.0  */
+    /* IL_0A: ret  */
+    
+    return loc0;
+};/* System.Boolean Thread.get_IsThreadPoolThread()*/
+
+asm.x6000163 = function get_IsThreadPoolThread(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldc.i4.0  */
+    /* IL_02: stloc.0  */
+    
+    loc0 = 0;
+    /* IL_05: ldloc.0  */
+    /* IL_06: ret  */
+    
+    return loc0;
+};;/* static System.Void Thread.Sleep(Int64)*/
+
+asm.x6000164 = function Sleep(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/*  Thread..ctor()*/
+
+asm.x6000165 = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/* static  Thread..cctor()*/
+
+asm.x6000166_init = function ()
+{
+    
+    (asm0["System.Threading.Thread"]().init)();
+    
+    asm.x6000166 = asm.x6000166_;
+};;
+
+asm.x6000166 = function ()
+{
+    
+    asm.x6000166_init();
+    
+    return asm.x6000166_();
+};;
+asm.x6000166_ = function _cctor()
+{
+    var t0;
+    
+    if (asm0["System.Threading.Thread"]().FieldsInitialized){
+        
+        return;
+    }
+    
+    asm0["System.Threading.Thread"]().FieldsInitialized = true;
+    
+    t0 = asm0["System.Threading.Thread"]();
+    
+    asm0.x6000166();
+    /* IL_00: newobj Void .ctor() */
+    /* IL_05: stsfld Thread currentThread */
+    
+    t0.currentThread = CILJS.newobj(t0,asm0.x6000165,[null]);
+    /* IL_0A: ret  */
+    
+    return ;
+};/* static System.Void Monitor.Enter(Object)*/
+
+asm.x6000167 = function Enter(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/* static System.Void Monitor.Exit(Object)*/
+
+asm.x6000168 = function Exit(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/* System.Boolean WaitHandle.WaitOne(Int32)*/
+
+asm.x6000169 = function WaitOne(arg0, arg1)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldc.i4.1  */
+    /* IL_02: stloc.0  */
+    
+    loc0 = 1;
+    /* IL_05: ldloc.0  */
+    /* IL_06: ret  */
+    
+    return loc0;
+};;/*  WaitHandle..ctor()*/
+
+asm.x600016a = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/*  InAttribute..ctor()*/
+
+asm.x600016c = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/*  OutAttribute..ctor()*/
+
+asm.x600016d = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/*  ExtensionAttribute..ctor()*/
+
+asm.x600016e = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/* System.String InternalsVisibleToAttribute.get_AssemblyName()*/
+
+asm.x6000170 = function get_AssemblyName(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldfld String assemblyName */
+    /* IL_07: stloc.0  */
+    
+    loc0 = arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeassemblyName;
+    /* IL_0A: ldloc.0  */
+    /* IL_0B: ret  */
+    
+    return loc0;
+};;/* System.Boolean InternalsVisibleToAttribute.get_AllInternalsVisible()*/
+
+asm.x6000171 = function get_AllInternalsVisible(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldfld Boolean allInternalsVisible */
+    /* IL_07: stloc.0  */
+    
+    loc0 = arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible;
+    /* IL_0A: ldloc.0  */
+    /* IL_0B: ret  */
+    
+    return loc0;
+};;/* System.Void InternalsVisibleToAttribute.set_AllInternalsVisible(Boolean)*/
+
+asm.x6000172 = function set_AllInternalsVisible(arg0, arg1)
+{
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldarg.1  */
+    /* IL_03: stfld Boolean allInternalsVisible */
+    
+    arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible = arg1;
+    /* IL_08: ret  */
+    
+    return ;
+};;/*  InternalsVisibleToAttribute..ctor(String)*/
+
+asm.x600016f = function _ctor(arg0, arg1)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: ldc.i4.1  */
+    /* IL_02: stfld Boolean allInternalsVisible */
+    
+    arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible = 1;
+    /* IL_07: ldarg.0  */
+    /* IL_08: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_0D: nop  */
+    /* IL_0E: nop  */
+    /* IL_0F: ldarg.0  */
+    /* IL_10: ldarg.1  */
+    /* IL_11: stfld String assemblyName */
+    
+    arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeassemblyName = arg1;
+    /* IL_16: ret  */
+    
+    return ;
+};;/* static System.Void RuntimeHelpers.InitializeArrayImpl(Array,RuntimeFieldHandle)*/
+
+asm.x6000173 = 
+            function (arr, handle) {
+                handle.value.type();
+                var data = new Int8Array(handle.value.type[handle.value.field]);
+                arr.jsarr = new arr.etype.ArrayType(data.buffer);   
+            }
+            ;;/* static System.Void RuntimeHelpers.InitializeArray(Array,RuntimeFieldHandle)*/
+
+asm.x6000175_init = function (arg0, arg1)
+{
+    
+    (asm0["System.Array`1"](asm0["System.Int64"]()).init)();
+    
+    (asm0["System.Array`1"](asm0["System.UInt64"]()).init)();
+    
+    asm.x6000175 = asm.x6000175_;
+};;
+
+asm.x6000175 = function (arg0, arg1)
+{
+    
+    asm.x6000175_init(arg0,arg1);
+    
+    return asm.x6000175_(arg0,arg1);
+};;
+asm.x6000175_ = function InitializeArray(arg0, arg1)
+{
+    var t0;
+    var t1;
+    var t2;
+    var t3;
+    var t4;
+    var st_05;
+    var in_block_0;
+    var __pos__;
+    var loc0;
+    var loc1;
+    var loc2;
+    var loc3;
+    var loc4;
+    var in_block_1;
+    var loc5;
+    
+    t0 = asm0["System.Int64"]();
+    
+    t1 = asm0["System.Array`1"](t0);
+    
+    t2 = asm0["System.UInt64"]();
+    
+    t3 = asm0["System.Array`1"](t2);
+    
+    t4 = asm0["System.UInt32"]();
+    
+    
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            /* IL_00: nop  */
+            /* IL_01: ldarg.0  */
+            /* IL_02: isinst System.Int64[] */
+            /* IL_07: brtrue.s IL_14 */
+            
+            if (t1.IsInst(arg0)){
+                
+                __pos__ = 0x14;
+                
+                continue;
+            }
+            /* IL_09: ldarg.0  */
+            /* IL_0A: isinst System.UInt64[] */
+            /* IL_0F: ldnull  */
+            /* IL_11: cgt.un  */
+            
+            st_05 = ((t3.IsInst(arg0) !== null) ? 1 : 0);
+            /* IL_12: br.s IL_15 */
+            
+            __pos__ = 0x15;
+            
+            continue;
+            case 0x14:
+            /* IL_14: ldc.i4.1  */
+            
+            st_05 = 1;
+            case 0x15:
+            /* IL_15: stloc.0  */
+            
+            loc0 = st_05;
+            /* IL_16: ldloc.0  */
+            /* IL_17: brfalse.s IL_65 */
+            
+            if ((!(loc0))){
+                
+                __pos__ = 0x65;
+                
+                continue;
+            }
+            /* IL_19: nop  */
+            /* IL_1A: ldarg.0  */
+            /* IL_1B: castclass System.Int64[] */
+            /* IL_20: stloc.1  */
+            
+            loc1 = CILJS.cast_class(arg0,t1);
+            /* IL_21: ldc.i4.0  */
+            /* IL_22: newarr System.UInt32 */
+            /* IL_27: stloc.2  */
+            
+            loc2 = CILJS.new_array(t4,0);
+            /* IL_28: ldloc.2  */
+            /* IL_29: ldarg.1  */
+            /* IL_2A: call Void InitializeArrayImpl(System.Array, System.RuntimeFieldHandle) */
+            
+            asm0.x6000173(loc2,CILJS.clone_value(arg1));
+            /* IL_2F: nop  */
+            /* IL_30: ldc.i4.0  */
+            /* IL_31: stloc.3  */
+            
+            loc3 = 0;
+            /* IL_32: ldc.i4.0  */
+            /* IL_33: stloc.s 4 */
+            
+            loc4 = 0;
+            /* IL_35: br.s IL_53 */
+            
+            __pos__ = 0x53;
+            
+            continue;
+            case 0x37:
+            case 0x53:
+            
+            in_block_1 = true;
+            
+            if (__pos__ > 0x60){
+                
+                in_block_1 = false;
+            }
+            
+            if (__pos__ < 0x37){
+                
+                __pos__ = 0x37;
+            }
+            
+            while (in_block_1){
+                
+                switch (__pos__){
+                    case 0x37:
+                    /* IL_37: ldloc.1  */
+                    /* IL_38: ldloc.3  */
+                    /* IL_39: ldloc.2  */
+                    /* IL_3A: ldloc.s 4 */
+                    /* IL_3C: ldelem.u4  */
+                    /* IL_3D: ldloc.2  */
+                    /* IL_3E: ldloc.s 4 */
+                    /* IL_40: ldc.i4.1  */
+                    /* IL_41: add  */
+                    /* IL_42: ldelem.u4  */
+                    /* IL_43: call Int64 Make(System.UInt32, System.UInt32) */
+                    /* IL_48: stelem.i8  */
+                    
+                    (loc1.jsarr)[loc3] = new Uint32Array([(loc2.jsarr)[loc4],(loc2.jsarr)[(loc4 + 1) | 0]]);
+                    /* IL_49: ldloc.3  */
+                    /* IL_4A: ldc.i4.1  */
+                    /* IL_4B: add  */
+                    /* IL_4C: stloc.3  */
+                    
+                    loc3 = (loc3 + 1) | 0;
+                    /* IL_4D: ldloc.s 4 */
+                    /* IL_4F: ldc.i4.2  */
+                    /* IL_50: add  */
+                    /* IL_51: stloc.s 4 */
+                    
+                    loc4 = (loc4 + 2) | 0;
+                    case 0x53:
+                    /* IL_53: ldloc.3  */
+                    /* IL_54: ldarg.0  */
+                    /* IL_55: callvirt Int32 get_Length() */
+                    /* IL_5B: clt  */
+                    /* IL_5C: stloc.s 5 */
+                    
+                    loc5 = ((loc3 < asm0.x60000e2(arg0)) ? 1 : 0);
+                    /* IL_5E: ldloc.s 5 */
+                    /* IL_60: brtrue.s IL_37 */
+                    
+                    if (loc5){
+                        
+                        __pos__ = 0x37;
+                        
+                        continue;
+                    }
+                }
+                
+                break;
+            }
+            
+            if ((__pos__ > 0x53) || (__pos__ < 0x37)){
+                
+                continue;
+            }
+            /* IL_62: nop  */
+            /* IL_63: br.s IL_6F */
+            
+            __pos__ = 0x6F;
+            
+            continue;
+            case 0x65:
+            /* IL_65: nop  */
+            /* IL_66: ldarg.0  */
+            /* IL_67: ldarg.1  */
+            /* IL_68: call Void InitializeArrayImpl(System.Array, System.RuntimeFieldHandle) */
+            
+            asm0.x6000173(arg0,CILJS.clone_value(arg1));
+            /* IL_6D: nop  */
+            /* IL_6E: nop  */
+            case 0x6F:
+            /* IL_6F: ret  */
+            
+            return ;
+        }
+    }
+};/*  RuntimeHelpers..ctor()*/
+
+asm.x6000176 = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/*  IndexerNameAttribute..ctor(String)*/
+
+asm.x6000177 = function _ctor(arg0, arg1)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: nop  */
+    /* IL_08: ret  */
+    
+    return ;
+};;/* System.Runtime.CompilerServices.MethodImplOptions MethodImplAttribute.get_Value()*/
+
+asm.x600017b = function get_Value(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldfld MethodImplOptions _val */
+    /* IL_07: stloc.0  */
+    
+    loc0 = CILJS.clone_value(arg0.System_Runtime_CompilerServicesMethodImplAttribute_val);
+    /* IL_0A: ldloc.0  */
+    /* IL_0B: ret  */
+    
+    return loc0;
+};;/*  MethodImplAttribute..ctor()*/
+
+asm.x6000178 = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: nop  */
+    /* IL_08: ret  */
+    
+    return ;
+};;/*  MethodImplAttribute..ctor(Int16)*/
+
+asm.x6000179 = function _ctor(arg0, arg1)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: nop  */
+    /* IL_08: ldarg.0  */
+    /* IL_09: ldarg.1  */
+    /* IL_0A: stfld MethodImplOptions _val */
+    
+    arg0.System_Runtime_CompilerServicesMethodImplAttribute_val = arg1;
+    /* IL_0F: ret  */
+    
+    return ;
+};;/*  MethodImplAttribute..ctor(MethodImplOptions)*/
+
+asm.x600017a = function _ctor(arg0, arg1)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    
+    asm0.x6000080(arg0);
+    /* IL_06: nop  */
+    /* IL_07: nop  */
+    /* IL_08: ldarg.0  */
+    /* IL_09: ldarg.1  */
+    /* IL_0A: stfld MethodImplOptions _val */
+    
+    arg0.System_Runtime_CompilerServicesMethodImplAttribute_val = arg1;
+    /* IL_0F: ret  */
+    
+    return ;
 };;/* static System.Reflection.TypeInfo+constructor TypeInfo.GetConstructor(Object)*/
 
-asm.x6000189 = function (o) { return o.type || o.constructor; };;/* static System.Type TypeInfo.GetInstance(constructor)*/
+asm.x600018e = function (o) { return o.type || o.constructor; };;/* static System.Type TypeInfo.GetInstance(constructor)*/
 
-asm.x600018c_init = function (arg0)
+asm.x6000191_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo"]().init)();
     
-    asm.x600018c = asm.x600018c_;
+    asm.x6000191 = asm.x6000191_;
 };;
 
-asm.x600018c = function (arg0)
+asm.x6000191 = function (arg0)
 {
     
-    asm.x600018c_init(arg0);
+    asm.x6000191_init(arg0);
     
-    return asm.x600018c_(arg0);
+    return asm.x6000191_(arg0);
 };;
-asm.x600018c_ = function GetInstance(arg0)
+asm.x6000191_ = function GetInstance(arg0)
 {
     var t0;
     var in_block_0;
@@ -12006,7 +12426,7 @@ asm.x600018c_ = function GetInstance(arg0)
             /* IL_07: call Boolean IsUndefined(System.Object) */
             /* IL_0C: stloc.0  */
             
-            loc0 = asm0.x600000c(arg0.TypeInstance);
+            loc0 = asm0.x60001ee(arg0.TypeInstance);
             /* IL_0D: ldloc.0  */
             /* IL_0E: brfalse.s IL_1C */
             
@@ -12021,7 +12441,7 @@ asm.x600018c_ = function GetInstance(arg0)
             /* IL_12: newobj Void .ctor(System.Reflection.TypeInfo+constructor) */
             /* IL_17: stfld Type TypeInstance */
             
-            arg0.TypeInstance = CILJS.newobj(t0,asm0.x600018a,[null, arg0]);
+            arg0.TypeInstance = CILJS.newobj(t0,asm0.x600018f,[null, arg0]);
             case 0x1C:
             /* IL_1C: ldarg.0  */
             /* IL_1D: ldfld Type TypeInstance */
@@ -12035,9 +12455,9 @@ asm.x600018c_ = function GetInstance(arg0)
         }
     }
 };
-asm.GetReflectionType = asm.x600018c;/* static System.Type TypeInfo.GetType(Object)*/
+asm.GetReflectionType = asm.x6000191;/* static System.Type TypeInfo.GetType(Object)*/
 
-asm.x600018d = function GetType(arg0)
+asm.x6000192 = function GetType(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -12046,29 +12466,29 @@ asm.x600018d = function GetType(arg0)
     /* IL_07: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
     /* IL_0C: stloc.0  */
     
-    loc0 = asm0.x600018c(asm0.x6000189(arg0));
+    loc0 = asm0.x6000191(asm0.x600018e(arg0));
     /* IL_0F: ldloc.0  */
     /* IL_10: ret  */
     
     return loc0;
 };;/* static System.Type TypeInfo.GetRuntimeTypeFromHandle(RuntimeTypeHandle)*/
 
-asm.x600018e_init = function (arg0)
+asm.x6000193_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo+constructor"]().init)();
     
-    asm.x600018e = asm.x600018e_;
+    asm.x6000193 = asm.x6000193_;
 };;
 
-asm.x600018e = function (arg0)
+asm.x6000193 = function (arg0)
 {
     
-    asm.x600018e_init(arg0);
+    asm.x6000193_init(arg0);
     
-    return asm.x600018e_(arg0);
+    return asm.x6000193_(arg0);
 };;
-asm.x600018e_ = function GetRuntimeTypeFromHandle(arg0)
+asm.x6000193_ = function GetRuntimeTypeFromHandle(arg0)
 {
     var t0;
     var loc0;
@@ -12081,14 +12501,14 @@ asm.x600018e_ = function GetRuntimeTypeFromHandle(arg0)
     /* IL_0D: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
     /* IL_12: stloc.0  */
     
-    loc0 = asm0.x600018c(arg0.value);
+    loc0 = asm0.x6000191(arg0.value);
     /* IL_15: ldloc.0  */
     /* IL_16: ret  */
     
     return loc0;
 };/* System.Reflection.Assembly TypeInfo.get_Assembly()*/
 
-asm.x600018f = function get_Assembly(arg0)
+asm.x6000194 = function get_Assembly(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -12098,14 +12518,14 @@ asm.x600018f = function get_Assembly(arg0)
     /* IL_0C: call Assembly GetInstance(System.Reflection.Assembly+jsAsm) */
     /* IL_11: stloc.0  */
     
-    loc0 = asm0.x60001c8(arg0.ctor.Assembly);
+    loc0 = asm0.x60001cd(arg0.ctor.Assembly);
     /* IL_14: ldloc.0  */
     /* IL_15: ret  */
     
     return loc0;
 };;/* System.String TypeInfo.get_FullName()*/
 
-asm.x6000190 = function get_FullName(arg0)
+asm.x6000195 = function get_FullName(arg0)
 {
     var t0;
     var st_13;
@@ -12139,7 +12559,7 @@ asm.x6000190 = function get_FullName(arg0)
             /* IL_0C: callvirt Boolean IsSubclassOf(System.Type) */
             /* IL_11: stloc.1  */
             
-            loc1 = (arg0.vtable)["asm0.x6000075"](arg0,asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
+            loc1 = (arg0.vtable)["asm0.x6000046"](arg0,asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
             /* IL_12: ldloc.1  */
             /* IL_13: brfalse.s IL_31 */
             
@@ -12157,7 +12577,7 @@ asm.x6000190 = function get_FullName(arg0)
             /* IL_26: call String Concat(System.String, System.String) */
             /* IL_2B: stloc.2  */
             
-            loc2 = asm0.x60000ea((((arg0.vtable)["asm0.x6000083"](arg0).vtable)["asm0.x6000073"])((arg0.vtable)["asm0.x6000083"](arg0)),CILJS.new_string("[]"));
+            loc2 = asm0.x60000bb((((arg0.vtable)["asm0.x6000054"](arg0).vtable)["asm0.x6000044"])((arg0.vtable)["asm0.x6000054"](arg0)),CILJS.new_string("[]"));
             /* IL_2C: br IL_B4 */
             
             __pos__ = 0xB4;
@@ -12175,7 +12595,7 @@ asm.x6000190 = function get_FullName(arg0)
             /* IL_43: callvirt Boolean get_IsGenericType() */
             /* IL_48: brfalse.s IL_55 */
             
-            if ((!((arg0.vtable)["asm0.x600007a"](arg0)))){
+            if ((!((arg0.vtable)["asm0.x600004b"](arg0)))){
                 
                 __pos__ = 0x55;
                 
@@ -12186,7 +12606,7 @@ asm.x6000190 = function get_FullName(arg0)
             /* IL_50: ldc.i4.0  */
             /* IL_52: ceq  */
             
-            st_13 = (((arg0.vtable)["asm0.x600007c"](arg0) === 0) ? 1 : 0);
+            st_13 = (((arg0.vtable)["asm0.x600004d"](arg0) === 0) ? 1 : 0);
             /* IL_53: br.s IL_56 */
             
             __pos__ = 0x56;
@@ -12215,12 +12635,12 @@ asm.x6000190 = function get_FullName(arg0)
             /* IL_61: call String Concat(System.String, System.String) */
             /* IL_66: stloc.0  */
             
-            loc0 = asm0.x60000ea(loc0,CILJS.new_string("["));
+            loc0 = asm0.x60000bb(loc0,CILJS.new_string("["));
             /* IL_67: ldarg.0  */
             /* IL_68: callvirt Type[] GetGenericArguments() */
             /* IL_6D: stloc.s 4 */
             
-            loc4 = (arg0.vtable)["asm0.x600007d"](arg0);
+            loc4 = (arg0.vtable)["asm0.x600004e"](arg0);
             /* IL_6F: ldc.i4.0  */
             /* IL_70: stloc.s 5 */
             
@@ -12259,7 +12679,7 @@ asm.x6000190 = function get_FullName(arg0)
                     /* IL_89: call String Concat(System.String, System.String, System.String, System.String) */
                     /* IL_8E: stloc.0  */
                     
-                    loc0 = asm0.x60000ed(loc0,CILJS.new_string("["),((CILJS.ldelem_ref(loc4,loc5).vtable)["asm0.x6000079"])(CILJS.ldelem_ref(loc4,loc5)),CILJS.new_string("]"));
+                    loc0 = asm0.x60000be(loc0,CILJS.new_string("["),((CILJS.ldelem_ref(loc4,loc5).vtable)["asm0.x600004a"])(CILJS.ldelem_ref(loc4,loc5)),CILJS.new_string("]"));
                     /* IL_8F: ldloc.s 5 */
                     /* IL_91: ldc.i4.1  */
                     /* IL_92: add  */
@@ -12298,7 +12718,7 @@ asm.x6000190 = function get_FullName(arg0)
             /* IL_A9: call String Concat(System.String, System.String) */
             /* IL_AE: stloc.0  */
             
-            loc0 = asm0.x60000ea(loc0,CILJS.new_string("]"));
+            loc0 = asm0.x60000bb(loc0,CILJS.new_string("]"));
             /* IL_AF: nop  */
             case 0xB0:
             /* IL_B0: ldloc.0  */
@@ -12314,7 +12734,7 @@ asm.x6000190 = function get_FullName(arg0)
     }
 };;/* System.String TypeInfo.get_AssemblyQualifiedName()*/
 
-asm.x6000191 = function get_AssemblyQualifiedName(arg0)
+asm.x6000196 = function get_AssemblyQualifiedName(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -12327,29 +12747,29 @@ asm.x6000191 = function get_AssemblyQualifiedName(arg0)
     /* IL_17: call String Concat(System.String, System.String, System.String) */
     /* IL_1C: stloc.0  */
     
-    loc0 = asm0.x60000ec((arg0.vtable)["asm0.x6000073"](arg0),CILJS.new_string(", "),asm0.x60001c9((arg0.vtable)["asm0.x6000077"](arg0)));
+    loc0 = asm0.x60000bd((arg0.vtable)["asm0.x6000044"](arg0),CILJS.new_string(", "),asm0.x60001ce((arg0.vtable)["asm0.x6000048"](arg0)));
     /* IL_1F: ldloc.0  */
     /* IL_20: ret  */
     
     return loc0;
 };;/* System.Boolean TypeInfo.Equals(Object)*/
 
-asm.x6000192_init = function (arg0, arg1)
+asm.x6000197_init = function (arg0, arg1)
 {
     
     (asm0["System.Reflection.TypeInfo"]().init)();
     
-    asm.x6000192 = asm.x6000192_;
+    asm.x6000197 = asm.x6000197_;
 };;
 
-asm.x6000192 = function (arg0, arg1)
+asm.x6000197 = function (arg0, arg1)
 {
     
-    asm.x6000192_init(arg0,arg1);
+    asm.x6000197_init(arg0,arg1);
     
-    return asm.x6000192_(arg0,arg1);
+    return asm.x6000197_(arg0,arg1);
 };;
-asm.x6000192_ = function Equals(arg0, arg1)
+asm.x6000197_ = function Equals(arg0, arg1)
 {
     var t0;
     var loc0;
@@ -12376,7 +12796,7 @@ asm.x6000192_ = function Equals(arg0, arg1)
     return loc1;
 };/* System.Int32 TypeInfo.GetHashCode()*/
 
-asm.x6000193 = function GetHashCode(arg0)
+asm.x6000198 = function GetHashCode(arg0)
 {
     var t0;
     var t1;
@@ -12423,7 +12843,7 @@ asm.x6000193 = function GetHashCode(arg0)
             /* IL_24: call Int32 GetHashCode() */
             /* IL_29: stfld Int32 Hash */
             
-            arg0.ctor.Hash = asm0.x60000ce(arg0);
+            arg0.ctor.Hash = asm0.x600009f(arg0);
             case 0x2E:
             /* IL_2E: ldarg.0  */
             /* IL_2F: ldfld constructor ctor */
@@ -12439,7 +12859,7 @@ asm.x6000193 = function GetHashCode(arg0)
     }
 };;/* System.Object[] TypeInfo.GetCustomAttributes(Boolean)*/
 
-asm.x6000194 = function GetCustomAttributes(arg0, arg1)
+asm.x6000199 = function GetCustomAttributes(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -12449,29 +12869,29 @@ asm.x6000194 = function GetCustomAttributes(arg0, arg1)
     /* IL_0C: call Object[] GetCustomAttributesImpl(System.Object) */
     /* IL_11: stloc.0  */
     
-    loc0 = asm0.x60001c4(arg0.ctor.CustomAttributes);
+    loc0 = asm0.x60001c9(arg0.ctor.CustomAttributes);
     /* IL_14: ldloc.0  */
     /* IL_15: ret  */
     
     return loc0;
 };;/* System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData] TypeInfo.get_CustomAttributes()*/
 
-asm.x6000195_init = function (arg0)
+asm.x600019a_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo+<get_CustomAttributes>d__18"]().init)();
     
-    asm.x6000195 = asm.x6000195_;
+    asm.x600019a = asm.x600019a_;
 };;
 
-asm.x6000195 = function (arg0)
+asm.x600019a = function (arg0)
 {
     
-    asm.x6000195_init(arg0);
+    asm.x600019a_init(arg0);
     
-    return asm.x6000195_(arg0);
+    return asm.x600019a_(arg0);
 };;
-asm.x6000195_ = function get_CustomAttributes(arg0)
+asm.x600019a_ = function get_CustomAttributes(arg0)
 {
     var t0;
     var loc0;
@@ -12482,7 +12902,7 @@ asm.x6000195_ = function get_CustomAttributes(arg0)
     /* IL_02: newobj Void .ctor(System.Int32) */
     /* IL_07: stloc.0  */
     
-    loc0 = CILJS.newobj(t0,asm0.x6000214,[null, -2]);
+    loc0 = CILJS.newobj(t0,asm0.x6000206,[null, -2]);
     /* IL_08: ldloc.0  */
     /* IL_09: ldarg.0  */
     /* IL_0A: stfld TypeInfo <>4__this */
@@ -12498,22 +12918,22 @@ asm.x6000195_ = function get_CustomAttributes(arg0)
     return loc1;
 };/* System.Object[] TypeInfo.GetCustomAttributes(Type,Boolean)*/
 
-asm.x6000196_init = function (arg0, arg1, arg2)
+asm.x600019b_init = function (arg0, arg1, arg2)
 {
     
     (asm0["System.NotImplementedException"]().init)();
     
-    asm.x6000196 = asm.x6000196_;
+    asm.x600019b = asm.x600019b_;
 };;
 
-asm.x6000196 = function (arg0, arg1, arg2)
+asm.x600019b = function (arg0, arg1, arg2)
 {
     
-    asm.x6000196_init(arg0,arg1,arg2);
+    asm.x600019b_init(arg0,arg1,arg2);
     
-    return asm.x6000196_(arg0,arg1,arg2);
+    return asm.x600019b_(arg0,arg1,arg2);
 };;
-asm.x6000196_ = function GetCustomAttributes(arg0, arg1, arg2)
+asm.x600019b_ = function GetCustomAttributes(arg0, arg1, arg2)
 {
     var t0;
     
@@ -12522,25 +12942,25 @@ asm.x6000196_ = function GetCustomAttributes(arg0, arg1, arg2)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x600009f,[null]);
+    throw CILJS.newobj(t0,asm0.x6000070,[null]);
 };/* System.Boolean TypeInfo.IsDefined(Type,Boolean)*/
 
-asm.x6000197_init = function (arg0, arg1, arg2)
+asm.x600019c_init = function (arg0, arg1, arg2)
 {
     
     (asm0["System.NotImplementedException"]().init)();
     
-    asm.x6000197 = asm.x6000197_;
+    asm.x600019c = asm.x600019c_;
 };;
 
-asm.x6000197 = function (arg0, arg1, arg2)
+asm.x600019c = function (arg0, arg1, arg2)
 {
     
-    asm.x6000197_init(arg0,arg1,arg2);
+    asm.x600019c_init(arg0,arg1,arg2);
     
-    return asm.x6000197_(arg0,arg1,arg2);
+    return asm.x600019c_(arg0,arg1,arg2);
 };;
-asm.x6000197_ = function IsDefined(arg0, arg1, arg2)
+asm.x600019c_ = function IsDefined(arg0, arg1, arg2)
 {
     var t0;
     
@@ -12549,10 +12969,10 @@ asm.x6000197_ = function IsDefined(arg0, arg1, arg2)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x600009f,[null]);
+    throw CILJS.newobj(t0,asm0.x6000070,[null]);
 };/* System.Boolean TypeInfo.get_IsInterface()*/
 
-asm.x6000198 = function get_IsInterface(arg0)
+asm.x600019d = function get_IsInterface(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -12569,7 +12989,7 @@ asm.x6000198 = function get_IsInterface(arg0)
     return loc0;
 };;/* System.Boolean TypeInfo.get_IsGenericType()*/
 
-asm.x6000199 = function get_IsGenericType(arg0)
+asm.x600019e = function get_IsGenericType(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -12586,22 +13006,22 @@ asm.x6000199 = function get_IsGenericType(arg0)
     return loc0;
 };;/* System.Boolean TypeInfo.get_IsGenericTypeDefinition()*/
 
-asm.x600019a_init = function (arg0)
+asm.x600019f_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo+constructor"]().init)();
     
-    asm.x600019a = asm.x600019a_;
+    asm.x600019f = asm.x600019f_;
 };;
 
-asm.x600019a = function (arg0)
+asm.x600019f = function (arg0)
 {
     
-    asm.x600019a_init(arg0);
+    asm.x600019f_init(arg0);
     
-    return asm.x600019a_(arg0);
+    return asm.x600019f_(arg0);
 };;
-asm.x600019a_ = function get_IsGenericTypeDefinition(arg0)
+asm.x600019f_ = function get_IsGenericTypeDefinition(arg0)
 {
     var t0;
     var in_block_0;
@@ -12676,7 +13096,7 @@ asm.x600019a_ = function get_IsGenericTypeDefinition(arg0)
             /* IL_5A: call Boolean op_Equality(System.String, System.String) */
             /* IL_5F: stloc.s 4 */
             
-            loc4 = asm0.x60000f5(CILJS.new_string(loc1.FullName),CILJS.new_string("CilJs.Runtime.UnboundGenericParameter"));
+            loc4 = asm0.x60000c6(CILJS.new_string(loc1.FullName),CILJS.new_string("CilJs.Runtime.UnboundGenericParameter"));
             /* IL_61: ldloc.s 4 */
             /* IL_63: brfalse.s IL_69 */
             
@@ -12709,7 +13129,7 @@ asm.x600019a_ = function get_IsGenericTypeDefinition(arg0)
     }
 };/* System.Type TypeInfo.MakeGenericType(Type[])*/
 
-asm.x600019b_init = function (arg0, arg1)
+asm.x60001a0_init = function (arg0, arg1)
 {
     
     (asm0["System.InvalidOperationException"]().init)();
@@ -12718,17 +13138,17 @@ asm.x600019b_init = function (arg0, arg1)
     
     (asm0["System.Reflection.TypeInfo+constructor"]().init)();
     
-    asm.x600019b = asm.x600019b_;
+    asm.x60001a0 = asm.x60001a0_;
 };;
 
-asm.x600019b = function (arg0, arg1)
+asm.x60001a0 = function (arg0, arg1)
 {
     
-    asm.x600019b_init(arg0,arg1);
+    asm.x60001a0_init(arg0,arg1);
     
-    return asm.x600019b_(arg0,arg1);
+    return asm.x60001a0_(arg0,arg1);
 };;
-asm.x600019b_ = function MakeGenericType(arg0, arg1)
+asm.x60001a0_ = function MakeGenericType(arg0, arg1)
 {
     var t0;
     var t1;
@@ -12765,7 +13185,7 @@ asm.x600019b_ = function MakeGenericType(arg0, arg1)
             /* IL_09: ceq  */
             /* IL_0A: stloc.3  */
             
-            loc3 = (((arg0.vtable)["asm0.x600007c"](arg0) === 0) ? 1 : 0);
+            loc3 = (((arg0.vtable)["asm0.x600004d"](arg0) === 0) ? 1 : 0);
             /* IL_0B: ldloc.3  */
             /* IL_0C: brfalse.s IL_14 */
             
@@ -12778,7 +13198,7 @@ asm.x600019b_ = function MakeGenericType(arg0, arg1)
             /* IL_0E: newobj Void .ctor() */
             /* IL_13: throw  */
             
-            throw CILJS.newobj(t0,asm0.x6000030,[null]);
+            throw CILJS.newobj(t0,asm0.x6000001,[null]);
             case 0x14:
             /* IL_14: call Array New() */
             /* IL_19: stloc.0  */
@@ -12864,7 +13284,7 @@ asm.x600019b_ = function MakeGenericType(arg0, arg1)
             /* IL_5A: call Object ObjectLookup(System.Object, System.String) */
             /* IL_5F: stloc.1  */
             
-            loc1 = (arg0.ctor.Assembly[(arg0.vtable)["asm0.x6000073"](arg0).jsstr]);
+            loc1 = (arg0.ctor.Assembly[(arg0.vtable)["asm0.x6000044"](arg0).jsstr]);
             /* IL_60: ldloc.1  */
             /* IL_61: ldnull  */
             /* IL_62: ldloc.0  */
@@ -12877,7 +13297,7 @@ asm.x600019b_ = function MakeGenericType(arg0, arg1)
             /* IL_6F: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
             /* IL_74: stloc.s 6 */
             
-            loc6 = asm0.x600018c(loc2);
+            loc6 = asm0.x6000191(loc2);
             /* IL_78: ldloc.s 6 */
             /* IL_7A: ret  */
             
@@ -12886,22 +13306,22 @@ asm.x600019b_ = function MakeGenericType(arg0, arg1)
     }
 };/* System.Type[] TypeInfo.GetGenericArguments()*/
 
-asm.x600019c_init = function (arg0)
+asm.x60001a1_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo+constructor"]().init)();
     
-    asm.x600019c = asm.x600019c_;
+    asm.x60001a1 = asm.x60001a1_;
 };;
 
-asm.x600019c = function (arg0)
+asm.x60001a1 = function (arg0)
 {
     
-    asm.x600019c_init(arg0);
+    asm.x60001a1_init(arg0);
     
-    return asm.x600019c_(arg0);
+    return asm.x60001a1_(arg0);
 };;
-asm.x600019c_ = function GetGenericArguments(arg0)
+asm.x60001a1_ = function GetGenericArguments(arg0)
 {
     var t0;
     var t1;
@@ -12938,7 +13358,7 @@ asm.x600019c_ = function GetGenericArguments(arg0)
             /* IL_21: call constructor[] FromJsArray[System.Reflection.TypeInfo+constructor](System.Object) */
             /* IL_26: stloc.0  */
             
-            loc0 = (asm0.x6000115(asm0["System.Reflection.TypeInfo+constructor"]()))((arg0.ctor.GenericArguments[CILJS.new_string(arg0.ctor.MetadataName).jsstr]));
+            loc0 = (asm0.x60000e6(asm0["System.Reflection.TypeInfo+constructor"]()))((arg0.ctor.GenericArguments[CILJS.new_string(arg0.ctor.MetadataName).jsstr]));
             /* IL_27: ldloc.0  */
             /* IL_28: ldlen  */
             /* IL_29: conv.i4  */
@@ -12982,7 +13402,7 @@ asm.x600019c_ = function GetGenericArguments(arg0)
                     /* IL_39: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
                     /* IL_3E: stelem.ref  */
                     
-                    CILJS.stelem_ref(loc1,loc2,asm0.x600018c(CILJS.ldelem_ref(loc0,loc2)));
+                    CILJS.stelem_ref(loc1,loc2,asm0.x6000191(CILJS.ldelem_ref(loc0,loc2)));
                     /* IL_3F: ldloc.2  */
                     /* IL_40: ldc.i4.1  */
                     /* IL_41: add  */
@@ -13028,7 +13448,7 @@ asm.x600019c_ = function GetGenericArguments(arg0)
     }
 };/* System.Type TypeInfo.get_BaseType()*/
 
-asm.x600019d = function get_BaseType(arg0)
+asm.x60001a2 = function get_BaseType(arg0)
 {
     var st_08;
     var in_block_0;
@@ -13053,7 +13473,7 @@ asm.x600019d = function get_BaseType(arg0)
             /* IL_0C: call Boolean IsUndefined(System.Object) */
             /* IL_11: brtrue.s IL_23 */
             
-            if (asm0.x600000c(arg0.ctor.BaseType)){
+            if (asm0.x60001ee(arg0.ctor.BaseType)){
                 
                 __pos__ = 0x23;
                 
@@ -13104,7 +13524,7 @@ asm.x600019d = function get_BaseType(arg0)
             /* IL_37: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
             /* IL_3C: stloc.1  */
             
-            loc1 = asm0.x600018c(arg0.ctor.BaseType);
+            loc1 = asm0.x6000191(arg0.ctor.BaseType);
             case 0x3F:
             /* IL_3F: ldloc.1  */
             /* IL_40: ret  */
@@ -13114,22 +13534,22 @@ asm.x600019d = function get_BaseType(arg0)
     }
 };;/* System.Type[] TypeInfo.GetInterfaces()*/
 
-asm.x600019e_init = function (arg0)
+asm.x60001a3_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo+constructor"]().init)();
     
-    asm.x600019e = asm.x600019e_;
+    asm.x60001a3 = asm.x60001a3_;
 };;
 
-asm.x600019e = function (arg0)
+asm.x60001a3 = function (arg0)
 {
     
-    asm.x600019e_init(arg0);
+    asm.x60001a3_init(arg0);
     
-    return asm.x600019e_(arg0);
+    return asm.x60001a3_(arg0);
 };;
-asm.x600019e_ = function GetInterfaces(arg0)
+asm.x60001a3_ = function GetInterfaces(arg0)
 {
     var t0;
     var t1;
@@ -13161,7 +13581,7 @@ asm.x600019e_ = function GetInterfaces(arg0)
             /* IL_0C: call constructor[] FromJsArray[System.Reflection.TypeInfo+constructor](System.Object) */
             /* IL_11: stloc.0  */
             
-            loc0 = (asm0.x6000115(asm0["System.Reflection.TypeInfo+constructor"]()))(arg0.ctor.Interfaces);
+            loc0 = (asm0.x60000e6(asm0["System.Reflection.TypeInfo+constructor"]()))(arg0.ctor.Interfaces);
             /* IL_12: ldloc.0  */
             /* IL_13: ldlen  */
             /* IL_14: conv.i4  */
@@ -13205,7 +13625,7 @@ asm.x600019e_ = function GetInterfaces(arg0)
                     /* IL_24: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
                     /* IL_29: stelem.ref  */
                     
-                    CILJS.stelem_ref(loc1,loc2,asm0.x600018c(CILJS.ldelem_ref(loc0,loc2)));
+                    CILJS.stelem_ref(loc1,loc2,asm0.x6000191(CILJS.ldelem_ref(loc0,loc2)));
                     /* IL_2A: ldloc.2  */
                     /* IL_2B: ldc.i4.1  */
                     /* IL_2C: add  */
@@ -13251,7 +13671,7 @@ asm.x600019e_ = function GetInterfaces(arg0)
     }
 };/* System.Boolean TypeInfo.IsAssignableFrom(Type)*/
 
-asm.x600019f = function IsAssignableFrom(arg0, arg1)
+asm.x60001a4 = function IsAssignableFrom(arg0, arg1)
 {
     var t0;
     var st_14;
@@ -13312,7 +13732,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
             /* IL_12: callvirt Boolean Equals(System.Object) */
             /* IL_17: stloc.2  */
             
-            loc2 = (arg0.vtable)["asm0.x60000cd"](arg0,arg1);
+            loc2 = (arg0.vtable)["asm0.x600009e"](arg0,arg1);
             /* IL_18: ldloc.2  */
             /* IL_19: brfalse.s IL_1F */
             
@@ -13337,7 +13757,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
             /* IL_21: callvirt Boolean IsSubclassOf(System.Type) */
             /* IL_26: stloc.3  */
             
-            loc3 = (arg1.vtable)["asm0.x6000075"](arg1,arg0);
+            loc3 = (arg1.vtable)["asm0.x6000046"](arg1,arg0);
             /* IL_27: ldloc.3  */
             /* IL_28: brfalse.s IL_2E */
             
@@ -13361,7 +13781,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
             /* IL_2F: callvirt Boolean get_IsInterface() */
             /* IL_34: brfalse.s IL_48 */
             
-            if ((!((arg1.vtable)["asm0.x600007b"](arg1)))){
+            if ((!((arg1.vtable)["asm0.x600004c"](arg1)))){
                 
                 __pos__ = 0x48;
                 
@@ -13372,7 +13792,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
             /* IL_3C: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
             /* IL_41: callvirt Boolean Equals(System.Object) */
             
-            st_14 = (arg0.vtable)["asm0.x60000cd"](arg0,asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
+            st_14 = (arg0.vtable)["asm0.x600009e"](arg0,asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
             /* IL_46: br.s IL_49 */
             
             __pos__ = 0x49;
@@ -13409,7 +13829,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
             /* IL_54: callvirt Boolean get_IsInterface() */
             /* IL_59: stloc.s 5 */
             
-            loc5 = (arg0.vtable)["asm0.x600007b"](arg0);
+            loc5 = (arg0.vtable)["asm0.x600004c"](arg0);
             /* IL_5B: ldloc.s 5 */
             /* IL_5D: brfalse.s IL_97 */
             
@@ -13424,7 +13844,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
             /* IL_61: callvirt Type[] GetInterfaces() */
             /* IL_66: stloc.s 6 */
             
-            loc6 = (arg1.vtable)["asm0.x600007e"](arg1);
+            loc6 = (arg1.vtable)["asm0.x600004f"](arg1);
             /* IL_68: ldc.i4.0  */
             /* IL_69: stloc.s 7 */
             
@@ -13461,7 +13881,7 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
                     /* IL_73: callvirt Boolean IsAssignableFrom(System.Type) */
                     /* IL_78: stloc.s 8 */
                     
-                    loc8 = (arg0.vtable)["asm0.x6000080"](arg0,CILJS.ldelem_ref(loc6,loc7));
+                    loc8 = (arg0.vtable)["asm0.x6000051"](arg0,CILJS.ldelem_ref(loc6,loc7));
                     /* IL_7A: ldloc.s 8 */
                     /* IL_7C: brfalse.s IL_82 */
                     
@@ -13529,14 +13949,14 @@ asm.x600019f = function IsAssignableFrom(arg0, arg1)
     }
 };;/* static System.String TypeInfo.GetName(String)*/
 
-asm.x60001a0 = 
+asm.x60001a5 = 
             function (s) {
                 var idx = s.jsstr.lastIndexOf('.');
                 return CILJS.new_string(s.jsstr.substring(idx + 1));
             }
             ;;/* System.String TypeInfo.get_Name()*/
 
-asm.x60001a1 = function get_Name(arg0)
+asm.x60001a6 = function get_Name(arg0)
 {
     var t0;
     var in_block_0;
@@ -13562,7 +13982,7 @@ asm.x60001a1 = function get_Name(arg0)
             /* IL_0C: callvirt Boolean IsSubclassOf(System.Type) */
             /* IL_11: stloc.1  */
             
-            loc1 = (arg0.vtable)["asm0.x6000075"](arg0,asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
+            loc1 = (arg0.vtable)["asm0.x6000046"](arg0,asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0)));
             /* IL_12: ldloc.1  */
             /* IL_13: brfalse.s IL_2E */
             
@@ -13580,7 +14000,7 @@ asm.x60001a1 = function get_Name(arg0)
             /* IL_26: call String Concat(System.String, System.String) */
             /* IL_2B: stloc.2  */
             
-            loc2 = asm0.x60000ea((((arg0.vtable)["asm0.x6000083"](arg0).vtable)["asm0.x60001c5"])((arg0.vtable)["asm0.x6000083"](arg0)),CILJS.new_string("[]"));
+            loc2 = asm0.x60000bb((((arg0.vtable)["asm0.x6000054"](arg0).vtable)["asm0.x60001ca"])((arg0.vtable)["asm0.x6000054"](arg0)),CILJS.new_string("[]"));
             /* IL_2C: br.s IL_48 */
             
             __pos__ = 0x48;
@@ -13598,7 +14018,7 @@ asm.x60001a1 = function get_Name(arg0)
             /* IL_40: call String GetName(System.String) */
             /* IL_45: stloc.2  */
             
-            loc2 = asm0.x60001a0(loc0);
+            loc2 = asm0.x60001a5(loc0);
             case 0x48:
             /* IL_48: ldloc.2  */
             /* IL_49: ret  */
@@ -13608,7 +14028,7 @@ asm.x60001a1 = function get_Name(arg0)
     }
 };;/* System.Boolean TypeInfo.get_IsValueType()*/
 
-asm.x60001a2 = function get_IsValueType(arg0)
+asm.x60001a7 = function get_IsValueType(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -13625,7 +14045,7 @@ asm.x60001a2 = function get_IsValueType(arg0)
     return loc0;
 };;/* System.Boolean TypeInfo.get_IsPrimitive()*/
 
-asm.x60001a3 = function get_IsPrimitive(arg0)
+asm.x60001a8 = function get_IsPrimitive(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -13642,7 +14062,7 @@ asm.x60001a3 = function get_IsPrimitive(arg0)
     return loc0;
 };;/* System.Type TypeInfo.GetElementType()*/
 
-asm.x60001a4 = function GetElementType(arg0)
+asm.x60001a9 = function GetElementType(arg0)
 {
     var t0;
     var t1;
@@ -13672,7 +14092,7 @@ asm.x60001a4 = function GetElementType(arg0)
             /* IL_13: ceq  */
             /* IL_14: stloc.0  */
             
-            loc0 = (((arg0.vtable)["asm0.x6000075"](arg0,asm0.x6000074(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0))) === 0) ? 1 : 0);
+            loc0 = (((arg0.vtable)["asm0.x6000046"](arg0,asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0))) === 0) ? 1 : 0);
             /* IL_15: ldloc.0  */
             /* IL_16: brfalse.s IL_23 */
             
@@ -13686,7 +14106,7 @@ asm.x60001a4 = function GetElementType(arg0)
             /* IL_1D: newobj Void .ctor(System.String) */
             /* IL_22: throw  */
             
-            throw CILJS.newobj(t1,asm0.x60000a5,[null, CILJS.new_string("Invalid operation")]);
+            throw CILJS.newobj(t1,asm0.x6000076,[null, CILJS.new_string("Invalid operation")]);
             case 0x23:
             /* IL_23: ldarg.0  */
             /* IL_24: callvirt Type[] GetGenericArguments() */
@@ -13694,7 +14114,7 @@ asm.x60001a4 = function GetElementType(arg0)
             /* IL_2A: ldelem.ref  */
             /* IL_2B: stloc.1  */
             
-            loc1 = CILJS.ldelem_ref((arg0.vtable)["asm0.x600007d"](arg0),0);
+            loc1 = CILJS.ldelem_ref((arg0.vtable)["asm0.x600004e"](arg0),0);
             /* IL_2E: ldloc.1  */
             /* IL_2F: ret  */
             
@@ -13703,24 +14123,24 @@ asm.x60001a4 = function GetElementType(arg0)
     }
 };;/* System.Reflection.MethodInfo[] TypeInfo.GetMethods()*/
 
-asm.x60001a5_init = function (arg0)
+asm.x60001aa_init = function (arg0)
 {
     
     (asm0["System.Reflection.MethodInfo"]().init)();
     
     (asm0["CilJs.JavaScript.Array"]().init)();
     
-    asm.x60001a5 = asm.x60001a5_;
+    asm.x60001aa = asm.x60001aa_;
 };;
 
-asm.x60001a5 = function (arg0)
+asm.x60001aa = function (arg0)
 {
     
-    asm.x60001a5_init(arg0);
+    asm.x60001aa_init(arg0);
     
-    return asm.x60001a5_(arg0);
+    return asm.x60001aa_(arg0);
 };;
-asm.x60001a5_ = function GetMethods(arg0)
+asm.x60001aa_ = function GetMethods(arg0)
 {
     var t0;
     var t1;
@@ -13764,7 +14184,7 @@ asm.x60001a5_ = function GetMethods(arg0)
             /* IL_02: callvirt Type get_BaseType() */
             /* IL_07: brtrue.s IL_11 */
             
-            if ((arg0.vtable)["asm0.x6000078"](arg0)){
+            if ((arg0.vtable)["asm0.x6000049"](arg0)){
                 
                 __pos__ = 0x11;
                 
@@ -13785,10 +14205,10 @@ asm.x60001a5_ = function GetMethods(arg0)
             st_03 = arg0;
             /* IL_12: callvirt Type get_BaseType() */
             
-            st_04 = (st_03.vtable)["asm0.x6000078"](st_03);
+            st_04 = (st_03.vtable)["asm0.x6000049"](st_03);
             /* IL_17: callvirt MethodInfo[] GetMethods() */
             
-            st_05 = (st_04.vtable)["asm0.x6000084"](st_04);
+            st_05 = (st_04.vtable)["asm0.x6000055"](st_04);
             case 0x1C:
             /* IL_1C: stloc.0  */
             
@@ -13862,7 +14282,7 @@ asm.x60001a5_ = function GetMethods(arg0)
                     /* IL_70: call MethodInfo GetInstance(CilJs.JavaScript.Array) */
                     /* IL_75: stelem.ref  */
                     
-                    CILJS.stelem_ref(loc4,loc5,asm0.x60001b5(arg0.ctor.Methods[loc5]));
+                    CILJS.stelem_ref(loc4,loc5,asm0.x60001ba(arg0.ctor.Methods[loc5]));
                     /* IL_76: nop  */
                     /* IL_77: ldloc.s 5 */
                     /* IL_79: ldc.i4.1  */
@@ -13978,7 +14398,7 @@ asm.x60001a5_ = function GetMethods(arg0)
     }
 };/* System.Boolean TypeInfo.IsInstanceOfType(Object)*/
 
-asm.x60001a7 = function IsInstanceOfType(arg0, arg1)
+asm.x60001ac = function IsInstanceOfType(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -13995,12 +14415,12 @@ asm.x60001a7 = function IsInstanceOfType(arg0, arg1)
     return loc0;
 };;/*  TypeInfo..ctor(constructor)*/
 
-asm.x600018a = function _ctor(arg0, arg1)
+asm.x600018f = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x6000086(arg0);
+    asm0.x6000057(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ldarg.0  */
@@ -14018,12 +14438,12 @@ asm.x600018a = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyCompanyAttribute..ctor(Object)*/
 
-asm.x60001a8 = function _ctor(arg0, arg1)
+asm.x60001ad = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14031,12 +14451,12 @@ asm.x60001a8 = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyConfigurationAttribute..ctor(Object)*/
 
-asm.x60001a9 = function _ctor(arg0, arg1)
+asm.x60001ae = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14044,12 +14464,12 @@ asm.x60001a9 = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyFileVersionAttribute..ctor(Object)*/
 
-asm.x60001aa = function _ctor(arg0, arg1)
+asm.x60001af = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14057,12 +14477,12 @@ asm.x60001aa = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyInformationalVersionAttribute..ctor(Object)*/
 
-asm.x60001ab = function _ctor(arg0, arg1)
+asm.x60001b0 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14070,12 +14490,12 @@ asm.x60001ab = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyTitleAttribute..ctor(Object)*/
 
-asm.x60001ac = function _ctor(arg0, arg1)
+asm.x60001b1 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14083,12 +14503,12 @@ asm.x60001ac = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyVersionAttribute..ctor(Object)*/
 
-asm.x60001ad = function _ctor(arg0, arg1)
+asm.x60001b2 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14096,12 +14516,12 @@ asm.x60001ad = function _ctor(arg0, arg1)
     return ;
 };;/*  AssemblyProductAttribute..ctor(Object)*/
 
-asm.x60001ae = function _ctor(arg0, arg1)
+asm.x60001b3 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14109,7 +14529,7 @@ asm.x60001ae = function _ctor(arg0, arg1)
     return ;
 };;/* System.String DefaultMemberAttribute.get_MemberName()*/
 
-asm.x60001b0 = function get_MemberName(arg0)
+asm.x60001b5 = function get_MemberName(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -14124,12 +14544,12 @@ asm.x60001b0 = function get_MemberName(arg0)
     return loc0;
 };;/*  DefaultMemberAttribute..ctor(String)*/
 
-asm.x60001af = function _ctor(arg0, arg1)
+asm.x60001b4 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
+    asm0.x6000080(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ldarg.0  */
@@ -14142,22 +14562,22 @@ asm.x60001af = function _ctor(arg0, arg1)
     return ;
 };;/* static System.Reflection.MethodInfo MethodInfo.GetInstance(Array)*/
 
-asm.x60001b5_init = function (arg0)
+asm.x60001ba_init = function (arg0)
 {
     
     (asm0["System.Reflection.MethodInfo"]().init)();
     
-    asm.x60001b5 = asm.x60001b5_;
+    asm.x60001ba = asm.x60001ba_;
 };;
 
-asm.x60001b5 = function (arg0)
+asm.x60001ba = function (arg0)
 {
     
-    asm.x60001b5_init(arg0);
+    asm.x60001ba_init(arg0);
     
-    return asm.x60001b5_(arg0);
+    return asm.x60001ba_(arg0);
 };;
-asm.x60001b5_ = function GetInstance(arg0)
+asm.x60001ba_ = function GetInstance(arg0)
 {
     var t0;
     var st_00;
@@ -14178,7 +14598,7 @@ asm.x60001b5_ = function GetInstance(arg0)
     /* IL_00: nop  */
     /* IL_01: newobj Void .ctor() */
     
-    st_00 = CILJS.newobj(t0,asm0.x60001b4,[null]);
+    st_00 = CILJS.newobj(t0,asm0.x60001b9,[null]);
     /* IL_06: dup  */
     
     st_03 = st_01 = st_00;
@@ -14197,7 +14617,7 @@ asm.x60001b5_ = function GetInstance(arg0)
     return loc0;
 };/* System.Object[] MethodInfo.GetCustomAttributes(Boolean)*/
 
-asm.x60001b6 = function GetCustomAttributes(arg0, arg1)
+asm.x60001bb = function GetCustomAttributes(arg0, arg1)
 {
     var loc0;
     /* IL_00: nop  */
@@ -14208,29 +14628,29 @@ asm.x60001b6 = function GetCustomAttributes(arg0, arg1)
     /* IL_0D: call Object[] GetCustomAttributesImpl(System.Object) */
     /* IL_12: stloc.0  */
     
-    loc0 = asm0.x60001c4(arg0.System_ReflectionMethodInfomethodData[3]);
+    loc0 = asm0.x60001c9(arg0.System_ReflectionMethodInfomethodData[3]);
     /* IL_15: ldloc.0  */
     /* IL_16: ret  */
     
     return loc0;
 };;/* System.Object[] MethodInfo.GetCustomAttributes(Type,Boolean)*/
 
-asm.x60001b7_init = function (arg0, arg1, arg2)
+asm.x60001bc_init = function (arg0, arg1, arg2)
 {
     
     (asm0["System.NotImplementedException"]().init)();
     
-    asm.x60001b7 = asm.x60001b7_;
+    asm.x60001bc = asm.x60001bc_;
 };;
 
-asm.x60001b7 = function (arg0, arg1, arg2)
+asm.x60001bc = function (arg0, arg1, arg2)
 {
     
-    asm.x60001b7_init(arg0,arg1,arg2);
+    asm.x60001bc_init(arg0,arg1,arg2);
     
-    return asm.x60001b7_(arg0,arg1,arg2);
+    return asm.x60001bc_(arg0,arg1,arg2);
 };;
-asm.x60001b7_ = function GetCustomAttributes(arg0, arg1, arg2)
+asm.x60001bc_ = function GetCustomAttributes(arg0, arg1, arg2)
 {
     var t0;
     
@@ -14239,25 +14659,25 @@ asm.x60001b7_ = function GetCustomAttributes(arg0, arg1, arg2)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x600009f,[null]);
+    throw CILJS.newobj(t0,asm0.x6000070,[null]);
 };/* System.Boolean MethodInfo.IsDefined(Type,Boolean)*/
 
-asm.x60001b8_init = function (arg0, arg1, arg2)
+asm.x60001bd_init = function (arg0, arg1, arg2)
 {
     
     (asm0["System.NotImplementedException"]().init)();
     
-    asm.x60001b8 = asm.x60001b8_;
+    asm.x60001bd = asm.x60001bd_;
 };;
 
-asm.x60001b8 = function (arg0, arg1, arg2)
+asm.x60001bd = function (arg0, arg1, arg2)
 {
     
-    asm.x60001b8_init(arg0,arg1,arg2);
+    asm.x60001bd_init(arg0,arg1,arg2);
     
-    return asm.x60001b8_(arg0,arg1,arg2);
+    return asm.x60001bd_(arg0,arg1,arg2);
 };;
-asm.x60001b8_ = function IsDefined(arg0, arg1, arg2)
+asm.x60001bd_ = function IsDefined(arg0, arg1, arg2)
 {
     var t0;
     
@@ -14266,25 +14686,25 @@ asm.x60001b8_ = function IsDefined(arg0, arg1, arg2)
     /* IL_01: newobj Void .ctor() */
     /* IL_06: throw  */
     
-    throw CILJS.newobj(t0,asm0.x600009f,[null]);
+    throw CILJS.newobj(t0,asm0.x6000070,[null]);
 };/* System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData] MethodInfo.get_CustomAttributes()*/
 
-asm.x60001b9_init = function (arg0)
+asm.x60001be_init = function (arg0)
 {
     
     (asm0["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"]().init)();
     
-    asm.x60001b9 = asm.x60001b9_;
+    asm.x60001be = asm.x60001be_;
 };;
 
-asm.x60001b9 = function (arg0)
+asm.x60001be = function (arg0)
 {
     
-    asm.x60001b9_init(arg0);
+    asm.x60001be_init(arg0);
     
-    return asm.x60001b9_(arg0);
+    return asm.x60001be_(arg0);
 };;
-asm.x60001b9_ = function get_CustomAttributes(arg0)
+asm.x60001be_ = function get_CustomAttributes(arg0)
 {
     var t0;
     var loc0;
@@ -14295,7 +14715,7 @@ asm.x60001b9_ = function get_CustomAttributes(arg0)
     /* IL_02: newobj Void .ctor(System.Int32) */
     /* IL_07: stloc.0  */
     
-    loc0 = CILJS.newobj(t0,asm0.x600021d,[null, -2]);
+    loc0 = CILJS.newobj(t0,asm0.x600020f,[null, -2]);
     /* IL_08: ldloc.0  */
     /* IL_09: ldarg.0  */
     /* IL_0A: stfld MethodInfo <>4__this */
@@ -14311,22 +14731,22 @@ asm.x60001b9_ = function get_CustomAttributes(arg0)
     return loc1;
 };/* System.String MethodInfo.get_Name()*/
 
-asm.x60001ba_init = function (arg0)
+asm.x60001bf_init = function (arg0)
 {
     
     (asm0["CilJs.JavaScript.String"]().init)();
     
-    asm.x60001ba = asm.x60001ba_;
+    asm.x60001bf = asm.x60001bf_;
 };;
 
-asm.x60001ba = function (arg0)
+asm.x60001bf = function (arg0)
 {
     
-    asm.x60001ba_init(arg0);
+    asm.x60001bf_init(arg0);
     
-    return asm.x60001ba_(arg0);
+    return asm.x60001bf_(arg0);
 };;
-asm.x60001ba_ = function get_Name(arg0)
+asm.x60001bf_ = function get_Name(arg0)
 {
     var t0;
     var loc0;
@@ -14348,7 +14768,7 @@ asm.x60001ba_ = function get_Name(arg0)
     return loc0;
 };/* System.Object MethodInfo.Invoke(Object,Object[])*/
 
-asm.x60001bb = function Invoke(arg0, arg1, arg2)
+asm.x60001c0 = function Invoke(arg0, arg1, arg2)
 {
     var loc0;
     var loc1;
@@ -14375,26 +14795,26 @@ asm.x60001bb = function Invoke(arg0, arg1, arg2)
     /* IL_1F: call Object InvokeImpl(System.Object, System.Object, System.Object, System.Object[]) */
     /* IL_24: stloc.2  */
     
-    loc2 = asm0.x60001bc(loc0,loc1,arg1,arg2);
+    loc2 = asm0.x60001c1(loc0,loc1,arg1,arg2);
     /* IL_27: ldloc.2  */
     /* IL_28: ret  */
     
     return loc2;
 };;/* static System.Object MethodInfo.InvokeImpl(Object,Object,Object,Object[])*/
 
-asm.x60001bc = 
+asm.x60001c1 = 
             function InvokeImpl(assembly, method, obj, parameters) {
                 var args = [obj].concat(parameters.jsarr);
                 return assembly[method].apply(null, args);
             }
             ;;/*  MethodInfo..ctor()*/
 
-asm.x60001b4 = function _ctor(arg0)
+asm.x60001b9 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     
-    asm0.x60001c6(arg0);
+    asm0.x60001cb(arg0);
     /* IL_06: nop  */
     /* IL_07: nop  */
     /* IL_08: ret  */
@@ -14402,22 +14822,22 @@ asm.x60001b4 = function _ctor(arg0)
     return ;
 };;/* System.Type CustomAttributeData.get_AttributeType()*/
 
-asm.x60001be_init = function (arg0)
+asm.x60001c3_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo+constructor"]().init)();
     
-    asm.x60001be = asm.x60001be_;
+    asm.x60001c3 = asm.x60001c3_;
 };;
 
-asm.x60001be = function (arg0)
+asm.x60001c3 = function (arg0)
 {
     
-    asm.x60001be_init(arg0);
+    asm.x60001c3_init(arg0);
     
-    return asm.x60001be_(arg0);
+    return asm.x60001c3_(arg0);
 };;
-asm.x60001be_ = function get_AttributeType(arg0)
+asm.x60001c3_ = function get_AttributeType(arg0)
 {
     var t0;
     var loc0;
@@ -14432,14 +14852,14 @@ asm.x60001be_ = function get_AttributeType(arg0)
     /* IL_12: call Type GetInstance(System.Reflection.TypeInfo+constructor) */
     /* IL_17: stloc.0  */
     
-    loc0 = asm0.x600018c(arg0.System_ReflectionCustomAttributeDataraw[0]);
+    loc0 = asm0.x6000191(arg0.System_ReflectionCustomAttributeDataraw[0]);
     /* IL_1A: ldloc.0  */
     /* IL_1B: ret  */
     
     return loc0;
 };/*  CustomAttributeData..ctor(Array)*/
 
-asm.x60001bd = function _ctor(arg0, arg1)
+asm.x60001c2 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -14455,22 +14875,22 @@ asm.x60001bd = function _ctor(arg0, arg1)
     return ;
 };;/* static System.Reflection.TypeInfo IntrospectionExtensions.GetTypeInfo(Type)*/
 
-asm.x60001bf_init = function (arg0)
+asm.x60001c4_init = function (arg0)
 {
     
     (asm0["System.Reflection.TypeInfo"]().init)();
     
-    asm.x60001bf = asm.x60001bf_;
+    asm.x60001c4 = asm.x60001c4_;
 };;
 
-asm.x60001bf = function (arg0)
+asm.x60001c4 = function (arg0)
 {
     
-    asm.x60001bf_init(arg0);
+    asm.x60001c4_init(arg0);
     
-    return asm.x60001bf_(arg0);
+    return asm.x60001c4_(arg0);
 };;
-asm.x60001bf_ = function GetTypeInfo(arg0)
+asm.x60001c4_ = function GetTypeInfo(arg0)
 {
     var t0;
     var loc0;
@@ -14488,7 +14908,7 @@ asm.x60001bf_ = function GetTypeInfo(arg0)
     return loc0;
 };/* System.Collections.Generic.IEnumerable`1[System.Reflection.CustomAttributeData] MemberInfo.get_CustomAttributes()*/
 
-asm.x60001c2 = function get_CustomAttributes(arg0)
+asm.x60001c7 = function get_CustomAttributes(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -14502,7 +14922,7 @@ asm.x60001c2 = function get_CustomAttributes(arg0)
     return loc0;
 };;/* static System.Object[] MemberInfo.GetCustomAttributesImpl(Object)*/
 
-asm.x60001c4 = 
+asm.x60001c9 = 
             function (ca) {
                 ca = ca || [];
                 var r = CILJS.new_array(asm0['System.Object'], ca.length);
@@ -14529,7 +14949,7 @@ asm.x60001c4 =
             }
             ;;/*  MemberInfo..ctor()*/
 
-asm.x60001c6 = function _ctor(arg0)
+asm.x60001cb = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -14539,22 +14959,22 @@ asm.x60001c6 = function _ctor(arg0)
     return ;
 };;/* static System.Reflection.Assembly Assembly.GetInstance(jsAsm)*/
 
-asm.x60001c8_init = function (arg0)
+asm.x60001cd_init = function (arg0)
 {
     
     (asm0["System.Reflection.Assembly"]().init)();
     
-    asm.x60001c8 = asm.x60001c8_;
+    asm.x60001cd = asm.x60001cd_;
 };;
 
-asm.x60001c8 = function (arg0)
+asm.x60001cd = function (arg0)
 {
     
-    asm.x60001c8_init(arg0);
+    asm.x60001cd_init(arg0);
     
-    return asm.x60001c8_(arg0);
+    return asm.x60001cd_(arg0);
 };;
-asm.x60001c8_ = function GetInstance(arg0)
+asm.x60001cd_ = function GetInstance(arg0)
 {
     var t0;
     var in_block_0;
@@ -14578,7 +14998,7 @@ asm.x60001c8_ = function GetInstance(arg0)
             /* IL_07: call Boolean IsUndefined(System.Object) */
             /* IL_0C: stloc.0  */
             
-            loc0 = asm0.x600000c(arg0.ManagedInstance);
+            loc0 = asm0.x60001ee(arg0.ManagedInstance);
             /* IL_0D: ldloc.0  */
             /* IL_0E: brfalse.s IL_1C */
             
@@ -14593,7 +15013,7 @@ asm.x60001c8_ = function GetInstance(arg0)
             /* IL_12: newobj Void .ctor(System.Reflection.Assembly+jsAsm) */
             /* IL_17: stfld Assembly ManagedInstance */
             
-            arg0.ManagedInstance = CILJS.newobj(t0,asm0.x60001c7,[null, arg0]);
+            arg0.ManagedInstance = CILJS.newobj(t0,asm0.x60001cc,[null, arg0]);
             case 0x1C:
             /* IL_1C: ldarg.0  */
             /* IL_1D: ldfld Assembly ManagedInstance */
@@ -14608,7 +15028,7 @@ asm.x60001c8_ = function GetInstance(arg0)
     }
 };/* System.String Assembly.get_FullName()*/
 
-asm.x60001c9 = function get_FullName(arg0)
+asm.x60001ce = function get_FullName(arg0)
 {
     var loc0;
     /* IL_00: nop  */
@@ -14625,7 +15045,7 @@ asm.x60001c9 = function get_FullName(arg0)
     return loc0;
 };;/*  Assembly..ctor(jsAsm)*/
 
-asm.x60001c7 = function _ctor(arg0, arg1)
+asm.x60001cc = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -14639,33 +15059,45 @@ asm.x60001c7 = function _ctor(arg0, arg1)
     /* IL_0F: ret  */
     
     return ;
-};;/* System.Void AutoResetEvent.Close()*/
+};;/*  UnboundGenericParameter..ctor()*/
 
-asm.x60001dc = function Close(arg0)
+asm.x60001d0 = function _ctor(arg0)
 {
-    /* IL_00: nop  */
-    /* IL_01: ret  */
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
     
     return ;
-};;/* System.Void AutoResetEvent.WaitOne()*/
+};;/* static System.Object Marshal.get_Null()*/
 
-asm.x60001dd = function WaitOne(arg0)
+asm.x60001de = function get_Null()
 {
+    var loc0;
     /* IL_00: nop  */
-    /* IL_01: ret  */
+    /* IL_01: call Object null_impl() */
+    /* IL_06: stloc.0  */
+    
+    loc0 = null;
+    /* IL_09: ldloc.0  */
+    /* IL_0A: ret  */
+    
+    return loc0;
+};;/* static System.Boolean Object.IsUndefined(Object)*/
+
+asm.x60001ee = function (o) { return o === void 0; };;/*  Object..ctor()*/
+
+asm.x60001ef = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
     
     return ;
-};;/* System.Void AutoResetEvent.Set()*/
+};;/*  String..ctor()*/
 
-asm.x60001de = function Set(arg0)
-{
-    /* IL_00: nop  */
-    /* IL_01: ret  */
-    
-    return ;
-};;/*  AutoResetEvent..ctor(Boolean)*/
-
-asm.x60001db = function _ctor(arg0, arg1)
+asm.x60001f0 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -14674,306 +15106,334 @@ asm.x60001db = function _ctor(arg0, arg1)
     /* IL_08: ret  */
     
     return ;
-};;/* static System.Threading.Thread Thread.get_CurrentThread()*/
+};;/* static  String..cctor()*/
 
-asm.x60001df_init = function ()
+asm.x60001f5_init = function ()
 {
     
-    (asm0["System.Threading.Thread"]().init)();
+    (asm0["CilJs.JavaScript.String"]().init)();
     
-    asm.x60001df = asm.x60001df_;
+    asm.x60001f5 = asm.x60001f5_;
 };;
 
-asm.x60001df = function ()
+asm.x60001f5 = function ()
 {
     
-    asm.x60001df_init();
+    asm.x60001f5_init();
     
-    return asm.x60001df_();
+    return asm.x60001f5_();
 };;
-asm.x60001df_ = function get_CurrentThread()
-{
-    var t0;
-    var loc0;
-    
-    t0 = asm0["System.Threading.Thread"]();
-    /* IL_00: nop  */
-    
-    asm0.x60001e3();
-    /* IL_01: ldsfld Thread currentThread */
-    /* IL_06: stloc.0  */
-    
-    loc0 = t0.currentThread;
-    /* IL_09: ldloc.0  */
-    /* IL_0A: ret  */
-    
-    return loc0;
-};/* System.Boolean Thread.get_IsThreadPoolThread()*/
-
-asm.x60001e0 = function get_IsThreadPoolThread(arg0)
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldc.i4.0  */
-    /* IL_02: stloc.0  */
-    
-    loc0 = 0;
-    /* IL_05: ldloc.0  */
-    /* IL_06: ret  */
-    
-    return loc0;
-};;/* static System.Void Thread.Sleep(Int64)*/
-
-asm.x60001e1 = function Sleep(arg0)
-{
-    /* IL_00: nop  */
-    /* IL_01: ret  */
-    
-    return ;
-};;/*  Thread..ctor()*/
-
-asm.x60001e2 = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/* static  Thread..cctor()*/
-
-asm.x60001e3_init = function ()
-{
-    
-    (asm0["System.Threading.Thread"]().init)();
-    
-    asm.x60001e3 = asm.x60001e3_;
-};;
-
-asm.x60001e3 = function ()
-{
-    
-    asm.x60001e3_init();
-    
-    return asm.x60001e3_();
-};;
-asm.x60001e3_ = function _cctor()
+asm.x60001f5_ = function _cctor()
 {
     var t0;
     
-    if (asm0["System.Threading.Thread"]().FieldsInitialized){
+    if (asm0["CilJs.JavaScript.String"]().FieldsInitialized){
         
         return;
     }
     
-    asm0["System.Threading.Thread"]().FieldsInitialized = true;
+    asm0["CilJs.JavaScript.String"]().FieldsInitialized = true;
     
-    t0 = asm0["System.Threading.Thread"]();
+    t0 = asm0["CilJs.JavaScript.String"]();
+    /* IL_00: call String GetEmpty() */
+    /* IL_05: stsfld String Emtpy */
     
-    asm0.x60001e3();
-    /* IL_00: newobj Void .ctor() */
-    /* IL_05: stsfld Thread currentThread */
-    
-    t0.currentThread = CILJS.newobj(t0,asm0.x60001e2,[null]);
+    t0.Emtpy = "";
     /* IL_0A: ret  */
     
     return ;
-};/* static System.Void Monitor.Enter(Object)*/
+};/* System.Collections.Generic.IEnumerator`1[System.Object] Array.GetEnumerator()*/
 
-asm.x60001e4 = function Enter(arg0)
+asm.x60001fb_init = function (arg0)
 {
-    /* IL_00: nop  */
-    /* IL_01: ret  */
     
-    return ;
-};;/* static System.Void Monitor.Exit(Object)*/
+    (asm0["CilJs.JavaScript.Array+<GetEnumerator>d__7"]().init)();
+    
+    asm.x60001fb = asm.x60001fb_;
+};;
 
-asm.x60001e5 = function Exit(arg0)
+asm.x60001fb = function (arg0)
 {
-    /* IL_00: nop  */
-    /* IL_01: ret  */
     
-    return ;
-};;/* System.Boolean WaitHandle.WaitOne(Int32)*/
-
-asm.x60001e6 = function WaitOne(arg0, arg1)
+    asm.x60001fb_init(arg0);
+    
+    return asm.x60001fb_(arg0);
+};;
+asm.x60001fb_ = function GetEnumerator(arg0)
 {
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldc.i4.1  */
-    /* IL_02: stloc.0  */
+    var t0;
+    var st_00;
+    var st_01;
+    var st_02;
+    var st_03;
+    var st_04;
     
-    loc0 = 1;
-    /* IL_05: ldloc.0  */
-    /* IL_06: ret  */
+    t0 = asm0["CilJs.JavaScript.Array+<GetEnumerator>d__7"]();
     
-    return loc0;
-};;/*  WaitHandle..ctor()*/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* IL_00: ldc.i4.0  */
+    
+    st_00 = 0;
+    /* IL_01: newobj Void .ctor(System.Int32) */
+    
+    st_01 = CILJS.newobj(t0,asm0.x6000219,[null, st_00]);
+    /* IL_06: dup  */
+    
+    st_04 = st_02 = st_01;
+    /* IL_07: ldarg.0  */
+    
+    st_03 = arg0;
+    /* IL_08: stfld Array <>4__this */
+    
+    st_02["<>4__this"] = st_03;
+    /* IL_0D: ret  */
+    
+    return st_04;
+};/* System.Collections.Generic.IEnumerable`1[System.Object] Array.AsEnumerable()*/
 
-asm.x60001e7 = function _ctor(arg0)
+asm.x60001fc_init = function (arg0)
+{
+    
+    (asm0["CilJs.JavaScript.Array+<AsEnumerable>d__8"]().init)();
+    
+    asm.x60001fc = asm.x60001fc_;
+};;
+
+asm.x60001fc = function (arg0)
+{
+    
+    asm.x60001fc_init(arg0);
+    
+    return asm.x60001fc_(arg0);
+};;
+asm.x60001fc_ = function AsEnumerable(arg0)
+{
+    var t0;
+    var st_00;
+    var st_01;
+    var st_02;
+    var st_03;
+    var st_04;
+    
+    t0 = asm0["CilJs.JavaScript.Array+<AsEnumerable>d__8"]();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* IL_00: ldc.i4.s 254 */
+    
+    st_00 = -2;
+    /* IL_02: newobj Void .ctor(System.Int32) */
+    
+    st_01 = CILJS.newobj(t0,asm0.x600021f,[null, st_00]);
+    /* IL_07: dup  */
+    
+    st_04 = st_02 = st_01;
+    /* IL_08: ldarg.0  */
+    
+    st_03 = arg0;
+    /* IL_09: stfld Array <>4__this */
+    
+    st_02["<>4__this"] = st_03;
+    /* IL_0E: ret  */
+    
+    return st_04;
+};/*  Array..ctor()*/
+
+asm.x60001f6 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
     /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/*  DebuggerStepThroughAttribute..ctor()*/
-
-asm.x60001e8 = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/*  Debugger..ctor()*/
-
-asm.x60001ea = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/*  ExtensionAttribute..ctor()*/
-
-asm.x60001ec = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/* System.String InternalsVisibleToAttribute.get_AssemblyName()*/
-
-asm.x60001ee = function get_AssemblyName(arg0)
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldfld String assemblyName */
-    /* IL_07: stloc.0  */
-    
-    loc0 = arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeassemblyName;
-    /* IL_0A: ldloc.0  */
-    /* IL_0B: ret  */
-    
-    return loc0;
-};;/* System.Boolean InternalsVisibleToAttribute.get_AllInternalsVisible()*/
-
-asm.x60001ef = function get_AllInternalsVisible(arg0)
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldfld Boolean allInternalsVisible */
-    /* IL_07: stloc.0  */
-    
-    loc0 = arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible;
-    /* IL_0A: ldloc.0  */
-    /* IL_0B: ret  */
-    
-    return loc0;
-};;/* System.Void InternalsVisibleToAttribute.set_AllInternalsVisible(Boolean)*/
-
-asm.x60001f0 = function set_AllInternalsVisible(arg0, arg1)
-{
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldarg.1  */
-    /* IL_03: stfld Boolean allInternalsVisible */
-    
-    arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible = arg1;
+    /* IL_07: nop  */
     /* IL_08: ret  */
     
     return ;
-};;/*  InternalsVisibleToAttribute..ctor(String)*/
+};;/* System.Int32 <>c__DisplayClass23_0`1.<Sort>b__0(T,T)*/
 
-asm.x60001ed = function _ctor(arg0, arg1)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: ldc.i4.1  */
-    /* IL_02: stfld Boolean allInternalsVisible */
-    
-    arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible = 1;
-    /* IL_07: ldarg.0  */
-    /* IL_08: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
-    /* IL_0D: nop  */
-    /* IL_0E: nop  */
-    /* IL_0F: ldarg.0  */
-    /* IL_10: ldarg.1  */
-    /* IL_11: stfld String assemblyName */
-    
-    arg0.System_Runtime_CompilerServicesInternalsVisibleToAttributeassemblyName = arg1;
-    /* IL_16: ret  */
-    
-    return ;
-};;/* static System.Void RuntimeHelpers.InitializeArrayImpl(Array,RuntimeFieldHandle)*/
-
-asm.x60001f1 = 
-            function (arr, handle) {
-                handle.value.type();
-                var data = new Int8Array(handle.value.type[handle.value.field]);
-                arr.jsarr = new arr.etype.ArrayType(data.buffer);   
-            }
-            ;;/* static System.Void RuntimeHelpers.InitializeArray(Array,RuntimeFieldHandle)*/
-
-asm.x60001f3_init = function (arg0, arg1)
+asm.x60001fe_init = function (arg0, arg1, arg2)
 {
     
-    (asm0["System.Array`1"](asm0["System.Int64"]()).init)();
-    
-    (asm0["System.Array`1"](asm0["System.UInt64"]()).init)();
-    
-    asm.x60001f3 = asm.x60001f3_;
+    (asm0["System.Collections.Generic.IComparer`1"](((arg0.constructor.GenericArguments)["asm0.t2000076"])[0]).init)();
 };;
 
-asm.x60001f3 = function (arg0, arg1)
+asm.x60001fe = function (arg0, arg1, arg2)
 {
     
-    asm.x60001f3_init(arg0,arg1);
+    asm.x60001fe_init(arg0,arg1,arg2);
     
-    return asm.x60001f3_(arg0,arg1);
+    return asm.x60001fe_(arg0,arg1,arg2);
 };;
-asm.x60001f3_ = function InitializeArray(arg0, arg1)
+asm.x60001fe_ = function _Sort_b__0(arg0, arg1, arg2)
 {
     var t0;
     var t1;
-    var t2;
-    var t3;
-    var t4;
-    var st_05;
+    
+    t0 = ((arg0.constructor.GenericArguments)["asm0.t2000076"])[0];
+    
+    t1 = asm0["System.Collections.Generic.IComparer`1"](t0);
+    /* IL_00: ldarg.0  */
+    /* IL_01: ldfld IComparer`1 comparer */
+    /* IL_06: ldarg.1  */
+    /* IL_07: ldarg.2  */
+    /* IL_08: callvirt Int32 Compare(T, T) */
+    /* IL_0D: ret  */
+    
+    return (((arg0.comparer.ifacemap)[t1])[t0].x600018c)(CILJS.convert_box_to_pointer_as_needed(arg0.comparer),arg1,arg2);
+};/*  <>c__DisplayClass23_0`1..ctor()*/
+
+asm.x60001fd = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/* T ArrayEnumerator.get_Current()*/
+
+asm.x6000200 = function get_Current(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldfld Array`1 source */
+    /* IL_07: ldarg.0  */
+    /* IL_08: ldfld Int32 index */
+    /* IL_0D: callvirt T GetTypedValue(System.Int32) */
+    /* IL_12: stloc.0  */
+    
+    loc0 = arg0.source.jsarr[arg0.index];
+    /* IL_15: ldloc.0  */
+    /* IL_16: ret  */
+    
+    return loc0;
+};;/* System.Boolean ArrayEnumerator.MoveNext()*/
+
+asm.x6000201 = function MoveNext(arg0)
+{
+    var loc0;
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldarg.0  */
+    /* IL_03: ldfld Int32 index */
+    /* IL_08: ldc.i4.1  */
+    /* IL_09: add  */
+    /* IL_0A: stfld Int32 index */
+    
+    arg0.index = ((arg0.index + 1) | 0);
+    /* IL_0F: ldarg.0  */
+    /* IL_10: ldfld Int32 index */
+    /* IL_15: ldarg.0  */
+    /* IL_16: ldfld Int32 length */
+    /* IL_1C: clt  */
+    /* IL_1D: stloc.0  */
+    
+    loc0 = ((arg0.index < arg0.length) ? 1 : 0);
+    /* IL_20: ldloc.0  */
+    /* IL_21: ret  */
+    
+    return loc0;
+};;/* System.Object ArrayEnumerator.System.Collections.IEnumerator.get_Current()*/
+
+asm.x6000202 = function System_Collections_IEnumerator_get_Current(arg0)
+{
+    var t0;
+    var loc0;
+    
+    t0 = ((arg0.constructor.GenericArguments)["asm0.t2000077"])[0];
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: call T get_Current() */
+    /* IL_07: box T */
+    /* IL_0C: stloc.0  */
+    
+    loc0 = CILJS.box(asm0.x6000200(arg0),t0);
+    /* IL_0F: ldloc.0  */
+    /* IL_10: ret  */
+    
+    return loc0;
+};;/* System.Void ArrayEnumerator.Reset()*/
+
+asm.x6000203 = function Reset(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ldarg.0  */
+    /* IL_02: ldc.i4.m1  */
+    /* IL_03: stfld Int32 index */
+    
+    arg0.index = -1;
+    /* IL_08: ret  */
+    
+    return ;
+};;/* System.Void ArrayEnumerator.Dispose()*/
+
+asm.x6000204 = function Dispose(arg0)
+{
+    /* IL_00: nop  */
+    /* IL_01: ret  */
+    
+    return ;
+};;/*  ArrayEnumerator..ctor(Array`1)*/
+
+asm.x60001ff = function _ctor(arg0, arg1)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: nop  */
+    /* IL_08: ldarg.0  */
+    /* IL_09: ldarg.1  */
+    /* IL_0A: stfld Array`1 source */
+    
+    arg0.source = arg1;
+    /* IL_0F: ldarg.0  */
+    /* IL_10: ldc.i4.m1  */
+    /* IL_11: stfld Int32 index */
+    
+    arg0.index = -1;
+    /* IL_16: ldarg.0  */
+    /* IL_17: ldarg.1  */
+    /* IL_18: callvirt Int32 get_Length() */
+    /* IL_1D: stfld Int32 length */
+    
+    arg0.length = asm0.x60000e2(arg1);
+    /* IL_22: ret  */
+    
+    return ;
+};;/*  constructor..ctor()*/
+
+asm.x6000205 = function _ctor(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call Void .ctor() */
+    /* IL_06: nop  */
+    /* IL_07: ret  */
+    
+    return ;
+};;/* System.Void <get_CustomAttributes>d__18.System.IDisposable.Dispose()*/
+
+asm.x6000207 = function System_IDisposable_Dispose(arg0)
+{
     var in_block_0;
     var __pos__;
     var loc0;
-    var loc1;
-    var loc2;
-    var loc3;
-    var loc4;
     var in_block_1;
-    var loc5;
-    
-    t0 = asm0["System.Int64"]();
-    
-    t1 = asm0["System.Array`1"](t0);
-    
-    t2 = asm0["System.UInt64"]();
-    
-    t3 = asm0["System.Array`1"](t2);
-    
-    t4 = asm0["System.UInt32"]();
-    
-    
+    var __finally_continuation_1__;
     
     in_block_0 = true;
     
@@ -14983,288 +15443,1228 @@ asm.x60001f3_ = function InitializeArray(arg0, arg1)
         
         switch (__pos__){
             case 0x0:
-            /* IL_00: nop  */
-            /* IL_01: ldarg.0  */
-            /* IL_02: isinst System.Int64[] */
-            /* IL_07: brtrue.s IL_14 */
+            /* IL_00: ldarg.0  */
+            /* IL_01: ldfld Int32 <>1__state */
+            /* IL_06: stloc.0  */
             
-            if (t1.IsInst(arg0)){
+            loc0 = arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"];
+            /* IL_07: ldloc.0  */
+            /* IL_08: ldc.i4.s 253 */
+            /* IL_0A: beq.s IL_20 */
+            
+            if (loc0 === -3){
                 
-                __pos__ = 0x14;
+                __pos__ = 0x20;
                 
                 continue;
             }
-            /* IL_09: ldarg.0  */
-            /* IL_0A: isinst System.UInt64[] */
-            /* IL_0F: ldnull  */
-            /* IL_11: cgt.un  */
+            /* IL_0E: ldloc.0  */
+            /* IL_0F: ldc.i4.1  */
+            /* IL_10: beq.s IL_20 */
             
-            st_05 = ((t3.IsInst(arg0) !== null) ? 1 : 0);
-            /* IL_12: br.s IL_15 */
+            if (loc0 === 1){
+                
+                __pos__ = 0x20;
+                
+                continue;
+            }
+            /* IL_12: br.s IL_20 */
             
-            __pos__ = 0x15;
+            __pos__ = 0x20;
             
             continue;
             case 0x14:
-            /* IL_14: ldc.i4.1  */
+            /* IL_14: nop  */
             
-            st_05 = 1;
-            case 0x15:
-            /* IL_15: stloc.0  */
-            
-            loc0 = st_05;
-            /* IL_16: ldloc.0  */
-            /* IL_17: brfalse.s IL_65 */
-            
-            if ((!(loc0))){
+            try {
                 
-                __pos__ = 0x65;
+                in_block_1 = true;
                 
-                continue;
-            }
-            /* IL_19: nop  */
-            /* IL_1A: ldarg.0  */
-            /* IL_1B: castclass System.Int64[] */
-            /* IL_20: stloc.1  */
-            
-            loc1 = CILJS.cast_class(arg0,t1);
-            /* IL_21: ldc.i4.0  */
-            /* IL_22: newarr System.UInt32 */
-            /* IL_27: stloc.2  */
-            
-            loc2 = CILJS.new_array(t4,0);
-            /* IL_28: ldloc.2  */
-            /* IL_29: ldarg.1  */
-            /* IL_2A: call Void InitializeArrayImpl(System.Array, System.RuntimeFieldHandle) */
-            
-            asm0.x60001f1(loc2,CILJS.clone_value(arg1));
-            /* IL_2F: nop  */
-            /* IL_30: ldc.i4.0  */
-            /* IL_31: stloc.3  */
-            
-            loc3 = 0;
-            /* IL_32: ldc.i4.0  */
-            /* IL_33: stloc.s 4 */
-            
-            loc4 = 0;
-            /* IL_35: br.s IL_53 */
-            
-            __pos__ = 0x53;
-            
-            continue;
-            case 0x37:
-            case 0x53:
-            
-            in_block_1 = true;
-            
-            if (__pos__ > 0x60){
+                __finally_continuation_1__ = __pos__;
                 
-                in_block_1 = false;
-            }
-            
-            if (__pos__ < 0x37){
+                if (__pos__ < 0x15){
+                    
+                    __pos__ = 0x15;
+                }
                 
-                __pos__ = 0x37;
-            }
-            
-            while (in_block_1){
-                
-                switch (__pos__){
-                    case 0x37:
-                    /* IL_37: ldloc.1  */
-                    /* IL_38: ldloc.3  */
-                    /* IL_39: ldloc.2  */
-                    /* IL_3A: ldloc.s 4 */
-                    /* IL_3C: ldelem.u4  */
-                    /* IL_3D: ldloc.2  */
-                    /* IL_3E: ldloc.s 4 */
-                    /* IL_40: ldc.i4.1  */
-                    /* IL_41: add  */
-                    /* IL_42: ldelem.u4  */
-                    /* IL_43: call Int64 Make(System.UInt32, System.UInt32) */
-                    /* IL_48: stelem.i8  */
+                while (in_block_1){
                     
-                    (loc1.jsarr)[loc3] = new Uint32Array([(loc2.jsarr)[loc4],(loc2.jsarr)[(loc4 + 1) | 0]]);
-                    /* IL_49: ldloc.3  */
-                    /* IL_4A: ldc.i4.1  */
-                    /* IL_4B: add  */
-                    /* IL_4C: stloc.3  */
-                    
-                    loc3 = (loc3 + 1) | 0;
-                    /* IL_4D: ldloc.s 4 */
-                    /* IL_4F: ldc.i4.2  */
-                    /* IL_50: add  */
-                    /* IL_51: stloc.s 4 */
-                    
-                    loc4 = (loc4 + 2) | 0;
-                    case 0x53:
-                    /* IL_53: ldloc.3  */
-                    /* IL_54: ldarg.0  */
-                    /* IL_55: callvirt Int32 get_Length() */
-                    /* IL_5B: clt  */
-                    /* IL_5C: stloc.s 5 */
-                    
-                    loc5 = ((loc3 < asm0.x6000111(arg0)) ? 1 : 0);
-                    /* IL_5E: ldloc.s 5 */
-                    /* IL_60: brtrue.s IL_37 */
-                    
-                    if (loc5){
+                    switch (__pos__){
+                        case 0x15:
+                        /* IL_15: leave.s IL_1E */
                         
-                        __pos__ = 0x37;
+                        in_block_1 = false;
+                        
+                        __pos__ = 0x1E;
                         
                         continue;
                     }
                 }
-                
-                break;
             }
             
-            if ((__pos__ > 0x53) || (__pos__ < 0x37)){
+            finally {
                 
-                continue;
+                in_block_1 = true;
+                
+                __finally_continuation_1__ = __pos__;
+                
+                __pos__ = 0x17;
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x17:
+                        /* IL_17: ldarg.0  */
+                        /* IL_18: call Void <>m__Finally1() */
+                        
+                        asm0.x6000209(arg0);
+                        /* IL_1D: endfinally  */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = __finally_continuation_1__;
+                        
+                        continue;
+                    }
+                    
+                    break;
+                }
             }
-            /* IL_62: nop  */
-            /* IL_63: br.s IL_6F */
-            
-            __pos__ = 0x6F;
             
             continue;
-            case 0x65:
-            /* IL_65: nop  */
-            /* IL_66: ldarg.0  */
-            /* IL_67: ldarg.1  */
-            /* IL_68: call Void InitializeArrayImpl(System.Array, System.RuntimeFieldHandle) */
+            case 0x1E:
+            /* IL_1E: br.s IL_20 */
             
-            asm0.x60001f1(arg0,CILJS.clone_value(arg1));
-            /* IL_6D: nop  */
-            /* IL_6E: nop  */
-            case 0x6F:
-            /* IL_6F: ret  */
+            __pos__ = 0x20;
+            
+            continue;
+            case 0x20:
+            /* IL_20: ret  */
             
             return ;
         }
     }
-};/*  RuntimeHelpers..ctor()*/
+};;/* System.Boolean <get_CustomAttributes>d__18.MoveNext()*/
 
-asm.x60001f4 = function _ctor(arg0)
+asm.x6000208_init = function (arg0)
 {
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
     
-    return ;
-};;/*  IndexerNameAttribute..ctor(String)*/
+    (asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()).init)();
+    
+    (asm0["CilJs.JavaScript.Array"]().init)();
+    
+    (asm0["System.Reflection.CustomAttributeData"]().init)();
+    
+    (asm0["System.Collections.IEnumerator"]().init)();
+    
+    asm.x6000208 = asm.x6000208_;
+};;
 
-asm.x60001f5 = function _ctor(arg0, arg1)
+asm.x6000208 = function (arg0)
 {
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
     
-    asm0.x60000af(arg0);
-    /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ret  */
+    asm.x6000208_init(arg0);
     
-    return ;
-};;/* System.Runtime.CompilerServices.MethodImplOptions MethodImplAttribute.get_Value()*/
-
-asm.x60001f9 = function get_Value(arg0)
+    return asm.x6000208_(arg0);
+};;
+asm.x6000208_ = function MoveNext(arg0)
 {
+    var t0;
+    var t1;
+    var t2;
+    var t3;
+    var t4;
+    var in_block_0;
+    var __pos__;
+    var in_block_1;
+    var loc1;
     var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldfld MethodImplOptions _val */
-    /* IL_07: stloc.0  */
+    var __error_handled_1__;
     
-    loc0 = CILJS.clone_value(arg0.System_Runtime_CompilerServicesMethodImplAttribute_val);
-    /* IL_0A: ldloc.0  */
-    /* IL_0B: ret  */
+    t0 = asm0["System.Object"]();
     
-    return loc0;
-};;/*  MethodImplAttribute..ctor()*/
+    t1 = asm0["System.Collections.Generic.IEnumerator`1"](t0);
+    
+    t2 = asm0["CilJs.JavaScript.Array"]();
+    
+    t3 = asm0["System.Reflection.CustomAttributeData"]();
+    
+    t4 = asm0["System.Collections.IEnumerator"]();
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            
+            try {
+                
+                in_block_1 = true;
+                
+                if (__pos__ < 0x0){
+                    
+                    __pos__ = 0x0;
+                }
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x0:
+                        /* IL_00: ldarg.0  */
+                        /* IL_01: ldfld Int32 <>1__state */
+                        /* IL_06: stloc.1  */
+                        
+                        loc1 = arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"];
+                        /* IL_07: ldloc.1  */
+                        /* IL_08: brfalse.s IL_1D */
+                        
+                        if ((!(loc1))){
+                            
+                            __pos__ = 0x1D;
+                            
+                            continue;
+                        }
+                        /* IL_0C: ldloc.1  */
+                        /* IL_0D: ldc.i4.1  */
+                        /* IL_0E: beq.s IL_7E */
+                        
+                        if (loc1 === 1){
+                            
+                            __pos__ = 0x7E;
+                            
+                            continue;
+                        }
+                        /* IL_10: br.s IL_16 */
+                        
+                        __pos__ = 0x16;
+                        
+                        continue;
+                        case 0x12:
+                        /* IL_12: br.s IL_1D */
+                        
+                        __pos__ = 0x1D;
+                        
+                        continue;
+                        case 0x14:
+                        /* IL_14: br.s IL_7E */
+                        
+                        __pos__ = 0x7E;
+                        
+                        continue;
+                        case 0x16:
+                        /* IL_16: ldc.i4.0  */
+                        /* IL_17: stloc.0  */
+                        
+                        loc0 = 0;
+                        /* IL_18: leave IL_B5 */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0xB5;
+                        
+                        continue;
+                        case 0x1D:
+                        /* IL_1D: ldarg.0  */
+                        /* IL_1E: ldc.i4.m1  */
+                        /* IL_1F: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -1;
+                        /* IL_24: nop  */
+                        /* IL_25: nop  */
+                        /* IL_26: ldarg.0  */
+                        /* IL_27: ldarg.0  */
+                        /* IL_28: ldfld TypeInfo <>4__this */
+                        /* IL_2D: ldfld constructor ctor */
+                        /* IL_32: ldfld Array CustomAttributes */
+                        /* IL_37: callvirt IEnumerator`1 GetEnumerator() */
+                        /* IL_3C: stfld IEnumerator`1 <>s__1 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"] = asm0.x60001fb(arg0["<>4__this"].ctor.CustomAttributes);
+                        /* IL_41: ldarg.0  */
+                        /* IL_42: ldc.i4.s 253 */
+                        /* IL_44: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -3;
+                        /* IL_49: br.s IL_8E */
+                        
+                        __pos__ = 0x8E;
+                        
+                        continue;
+                        case 0x4B:
+                        /* IL_4B: ldarg.0  */
+                        /* IL_4C: ldarg.0  */
+                        /* IL_4D: ldfld IEnumerator`1 <>s__1 */
+                        /* IL_52: callvirt Object get_Current() */
+                        /* IL_57: stfld Object <rawAttribData>5__2 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"] = (((arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t1])[t0].x600018d)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
+                        /* IL_5C: nop  */
+                        /* IL_5D: ldarg.0  */
+                        /* IL_5E: ldarg.0  */
+                        /* IL_5F: ldfld Object <rawAttribData>5__2 */
+                        /* IL_64: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
+                        /* IL_69: newobj Void .ctor(CilJs.JavaScript.Array) */
+                        /* IL_6E: stfld CustomAttributeData <>2__current */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>2__current"] = CILJS.newobj(t3,asm0.x60001c2,[null, arg0["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"]]);
+                        /* IL_73: ldarg.0  */
+                        /* IL_74: ldc.i4.1  */
+                        /* IL_75: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = 1;
+                        /* IL_7A: ldc.i4.1  */
+                        /* IL_7B: stloc.0  */
+                        
+                        loc0 = 1;
+                        /* IL_7C: leave.s IL_B5 */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0xB5;
+                        
+                        continue;
+                        case 0x7E:
+                        /* IL_7E: ldarg.0  */
+                        /* IL_7F: ldc.i4.s 253 */
+                        /* IL_81: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -3;
+                        /* IL_86: nop  */
+                        /* IL_87: ldarg.0  */
+                        /* IL_88: ldnull  */
+                        /* IL_89: stfld Object <rawAttribData>5__2 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"] = null;
+                        case 0x8E:
+                        /* IL_8E: ldarg.0  */
+                        /* IL_8F: ldfld IEnumerator`1 <>s__1 */
+                        /* IL_94: callvirt Boolean MoveNext() */
+                        /* IL_99: brtrue.s IL_4B */
+                        
+                        if (((arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t4].x6000182)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]))){
+                            
+                            __pos__ = 0x4B;
+                            
+                            continue;
+                        }
+                        /* IL_9B: ldarg.0  */
+                        /* IL_9C: call Void <>m__Finally1() */
+                        
+                        asm0.x6000209(arg0);
+                        /* IL_A1: nop  */
+                        /* IL_A2: ldarg.0  */
+                        /* IL_A3: ldnull  */
+                        /* IL_A4: stfld IEnumerator`1 <>s__1 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"] = null;
+                        /* IL_A9: ldc.i4.0  */
+                        /* IL_AA: stloc.0  */
+                        
+                        loc0 = 0;
+                        /* IL_AB: leave.s IL_B5 */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0xB5;
+                        
+                        continue;
+                    }
+                }
+            }
+            
+            catch (__error__) {
+                
+                __error_handled_1__ = false;
+                
+                if ((!(__error_handled_1__))){
+                    
+                    throw __error__;
+                }
+                
+                if (__error_handled_1__ === false){
+                    
+                    in_block_1 = true;
+                    
+                    if (__pos__ < 0xAD){
+                        
+                        __pos__ = 0xAD;
+                    }
+                    
+                    while (in_block_1){
+                        
+                        switch (__pos__){
+                            case 0xAD:
+                            /* IL_AD: ldarg.0  */
+                            /* IL_AE: call Void System.IDisposable.Dispose() */
+                            
+                            asm0.x6000207(arg0);
+                            /* IL_B3: nop  */
+                            /* IL_B4: endfinally  */
+                            
+                            in_block_1 = false;
+                            
+                            __pos__ = __finally_continuation_1__;
+                            
+                            continue;
+                            
+                            throw __error__;
+                        }
+                    }
+                }
+            }
+            
+            continue;
+            case 0xB5:
+            /* IL_B5: ldloc.0  */
+            /* IL_B6: ret  */
+            
+            return loc0;
+        }
+    }
+};/* System.Void <get_CustomAttributes>d__18.<>m__Finally1()*/
 
-asm.x60001f6 = function _ctor(arg0)
+asm.x6000209 = function __m__Finally1(arg0)
+{
+    var t0;
+    var in_block_0;
+    var __pos__;
+    
+    t0 = asm0["System.IDisposable"]();
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            /* IL_00: ldarg.0  */
+            /* IL_01: ldc.i4.m1  */
+            /* IL_02: stfld Int32 <>1__state */
+            
+            arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -1;
+            /* IL_07: ldarg.0  */
+            /* IL_08: ldfld IEnumerator`1 <>s__1 */
+            /* IL_0D: brfalse.s IL_1B */
+            
+            if ((!(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]))){
+                
+                __pos__ = 0x1B;
+                
+                continue;
+            }
+            /* IL_0F: ldarg.0  */
+            /* IL_10: ldfld IEnumerator`1 <>s__1 */
+            /* IL_15: callvirt Void Dispose() */
+            
+            ((arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t0].x60000dd)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
+            /* IL_1A: nop  */
+            case 0x1B:
+            /* IL_1B: ret  */
+            
+            return ;
+        }
+    }
+};;/* System.Reflection.CustomAttributeData <get_CustomAttributes>d__18.System.Collections.Generic.IEnumerator<System.Reflection.CustomAttributeData>.get_Current()*/
+
+asm.x600020a = function System_Collections_Generic_IEnumerator_System_Reflection_CustomAttributeData__get_Current(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: ldfld CustomAttributeData <>2__current */
+    /* IL_06: ret  */
+    
+    return arg0["System_Reflection_get_CustomAttributes_d__18<>2__current"];
+};;/* System.Void <get_CustomAttributes>d__18.System.Collections.IEnumerator.Reset()*/
+
+asm.x600020b_init = function (arg0)
+{
+    
+    (asm0["System.NotSupportedException"]().init)();
+    
+    asm.x600020b = asm.x600020b_;
+};;
+
+asm.x600020b = function (arg0)
+{
+    
+    asm.x600020b_init(arg0);
+    
+    return asm.x600020b_(arg0);
+};;
+asm.x600020b_ = function System_Collections_IEnumerator_Reset(arg0)
+{
+    var t0;
+    
+    t0 = asm0["System.NotSupportedException"]();
+    /* IL_00: newobj Void .ctor() */
+    /* IL_05: throw  */
+    
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
+};/* System.Object <get_CustomAttributes>d__18.System.Collections.IEnumerator.get_Current()*/
+
+asm.x600020c = function System_Collections_IEnumerator_get_Current(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: ldfld CustomAttributeData <>2__current */
+    /* IL_06: ret  */
+    
+    return arg0["System_Reflection_get_CustomAttributes_d__18<>2__current"];
+};;/* System.Collections.Generic.IEnumerator`1[System.Reflection.CustomAttributeData] <get_CustomAttributes>d__18.System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator()*/
+
+asm.x600020d_init = function (arg0)
+{
+    
+    (asm0["System.Reflection.TypeInfo+<get_CustomAttributes>d__18"]().init)();
+    
+    asm.x600020d = asm.x600020d_;
+};;
+
+asm.x600020d = function (arg0)
+{
+    
+    asm.x600020d_init(arg0);
+    
+    return asm.x600020d_(arg0);
+};;
+asm.x600020d_ = function System_Collections_Generic_IEnumerable_System_Reflection_CustomAttributeData__GetEnumerator(arg0)
+{
+    var t0;
+    var in_block_0;
+    var __pos__;
+    var loc0;
+    
+    t0 = asm0["System.Reflection.TypeInfo+<get_CustomAttributes>d__18"]();
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            /* IL_00: ldarg.0  */
+            /* IL_01: ldfld Int32 <>1__state */
+            /* IL_06: ldc.i4.s 254 */
+            /* IL_08: bne.un.s IL_22 */
+            
+            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"]) != CILJS.unsigned_value(-2)){
+                
+                __pos__ = 0x22;
+                
+                continue;
+            }
+            /* IL_0A: ldarg.0  */
+            /* IL_0B: ldfld Int32 <>l__initialThreadId */
+            /* IL_10: call Int32 get_CurrentManagedThreadId() */
+            /* IL_15: bne.un.s IL_22 */
+            
+            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__18<>l__initialThreadId"]) != CILJS.unsigned_value(asm0.x6000149())){
+                
+                __pos__ = 0x22;
+                
+                continue;
+            }
+            /* IL_17: ldarg.0  */
+            /* IL_18: ldc.i4.0  */
+            /* IL_19: stfld Int32 <>1__state */
+            
+            arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = 0;
+            /* IL_1E: ldarg.0  */
+            /* IL_1F: stloc.0  */
+            
+            loc0 = arg0;
+            /* IL_20: br.s IL_35 */
+            
+            __pos__ = 0x35;
+            
+            continue;
+            case 0x22:
+            /* IL_22: ldc.i4.0  */
+            /* IL_23: newobj Void .ctor(System.Int32) */
+            /* IL_28: stloc.0  */
+            
+            loc0 = CILJS.newobj(t0,asm0.x6000206,[null, 0]);
+            /* IL_29: ldloc.0  */
+            /* IL_2A: ldarg.0  */
+            /* IL_2B: ldfld TypeInfo <>4__this */
+            /* IL_30: stfld TypeInfo <>4__this */
+            
+            loc0["<>4__this"] = arg0["<>4__this"];
+            case 0x35:
+            /* IL_35: ldloc.0  */
+            /* IL_36: ret  */
+            
+            return loc0;
+        }
+    }
+};/* System.Collections.IEnumerator <get_CustomAttributes>d__18.System.Collections.IEnumerable.GetEnumerator()*/
+
+asm.x600020e = function System_Collections_IEnumerable_GetEnumerator(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator() */
+    /* IL_06: ret  */
+    
+    return asm0.x600020d(arg0);
+};;/*  <get_CustomAttributes>d__18..ctor(Int32)*/
+
+asm.x6000206 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
     /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ret  */
+    /* IL_07: ldarg.0  */
+    /* IL_08: ldarg.1  */
+    /* IL_09: stfld Int32 <>1__state */
+    
+    arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = arg1;
+    /* IL_0E: ldarg.0  */
+    /* IL_0F: call Int32 get_CurrentManagedThreadId() */
+    /* IL_14: stfld Int32 <>l__initialThreadId */
+    
+    arg0["System_Reflection_get_CustomAttributes_d__18<>l__initialThreadId"] = asm0.x6000149();
+    /* IL_19: ret  */
     
     return ;
-};;/*  MethodImplAttribute..ctor(Int16)*/
+};;/* System.Void <get_CustomAttributes>d__7.System.IDisposable.Dispose()*/
 
-asm.x60001f7 = function _ctor(arg0, arg1)
+asm.x6000210 = function System_IDisposable_Dispose(arg0)
+{
+    var in_block_0;
+    var __pos__;
+    var loc0;
+    var in_block_1;
+    var __finally_continuation_1__;
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            /* IL_00: ldarg.0  */
+            /* IL_01: ldfld Int32 <>1__state */
+            /* IL_06: stloc.0  */
+            
+            loc0 = arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"];
+            /* IL_07: ldloc.0  */
+            /* IL_08: ldc.i4.s 253 */
+            /* IL_0A: beq.s IL_20 */
+            
+            if (loc0 === -3){
+                
+                __pos__ = 0x20;
+                
+                continue;
+            }
+            /* IL_0E: ldloc.0  */
+            /* IL_0F: ldc.i4.1  */
+            /* IL_10: beq.s IL_20 */
+            
+            if (loc0 === 1){
+                
+                __pos__ = 0x20;
+                
+                continue;
+            }
+            /* IL_12: br.s IL_20 */
+            
+            __pos__ = 0x20;
+            
+            continue;
+            case 0x14:
+            /* IL_14: nop  */
+            
+            try {
+                
+                in_block_1 = true;
+                
+                __finally_continuation_1__ = __pos__;
+                
+                if (__pos__ < 0x15){
+                    
+                    __pos__ = 0x15;
+                }
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x15:
+                        /* IL_15: leave.s IL_1E */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0x1E;
+                        
+                        continue;
+                    }
+                }
+            }
+            
+            finally {
+                
+                in_block_1 = true;
+                
+                __finally_continuation_1__ = __pos__;
+                
+                __pos__ = 0x17;
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x17:
+                        /* IL_17: ldarg.0  */
+                        /* IL_18: call Void <>m__Finally1() */
+                        
+                        asm0.x6000212(arg0);
+                        /* IL_1D: endfinally  */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = __finally_continuation_1__;
+                        
+                        continue;
+                    }
+                    
+                    break;
+                }
+            }
+            
+            continue;
+            case 0x1E:
+            /* IL_1E: br.s IL_20 */
+            
+            __pos__ = 0x20;
+            
+            continue;
+            case 0x20:
+            /* IL_20: ret  */
+            
+            return ;
+        }
+    }
+};;/* System.Boolean <get_CustomAttributes>d__7.MoveNext()*/
+
+asm.x6000211_init = function (arg0)
+{
+    
+    (asm0["CilJs.JavaScript.Array"]().init)();
+    
+    (asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()).init)();
+    
+    (asm0["System.Reflection.CustomAttributeData"]().init)();
+    
+    (asm0["System.Collections.IEnumerator"]().init)();
+    
+    asm.x6000211 = asm.x6000211_;
+};;
+
+asm.x6000211 = function (arg0)
+{
+    
+    asm.x6000211_init(arg0);
+    
+    return asm.x6000211_(arg0);
+};;
+asm.x6000211_ = function MoveNext(arg0)
+{
+    var t0;
+    var t1;
+    var t2;
+    var t3;
+    var t4;
+    var in_block_0;
+    var __pos__;
+    var in_block_1;
+    var loc1;
+    var loc0;
+    var __error_handled_1__;
+    
+    t0 = asm0["CilJs.JavaScript.Array"]();
+    
+    t1 = asm0["System.Object"]();
+    
+    t2 = asm0["System.Collections.Generic.IEnumerator`1"](t1);
+    
+    t3 = asm0["System.Reflection.CustomAttributeData"]();
+    
+    t4 = asm0["System.Collections.IEnumerator"]();
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            
+            try {
+                
+                in_block_1 = true;
+                
+                if (__pos__ < 0x0){
+                    
+                    __pos__ = 0x0;
+                }
+                
+                while (in_block_1){
+                    
+                    switch (__pos__){
+                        case 0x0:
+                        /* IL_00: ldarg.0  */
+                        /* IL_01: ldfld Int32 <>1__state */
+                        /* IL_06: stloc.1  */
+                        
+                        loc1 = arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"];
+                        /* IL_07: ldloc.1  */
+                        /* IL_08: brfalse.s IL_1D */
+                        
+                        if ((!(loc1))){
+                            
+                            __pos__ = 0x1D;
+                            
+                            continue;
+                        }
+                        /* IL_0C: ldloc.1  */
+                        /* IL_0D: ldc.i4.1  */
+                        /* IL_0E: beq.s IL_90 */
+                        
+                        if (loc1 === 1){
+                            
+                            __pos__ = 0x90;
+                            
+                            continue;
+                        }
+                        /* IL_10: br.s IL_16 */
+                        
+                        __pos__ = 0x16;
+                        
+                        continue;
+                        case 0x12:
+                        /* IL_12: br.s IL_1D */
+                        
+                        __pos__ = 0x1D;
+                        
+                        continue;
+                        case 0x14:
+                        /* IL_14: br.s IL_90 */
+                        
+                        __pos__ = 0x90;
+                        
+                        continue;
+                        case 0x16:
+                        /* IL_16: ldc.i4.0  */
+                        /* IL_17: stloc.0  */
+                        
+                        loc0 = 0;
+                        /* IL_18: leave IL_C7 */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0xC7;
+                        
+                        continue;
+                        case 0x1D:
+                        /* IL_1D: ldarg.0  */
+                        /* IL_1E: ldc.i4.m1  */
+                        /* IL_1F: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -1;
+                        /* IL_24: nop  */
+                        /* IL_25: ldarg.0  */
+                        /* IL_26: ldarg.0  */
+                        /* IL_27: ldfld MethodInfo <>4__this */
+                        /* IL_2C: ldfld Array methodData */
+                        /* IL_31: ldc.i4.3  */
+                        /* IL_32: callvirt Object get_Item(System.Int32) */
+                        /* IL_37: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
+                        /* IL_3C: stfld Array <attributes>5__1 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<attributes>5__1"] = arg0["<>4__this"].System_ReflectionMethodInfomethodData[3];
+                        /* IL_41: nop  */
+                        /* IL_42: ldarg.0  */
+                        /* IL_43: ldarg.0  */
+                        /* IL_44: ldfld Array <attributes>5__1 */
+                        /* IL_49: callvirt IEnumerator`1 GetEnumerator() */
+                        /* IL_4E: stfld IEnumerator`1 <>s__2 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"] = asm0.x60001fb(arg0["System_Reflection_get_CustomAttributes_d__7<attributes>5__1"]);
+                        /* IL_53: ldarg.0  */
+                        /* IL_54: ldc.i4.s 253 */
+                        /* IL_56: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -3;
+                        /* IL_5B: br.s IL_A0 */
+                        
+                        __pos__ = 0xA0;
+                        
+                        continue;
+                        case 0x5D:
+                        /* IL_5D: ldarg.0  */
+                        /* IL_5E: ldarg.0  */
+                        /* IL_5F: ldfld IEnumerator`1 <>s__2 */
+                        /* IL_64: callvirt Object get_Current() */
+                        /* IL_69: stfld Object <rawAttribData>5__3 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"] = (((arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t2])[t1].x600018d)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
+                        /* IL_6E: nop  */
+                        /* IL_6F: ldarg.0  */
+                        /* IL_70: ldarg.0  */
+                        /* IL_71: ldfld Object <rawAttribData>5__3 */
+                        /* IL_76: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
+                        /* IL_7B: newobj Void .ctor(CilJs.JavaScript.Array) */
+                        /* IL_80: stfld CustomAttributeData <>2__current */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>2__current"] = CILJS.newobj(t3,asm0.x60001c2,[null, arg0["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"]]);
+                        /* IL_85: ldarg.0  */
+                        /* IL_86: ldc.i4.1  */
+                        /* IL_87: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = 1;
+                        /* IL_8C: ldc.i4.1  */
+                        /* IL_8D: stloc.0  */
+                        
+                        loc0 = 1;
+                        /* IL_8E: leave.s IL_C7 */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0xC7;
+                        
+                        continue;
+                        case 0x90:
+                        /* IL_90: ldarg.0  */
+                        /* IL_91: ldc.i4.s 253 */
+                        /* IL_93: stfld Int32 <>1__state */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -3;
+                        /* IL_98: nop  */
+                        /* IL_99: ldarg.0  */
+                        /* IL_9A: ldnull  */
+                        /* IL_9B: stfld Object <rawAttribData>5__3 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"] = null;
+                        case 0xA0:
+                        /* IL_A0: ldarg.0  */
+                        /* IL_A1: ldfld IEnumerator`1 <>s__2 */
+                        /* IL_A6: callvirt Boolean MoveNext() */
+                        /* IL_AB: brtrue.s IL_5D */
+                        
+                        if (((arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t4].x6000182)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]))){
+                            
+                            __pos__ = 0x5D;
+                            
+                            continue;
+                        }
+                        /* IL_AD: ldarg.0  */
+                        /* IL_AE: call Void <>m__Finally1() */
+                        
+                        asm0.x6000212(arg0);
+                        /* IL_B3: nop  */
+                        /* IL_B4: ldarg.0  */
+                        /* IL_B5: ldnull  */
+                        /* IL_B6: stfld IEnumerator`1 <>s__2 */
+                        
+                        arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"] = null;
+                        /* IL_BB: ldc.i4.0  */
+                        /* IL_BC: stloc.0  */
+                        
+                        loc0 = 0;
+                        /* IL_BD: leave.s IL_C7 */
+                        
+                        in_block_1 = false;
+                        
+                        __pos__ = 0xC7;
+                        
+                        continue;
+                    }
+                }
+            }
+            
+            catch (__error__) {
+                
+                __error_handled_1__ = false;
+                
+                if ((!(__error_handled_1__))){
+                    
+                    throw __error__;
+                }
+                
+                if (__error_handled_1__ === false){
+                    
+                    in_block_1 = true;
+                    
+                    if (__pos__ < 0xBF){
+                        
+                        __pos__ = 0xBF;
+                    }
+                    
+                    while (in_block_1){
+                        
+                        switch (__pos__){
+                            case 0xBF:
+                            /* IL_BF: ldarg.0  */
+                            /* IL_C0: call Void System.IDisposable.Dispose() */
+                            
+                            asm0.x6000210(arg0);
+                            /* IL_C5: nop  */
+                            /* IL_C6: endfinally  */
+                            
+                            in_block_1 = false;
+                            
+                            __pos__ = __finally_continuation_1__;
+                            
+                            continue;
+                            
+                            throw __error__;
+                        }
+                    }
+                }
+            }
+            
+            continue;
+            case 0xC7:
+            /* IL_C7: ldloc.0  */
+            /* IL_C8: ret  */
+            
+            return loc0;
+        }
+    }
+};/* System.Void <get_CustomAttributes>d__7.<>m__Finally1()*/
+
+asm.x6000212 = function __m__Finally1(arg0)
+{
+    var t0;
+    var in_block_0;
+    var __pos__;
+    
+    t0 = asm0["System.IDisposable"]();
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            /* IL_00: ldarg.0  */
+            /* IL_01: ldc.i4.m1  */
+            /* IL_02: stfld Int32 <>1__state */
+            
+            arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -1;
+            /* IL_07: ldarg.0  */
+            /* IL_08: ldfld IEnumerator`1 <>s__2 */
+            /* IL_0D: brfalse.s IL_1B */
+            
+            if ((!(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]))){
+                
+                __pos__ = 0x1B;
+                
+                continue;
+            }
+            /* IL_0F: ldarg.0  */
+            /* IL_10: ldfld IEnumerator`1 <>s__2 */
+            /* IL_15: callvirt Void Dispose() */
+            
+            ((arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t0].x60000dd)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
+            /* IL_1A: nop  */
+            case 0x1B:
+            /* IL_1B: ret  */
+            
+            return ;
+        }
+    }
+};;/* System.Reflection.CustomAttributeData <get_CustomAttributes>d__7.System.Collections.Generic.IEnumerator<System.Reflection.CustomAttributeData>.get_Current()*/
+
+asm.x6000213 = function System_Collections_Generic_IEnumerator_System_Reflection_CustomAttributeData__get_Current(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: ldfld CustomAttributeData <>2__current */
+    /* IL_06: ret  */
+    
+    return arg0["System_Reflection_get_CustomAttributes_d__7<>2__current"];
+};;/* System.Void <get_CustomAttributes>d__7.System.Collections.IEnumerator.Reset()*/
+
+asm.x6000214_init = function (arg0)
+{
+    
+    (asm0["System.NotSupportedException"]().init)();
+    
+    asm.x6000214 = asm.x6000214_;
+};;
+
+asm.x6000214 = function (arg0)
+{
+    
+    asm.x6000214_init(arg0);
+    
+    return asm.x6000214_(arg0);
+};;
+asm.x6000214_ = function System_Collections_IEnumerator_Reset(arg0)
+{
+    var t0;
+    
+    t0 = asm0["System.NotSupportedException"]();
+    /* IL_00: newobj Void .ctor() */
+    /* IL_05: throw  */
+    
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
+};/* System.Object <get_CustomAttributes>d__7.System.Collections.IEnumerator.get_Current()*/
+
+asm.x6000215 = function System_Collections_IEnumerator_get_Current(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: ldfld CustomAttributeData <>2__current */
+    /* IL_06: ret  */
+    
+    return arg0["System_Reflection_get_CustomAttributes_d__7<>2__current"];
+};;/* System.Collections.Generic.IEnumerator`1[System.Reflection.CustomAttributeData] <get_CustomAttributes>d__7.System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator()*/
+
+asm.x6000216_init = function (arg0)
+{
+    
+    (asm0["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"]().init)();
+    
+    asm.x6000216 = asm.x6000216_;
+};;
+
+asm.x6000216 = function (arg0)
+{
+    
+    asm.x6000216_init(arg0);
+    
+    return asm.x6000216_(arg0);
+};;
+asm.x6000216_ = function System_Collections_Generic_IEnumerable_System_Reflection_CustomAttributeData__GetEnumerator(arg0)
+{
+    var t0;
+    var in_block_0;
+    var __pos__;
+    var loc0;
+    
+    t0 = asm0["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"]();
+    
+    in_block_0 = true;
+    
+    __pos__ = 0x0;
+    
+    while (in_block_0){
+        
+        switch (__pos__){
+            case 0x0:
+            /* IL_00: ldarg.0  */
+            /* IL_01: ldfld Int32 <>1__state */
+            /* IL_06: ldc.i4.s 254 */
+            /* IL_08: bne.un.s IL_22 */
+            
+            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"]) != CILJS.unsigned_value(-2)){
+                
+                __pos__ = 0x22;
+                
+                continue;
+            }
+            /* IL_0A: ldarg.0  */
+            /* IL_0B: ldfld Int32 <>l__initialThreadId */
+            /* IL_10: call Int32 get_CurrentManagedThreadId() */
+            /* IL_15: bne.un.s IL_22 */
+            
+            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__7<>l__initialThreadId"]) != CILJS.unsigned_value(asm0.x6000149())){
+                
+                __pos__ = 0x22;
+                
+                continue;
+            }
+            /* IL_17: ldarg.0  */
+            /* IL_18: ldc.i4.0  */
+            /* IL_19: stfld Int32 <>1__state */
+            
+            arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = 0;
+            /* IL_1E: ldarg.0  */
+            /* IL_1F: stloc.0  */
+            
+            loc0 = arg0;
+            /* IL_20: br.s IL_35 */
+            
+            __pos__ = 0x35;
+            
+            continue;
+            case 0x22:
+            /* IL_22: ldc.i4.0  */
+            /* IL_23: newobj Void .ctor(System.Int32) */
+            /* IL_28: stloc.0  */
+            
+            loc0 = CILJS.newobj(t0,asm0.x600020f,[null, 0]);
+            /* IL_29: ldloc.0  */
+            /* IL_2A: ldarg.0  */
+            /* IL_2B: ldfld MethodInfo <>4__this */
+            /* IL_30: stfld MethodInfo <>4__this */
+            
+            loc0["<>4__this"] = arg0["<>4__this"];
+            case 0x35:
+            /* IL_35: ldloc.0  */
+            /* IL_36: ret  */
+            
+            return loc0;
+        }
+    }
+};/* System.Collections.IEnumerator <get_CustomAttributes>d__7.System.Collections.IEnumerable.GetEnumerator()*/
+
+asm.x6000217 = function System_Collections_IEnumerable_GetEnumerator(arg0)
+{
+    /* IL_00: ldarg.0  */
+    /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator() */
+    /* IL_06: ret  */
+    
+    return asm0.x6000216(arg0);
+};;/*  <get_CustomAttributes>d__7..ctor(Int32)*/
+
+asm.x600020f = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
     /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ldarg.0  */
-    /* IL_09: ldarg.1  */
-    /* IL_0A: stfld MethodImplOptions _val */
+    /* IL_07: ldarg.0  */
+    /* IL_08: ldarg.1  */
+    /* IL_09: stfld Int32 <>1__state */
     
-    arg0.System_Runtime_CompilerServicesMethodImplAttribute_val = arg1;
-    /* IL_0F: ret  */
+    arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = arg1;
+    /* IL_0E: ldarg.0  */
+    /* IL_0F: call Int32 get_CurrentManagedThreadId() */
+    /* IL_14: stfld Int32 <>l__initialThreadId */
+    
+    arg0["System_Reflection_get_CustomAttributes_d__7<>l__initialThreadId"] = asm0.x6000149();
+    /* IL_19: ret  */
     
     return ;
-};;/*  MethodImplAttribute..ctor(MethodImplOptions)*/
+};;/*  jsAsm..ctor()*/
 
-asm.x60001f8 = function _ctor(arg0, arg1)
+asm.x6000218 = function _ctor(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
-    /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ldarg.0  */
-    /* IL_09: ldarg.1  */
-    /* IL_0A: stfld MethodImplOptions _val */
-    
-    arg0.System_Runtime_CompilerServicesMethodImplAttribute_val = arg1;
-    /* IL_0F: ret  */
-    
-    return ;
-};;/*  InAttribute..ctor()*/
-
-asm.x60001fb = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/*  OutAttribute..ctor()*/
-
-asm.x60001fc = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    
-    asm0.x60000af(arg0);
     /* IL_06: nop  */
     /* IL_07: ret  */
     
     return ;
 };;/* System.Void <GetEnumerator>d__7.System.IDisposable.Dispose()*/
 
-asm.x60001fe = function System_IDisposable_Dispose(arg0)
+asm.x600021a = function System_IDisposable_Dispose(arg0)
 {
     /* IL_00: ret  */
     
     return ;
 };;/* System.Boolean <GetEnumerator>d__7.MoveNext()*/
 
-asm.x60001ff = function MoveNext(arg0)
+asm.x600021b = function MoveNext(arg0)
 {
     var in_block_0;
     var __pos__;
@@ -15444,7 +16844,7 @@ asm.x60001ff = function MoveNext(arg0)
     }
 };;/* System.Object <GetEnumerator>d__7.System.Collections.Generic.IEnumerator<System.Object>.get_Current()*/
 
-asm.x6000200 = function System_Collections_Generic_IEnumerator_System_Object__get_Current(arg0)
+asm.x600021c = function System_Collections_Generic_IEnumerator_System_Object__get_Current(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Object <>2__current */
@@ -15453,22 +16853,22 @@ asm.x6000200 = function System_Collections_Generic_IEnumerator_System_Object__ge
     return arg0["CilJs_JavaScript_GetEnumerator_d__7<>2__current"];
 };;/* System.Void <GetEnumerator>d__7.System.Collections.IEnumerator.Reset()*/
 
-asm.x6000201_init = function (arg0)
+asm.x600021d_init = function (arg0)
 {
     
     (asm0["System.NotSupportedException"]().init)();
     
-    asm.x6000201 = asm.x6000201_;
+    asm.x600021d = asm.x600021d_;
 };;
 
-asm.x6000201 = function (arg0)
+asm.x600021d = function (arg0)
 {
     
-    asm.x6000201_init(arg0);
+    asm.x600021d_init(arg0);
     
-    return asm.x6000201_(arg0);
+    return asm.x600021d_(arg0);
 };;
-asm.x6000201_ = function System_Collections_IEnumerator_Reset(arg0)
+asm.x600021d_ = function System_Collections_IEnumerator_Reset(arg0)
 {
     var t0;
     
@@ -15476,10 +16876,10 @@ asm.x6000201_ = function System_Collections_IEnumerator_Reset(arg0)
     /* IL_00: newobj Void .ctor() */
     /* IL_05: throw  */
     
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
 };/* System.Object <GetEnumerator>d__7.System.Collections.IEnumerator.get_Current()*/
 
-asm.x6000202 = function System_Collections_IEnumerator_get_Current(arg0)
+asm.x600021e = function System_Collections_IEnumerator_get_Current(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Object <>2__current */
@@ -15488,7 +16888,7 @@ asm.x6000202 = function System_Collections_IEnumerator_get_Current(arg0)
     return arg0["CilJs_JavaScript_GetEnumerator_d__7<>2__current"];
 };;/*  <GetEnumerator>d__7..ctor(Int32)*/
 
-asm.x60001fd = function _ctor(arg0, arg1)
+asm.x6000219 = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -15503,14 +16903,14 @@ asm.x60001fd = function _ctor(arg0, arg1)
     return ;
 };;/* System.Void <AsEnumerable>d__8.System.IDisposable.Dispose()*/
 
-asm.x6000204 = function System_IDisposable_Dispose(arg0)
+asm.x6000220 = function System_IDisposable_Dispose(arg0)
 {
     /* IL_00: ret  */
     
     return ;
 };;/* System.Boolean <AsEnumerable>d__8.MoveNext()*/
 
-asm.x6000205 = function MoveNext(arg0)
+asm.x6000221 = function MoveNext(arg0)
 {
     var in_block_0;
     var __pos__;
@@ -15690,7 +17090,7 @@ asm.x6000205 = function MoveNext(arg0)
     }
 };;/* System.Object <AsEnumerable>d__8.System.Collections.Generic.IEnumerator<System.Object>.get_Current()*/
 
-asm.x6000206 = function System_Collections_Generic_IEnumerator_System_Object__get_Current(arg0)
+asm.x6000222 = function System_Collections_Generic_IEnumerator_System_Object__get_Current(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Object <>2__current */
@@ -15699,22 +17099,22 @@ asm.x6000206 = function System_Collections_Generic_IEnumerator_System_Object__ge
     return arg0["CilJs_JavaScript_AsEnumerable_d__8<>2__current"];
 };;/* System.Void <AsEnumerable>d__8.System.Collections.IEnumerator.Reset()*/
 
-asm.x6000207_init = function (arg0)
+asm.x6000223_init = function (arg0)
 {
     
     (asm0["System.NotSupportedException"]().init)();
     
-    asm.x6000207 = asm.x6000207_;
+    asm.x6000223 = asm.x6000223_;
 };;
 
-asm.x6000207 = function (arg0)
+asm.x6000223 = function (arg0)
 {
     
-    asm.x6000207_init(arg0);
+    asm.x6000223_init(arg0);
     
-    return asm.x6000207_(arg0);
+    return asm.x6000223_(arg0);
 };;
-asm.x6000207_ = function System_Collections_IEnumerator_Reset(arg0)
+asm.x6000223_ = function System_Collections_IEnumerator_Reset(arg0)
 {
     var t0;
     
@@ -15722,10 +17122,10 @@ asm.x6000207_ = function System_Collections_IEnumerator_Reset(arg0)
     /* IL_00: newobj Void .ctor() */
     /* IL_05: throw  */
     
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
+    throw CILJS.newobj(t0,asm0.x6000134,[null]);
 };/* System.Object <AsEnumerable>d__8.System.Collections.IEnumerator.get_Current()*/
 
-asm.x6000208 = function System_Collections_IEnumerator_get_Current(arg0)
+asm.x6000224 = function System_Collections_IEnumerator_get_Current(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: ldfld Object <>2__current */
@@ -15734,22 +17134,22 @@ asm.x6000208 = function System_Collections_IEnumerator_get_Current(arg0)
     return arg0["CilJs_JavaScript_AsEnumerable_d__8<>2__current"];
 };;/* System.Collections.Generic.IEnumerator`1[System.Object] <AsEnumerable>d__8.System.Collections.Generic.IEnumerable<System.Object>.GetEnumerator()*/
 
-asm.x6000209_init = function (arg0)
+asm.x6000225_init = function (arg0)
 {
     
     (asm0["CilJs.JavaScript.Array+<AsEnumerable>d__8"]().init)();
     
-    asm.x6000209 = asm.x6000209_;
+    asm.x6000225 = asm.x6000225_;
 };;
 
-asm.x6000209 = function (arg0)
+asm.x6000225 = function (arg0)
 {
     
-    asm.x6000209_init(arg0);
+    asm.x6000225_init(arg0);
     
-    return asm.x6000209_(arg0);
+    return asm.x6000225_(arg0);
 };;
-asm.x6000209_ = function System_Collections_Generic_IEnumerable_System_Object__GetEnumerator(arg0)
+asm.x6000225_ = function System_Collections_Generic_IEnumerable_System_Object__GetEnumerator(arg0)
 {
     var t0;
     var in_block_0;
@@ -15782,7 +17182,7 @@ asm.x6000209_ = function System_Collections_Generic_IEnumerable_System_Object__G
             /* IL_10: call Int32 get_CurrentManagedThreadId() */
             /* IL_15: bne.un.s IL_22 */
             
-            if (CILJS.unsigned_value(arg0["CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId"]) != CILJS.unsigned_value(asm0.x6000178())){
+            if (CILJS.unsigned_value(arg0["CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId"]) != CILJS.unsigned_value(asm0.x6000149())){
                 
                 __pos__ = 0x22;
                 
@@ -15807,7 +17207,7 @@ asm.x6000209_ = function System_Collections_Generic_IEnumerable_System_Object__G
             /* IL_23: newobj Void .ctor(System.Int32) */
             /* IL_28: stloc.0  */
             
-            loc0 = CILJS.newobj(t0,asm0.x6000203,[null, 0]);
+            loc0 = CILJS.newobj(t0,asm0.x600021f,[null, 0]);
             /* IL_29: ldloc.0  */
             /* IL_2A: ldarg.0  */
             /* IL_2B: ldfld Array <>4__this */
@@ -15823,16 +17223,16 @@ asm.x6000209_ = function System_Collections_Generic_IEnumerable_System_Object__G
     }
 };/* System.Collections.IEnumerator <AsEnumerable>d__8.System.Collections.IEnumerable.GetEnumerator()*/
 
-asm.x600020a = function System_Collections_IEnumerable_GetEnumerator(arg0)
+asm.x6000226 = function System_Collections_IEnumerable_GetEnumerator(arg0)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<System.Object>.GetEnumerator() */
     /* IL_06: ret  */
     
-    return asm0.x6000209(arg0);
+    return asm0.x6000225(arg0);
 };;/*  <AsEnumerable>d__8..ctor(Int32)*/
 
-asm.x6000203 = function _ctor(arg0, arg1)
+asm.x600021f = function _ctor(arg0, arg1)
 {
     /* IL_00: ldarg.0  */
     /* IL_01: call Void .ctor() */
@@ -15846,1667 +17246,11 @@ asm.x6000203 = function _ctor(arg0, arg1)
     /* IL_0F: call Int32 get_CurrentManagedThreadId() */
     /* IL_14: stfld Int32 <>l__initialThreadId */
     
-    arg0["CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId"] = asm0.x6000178();
+    arg0["CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId"] = asm0.x6000149();
     /* IL_19: ret  */
     
     return ;
-};;/* System.Int32 <>c__DisplayClass23_0`1.<Sort>b__0(T,T)*/
-
-asm.x600020c_init = function (arg0, arg1, arg2)
-{
-    
-    (asm0["System.Collections.Generic.IComparer`1"](((arg0.constructor.GenericArguments)["asm0.t2000078"])[0]).init)();
 };;
-
-asm.x600020c = function (arg0, arg1, arg2)
-{
-    
-    asm.x600020c_init(arg0,arg1,arg2);
-    
-    return asm.x600020c_(arg0,arg1,arg2);
-};;
-asm.x600020c_ = function _Sort_b__0(arg0, arg1, arg2)
-{
-    var t0;
-    var t1;
-    
-    t0 = ((arg0.constructor.GenericArguments)["asm0.t2000078"])[0];
-    
-    t1 = asm0["System.Collections.Generic.IComparer`1"](t0);
-    /* IL_00: ldarg.0  */
-    /* IL_01: ldfld IComparer`1 comparer */
-    /* IL_06: ldarg.1  */
-    /* IL_07: ldarg.2  */
-    /* IL_08: callvirt Int32 Compare(T, T) */
-    /* IL_0D: ret  */
-    
-    return (((arg0.comparer.ifacemap)[t1])[t0].x60001d9)(CILJS.convert_box_to_pointer_as_needed(arg0.comparer),arg1,arg2);
-};/*  <>c__DisplayClass23_0`1..ctor()*/
-
-asm.x600020b = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/* T ArrayEnumerator.get_Current()*/
-
-asm.x600020e = function get_Current(arg0)
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldfld Array`1 source */
-    /* IL_07: ldarg.0  */
-    /* IL_08: ldfld Int32 index */
-    /* IL_0D: callvirt T GetTypedValue(System.Int32) */
-    /* IL_12: stloc.0  */
-    
-    loc0 = arg0.source.jsarr[arg0.index];
-    /* IL_15: ldloc.0  */
-    /* IL_16: ret  */
-    
-    return loc0;
-};;/* System.Boolean ArrayEnumerator.MoveNext()*/
-
-asm.x600020f = function MoveNext(arg0)
-{
-    var loc0;
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldarg.0  */
-    /* IL_03: ldfld Int32 index */
-    /* IL_08: ldc.i4.1  */
-    /* IL_09: add  */
-    /* IL_0A: stfld Int32 index */
-    
-    arg0.index = ((arg0.index + 1) | 0);
-    /* IL_0F: ldarg.0  */
-    /* IL_10: ldfld Int32 index */
-    /* IL_15: ldarg.0  */
-    /* IL_16: ldfld Int32 length */
-    /* IL_1C: clt  */
-    /* IL_1D: stloc.0  */
-    
-    loc0 = ((arg0.index < arg0.length) ? 1 : 0);
-    /* IL_20: ldloc.0  */
-    /* IL_21: ret  */
-    
-    return loc0;
-};;/* System.Object ArrayEnumerator.System.Collections.IEnumerator.get_Current()*/
-
-asm.x6000210 = function System_Collections_IEnumerator_get_Current(arg0)
-{
-    var t0;
-    var loc0;
-    
-    t0 = ((arg0.constructor.GenericArguments)["asm0.t2000079"])[0];
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: call T get_Current() */
-    /* IL_07: box T */
-    /* IL_0C: stloc.0  */
-    
-    loc0 = CILJS.box(asm0.x600020e(arg0),t0);
-    /* IL_0F: ldloc.0  */
-    /* IL_10: ret  */
-    
-    return loc0;
-};;/* System.Void ArrayEnumerator.Reset()*/
-
-asm.x6000211 = function Reset(arg0)
-{
-    /* IL_00: nop  */
-    /* IL_01: ldarg.0  */
-    /* IL_02: ldc.i4.m1  */
-    /* IL_03: stfld Int32 index */
-    
-    arg0.index = -1;
-    /* IL_08: ret  */
-    
-    return ;
-};;/* System.Void ArrayEnumerator.Dispose()*/
-
-asm.x6000212 = function Dispose(arg0)
-{
-    /* IL_00: nop  */
-    /* IL_01: ret  */
-    
-    return ;
-};;/*  ArrayEnumerator..ctor(Array`1)*/
-
-asm.x600020d = function _ctor(arg0, arg1)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: nop  */
-    /* IL_08: ldarg.0  */
-    /* IL_09: ldarg.1  */
-    /* IL_0A: stfld Array`1 source */
-    
-    arg0.source = arg1;
-    /* IL_0F: ldarg.0  */
-    /* IL_10: ldc.i4.m1  */
-    /* IL_11: stfld Int32 index */
-    
-    arg0.index = -1;
-    /* IL_16: ldarg.0  */
-    /* IL_17: ldarg.1  */
-    /* IL_18: callvirt Int32 get_Length() */
-    /* IL_1D: stfld Int32 length */
-    
-    arg0.length = asm0.x6000111(arg1);
-    /* IL_22: ret  */
-    
-    return ;
-};;/*  constructor..ctor()*/
-
-asm.x6000213 = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;/* System.Void <get_CustomAttributes>d__18.System.IDisposable.Dispose()*/
-
-asm.x6000215 = function System_IDisposable_Dispose(arg0)
-{
-    var in_block_0;
-    var __pos__;
-    var loc0;
-    var in_block_1;
-    var __finally_continuation_1__;
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            /* IL_00: ldarg.0  */
-            /* IL_01: ldfld Int32 <>1__state */
-            /* IL_06: stloc.0  */
-            
-            loc0 = arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"];
-            /* IL_07: ldloc.0  */
-            /* IL_08: ldc.i4.s 253 */
-            /* IL_0A: beq.s IL_20 */
-            
-            if (loc0 === -3){
-                
-                __pos__ = 0x20;
-                
-                continue;
-            }
-            /* IL_0E: ldloc.0  */
-            /* IL_0F: ldc.i4.1  */
-            /* IL_10: beq.s IL_20 */
-            
-            if (loc0 === 1){
-                
-                __pos__ = 0x20;
-                
-                continue;
-            }
-            /* IL_12: br.s IL_20 */
-            
-            __pos__ = 0x20;
-            
-            continue;
-            case 0x14:
-            /* IL_14: nop  */
-            
-            try {
-                
-                in_block_1 = true;
-                
-                __finally_continuation_1__ = __pos__;
-                
-                if (__pos__ < 0x15){
-                    
-                    __pos__ = 0x15;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x15:
-                        /* IL_15: leave.s IL_1E */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0x1E;
-                        
-                        continue;
-                    }
-                }
-            }
-            
-            finally {
-                
-                in_block_1 = true;
-                
-                __finally_continuation_1__ = __pos__;
-                
-                __pos__ = 0x17;
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x17:
-                        /* IL_17: ldarg.0  */
-                        /* IL_18: call Void <>m__Finally1() */
-                        
-                        asm0.x6000217(arg0);
-                        /* IL_1D: endfinally  */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = __finally_continuation_1__;
-                        
-                        continue;
-                    }
-                    
-                    break;
-                }
-            }
-            
-            continue;
-            case 0x1E:
-            /* IL_1E: br.s IL_20 */
-            
-            __pos__ = 0x20;
-            
-            continue;
-            case 0x20:
-            /* IL_20: ret  */
-            
-            return ;
-        }
-    }
-};;/* System.Boolean <get_CustomAttributes>d__18.MoveNext()*/
-
-asm.x6000216_init = function (arg0)
-{
-    
-    (asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()).init)();
-    
-    (asm0["CilJs.JavaScript.Array"]().init)();
-    
-    (asm0["System.Reflection.CustomAttributeData"]().init)();
-    
-    (asm0["System.Collections.IEnumerator"]().init)();
-    
-    asm.x6000216 = asm.x6000216_;
-};;
-
-asm.x6000216 = function (arg0)
-{
-    
-    asm.x6000216_init(arg0);
-    
-    return asm.x6000216_(arg0);
-};;
-asm.x6000216_ = function MoveNext(arg0)
-{
-    var t0;
-    var t1;
-    var t2;
-    var t3;
-    var t4;
-    var in_block_0;
-    var __pos__;
-    var in_block_1;
-    var loc1;
-    var loc0;
-    var __error_handled_1__;
-    
-    t0 = asm0["System.Object"]();
-    
-    t1 = asm0["System.Collections.Generic.IEnumerator`1"](t0);
-    
-    t2 = asm0["CilJs.JavaScript.Array"]();
-    
-    t3 = asm0["System.Reflection.CustomAttributeData"]();
-    
-    t4 = asm0["System.Collections.IEnumerator"]();
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            
-            try {
-                
-                in_block_1 = true;
-                
-                if (__pos__ < 0x0){
-                    
-                    __pos__ = 0x0;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x0:
-                        /* IL_00: ldarg.0  */
-                        /* IL_01: ldfld Int32 <>1__state */
-                        /* IL_06: stloc.1  */
-                        
-                        loc1 = arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"];
-                        /* IL_07: ldloc.1  */
-                        /* IL_08: brfalse.s IL_1D */
-                        
-                        if ((!(loc1))){
-                            
-                            __pos__ = 0x1D;
-                            
-                            continue;
-                        }
-                        /* IL_0C: ldloc.1  */
-                        /* IL_0D: ldc.i4.1  */
-                        /* IL_0E: beq.s IL_7E */
-                        
-                        if (loc1 === 1){
-                            
-                            __pos__ = 0x7E;
-                            
-                            continue;
-                        }
-                        /* IL_10: br.s IL_16 */
-                        
-                        __pos__ = 0x16;
-                        
-                        continue;
-                        case 0x12:
-                        /* IL_12: br.s IL_1D */
-                        
-                        __pos__ = 0x1D;
-                        
-                        continue;
-                        case 0x14:
-                        /* IL_14: br.s IL_7E */
-                        
-                        __pos__ = 0x7E;
-                        
-                        continue;
-                        case 0x16:
-                        /* IL_16: ldc.i4.0  */
-                        /* IL_17: stloc.0  */
-                        
-                        loc0 = 0;
-                        /* IL_18: leave IL_B5 */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0xB5;
-                        
-                        continue;
-                        case 0x1D:
-                        /* IL_1D: ldarg.0  */
-                        /* IL_1E: ldc.i4.m1  */
-                        /* IL_1F: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -1;
-                        /* IL_24: nop  */
-                        /* IL_25: nop  */
-                        /* IL_26: ldarg.0  */
-                        /* IL_27: ldarg.0  */
-                        /* IL_28: ldfld TypeInfo <>4__this */
-                        /* IL_2D: ldfld constructor ctor */
-                        /* IL_32: ldfld Array CustomAttributes */
-                        /* IL_37: callvirt IEnumerator`1 GetEnumerator() */
-                        /* IL_3C: stfld IEnumerator`1 <>s__1 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"] = asm0.x6000019(arg0["<>4__this"].ctor.CustomAttributes);
-                        /* IL_41: ldarg.0  */
-                        /* IL_42: ldc.i4.s 253 */
-                        /* IL_44: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -3;
-                        /* IL_49: br.s IL_8E */
-                        
-                        __pos__ = 0x8E;
-                        
-                        continue;
-                        case 0x4B:
-                        /* IL_4B: ldarg.0  */
-                        /* IL_4C: ldarg.0  */
-                        /* IL_4D: ldfld IEnumerator`1 <>s__1 */
-                        /* IL_52: callvirt Object get_Current() */
-                        /* IL_57: stfld Object <rawAttribData>5__2 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"] = (((arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t1])[t0].x60001da)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
-                        /* IL_5C: nop  */
-                        /* IL_5D: ldarg.0  */
-                        /* IL_5E: ldarg.0  */
-                        /* IL_5F: ldfld Object <rawAttribData>5__2 */
-                        /* IL_64: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
-                        /* IL_69: newobj Void .ctor(CilJs.JavaScript.Array) */
-                        /* IL_6E: stfld CustomAttributeData <>2__current */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>2__current"] = CILJS.newobj(t3,asm0.x60001bd,[null, arg0["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"]]);
-                        /* IL_73: ldarg.0  */
-                        /* IL_74: ldc.i4.1  */
-                        /* IL_75: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = 1;
-                        /* IL_7A: ldc.i4.1  */
-                        /* IL_7B: stloc.0  */
-                        
-                        loc0 = 1;
-                        /* IL_7C: leave.s IL_B5 */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0xB5;
-                        
-                        continue;
-                        case 0x7E:
-                        /* IL_7E: ldarg.0  */
-                        /* IL_7F: ldc.i4.s 253 */
-                        /* IL_81: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -3;
-                        /* IL_86: nop  */
-                        /* IL_87: ldarg.0  */
-                        /* IL_88: ldnull  */
-                        /* IL_89: stfld Object <rawAttribData>5__2 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<rawAttribData>5__2"] = null;
-                        case 0x8E:
-                        /* IL_8E: ldarg.0  */
-                        /* IL_8F: ldfld IEnumerator`1 <>s__1 */
-                        /* IL_94: callvirt Boolean MoveNext() */
-                        /* IL_99: brtrue.s IL_4B */
-                        
-                        if (((arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t4].x60001cf)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]))){
-                            
-                            __pos__ = 0x4B;
-                            
-                            continue;
-                        }
-                        /* IL_9B: ldarg.0  */
-                        /* IL_9C: call Void <>m__Finally1() */
-                        
-                        asm0.x6000217(arg0);
-                        /* IL_A1: nop  */
-                        /* IL_A2: ldarg.0  */
-                        /* IL_A3: ldnull  */
-                        /* IL_A4: stfld IEnumerator`1 <>s__1 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"] = null;
-                        /* IL_A9: ldc.i4.0  */
-                        /* IL_AA: stloc.0  */
-                        
-                        loc0 = 0;
-                        /* IL_AB: leave.s IL_B5 */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0xB5;
-                        
-                        continue;
-                    }
-                }
-            }
-            
-            catch (__error__) {
-                
-                __error_handled_1__ = false;
-                
-                if ((!(__error_handled_1__))){
-                    
-                    throw __error__;
-                }
-                
-                if (__error_handled_1__ === false){
-                    
-                    in_block_1 = true;
-                    
-                    if (__pos__ < 0xAD){
-                        
-                        __pos__ = 0xAD;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0xAD:
-                            /* IL_AD: ldarg.0  */
-                            /* IL_AE: call Void System.IDisposable.Dispose() */
-                            
-                            asm0.x6000215(arg0);
-                            /* IL_B3: nop  */
-                            /* IL_B4: endfinally  */
-                            
-                            in_block_1 = false;
-                            
-                            __pos__ = __finally_continuation_1__;
-                            
-                            continue;
-                            
-                            throw __error__;
-                        }
-                    }
-                }
-            }
-            
-            continue;
-            case 0xB5:
-            /* IL_B5: ldloc.0  */
-            /* IL_B6: ret  */
-            
-            return loc0;
-        }
-    }
-};/* System.Void <get_CustomAttributes>d__18.<>m__Finally1()*/
-
-asm.x6000217 = function __m__Finally1(arg0)
-{
-    var t0;
-    var in_block_0;
-    var __pos__;
-    
-    t0 = asm0["System.IDisposable"]();
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            /* IL_00: ldarg.0  */
-            /* IL_01: ldc.i4.m1  */
-            /* IL_02: stfld Int32 <>1__state */
-            
-            arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = -1;
-            /* IL_07: ldarg.0  */
-            /* IL_08: ldfld IEnumerator`1 <>s__1 */
-            /* IL_0D: brfalse.s IL_1B */
-            
-            if ((!(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]))){
-                
-                __pos__ = 0x1B;
-                
-                continue;
-            }
-            /* IL_0F: ldarg.0  */
-            /* IL_10: ldfld IEnumerator`1 <>s__1 */
-            /* IL_15: callvirt Void Dispose() */
-            
-            ((arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"].ifacemap)[t0].x600010c)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__18<>s__1"]));
-            /* IL_1A: nop  */
-            case 0x1B:
-            /* IL_1B: ret  */
-            
-            return ;
-        }
-    }
-};;/* System.Reflection.CustomAttributeData <get_CustomAttributes>d__18.System.Collections.Generic.IEnumerator<System.Reflection.CustomAttributeData>.get_Current()*/
-
-asm.x6000218 = function System_Collections_Generic_IEnumerator_System_Reflection_CustomAttributeData__get_Current(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: ldfld CustomAttributeData <>2__current */
-    /* IL_06: ret  */
-    
-    return arg0["System_Reflection_get_CustomAttributes_d__18<>2__current"];
-};;/* System.Void <get_CustomAttributes>d__18.System.Collections.IEnumerator.Reset()*/
-
-asm.x6000219_init = function (arg0)
-{
-    
-    (asm0["System.NotSupportedException"]().init)();
-    
-    asm.x6000219 = asm.x6000219_;
-};;
-
-asm.x6000219 = function (arg0)
-{
-    
-    asm.x6000219_init(arg0);
-    
-    return asm.x6000219_(arg0);
-};;
-asm.x6000219_ = function System_Collections_IEnumerator_Reset(arg0)
-{
-    var t0;
-    
-    t0 = asm0["System.NotSupportedException"]();
-    /* IL_00: newobj Void .ctor() */
-    /* IL_05: throw  */
-    
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
-};/* System.Object <get_CustomAttributes>d__18.System.Collections.IEnumerator.get_Current()*/
-
-asm.x600021a = function System_Collections_IEnumerator_get_Current(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: ldfld CustomAttributeData <>2__current */
-    /* IL_06: ret  */
-    
-    return arg0["System_Reflection_get_CustomAttributes_d__18<>2__current"];
-};;/* System.Collections.Generic.IEnumerator`1[System.Reflection.CustomAttributeData] <get_CustomAttributes>d__18.System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator()*/
-
-asm.x600021b_init = function (arg0)
-{
-    
-    (asm0["System.Reflection.TypeInfo+<get_CustomAttributes>d__18"]().init)();
-    
-    asm.x600021b = asm.x600021b_;
-};;
-
-asm.x600021b = function (arg0)
-{
-    
-    asm.x600021b_init(arg0);
-    
-    return asm.x600021b_(arg0);
-};;
-asm.x600021b_ = function System_Collections_Generic_IEnumerable_System_Reflection_CustomAttributeData__GetEnumerator(arg0)
-{
-    var t0;
-    var in_block_0;
-    var __pos__;
-    var loc0;
-    
-    t0 = asm0["System.Reflection.TypeInfo+<get_CustomAttributes>d__18"]();
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            /* IL_00: ldarg.0  */
-            /* IL_01: ldfld Int32 <>1__state */
-            /* IL_06: ldc.i4.s 254 */
-            /* IL_08: bne.un.s IL_22 */
-            
-            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"]) != CILJS.unsigned_value(-2)){
-                
-                __pos__ = 0x22;
-                
-                continue;
-            }
-            /* IL_0A: ldarg.0  */
-            /* IL_0B: ldfld Int32 <>l__initialThreadId */
-            /* IL_10: call Int32 get_CurrentManagedThreadId() */
-            /* IL_15: bne.un.s IL_22 */
-            
-            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__18<>l__initialThreadId"]) != CILJS.unsigned_value(asm0.x6000178())){
-                
-                __pos__ = 0x22;
-                
-                continue;
-            }
-            /* IL_17: ldarg.0  */
-            /* IL_18: ldc.i4.0  */
-            /* IL_19: stfld Int32 <>1__state */
-            
-            arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = 0;
-            /* IL_1E: ldarg.0  */
-            /* IL_1F: stloc.0  */
-            
-            loc0 = arg0;
-            /* IL_20: br.s IL_35 */
-            
-            __pos__ = 0x35;
-            
-            continue;
-            case 0x22:
-            /* IL_22: ldc.i4.0  */
-            /* IL_23: newobj Void .ctor(System.Int32) */
-            /* IL_28: stloc.0  */
-            
-            loc0 = CILJS.newobj(t0,asm0.x6000214,[null, 0]);
-            /* IL_29: ldloc.0  */
-            /* IL_2A: ldarg.0  */
-            /* IL_2B: ldfld TypeInfo <>4__this */
-            /* IL_30: stfld TypeInfo <>4__this */
-            
-            loc0["<>4__this"] = arg0["<>4__this"];
-            case 0x35:
-            /* IL_35: ldloc.0  */
-            /* IL_36: ret  */
-            
-            return loc0;
-        }
-    }
-};/* System.Collections.IEnumerator <get_CustomAttributes>d__18.System.Collections.IEnumerable.GetEnumerator()*/
-
-asm.x600021c = function System_Collections_IEnumerable_GetEnumerator(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator() */
-    /* IL_06: ret  */
-    
-    return asm0.x600021b(arg0);
-};;/*  <get_CustomAttributes>d__18..ctor(Int32)*/
-
-asm.x6000214 = function _ctor(arg0, arg1)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ldarg.0  */
-    /* IL_08: ldarg.1  */
-    /* IL_09: stfld Int32 <>1__state */
-    
-    arg0["System_Reflection_get_CustomAttributes_d__18<>1__state"] = arg1;
-    /* IL_0E: ldarg.0  */
-    /* IL_0F: call Int32 get_CurrentManagedThreadId() */
-    /* IL_14: stfld Int32 <>l__initialThreadId */
-    
-    arg0["System_Reflection_get_CustomAttributes_d__18<>l__initialThreadId"] = asm0.x6000178();
-    /* IL_19: ret  */
-    
-    return ;
-};;/* System.Void <get_CustomAttributes>d__7.System.IDisposable.Dispose()*/
-
-asm.x600021e = function System_IDisposable_Dispose(arg0)
-{
-    var in_block_0;
-    var __pos__;
-    var loc0;
-    var in_block_1;
-    var __finally_continuation_1__;
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            /* IL_00: ldarg.0  */
-            /* IL_01: ldfld Int32 <>1__state */
-            /* IL_06: stloc.0  */
-            
-            loc0 = arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"];
-            /* IL_07: ldloc.0  */
-            /* IL_08: ldc.i4.s 253 */
-            /* IL_0A: beq.s IL_20 */
-            
-            if (loc0 === -3){
-                
-                __pos__ = 0x20;
-                
-                continue;
-            }
-            /* IL_0E: ldloc.0  */
-            /* IL_0F: ldc.i4.1  */
-            /* IL_10: beq.s IL_20 */
-            
-            if (loc0 === 1){
-                
-                __pos__ = 0x20;
-                
-                continue;
-            }
-            /* IL_12: br.s IL_20 */
-            
-            __pos__ = 0x20;
-            
-            continue;
-            case 0x14:
-            /* IL_14: nop  */
-            
-            try {
-                
-                in_block_1 = true;
-                
-                __finally_continuation_1__ = __pos__;
-                
-                if (__pos__ < 0x15){
-                    
-                    __pos__ = 0x15;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x15:
-                        /* IL_15: leave.s IL_1E */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0x1E;
-                        
-                        continue;
-                    }
-                }
-            }
-            
-            finally {
-                
-                in_block_1 = true;
-                
-                __finally_continuation_1__ = __pos__;
-                
-                __pos__ = 0x17;
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x17:
-                        /* IL_17: ldarg.0  */
-                        /* IL_18: call Void <>m__Finally1() */
-                        
-                        asm0.x6000220(arg0);
-                        /* IL_1D: endfinally  */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = __finally_continuation_1__;
-                        
-                        continue;
-                    }
-                    
-                    break;
-                }
-            }
-            
-            continue;
-            case 0x1E:
-            /* IL_1E: br.s IL_20 */
-            
-            __pos__ = 0x20;
-            
-            continue;
-            case 0x20:
-            /* IL_20: ret  */
-            
-            return ;
-        }
-    }
-};;/* System.Boolean <get_CustomAttributes>d__7.MoveNext()*/
-
-asm.x600021f_init = function (arg0)
-{
-    
-    (asm0["CilJs.JavaScript.Array"]().init)();
-    
-    (asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()).init)();
-    
-    (asm0["System.Reflection.CustomAttributeData"]().init)();
-    
-    (asm0["System.Collections.IEnumerator"]().init)();
-    
-    asm.x600021f = asm.x600021f_;
-};;
-
-asm.x600021f = function (arg0)
-{
-    
-    asm.x600021f_init(arg0);
-    
-    return asm.x600021f_(arg0);
-};;
-asm.x600021f_ = function MoveNext(arg0)
-{
-    var t0;
-    var t1;
-    var t2;
-    var t3;
-    var t4;
-    var in_block_0;
-    var __pos__;
-    var in_block_1;
-    var loc1;
-    var loc0;
-    var __error_handled_1__;
-    
-    t0 = asm0["CilJs.JavaScript.Array"]();
-    
-    t1 = asm0["System.Object"]();
-    
-    t2 = asm0["System.Collections.Generic.IEnumerator`1"](t1);
-    
-    t3 = asm0["System.Reflection.CustomAttributeData"]();
-    
-    t4 = asm0["System.Collections.IEnumerator"]();
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            
-            try {
-                
-                in_block_1 = true;
-                
-                if (__pos__ < 0x0){
-                    
-                    __pos__ = 0x0;
-                }
-                
-                while (in_block_1){
-                    
-                    switch (__pos__){
-                        case 0x0:
-                        /* IL_00: ldarg.0  */
-                        /* IL_01: ldfld Int32 <>1__state */
-                        /* IL_06: stloc.1  */
-                        
-                        loc1 = arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"];
-                        /* IL_07: ldloc.1  */
-                        /* IL_08: brfalse.s IL_1D */
-                        
-                        if ((!(loc1))){
-                            
-                            __pos__ = 0x1D;
-                            
-                            continue;
-                        }
-                        /* IL_0C: ldloc.1  */
-                        /* IL_0D: ldc.i4.1  */
-                        /* IL_0E: beq.s IL_90 */
-                        
-                        if (loc1 === 1){
-                            
-                            __pos__ = 0x90;
-                            
-                            continue;
-                        }
-                        /* IL_10: br.s IL_16 */
-                        
-                        __pos__ = 0x16;
-                        
-                        continue;
-                        case 0x12:
-                        /* IL_12: br.s IL_1D */
-                        
-                        __pos__ = 0x1D;
-                        
-                        continue;
-                        case 0x14:
-                        /* IL_14: br.s IL_90 */
-                        
-                        __pos__ = 0x90;
-                        
-                        continue;
-                        case 0x16:
-                        /* IL_16: ldc.i4.0  */
-                        /* IL_17: stloc.0  */
-                        
-                        loc0 = 0;
-                        /* IL_18: leave IL_C7 */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0xC7;
-                        
-                        continue;
-                        case 0x1D:
-                        /* IL_1D: ldarg.0  */
-                        /* IL_1E: ldc.i4.m1  */
-                        /* IL_1F: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -1;
-                        /* IL_24: nop  */
-                        /* IL_25: ldarg.0  */
-                        /* IL_26: ldarg.0  */
-                        /* IL_27: ldfld MethodInfo <>4__this */
-                        /* IL_2C: ldfld Array methodData */
-                        /* IL_31: ldc.i4.3  */
-                        /* IL_32: callvirt Object get_Item(System.Int32) */
-                        /* IL_37: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
-                        /* IL_3C: stfld Array <attributes>5__1 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<attributes>5__1"] = arg0["<>4__this"].System_ReflectionMethodInfomethodData[3];
-                        /* IL_41: nop  */
-                        /* IL_42: ldarg.0  */
-                        /* IL_43: ldarg.0  */
-                        /* IL_44: ldfld Array <attributes>5__1 */
-                        /* IL_49: callvirt IEnumerator`1 GetEnumerator() */
-                        /* IL_4E: stfld IEnumerator`1 <>s__2 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"] = asm0.x6000019(arg0["System_Reflection_get_CustomAttributes_d__7<attributes>5__1"]);
-                        /* IL_53: ldarg.0  */
-                        /* IL_54: ldc.i4.s 253 */
-                        /* IL_56: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -3;
-                        /* IL_5B: br.s IL_A0 */
-                        
-                        __pos__ = 0xA0;
-                        
-                        continue;
-                        case 0x5D:
-                        /* IL_5D: ldarg.0  */
-                        /* IL_5E: ldarg.0  */
-                        /* IL_5F: ldfld IEnumerator`1 <>s__2 */
-                        /* IL_64: callvirt Object get_Current() */
-                        /* IL_69: stfld Object <rawAttribData>5__3 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"] = (((arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t2])[t1].x60001da)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
-                        /* IL_6E: nop  */
-                        /* IL_6F: ldarg.0  */
-                        /* IL_70: ldarg.0  */
-                        /* IL_71: ldfld Object <rawAttribData>5__3 */
-                        /* IL_76: call Array UnsafeCast[CilJs.JavaScript.Array](System.Object) */
-                        /* IL_7B: newobj Void .ctor(CilJs.JavaScript.Array) */
-                        /* IL_80: stfld CustomAttributeData <>2__current */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>2__current"] = CILJS.newobj(t3,asm0.x60001bd,[null, arg0["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"]]);
-                        /* IL_85: ldarg.0  */
-                        /* IL_86: ldc.i4.1  */
-                        /* IL_87: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = 1;
-                        /* IL_8C: ldc.i4.1  */
-                        /* IL_8D: stloc.0  */
-                        
-                        loc0 = 1;
-                        /* IL_8E: leave.s IL_C7 */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0xC7;
-                        
-                        continue;
-                        case 0x90:
-                        /* IL_90: ldarg.0  */
-                        /* IL_91: ldc.i4.s 253 */
-                        /* IL_93: stfld Int32 <>1__state */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -3;
-                        /* IL_98: nop  */
-                        /* IL_99: ldarg.0  */
-                        /* IL_9A: ldnull  */
-                        /* IL_9B: stfld Object <rawAttribData>5__3 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<rawAttribData>5__3"] = null;
-                        case 0xA0:
-                        /* IL_A0: ldarg.0  */
-                        /* IL_A1: ldfld IEnumerator`1 <>s__2 */
-                        /* IL_A6: callvirt Boolean MoveNext() */
-                        /* IL_AB: brtrue.s IL_5D */
-                        
-                        if (((arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t4].x60001cf)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]))){
-                            
-                            __pos__ = 0x5D;
-                            
-                            continue;
-                        }
-                        /* IL_AD: ldarg.0  */
-                        /* IL_AE: call Void <>m__Finally1() */
-                        
-                        asm0.x6000220(arg0);
-                        /* IL_B3: nop  */
-                        /* IL_B4: ldarg.0  */
-                        /* IL_B5: ldnull  */
-                        /* IL_B6: stfld IEnumerator`1 <>s__2 */
-                        
-                        arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"] = null;
-                        /* IL_BB: ldc.i4.0  */
-                        /* IL_BC: stloc.0  */
-                        
-                        loc0 = 0;
-                        /* IL_BD: leave.s IL_C7 */
-                        
-                        in_block_1 = false;
-                        
-                        __pos__ = 0xC7;
-                        
-                        continue;
-                    }
-                }
-            }
-            
-            catch (__error__) {
-                
-                __error_handled_1__ = false;
-                
-                if ((!(__error_handled_1__))){
-                    
-                    throw __error__;
-                }
-                
-                if (__error_handled_1__ === false){
-                    
-                    in_block_1 = true;
-                    
-                    if (__pos__ < 0xBF){
-                        
-                        __pos__ = 0xBF;
-                    }
-                    
-                    while (in_block_1){
-                        
-                        switch (__pos__){
-                            case 0xBF:
-                            /* IL_BF: ldarg.0  */
-                            /* IL_C0: call Void System.IDisposable.Dispose() */
-                            
-                            asm0.x600021e(arg0);
-                            /* IL_C5: nop  */
-                            /* IL_C6: endfinally  */
-                            
-                            in_block_1 = false;
-                            
-                            __pos__ = __finally_continuation_1__;
-                            
-                            continue;
-                            
-                            throw __error__;
-                        }
-                    }
-                }
-            }
-            
-            continue;
-            case 0xC7:
-            /* IL_C7: ldloc.0  */
-            /* IL_C8: ret  */
-            
-            return loc0;
-        }
-    }
-};/* System.Void <get_CustomAttributes>d__7.<>m__Finally1()*/
-
-asm.x6000220 = function __m__Finally1(arg0)
-{
-    var t0;
-    var in_block_0;
-    var __pos__;
-    
-    t0 = asm0["System.IDisposable"]();
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            /* IL_00: ldarg.0  */
-            /* IL_01: ldc.i4.m1  */
-            /* IL_02: stfld Int32 <>1__state */
-            
-            arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = -1;
-            /* IL_07: ldarg.0  */
-            /* IL_08: ldfld IEnumerator`1 <>s__2 */
-            /* IL_0D: brfalse.s IL_1B */
-            
-            if ((!(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]))){
-                
-                __pos__ = 0x1B;
-                
-                continue;
-            }
-            /* IL_0F: ldarg.0  */
-            /* IL_10: ldfld IEnumerator`1 <>s__2 */
-            /* IL_15: callvirt Void Dispose() */
-            
-            ((arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"].ifacemap)[t0].x600010c)(CILJS.convert_box_to_pointer_as_needed(arg0["System_Reflection_get_CustomAttributes_d__7<>s__2"]));
-            /* IL_1A: nop  */
-            case 0x1B:
-            /* IL_1B: ret  */
-            
-            return ;
-        }
-    }
-};;/* System.Reflection.CustomAttributeData <get_CustomAttributes>d__7.System.Collections.Generic.IEnumerator<System.Reflection.CustomAttributeData>.get_Current()*/
-
-asm.x6000221 = function System_Collections_Generic_IEnumerator_System_Reflection_CustomAttributeData__get_Current(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: ldfld CustomAttributeData <>2__current */
-    /* IL_06: ret  */
-    
-    return arg0["System_Reflection_get_CustomAttributes_d__7<>2__current"];
-};;/* System.Void <get_CustomAttributes>d__7.System.Collections.IEnumerator.Reset()*/
-
-asm.x6000222_init = function (arg0)
-{
-    
-    (asm0["System.NotSupportedException"]().init)();
-    
-    asm.x6000222 = asm.x6000222_;
-};;
-
-asm.x6000222 = function (arg0)
-{
-    
-    asm.x6000222_init(arg0);
-    
-    return asm.x6000222_(arg0);
-};;
-asm.x6000222_ = function System_Collections_IEnumerator_Reset(arg0)
-{
-    var t0;
-    
-    t0 = asm0["System.NotSupportedException"]();
-    /* IL_00: newobj Void .ctor() */
-    /* IL_05: throw  */
-    
-    throw CILJS.newobj(t0,asm0.x6000163,[null]);
-};/* System.Object <get_CustomAttributes>d__7.System.Collections.IEnumerator.get_Current()*/
-
-asm.x6000223 = function System_Collections_IEnumerator_get_Current(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: ldfld CustomAttributeData <>2__current */
-    /* IL_06: ret  */
-    
-    return arg0["System_Reflection_get_CustomAttributes_d__7<>2__current"];
-};;/* System.Collections.Generic.IEnumerator`1[System.Reflection.CustomAttributeData] <get_CustomAttributes>d__7.System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator()*/
-
-asm.x6000224_init = function (arg0)
-{
-    
-    (asm0["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"]().init)();
-    
-    asm.x6000224 = asm.x6000224_;
-};;
-
-asm.x6000224 = function (arg0)
-{
-    
-    asm.x6000224_init(arg0);
-    
-    return asm.x6000224_(arg0);
-};;
-asm.x6000224_ = function System_Collections_Generic_IEnumerable_System_Reflection_CustomAttributeData__GetEnumerator(arg0)
-{
-    var t0;
-    var in_block_0;
-    var __pos__;
-    var loc0;
-    
-    t0 = asm0["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"]();
-    
-    in_block_0 = true;
-    
-    __pos__ = 0x0;
-    
-    while (in_block_0){
-        
-        switch (__pos__){
-            case 0x0:
-            /* IL_00: ldarg.0  */
-            /* IL_01: ldfld Int32 <>1__state */
-            /* IL_06: ldc.i4.s 254 */
-            /* IL_08: bne.un.s IL_22 */
-            
-            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"]) != CILJS.unsigned_value(-2)){
-                
-                __pos__ = 0x22;
-                
-                continue;
-            }
-            /* IL_0A: ldarg.0  */
-            /* IL_0B: ldfld Int32 <>l__initialThreadId */
-            /* IL_10: call Int32 get_CurrentManagedThreadId() */
-            /* IL_15: bne.un.s IL_22 */
-            
-            if (CILJS.unsigned_value(arg0["System_Reflection_get_CustomAttributes_d__7<>l__initialThreadId"]) != CILJS.unsigned_value(asm0.x6000178())){
-                
-                __pos__ = 0x22;
-                
-                continue;
-            }
-            /* IL_17: ldarg.0  */
-            /* IL_18: ldc.i4.0  */
-            /* IL_19: stfld Int32 <>1__state */
-            
-            arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = 0;
-            /* IL_1E: ldarg.0  */
-            /* IL_1F: stloc.0  */
-            
-            loc0 = arg0;
-            /* IL_20: br.s IL_35 */
-            
-            __pos__ = 0x35;
-            
-            continue;
-            case 0x22:
-            /* IL_22: ldc.i4.0  */
-            /* IL_23: newobj Void .ctor(System.Int32) */
-            /* IL_28: stloc.0  */
-            
-            loc0 = CILJS.newobj(t0,asm0.x600021d,[null, 0]);
-            /* IL_29: ldloc.0  */
-            /* IL_2A: ldarg.0  */
-            /* IL_2B: ldfld MethodInfo <>4__this */
-            /* IL_30: stfld MethodInfo <>4__this */
-            
-            loc0["<>4__this"] = arg0["<>4__this"];
-            case 0x35:
-            /* IL_35: ldloc.0  */
-            /* IL_36: ret  */
-            
-            return loc0;
-        }
-    }
-};/* System.Collections.IEnumerator <get_CustomAttributes>d__7.System.Collections.IEnumerable.GetEnumerator()*/
-
-asm.x6000225 = function System_Collections_IEnumerable_GetEnumerator(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call IEnumerator`1 System.Collections.Generic.IEnumerable<System.Reflection.CustomAttributeData>.GetEnumerator() */
-    /* IL_06: ret  */
-    
-    return asm0.x6000224(arg0);
-};;/*  <get_CustomAttributes>d__7..ctor(Int32)*/
-
-asm.x600021d = function _ctor(arg0, arg1)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ldarg.0  */
-    /* IL_08: ldarg.1  */
-    /* IL_09: stfld Int32 <>1__state */
-    
-    arg0["System_Reflection_get_CustomAttributes_d__7<>1__state"] = arg1;
-    /* IL_0E: ldarg.0  */
-    /* IL_0F: call Int32 get_CurrentManagedThreadId() */
-    /* IL_14: stfld Int32 <>l__initialThreadId */
-    
-    arg0["System_Reflection_get_CustomAttributes_d__7<>l__initialThreadId"] = asm0.x6000178();
-    /* IL_19: ret  */
-    
-    return ;
-};;/*  jsAsm..ctor()*/
-
-asm.x6000226 = function _ctor(arg0)
-{
-    /* IL_00: ldarg.0  */
-    /* IL_01: call Void .ctor() */
-    /* IL_06: nop  */
-    /* IL_07: ret  */
-    
-    return ;
-};;
-asm["CilJs.JavaScript.Number"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return {};
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.Number",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000002",new (asm0["CilJs.JavaScript.Number"]())());
-        
-        type.TypeMetadataName = "asm0.t2000002";
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function $$Number()
-        {
-            
-            $$Number.init();
-        };
-    });
-asm["CilJs.JavaScript.Boolean"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return {};
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.Boolean",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000003",new (asm0["CilJs.JavaScript.Boolean"]())());
-        
-        type.TypeMetadataName = "asm0.t2000003";
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function $$Boolean()
-        {
-            
-            $$Boolean.init();
-        };
-    });
-asm["CilJs.JavaScript.Object"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.Object",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000004",null);
-        
-        type.TypeMetadataName = "asm0.t2000004";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function $$Object()
-        {
-            
-            $$Object.init();
-        };
-    });
-asm["CilJs.JavaScript.String"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.String",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000005",null);
-        
-        type.Emtpy = null;
-        
-        type.TypeMetadataName = "asm0.t2000005";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function $$String()
-        {
-            
-            $$String.init();
-        };
-    });
-asm["CilJs.JavaScript.Array"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.Array",false,false,false,false,false,[
-                [
-                    asm0["System.Reflection.DefaultMemberAttribute"](),
-                    asm0.x60001af,
-                    [
-                        CILJS.new_string("Item")
-                    ]
-                ]
-            ],[
-                [asm0, "x6000016", "get_Length", []],
-                [asm0, "x6000017", "get_Item", []],
-                [asm0, "x6000018", "set_Item", []],
-                [asm0, "x6000019", "GetEnumerator"],
-                [asm0, "x600001a", "AsEnumerable"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000006",null);
-        
-        type.TypeMetadataName = "asm0.t2000006";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function Array()
-        {
-            
-            Array.init();
-        };
-    });
-asm["CilJs.Runtime.UnboundGenericParameter"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.Runtime.UnboundGenericParameter",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000008",null);
-        
-        type.TypeMetadataName = "asm0.t2000008";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function UnboundGenericParameter()
-        {
-            
-            UnboundGenericParameter.init();
-        };
-    });
-asm["CilJs.Runtime.InteropServices.Marshal"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.Runtime.InteropServices.Marshal",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000009",null);
-        
-        type.TypeMetadataName = "asm0.t2000009";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function Marshal()
-        {
-            
-            Marshal.init();
-        };
-    });
-asm["System.Locale"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Locale",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000010",null);
-        
-        type.TypeMetadataName = "asm0.t2000010";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function Locale()
-        {
-            
-            Locale.init();
-        };
-    });
 asm["System.Void"] = CILJS.declare_type(
     [],
     function ()
@@ -17519,15 +17263,15 @@ asm["System.Void"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Void",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000011",new (asm0["System.Void"]())());
+        CILJS.init_type(type,asm,"System.Void",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000002",new (asm0["System.Void"]())());
         
-        type.TypeMetadataName = "asm0.t2000011";
+        type.TypeMetadataName = "asm0.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17550,19 +17294,19 @@ asm["System.InvalidOperationException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.InvalidOperationException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000012",null);
+        CILJS.init_type(type,asm,"System.InvalidOperationException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000003",null);
         
-        type.TypeMetadataName = "asm0.t2000012";
+        type.TypeMetadataName = "asm0.t2000003";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17586,51 +17330,51 @@ asm["System.Int64"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Int64",true,true,false,false,false,[],[
-                [asm0, "x6000034", "ToString"],
-                [asm0, "x6000035", "GetHashCode"],
-                [asm0, "x600004a", "CompareTo"],
-                [asm0, "x600004b", "CompareTo"],
-                [asm0, "x600004c", "Equals"],
-                [asm0, "x600004d", "Equals"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000013",0);
+                [asm0, "x6000005", "ToString"],
+                [asm0, "x6000006", "GetHashCode"],
+                [asm0, "x600001b", "CompareTo"],
+                [asm0, "x600001c", "CompareTo"],
+                [asm0, "x600001d", "Equals"],
+                [asm0, "x600001e", "Equals"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000004",0);
         
         type.MaxValue = 0;
         
         type.MinValue = 0;
         
-        type.TypeMetadataName = "asm0.t2000013";
+        type.TypeMetadataName = "asm0.t2000004";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000034");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000005");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000035");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000006");
         
-        CILJS.declare_virtual(type,"asm0.x600004a",asm0,"x600004a");
+        CILJS.declare_virtual(type,"asm0.x600001b",asm0,"x600001b");
         
-        CILJS.declare_virtual(type,"asm0.x600004b",asm0,"x600004b");
+        CILJS.declare_virtual(type,"asm0.x600001c",asm0,"x600001c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600004c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600001d");
         
-        CILJS.declare_virtual(type,"asm0.x600004d",asm0,"x600004d");
+        CILJS.declare_virtual(type,"asm0.x600001e",asm0,"x600001e");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Int64"]()), asm0["System.Int64"]()],
             [
-                ["x600010a", asm0, "x600004b"]
+                ["x60000db", asm0, "x600001c"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x600004a"]
+                ["x60000da", asm0, "x600001b"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.Int64"]()), asm0["System.Int64"]()],
             [
-                ["x6000162", asm0, "x600004d"]
+                ["x6000133", asm0, "x600001e"]
             ]);
     },
     function ()
@@ -17655,20 +17399,20 @@ asm["System.Char"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Char",true,true,false,false,false,[],[
-                [asm0, "x600004e", "ToString"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint16Array,"asm0.t2000014",0);
+                [asm0, "x600001f", "ToString"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint16Array,"asm0.t2000005",0);
         
         type.MinValue = 0;
         
         type.MaxValue = 0;
         
-        type.TypeMetadataName = "asm0.t2000014";
+        type.TypeMetadataName = "asm0.t2000005";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x600004e");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600001f");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17691,21 +17435,21 @@ asm["System.SystemException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.SystemException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000015",null);
+        CILJS.init_type(type,asm,"System.SystemException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000006",null);
         
         type.Result = 0;
         
-        type.TypeMetadataName = "asm0.t2000015";
+        type.TypeMetadataName = "asm0.t2000006";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17729,10 +17473,10 @@ asm["System.Single"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Single",true,true,false,false,false,[],[
-                [asm0, "x6000054", "ToString"],
-                [asm0, "x6000055", "CompareTo"],
-                [asm0, "x6000056", "CompareTo"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Float32Array,"asm0.t2000016",0);
+                [asm0, "x6000025", "ToString"],
+                [asm0, "x6000026", "CompareTo"],
+                [asm0, "x6000027", "CompareTo"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Float32Array,"asm0.t2000007",0);
         
         type.MinValue = 0;
         
@@ -17746,30 +17490,30 @@ asm["System.Single"] = CILJS.declare_type(
         
         type.NaN = 0;
         
-        type.TypeMetadataName = "asm0.t2000016";
+        type.TypeMetadataName = "asm0.t2000007";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000054");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000025");
         
-        CILJS.declare_virtual(type,"asm0.x6000055",asm0,"x6000055");
+        CILJS.declare_virtual(type,"asm0.x6000026",asm0,"x6000026");
         
-        CILJS.declare_virtual(type,"asm0.x6000056",asm0,"x6000056");
+        CILJS.declare_virtual(type,"asm0.x6000027",asm0,"x6000027");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Single"]()), asm0["System.Single"]()],
             [
-                ["x600010a", asm0, "x6000056"]
+                ["x60000db", asm0, "x6000027"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000055"]
+                ["x60000da", asm0, "x6000026"]
             ]);
     },
     function ()
@@ -17794,16 +17538,16 @@ asm["System.RuntimeFieldHandle"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.RuntimeFieldHandle",true,false,false,false,false,[],[
-                [asm0, "x6000057", "get_Value"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000017",new (asm0["System.RuntimeFieldHandle"]())());
+                [asm0, "x6000028", "get_Value"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000008",new (asm0["System.RuntimeFieldHandle"]())());
         
-        type.TypeMetadataName = "asm0.t2000017";
+        type.TypeMetadataName = "asm0.t2000008";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17829,51 +17573,51 @@ asm["System.UInt16"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.UInt16",true,true,false,false,false,[],[
-                [asm0, "x6000058", "ToString"],
-                [asm0, "x6000059", "CompareTo"],
-                [asm0, "x600005a", "CompareTo"],
-                [asm0, "x600005b", "Equals"],
-                [asm0, "x600005c", "Equals"],
-                [asm0, "x600005d", "GetHashCode"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint16Array,"asm0.t2000018",0);
+                [asm0, "x6000029", "ToString"],
+                [asm0, "x600002a", "CompareTo"],
+                [asm0, "x600002b", "CompareTo"],
+                [asm0, "x600002c", "Equals"],
+                [asm0, "x600002d", "Equals"],
+                [asm0, "x600002e", "GetHashCode"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint16Array,"asm0.t2000009",0);
         
         type.MaxValue = 0;
         
         type.MinValue = 0;
         
-        type.TypeMetadataName = "asm0.t2000018";
+        type.TypeMetadataName = "asm0.t2000009";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000058");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000029");
         
-        CILJS.declare_virtual(type,"asm0.x6000059",asm0,"x6000059");
+        CILJS.declare_virtual(type,"asm0.x600002a",asm0,"x600002a");
         
-        CILJS.declare_virtual(type,"asm0.x600005a",asm0,"x600005a");
+        CILJS.declare_virtual(type,"asm0.x600002b",asm0,"x600002b");
         
-        CILJS.declare_virtual(type,"asm0.x600005b",asm0,"x600005b");
+        CILJS.declare_virtual(type,"asm0.x600002c",asm0,"x600002c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600005c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600002d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600005d");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600002e");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.UInt16"]()), asm0["System.UInt16"]()],
             [
-                ["x600010a", asm0, "x600005a"]
+                ["x60000db", asm0, "x600002b"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000059"]
+                ["x60000da", asm0, "x600002a"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.UInt16"]()), asm0["System.UInt16"]()],
             [
-                ["x6000162", asm0, "x600005b"]
+                ["x6000133", asm0, "x600002c"]
             ]);
     },
     function ()
@@ -17897,15 +17641,15 @@ asm["System.InternalFormatting"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.InternalFormatting",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000019",null);
+        CILJS.init_type(type,asm,"System.InternalFormatting",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200000a",null);
         
-        type.TypeMetadataName = "asm0.t2000019";
+        type.TypeMetadataName = "asm0.t200000a";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17928,15 +17672,15 @@ asm["System.Decimal"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Decimal",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t200001a",new (asm0["System.Decimal"]())());
+        CILJS.init_type(type,asm,"System.Decimal",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t200000b",new (asm0["System.Decimal"]())());
         
-        type.TypeMetadataName = "asm0.t200001a";
+        type.TypeMetadataName = "asm0.t200000b";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17959,17 +17703,17 @@ asm["System.EventArgs"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.EventArgs",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200001b",null);
+        CILJS.init_type(type,asm,"System.EventArgs",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200000c",null);
         
         type.Empty = null;
         
-        type.TypeMetadataName = "asm0.t200001b";
+        type.TypeMetadataName = "asm0.t200000c";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -17993,41 +17737,41 @@ asm["System.UInt32"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.UInt32",true,true,false,false,false,[],[
-                [asm0, "x6000062", "ToString"],
-                [asm0, "x6000063", "Equals"],
-                [asm0, "x6000064", "GetHashCode"],
-                [asm0, "x6000065", "CompareTo"],
-                [asm0, "x6000066", "CompareTo"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint32Array,"asm0.t200001c",0);
+                [asm0, "x6000033", "ToString"],
+                [asm0, "x6000034", "Equals"],
+                [asm0, "x6000035", "GetHashCode"],
+                [asm0, "x6000036", "CompareTo"],
+                [asm0, "x6000037", "CompareTo"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint32Array,"asm0.t200000d",0);
         
         type.MaxValue = 0;
         
         type.MinValue = 0;
         
-        type.TypeMetadataName = "asm0.t200001c";
+        type.TypeMetadataName = "asm0.t200000d";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000062");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000033");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000063");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000034");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000064");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000035");
         
-        CILJS.declare_virtual(type,"asm0.x6000065",asm0,"x6000065");
+        CILJS.declare_virtual(type,"asm0.x6000036",asm0,"x6000036");
         
-        CILJS.declare_virtual(type,"asm0.x6000066",asm0,"x6000066");
+        CILJS.declare_virtual(type,"asm0.x6000037",asm0,"x6000037");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.UInt32"]()), asm0["System.UInt32"]()],
             [
-                ["x600010a", asm0, "x6000066"]
+                ["x60000db", asm0, "x6000037"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000065"]
+                ["x60000da", asm0, "x6000036"]
             ]);
     },
     function ()
@@ -18054,7 +17798,7 @@ asm["System.FlagsAttribute"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.FlagsAttribute",false,false,false,false,false,[
                 [
                     asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
+                    asm0.x6000058,
                     [
                         16
                     ],
@@ -18065,15 +17809,15 @@ asm["System.FlagsAttribute"] = CILJS.declare_type(
                         ]
                     }
                 ]
-            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200001d",null);
+            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200000e",null);
         
-        type.TypeMetadataName = "asm0.t200001d";
+        type.TypeMetadataName = "asm0.t200000e";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18097,21 +17841,21 @@ asm["System.Delegate"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Delegate",false,false,false,false,false,[],[
-                [asm0, "x600006c", "Equals"],
-                [asm0, "x600006f", "GetHashCode"]
-            ],asm0["System.Object"](),CILJS.is_inst_delegate(type),Array,"asm0.t200001e",null);
+                [asm0, "x600003d", "Equals"],
+                [asm0, "x6000040", "GetHashCode"]
+            ],asm0["System.Object"](),CILJS.is_inst_delegate(type),Array,"asm0.t200000f",null);
         
-        type.TypeMetadataName = "asm0.t200001e";
+        type.TypeMetadataName = "asm0.t200000f";
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x600006a");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x600003b");
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x600006b");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x600003c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function ()
     {
@@ -18139,85 +17883,85 @@ asm["System.Type"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Type",false,false,false,false,false,[],[
-                [asm0, "x6000073", "get_FullName"],
-                [asm0, "x6000075", "IsSubclassOf"],
-                [asm0, "x6000076", "get_IsEnum"],
-                [asm0, "x6000077", "get_Assembly"],
-                [asm0, "x6000078", "get_BaseType"],
-                [asm0, "x6000079", "get_AssemblyQualifiedName"],
-                [asm0, "x600007a", "get_IsGenericType"],
-                [asm0, "x600007b", "get_IsInterface"],
-                [asm0, "x600007c", "get_IsGenericTypeDefinition"],
-                [asm0, "x600007d", "GetGenericArguments"],
-                [asm0, "x600007e", "GetInterfaces"],
-                [asm0, "x600007f", "MakeGenericType"],
-                [asm0, "x6000080", "IsAssignableFrom"],
-                [asm0, "x6000081", "get_IsValueType"],
-                [asm0, "x6000082", "get_IsPrimitive"],
-                [asm0, "x6000083", "GetElementType"],
-                [asm0, "x6000084", "GetMethods"],
-                [asm0, "x6000085", "IsInstanceOfType"]
-            ],asm0["System.Reflection.MemberInfo"](),CILJS.is_inst_default(type),Array,"asm0.t200001f",null);
+                [asm0, "x6000044", "get_FullName"],
+                [asm0, "x6000046", "IsSubclassOf"],
+                [asm0, "x6000047", "get_IsEnum"],
+                [asm0, "x6000048", "get_Assembly"],
+                [asm0, "x6000049", "get_BaseType"],
+                [asm0, "x600004a", "get_AssemblyQualifiedName"],
+                [asm0, "x600004b", "get_IsGenericType"],
+                [asm0, "x600004c", "get_IsInterface"],
+                [asm0, "x600004d", "get_IsGenericTypeDefinition"],
+                [asm0, "x600004e", "GetGenericArguments"],
+                [asm0, "x600004f", "GetInterfaces"],
+                [asm0, "x6000050", "MakeGenericType"],
+                [asm0, "x6000051", "IsAssignableFrom"],
+                [asm0, "x6000052", "get_IsValueType"],
+                [asm0, "x6000053", "get_IsPrimitive"],
+                [asm0, "x6000054", "GetElementType"],
+                [asm0, "x6000055", "GetMethods"],
+                [asm0, "x6000056", "IsInstanceOfType"]
+            ],asm0["System.Reflection.MemberInfo"](),CILJS.is_inst_default(type),Array,"asm0.t2000010",null);
         
-        type.TypeMetadataName = "asm0.t200001f";
+        type.TypeMetadataName = "asm0.t2000010";
         
-        CILJS.declare_virtual(type,"asm0.x6000073",asm0,"x6000073");
+        CILJS.declare_virtual(type,"asm0.x6000044",asm0,"x6000044");
         
-        CILJS.declare_virtual(type,"asm0.x6000075",asm0,"x6000075");
+        CILJS.declare_virtual(type,"asm0.x6000046",asm0,"x6000046");
         
-        CILJS.declare_virtual(type,"asm0.x6000077",asm0,"x6000077");
+        CILJS.declare_virtual(type,"asm0.x6000048",asm0,"x6000048");
         
-        CILJS.declare_virtual(type,"asm0.x6000078",asm0,"x6000078");
+        CILJS.declare_virtual(type,"asm0.x6000049",asm0,"x6000049");
         
-        CILJS.declare_virtual(type,"asm0.x6000079",asm0,"x6000079");
+        CILJS.declare_virtual(type,"asm0.x600004a",asm0,"x600004a");
         
-        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
+        CILJS.declare_virtual(type,"asm0.x600004b",asm0,"x600004b");
         
-        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
+        CILJS.declare_virtual(type,"asm0.x600004c",asm0,"x600004c");
         
-        CILJS.declare_virtual(type,"asm0.x600007c",asm0,"x600007c");
+        CILJS.declare_virtual(type,"asm0.x600004d",asm0,"x600004d");
         
-        CILJS.declare_virtual(type,"asm0.x600007d",asm0,"x600007d");
+        CILJS.declare_virtual(type,"asm0.x600004e",asm0,"x600004e");
         
-        CILJS.declare_virtual(type,"asm0.x600007e",asm0,"x600007e");
+        CILJS.declare_virtual(type,"asm0.x600004f",asm0,"x600004f");
         
-        CILJS.declare_virtual(type,"asm0.x600007f",asm0,"x600007f");
+        CILJS.declare_virtual(type,"asm0.x6000050",asm0,"x6000050");
         
-        CILJS.declare_virtual(type,"asm0.x6000080",asm0,"x6000080");
+        CILJS.declare_virtual(type,"asm0.x6000051",asm0,"x6000051");
         
-        CILJS.declare_virtual(type,"asm0.x6000081",asm0,"x6000081");
+        CILJS.declare_virtual(type,"asm0.x6000052",asm0,"x6000052");
         
-        CILJS.declare_virtual(type,"asm0.x6000082",asm0,"x6000082");
+        CILJS.declare_virtual(type,"asm0.x6000053",asm0,"x6000053");
         
-        CILJS.declare_virtual(type,"asm0.x6000083",asm0,"x6000083");
+        CILJS.declare_virtual(type,"asm0.x6000054",asm0,"x6000054");
         
-        CILJS.declare_virtual(type,"asm0.x6000084",asm0,"x6000084");
+        CILJS.declare_virtual(type,"asm0.x6000055",asm0,"x6000055");
         
-        CILJS.declare_virtual(type,"asm0.x6000085",asm0,"x6000085");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c0",asm0,"x60001c0");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c1",asm0,"x60001c1");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c2",asm0,"x60001c2");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c3",asm0,"x60001c3");
+        CILJS.declare_virtual(type,"asm0.x6000056",asm0,"x6000056");
         
         CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x60001c5");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x60001c6",asm0,"x60001c6");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x60001c7",asm0,"x60001c7");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x60001c8",asm0,"x60001c8");
+        
+        CILJS.declare_virtual(type,"asm0.x60001ca",asm0,"x60001ca");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.Reflection.ICustomAttributeProvider"]()],
             [
-                ["x60001b1", asm0, "x60001c0"],
-                ["x60001b2", asm0, "x60001c1"],
-                ["x60001b3", asm0, "x60001c3"]
+                ["x60001b6", asm0, "x60001c5"],
+                ["x60001b7", asm0, "x60001c6"],
+                ["x60001b8", asm0, "x60001c8"]
             ]);
     },
     function ()
@@ -18244,7 +17988,7 @@ asm["System.AttributeUsageAttribute"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.AttributeUsageAttribute",false,false,false,false,false,[
                 [
                     asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
+                    asm0.x6000058,
                     [
                         4
                     ],
@@ -18256,20 +18000,20 @@ asm["System.AttributeUsageAttribute"] = CILJS.declare_type(
                     }
                 ]
             ],[
-                [asm0, "x6000088", "get_ValidOn"],
-                [asm0, "x600008a", "get_Inherited"],
-                [asm0, "x600008b", "set_Inherited"],
-                [asm0, "x600008c", "get_AllowMultiple"],
-                [asm0, "x600008d", "set_AllowMultiple"]
-            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000020",null);
+                [asm0, "x6000059", "get_ValidOn"],
+                [asm0, "x600005b", "get_Inherited"],
+                [asm0, "x600005c", "set_Inherited"],
+                [asm0, "x600005d", "get_AllowMultiple"],
+                [asm0, "x600005e", "set_AllowMultiple"]
+            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000011",null);
         
-        type.TypeMetadataName = "asm0.t2000020";
+        type.TypeMetadataName = "asm0.t2000011";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18299,16 +18043,16 @@ asm["System.RuntimeTypeHandle"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.RuntimeTypeHandle",true,false,false,false,false,[],[
-                [asm0, "x600008e", "get_Value"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000021",new (asm0["System.RuntimeTypeHandle"]())());
+                [asm0, "x600005f", "get_Value"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000012",new (asm0["System.RuntimeTypeHandle"]())());
         
-        type.TypeMetadataName = "asm0.t2000021";
+        type.TypeMetadataName = "asm0.t2000012";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18334,47 +18078,47 @@ asm["System.Boolean"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Boolean",true,true,false,false,false,[],[
-                [asm0, "x600008f", "ToString"],
-                [asm0, "x6000090", "GetHashCode"],
-                [asm0, "x6000091", "Equals"],
-                [asm0, "x6000092", "Equals"],
-                [asm0, "x6000093", "CompareTo"],
-                [asm0, "x6000094", "CompareTo"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000022",0);
+                [asm0, "x6000060", "ToString"],
+                [asm0, "x6000061", "GetHashCode"],
+                [asm0, "x6000062", "Equals"],
+                [asm0, "x6000063", "Equals"],
+                [asm0, "x6000064", "CompareTo"],
+                [asm0, "x6000065", "CompareTo"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000013",0);
         
-        type.TypeMetadataName = "asm0.t2000022";
+        type.TypeMetadataName = "asm0.t2000013";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x600008f");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000060");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000090");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000061");
         
-        CILJS.declare_virtual(type,"asm0.x6000091",asm0,"x6000091");
+        CILJS.declare_virtual(type,"asm0.x6000062",asm0,"x6000062");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000092");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000063");
         
-        CILJS.declare_virtual(type,"asm0.x6000093",asm0,"x6000093");
+        CILJS.declare_virtual(type,"asm0.x6000064",asm0,"x6000064");
         
-        CILJS.declare_virtual(type,"asm0.x6000094",asm0,"x6000094");
+        CILJS.declare_virtual(type,"asm0.x6000065",asm0,"x6000065");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Boolean"]()), asm0["System.Boolean"]()],
             [
-                ["x600010a", asm0, "x6000094"]
+                ["x60000db", asm0, "x6000065"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000093"]
+                ["x60000da", asm0, "x6000064"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.Boolean"]()), asm0["System.Boolean"]()],
             [
-                ["x6000162", asm0, "x6000091"]
+                ["x6000133", asm0, "x6000062"]
             ]);
     },
     function ()
@@ -18399,51 +18143,51 @@ asm["System.SByte"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.SByte",true,true,false,false,false,[],[
-                [asm0, "x6000095", "ToString"],
-                [asm0, "x6000096", "CompareTo"],
-                [asm0, "x6000097", "CompareTo"],
-                [asm0, "x6000098", "Equals"],
-                [asm0, "x6000099", "Equals"],
-                [asm0, "x600009a", "GetHashCode"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Int8Array,"asm0.t2000023",0);
+                [asm0, "x6000066", "ToString"],
+                [asm0, "x6000067", "CompareTo"],
+                [asm0, "x6000068", "CompareTo"],
+                [asm0, "x6000069", "Equals"],
+                [asm0, "x600006a", "Equals"],
+                [asm0, "x600006b", "GetHashCode"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Int8Array,"asm0.t2000014",0);
         
         type.MinValue = 0;
         
         type.MaxValue = 0;
         
-        type.TypeMetadataName = "asm0.t2000023";
+        type.TypeMetadataName = "asm0.t2000014";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000095");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000066");
         
-        CILJS.declare_virtual(type,"asm0.x6000096",asm0,"x6000096");
+        CILJS.declare_virtual(type,"asm0.x6000067",asm0,"x6000067");
         
-        CILJS.declare_virtual(type,"asm0.x6000097",asm0,"x6000097");
+        CILJS.declare_virtual(type,"asm0.x6000068",asm0,"x6000068");
         
-        CILJS.declare_virtual(type,"asm0.x6000098",asm0,"x6000098");
+        CILJS.declare_virtual(type,"asm0.x6000069",asm0,"x6000069");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000099");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600006a");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600009a");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600006b");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.SByte"]()), asm0["System.SByte"]()],
             [
-                ["x600010a", asm0, "x6000097"]
+                ["x60000db", asm0, "x6000068"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000096"]
+                ["x60000da", asm0, "x6000067"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.SByte"]()), asm0["System.SByte"]()],
             [
-                ["x6000162", asm0, "x6000098"]
+                ["x6000133", asm0, "x6000069"]
             ]);
     },
     function ()
@@ -18468,12 +18212,12 @@ asm["System.ICloneable"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.ICloneable",false,false,true,false,false,[],[
-                [asm0, "x600009b", "Clone"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000024",null);
+                [asm0, "x600006c", "Clone"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000015",null);
         
-        type.TypeMetadataName = "asm0.t2000024";
+        type.TypeMetadataName = "asm0.t2000015";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declare_virtual(type,"asm0.x600006c",asm0,"x600006c");
     },
     function ()
     {
@@ -18496,15 +18240,15 @@ asm["System.Activator"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Activator",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000025",null);
+        CILJS.init_type(type,asm,"System.Activator",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000016",null);
         
-        type.TypeMetadataName = "asm0.t2000025";
+        type.TypeMetadataName = "asm0.t2000016";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18527,19 +18271,19 @@ asm["System.NotImplementedException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.NotImplementedException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000026",null);
+        CILJS.init_type(type,asm,"System.NotImplementedException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000017",null);
         
-        type.TypeMetadataName = "asm0.t2000026";
+        type.TypeMetadataName = "asm0.t2000017";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18562,15 +18306,15 @@ asm["System.Console"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Console",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000027",null);
+        CILJS.init_type(type,asm,"System.Console",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000018",null);
         
-        type.TypeMetadataName = "asm0.t2000027";
+        type.TypeMetadataName = "asm0.t2000018";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18594,25 +18338,25 @@ asm["System.Exception"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Exception",false,false,false,false,false,[],[
-                [asm0, "x60000a7", "get_HResult"],
-                [asm0, "x60000a9", "get_Message"],
-                [asm0, "x60000aa", "set_Message"],
-                [asm0, "x60000ab", "ToString"],
-                [asm0, "x60000ac", "get_InnerException"],
-                [asm0, "x60000ad", "set_InnerException"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000028",null);
+                [asm0, "x6000078", "get_HResult"],
+                [asm0, "x600007a", "get_Message"],
+                [asm0, "x600007b", "set_Message"],
+                [asm0, "x600007c", "ToString"],
+                [asm0, "x600007d", "get_InnerException"],
+                [asm0, "x600007e", "set_InnerException"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000019",null);
         
-        type.TypeMetadataName = "asm0.t2000028";
+        type.TypeMetadataName = "asm0.t2000019";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18644,20 +18388,20 @@ asm["System.Attribute"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.Attribute",false,false,false,false,false,[
                 [
                     asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
+                    asm0.x6000058,
                     [
                         32767
                     ]
                 ]
-            ],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000029",null);
+            ],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200001a",null);
         
-        type.TypeMetadataName = "asm0.t2000029";
+        type.TypeMetadataName = "asm0.t200001a";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18680,15 +18424,15 @@ asm["System.GC"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.GC",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200002a",null);
+        CILJS.init_type(type,asm,"System.GC",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200001b",null);
         
-        type.TypeMetadataName = "asm0.t200002a";
+        type.TypeMetadataName = "asm0.t200001b";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18712,16 +18456,16 @@ asm["System.IntPtr"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.IntPtr",true,true,false,false,false,[],[
-                [asm0, "x60000b2", "ToString"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t200002b",0);
+                [asm0, "x6000083", "ToString"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t200001c",0);
         
-        type.TypeMetadataName = "asm0.t200002b";
+        type.TypeMetadataName = "asm0.t200001c";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000b2");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000083");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18747,27 +18491,27 @@ asm["System.Nullable`1"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.Nullable`1",true,false,false,true,true,[
                 [
                     asm0["System.Diagnostics.DebuggerStepThroughAttribute"](),
-                    asm0.x60001e8
+                    asm0.x600015b
                 ]
             ],[
-                [asm0, "x60000b4", "get_HasValue"],
-                [asm0, "x60000b5", "get_Value"],
-                [asm0, "x60000b6", "Equals"],
-                [asm0, "x60000b8", "GetHashCode"],
-                [asm0, "x60000b9", "GetValueOrDefault"],
-                [asm0, "x60000ba", "GetValueOrDefault"],
-                [asm0, "x60000bb", "ToString"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t200002c",new (asm0["System.Nullable`1"](asm0["CilJs.Runtime.UnboundGenericParameter"]()))());
+                [asm0, "x6000085", "get_HasValue"],
+                [asm0, "x6000086", "get_Value"],
+                [asm0, "x6000087", "Equals"],
+                [asm0, "x6000089", "GetHashCode"],
+                [asm0, "x600008a", "GetValueOrDefault"],
+                [asm0, "x600008b", "GetValueOrDefault"],
+                [asm0, "x600008c", "ToString"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t200001d",new (asm0["System.Nullable`1"](asm0["CilJs.Runtime.UnboundGenericParameter"]()))());
         
-        (type.GenericArguments)["asm0.t200002c"] = [T];
+        (type.GenericArguments)["asm0.t200001d"] = [T];
         
-        type.TypeMetadataName = ("asm0.t200002c<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t200001d<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000b6");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000087");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000b8");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000089");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000bb");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600008c");
     },
     function (T)
     {
@@ -18794,19 +18538,19 @@ asm["System.InvalidCastException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.InvalidCastException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t200002d",null);
+        CILJS.init_type(type,asm,"System.InvalidCastException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t200001e",null);
         
-        type.TypeMetadataName = "asm0.t200002d";
+        type.TypeMetadataName = "asm0.t200001e";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18830,28 +18574,28 @@ asm["System.EventHandler"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.EventHandler",false,false,false,false,false,[],[
-                [asm0, "x60000c2", "Invoke"],
-                [asm0, "x60000c3", "BeginInvoke"],
-                [asm0, "x60000c4", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t200002e",null);
+                [asm0, "x6000093", "Invoke"],
+                [asm0, "x6000094", "BeginInvoke"],
+                [asm0, "x6000095", "EndInvoke"]
+            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t200001f",null);
         
-        type.TypeMetadataName = "asm0.t200002e";
+        type.TypeMetadataName = "asm0.t200001f";
         
-        CILJS.declare_virtual(type,"asm0.x60000c2",asm0,"x60000c2");
+        CILJS.declare_virtual(type,"asm0.x6000093",asm0,"x6000093");
         
-        CILJS.declare_virtual(type,"asm0.x60000c3",asm0,"x60000c3");
+        CILJS.declare_virtual(type,"asm0.x6000094",asm0,"x6000094");
         
-        CILJS.declare_virtual(type,"asm0.x60000c4",asm0,"x60000c4");
+        CILJS.declare_virtual(type,"asm0.x6000095",asm0,"x6000095");
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function ()
     {
@@ -18883,9 +18627,9 @@ asm["System.AttributeTargets"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.AttributeTargets",true,false,false,false,false,[
                 [
                     asm0["System.FlagsAttribute"](),
-                    asm0.x6000067
+                    asm0.x6000038
                 ]
-            ],[],asm0["System.Enum"](),CILJS.is_inst_value_type(type),Array,"asm0.t200002f",new (asm0["System.AttributeTargets"]())());
+            ],[],asm0["System.Enum"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000020",new (asm0["System.AttributeTargets"]())());
         
         type.Assembly = new (asm0["System.AttributeTargets"]())();
         
@@ -18919,13 +18663,13 @@ asm["System.AttributeTargets"] = CILJS.declare_type(
         
         type.All = new (asm0["System.AttributeTargets"]())();
         
-        type.TypeMetadataName = "asm0.t200002f";
+        type.TypeMetadataName = "asm0.t2000020";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -18951,21 +18695,21 @@ asm["System.Object"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Object",false,false,false,false,false,[],[
-                [asm0, "x60000ca", "ToString"],
-                [asm0, "x60000cd", "Equals"],
-                [asm0, "x60000ce", "GetHashCode"],
-                [asm0, "x60000cf", "GetType"]
-            ],null,CILJS.is_inst_default(type),Array,"asm0.t2000030",null);
+                [asm0, "x600009b", "ToString"],
+                [asm0, "x600009e", "Equals"],
+                [asm0, "x600009f", "GetHashCode"],
+                [asm0, "x60000a0", "GetType"]
+            ],null,CILJS.is_inst_default(type),Array,"asm0.t2000021",null);
         
-        type.TypeMetadataName = "asm0.t2000030";
+        type.TypeMetadataName = "asm0.t2000021";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
-        type.prototype.toString = asm0.x60000c9;
+        type.prototype.toString = asm0.x600009a;
     },
     function ()
     {
@@ -18988,19 +18732,19 @@ asm["System.Math"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Math",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000031",null);
+        CILJS.init_type(type,asm,"System.Math",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000022",null);
         
         type.E = 0;
         
         type.PI = 0;
         
-        type.TypeMetadataName = "asm0.t2000031";
+        type.TypeMetadataName = "asm0.t2000022";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -19023,15 +18767,15 @@ asm["System.Enum"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Enum",false,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_default(type),Array,"asm0.t2000032",null);
+        CILJS.init_type(type,asm,"System.Enum",false,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_default(type),Array,"asm0.t2000023",null);
         
-        type.TypeMetadataName = "asm0.t2000032";
+        type.TypeMetadataName = "asm0.t2000023";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -19054,19 +18798,19 @@ asm["System.MulticastDelegate"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.MulticastDelegate",false,false,false,false,false,[],[],asm0["System.Delegate"](),CILJS.is_inst_delegate(type),Array,"asm0.t2000033",null);
+        CILJS.init_type(type,asm,"System.MulticastDelegate",false,false,false,false,false,[],[],asm0["System.Delegate"](),CILJS.is_inst_delegate(type),Array,"asm0.t2000024",null);
         
-        type.TypeMetadataName = "asm0.t2000033";
+        type.TypeMetadataName = "asm0.t2000024";
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function ()
     {
@@ -19098,50 +18842,50 @@ asm["System.String"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.String",false,false,false,false,false,[
                 [
                     asm0["System.Reflection.DefaultMemberAttribute"](),
-                    asm0.x60001af,
+                    asm0.x60001b4,
                     [
                         CILJS.new_string("Chars")
                     ]
                 ]
             ],[
-                [asm0, "x60000e8", "get_Chars"],
-                [asm0, "x60000f1", "Replace"],
-                [asm0, "x60000f2", "get_Length"],
-                [asm0, "x60000f3", "ToString"],
-                [asm0, "x60000f6", "Equals"],
-                [asm0, "x60000f7", "Equals"],
-                [asm0, "x60000f9", "GetHashCode"],
-                [asm0, "x60000fe", "ToLower"],
-                [asm0, "x6000100", "ToUpper"],
-                [asm0, "x6000102", "CompareTo"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000034",null);
+                [asm0, "x60000b9", "get_Chars"],
+                [asm0, "x60000c2", "Replace"],
+                [asm0, "x60000c3", "get_Length"],
+                [asm0, "x60000c4", "ToString"],
+                [asm0, "x60000c7", "Equals"],
+                [asm0, "x60000c8", "Equals"],
+                [asm0, "x60000ca", "GetHashCode"],
+                [asm0, "x60000cf", "ToLower"],
+                [asm0, "x60000d1", "ToUpper"],
+                [asm0, "x60000d3", "CompareTo"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000025",null);
         
         type.Empty = null;
         
-        type.TypeMetadataName = "asm0.t2000034";
+        type.TypeMetadataName = "asm0.t2000025";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000f3");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x60000c4");
         
-        CILJS.declare_virtual(type,"asm0.x60000f6",asm0,"x60000f6");
+        CILJS.declare_virtual(type,"asm0.x60000c7",asm0,"x60000c7");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000f7");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x60000c8");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000f9");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x60000ca");
         
-        CILJS.declare_virtual(type,"asm0.x6000102",asm0,"x6000102");
+        CILJS.declare_virtual(type,"asm0.x60000d3",asm0,"x60000d3");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.String"]()), asm0["System.String"]()],
             [
-                ["x6000162", asm0, "x60000f6"]
+                ["x6000133", asm0, "x60000c7"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.String"]()), asm0["System.String"]()],
             [
-                ["x600010a", asm0, "x6000102"]
+                ["x60000db", asm0, "x60000d3"]
             ]);
     },
     function ()
@@ -19168,10 +18912,10 @@ asm["System.Double"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Double",true,true,false,false,false,[],[
-                [asm0, "x6000106", "ToString"],
-                [asm0, "x6000107", "CompareTo"],
-                [asm0, "x6000108", "CompareTo"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Float64Array,"asm0.t2000035",0);
+                [asm0, "x60000d7", "ToString"],
+                [asm0, "x60000d8", "CompareTo"],
+                [asm0, "x60000d9", "CompareTo"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Float64Array,"asm0.t2000026",0);
         
         type.Epsilon = 0;
         
@@ -19185,30 +18929,30 @@ asm["System.Double"] = CILJS.declare_type(
         
         type.PositiveInfinity = 0;
         
-        type.TypeMetadataName = "asm0.t2000035";
+        type.TypeMetadataName = "asm0.t2000026";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000106");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x60000d7");
         
-        CILJS.declare_virtual(type,"asm0.x6000107",asm0,"x6000107");
+        CILJS.declare_virtual(type,"asm0.x60000d8",asm0,"x60000d8");
         
-        CILJS.declare_virtual(type,"asm0.x6000108",asm0,"x6000108");
+        CILJS.declare_virtual(type,"asm0.x60000d9",asm0,"x60000d9");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Double"]()), asm0["System.Double"]()],
             [
-                ["x600010a", asm0, "x6000108"]
+                ["x60000db", asm0, "x60000d9"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000107"]
+                ["x60000da", asm0, "x60000d8"]
             ]);
     },
     function ()
@@ -19233,12 +18977,12 @@ asm["System.IComparable"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.IComparable",false,false,true,false,false,[],[
-                [asm0, "x6000109", "CompareTo"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000036",null);
+                [asm0, "x60000da", "CompareTo"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000027",null);
         
-        type.TypeMetadataName = "asm0.t2000036";
+        type.TypeMetadataName = "asm0.t2000027";
         
-        CILJS.declare_virtual(type,"asm0.x6000109",asm0,"x6000109");
+        CILJS.declare_virtual(type,"asm0.x60000da",asm0,"x60000da");
     },
     function ()
     {
@@ -19262,14 +19006,14 @@ asm["System.IComparable`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.IComparable`1",false,false,true,true,false,[],[
-                [asm0, "x600010a", "CompareTo"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000037",null);
+                [asm0, "x60000db", "CompareTo"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000028",null);
         
-        (type.GenericArguments)["asm0.t2000037"] = [T];
+        (type.GenericArguments)["asm0.t2000028"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000037<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000028<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x600010a",asm0,"x600010a");
+        CILJS.declare_virtual(type,"asm0.x60000db",asm0,"x60000db");
     },
     function (T)
     {
@@ -19292,15 +19036,15 @@ asm["System.ParamArrayAttribute"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.ParamArrayAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000038",null);
+        CILJS.init_type(type,asm,"System.ParamArrayAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000029",null);
         
-        type.TypeMetadataName = "asm0.t2000038";
+        type.TypeMetadataName = "asm0.t2000029";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -19324,12 +19068,12 @@ asm["System.IDisposable"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.IDisposable",false,false,true,false,false,[],[
-                [asm0, "x600010c", "Dispose"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000039",null);
+                [asm0, "x60000dd", "Dispose"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t200002a",null);
         
-        type.TypeMetadataName = "asm0.t2000039";
+        type.TypeMetadataName = "asm0.t200002a";
         
-        CILJS.declare_virtual(type,"asm0.x600010c",asm0,"x600010c");
+        CILJS.declare_virtual(type,"asm0.x60000dd",asm0,"x60000dd");
     },
     function ()
     {
@@ -19353,30 +19097,30 @@ asm["System.Predicate`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Predicate`1",false,false,false,true,false,[],[
-                [asm0, "x600010e", "Invoke"],
-                [asm0, "x600010f", "BeginInvoke"],
-                [asm0, "x6000110", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t200003a",null);
+                [asm0, "x60000df", "Invoke"],
+                [asm0, "x60000e0", "BeginInvoke"],
+                [asm0, "x60000e1", "EndInvoke"]
+            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t200002b",null);
         
-        (type.GenericArguments)["asm0.t200003a"] = [T];
+        (type.GenericArguments)["asm0.t200002b"] = [T];
         
-        type.TypeMetadataName = ("asm0.t200003a<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t200002b<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x600010e",asm0,"x600010e");
+        CILJS.declare_virtual(type,"asm0.x60000df",asm0,"x60000df");
         
-        CILJS.declare_virtual(type,"asm0.x600010f",asm0,"x600010f");
+        CILJS.declare_virtual(type,"asm0.x60000e0",asm0,"x60000e0");
         
-        CILJS.declare_virtual(type,"asm0.x6000110",asm0,"x6000110");
+        CILJS.declare_virtual(type,"asm0.x60000e1",asm0,"x60000e1");
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function (T)
     {
@@ -19406,30 +19150,30 @@ asm["System.Array"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Array",false,false,false,false,false,[],[
-                [asm0, "x6000111", "get_Length"],
-                [asm0, "x6000112", "get_LongLength"],
-                [asm0, "x6000116", "GetValue"],
-                [asm0, "x6000117", "GetEnumerator"],
-                [asm0, "x6000135", "SetValue", []]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200003b",null);
+                [asm0, "x60000e2", "get_Length"],
+                [asm0, "x60000e3", "get_LongLength"],
+                [asm0, "x60000e7", "GetValue"],
+                [asm0, "x60000e8", "GetEnumerator"],
+                [asm0, "x6000106", "SetValue", []]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200002c",null);
         
-        type.TypeMetadataName = "asm0.t200003b";
+        type.TypeMetadataName = "asm0.t200002c";
         
-        CILJS.declare_virtual(type,"asm0.x6000117",asm0,"x6000117");
+        CILJS.declare_virtual(type,"asm0.x60000e8",asm0,"x60000e8");
         
-        CILJS.declare_virtual(type,"asm0.x6000118",asm0,"x6000118");
+        CILJS.declare_virtual(type,"asm0.x60000e9",asm0,"x60000e9");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerable"]()],
             [
-                ["x60001ca", asm0, "x6000117"]
+                ["x600017d", asm0, "x60000e8"]
             ]);
     },
     function ()
@@ -19458,64 +19202,64 @@ asm["System.Array`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Array`1",false,false,false,true,false,[],[
-                [asm0, "x6000138", "GetEnumerator"]
-            ],asm0["System.Array"](),CILJS.is_inst_array(T),Array,"asm0.t200003c",null);
+                [asm0, "x6000109", "GetEnumerator"]
+            ],asm0["System.Array"](),CILJS.is_inst_array(T),Array,"asm0.t200002d",null);
         
-        (type.GenericArguments)["asm0.t200003c"] = [T];
+        (type.GenericArguments)["asm0.t200002d"] = [T];
         
-        type.TypeMetadataName = ("asm0.t200003c<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t200002d<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x6000138",asm0,"x6000138");
+        CILJS.declare_virtual(type,"asm0.x6000109",asm0,"x6000109");
         
-        CILJS.declare_virtual(type,"asm0.x6000118",asm0,"x6000139");
+        CILJS.declare_virtual(type,"asm0.x60000e9",asm0,"x600010a");
         
-        CILJS.declare_virtual(type,"asm0.x600013a",asm0,"x600013a");
+        CILJS.declare_virtual(type,"asm0.x600010b",asm0,"x600010b");
         
-        CILJS.declare_virtual(type,"asm0.x600013b",asm0,"x600013b");
+        CILJS.declare_virtual(type,"asm0.x600010c",asm0,"x600010c");
         
-        CILJS.declare_virtual(type,"asm0.x600013c",asm0,"x600013c");
+        CILJS.declare_virtual(type,"asm0.x600010d",asm0,"x600010d");
         
-        CILJS.declare_virtual(type,"asm0.x600013d",asm0,"x600013d");
+        CILJS.declare_virtual(type,"asm0.x600010e",asm0,"x600010e");
         
-        CILJS.declare_virtual(type,"asm0.x600013e",asm0,"x600013e");
+        CILJS.declare_virtual(type,"asm0.x600010f",asm0,"x600010f");
         
-        CILJS.declare_virtual(type,"asm0.x600013f",asm0,"x600013f");
+        CILJS.declare_virtual(type,"asm0.x6000110",asm0,"x6000110");
         
-        CILJS.declare_virtual(type,"asm0.x6000140",asm0,"x6000140");
+        CILJS.declare_virtual(type,"asm0.x6000111",asm0,"x6000111");
         
-        CILJS.declare_virtual(type,"asm0.x6000117",asm0,"x6000117");
+        CILJS.declare_virtual(type,"asm0.x60000e8",asm0,"x60000e8");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.IEnumerable`1"](T), T],
             [
-                ["x60001d1", asm0, "x6000138"]
+                ["x6000184", asm0, "x6000109"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerable"]()],
             [
-                ["x60001ca", asm0, "x6000117"]
+                ["x600017d", asm0, "x60000e8"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.ICollection`1"](T), T],
             [
-                ["x60001d2", asm0, "x600013a"],
-                ["x60001d3", asm0, "x600013b"],
-                ["x60001d4", asm0, "x600013c"],
-                ["x60001d5", asm0, "x600013d"],
-                ["x60001d6", asm0, "x600013e"],
-                ["x60001d7", asm0, "x600013f"],
-                ["x60001d8", asm0, "x6000140"]
+                ["x6000185", asm0, "x600010b"],
+                ["x6000186", asm0, "x600010c"],
+                ["x6000187", asm0, "x600010d"],
+                ["x6000188", asm0, "x600010e"],
+                ["x6000189", asm0, "x600010f"],
+                ["x600018a", asm0, "x6000110"],
+                ["x600018b", asm0, "x6000111"]
             ]);
     },
     function (T)
@@ -19544,51 +19288,51 @@ asm["System.Byte"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Byte",true,true,false,false,false,[],[
-                [asm0, "x6000142", "ToString"],
-                [asm0, "x6000143", "CompareTo"],
-                [asm0, "x6000144", "CompareTo"],
-                [asm0, "x6000145", "Equals"],
-                [asm0, "x6000146", "Equals"],
-                [asm0, "x6000147", "GetHashCode"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint8Array,"asm0.t200003d",0);
+                [asm0, "x6000113", "ToString"],
+                [asm0, "x6000114", "CompareTo"],
+                [asm0, "x6000115", "CompareTo"],
+                [asm0, "x6000116", "Equals"],
+                [asm0, "x6000117", "Equals"],
+                [asm0, "x6000118", "GetHashCode"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Uint8Array,"asm0.t200002e",0);
         
         type.MinValue = 0;
         
         type.MaxValue = 0;
         
-        type.TypeMetadataName = "asm0.t200003d";
+        type.TypeMetadataName = "asm0.t200002e";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000142");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000113");
         
-        CILJS.declare_virtual(type,"asm0.x6000143",asm0,"x6000143");
+        CILJS.declare_virtual(type,"asm0.x6000114",asm0,"x6000114");
         
-        CILJS.declare_virtual(type,"asm0.x6000144",asm0,"x6000144");
+        CILJS.declare_virtual(type,"asm0.x6000115",asm0,"x6000115");
         
-        CILJS.declare_virtual(type,"asm0.x6000145",asm0,"x6000145");
+        CILJS.declare_virtual(type,"asm0.x6000116",asm0,"x6000116");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000146");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000117");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000147");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000118");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Byte"]()), asm0["System.Byte"]()],
             [
-                ["x600010a", asm0, "x6000144"]
+                ["x60000db", asm0, "x6000115"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000143"]
+                ["x60000da", asm0, "x6000114"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.Byte"]()), asm0["System.Byte"]()],
             [
-                ["x6000162", asm0, "x6000145"]
+                ["x6000133", asm0, "x6000116"]
             ]);
     },
     function ()
@@ -19613,16 +19357,16 @@ asm["System.ValueType"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.ValueType",false,false,false,false,false,[],[
-                [asm0, "x6000148", "Equals"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200003e",null);
+                [asm0, "x6000119", "Equals"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200002f",null);
         
-        type.TypeMetadataName = "asm0.t200003e";
+        type.TypeMetadataName = "asm0.t200002f";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -19646,30 +19390,30 @@ asm["System.Func`2"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Func`2",false,false,false,true,false,[],[
-                [asm0, "x600014c", "Invoke"],
-                [asm0, "x600014d", "BeginInvoke"],
-                [asm0, "x600014e", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t200003f",null);
+                [asm0, "x600011d", "Invoke"],
+                [asm0, "x600011e", "BeginInvoke"],
+                [asm0, "x600011f", "EndInvoke"]
+            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t2000030",null);
         
-        (type.GenericArguments)["asm0.t200003f"] = [T, TResult];
+        (type.GenericArguments)["asm0.t2000030"] = [T, TResult];
         
-        type.TypeMetadataName = ("asm0.t200003f<" + ((T.TypeMetadataName + TResult.TypeMetadataName) + ">"));
+        type.TypeMetadataName = ("asm0.t2000030<" + ((T.TypeMetadataName + TResult.TypeMetadataName) + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x600014c",asm0,"x600014c");
+        CILJS.declare_virtual(type,"asm0.x600011d",asm0,"x600011d");
         
-        CILJS.declare_virtual(type,"asm0.x600014d",asm0,"x600014d");
+        CILJS.declare_virtual(type,"asm0.x600011e",asm0,"x600011e");
         
-        CILJS.declare_virtual(type,"asm0.x600014e",asm0,"x600014e");
+        CILJS.declare_virtual(type,"asm0.x600011f",asm0,"x600011f");
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function (T, TResult)
     {
@@ -19699,28 +19443,28 @@ asm["System.AsyncCallback"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.AsyncCallback",false,false,false,false,false,[],[
-                [asm0, "x6000150", "Invoke"],
-                [asm0, "x6000151", "BeginInvoke"],
-                [asm0, "x6000152", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t2000040",null);
+                [asm0, "x6000121", "Invoke"],
+                [asm0, "x6000122", "BeginInvoke"],
+                [asm0, "x6000123", "EndInvoke"]
+            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t2000031",null);
         
-        type.TypeMetadataName = "asm0.t2000040";
+        type.TypeMetadataName = "asm0.t2000031";
         
-        CILJS.declare_virtual(type,"asm0.x6000150",asm0,"x6000150");
+        CILJS.declare_virtual(type,"asm0.x6000121",asm0,"x6000121");
         
-        CILJS.declare_virtual(type,"asm0.x6000151",asm0,"x6000151");
+        CILJS.declare_virtual(type,"asm0.x6000122",asm0,"x6000122");
         
-        CILJS.declare_virtual(type,"asm0.x6000152",asm0,"x6000152");
+        CILJS.declare_virtual(type,"asm0.x6000123",asm0,"x6000123");
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function ()
     {
@@ -19749,19 +19493,19 @@ asm["System.NullReferenceException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.NullReferenceException",false,false,false,false,false,[],[],asm0["System.SystemException"](),CILJS.is_inst_default(type),Array,"asm0.t2000041",null);
+        CILJS.init_type(type,asm,"System.NullReferenceException",false,false,false,false,false,[],[],asm0["System.SystemException"](),CILJS.is_inst_default(type),Array,"asm0.t2000032",null);
         
-        type.TypeMetadataName = "asm0.t2000041";
+        type.TypeMetadataName = "asm0.t2000032";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -19785,30 +19529,30 @@ asm["System.Comparison`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Comparison`1",false,false,false,true,false,[],[
-                [asm0, "x6000155", "Invoke"],
-                [asm0, "x6000156", "BeginInvoke"],
-                [asm0, "x6000157", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t2000042",null);
+                [asm0, "x6000126", "Invoke"],
+                [asm0, "x6000127", "BeginInvoke"],
+                [asm0, "x6000128", "EndInvoke"]
+            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm0.t2000033",null);
         
-        (type.GenericArguments)["asm0.t2000042"] = [T];
+        (type.GenericArguments)["asm0.t2000033"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000042<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000033<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x6000155",asm0,"x6000155");
+        CILJS.declare_virtual(type,"asm0.x6000126",asm0,"x6000126");
         
-        CILJS.declare_virtual(type,"asm0.x6000156",asm0,"x6000156");
+        CILJS.declare_virtual(type,"asm0.x6000127",asm0,"x6000127");
         
-        CILJS.declare_virtual(type,"asm0.x6000157",asm0,"x6000157");
+        CILJS.declare_virtual(type,"asm0.x6000128",asm0,"x6000128");
         
-        CILJS.declare_virtual(type,"asm0.x600006b",asm0,"x60000e0");
+        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600006a",asm0,"x60000e1");
+        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600006c");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600006f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function (T)
     {
@@ -19838,21 +19582,21 @@ asm["System.IAsyncResult"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.IAsyncResult",false,false,true,false,false,[],[
-                [asm0, "x6000158", "get_IsCompleted"],
-                [asm0, "x6000159", "get_AsyncWaitHandle"],
-                [asm0, "x600015a", "get_AsyncState"],
-                [asm0, "x600015b", "get_CompletedSynchronously"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000043",null);
+                [asm0, "x6000129", "get_IsCompleted"],
+                [asm0, "x600012a", "get_AsyncWaitHandle"],
+                [asm0, "x600012b", "get_AsyncState"],
+                [asm0, "x600012c", "get_CompletedSynchronously"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000034",null);
         
-        type.TypeMetadataName = "asm0.t2000043";
+        type.TypeMetadataName = "asm0.t2000034";
         
-        CILJS.declare_virtual(type,"asm0.x6000158",asm0,"x6000158");
+        CILJS.declare_virtual(type,"asm0.x6000129",asm0,"x6000129");
         
-        CILJS.declare_virtual(type,"asm0.x6000159",asm0,"x6000159");
+        CILJS.declare_virtual(type,"asm0.x600012a",asm0,"x600012a");
         
-        CILJS.declare_virtual(type,"asm0.x600015a",asm0,"x600015a");
+        CILJS.declare_virtual(type,"asm0.x600012b",asm0,"x600012b");
         
-        CILJS.declare_virtual(type,"asm0.x600015b",asm0,"x600015b");
+        CILJS.declare_virtual(type,"asm0.x600012c",asm0,"x600012c");
     },
     function ()
     {
@@ -19876,36 +19620,36 @@ asm["System.AsyncResult"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.AsyncResult",false,false,false,false,false,[],[
-                [asm0, "x600015d", "get_IsCompleted"],
-                [asm0, "x600015e", "get_AsyncWaitHandle"],
-                [asm0, "x600015f", "get_AsyncState"],
-                [asm0, "x6000160", "get_CompletedSynchronously"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000044",null);
+                [asm0, "x600012e", "get_IsCompleted"],
+                [asm0, "x600012f", "get_AsyncWaitHandle"],
+                [asm0, "x6000130", "get_AsyncState"],
+                [asm0, "x6000131", "get_CompletedSynchronously"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000035",null);
         
-        type.TypeMetadataName = "asm0.t2000044";
+        type.TypeMetadataName = "asm0.t2000035";
         
-        CILJS.declare_virtual(type,"asm0.x600015d",asm0,"x600015d");
+        CILJS.declare_virtual(type,"asm0.x600012e",asm0,"x600012e");
         
-        CILJS.declare_virtual(type,"asm0.x600015e",asm0,"x600015e");
+        CILJS.declare_virtual(type,"asm0.x600012f",asm0,"x600012f");
         
-        CILJS.declare_virtual(type,"asm0.x600015f",asm0,"x600015f");
+        CILJS.declare_virtual(type,"asm0.x6000130",asm0,"x6000130");
         
-        CILJS.declare_virtual(type,"asm0.x6000160",asm0,"x6000160");
+        CILJS.declare_virtual(type,"asm0.x6000131",asm0,"x6000131");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IAsyncResult"]()],
             [
-                ["x6000158", asm0, "x600015d"],
-                ["x6000159", asm0, "x600015e"],
-                ["x600015a", asm0, "x600015f"],
-                ["x600015b", asm0, "x6000160"]
+                ["x6000129", asm0, "x600012e"],
+                ["x600012a", asm0, "x600012f"],
+                ["x600012b", asm0, "x6000130"],
+                ["x600012c", asm0, "x6000131"]
             ]);
     },
     function ()
@@ -19934,14 +19678,14 @@ asm["System.IEquatable`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.IEquatable`1",false,false,true,true,false,[],[
-                [asm0, "x6000162", "Equals"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000045",null);
+                [asm0, "x6000133", "Equals"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000036",null);
         
-        (type.GenericArguments)["asm0.t2000045"] = [T];
+        (type.GenericArguments)["asm0.t2000036"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000045<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000036<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x6000162",asm0,"x6000162");
+        CILJS.declare_virtual(type,"asm0.x6000133",asm0,"x6000133");
     },
     function (T)
     {
@@ -19964,19 +19708,19 @@ asm["System.NotSupportedException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.NotSupportedException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000046",null);
+        CILJS.init_type(type,asm,"System.NotSupportedException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000037",null);
         
-        type.TypeMetadataName = "asm0.t2000046";
+        type.TypeMetadataName = "asm0.t2000037";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -20000,16 +19744,16 @@ asm["System.UIntPtr"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.UIntPtr",true,true,false,false,false,[],[
-                [asm0, "x6000165", "ToString"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000047",0);
+                [asm0, "x6000136", "ToString"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000038",0);
         
-        type.TypeMetadataName = "asm0.t2000047";
+        type.TypeMetadataName = "asm0.t2000038";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000165");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000136");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -20032,19 +19776,19 @@ asm["System.DivideByZeroException"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.DivideByZeroException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000048",null);
+        CILJS.init_type(type,asm,"System.DivideByZeroException",false,false,false,false,false,[],[],asm0["System.Exception"](),CILJS.is_inst_default(type),Array,"asm0.t2000039",null);
         
-        type.TypeMetadataName = "asm0.t2000048";
+        type.TypeMetadataName = "asm0.t2000039";
         
-        CILJS.declare_virtual(type,"asm0.x60000a9",asm0,"x60000a9");
+        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x600007a");
         
-        CILJS.declare_virtual(type,"asm0.x60000aa",asm0,"x60000aa");
+        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x600007b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ab");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600007c");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -20068,51 +19812,51 @@ asm["System.UInt64"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.UInt64",true,true,false,false,false,[],[
-                [asm0, "x6000167", "ToString"],
-                [asm0, "x6000171", "GetHashCode"],
-                [asm0, "x6000173", "CompareTo"],
-                [asm0, "x6000174", "CompareTo"],
-                [asm0, "x6000175", "Equals"],
-                [asm0, "x6000176", "Equals"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t2000049",0);
+                [asm0, "x6000138", "ToString"],
+                [asm0, "x6000142", "GetHashCode"],
+                [asm0, "x6000144", "CompareTo"],
+                [asm0, "x6000145", "CompareTo"],
+                [asm0, "x6000146", "Equals"],
+                [asm0, "x6000147", "Equals"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Array,"asm0.t200003a",0);
         
         type.MinValue = 0;
         
         type.MaxValue = 0;
         
-        type.TypeMetadataName = "asm0.t2000049";
+        type.TypeMetadataName = "asm0.t200003a";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000167");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000138");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000171");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000142");
         
-        CILJS.declare_virtual(type,"asm0.x6000173",asm0,"x6000173");
+        CILJS.declare_virtual(type,"asm0.x6000144",asm0,"x6000144");
         
-        CILJS.declare_virtual(type,"asm0.x6000174",asm0,"x6000174");
+        CILJS.declare_virtual(type,"asm0.x6000145",asm0,"x6000145");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000175");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000146");
         
-        CILJS.declare_virtual(type,"asm0.x6000176",asm0,"x6000176");
+        CILJS.declare_virtual(type,"asm0.x6000147",asm0,"x6000147");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.UInt64"]()), asm0["System.UInt64"]()],
             [
-                ["x600010a", asm0, "x6000174"]
+                ["x60000db", asm0, "x6000145"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000173"]
+                ["x60000da", asm0, "x6000144"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.UInt64"]()), asm0["System.UInt64"]()],
             [
-                ["x6000162", asm0, "x6000176"]
+                ["x6000133", asm0, "x6000147"]
             ]);
     },
     function ()
@@ -20139,7 +19883,7 @@ asm["System.SerializableAttribute"] = CILJS.declare_type(
         CILJS.init_type(type,asm,"System.SerializableAttribute",false,false,false,false,false,[
                 [
                     asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
+                    asm0.x6000058,
                     [
                         4124
                     ],
@@ -20150,15 +19894,15 @@ asm["System.SerializableAttribute"] = CILJS.declare_type(
                         ]
                     }
                 ]
-            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200004a",null);
+            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200003b",null);
         
-        type.TypeMetadataName = "asm0.t200004a";
+        type.TypeMetadataName = "asm0.t200003b";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -20181,15 +19925,15 @@ asm["System.Environment"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Environment",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200004b",null);
+        CILJS.init_type(type,asm,"System.Environment",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200003c",null);
         
-        type.TypeMetadataName = "asm0.t200004b";
+        type.TypeMetadataName = "asm0.t200003c";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -20213,47 +19957,47 @@ asm["System.Int16"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Int16",true,true,false,false,false,[],[
-                [asm0, "x600017a", "ToString"],
-                [asm0, "x600017b", "CompareTo"],
-                [asm0, "x600017c", "CompareTo"],
-                [asm0, "x600017d", "Equals"],
-                [asm0, "x600017e", "Equals"],
-                [asm0, "x600017f", "GetHashCode"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Int16Array,"asm0.t200004c",0);
+                [asm0, "x600014b", "ToString"],
+                [asm0, "x600014c", "CompareTo"],
+                [asm0, "x600014d", "CompareTo"],
+                [asm0, "x600014e", "Equals"],
+                [asm0, "x600014f", "Equals"],
+                [asm0, "x6000150", "GetHashCode"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Int16Array,"asm0.t200003d",0);
         
-        type.TypeMetadataName = "asm0.t200004c";
+        type.TypeMetadataName = "asm0.t200003d";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x600017a");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600014b");
         
-        CILJS.declare_virtual(type,"asm0.x600017b",asm0,"x600017b");
+        CILJS.declare_virtual(type,"asm0.x600014c",asm0,"x600014c");
         
-        CILJS.declare_virtual(type,"asm0.x600017c",asm0,"x600017c");
+        CILJS.declare_virtual(type,"asm0.x600014d",asm0,"x600014d");
         
-        CILJS.declare_virtual(type,"asm0.x600017d",asm0,"x600017d");
+        CILJS.declare_virtual(type,"asm0.x600014e",asm0,"x600014e");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x600017e");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600014f");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x600017f");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000150");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.Int16"]()), asm0["System.Int16"]()],
             [
-                ["x6000162", asm0, "x600017d"]
+                ["x6000133", asm0, "x600014e"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x600017b"]
+                ["x60000da", asm0, "x600014c"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Int16"]()), asm0["System.Int16"]()],
             [
-                ["x600010a", asm0, "x600017c"]
+                ["x60000db", asm0, "x600014d"]
             ]);
     },
     function ()
@@ -20278,52 +20022,52 @@ asm["System.Int32"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Int32",true,true,false,false,false,[],[
-                [asm0, "x6000180", "ToString"],
-                [asm0, "x6000182", "ToString"],
-                [asm0, "x6000183", "CompareTo"],
-                [asm0, "x6000184", "CompareTo"],
-                [asm0, "x6000185", "Equals"],
-                [asm0, "x6000186", "Equals"],
-                [asm0, "x6000187", "GetHashCode"]
-            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Int32Array,"asm0.t200004d",0);
+                [asm0, "x6000151", "ToString"],
+                [asm0, "x6000153", "ToString"],
+                [asm0, "x6000154", "CompareTo"],
+                [asm0, "x6000155", "CompareTo"],
+                [asm0, "x6000156", "Equals"],
+                [asm0, "x6000157", "Equals"],
+                [asm0, "x6000158", "GetHashCode"]
+            ],asm0["System.ValueType"](),CILJS.is_inst_primitive(type),Int32Array,"asm0.t200003e",0);
         
         type.MaxValue = 0;
         
         type.MinValue = 0;
         
-        type.TypeMetadataName = "asm0.t200004d";
+        type.TypeMetadataName = "asm0.t200003e";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x6000180");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x6000151");
         
-        CILJS.declare_virtual(type,"asm0.x6000183",asm0,"x6000183");
+        CILJS.declare_virtual(type,"asm0.x6000154",asm0,"x6000154");
         
-        CILJS.declare_virtual(type,"asm0.x6000184",asm0,"x6000184");
+        CILJS.declare_virtual(type,"asm0.x6000155",asm0,"x6000155");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000185");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000156");
         
-        CILJS.declare_virtual(type,"asm0.x6000186",asm0,"x6000186");
+        CILJS.declare_virtual(type,"asm0.x6000157",asm0,"x6000157");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000187");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000158");
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable`1"](asm0["System.Int32"]()), asm0["System.Int32"]()],
             [
-                ["x600010a", asm0, "x6000184"]
+                ["x60000db", asm0, "x6000155"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IComparable"]()],
             [
-                ["x6000109", asm0, "x6000183"]
+                ["x60000da", asm0, "x6000154"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IEquatable`1"](asm0["System.Int32"]()), asm0["System.Int32"]()],
             [
-                ["x6000162", asm0, "x6000186"]
+                ["x6000133", asm0, "x6000157"]
             ]);
     },
     function ()
@@ -20335,630 +20079,629 @@ asm["System.Int32"] = CILJS.declare_type(
             Int32.init();
         };
     });
-asm["System.Reflection.TypeInfo"] = CILJS.declare_type(
+asm["System.Locale"] = CILJS.declare_type(
     [],
     function ()
     {
         
-        return asm0["System.Type"]();
+        return asm0["System.Object"]();
     },
     function (type)
     {
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Reflection.TypeInfo",false,false,false,false,false,[],[
-                [asm0, "x600018f", "get_Assembly"],
-                [asm0, "x6000190", "get_FullName"],
-                [asm0, "x6000191", "get_AssemblyQualifiedName"],
-                [asm0, "x6000192", "Equals"],
-                [asm0, "x6000193", "GetHashCode"],
-                [asm0, "x6000194", "GetCustomAttributes"],
-                [asm0, "x6000195", "get_CustomAttributes"],
-                [asm0, "x6000196", "GetCustomAttributes"],
-                [asm0, "x6000197", "IsDefined"],
-                [asm0, "x6000198", "get_IsInterface"],
-                [asm0, "x6000199", "get_IsGenericType"],
-                [asm0, "x600019a", "get_IsGenericTypeDefinition"],
-                [asm0, "x600019b", "MakeGenericType"],
-                [asm0, "x600019c", "GetGenericArguments"],
-                [asm0, "x600019d", "get_BaseType"],
-                [asm0, "x600019e", "GetInterfaces"],
-                [asm0, "x600019f", "IsAssignableFrom"],
-                [asm0, "x60001a1", "get_Name"],
-                [asm0, "x60001a2", "get_IsValueType"],
-                [asm0, "x60001a3", "get_IsPrimitive"],
-                [asm0, "x60001a4", "GetElementType"],
-                [asm0, "x60001a5", "GetMethods"],
-                [asm0, "x60001a7", "IsInstanceOfType"]
-            ],asm0["System.Type"](),CILJS.is_inst_default(type),Array,"asm0.t200004e",null);
+        CILJS.init_type(type,asm,"System.Locale",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200003f",null);
+        
+        type.TypeMetadataName = "asm0.t200003f";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function Locale()
+        {
+            
+            Locale.init();
+        };
+    });
+asm["System.Diagnostics.DebuggerStepThroughAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Diagnostics.DebuggerStepThroughAttribute",false,false,false,false,false,[
+                [
+                    asm0["System.AttributeUsageAttribute"](),
+                    asm0.x6000058,
+                    [
+                        108
+                    ],
+                    {
+                        Inherited: [
+                            asm0["System.Boolean"](),
+                            false
+                        ]
+                    }
+                ]
+            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000040",null);
+        
+        type.TypeMetadataName = "asm0.t2000040";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function DebuggerStepThroughAttribute()
+        {
+            
+            DebuggerStepThroughAttribute.init();
+        };
+    });
+asm["System.Diagnostics.Debugger"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Diagnostics.Debugger",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000041",null);
+        
+        type.TypeMetadataName = "asm0.t2000041";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function Debugger()
+        {
+            
+            Debugger.init();
+        };
+    });
+asm["System.Threading.AutoResetEvent"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Threading.AutoResetEvent",false,false,false,false,false,[],[
+                [asm0, "x600015f", "Close"],
+                [asm0, "x6000160", "WaitOne"],
+                [asm0, "x6000161", "Set"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000042",null);
+        
+        type.TypeMetadataName = "asm0.t2000042";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AutoResetEvent()
+        {
+            
+            AutoResetEvent.init();
+        };
+    });
+asm["System.Threading.Thread"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Threading.Thread",false,false,false,false,false,[],[
+                [asm0, "x6000163", "get_IsThreadPoolThread"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000043",null);
+        
+        type.currentThread = null;
+        
+        type.TypeMetadataName = "asm0.t2000043";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function Thread()
+        {
+            
+            Thread.init();
+        };
+    });
+asm["System.Threading.Monitor"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Threading.Monitor",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000044",null);
+        
+        type.TypeMetadataName = "asm0.t2000044";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function Monitor()
+        {
+            
+            Monitor.init();
+        };
+    });
+asm["System.Threading.WaitHandle"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Threading.WaitHandle",false,false,false,false,false,[],[
+                [asm0, "x6000169", "WaitOne"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000045",null);
+        
+        type.TypeMetadataName = "asm0.t2000045";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function WaitHandle()
+        {
+            
+            WaitHandle.init();
+        };
+    });
+asm["System.Runtime.InteropServices.InAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.InteropServices.InAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000047",null);
+        
+        type.TypeMetadataName = "asm0.t2000047";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function InAttribute()
+        {
+            
+            InAttribute.init();
+        };
+    });
+asm["System.Runtime.InteropServices.OutAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.InteropServices.OutAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000048",null);
+        
+        type.TypeMetadataName = "asm0.t2000048";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function OutAttribute()
+        {
+            
+            OutAttribute.init();
+        };
+    });
+asm["System.Runtime.CompilerServices.ExtensionAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.ExtensionAttribute",false,false,false,false,false,[
+                [
+                    asm0["System.AttributeUsageAttribute"](),
+                    asm0.x6000058,
+                    [
+                        64
+                    ],
+                    {
+                        Inherited: [
+                            asm0["System.Boolean"](),
+                            true
+                        ]
+                    }
+                ]
+            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000049",null);
+        
+        type.TypeMetadataName = "asm0.t2000049";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function ExtensionAttribute()
+        {
+            
+            ExtensionAttribute.init();
+        };
+    });
+asm["System.Runtime.CompilerServices.InternalsVisibleToAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.InternalsVisibleToAttribute",false,false,false,false,false,[
+                [
+                    asm0["System.AttributeUsageAttribute"](),
+                    asm0.x6000058,
+                    [
+                        1
+                    ],
+                    {
+                        Inherited: [
+                            asm0["System.Boolean"](),
+                            false
+                        ],
+                        AllowMultiple: [
+                            asm0["System.Boolean"](),
+                            true
+                        ]
+                    }
+                ]
+            ],[
+                [asm0, "x6000170", "get_AssemblyName"],
+                [asm0, "x6000171", "get_AllInternalsVisible"],
+                [asm0, "x6000172", "set_AllInternalsVisible"]
+            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200004a",null);
+        
+        type.TypeMetadataName = "asm0.t200004a";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function InternalsVisibleToAttribute()
+        {
+            
+            InternalsVisibleToAttribute.init();
+            
+            this.System_Runtime_CompilerServicesInternalsVisibleToAttributeassemblyName = null;
+            
+            this.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible = 0;
+        };
+    });
+asm["System.Runtime.CompilerServices.RuntimeHelpers"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.RuntimeHelpers",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200004b",null);
+        
+        type.TypeMetadataName = "asm0.t200004b";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function RuntimeHelpers()
+        {
+            
+            RuntimeHelpers.init();
+        };
+    });
+asm["System.Runtime.CompilerServices.IndexerNameAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.IndexerNameAttribute",false,false,false,false,false,[
+                [
+                    asm0["System.AttributeUsageAttribute"](),
+                    asm0.x6000058,
+                    [
+                        128
+                    ],
+                    {
+                        Inherited: [
+                            asm0["System.Boolean"](),
+                            true
+                        ]
+                    }
+                ]
+            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200004c",null);
+        
+        type.TypeMetadataName = "asm0.t200004c";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function IndexerNameAttribute()
+        {
+            
+            IndexerNameAttribute.init();
+        };
+    });
+asm["System.Runtime.CompilerServices.MethodImplOptions"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Enum"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.MethodImplOptions",true,false,false,false,false,[
+                [
+                    asm0["System.FlagsAttribute"](),
+                    asm0.x6000038
+                ]
+            ],[],asm0["System.Enum"](),CILJS.is_inst_value_type(type),Array,"asm0.t200004d",new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())());
+        
+        type.Unmanaged = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.ForwardRef = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.InternalCall = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.Synchronized = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.NoInlining = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.PreserveSig = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.NoOptimization = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        
+        type.TypeMetadataName = "asm0.t200004d";
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function MethodImplOptions()
+        {
+            
+            MethodImplOptions.init();
+            
+            this.value__ = 0;
+        };
+    });
+asm["System.Runtime.CompilerServices.MethodImplAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.MethodImplAttribute",false,false,false,false,false,[
+                [
+                    asm0["System.AttributeUsageAttribute"](),
+                    asm0.x6000058,
+                    [
+                        96
+                    ],
+                    {
+                        Inherited: [
+                            asm0["System.Boolean"](),
+                            false
+                        ]
+                    }
+                ]
+            ],[
+                [asm0, "x600017b", "get_Value"]
+            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200004e",null);
         
         type.TypeMetadataName = "asm0.t200004e";
         
-        CILJS.declare_virtual(type,"asm0.x6000077",asm0,"x600018f");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x6000073",asm0,"x6000190");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x6000079",asm0,"x6000191");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000192");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x6000193");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c0",asm0,"x6000194");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c2",asm0,"x6000195");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c1",asm0,"x6000196");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c3",asm0,"x6000197");
-        
-        CILJS.declare_virtual(type,"asm0.x600007b",asm0,"x6000198");
-        
-        CILJS.declare_virtual(type,"asm0.x600007a",asm0,"x6000199");
-        
-        CILJS.declare_virtual(type,"asm0.x600007c",asm0,"x600019a");
-        
-        CILJS.declare_virtual(type,"asm0.x600007f",asm0,"x600019b");
-        
-        CILJS.declare_virtual(type,"asm0.x600007d",asm0,"x600019c");
-        
-        CILJS.declare_virtual(type,"asm0.x6000078",asm0,"x600019d");
-        
-        CILJS.declare_virtual(type,"asm0.x600007e",asm0,"x600019e");
-        
-        CILJS.declare_virtual(type,"asm0.x6000080",asm0,"x600019f");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x60001a1");
-        
-        CILJS.declare_virtual(type,"asm0.x6000081",asm0,"x60001a2");
-        
-        CILJS.declare_virtual(type,"asm0.x6000082",asm0,"x60001a3");
-        
-        CILJS.declare_virtual(type,"asm0.x6000083",asm0,"x60001a4");
-        
-        CILJS.declare_virtual(type,"asm0.x6000084",asm0,"x60001a5");
-        
-        CILJS.declare_virtual(type,"asm0.x6000085",asm0,"x60001a7");
-        
-        CILJS.declare_virtual(type,"asm0.x6000075",asm0,"x6000075");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Reflection.ICustomAttributeProvider"]()],
-            [
-                ["x60001b1", asm0, "x6000194"],
-                ["x60001b2", asm0, "x6000196"],
-                ["x60001b3", asm0, "x6000197"]
-            ]);
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function TypeInfo()
+        return function MethodImplAttribute()
         {
             
-            TypeInfo.init();
+            MethodImplAttribute.init();
             
-            this.ctor = null;
+            this.System_Runtime_CompilerServicesMethodImplAttribute_val = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+            
+            this.MethodCodeType = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
         };
     });
-asm["System.Reflection.AssemblyCompanyAttribute"] = CILJS.declare_type(
+asm["System.Runtime.CompilerServices.MethodCodeType"] = CILJS.declare_type(
     [],
     function ()
     {
         
-        return asm0["System.Attribute"]();
+        return asm0["System.Enum"]();
     },
     function (type)
     {
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyCompanyAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200004f",null);
+        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.MethodCodeType",true,false,false,false,false,[],[],asm0["System.Enum"](),CILJS.is_inst_value_type(type),Array,"asm0.t200004f",new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())());
+        
+        type.IL = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
+        
+        type.Native = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
+        
+        type.OPTIL = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
+        
+        type.Runtime = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
         
         type.TypeMetadataName = "asm0.t200004f";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function AssemblyCompanyAttribute()
+        return function MethodCodeType()
         {
             
-            AssemblyCompanyAttribute.init();
-        };
-    });
-asm["System.Reflection.AssemblyConfigurationAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyConfigurationAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000050",null);
-        
-        type.TypeMetadataName = "asm0.t2000050";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function AssemblyConfigurationAttribute()
-        {
+            MethodCodeType.init();
             
-            AssemblyConfigurationAttribute.init();
-        };
-    });
-asm["System.Reflection.AssemblyFileVersionAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyFileVersionAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000051",null);
-        
-        type.TypeMetadataName = "asm0.t2000051";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function AssemblyFileVersionAttribute()
-        {
-            
-            AssemblyFileVersionAttribute.init();
-        };
-    });
-asm["System.Reflection.AssemblyInformationalVersionAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyInformationalVersionAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000052",null);
-        
-        type.TypeMetadataName = "asm0.t2000052";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function AssemblyInformationalVersionAttribute()
-        {
-            
-            AssemblyInformationalVersionAttribute.init();
-        };
-    });
-asm["System.Reflection.AssemblyTitleAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyTitleAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000053",null);
-        
-        type.TypeMetadataName = "asm0.t2000053";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function AssemblyTitleAttribute()
-        {
-            
-            AssemblyTitleAttribute.init();
-        };
-    });
-asm["System.Reflection.AssemblyVersionAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyVersionAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000054",null);
-        
-        type.TypeMetadataName = "asm0.t2000054";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function AssemblyVersionAttribute()
-        {
-            
-            AssemblyVersionAttribute.init();
-        };
-    });
-asm["System.Reflection.AssemblyProductAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.AssemblyProductAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000055",null);
-        
-        type.TypeMetadataName = "asm0.t2000055";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function AssemblyProductAttribute()
-        {
-            
-            AssemblyProductAttribute.init();
-        };
-    });
-asm["System.Reflection.DefaultMemberAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.DefaultMemberAttribute",false,false,false,false,false,[
-                [
-                    asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
-                    [
-                        1036
-                    ]
-                ]
-            ],[
-                [asm0, "x60001b0", "get_MemberName"]
-            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000056",null);
-        
-        type.TypeMetadataName = "asm0.t2000056";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function DefaultMemberAttribute()
-        {
-            
-            DefaultMemberAttribute.init();
-            
-            this.System_ReflectionDefaultMemberAttributemember_name = null;
-        };
-    });
-asm["System.Reflection.ICustomAttributeProvider"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return {};
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.ICustomAttributeProvider",false,false,true,false,false,[],[
-                [asm0, "x60001b1", "GetCustomAttributes"],
-                [asm0, "x60001b2", "GetCustomAttributes"],
-                [asm0, "x60001b3", "IsDefined"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000057",null);
-        
-        type.TypeMetadataName = "asm0.t2000057";
-        
-        CILJS.declare_virtual(type,"asm0.x60001b1",asm0,"x60001b1");
-        
-        CILJS.declare_virtual(type,"asm0.x60001b2",asm0,"x60001b2");
-        
-        CILJS.declare_virtual(type,"asm0.x60001b3",asm0,"x60001b3");
-    },
-    function ()
-    {
-        
-        return function ICustomAttributeProvider()
-        {
-            
-            ICustomAttributeProvider.init();
-        };
-    });
-asm["System.Reflection.MethodInfo"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Reflection.MemberInfo"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.MethodInfo",false,false,false,false,false,[],[
-                [asm0, "x60001b6", "GetCustomAttributes"],
-                [asm0, "x60001b7", "GetCustomAttributes"],
-                [asm0, "x60001b8", "IsDefined"],
-                [asm0, "x60001b9", "get_CustomAttributes"],
-                [asm0, "x60001ba", "get_Name"],
-                [asm0, "x60001bb", "Invoke"]
-            ],asm0["System.Reflection.MemberInfo"](),CILJS.is_inst_default(type),Array,"asm0.t2000058",null);
-        
-        type.TypeMetadataName = "asm0.t2000058";
-        
-        CILJS.declare_virtual(type,"asm0.x60001c0",asm0,"x60001b6");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c1",asm0,"x60001b7");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c3",asm0,"x60001b8");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c2",asm0,"x60001b9");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x60001ba");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Reflection.ICustomAttributeProvider"]()],
-            [
-                ["x60001b1", asm0, "x60001b6"],
-                ["x60001b2", asm0, "x60001b7"],
-                ["x60001b3", asm0, "x60001b8"]
-            ]);
-    },
-    function ()
-    {
-        
-        return function MethodInfo()
-        {
-            
-            MethodInfo.init();
-            
-            this.System_ReflectionMethodInfomethodData = null;
-        };
-    });
-asm["System.Reflection.CustomAttributeData"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.CustomAttributeData",false,false,false,false,false,[],[
-                [asm0, "x60001be", "get_AttributeType"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000059",null);
-        
-        type.TypeMetadataName = "asm0.t2000059";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function CustomAttributeData()
-        {
-            
-            CustomAttributeData.init();
-            
-            this.System_ReflectionCustomAttributeDataraw = null;
-        };
-    });
-asm["System.Reflection.IntrospectionExtensions"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.IntrospectionExtensions",false,false,false,false,false,[
-                [
-                    asm0["System.Runtime.CompilerServices.ExtensionAttribute"](),
-                    asm0.x60001ec
-                ]
-            ],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200005a",null);
-        
-        type.TypeMetadataName = "asm0.t200005a";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function IntrospectionExtensions()
-        {
-            
-            IntrospectionExtensions.init();
-        };
-    });
-asm["System.Reflection.MemberInfo"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.MemberInfo",false,false,false,false,false,[],[
-                [asm0, "x60001c0", "GetCustomAttributes"],
-                [asm0, "x60001c1", "GetCustomAttributes"],
-                [asm0, "x60001c2", "get_CustomAttributes"],
-                [asm0, "x60001c3", "IsDefined"],
-                [asm0, "x60001c5", "get_Name"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200005b",null);
-        
-        type.TypeMetadataName = "asm0.t200005b";
-        
-        CILJS.declare_virtual(type,"asm0.x60001c0",asm0,"x60001c0");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c1",asm0,"x60001c1");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c2",asm0,"x60001c2");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c3",asm0,"x60001c3");
-        
-        CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x60001c5");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Reflection.ICustomAttributeProvider"]()],
-            [
-                ["x60001b1", asm0, "x60001c0"],
-                ["x60001b2", asm0, "x60001c1"],
-                ["x60001b3", asm0, "x60001c3"]
-            ]);
-    },
-    function ()
-    {
-        
-        return function MemberInfo()
-        {
-            
-            MemberInfo.init();
-        };
-    });
-asm["System.Reflection.Assembly"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Reflection.Assembly",false,false,false,false,false,[],[
-                [asm0, "x60001c9", "get_FullName"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200005c",null);
-        
-        type.TypeMetadataName = "asm0.t200005c";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function Assembly()
-        {
-            
-            Assembly.init();
-            
-            this.System_ReflectionAssemblyrawAsm = null;
+            this.value__ = 0;
         };
     });
 asm["System.Collections.IEnumerable"] = CILJS.declare_type(
@@ -20974,12 +20717,12 @@ asm["System.Collections.IEnumerable"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.IEnumerable",false,false,true,false,false,[],[
-                [asm0, "x60001ca", "GetEnumerator"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t200005d",null);
+                [asm0, "x600017d", "GetEnumerator"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000051",null);
         
-        type.TypeMetadataName = "asm0.t200005d";
+        type.TypeMetadataName = "asm0.t2000051";
         
-        CILJS.declare_virtual(type,"asm0.x60001ca",asm0,"x60001ca");
+        CILJS.declare_virtual(type,"asm0.x600017d",asm0,"x600017d");
     },
     function ()
     {
@@ -21003,15 +20746,15 @@ asm["System.Collections.IEqualityComparer"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.IEqualityComparer",false,false,true,false,false,[],[
-                [asm0, "x60001cb", "Equals"],
-                [asm0, "x60001cc", "GetHashCode"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t200005e",null);
+                [asm0, "x600017e", "Equals"],
+                [asm0, "x600017f", "GetHashCode"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000052",null);
         
-        type.TypeMetadataName = "asm0.t200005e";
+        type.TypeMetadataName = "asm0.t2000052";
         
-        CILJS.declare_virtual(type,"asm0.x60001cb",asm0,"x60001cb");
+        CILJS.declare_virtual(type,"asm0.x600017e",asm0,"x600017e");
         
-        CILJS.declare_virtual(type,"asm0.x60001cc",asm0,"x60001cc");
+        CILJS.declare_virtual(type,"asm0.x600017f",asm0,"x600017f");
     },
     function ()
     {
@@ -21035,12 +20778,12 @@ asm["System.Collections.IComparer"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.IComparer",false,false,true,false,false,[],[
-                [asm0, "x60001cd", "Compare"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t200005f",null);
+                [asm0, "x6000180", "Compare"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000053",null);
         
-        type.TypeMetadataName = "asm0.t200005f";
+        type.TypeMetadataName = "asm0.t2000053";
         
-        CILJS.declare_virtual(type,"asm0.x60001cd",asm0,"x60001cd");
+        CILJS.declare_virtual(type,"asm0.x6000180",asm0,"x6000180");
     },
     function ()
     {
@@ -21064,18 +20807,18 @@ asm["System.Collections.IEnumerator"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.IEnumerator",false,false,true,false,false,[],[
-                [asm0, "x60001ce", "get_Current"],
-                [asm0, "x60001cf", "MoveNext"],
-                [asm0, "x60001d0", "Reset"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000060",null);
+                [asm0, "x6000181", "get_Current"],
+                [asm0, "x6000182", "MoveNext"],
+                [asm0, "x6000183", "Reset"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000054",null);
         
-        type.TypeMetadataName = "asm0.t2000060";
+        type.TypeMetadataName = "asm0.t2000054";
         
-        CILJS.declare_virtual(type,"asm0.x60001ce",asm0,"x60001ce");
+        CILJS.declare_virtual(type,"asm0.x6000181",asm0,"x6000181");
         
-        CILJS.declare_virtual(type,"asm0.x60001cf",asm0,"x60001cf");
+        CILJS.declare_virtual(type,"asm0.x6000182",asm0,"x6000182");
         
-        CILJS.declare_virtual(type,"asm0.x60001d0",asm0,"x60001d0");
+        CILJS.declare_virtual(type,"asm0.x6000183",asm0,"x6000183");
     },
     function ()
     {
@@ -21099,14 +20842,14 @@ asm["System.Collections.Generic.IEnumerable`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.Generic.IEnumerable`1",false,false,true,true,false,[],[
-                [asm0, "x60001d1", "GetEnumerator"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000061",null);
+                [asm0, "x6000184", "GetEnumerator"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000055",null);
         
-        (type.GenericArguments)["asm0.t2000061"] = [T];
+        (type.GenericArguments)["asm0.t2000055"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000061<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000055<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60001d1",asm0,"x60001d1");
+        CILJS.declare_virtual(type,"asm0.x6000184",asm0,"x6000184");
         
         CILJS.implement_interface(
             type,
@@ -21135,32 +20878,32 @@ asm["System.Collections.Generic.ICollection`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.Generic.ICollection`1",false,false,true,true,false,[],[
-                [asm0, "x60001d2", "get_Count"],
-                [asm0, "x60001d3", "get_IsReadOnly"],
-                [asm0, "x60001d4", "Add"],
-                [asm0, "x60001d5", "Clear"],
-                [asm0, "x60001d6", "Contains"],
-                [asm0, "x60001d7", "CopyTo"],
-                [asm0, "x60001d8", "Remove"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000062",null);
+                [asm0, "x6000185", "get_Count"],
+                [asm0, "x6000186", "get_IsReadOnly"],
+                [asm0, "x6000187", "Add"],
+                [asm0, "x6000188", "Clear"],
+                [asm0, "x6000189", "Contains"],
+                [asm0, "x600018a", "CopyTo"],
+                [asm0, "x600018b", "Remove"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000056",null);
         
-        (type.GenericArguments)["asm0.t2000062"] = [T];
+        (type.GenericArguments)["asm0.t2000056"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000062<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000056<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60001d2",asm0,"x60001d2");
+        CILJS.declare_virtual(type,"asm0.x6000185",asm0,"x6000185");
         
-        CILJS.declare_virtual(type,"asm0.x60001d3",asm0,"x60001d3");
+        CILJS.declare_virtual(type,"asm0.x6000186",asm0,"x6000186");
         
-        CILJS.declare_virtual(type,"asm0.x60001d4",asm0,"x60001d4");
+        CILJS.declare_virtual(type,"asm0.x6000187",asm0,"x6000187");
         
-        CILJS.declare_virtual(type,"asm0.x60001d5",asm0,"x60001d5");
+        CILJS.declare_virtual(type,"asm0.x6000188",asm0,"x6000188");
         
-        CILJS.declare_virtual(type,"asm0.x60001d6",asm0,"x60001d6");
+        CILJS.declare_virtual(type,"asm0.x6000189",asm0,"x6000189");
         
-        CILJS.declare_virtual(type,"asm0.x60001d7",asm0,"x60001d7");
+        CILJS.declare_virtual(type,"asm0.x600018a",asm0,"x600018a");
         
-        CILJS.declare_virtual(type,"asm0.x60001d8",asm0,"x60001d8");
+        CILJS.declare_virtual(type,"asm0.x600018b",asm0,"x600018b");
         
         CILJS.implement_interface(
             type,
@@ -21194,14 +20937,14 @@ asm["System.Collections.Generic.IComparer`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.Generic.IComparer`1",false,false,true,true,false,[],[
-                [asm0, "x60001d9", "Compare"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000063",null);
+                [asm0, "x600018c", "Compare"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000057",null);
         
-        (type.GenericArguments)["asm0.t2000063"] = [T];
+        (type.GenericArguments)["asm0.t2000057"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000063<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000057<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60001d9",asm0,"x60001d9");
+        CILJS.declare_virtual(type,"asm0.x600018c",asm0,"x600018c");
     },
     function (T)
     {
@@ -21225,14 +20968,14 @@ asm["System.Collections.Generic.IEnumerator`1"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Collections.Generic.IEnumerator`1",false,false,true,true,false,[],[
-                [asm0, "x60001da", "get_Current"]
-            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000064",null);
+                [asm0, "x600018d", "get_Current"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000058",null);
         
-        (type.GenericArguments)["asm0.t2000064"] = [T];
+        (type.GenericArguments)["asm0.t2000058"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000064<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000058<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60001da",asm0,"x60001da");
+        CILJS.declare_virtual(type,"asm0.x600018d",asm0,"x600018d");
         
         CILJS.implement_interface(
             type,
@@ -21253,7 +20996,471 @@ asm["System.Collections.Generic.IEnumerator`1"] = CILJS.declare_type(
             IEnumerator_1.init();
         };
     });
-asm["System.Threading.AutoResetEvent"] = CILJS.declare_type(
+asm["System.Reflection.TypeInfo"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Type"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.TypeInfo",false,false,false,false,false,[],[
+                [asm0, "x6000194", "get_Assembly"],
+                [asm0, "x6000195", "get_FullName"],
+                [asm0, "x6000196", "get_AssemblyQualifiedName"],
+                [asm0, "x6000197", "Equals"],
+                [asm0, "x6000198", "GetHashCode"],
+                [asm0, "x6000199", "GetCustomAttributes"],
+                [asm0, "x600019a", "get_CustomAttributes"],
+                [asm0, "x600019b", "GetCustomAttributes"],
+                [asm0, "x600019c", "IsDefined"],
+                [asm0, "x600019d", "get_IsInterface"],
+                [asm0, "x600019e", "get_IsGenericType"],
+                [asm0, "x600019f", "get_IsGenericTypeDefinition"],
+                [asm0, "x60001a0", "MakeGenericType"],
+                [asm0, "x60001a1", "GetGenericArguments"],
+                [asm0, "x60001a2", "get_BaseType"],
+                [asm0, "x60001a3", "GetInterfaces"],
+                [asm0, "x60001a4", "IsAssignableFrom"],
+                [asm0, "x60001a6", "get_Name"],
+                [asm0, "x60001a7", "get_IsValueType"],
+                [asm0, "x60001a8", "get_IsPrimitive"],
+                [asm0, "x60001a9", "GetElementType"],
+                [asm0, "x60001aa", "GetMethods"],
+                [asm0, "x60001ac", "IsInstanceOfType"]
+            ],asm0["System.Type"](),CILJS.is_inst_default(type),Array,"asm0.t2000059",null);
+        
+        type.TypeMetadataName = "asm0.t2000059";
+        
+        CILJS.declare_virtual(type,"asm0.x6000048",asm0,"x6000194");
+        
+        CILJS.declare_virtual(type,"asm0.x6000044",asm0,"x6000195");
+        
+        CILJS.declare_virtual(type,"asm0.x600004a",asm0,"x6000196");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000197");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000198");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x6000199");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c7",asm0,"x600019a");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c6",asm0,"x600019b");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c8",asm0,"x600019c");
+        
+        CILJS.declare_virtual(type,"asm0.x600004c",asm0,"x600019d");
+        
+        CILJS.declare_virtual(type,"asm0.x600004b",asm0,"x600019e");
+        
+        CILJS.declare_virtual(type,"asm0.x600004d",asm0,"x600019f");
+        
+        CILJS.declare_virtual(type,"asm0.x6000050",asm0,"x60001a0");
+        
+        CILJS.declare_virtual(type,"asm0.x600004e",asm0,"x60001a1");
+        
+        CILJS.declare_virtual(type,"asm0.x6000049",asm0,"x60001a2");
+        
+        CILJS.declare_virtual(type,"asm0.x600004f",asm0,"x60001a3");
+        
+        CILJS.declare_virtual(type,"asm0.x6000051",asm0,"x60001a4");
+        
+        CILJS.declare_virtual(type,"asm0.x60001ca",asm0,"x60001a6");
+        
+        CILJS.declare_virtual(type,"asm0.x6000052",asm0,"x60001a7");
+        
+        CILJS.declare_virtual(type,"asm0.x6000053",asm0,"x60001a8");
+        
+        CILJS.declare_virtual(type,"asm0.x6000054",asm0,"x60001a9");
+        
+        CILJS.declare_virtual(type,"asm0.x6000055",asm0,"x60001aa");
+        
+        CILJS.declare_virtual(type,"asm0.x6000056",asm0,"x60001ac");
+        
+        CILJS.declare_virtual(type,"asm0.x6000046",asm0,"x6000046");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Reflection.ICustomAttributeProvider"]()],
+            [
+                ["x60001b6", asm0, "x6000199"],
+                ["x60001b7", asm0, "x600019b"],
+                ["x60001b8", asm0, "x600019c"]
+            ]);
+    },
+    function ()
+    {
+        
+        return function TypeInfo()
+        {
+            
+            TypeInfo.init();
+            
+            this.ctor = null;
+        };
+    });
+asm["System.Reflection.AssemblyCompanyAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyCompanyAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200005a",null);
+        
+        type.TypeMetadataName = "asm0.t200005a";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyCompanyAttribute()
+        {
+            
+            AssemblyCompanyAttribute.init();
+        };
+    });
+asm["System.Reflection.AssemblyConfigurationAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyConfigurationAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200005b",null);
+        
+        type.TypeMetadataName = "asm0.t200005b";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyConfigurationAttribute()
+        {
+            
+            AssemblyConfigurationAttribute.init();
+        };
+    });
+asm["System.Reflection.AssemblyFileVersionAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyFileVersionAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200005c",null);
+        
+        type.TypeMetadataName = "asm0.t200005c";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyFileVersionAttribute()
+        {
+            
+            AssemblyFileVersionAttribute.init();
+        };
+    });
+asm["System.Reflection.AssemblyInformationalVersionAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyInformationalVersionAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200005d",null);
+        
+        type.TypeMetadataName = "asm0.t200005d";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyInformationalVersionAttribute()
+        {
+            
+            AssemblyInformationalVersionAttribute.init();
+        };
+    });
+asm["System.Reflection.AssemblyTitleAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyTitleAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200005e",null);
+        
+        type.TypeMetadataName = "asm0.t200005e";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyTitleAttribute()
+        {
+            
+            AssemblyTitleAttribute.init();
+        };
+    });
+asm["System.Reflection.AssemblyVersionAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyVersionAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200005f",null);
+        
+        type.TypeMetadataName = "asm0.t200005f";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyVersionAttribute()
+        {
+            
+            AssemblyVersionAttribute.init();
+        };
+    });
+asm["System.Reflection.AssemblyProductAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.AssemblyProductAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000060",null);
+        
+        type.TypeMetadataName = "asm0.t2000060";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function AssemblyProductAttribute()
+        {
+            
+            AssemblyProductAttribute.init();
+        };
+    });
+asm["System.Reflection.DefaultMemberAttribute"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Attribute"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.DefaultMemberAttribute",false,false,false,false,false,[
+                [
+                    asm0["System.AttributeUsageAttribute"](),
+                    asm0.x6000058,
+                    [
+                        1036
+                    ]
+                ]
+            ],[
+                [asm0, "x60001b5", "get_MemberName"]
+            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000061",null);
+        
+        type.TypeMetadataName = "asm0.t2000061";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function DefaultMemberAttribute()
+        {
+            
+            DefaultMemberAttribute.init();
+            
+            this.System_ReflectionDefaultMemberAttributemember_name = null;
+        };
+    });
+asm["System.Reflection.ICustomAttributeProvider"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return {};
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.ICustomAttributeProvider",false,false,true,false,false,[],[
+                [asm0, "x60001b6", "GetCustomAttributes"],
+                [asm0, "x60001b7", "GetCustomAttributes"],
+                [asm0, "x60001b8", "IsDefined"]
+            ],null,CILJS.is_inst_interface(type),Array,"asm0.t2000062",null);
+        
+        type.TypeMetadataName = "asm0.t2000062";
+        
+        CILJS.declare_virtual(type,"asm0.x60001b6",asm0,"x60001b6");
+        
+        CILJS.declare_virtual(type,"asm0.x60001b7",asm0,"x60001b7");
+        
+        CILJS.declare_virtual(type,"asm0.x60001b8",asm0,"x60001b8");
+    },
+    function ()
+    {
+        
+        return function ICustomAttributeProvider()
+        {
+            
+            ICustomAttributeProvider.init();
+        };
+    });
+asm["System.Reflection.MethodInfo"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Reflection.MemberInfo"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.MethodInfo",false,false,false,false,false,[],[
+                [asm0, "x60001bb", "GetCustomAttributes"],
+                [asm0, "x60001bc", "GetCustomAttributes"],
+                [asm0, "x60001bd", "IsDefined"],
+                [asm0, "x60001be", "get_CustomAttributes"],
+                [asm0, "x60001bf", "get_Name"],
+                [asm0, "x60001c0", "Invoke"]
+            ],asm0["System.Reflection.MemberInfo"](),CILJS.is_inst_default(type),Array,"asm0.t2000063",null);
+        
+        type.TypeMetadataName = "asm0.t2000063";
+        
+        CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x60001bb");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c6",asm0,"x60001bc");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c8",asm0,"x60001bd");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c7",asm0,"x60001be");
+        
+        CILJS.declare_virtual(type,"asm0.x60001ca",asm0,"x60001bf");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Reflection.ICustomAttributeProvider"]()],
+            [
+                ["x60001b6", asm0, "x60001bb"],
+                ["x60001b7", asm0, "x60001bc"],
+                ["x60001b8", asm0, "x60001bd"]
+            ]);
+    },
+    function ()
+    {
+        
+        return function MethodInfo()
+        {
+            
+            MethodInfo.init();
+            
+            this.System_ReflectionMethodInfomethodData = null;
+        };
+    });
+asm["System.Reflection.CustomAttributeData"] = CILJS.declare_type(
     [],
     function ()
     {
@@ -21265,30 +21472,66 @@ asm["System.Threading.AutoResetEvent"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Threading.AutoResetEvent",false,false,false,false,false,[],[
-                [asm0, "x60001dc", "Close"],
-                [asm0, "x60001dd", "WaitOne"],
-                [asm0, "x60001de", "Set"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000065",null);
+        CILJS.init_type(type,asm,"System.Reflection.CustomAttributeData",false,false,false,false,false,[],[
+                [asm0, "x60001c3", "get_AttributeType"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000064",null);
+        
+        type.TypeMetadataName = "asm0.t2000064";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function CustomAttributeData()
+        {
+            
+            CustomAttributeData.init();
+            
+            this.System_ReflectionCustomAttributeDataraw = null;
+        };
+    });
+asm["System.Reflection.IntrospectionExtensions"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"System.Reflection.IntrospectionExtensions",false,false,false,false,false,[
+                [
+                    asm0["System.Runtime.CompilerServices.ExtensionAttribute"](),
+                    asm0.x600016e
+                ]
+            ],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000065",null);
         
         type.TypeMetadataName = "asm0.t2000065";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function AutoResetEvent()
+        return function IntrospectionExtensions()
         {
             
-            AutoResetEvent.init();
+            IntrospectionExtensions.init();
         };
     });
-asm["System.Threading.Thread"] = CILJS.declare_type(
+asm["System.Reflection.MemberInfo"] = CILJS.declare_type(
     [],
     function ()
     {
@@ -21300,30 +21543,51 @@ asm["System.Threading.Thread"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Threading.Thread",false,false,false,false,false,[],[
-                [asm0, "x60001e0", "get_IsThreadPoolThread"]
+        CILJS.init_type(type,asm,"System.Reflection.MemberInfo",false,false,false,false,false,[],[
+                [asm0, "x60001c5", "GetCustomAttributes"],
+                [asm0, "x60001c6", "GetCustomAttributes"],
+                [asm0, "x60001c7", "get_CustomAttributes"],
+                [asm0, "x60001c8", "IsDefined"],
+                [asm0, "x60001ca", "get_Name"]
             ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000066",null);
-        
-        type.currentThread = null;
         
         type.TypeMetadataName = "asm0.t2000066";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x60001c5",asm0,"x60001c5");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x60001c6",asm0,"x60001c6");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x60001c7",asm0,"x60001c7");
+        
+        CILJS.declare_virtual(type,"asm0.x60001c8",asm0,"x60001c8");
+        
+        CILJS.declare_virtual(type,"asm0.x60001ca",asm0,"x60001ca");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Reflection.ICustomAttributeProvider"]()],
+            [
+                ["x60001b6", asm0, "x60001c5"],
+                ["x60001b7", asm0, "x60001c6"],
+                ["x60001b8", asm0, "x60001c8"]
+            ]);
     },
     function ()
     {
         
-        return function Thread()
+        return function MemberInfo()
         {
             
-            Thread.init();
+            MemberInfo.init();
         };
     });
-asm["System.Threading.Monitor"] = CILJS.declare_type(
+asm["System.Reflection.Assembly"] = CILJS.declare_type(
     [],
     function ()
     {
@@ -21335,26 +21599,30 @@ asm["System.Threading.Monitor"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Threading.Monitor",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000067",null);
+        CILJS.init_type(type,asm,"System.Reflection.Assembly",false,false,false,false,false,[],[
+                [asm0, "x60001ce", "get_FullName"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000067",null);
         
         type.TypeMetadataName = "asm0.t2000067";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function Monitor()
+        return function Assembly()
         {
             
-            Monitor.init();
+            Assembly.init();
+            
+            this.System_ReflectionAssemblyrawAsm = null;
         };
     });
-asm["System.Threading.WaitHandle"] = CILJS.declare_type(
+asm["CilJs.Runtime.UnboundGenericParameter"] = CILJS.declare_type(
     [],
     function ()
     {
@@ -21366,73 +21634,26 @@ asm["System.Threading.WaitHandle"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Threading.WaitHandle",false,false,false,false,false,[],[
-                [asm0, "x60001e6", "WaitOne"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000068",null);
-        
-        type.TypeMetadataName = "asm0.t2000068";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function WaitHandle()
-        {
-            
-            WaitHandle.init();
-        };
-    });
-asm["System.Diagnostics.DebuggerStepThroughAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Diagnostics.DebuggerStepThroughAttribute",false,false,false,false,false,[
-                [
-                    asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
-                    [
-                        108
-                    ],
-                    {
-                        Inherited: [
-                            asm0["System.Boolean"](),
-                            false
-                        ]
-                    }
-                ]
-            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000069",null);
+        CILJS.init_type(type,asm,"CilJs.Runtime.UnboundGenericParameter",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000069",null);
         
         type.TypeMetadataName = "asm0.t2000069";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function DebuggerStepThroughAttribute()
+        return function UnboundGenericParameter()
         {
             
-            DebuggerStepThroughAttribute.init();
+            UnboundGenericParameter.init();
         };
     });
-asm["System.Diagnostics.Debugger"] = CILJS.declare_type(
+asm["CilJs.Runtime.InteropServices.Marshal"] = CILJS.declare_type(
     [],
     function ()
     {
@@ -21444,575 +21665,194 @@ asm["System.Diagnostics.Debugger"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Diagnostics.Debugger",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200006a",null);
-        
-        type.TypeMetadataName = "asm0.t200006a";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function Debugger()
-        {
-            
-            Debugger.init();
-        };
-    });
-asm["System.Runtime.CompilerServices.ExtensionAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.ExtensionAttribute",false,false,false,false,false,[
-                [
-                    asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
-                    [
-                        64
-                    ],
-                    {
-                        Inherited: [
-                            asm0["System.Boolean"](),
-                            true
-                        ]
-                    }
-                ]
-            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200006c",null);
-        
-        type.TypeMetadataName = "asm0.t200006c";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function ExtensionAttribute()
-        {
-            
-            ExtensionAttribute.init();
-        };
-    });
-asm["System.Runtime.CompilerServices.InternalsVisibleToAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.InternalsVisibleToAttribute",false,false,false,false,false,[
-                [
-                    asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
-                    [
-                        1
-                    ],
-                    {
-                        Inherited: [
-                            asm0["System.Boolean"](),
-                            false
-                        ],
-                        AllowMultiple: [
-                            asm0["System.Boolean"](),
-                            true
-                        ]
-                    }
-                ]
-            ],[
-                [asm0, "x60001ee", "get_AssemblyName"],
-                [asm0, "x60001ef", "get_AllInternalsVisible"],
-                [asm0, "x60001f0", "set_AllInternalsVisible"]
-            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200006d",null);
-        
-        type.TypeMetadataName = "asm0.t200006d";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function InternalsVisibleToAttribute()
-        {
-            
-            InternalsVisibleToAttribute.init();
-            
-            this.System_Runtime_CompilerServicesInternalsVisibleToAttributeassemblyName = null;
-            
-            this.System_Runtime_CompilerServicesInternalsVisibleToAttributeallInternalsVisible = 0;
-        };
-    });
-asm["System.Runtime.CompilerServices.RuntimeHelpers"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.RuntimeHelpers",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200006e",null);
-        
-        type.TypeMetadataName = "asm0.t200006e";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function RuntimeHelpers()
-        {
-            
-            RuntimeHelpers.init();
-        };
-    });
-asm["System.Runtime.CompilerServices.IndexerNameAttribute"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Attribute"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.IndexerNameAttribute",false,false,false,false,false,[
-                [
-                    asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
-                    [
-                        128
-                    ],
-                    {
-                        Inherited: [
-                            asm0["System.Boolean"](),
-                            true
-                        ]
-                    }
-                ]
-            ],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t200006f",null);
-        
-        type.TypeMetadataName = "asm0.t200006f";
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-    },
-    function ()
-    {
-        
-        return function IndexerNameAttribute()
-        {
-            
-            IndexerNameAttribute.init();
-        };
-    });
-asm["System.Runtime.CompilerServices.MethodImplOptions"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Enum"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.MethodImplOptions",true,false,false,false,false,[
-                [
-                    asm0["System.FlagsAttribute"](),
-                    asm0.x6000067
-                ]
-            ],[],asm0["System.Enum"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000070",new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())());
-        
-        type.Unmanaged = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-        
-        type.ForwardRef = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-        
-        type.InternalCall = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-        
-        type.Synchronized = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-        
-        type.NoInlining = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-        
-        type.PreserveSig = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-        
-        type.NoOptimization = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
+        CILJS.init_type(type,asm,"CilJs.Runtime.InteropServices.Marshal",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000070",null);
         
         type.TypeMetadataName = "asm0.t2000070";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function MethodImplOptions()
+        return function Marshal()
         {
             
-            MethodImplOptions.init();
-            
-            this.value__ = 0;
+            Marshal.init();
         };
     });
-asm["System.Runtime.CompilerServices.MethodImplAttribute"] = CILJS.declare_type(
+asm["CilJs.JavaScript.Number"] = CILJS.declare_type(
     [],
     function ()
     {
         
-        return asm0["System.Attribute"]();
+        return {};
     },
     function (type)
     {
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.MethodImplAttribute",false,false,false,false,false,[
-                [
-                    asm0["System.AttributeUsageAttribute"](),
-                    asm0.x6000087,
-                    [
-                        96
-                    ],
-                    {
-                        Inherited: [
-                            asm0["System.Boolean"](),
-                            false
-                        ]
-                    }
-                ]
-            ],[
-                [asm0, "x60001f9", "get_Value"]
-            ],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000071",null);
+        CILJS.init_type(type,asm,"CilJs.JavaScript.Number",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000071",new (asm0["CilJs.JavaScript.Number"]())());
         
         type.TypeMetadataName = "asm0.t2000071";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function MethodImplAttribute()
+        return function $$Number()
         {
             
-            MethodImplAttribute.init();
-            
-            this.System_Runtime_CompilerServicesMethodImplAttribute_val = new (asm0["System.Runtime.CompilerServices.MethodImplOptions"]())();
-            
-            this.MethodCodeType = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
+            $$Number.init();
         };
     });
-asm["System.Runtime.CompilerServices.MethodCodeType"] = CILJS.declare_type(
+asm["CilJs.JavaScript.Boolean"] = CILJS.declare_type(
     [],
     function ()
     {
         
-        return asm0["System.Enum"]();
+        return {};
     },
     function (type)
     {
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Runtime.CompilerServices.MethodCodeType",true,false,false,false,false,[],[],asm0["System.Enum"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000072",new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())());
-        
-        type.IL = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
-        
-        type.Native = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
-        
-        type.OPTIL = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
-        
-        type.Runtime = new (asm0["System.Runtime.CompilerServices.MethodCodeType"]())();
+        CILJS.init_type(type,asm,"CilJs.JavaScript.Boolean",true,false,false,false,false,[],[],asm0["System.ValueType"](),CILJS.is_inst_value_type(type),Array,"asm0.t2000072",new (asm0["CilJs.JavaScript.Boolean"]())());
         
         type.TypeMetadataName = "asm0.t2000072";
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x6000148");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x6000119");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function MethodCodeType()
+        return function $$Boolean()
         {
             
-            MethodCodeType.init();
-            
-            this.value__ = 0;
+            $$Boolean.init();
         };
     });
-asm["System.Runtime.InteropServices.InAttribute"] = CILJS.declare_type(
+asm["CilJs.JavaScript.Object"] = CILJS.declare_type(
     [],
     function ()
     {
         
-        return asm0["System.Attribute"]();
+        return asm0["System.Object"]();
     },
     function (type)
     {
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Runtime.InteropServices.InAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000074",null);
+        CILJS.init_type(type,asm,"CilJs.JavaScript.Object",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000073",null);
+        
+        type.TypeMetadataName = "asm0.t2000073";
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+    },
+    function ()
+    {
+        
+        return function $$Object()
+        {
+            
+            $$Object.init();
+        };
+    });
+asm["CilJs.JavaScript.String"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"CilJs.JavaScript.String",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000074",null);
+        
+        type.Emtpy = null;
         
         type.TypeMetadataName = "asm0.t2000074";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function InAttribute()
+        return function $$String()
         {
             
-            InAttribute.init();
+            $$String.init();
         };
     });
-asm["System.Runtime.InteropServices.OutAttribute"] = CILJS.declare_type(
+asm["CilJs.JavaScript.Array"] = CILJS.declare_type(
     [],
     function ()
     {
         
-        return asm0["System.Attribute"]();
+        return asm0["System.Object"]();
     },
     function (type)
     {
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Runtime.InteropServices.OutAttribute",false,false,false,false,false,[],[],asm0["System.Attribute"](),CILJS.is_inst_default(type),Array,"asm0.t2000075",null);
+        CILJS.init_type(type,asm,"CilJs.JavaScript.Array",false,false,false,false,false,[
+                [
+                    asm0["System.Reflection.DefaultMemberAttribute"](),
+                    asm0.x60001b4,
+                    [
+                        CILJS.new_string("Item")
+                    ]
+                ]
+            ],[
+                [asm0, "x60001f8", "get_Length", []],
+                [asm0, "x60001f9", "get_Item", []],
+                [asm0, "x60001fa", "set_Item", []],
+                [asm0, "x60001fb", "GetEnumerator"],
+                [asm0, "x60001fc", "AsEnumerable"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000075",null);
         
         type.TypeMetadataName = "asm0.t2000075";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
         
-        return function OutAttribute()
+        return function Array()
         {
             
-            OutAttribute.init();
-        };
-    });
-asm["CilJs.JavaScript.Array+<GetEnumerator>d__7"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.Array+<GetEnumerator>d__7",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000076",null);
-        
-        type.TypeMetadataName = "asm0.t2000076";
-        
-        CILJS.declare_virtual(type,"asm0.x60001fe",asm0,"x60001fe");
-        
-        CILJS.declare_virtual(type,"asm0.x60001ff",asm0,"x60001ff");
-        
-        CILJS.declare_virtual(type,"asm0.x6000200",asm0,"x6000200");
-        
-        CILJS.declare_virtual(type,"asm0.x6000201",asm0,"x6000201");
-        
-        CILJS.declare_virtual(type,"asm0.x6000202",asm0,"x6000202");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()), asm0["System.Object"]()],
-            [
-                ["x60001da", asm0, "x6000200"]
-            ]);
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Collections.IEnumerator"]()],
-            [
-                ["x60001ce", asm0, "x6000202"],
-                ["x60001cf", asm0, "x60001ff"],
-                ["x60001d0", asm0, "x6000201"]
-            ]);
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.IDisposable"]()],
-            [
-                ["x600010c", asm0, "x60001fe"]
-            ]);
-    },
-    function ()
-    {
-        
-        return function _GetEnumerator_d__7()
-        {
-            
-            _GetEnumerator_d__7.init();
-            
-            this["CilJs_JavaScript_GetEnumerator_d__7<>1__state"] = 0;
-            
-            this["CilJs_JavaScript_GetEnumerator_d__7<>2__current"] = null;
-            
-            this["<>4__this"] = null;
-            
-            this["CilJs_JavaScript_GetEnumerator_d__7<a>5__1"] = null;
-            
-            this["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"] = 0;
-        };
-    });
-asm["CilJs.JavaScript.Array+<AsEnumerable>d__8"] = CILJS.declare_type(
-    [],
-    function ()
-    {
-        
-        return asm0["System.Object"]();
-    },
-    function (type)
-    {
-        
-        type.init = CILJS.nop;
-        
-        CILJS.init_type(type,asm,"CilJs.JavaScript.Array+<AsEnumerable>d__8",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000077",null);
-        
-        type.TypeMetadataName = "asm0.t2000077";
-        
-        CILJS.declare_virtual(type,"asm0.x6000204",asm0,"x6000204");
-        
-        CILJS.declare_virtual(type,"asm0.x6000205",asm0,"x6000205");
-        
-        CILJS.declare_virtual(type,"asm0.x6000206",asm0,"x6000206");
-        
-        CILJS.declare_virtual(type,"asm0.x6000207",asm0,"x6000207");
-        
-        CILJS.declare_virtual(type,"asm0.x6000208",asm0,"x6000208");
-        
-        CILJS.declare_virtual(type,"asm0.x6000209",asm0,"x6000209");
-        
-        CILJS.declare_virtual(type,"asm0.x600020a",asm0,"x600020a");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
-        
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
-        
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Collections.Generic.IEnumerable`1"](asm0["System.Object"]()), asm0["System.Object"]()],
-            [
-                ["x60001d1", asm0, "x6000209"]
-            ]);
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Collections.IEnumerable"]()],
-            [
-                ["x60001ca", asm0, "x600020a"]
-            ]);
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()), asm0["System.Object"]()],
-            [
-                ["x60001da", asm0, "x6000206"]
-            ]);
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.Collections.IEnumerator"]()],
-            [
-                ["x60001ce", asm0, "x6000208"],
-                ["x60001cf", asm0, "x6000205"],
-                ["x60001d0", asm0, "x6000207"]
-            ]);
-        
-        CILJS.implement_interface(
-            type,
-            [asm0["System.IDisposable"]()],
-            [
-                ["x600010c", asm0, "x6000204"]
-            ]);
-    },
-    function ()
-    {
-        
-        return function _AsEnumerable_d__8()
-        {
-            
-            _AsEnumerable_d__8.init();
-            
-            this["CilJs_JavaScript_AsEnumerable_d__8<>1__state"] = 0;
-            
-            this["CilJs_JavaScript_AsEnumerable_d__8<>2__current"] = null;
-            
-            this["CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId"] = 0;
-            
-            this["<>4__this"] = null;
-            
-            this["CilJs_JavaScript_AsEnumerable_d__8<a>5__1"] = null;
-            
-            this["CilJs_JavaScript_AsEnumerable_d__8<i>5__2"] = 0;
+            Array.init();
         };
     });
 asm["System.Array+<>c__DisplayClass23_0`1"] = CILJS.declare_type(
@@ -22027,17 +21867,17 @@ asm["System.Array+<>c__DisplayClass23_0`1"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Array+<>c__DisplayClass23_0`1",false,false,false,true,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000078",null);
+        CILJS.init_type(type,asm,"System.Array+<>c__DisplayClass23_0`1",false,false,false,true,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000076",null);
         
-        (type.GenericArguments)["asm0.t2000078"] = [T];
+        (type.GenericArguments)["asm0.t2000076"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000078<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000076<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -22063,53 +21903,53 @@ asm["System.Array`1+ArrayEnumerator"] = CILJS.declare_type(
         type.init = CILJS.nop;
         
         CILJS.init_type(type,asm,"System.Array`1+ArrayEnumerator",false,false,false,true,false,[],[
-                [asm0, "x600020e", "get_Current"],
-                [asm0, "x600020f", "MoveNext"],
-                [asm0, "x6000211", "Reset"],
-                [asm0, "x6000212", "Dispose"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000079",null);
+                [asm0, "x6000200", "get_Current"],
+                [asm0, "x6000201", "MoveNext"],
+                [asm0, "x6000203", "Reset"],
+                [asm0, "x6000204", "Dispose"]
+            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000077",null);
         
-        (type.GenericArguments)["asm0.t2000079"] = [T];
+        (type.GenericArguments)["asm0.t2000077"] = [T];
         
-        type.TypeMetadataName = ("asm0.t2000079<" + (T.TypeMetadataName + ">"));
+        type.TypeMetadataName = ("asm0.t2000077<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x600020e",asm0,"x600020e");
+        CILJS.declare_virtual(type,"asm0.x6000200",asm0,"x6000200");
         
-        CILJS.declare_virtual(type,"asm0.x600020f",asm0,"x600020f");
+        CILJS.declare_virtual(type,"asm0.x6000201",asm0,"x6000201");
         
-        CILJS.declare_virtual(type,"asm0.x6000210",asm0,"x6000210");
+        CILJS.declare_virtual(type,"asm0.x6000202",asm0,"x6000202");
         
-        CILJS.declare_virtual(type,"asm0.x6000211",asm0,"x6000211");
+        CILJS.declare_virtual(type,"asm0.x6000203",asm0,"x6000203");
         
-        CILJS.declare_virtual(type,"asm0.x6000212",asm0,"x6000212");
+        CILJS.declare_virtual(type,"asm0.x6000204",asm0,"x6000204");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.IEnumerator`1"](T), T],
             [
-                ["x60001da", asm0, "x600020e"]
+                ["x600018d", asm0, "x6000200"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerator"]()],
             [
-                ["x60001ce", asm0, "x6000210"],
-                ["x60001cf", asm0, "x600020f"],
-                ["x60001d0", asm0, "x6000211"]
+                ["x6000181", asm0, "x6000202"],
+                ["x6000182", asm0, "x6000201"],
+                ["x6000183", asm0, "x6000203"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IDisposable"]()],
             [
-                ["x600010c", asm0, "x6000212"]
+                ["x60000dd", asm0, "x6000204"]
             ]);
     },
     function (T)
@@ -22139,15 +21979,15 @@ asm["System.Reflection.TypeInfo+constructor"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Reflection.TypeInfo+constructor",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007a",null);
+        CILJS.init_type(type,asm,"System.Reflection.TypeInfo+constructor",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000078",null);
         
-        type.TypeMetadataName = "asm0.t200007a";
+        type.TypeMetadataName = "asm0.t2000078";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -22198,65 +22038,65 @@ asm["System.Reflection.TypeInfo+<get_CustomAttributes>d__18"] = CILJS.declare_ty
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Reflection.TypeInfo+<get_CustomAttributes>d__18",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007b",null);
+        CILJS.init_type(type,asm,"System.Reflection.TypeInfo+<get_CustomAttributes>d__18",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t2000079",null);
         
-        type.TypeMetadataName = "asm0.t200007b";
+        type.TypeMetadataName = "asm0.t2000079";
         
-        CILJS.declare_virtual(type,"asm0.x6000215",asm0,"x6000215");
+        CILJS.declare_virtual(type,"asm0.x6000207",asm0,"x6000207");
         
-        CILJS.declare_virtual(type,"asm0.x6000216",asm0,"x6000216");
+        CILJS.declare_virtual(type,"asm0.x6000208",asm0,"x6000208");
         
-        CILJS.declare_virtual(type,"asm0.x6000218",asm0,"x6000218");
+        CILJS.declare_virtual(type,"asm0.x600020a",asm0,"x600020a");
         
-        CILJS.declare_virtual(type,"asm0.x6000219",asm0,"x6000219");
+        CILJS.declare_virtual(type,"asm0.x600020b",asm0,"x600020b");
         
-        CILJS.declare_virtual(type,"asm0.x600021a",asm0,"x600021a");
+        CILJS.declare_virtual(type,"asm0.x600020c",asm0,"x600020c");
         
-        CILJS.declare_virtual(type,"asm0.x600021b",asm0,"x600021b");
+        CILJS.declare_virtual(type,"asm0.x600020d",asm0,"x600020d");
         
-        CILJS.declare_virtual(type,"asm0.x600021c",asm0,"x600021c");
+        CILJS.declare_virtual(type,"asm0.x600020e",asm0,"x600020e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.IEnumerable`1"](asm0["System.Reflection.CustomAttributeData"]()), asm0["System.Reflection.CustomAttributeData"]()],
             [
-                ["x60001d1", asm0, "x600021b"]
+                ["x6000184", asm0, "x600020d"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerable"]()],
             [
-                ["x60001ca", asm0, "x600021c"]
+                ["x600017d", asm0, "x600020e"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Reflection.CustomAttributeData"]()), asm0["System.Reflection.CustomAttributeData"]()],
             [
-                ["x60001da", asm0, "x6000218"]
+                ["x600018d", asm0, "x600020a"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerator"]()],
             [
-                ["x60001ce", asm0, "x600021a"],
-                ["x60001cf", asm0, "x6000216"],
-                ["x60001d0", asm0, "x6000219"]
+                ["x6000181", asm0, "x600020c"],
+                ["x6000182", asm0, "x6000208"],
+                ["x6000183", asm0, "x600020b"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IDisposable"]()],
             [
-                ["x600010c", asm0, "x6000215"]
+                ["x60000dd", asm0, "x6000207"]
             ]);
     },
     function ()
@@ -22292,65 +22132,65 @@ asm["System.Reflection.MethodInfo+<get_CustomAttributes>d__7"] = CILJS.declare_t
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Reflection.MethodInfo+<get_CustomAttributes>d__7",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007c",null);
+        CILJS.init_type(type,asm,"System.Reflection.MethodInfo+<get_CustomAttributes>d__7",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007a",null);
         
-        type.TypeMetadataName = "asm0.t200007c";
+        type.TypeMetadataName = "asm0.t200007a";
         
-        CILJS.declare_virtual(type,"asm0.x600021e",asm0,"x600021e");
+        CILJS.declare_virtual(type,"asm0.x6000210",asm0,"x6000210");
         
-        CILJS.declare_virtual(type,"asm0.x600021f",asm0,"x600021f");
+        CILJS.declare_virtual(type,"asm0.x6000211",asm0,"x6000211");
         
-        CILJS.declare_virtual(type,"asm0.x6000221",asm0,"x6000221");
+        CILJS.declare_virtual(type,"asm0.x6000213",asm0,"x6000213");
         
-        CILJS.declare_virtual(type,"asm0.x6000222",asm0,"x6000222");
+        CILJS.declare_virtual(type,"asm0.x6000214",asm0,"x6000214");
         
-        CILJS.declare_virtual(type,"asm0.x6000223",asm0,"x6000223");
+        CILJS.declare_virtual(type,"asm0.x6000215",asm0,"x6000215");
         
-        CILJS.declare_virtual(type,"asm0.x6000224",asm0,"x6000224");
+        CILJS.declare_virtual(type,"asm0.x6000216",asm0,"x6000216");
         
-        CILJS.declare_virtual(type,"asm0.x6000225",asm0,"x6000225");
+        CILJS.declare_virtual(type,"asm0.x6000217",asm0,"x6000217");
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.IEnumerable`1"](asm0["System.Reflection.CustomAttributeData"]()), asm0["System.Reflection.CustomAttributeData"]()],
             [
-                ["x60001d1", asm0, "x6000224"]
+                ["x6000184", asm0, "x6000216"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerable"]()],
             [
-                ["x60001ca", asm0, "x6000225"]
+                ["x600017d", asm0, "x6000217"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Reflection.CustomAttributeData"]()), asm0["System.Reflection.CustomAttributeData"]()],
             [
-                ["x60001da", asm0, "x6000221"]
+                ["x600018d", asm0, "x6000213"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.Collections.IEnumerator"]()],
             [
-                ["x60001ce", asm0, "x6000223"],
-                ["x60001cf", asm0, "x600021f"],
-                ["x60001d0", asm0, "x6000222"]
+                ["x6000181", asm0, "x6000215"],
+                ["x6000182", asm0, "x6000211"],
+                ["x6000183", asm0, "x6000214"]
             ]);
         
         CILJS.implement_interface(
             type,
             [asm0["System.IDisposable"]()],
             [
-                ["x600010c", asm0, "x600021e"]
+                ["x60000dd", asm0, "x6000210"]
             ]);
     },
     function ()
@@ -22388,15 +22228,15 @@ asm["System.Reflection.Assembly+jsAsm"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"System.Reflection.Assembly+jsAsm",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007d",null);
+        CILJS.init_type(type,asm,"System.Reflection.Assembly+jsAsm",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007b",null);
         
-        type.TypeMetadataName = "asm0.t200007d";
+        type.TypeMetadataName = "asm0.t200007b";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -22409,6 +22249,174 @@ asm["System.Reflection.Assembly+jsAsm"] = CILJS.declare_type(
             this.FullName = null;
             
             this.ManagedInstance = null;
+        };
+    });
+asm["CilJs.JavaScript.Array+<GetEnumerator>d__7"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"CilJs.JavaScript.Array+<GetEnumerator>d__7",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007c",null);
+        
+        type.TypeMetadataName = "asm0.t200007c";
+        
+        CILJS.declare_virtual(type,"asm0.x600021a",asm0,"x600021a");
+        
+        CILJS.declare_virtual(type,"asm0.x600021b",asm0,"x600021b");
+        
+        CILJS.declare_virtual(type,"asm0.x600021c",asm0,"x600021c");
+        
+        CILJS.declare_virtual(type,"asm0.x600021d",asm0,"x600021d");
+        
+        CILJS.declare_virtual(type,"asm0.x600021e",asm0,"x600021e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()), asm0["System.Object"]()],
+            [
+                ["x600018d", asm0, "x600021c"]
+            ]);
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Collections.IEnumerator"]()],
+            [
+                ["x6000181", asm0, "x600021e"],
+                ["x6000182", asm0, "x600021b"],
+                ["x6000183", asm0, "x600021d"]
+            ]);
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.IDisposable"]()],
+            [
+                ["x60000dd", asm0, "x600021a"]
+            ]);
+    },
+    function ()
+    {
+        
+        return function _GetEnumerator_d__7()
+        {
+            
+            _GetEnumerator_d__7.init();
+            
+            this["CilJs_JavaScript_GetEnumerator_d__7<>1__state"] = 0;
+            
+            this["CilJs_JavaScript_GetEnumerator_d__7<>2__current"] = null;
+            
+            this["<>4__this"] = null;
+            
+            this["CilJs_JavaScript_GetEnumerator_d__7<a>5__1"] = null;
+            
+            this["CilJs_JavaScript_GetEnumerator_d__7<i>5__2"] = 0;
+        };
+    });
+asm["CilJs.JavaScript.Array+<AsEnumerable>d__8"] = CILJS.declare_type(
+    [],
+    function ()
+    {
+        
+        return asm0["System.Object"]();
+    },
+    function (type)
+    {
+        
+        type.init = CILJS.nop;
+        
+        CILJS.init_type(type,asm,"CilJs.JavaScript.Array+<AsEnumerable>d__8",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm0.t200007d",null);
+        
+        type.TypeMetadataName = "asm0.t200007d";
+        
+        CILJS.declare_virtual(type,"asm0.x6000220",asm0,"x6000220");
+        
+        CILJS.declare_virtual(type,"asm0.x6000221",asm0,"x6000221");
+        
+        CILJS.declare_virtual(type,"asm0.x6000222",asm0,"x6000222");
+        
+        CILJS.declare_virtual(type,"asm0.x6000223",asm0,"x6000223");
+        
+        CILJS.declare_virtual(type,"asm0.x6000224",asm0,"x6000224");
+        
+        CILJS.declare_virtual(type,"asm0.x6000225",asm0,"x6000225");
+        
+        CILJS.declare_virtual(type,"asm0.x6000226",asm0,"x6000226");
+        
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Collections.Generic.IEnumerable`1"](asm0["System.Object"]()), asm0["System.Object"]()],
+            [
+                ["x6000184", asm0, "x6000225"]
+            ]);
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Collections.IEnumerable"]()],
+            [
+                ["x600017d", asm0, "x6000226"]
+            ]);
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Collections.Generic.IEnumerator`1"](asm0["System.Object"]()), asm0["System.Object"]()],
+            [
+                ["x600018d", asm0, "x6000222"]
+            ]);
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.Collections.IEnumerator"]()],
+            [
+                ["x6000181", asm0, "x6000224"],
+                ["x6000182", asm0, "x6000221"],
+                ["x6000183", asm0, "x6000223"]
+            ]);
+        
+        CILJS.implement_interface(
+            type,
+            [asm0["System.IDisposable"]()],
+            [
+                ["x60000dd", asm0, "x6000220"]
+            ]);
+    },
+    function ()
+    {
+        
+        return function _AsEnumerable_d__8()
+        {
+            
+            _AsEnumerable_d__8.init();
+            
+            this["CilJs_JavaScript_AsEnumerable_d__8<>1__state"] = 0;
+            
+            this["CilJs_JavaScript_AsEnumerable_d__8<>2__current"] = null;
+            
+            this["CilJs_JavaScript_AsEnumerable_d__8<>l__initialThreadId"] = 0;
+            
+            this["<>4__this"] = null;
+            
+            this["CilJs_JavaScript_AsEnumerable_d__8<a>5__1"] = null;
+            
+            this["CilJs_JavaScript_AsEnumerable_d__8<i>5__2"] = 0;
         };
     });
 CILJS.declare_assembly("mscorlib",asm);

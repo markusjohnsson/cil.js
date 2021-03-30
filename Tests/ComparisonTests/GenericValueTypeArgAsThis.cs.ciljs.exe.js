@@ -20,7 +20,7 @@ asm.x6000001 = function (T)
         /* IL_14: newarr System.Object */
         /* IL_19: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x60000a2(((asm0.x60000cf(CILJS.box(arg0,T)).vtable)["asm0.x6000073"])(asm0.x60000cf(CILJS.box(arg0,T))),CILJS.new_array(t0,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg0,T)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg0,T))),CILJS.new_array(t0,0));
         /* IL_1E: nop  */
         /* IL_1F: ret  */
         
@@ -71,11 +71,11 @@ asm.Program = CILJS.declare_type(
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x60000ca",asm0,"x60000ca");
+        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x60000cd",asm0,"x60000cd");
+        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x60000ce",asm0,"x60000ce");
+        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {

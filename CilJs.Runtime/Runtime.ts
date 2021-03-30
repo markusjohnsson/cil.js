@@ -99,6 +99,10 @@ function isPointer(p: any): p is CilJsPointer {
         typeof p.w === "function";
 }
 
+function isInt64(obj: any): obj is CilJsLong {
+    return 'length' in obj && typeof obj.length === 'number' && obj.length === 2;
+}
+
 namespace CILJS {
 
     export function nop() { };
@@ -402,7 +406,7 @@ namespace CILJS {
         return cast_class(o.boxed, type);
     }
 
-    export function unbox_any(o: CilJsBox, type: CilJsType) {
+    export function unbox_any(o: CilJsBox, type: CilJsType): CilJsValue | null {
         if (type.IsNullable) {
             let result = new type() as CilJsNullableValue;
             if (o !== null) {
@@ -417,14 +421,14 @@ namespace CILJS {
                 const t = asm0['System.InvalidCastException']();
                 throw new t();
             }
-            return cast_class(o.boxed, type);
+            return cast_class(o.boxed, type) as CilJsValue;
         }
         else {
-            return cast_class(o as any, type);
+            return cast_class(o as any, type) as CilJsValue;
         }
     }
 
-    export function stelem_ref(array: CilJsArray, index: number, element: CilJsValue) {
+    export function stelem_ref(array: CilJsArray, index: number, element: CilJsValue | CilJsBox<CilJsValue> | null) {
         const castedElement = cast_class(element, array.etype);
         array.jsarr[index] = castedElement;
     }
@@ -527,7 +531,7 @@ namespace CILJS {
         return result;
     }
 
-    export function cast_class(obj: CilJsValue, type: CilJsType) {
+    export function cast_class(obj: CilJsValue | CilJsBox | null, type: CilJsType) {
         if (type.IsInst(obj) || (!type.IsValueType && obj === null)) {
             return obj;
         }
@@ -537,8 +541,8 @@ namespace CILJS {
             else if (typeof obj === 'number') {
                 return obj;
             }
-            else if (typeof obj.length === 'number' && obj.length === 2) {
-                return obj; /* this is for (u)int64 */
+            else if (isInt64(obj)) {
+                return obj;
             }
         }
         else if (
