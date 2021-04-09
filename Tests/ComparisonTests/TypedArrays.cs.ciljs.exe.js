@@ -102,11 +102,6 @@ asm.x6000002 = function TestInt8()
             
             in_block_1 = true;
             
-            if (__pos__ > 0x34){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x1C){
                 
                 __pos__ = 0x1C;
@@ -226,11 +221,6 @@ asm.x6000003 = function TestUInt8()
             case 0x2F:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x33){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x1B){
                 
@@ -352,11 +342,6 @@ asm.x6000004 = function TestInt16()
             
             in_block_1 = true;
             
-            if (__pos__ > 0x34){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x1C){
                 
                 __pos__ = 0x1C;
@@ -476,11 +461,6 @@ asm.x6000005 = function TestUInt16()
             case 0x2F:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x33){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x1B){
                 
@@ -602,11 +582,6 @@ asm.x6000006 = function TestInt32()
             
             in_block_1 = true;
             
-            if (__pos__ > 0x34){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x1C){
                 
                 __pos__ = 0x1C;
@@ -726,11 +701,6 @@ asm.x6000007 = function TestUInt32()
             case 0x2F:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x33){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x1B){
                 

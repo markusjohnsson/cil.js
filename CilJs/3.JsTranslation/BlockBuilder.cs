@@ -45,11 +45,11 @@ namespace CilJs.JsTranslation
             if (hasBranching)
             {
                 yield return JSFactory.Statement(
-                new JSVariableDelcaration
-                {
-                    Name = "in_block_" + Depth,
-                    Value = new JSBoolLiteral { Value = true }
-                });
+                    new JSVariableDelcaration
+                    {
+                        Name = "in_block_" + Depth,
+                        Value = new JSBoolLiteral { Value = true }
+                    });
 
                 if (hasFinally)
                 {
@@ -77,27 +77,27 @@ namespace CilJs.JsTranslation
                     // that transferred control into the loop, not at the start position
 
 
-                    if (isSubBlock)
-                    {
-                        yield return new JSIfStatement
-                        {
-                            Condition = new JSBinaryExpression
-                            {
-                                Left = JSFactory.Identifier("__pos__"),
-                                Operator = ">",
-                                Right = JSFactory.HexLiteral(endPosition)
-                            },
-                            Statements =
-                            {
-                                JSFactory.Statement(
-                                    new JSVariableDelcaration
-                                    {
-                                        Name = "in_block_" + Depth,
-                                        Value = new JSBoolLiteral { Value = false }
-                                    })
-                            }
-                        };
-                    }
+                    // if (isSubBlock)
+                    // {
+                    //     yield return new JSIfStatement
+                    //     {
+                    //         Condition = new JSBinaryExpression
+                    //         {
+                    //             Left = JSFactory.Identifier("__pos__"),
+                    //             Operator = ">",
+                    //             Right = JSFactory.HexLiteral(endPosition)
+                    //         },
+                    //         Statements =
+                    //         {
+                    //             JSFactory.Statement(
+                    //                 new JSVariableDelcaration
+                    //                 {
+                    //                     Name = "in_block_" + Depth,
+                    //                     Value = new JSBoolLiteral { Value = false }
+                    //                 })
+                    //         }
+                    //     };
+                    // }
 
                     if (isFinally)
                     {
@@ -110,6 +110,7 @@ namespace CilJs.JsTranslation
                     }
                     else
                     {
+                        // yield return JSFactory.RawExpression("debugger").ToStatement();
                         yield return new JSIfStatement
                         {
                             Condition = new JSBinaryExpression
@@ -128,6 +129,13 @@ namespace CilJs.JsTranslation
                                     })
                             }
                         };
+
+                        // yield return JSFactory.Statement(
+                        //     new JSVariableDelcaration
+                        //     {
+                        //         Name = "__pos__",
+                        //         Value = JSFactory.HexLiteral(startPosition)
+                        //     });
                     }
                 }
                 

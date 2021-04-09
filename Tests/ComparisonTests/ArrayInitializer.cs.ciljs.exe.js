@@ -279,11 +279,6 @@ asm.x6000006 = function (T)
                 
                 in_block_1 = true;
                 
-                if (__pos__ > 0x23){
-                    
-                    in_block_1 = false;
-                }
-                
                 if (__pos__ < 0x5){
                     
                     __pos__ = 0x5;

@@ -104,11 +104,6 @@ asm.x6000005_ = function Main()
             
             in_block_1 = true;
             
-            if (__pos__ > 0x1F){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x5){
                 
                 __pos__ = 0x5;

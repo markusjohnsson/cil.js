@@ -15,6 +15,7 @@ namespace CilJs.JSAst
         public JSExpression Condition { get; set; }
 
         public List<JSStatement> Statements { get; set; }
+        public List<JSStatement> ElseStatements { get; set; }
 
         public override void Emit(Emitter emitter)
         {
@@ -38,6 +39,25 @@ namespace CilJs.JSAst
 
             emitter.EmitNewLineAndIndentation();
             emitter.EmitString("}");
+
+            if (ElseStatements != null) 
+            {
+                emitter.EmitNewLineAndIndentation();
+                emitter.EmitString("else {");
+
+                emitter.Formatting.IncreaseIndentation();
+
+                foreach (var s in ElseStatements)
+                {
+                    emitter.EmitNewLineAndIndentation();
+                    emitter.Emit(s);
+                }
+
+                emitter.Formatting.DecreaseIndentation();
+
+                emitter.EmitNewLineAndIndentation();
+                emitter.EmitString("}");
+            }
         }
 
         public override IEnumerable<JSExpression> GetChildren()

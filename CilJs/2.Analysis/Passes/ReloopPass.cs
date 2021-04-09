@@ -39,7 +39,7 @@ namespace CilJs.Analysis.Passes
             }
 
             // Step 1: Create Entries
-            var entries = GetEntries(block);
+            var entries = GetEntrypoints(block);
 
             if (entries.Count == 1)
                 return block;
@@ -257,21 +257,21 @@ namespace CilJs.Analysis.Passes
             return 1 + i.Position + i.Size + data;
         }
 
-        private List<Entry> GetEntries(Block block)
+        private List<Entry> GetEntrypoints(Block block)
         {
             var entries = new List<Entry>();
-            var currentLabel = new Entry();
-            entries.Add(currentLabel);
+            var currentEntrypoint = new Entry();
+            entries.Add(currentEntrypoint);
 
             foreach (var node in block.Ast)
             {
-                if (node is JumpLabel && currentLabel.Ast.Any())
+                if (node is JumpLabel && currentEntrypoint.Ast.Any())
                 {
-                    currentLabel = new Entry();
-                    entries.Add(currentLabel);
+                    currentEntrypoint = new Entry();
+                    entries.Add(currentEntrypoint);
                 }
 
-                currentLabel.Ast.Add(node);
+                currentEntrypoint.Ast.Add(node);
 
                 var op = node as OpExpression;
                 if (op != null)
@@ -282,8 +282,8 @@ namespace CilJs.Analysis.Passes
                         case FlowControl.Cond_Branch:
                         case FlowControl.Return:
                         case FlowControl.Throw:
-                            currentLabel = new Entry();
-                            entries.Add(currentLabel);
+                            currentEntrypoint = new Entry();
+                            entries.Add(currentEntrypoint);
                             break;
                     }
                 }

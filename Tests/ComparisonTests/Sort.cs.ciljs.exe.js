@@ -769,11 +769,6 @@ asm.x600000c_ = function Main()
             
             in_block_1 = true;
             
-            if (__pos__ > 0x3F){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x28){
                 
                 __pos__ = 0x28;
@@ -855,11 +850,6 @@ asm.x600000c_ = function Main()
             case 0x7B:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x86){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x69){
                 

@@ -77,11 +77,6 @@ asm.x6000005 = function Sort(arg0)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x5F){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x5){
                 
                 __pos__ = 0x5;
@@ -106,11 +101,6 @@ asm.x6000005 = function Sort(arg0)
                     case 0x42:
                     
                     in_block_2 = true;
-                    
-                    if (__pos__ > 0x4E){
-                        
-                        in_block_2 = false;
-                    }
                     
                     if (__pos__ < 0xA){
                         
@@ -328,11 +318,6 @@ asm.x6000006_ = function Main()
             case 0x42:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x46){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x26){
                 

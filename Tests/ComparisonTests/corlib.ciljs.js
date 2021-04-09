@@ -153,11 +153,6 @@ asm.x6000005_ = function ToString(arg0)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x5C){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x29){
                 
                 __pos__ = 0x29;
@@ -2013,11 +2008,6 @@ asm.x600003e_ = function op_Equality(arg0, arg1)
             
             in_block_1 = true;
             
-            if (__pos__ > 0xF1){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0xAD){
                 
                 __pos__ = 0xAD;
@@ -2359,11 +2349,6 @@ asm.x6000046 = function IsSubclassOf(arg0, arg1)
             case 0x2F:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x37){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x1C){
                 
@@ -4824,11 +4809,6 @@ asm.x60000b1 = function CombineImpl(arg0, arg1)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x3F){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x23){
                 
                 __pos__ = 0x23;
@@ -5068,11 +5048,6 @@ asm.x60000b2 = function RemoveImpl(arg0, arg1)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x5F){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x30){
                 
                 __pos__ = 0x30;
@@ -5196,11 +5171,6 @@ asm.x60000b2 = function RemoveImpl(arg0, arg1)
             
             in_block_1 = true;
             
-            if (__pos__ > 0xB8){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x81){
                 
                 __pos__ = 0x81;
@@ -5294,11 +5264,6 @@ asm.x60000b2 = function RemoveImpl(arg0, arg1)
             case 0xF8:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x108){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0xCA){
                 
@@ -6272,11 +6237,6 @@ asm.x60000c1 = function Concat(arg0)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x32){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0xE){
                 
                 __pos__ = 0xE;
@@ -6685,11 +6645,6 @@ asm.x60000cd = function Format(arg0, arg1)
             case 0x41:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x49){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x5){
                 
@@ -7240,11 +7195,6 @@ asm.x60000ea = function (T)
                 
                 in_block_1 = true;
                 
-                if (__pos__ > 0x21){
-                    
-                    in_block_1 = false;
-                }
-                
                 if (__pos__ < 0xD){
                     
                     __pos__ = 0xD;
@@ -7469,11 +7419,6 @@ asm.x60000eb_ = function (T)
                 case 0x7B:
                 
                 in_block_1 = true;
-                
-                if (__pos__ > 0x84){
-                    
-                    in_block_1 = false;
-                }
                 
                 if (__pos__ < 0x4E){
                     
@@ -7781,11 +7726,6 @@ asm.x60000ed = function Copy(arg0, arg1, arg2, arg3, arg4)
             
             in_block_1 = true;
             
-            if (__pos__ > 0xC6){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x9F){
                 
                 __pos__ = 0x9F;
@@ -7864,11 +7804,6 @@ asm.x60000ed = function Copy(arg0, arg1, arg2, arg3, arg4)
             case 0xF1:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0xFD){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0xD4){
                 
@@ -7979,11 +7914,6 @@ asm.x60000ee = function (T)
                 case 0x24:
                 
                 in_block_1 = true;
-                
-                if (__pos__ > 0x2C){
-                    
-                    in_block_1 = false;
-                }
                 
                 if (__pos__ < 0x9){
                     
@@ -8133,11 +8063,6 @@ asm.x60000ef = function (T)
                 case 0x22:
                 
                 in_block_1 = true;
-                
-                if (__pos__ > 0x2B){
-                    
-                    in_block_1 = false;
-                }
                 
                 if (__pos__ < 0x7){
                     
@@ -8413,11 +8338,6 @@ asm.x60000f0_ = function (T)
                 case 0x87:
                 
                 in_block_1 = true;
-                
-                if (__pos__ > 0x96){
-                    
-                    in_block_1 = false;
-                }
                 
                 if (__pos__ < 0x5E){
                     
@@ -9003,11 +8923,6 @@ asm.x60000f9 = function Reverse(arg0, arg1, arg2)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x55){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x1F){
                 
                 __pos__ = 0x1F;
@@ -9137,11 +9052,6 @@ asm.x60000fd = function (T)
                 case 0x19:
                 
                 in_block_1 = true;
-                
-                if (__pos__ > 0x1F){
-                    
-                    in_block_1 = false;
-                }
                 
                 if (__pos__ < 0x5){
                     
@@ -9368,11 +9278,6 @@ asm.x6000100 = function (T)
                 case 0x6A:
                 
                 in_block_1 = true;
-                
-                if (__pos__ > 0x73){
-                    
-                    in_block_1 = false;
-                }
                 
                 if (__pos__ < 0x53){
                     
@@ -10127,11 +10032,6 @@ asm.x6000110_ = function System_Collections_Generic_ICollection_T__CopyTo(arg0, 
             
             in_block_1 = true;
             
-            if (__pos__ > 0x55){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x32){
                 
                 __pos__ = 0x32;
@@ -10738,11 +10638,6 @@ asm.x6000138 = function ToString(arg0)
             case 0xE:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x2E){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0xE){
                 
@@ -12209,11 +12104,6 @@ asm.x6000175_ = function InitializeArray(arg0, arg1)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x60){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x37){
                 
                 __pos__ = 0x37;
@@ -12654,11 +12544,6 @@ asm.x6000195 = function get_FullName(arg0)
             case 0x95:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0xA1){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x74){
                 
@@ -13218,11 +13103,6 @@ asm.x60001a0_ = function MakeGenericType(arg0, arg1)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x47){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x1F){
                 
                 __pos__ = 0x1F;
@@ -13379,11 +13259,6 @@ asm.x60001a1_ = function GetGenericArguments(arg0)
             case 0x43:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x4B){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x34){
                 
@@ -13602,11 +13477,6 @@ asm.x60001a3_ = function GetInterfaces(arg0)
             case 0x2E:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x36){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x1F){
                 
@@ -13859,11 +13729,6 @@ asm.x60001a4 = function IsAssignableFrom(arg0, arg1)
             case 0x88:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x94){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x6D){
                 
@@ -14256,11 +14121,6 @@ asm.x60001aa_ = function GetMethods(arg0)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x86){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x54){
                 
                 __pos__ = 0x54;
@@ -14328,11 +14188,6 @@ asm.x60001aa_ = function GetMethods(arg0)
             case 0xA0:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0xA9){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x8D){
                 
@@ -16756,11 +16611,6 @@ asm.x600021b = function MoveNext(arg0)
             
             in_block_1 = true;
             
-            if (__pos__ > 0x83){
-                
-                in_block_1 = false;
-            }
-            
             if (__pos__ < 0x35){
                 
                 __pos__ = 0x35;
@@ -17001,11 +16851,6 @@ asm.x6000221 = function MoveNext(arg0)
             case 0x6E:
             
             in_block_1 = true;
-            
-            if (__pos__ > 0x83){
-                
-                in_block_1 = false;
-            }
             
             if (__pos__ < 0x35){
                 

@@ -53,11 +53,6 @@ asm.x6000001 = function (T)
                 
                 in_block_1 = true;
                 
-                if (__pos__ > 0x2A){
-                    
-                    in_block_1 = false;
-                }
-                
                 if (__pos__ < 0x8){
                     
                     __pos__ = 0x8;
