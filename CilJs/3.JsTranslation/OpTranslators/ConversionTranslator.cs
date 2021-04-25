@@ -28,7 +28,7 @@ namespace CilJs.JsTranslation.OpTranslators
                 if (argIsInt64)
                     return expr;
                 else
-                    return JSFactory.Call(JSFactory.Identifier("CILJS", "conv_u8"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "convU8"), expr);
             }
 
             if (node.Instruction.OpCode.Name == "conv.i8")
@@ -36,15 +36,15 @@ namespace CilJs.JsTranslation.OpTranslators
                 if (argIsInt64)
                     return expr;
                 else
-                    return JSFactory.Call(JSFactory.Identifier("CILJS", "conv_i8"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "convI8"), expr);
             }
 
             if (argIsInt64)
             {
                 if (node.Instruction.OpCode.Name == "conv.r.un")
-                    return JSFactory.Call(JSFactory.Identifier("CILJS", "to_number_unsigned"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "toNumberUnsigned"), expr);
                 else
-                    return JSFactory.Call(JSFactory.Identifier("CILJS", "to_number_signed"), expr);
+                    return JSFactory.Call(JSFactory.Identifier("CILJS", "toNumberSigned"), expr);
             }
 
             if (arg.ResultType.IsGenericType && arg.ResultType.GetGenericTypeDefinition() == context.SystemTypes.ManagedPointer)

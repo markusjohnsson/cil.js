@@ -1,13 +1,13 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "CSStringConverter.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* static System.Void Program.Main()*/
 
 asm.x6000001 = function Main()
 {
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     /* IL_00: nop  */
     /* IL_01: ret  */
     
@@ -35,7 +35,7 @@ asm.x6000003 = function Append(arg0, arg1)
     /* IL_03: newarr System.Object */
     /* IL_08: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(arg1,CILJS.new_array(t0,0));
+    asm0.x6000073(arg1,CILJS.newArray(t0,0));
     /* IL_0D: nop  */
     /* IL_0E: ret  */
     
@@ -52,7 +52,7 @@ asm.x6000004 = function Append(arg0, arg1)
     /* IL_02: box System.Char */
     /* IL_07: call Void WriteLine(System.Object) */
     
-    asm0.x6000072(CILJS.make_box(arg1,t0));
+    asm0.x6000072(CILJS.makeBox(arg1,t0));
     /* IL_0C: nop  */
     /* IL_0D: ret  */
     
@@ -139,7 +139,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_21: ldc.i4.s 34 */
             /* IL_23: bgt.un.s IL_53 */
             
-            if (CILJS.unsigned_value(loc2) > CILJS.unsigned_value(34)){
+            if (CILJS.unsignedValue(loc2) > CILJS.unsignedValue(34)){
                 
                 __pos__ = 0x53;
                 
@@ -159,7 +159,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_2D: sub  */
             /* IL_2E: switch System.Int32[] */
             
-            __switch_value__ = CILJS.unsigned_value((loc2 - 9) | 0);
+            __switch_value__ = CILJS.unsignedValue((loc2 - 9) | 0);
             
             if (__switch_value__ >= 0x5){
                 
@@ -236,7 +236,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_6F: ldstr \\ */
             /* IL_74: callvirt Void Append(System.String) */
             
-            asm1.x6000003(loc0,CILJS.new_string("\\\\"));
+            asm1.x6000003(loc0,CILJS.newString("\\\\"));
             /* IL_79: nop  */
             /* IL_7A: br.s IL_E7 */
             
@@ -263,7 +263,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_92: ldstr \0 */
             /* IL_97: callvirt Void Append(System.String) */
             
-            asm1.x6000003(loc0,CILJS.new_string("\\0"));
+            asm1.x6000003(loc0,CILJS.newString("\\0"));
             /* IL_9C: nop  */
             /* IL_9D: br.s IL_E7 */
             
@@ -275,7 +275,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_A0: ldstr \t */
             /* IL_A5: callvirt Void Append(System.String) */
             
-            asm1.x6000003(loc0,CILJS.new_string("\\t"));
+            asm1.x6000003(loc0,CILJS.newString("\\t"));
             /* IL_AA: nop  */
             /* IL_AB: br.s IL_E7 */
             
@@ -287,7 +287,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_AE: ldstr \n */
             /* IL_B3: callvirt Void Append(System.String) */
             
-            asm1.x6000003(loc0,CILJS.new_string("\\n"));
+            asm1.x6000003(loc0,CILJS.newString("\\n"));
             /* IL_B8: nop  */
             /* IL_B9: br.s IL_E7 */
             
@@ -299,7 +299,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_BC: ldstr \r */
             /* IL_C1: callvirt Void Append(System.String) */
             
-            asm1.x6000003(loc0,CILJS.new_string("\\r"));
+            asm1.x6000003(loc0,CILJS.newString("\\r"));
             /* IL_C6: nop  */
             /* IL_C7: br.s IL_E7 */
             
@@ -311,7 +311,7 @@ asm.x6000006_ = function Convert(arg0)
             /* IL_CA: ldstr \" */
             /* IL_CF: callvirt Void Append(System.String) */
             
-            asm1.x6000003(loc0,CILJS.new_string("\\\""));
+            asm1.x6000003(loc0,CILJS.newString("\\\""));
             /* IL_D4: nop  */
             /* IL_D5: br.s IL_E7 */
             
@@ -384,13 +384,13 @@ asm.x6000007 = function EscapeChar(arg0)
     /* IL_0C: call String Concat(System.Object, System.Object) */
     /* IL_11: stloc.0  */
     
-    loc0 = asm0.x60000bf(CILJS.new_string("\\u"),CILJS.make_box(arg0,t0));
+    loc0 = asm0.x60000bf(CILJS.newString("\\u"),CILJS.makeBox(arg0,t0));
     /* IL_14: ldloc.0  */
     /* IL_15: ret  */
     
     return loc0;
 };;
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -402,15 +402,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000002",null);
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -421,7 +421,7 @@ asm.Program = CILJS.declare_type(
             Program.init();
         };
     });
-asm.S = CILJS.declare_type(
+asm.S = CILJS.declareType(
     [],
     function ()
     {
@@ -433,18 +433,18 @@ asm.S = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"S",false,false,false,false,false,[],[
+        CILJS.initType(type,asm,"S",false,false,false,false,false,[],[
                 [asm1, "x6000003", "Append"],
                 [asm1, "x6000004", "Append"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000003",null);
+            ],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000003",null);
         
         type.TypeMetadataName = "asm1.t2000003";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -455,7 +455,7 @@ asm.S = CILJS.declare_type(
             S.init();
         };
     });
-asm.CSStringConverter = CILJS.declare_type(
+asm.CSStringConverter = CILJS.declareType(
     [],
     function ()
     {
@@ -467,15 +467,15 @@ asm.CSStringConverter = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"CSStringConverter",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000004",null);
+        CILJS.initType(type,asm,"CSStringConverter",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000004",null);
         
         type.TypeMetadataName = "asm1.t2000004";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -487,7 +487,7 @@ asm.CSStringConverter = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000001;
-CILJS.declare_assembly("CSStringConverter.cs.ciljs",asm);
+CILJS.declareAssembly("CSStringConverter.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;

@@ -5,7 +5,7 @@ namespace System
 {
     public class Console
     {
-        [JsReplace("CILJS.console_write_line({0})")]
+        [JsReplace("CILJS.consoleWriteLine({0})")]
         internal extern static void WriteLineImpl(string s);
 
         public static void WriteLine(object s)

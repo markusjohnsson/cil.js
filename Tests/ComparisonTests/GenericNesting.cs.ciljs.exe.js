@@ -1,7 +1,7 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "GenericNesting.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/*  A..ctor()*/
 
 asm.x6000001 = function _ctor(arg0)
@@ -60,7 +60,7 @@ asm.x6000004_ = function Main()
     var loc0;
     var loc1;
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     
     t0 = asm1.A();
     
@@ -88,7 +88,7 @@ asm.x6000005 = function _ctor(arg0)
     
     return ;
 };;
-asm["I`1"] = CILJS.declare_type(
+asm["I`1"] = CILJS.declareType(
     ["T"],
     function (T)
     {
@@ -100,7 +100,7 @@ asm["I`1"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"I`1",false,false,true,true,false,[],[],null,CILJS.is_inst_interface(type),Array,"asm1.t2000002",null);
+        CILJS.initType(type,asm,"I`1",false,false,true,true,false,[],[],null,CILJS.isInstInterface(type),Array,"asm1.t2000002",null);
         
         (type.GenericArguments)["asm1.t2000002"] = [T];
         
@@ -115,7 +115,7 @@ asm["I`1"] = CILJS.declare_type(
             I_1.init();
         };
     });
-asm.A = CILJS.declare_type(
+asm.A = CILJS.declareType(
     [],
     function ()
     {
@@ -127,17 +127,17 @@ asm.A = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"A",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000003",null);
+        CILJS.initType(type,asm,"A",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000003",null);
         
         type.TypeMetadataName = "asm1.t2000003";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
         
-        CILJS.implement_interface(
+        CILJS.implementInterface(
             type,
             [asm1["I`1"](asm1.A()), asm1.A()],
             []);
@@ -151,7 +151,7 @@ asm.A = CILJS.declare_type(
             A.init();
         };
     });
-asm["B`1"] = CILJS.declare_type(
+asm["B`1"] = CILJS.declareType(
     ["T"],
     function (T)
     {
@@ -163,17 +163,17 @@ asm["B`1"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"B`1",false,false,false,true,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000004",null);
+        CILJS.initType(type,asm,"B`1",false,false,false,true,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000004",null);
         
         (type.GenericArguments)["asm1.t2000004"] = [T];
         
         type.TypeMetadataName = ("asm1.t2000004<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -184,7 +184,7 @@ asm["B`1"] = CILJS.declare_type(
             B_1.init();
         };
     });
-asm.C = CILJS.declare_type(
+asm.C = CILJS.declareType(
     [],
     function ()
     {
@@ -198,17 +198,17 @@ asm.C = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"C",false,false,false,false,false,[],[],asm1["B`1"](asm1.C()),CILJS.is_inst_default(type),Array,"asm1.t2000005",null);
+        CILJS.initType(type,asm,"C",false,false,false,false,false,[],[],asm1["B`1"](asm1.C()),CILJS.isInstDefault(type),Array,"asm1.t2000005",null);
         
         (type.GenericArguments)["asm1.t2000004"] = [asm1.C()];
         
         type.TypeMetadataName = "asm1.t2000005";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -219,7 +219,7 @@ asm.C = CILJS.declare_type(
             C.init();
         };
     });
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -231,15 +231,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000006",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000006",null);
         
         type.TypeMetadataName = "asm1.t2000006";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -251,7 +251,7 @@ asm.Program = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000004;
-CILJS.declare_assembly("GenericNesting.cs.ciljs",asm);
+CILJS.declareAssembly("GenericNesting.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;

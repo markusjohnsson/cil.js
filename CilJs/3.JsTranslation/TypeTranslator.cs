@@ -24,7 +24,7 @@ namespace CilJs.JsTranslation
 
         public JSExpression Translate(CilType type)
         {
-            var call = JSFactory.Call(JSFactory.Identifier("CILJS", "declare_type"),
+            var call = JSFactory.Call(JSFactory.Identifier("CILJS", "declareType"),
                 GetTypeDeclarationArguments(type).ToArray());
             call.Indent = true;
             return call;
@@ -140,7 +140,7 @@ namespace CilJs.JsTranslation
 
             yield return JSFactory
                 .Call(
-                    JSFactory.Identifier("CILJS", "init_type"),
+                    JSFactory.Identifier("CILJS", "initType"),
 
                     JSFactory.Identifier(n),
                     JSFactory.Identifier("asm"),
@@ -195,7 +195,7 @@ namespace CilJs.JsTranslation
             foreach (var f in GetVtable(type))
             {
                 yield return JSFactory.Call(
-                        JSFactory.Identifier("CILJS", "declare_virtual"),
+                        JSFactory.Identifier("CILJS", "declareVirtual"),
                         JSFactory.Identifier(n),
                         JSFactory.Literal(f.Key),
                         f.Value.Item1,
@@ -207,7 +207,7 @@ namespace CilJs.JsTranslation
             {
                 var call = JSFactory
                     .Call(
-                        JSFactory.Identifier("CILJS", "implement_interface"),
+                        JSFactory.Identifier("CILJS", "implementInterface"),
                         JSFactory.Identifier(n),
                         JSFactory.Array(inline: true, exprs: iface.Key),
                         iface.Value);
@@ -312,7 +312,7 @@ namespace CilJs.JsTranslation
                             .Select(
                                 arg =>
                                     arg.ArgumentType == context.SystemTypes.String ?
-                                        JSFactory.Call(JSFactory.Identifier("CILJS", "new_string"), JSFactory.String((string)arg.Value)) :
+                                        JSFactory.Call(JSFactory.Identifier("CILJS", "newString"), JSFactory.String((string)arg.Value)) :
                                     arg.ArgumentType == context.SystemTypes.Type ?
                                         GetTypeIdentifier((Type)arg.Value, typeScope: type) :
                                     JSFactory.Literal(arg.Value))
@@ -405,22 +405,22 @@ namespace CilJs.JsTranslation
             // TODO: this could be done at runtime, in typeInit for example. Only thing needed is to pass T for arrays
 
             if (type.IsInterface)
-                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_interface"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "isInstInterface"), simpleName);
 
             if (type.ReflectionType.IsPrimitive)
-                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_primitive"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "isInstPrimitive"), simpleName);
 
             if (type.ReflectionType.FullName == "System.Array`1")
-                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_array"), JSFactory.Identifier("T"));
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "isInstArray"), JSFactory.Identifier("T"));
 
             if (type.ReflectionType.IsValueType)
-                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_value_type"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "isInstValueType"), simpleName);
 
             if (type.ReflectionType == context.SystemTypes.Delegate ||
                 type.ReflectionType.BaseType == context.SystemTypes.Delegate)
-                return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_delegate"), simpleName);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "isInstDelegate"), simpleName);
 
-            return JSFactory.Call(JSFactory.Identifier("CILJS", "is_inst_default"), simpleName);
+            return JSFactory.Call(JSFactory.Identifier("CILJS", "isInstDefault"), simpleName);
         }
 
         private IEnumerable<KeyValuePair<JSExpression[], JSExpression>> GetInterfaceMaps(CilType type)

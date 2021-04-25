@@ -10,7 +10,7 @@ namespace System
             return ValueTypeEquals(this, other);
         }
 
-        [JsReplace("CILJS.value_equals({0}.r(), {1}.boxed)")]
+        [JsReplace("CILJS.valueEquals({0}.r(), {1}.boxed)")]
         private static extern bool ValueTypeEquals(object a, object b);
     }
 }

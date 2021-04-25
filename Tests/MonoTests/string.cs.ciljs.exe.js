@@ -30,15 +30,15 @@ asm.x6000001 = function Main()
             /* IL_01: ldstr ddd */
             /* IL_06: stloc.0  */
             
-            loc0 = CILJS.new_string("ddd");
+            loc0 = CILJS.newString("ddd");
             /* IL_07: ldstr ddd */
             /* IL_0C: stloc.1  */
             
-            loc1 = CILJS.new_string("ddd");
+            loc1 = CILJS.newString("ddd");
             /* IL_0D: ldstr ddda */
             /* IL_12: stloc.2  */
             
-            loc2 = CILJS.new_string("ddda");
+            loc2 = CILJS.newString("ddda");
             /* IL_13: ldloc.0  */
             /* IL_14: ldloc.1  */
             /* IL_15: call Boolean op_Inequality(System.String, System.String) */
@@ -71,7 +71,7 @@ asm.x6000001 = function Main()
             /* IL_2F: call Boolean op_Inequality(System.String, System.String) */
             /* IL_34: stloc.s 5 */
             
-            loc5 = asm0.x60000f4(loc2,asm0.x60000ea(loc1,CILJS.new_string("a")));
+            loc5 = asm0.x60000f4(loc2,asm0.x60000ea(loc1,CILJS.newString("a")));
             /* IL_36: ldloc.s 5 */
             /* IL_38: brfalse.s IL_3F */
             
@@ -98,7 +98,7 @@ asm.x6000001 = function Main()
             /* IL_4C: ceq  */
             /* IL_4D: stloc.s 6 */
             
-            loc6 = ((loc2 === asm0.x60000ea(loc1,CILJS.new_string("a"))) ? 1 : 0);
+            loc6 = ((loc2 === asm0.x60000ea(loc1,CILJS.newString("a"))) ? 1 : 0);
             /* IL_4F: ldloc.s 6 */
             /* IL_51: brfalse.s IL_58 */
             

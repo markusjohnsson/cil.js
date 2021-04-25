@@ -1,16 +1,16 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "Delegate.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* System.String Foo.Invoke(Int32)*/
 
-asm.x6000002 = CILJS.delegate_invoke;;/* System.IAsyncResult Foo.BeginInvoke(Int32,AsyncCallback,Object)*/
+asm.x6000002 = CILJS.delegateInvoke;;/* System.IAsyncResult Foo.BeginInvoke(Int32,AsyncCallback,Object)*/
 
-asm.x6000003 = CILJS.delegate_begin_invoke;;/* System.String Foo.EndInvoke(IAsyncResult)*/
+asm.x6000003 = CILJS.delegateBeginInvoke;;/* System.String Foo.EndInvoke(IAsyncResult)*/
 
-asm.x6000004 = CILJS.delegate_end_invoke;;/*  Foo..ctor(Object,IntPtr)*/
+asm.x6000004 = CILJS.delegateEndInvoke;;/*  Foo..ctor(Object,IntPtr)*/
 
-asm.x6000001 = CILJS.delegate_ctor;;/* static System.String Program.X(Int32)*/
+asm.x6000001 = CILJS.delegateCtor;;/* static System.String Program.X(Int32)*/
 
 asm.x6000005 = function X(arg0)
 {
@@ -19,7 +19,7 @@ asm.x6000005 = function X(arg0)
     /* IL_01: ldstr RESULT! */
     /* IL_06: stloc.0  */
     
-    loc0 = CILJS.new_string("RESULT!");
+    loc0 = CILJS.newString("RESULT!");
     /* IL_09: ldloc.0  */
     /* IL_0A: ret  */
     
@@ -33,7 +33,7 @@ asm.x6000006 = function Y(arg0)
     /* IL_01: ldstr FOO! */
     /* IL_06: stloc.0  */
     
-    loc0 = CILJS.new_string("FOO!");
+    loc0 = CILJS.newString("FOO!");
     /* IL_09: ldloc.0  */
     /* IL_0A: ret  */
     
@@ -61,7 +61,7 @@ asm.x6000007_ = function Main()
     var t1;
     var loc0;
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     
     t0 = asm1.Foo();
     
@@ -83,7 +83,7 @@ asm.x6000007_ = function Main()
     /* IL_1B: newarr System.Object */
     /* IL_20: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(CILJS.new_string("f, f"),CILJS.new_array(t1,0));
+    asm0.x6000073(CILJS.newString("f, f"),CILJS.newArray(t1,0));
     /* IL_25: nop  */
     /* IL_26: ldloc.0  */
     /* IL_27: ldloc.0  */
@@ -96,7 +96,7 @@ asm.x6000007_ = function Main()
     /* IL_34: newarr System.Object */
     /* IL_39: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(CILJS.new_string("f, X"),CILJS.new_array(t1,0));
+    asm0.x6000073(CILJS.newString("f, X"),CILJS.newArray(t1,0));
     /* IL_3E: nop  */
     /* IL_3F: ldloc.0  */
     /* IL_40: ldnull  */
@@ -111,7 +111,7 @@ asm.x6000007_ = function Main()
     /* IL_58: newarr System.Object */
     /* IL_5D: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(CILJS.new_string("f, Y"),CILJS.new_array(t1,0));
+    asm0.x6000073(CILJS.newString("f, Y"),CILJS.newArray(t1,0));
     /* IL_62: nop  */
     /* IL_63: ldloc.0  */
     /* IL_64: ldnull  */
@@ -126,7 +126,7 @@ asm.x6000007_ = function Main()
     /* IL_7C: newarr System.Object */
     /* IL_81: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(CILJS.new_string("f, null"),CILJS.new_array(t1,0));
+    asm0.x6000073(CILJS.newString("f, null"),CILJS.newArray(t1,0));
     /* IL_86: nop  */
     /* IL_87: ldloc.0  */
     /* IL_88: ldnull  */
@@ -139,7 +139,7 @@ asm.x6000007_ = function Main()
     /* IL_95: newarr System.Object */
     /* IL_9A: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(CILJS.new_string("null, null"),CILJS.new_array(t1,0));
+    asm0.x6000073(CILJS.newString("null, null"),CILJS.newArray(t1,0));
     /* IL_9F: nop  */
     /* IL_A0: ldnull  */
     /* IL_A1: ldnull  */
@@ -165,7 +165,7 @@ asm.x6000008 = function CallDelegate(arg0)
     /* IL_0A: newarr System.Object */
     /* IL_0F: call Void WriteLine(System.String, System.Object[]) */
     
-    asm0.x6000073(((arg0._target) ? (arg0._methodPtr(arg0._target,123)) : (arg0._methodPtr(123))),CILJS.new_array(t0,0));
+    asm0.x6000073(((arg0._target) ? (arg0._methodPtr(arg0._target,123)) : (arg0._methodPtr(123))),CILJS.newArray(t0,0));
     /* IL_14: nop  */
     /* IL_15: ret  */
     
@@ -184,7 +184,7 @@ asm.x6000009 = function TestEquality(arg0, arg1)
     /* IL_08: box System.Boolean */
     /* IL_0D: call Void WriteLine(System.Object) */
     
-    asm0.x6000072(CILJS.make_box(asm0.x600003e(arg0,arg1),t0));
+    asm0.x6000072(CILJS.makeBox(asm0.x600003e(arg0,arg1),t0));
     /* IL_12: nop  */
     /* IL_13: ldarg.0  */
     /* IL_14: ldarg.1  */
@@ -192,7 +192,7 @@ asm.x6000009 = function TestEquality(arg0, arg1)
     /* IL_1A: box System.Boolean */
     /* IL_1F: call Void WriteLine(System.Object) */
     
-    asm0.x6000072(CILJS.make_box(asm0.x600003f(arg0,arg1),t0));
+    asm0.x6000072(CILJS.makeBox(asm0.x600003f(arg0,arg1),t0));
     /* IL_24: nop  */
     /* IL_25: ret  */
     
@@ -208,7 +208,7 @@ asm.x600000a = function _ctor(arg0)
     
     return ;
 };;
-asm.Foo = CILJS.declare_type(
+asm.Foo = CILJS.declareType(
     [],
     function ()
     {
@@ -220,29 +220,29 @@ asm.Foo = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Foo",false,false,false,false,false,[],[
+        CILJS.initType(type,asm,"Foo",false,false,false,false,false,[],[
                 [asm1, "x6000002", "Invoke"],
                 [asm1, "x6000003", "BeginInvoke"],
                 [asm1, "x6000004", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
+            ],asm0["System.MulticastDelegate"](),CILJS.isInstDefault(type),Array,"asm1.t2000002",null);
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm1.x6000002",asm1,"x6000002");
+        CILJS.declareVirtual(type,"asm1.x6000002",asm1,"x6000002");
         
-        CILJS.declare_virtual(type,"asm1.x6000003",asm1,"x6000003");
+        CILJS.declareVirtual(type,"asm1.x6000003",asm1,"x6000003");
         
-        CILJS.declare_virtual(type,"asm1.x6000004",asm1,"x6000004");
+        CILJS.declareVirtual(type,"asm1.x6000004",asm1,"x6000004");
         
-        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
+        CILJS.declareVirtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
+        CILJS.declareVirtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function ()
     {
@@ -259,7 +259,7 @@ asm.Foo = CILJS.declare_type(
             this._target = null;
         };
     });
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -271,15 +271,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000003",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000003",null);
         
         type.TypeMetadataName = "asm1.t2000003";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -291,7 +291,7 @@ asm.Program = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000007;
-CILJS.declare_assembly("Delegate.cs.ciljs",asm);
+CILJS.declareAssembly("Delegate.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;

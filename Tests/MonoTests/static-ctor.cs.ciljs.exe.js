@@ -150,7 +150,7 @@ asm.x6000005_ = function Main()
             /* IL_1D: newarr System.Object */
             /* IL_22: call Void WriteLine(System.String, System.Object[]) */
             
-            asm0.x60000a2(CILJS.new_string("Error"),CILJS.new_array(t2,0));
+            asm0.x60000a2(CILJS.newString("Error"),CILJS.new_array(t2,0));
             /* IL_27: nop  */
             /* IL_28: ldc.i4.1  */
             /* IL_29: stloc.2  */
@@ -167,7 +167,7 @@ asm.x6000005_ = function Main()
             /* IL_32: newarr System.Object */
             /* IL_37: call Void WriteLine(System.String, System.Object[]) */
             
-            asm0.x60000a2(CILJS.new_string("Ok"),CILJS.new_array(t2,0));
+            asm0.x60000a2(CILJS.newString("Ok"),CILJS.new_array(t2,0));
             /* IL_3C: nop  */
             /* IL_3D: ldc.i4.0  */
             /* IL_3E: stloc.2  */

@@ -32,7 +32,7 @@ namespace CilJs.JsTranslation
                 {
                     Name = "asm" + world.TakeWhile(c => c.ReflectionAssembly.GetName().FullName != refAsm.FullName).Count(),
                     ForceDeclaration = true,
-                    Value = JSFactory.Call(JSFactory.Identifier("CILJS", "find_assembly"), JSFactory.Literal(refAsm.Name))
+                    Value = JSFactory.Call(JSFactory.Identifier("CILJS", "findAssembly"), JSFactory.Literal(refAsm.Name))
                 }.ToStatement();
 
             foreach (var s in GetBody(world, asm).Select(JSFactory.Statement))
@@ -163,7 +163,7 @@ namespace CilJs.JsTranslation
 
             yield return JSFactory
                 .Call(
-                    JSFactory.Identifier("CILJS", "declare_assembly"),
+                    JSFactory.Identifier("CILJS", "declareAssembly"),
                     JSFactory.Literal(asm.ReflectionAssembly.GetName().Name),
                     JSFactory.Identifier("asm"));
         }

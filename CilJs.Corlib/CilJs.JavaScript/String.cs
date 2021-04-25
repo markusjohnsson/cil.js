@@ -19,7 +19,7 @@ namespace CilJs.JavaScript
         [JsReplace("{0} + {1}")]
         public extern static String operator +(String a, String b);
 
-        [JsReplace("CILJS.new_string({0})")]
+        [JsReplace("CILJS.newString({0})")]
         public extern static explicit operator string(String s);
     }
 }

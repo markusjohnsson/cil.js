@@ -206,13 +206,13 @@ namespace CilJs.JsTranslation
             switch (method.Name)
             {
                 case "Invoke":
-                    return JSFactory.Identifier("CILJS", "delegate_invoke");
+                    return JSFactory.Identifier("CILJS", "delegateInvoke");
                 case "BeginInvoke":
-                    return JSFactory.Identifier("CILJS", "delegate_begin_invoke");
+                    return JSFactory.Identifier("CILJS", "delegateBeginInvoke");
                 case "EndInvoke":
-                    return JSFactory.Identifier("CILJS", "delegate_end_invoke");
+                    return JSFactory.Identifier("CILJS", "delegateEndInvoke");
                 case ".ctor":
-                    return JSFactory.Identifier("CILJS", "delegate_ctor");
+                    return JSFactory.Identifier("CILJS", "delegateCtor");
                 default:
                     return JSFunctionDelcaration.Empty;
             }
@@ -224,7 +224,7 @@ namespace CilJs.JsTranslation
 
             if (method.ReflectionMethod == method.ReflectionMethod.DeclaringType.Assembly.EntryPoint)
             {
-                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("CILJS", "init_base_types")).ToStatement());
+                functionBlock.Add(JSFactory.Call(JSFactory.Identifier("CILJS", "initBaseTypes")).ToStatement());
             }
 
             if (method.Name == ".cctor")

@@ -1,7 +1,7 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "NestedGenericDelegate.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* System.Void A`1.X()*/
 
 asm.x6000001_init = function (arg0)
@@ -56,7 +56,7 @@ asm.x6000002 = function (T)
         /* IL_06: call Type GetTypeFromHandle(System.RuntimeTypeHandle) */
         /* IL_0B: stloc.0  */
         
-        loc0 = asm0.x6000045(CILJS.new_handle(asm0["System.RuntimeTypeHandle"](),t0));
+        loc0 = asm0.x6000045(CILJS.newHandle(asm0["System.RuntimeTypeHandle"](),t0));
         /* IL_0E: ldloc.0  */
         /* IL_0F: ret  */
         
@@ -115,7 +115,7 @@ asm.x6000003 = function Z(arg0, arg1)
     st_04 = 0;
     /* IL_16: newarr System.Object */
     
-    st_06 = CILJS.new_array(t1,st_04);
+    st_06 = CILJS.newArray(t1,st_04);
     /* IL_1B: call Void WriteLine(System.String, System.Object[]) */
     
     asm0.x6000073(st_05,st_06);
@@ -156,7 +156,7 @@ asm.x6000005_ = function Main()
     var t1;
     var loc0;
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     
     t0 = asm0["System.String"]();
     
@@ -186,14 +186,14 @@ asm.x6000006 = function _ctor(arg0)
     return ;
 };;/* TResult D`1.Invoke(T)*/
 
-asm.x6000008 = CILJS.delegate_invoke;;/* System.IAsyncResult D`1.BeginInvoke(T,AsyncCallback,Object)*/
+asm.x6000008 = CILJS.delegateInvoke;;/* System.IAsyncResult D`1.BeginInvoke(T,AsyncCallback,Object)*/
 
-asm.x6000009 = CILJS.delegate_begin_invoke;;/* TResult D`1.EndInvoke(IAsyncResult)*/
+asm.x6000009 = CILJS.delegateBeginInvoke;;/* TResult D`1.EndInvoke(IAsyncResult)*/
 
-asm.x600000a = CILJS.delegate_end_invoke;;/*  D`1..ctor(Object,IntPtr)*/
+asm.x600000a = CILJS.delegateEndInvoke;;/*  D`1..ctor(Object,IntPtr)*/
 
-asm.x6000007 = CILJS.delegate_ctor;;
-asm["A`1"] = CILJS.declare_type(
+asm.x6000007 = CILJS.delegateCtor;;
+asm["A`1"] = CILJS.declareType(
     ["T"],
     function (T)
     {
@@ -205,19 +205,19 @@ asm["A`1"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"A`1",false,false,false,true,false,[],[
+        CILJS.initType(type,asm,"A`1",false,false,false,true,false,[],[
                 [asm1, "x6000001", "X"]
-            ],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
+            ],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000002",null);
         
         (type.GenericArguments)["asm1.t2000002"] = [T];
         
         type.TypeMetadataName = ("asm1.t2000002<" + (T.TypeMetadataName + ">"));
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function (T)
     {
@@ -228,7 +228,7 @@ asm["A`1"] = CILJS.declare_type(
             A_1.init();
         };
     });
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -240,15 +240,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000003",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000003",null);
         
         type.TypeMetadataName = "asm1.t2000003";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -259,7 +259,7 @@ asm.Program = CILJS.declare_type(
             Program.init();
         };
     });
-asm["A`1+D`1"] = CILJS.declare_type(
+asm["A`1+D`1"] = CILJS.declareType(
     ["T", "TResult"],
     function (T, TResult)
     {
@@ -271,31 +271,31 @@ asm["A`1+D`1"] = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"A`1+D`1",false,false,false,true,false,[],[
+        CILJS.initType(type,asm,"A`1+D`1",false,false,false,true,false,[],[
                 [asm1, "x6000008", "Invoke"],
                 [asm1, "x6000009", "BeginInvoke"],
                 [asm1, "x600000a", "EndInvoke"]
-            ],asm0["System.MulticastDelegate"](),CILJS.is_inst_default(type),Array,"asm1.t2000004",null);
+            ],asm0["System.MulticastDelegate"](),CILJS.isInstDefault(type),Array,"asm1.t2000004",null);
         
         (type.GenericArguments)["asm1.t2000004"] = [T, TResult];
         
         type.TypeMetadataName = ("asm1.t2000004<" + ((T.TypeMetadataName + TResult.TypeMetadataName) + ">"));
         
-        CILJS.declare_virtual(type,"asm1.x6000008",asm1,"x6000008");
+        CILJS.declareVirtual(type,"asm1.x6000008",asm1,"x6000008");
         
-        CILJS.declare_virtual(type,"asm1.x6000009",asm1,"x6000009");
+        CILJS.declareVirtual(type,"asm1.x6000009",asm1,"x6000009");
         
-        CILJS.declare_virtual(type,"asm1.x600000a",asm1,"x600000a");
+        CILJS.declareVirtual(type,"asm1.x600000a",asm1,"x600000a");
         
-        CILJS.declare_virtual(type,"asm0.x600003c",asm0,"x60000b1");
+        CILJS.declareVirtual(type,"asm0.x600003c",asm0,"x60000b1");
         
-        CILJS.declare_virtual(type,"asm0.x600003b",asm0,"x60000b2");
+        CILJS.declareVirtual(type,"asm0.x600003b",asm0,"x60000b2");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600003d");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600003d");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x6000040");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x6000040");
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
     },
     function (T, TResult)
     {
@@ -313,7 +313,7 @@ asm["A`1+D`1"] = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000005;
-CILJS.declare_assembly("NestedGenericDelegate.cs.ciljs",asm);
+CILJS.declareAssembly("NestedGenericDelegate.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;

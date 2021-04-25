@@ -1,7 +1,7 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "NestedFinallyBug.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* static System.Void Program.Main()*/
 
 asm.x6000001 = function Main()
@@ -19,7 +19,7 @@ asm.x6000001 = function Main()
     var loc3;
     var loc4;
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     
     t0 = asm0["System.Object"]();
     
@@ -54,7 +54,7 @@ asm.x6000001 = function Main()
                         /* IL_09: cgt.un  */
                         /* IL_0A: stloc.0  */
                         
-                        loc0 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
+                        loc0 = ((CILJS.unsignedValue(asm1.x6000002()) > CILJS.unsignedValue(0)) ? 1 : 0);
                         /* IL_0B: ldloc.0  */
                         /* IL_0C: brfalse.s IL_A5 */
                         
@@ -85,7 +85,7 @@ asm.x6000001 = function Main()
                                         
                                         return loc1;
                                     }
-                                }),CILJS.new_array(t0,0));
+                                }),CILJS.newArray(t0,0));
                         /* IL_26: nop  */
                         case 0x27:
                         /* IL_27: nop  */
@@ -135,7 +135,7 @@ asm.x6000001 = function Main()
                                     /* IL_33: cgt.un  */
                                     /* IL_34: stloc.2  */
                                     
-                                    loc2 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
+                                    loc2 = ((CILJS.unsignedValue(asm1.x6000002()) > CILJS.unsignedValue(0)) ? 1 : 0);
                                     /* IL_35: ldloc.2  */
                                     /* IL_36: brfalse.s IL_7C */
                                     
@@ -166,7 +166,7 @@ asm.x6000001 = function Main()
                                                     
                                                     return loc1;
                                                 }
-                                            }),CILJS.new_array(t0,0));
+                                            }),CILJS.newArray(t0,0));
                                     /* IL_50: nop  */
                                     case 0x51:
                                     /* IL_51: nop  */
@@ -199,7 +199,7 @@ asm.x6000001 = function Main()
                                     /* IL_5C: cgt.un  */
                                     /* IL_5D: stloc.3  */
                                     
-                                    loc3 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
+                                    loc3 = ((CILJS.unsignedValue(asm1.x6000002()) > CILJS.unsignedValue(0)) ? 1 : 0);
                                     /* IL_5E: ldloc.3  */
                                     /* IL_5F: brfalse.s IL_7A */
                                     
@@ -230,7 +230,7 @@ asm.x6000001 = function Main()
                                                     
                                                     return loc1;
                                                 }
-                                            }),CILJS.new_array(t0,0));
+                                            }),CILJS.newArray(t0,0));
                                     /* IL_79: nop  */
                                     case 0x7A:
                                     /* IL_7A: nop  */
@@ -254,7 +254,7 @@ asm.x6000001 = function Main()
                         /* IL_83: cgt.un  */
                         /* IL_84: stloc.s 4 */
                         
-                        loc4 = ((CILJS.unsigned_value(asm1.x6000002()) > CILJS.unsigned_value(0)) ? 1 : 0);
+                        loc4 = ((CILJS.unsignedValue(asm1.x6000002()) > CILJS.unsignedValue(0)) ? 1 : 0);
                         /* IL_86: ldloc.s 4 */
                         /* IL_88: brfalse.s IL_A3 */
                         
@@ -285,7 +285,7 @@ asm.x6000001 = function Main()
                                         
                                         return loc1;
                                     }
-                                }),CILJS.new_array(t0,0));
+                                }),CILJS.newArray(t0,0));
                         /* IL_A2: nop  */
                         case 0xA3:
                         /* IL_A3: nop  */
@@ -334,7 +334,7 @@ asm.x6000003 = function _ctor(arg0)
     
     return ;
 };;
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -346,15 +346,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000002",null);
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -366,7 +366,7 @@ asm.Program = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000001;
-CILJS.declare_assembly("NestedFinallyBug.cs.ciljs",asm);
+CILJS.declareAssembly("NestedFinallyBug.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;

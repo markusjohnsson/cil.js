@@ -436,10 +436,10 @@ namespace System
             return ~iMin; 
         }
 
-        [JsImport("function (elementType, length) { return CILJS.new_array(elementType.ctor, length); }")]
+        [JsImport("function (elementType, length) { return CILJS.newArray(elementType.ctor, length); }")]
         public extern static Array CreateInstance(Type elementType, int length);
 
-        [JsImport("CILJS.array_set_value")]
+        [JsImport("CILJS.arraySetValue")]
         public extern void SetValue(object value, int index);
 
     }

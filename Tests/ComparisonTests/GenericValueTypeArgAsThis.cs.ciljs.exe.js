@@ -1,7 +1,7 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "GenericValueTypeArgAsThis.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* static System.Void Program.M<T>(T)*/
 
 asm.x6000001 = function (T)
@@ -20,7 +20,7 @@ asm.x6000001 = function (T)
         /* IL_14: newarr System.Object */
         /* IL_19: call Void WriteLine(System.String, System.Object[]) */
         
-        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg0,T)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg0,T))),CILJS.new_array(t0,0));
+        asm0.x6000073(((asm0.x60000a0(CILJS.box(arg0,T)).vtable)["asm0.x6000044"])(asm0.x60000a0(CILJS.box(arg0,T))),CILJS.newArray(t0,0));
         /* IL_1E: nop  */
         /* IL_1F: ret  */
         
@@ -32,7 +32,7 @@ asm.x6000002 = function Main()
 {
     var t0;
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     
     t0 = asm0["System.Int32"]();
     /* IL_00: nop  */
@@ -55,7 +55,7 @@ asm.x6000003 = function _ctor(arg0)
     
     return ;
 };;
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -67,15 +67,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000002",null);
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -87,7 +87,7 @@ asm.Program = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000002;
-CILJS.declare_assembly("GenericValueTypeArgAsThis.cs.ciljs",asm);
+CILJS.declareAssembly("GenericValueTypeArgAsThis.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;

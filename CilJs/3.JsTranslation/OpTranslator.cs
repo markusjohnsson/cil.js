@@ -395,7 +395,7 @@ namespace CilJs.JsTranslation
         protected static JSExpression WrapInUnsigned(bool isUnsigned, JSExpression expression)
         {
             if (isUnsigned)
-                return JSFactory.Call(JSFactory.Identifier("CILJS", "unsigned_value"), expression);
+                return JSFactory.Call(JSFactory.Identifier("CILJS", "unsignedValue"), expression);
             else
                 return expression;
         }
@@ -477,7 +477,7 @@ namespace CilJs.JsTranslation
                         }
 
                         var boxed = JSFactory.Call(
-                            JSFactory.Identifier("CILJS", "make_box"),
+                            JSFactory.Identifier("CILJS", "makeBox"),
                             CloneValueTypeIfNeeded(value, d),
                             GetTypeAccessor(d, thisScope));
 
@@ -485,7 +485,7 @@ namespace CilJs.JsTranslation
                         {
                             return new JSConditionalExpression
                             {
-                                Condition = JSFactory.Identifier(originalValue, "has_value"),
+                                Condition = JSFactory.Identifier(originalValue, "hasValue"),
                                 TrueValue = boxed,
                                 FalseValue = new JSNullLiteral()
                             };
@@ -597,7 +597,7 @@ namespace CilJs.JsTranslation
                                 // unboxed value type when a boxed value type is passed as the this pointer 
                                 // to a virtual method whose implementation is provided by the unboxed value type.
 
-                                arglist[0] = JSFactory.Call(JSFactory.Identifier("CILJS", "convert_box_to_pointer_as_needed"), arglist[0]);
+                                arglist[0] = JSFactory.Call(JSFactory.Identifier("CILJS", "convertBoxToPointerAsNeeded"), arglist[0]);
                             }
                             else if (
                                 firstArgNode.ResultType.IsGenericType &&
@@ -614,7 +614,7 @@ namespace CilJs.JsTranslation
 
                                     if (pointerTargetType.IsGenericParameter)
                                     {
-                                        arglist[0] = JSFactory.Call(JSFactory.Identifier("CILJS", "dereference_pointer_as_needed"), arglist[0]);
+                                        arglist[0] = JSFactory.Call(JSFactory.Identifier("CILJS", "dereferencePointerAsNeeded"), arglist[0]);
                                     }
                                 }
                                 else
@@ -650,7 +650,7 @@ namespace CilJs.JsTranslation
                         if (targetType.FullName == "System.MulticastDelegate")
                             return expr;
 
-                        return JSFactory.Call(JSFactory.Identifier("CILJS", "cast_class"), expr, GetTypeAccessor(targetType, thisScope));
+                        return JSFactory.Call(JSFactory.Identifier("CILJS", "castClass"), expr, GetTypeAccessor(targetType, thisScope));
                     }
 
                 case "ceq":
@@ -856,7 +856,7 @@ namespace CilJs.JsTranslation
 
                         if (opc == "ldelem.ref")
                         {
-                            return JSFactory.Call(JSFactory.Identifier("CILJS.ldelem_ref"), array, index);
+                            return JSFactory.Call(JSFactory.Identifier("CILJS", "ldelemRef"), array, index);
                         }
                         else
                         {
@@ -983,7 +983,7 @@ namespace CilJs.JsTranslation
                 case "ldstr":
                     return new JSCallExpression
                     {
-                        Function = JSFactory.Identifier("CILJS", "new_string"),
+                        Function = JSFactory.Identifier("CILJS", "newString"),
                         Arguments =
                         {
                             new JSStringLiteral
@@ -1043,7 +1043,7 @@ namespace CilJs.JsTranslation
 
                         return new JSCallExpression
                         {
-                            Function = JSFactory.Identifier("CILJS", "new_handle"),
+                            Function = JSFactory.Identifier("CILJS", "newHandle"),
                             Arguments =
                             {
                                 handleType,
@@ -1057,7 +1057,7 @@ namespace CilJs.JsTranslation
 
                     return new JSCallExpression
                     {
-                        Function = JSFactory.Identifier("CILJS", "new_array"),
+                        Function = JSFactory.Identifier("CILJS", "newArray"),
                         Arguments =
                         {
                             GetTypeAccessor(elementType, thisScope),
@@ -1113,7 +1113,7 @@ namespace CilJs.JsTranslation
 
                         if (opc == "stelem.ref")
                         {
-                            return JSFactory.Call(JSFactory.Identifier("CILJS", "stelem_ref"), array, index, element);
+                            return JSFactory.Call(JSFactory.Identifier("CILJS", "stelemRef"), array, index, element);
                         }
 
                         return JSFactory
@@ -1201,7 +1201,7 @@ namespace CilJs.JsTranslation
                     if (opc == "unbox.any")
                         return new JSCallExpression
                         {
-                            Function = JSFactory.Identifier("CILJS", "unbox_any"),
+                            Function = JSFactory.Identifier("CILJS", "unboxAny"),
                             Arguments =
                             {
                                 prop,
@@ -1270,7 +1270,7 @@ namespace CilJs.JsTranslation
             {
                 return new JSCallExpression
                 {
-                    Function = JSFactory.Identifier("CILJS", "clone_value"),
+                    Function = JSFactory.Identifier("CILJS", "cloneValue"),
                     Arguments = { value }
                 };
             }

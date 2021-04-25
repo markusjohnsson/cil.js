@@ -245,7 +245,7 @@ namespace System.Reflection
         [JsImport(@"
             function (s) {
                 var idx = s.jsstr.lastIndexOf('.');
-                return CILJS.new_string(s.jsstr.substring(idx + 1));
+                return CILJS.newString(s.jsstr.substring(idx + 1));
             }
             ")]
         private static extern string GetName(string fullname);

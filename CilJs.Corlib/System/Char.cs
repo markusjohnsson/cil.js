@@ -13,7 +13,7 @@ namespace System
             return ToStringImpl(this);
         }
 
-        [JsImport("function(o) { return CILJS.new_string(String.fromCharCode(o.boxed)); }")]
+        [JsImport("function(o) { return CILJS.newString(String.fromCharCode(o.boxed)); }")]
         private extern static string ToStringImpl(object o);
 
         [JsImport("function(o) { return (48 <= o.boxed && o.boxed <= 57) ? 1 : 0; }")]

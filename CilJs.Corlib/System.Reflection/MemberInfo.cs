@@ -20,7 +20,7 @@ namespace System.Reflection
         [JsImport(@"
             function (ca) {
                 ca = ca || [];
-                var r = CILJS.new_array(asm0['System.Object'], ca.length);
+                var r = CILJS.newArray(asm0['System.Object'], ca.length);
                 for (var i=0; i<ca.length; i++) {
                     var attr_type = ca[i][0];
                     var attr_ctor = ca[i][1];

@@ -7,11 +7,11 @@ require('./corlib.ciljs.js');
 require('./program.js');
 
 function runScript() {
-    var result = CILJS.entry_point();
+    var result = CILJS.entryPoint();
     process.exit(result);
 }
 
-CILJS.set_console_writer(function (managedString) {
+CILJS.setConsoleWriter(function (managedString) {
     process.stdout.write(managedString.jsstr + endOfLine);
 });
 

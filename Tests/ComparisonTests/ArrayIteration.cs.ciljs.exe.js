@@ -1,7 +1,7 @@
 
 var asm1 = {};
 var asm = asm1;
-var asm0 = CILJS.find_assembly("mscorlib");
+var asm0 = CILJS.findAssembly("mscorlib");
 asm.FullName = "ArrayIteration.cs.ciljs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/* static System.Void Program.Main()*/
 
 asm.x6000001 = function Main()
@@ -9,7 +9,7 @@ asm.x6000001 = function Main()
     var t0;
     var loc0;
     
-    CILJS.init_base_types();
+    CILJS.initBaseTypes();
     
     t0 = asm0["System.Int32"]();
     /* IL_00: nop  */
@@ -17,7 +17,7 @@ asm.x6000001 = function Main()
     /* IL_02: newarr System.Int32 */
     /* IL_07: stloc.0  */
     
-    loc0 = CILJS.new_array(t0,5);
+    loc0 = CILJS.newArray(t0,5);
     /* IL_08: ldloc.0  */
     /* IL_09: ldc.i4.0  */
     /* IL_0A: ldc.i4.s 44 */
@@ -110,7 +110,7 @@ asm.x6000002_ = function PrintArray(arg0)
             /* IL_03: callvirt IEnumerator GetEnumerator() */
             /* IL_08: stloc.0  */
             
-            loc0 = ((arg0.ifacemap)[t0].x600017d)(CILJS.convert_box_to_pointer_as_needed(arg0));
+            loc0 = ((arg0.ifacemap)[t0].x600017d)(CILJS.convertBoxToPointerAsNeeded(arg0));
             
             try {
                 
@@ -137,7 +137,7 @@ asm.x6000002_ = function PrintArray(arg0)
                         /* IL_0C: callvirt Object get_Current() */
                         /* IL_11: stloc.1  */
                         
-                        loc1 = ((loc0.ifacemap)[t1].x6000181)(CILJS.convert_box_to_pointer_as_needed(loc0));
+                        loc1 = ((loc0.ifacemap)[t1].x6000181)(CILJS.convertBoxToPointerAsNeeded(loc0));
                         /* IL_12: ldloc.1  */
                         /* IL_13: call Void WriteLine(System.Object) */
                         
@@ -148,7 +148,7 @@ asm.x6000002_ = function PrintArray(arg0)
                         /* IL_1A: callvirt Boolean MoveNext() */
                         /* IL_1F: brtrue.s IL_0B */
                         
-                        if (((loc0.ifacemap)[t1].x6000182)(CILJS.convert_box_to_pointer_as_needed(loc0))){
+                        if (((loc0.ifacemap)[t1].x6000182)(CILJS.convertBoxToPointerAsNeeded(loc0))){
                             
                             __pos__ = 0xB;
                             
@@ -194,7 +194,7 @@ asm.x6000002_ = function PrintArray(arg0)
                         /* IL_2D: ldloc.2  */
                         /* IL_2E: callvirt Void Dispose() */
                         
-                        ((loc2.ifacemap)[t2].x60000dd)(CILJS.convert_box_to_pointer_as_needed(loc2));
+                        ((loc2.ifacemap)[t2].x60000dd)(CILJS.convertBoxToPointerAsNeeded(loc2));
                         /* IL_33: nop  */
                         case 0x34:
                         /* IL_34: endfinally  */
@@ -228,7 +228,7 @@ asm.x6000003 = function _ctor(arg0)
     
     return ;
 };;
-asm.Program = CILJS.declare_type(
+asm.Program = CILJS.declareType(
     [],
     function ()
     {
@@ -240,15 +240,15 @@ asm.Program = CILJS.declare_type(
         
         type.init = CILJS.nop;
         
-        CILJS.init_type(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.is_inst_default(type),Array,"asm1.t2000002",null);
+        CILJS.initType(type,asm,"Program",false,false,false,false,false,[],[],asm0["System.Object"](),CILJS.isInstDefault(type),Array,"asm1.t2000002",null);
         
         type.TypeMetadataName = "asm1.t2000002";
         
-        CILJS.declare_virtual(type,"asm0.x600009b",asm0,"x600009b");
+        CILJS.declareVirtual(type,"asm0.x600009b",asm0,"x600009b");
         
-        CILJS.declare_virtual(type,"asm0.x600009e",asm0,"x600009e");
+        CILJS.declareVirtual(type,"asm0.x600009e",asm0,"x600009e");
         
-        CILJS.declare_virtual(type,"asm0.x600009f",asm0,"x600009f");
+        CILJS.declareVirtual(type,"asm0.x600009f",asm0,"x600009f");
     },
     function ()
     {
@@ -260,7 +260,7 @@ asm.Program = CILJS.declare_type(
         };
     });
 asm.entryPoint = asm.x6000001;
-CILJS.declare_assembly("ArrayIteration.cs.ciljs",asm);
+CILJS.declareAssembly("ArrayIteration.cs.ciljs",asm);
 if (typeof module != "undefined"){
     
     module.exports = asm1;
