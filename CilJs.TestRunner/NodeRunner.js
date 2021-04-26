@@ -2,7 +2,7 @@
 var process = require('process');
 var endOfLine = require('os').EOL;
 
-global.CILJS = require('../CilJs.Runtime/Runtime.js');
+var CILJS = require('../CilJs.Runtime/Runtime.js');
 require('./corlib.ciljs.js');
 require('./program.js');
 

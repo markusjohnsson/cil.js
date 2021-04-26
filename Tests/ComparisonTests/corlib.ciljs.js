@@ -1,4 +1,5 @@
 
+var CILJS = require("../CilJs.Runtime/Runtime");
 var asm0 = {};
 var asm = asm0;
 asm.FullName = "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null";/*  InvalidOperationException..ctor()*/

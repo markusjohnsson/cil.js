@@ -1,4 +1,5 @@
 
+var CILJS = require("../CilJs.Runtime/Runtime");
 var asm1 = {};
 var asm = asm1;
 var asm0 = CILJS.findAssembly("mscorlib");

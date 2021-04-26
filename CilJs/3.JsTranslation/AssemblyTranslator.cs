@@ -24,6 +24,7 @@ namespace CilJs.JsTranslation
             var name = "asm" + world.IndexOf(asm);
             var ifier = JSFactory.Identifier(name);
 
+            yield return new JSVariableDelcaration { Name = "CILJS", ForceDeclaration = true, Value = JSFactory.Call(JSFactory.Identifier("require"), JSFactory.String("../CilJs.Runtime/Runtime")) }.ToStatement();
             yield return new JSVariableDelcaration { Name = name, ForceDeclaration = true, Value = new JSObjectLiteral() }.ToStatement();
             yield return new JSVariableDelcaration { Name = "asm", ForceDeclaration = true, Value = JSFactory.Identifier(name) }.ToStatement();
 
