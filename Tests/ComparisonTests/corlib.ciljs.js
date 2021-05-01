@@ -4512,7 +4512,8 @@ asm.x60000a1 = function Equals(arg0, arg1)
             return loc1;
         }
     }
-};;/*  Object..ctor()*/
+};;
+asm.Equals = asm.x60000a1;/*  Object..ctor()*/
 
 asm.x6000096 = function _ctor(arg0)
 {

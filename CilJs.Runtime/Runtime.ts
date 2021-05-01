@@ -309,6 +309,9 @@ export function cloneValue(v: CilJsValue) {
 
 export function valueEquals(a: CilJsValue, b: CilJsValue) {
 
+    if (a === b)
+        return 1;
+
     if (typeof a !== typeof b)
         return 0;
 
@@ -326,26 +329,38 @@ export function valueEquals(a: CilJsValue, b: CilJsValue) {
     if (b instanceof Uint32Array)
         return 0;
 
-    if (typeof a === "object" && typeof a.constructor !== "undefined" && a.constructor.IsValueType) {
-        if (typeof b === "object" && typeof b.constructor !== "undefined" && b.constructor.IsValueType) {
+    if (typeof a === "object" && a && typeof a.constructor !== "undefined") {
+        if (a.constructor.IsValueType) {
+            if (typeof b === "object" && typeof b.constructor !== "undefined" && b.constructor.IsValueType) {
 
-            for (let p in a) {
-                let av = a[p];
-                let bv = b[p];
+                for (let p in a) {
+                    let av = a[p];
+                    let bv = b[p];
 
-                if (!valueEquals(av, bv))
-                    return 0;
+                    if (!valueEquals(av, bv))
+                        return 0;
+                }
+
+                return 1;
             }
-
-            return 1;
+            else {
+                return 0;
+            }
         }
         else {
-            return 0;
+            // a is reference type
+            if (typeof b === "object" && b && typeof b.constructor !== "undefined" && b.constructor.IsValueType == false) {
+                // both are reference types
+                return asm0.Equals(a, b);
+            }
+            else {
+                return 0;
+            }
         }
     }
-    else {
-        return a === b ? 1 : 0;
-    }
+
+    // primitive
+    return a === b ? 1 : 0;
 }
 
 export function unsignedValue(a: number) {

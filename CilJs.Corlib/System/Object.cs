@@ -62,7 +62,8 @@ namespace System
         {
             return TypeInfo.GetType(this);
         }
-
+    
+        [JsAssemblyStatic]
         public static bool Equals(object a, object b)
         {
             if (ReferenceEquals(a, b))
